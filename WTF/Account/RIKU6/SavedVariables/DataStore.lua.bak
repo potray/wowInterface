@@ -1,0 +1,14 @@
+
+DataStoreDB = {
+	["profileKeys"] = {
+		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
+	},
+	["global"] = {
+		["Version"] = 1,
+		["Characters"] = {
+			["Default.Los Errantes.Kobash"] = {
+				["faction"] = "Alliance",
+			},
+		},
+	},
+}

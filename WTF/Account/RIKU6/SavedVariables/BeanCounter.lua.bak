@@ -1,0 +1,51 @@
+
+BeanCounterDB = {
+	["Dun Modr"] = {
+		["Potray"] = {
+			["vendorsell"] = {
+			},
+			["postedBids"] = {
+			},
+			["postedAuctions"] = {
+			},
+			["completedBidsBuyoutsNeutral"] = {
+			},
+			["vendorbuy"] = {
+			},
+			["failedAuctions"] = {
+			},
+			["failedBidsNeutral"] = {
+			},
+			["failedBids"] = {
+			},
+			["completedAuctions"] = {
+			},
+			["failedAuctionsNeutral"] = {
+			},
+			["completedAuctionsNeutral"] = {
+			},
+			["completedBidsBuyouts"] = {
+			},
+		},
+	},
+}
+BeanCounterDBSettings = {
+	["configator.left"] = 560.0000610351563,
+	["Dun Modr"] = {
+		["Potray"] = {
+			["tasks.sortArray"] = 1409937687,
+			["version"] = 3.03,
+			["faction"] = "Alliance",
+			["tasks.compactDB"] = 1409937687,
+			["wealth"] = 326,
+			["tasks.prunePostedDB"] = 1409937687,
+			["mailbox"] = {
+			},
+		},
+	},
+	["configator.top"] = 764.9999389648438,
+	["util.beancounter.ButtonuseDateCheck"] = false,
+}
+BeanCounterDBNames = {
+}
+BeanCounterAccountDB = nil

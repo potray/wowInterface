@@ -1,0 +1,41 @@
+MACRO 16777225 "assist" Ability_CheapShot
+/assist gabr
+END
+MACRO 16777224 "Cons" INV_Misc_QuestionMark
+#showtooltip
+/startattack
+/cast consecration
+END
+MACRO 16777222 "CS" INV_Misc_QuestionMark
+#showtooltip
+/startattack
+/cast crusader strike
+END
+MACRO 16777223 "DS" INV_Misc_QuestionMark
+#showtooltip
+/startattack
+/cast divine storm
+END
+MACRO 16777217 "ihml" INV_Misc_QuestionMark
+/print "Default macro when no other macro exists and you are in talent spec 2."
+END
+MACRO 16777219 "Orden" INV_Misc_QuestionMark
+#showtooltip
+/cast seal of command
+/clcretlp orden
+END
+MACRO 16777220 "Pompa" INV_Misc_QuestionMark
+#showtooltip
+/cast divine intervention
+/script SendChatMessage("%t, has sido bendecid@ por mi intervención divina, no pagaremos repairs en este wipe. ^_^ .", "WHISPER", nil, UnitName("target"));
+END
+MACRO 16777221 "pompa+sacrificio" INV_Misc_QuestionMark
+#showtooltip
+/tar palique
+/castsequence divine shield, divine sacrificio
+END
+MACRO 16777218 "venganza" INV_Misc_QuestionMark
+#showtooltip
+/cast seal of vengeance
+/clcretlp  venganza
+END

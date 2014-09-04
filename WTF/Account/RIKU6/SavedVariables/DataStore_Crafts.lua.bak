@@ -1,0 +1,33 @@
+
+DataStore_CraftsDB = {
+	["profileKeys"] = {
+		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
+	},
+	["global"] = {
+		["Characters"] = {
+			["Default.Los Errantes.Kobash"] = {
+				["Professions"] = {
+					["Cooking"] = {
+						["MaxRank"] = 75,
+						["Rank"] = 36,
+					},
+					["Engineering"] = {
+						["MaxRank"] = 450,
+						["Rank"] = 436,
+					},
+					["Mining"] = {
+						["MaxRank"] = 450,
+						["Rank"] = 450,
+					},
+					["First Aid"] = {
+						["MaxRank"] = 450,
+						["Rank"] = 412,
+					},
+				},
+				["Prof2"] = "Engineering",
+				["lastUpdate"] = 1409840760,
+				["Prof1"] = "Mining",
+			},
+		},
+	},
+}

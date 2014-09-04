@@ -1,0 +1,23 @@
+
+DataStore_StatsDB = {
+	["profileKeys"] = {
+		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
+	},
+	["global"] = {
+		["Characters"] = {
+			["Default.Los Errantes.Kobash"] = {
+				["lastUpdate"] = 1409840761,
+				["Stats"] = {
+					["Ranged"] = "470-471|0|1929|126|21.133026123047",
+					["HealthMax"] = 20251,
+					["Melee"] = "842-1122|3.0200002193451|1119|126|21.133026123047|1.2580058574677",
+					["MaxPower"] = "2|100",
+					["Defense"] = "8535|397|15.398323059082|0|0|0",
+					["PVP"] = "85|0",
+					["Base"] = "70|807|1231|90|97|8535",
+					["Spell"] = "80|80|126|12.970272064209|196|0",
+				},
+			},
+		},
+	},
+}

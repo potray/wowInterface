@@ -1,0 +1,24 @@
+
+SkinnerDB = {
+	["namespaces"] = {
+		["ViewPort"] = {
+		},
+		["MiddleFrames"] = {
+		},
+		["TopFrame"] = {
+		},
+		["UIButtons"] = {
+		},
+		["BottomFrame"] = {
+		},
+		["UnitFrames"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

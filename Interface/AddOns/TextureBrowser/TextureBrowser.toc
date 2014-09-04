@@ -1,0 +1,8 @@
+## Interface: 50300
+## Version: 13.07.20
+## Title: TextureBrowser
+## Author: Aezay (Earthen Ring EU)
+## Notes: In Game Texture Browser
+## SavedVariables: TextureBrowser_Config
+Libs\AzDropDown.lua
+core.lua

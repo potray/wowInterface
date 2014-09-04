@@ -1,0 +1,180 @@
+
+Bartender4DB = {
+	["namespaces"] = {
+		["ActionBars"] = {
+			["profiles"] = {
+				["Potray - Dun Modr"] = {
+					["actionbars"] = {
+						{
+							["version"] = 3,
+							["padding"] = 1,
+							["position"] = {
+								["x"] = -226,
+								["point"] = "BOTTOM",
+								["y"] = 41.5,
+							},
+						}, -- [1]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -226,
+								["point"] = "BOTTOM",
+								["y"] = 86.71274566650391,
+							},
+							["padding"] = 1,
+						}, -- [2]
+						{
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+								["y"] = 610,
+							},
+							["padding"] = 5,
+						}, -- [3]
+						{
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+								["y"] = 610,
+							},
+							["padding"] = 5,
+						}, -- [4]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = 30.50003051757813,
+								["point"] = "BOTTOM",
+								["y"] = 265.6444091796875,
+							},
+							["padding"] = 6,
+						}, -- [5]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["x"] = -510,
+								["point"] = "BOTTOM",
+								["y"] = 83,
+							},
+							["padding"] = 6,
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						[10] = {
+						},
+					},
+				},
+			},
+		},
+		["LibDualSpec-1.0"] = {
+		},
+		["ExtraActionBar"] = {
+			["profiles"] = {
+				["Potray - Dun Modr"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = 219,
+						["point"] = "BOTTOM",
+						["y"] = 98.49481964111328,
+					},
+				},
+			},
+		},
+		["MicroMenu"] = {
+			["profiles"] = {
+				["Potray - Dun Modr"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = 337.84423828125,
+						["point"] = "CENTER",
+						["scale"] = 1,
+						["y"] = -99.37777709960938,
+					},
+				},
+			},
+		},
+		["XPBar"] = {
+		},
+		["BlizzardArt"] = {
+			["profiles"] = {
+				["Potray - Dun Modr"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = 473.02197265625,
+						["point"] = "LEFT",
+						["y"] = -131.7777404785156,
+					},
+				},
+			},
+		},
+		["Vehicle"] = {
+			["profiles"] = {
+				["Potray - Dun Modr"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = 99.5,
+						["point"] = "CENTER",
+						["y"] = 47.50003051757813,
+					},
+				},
+			},
+		},
+		["BagBar"] = {
+			["profiles"] = {
+				["Potray - Dun Modr"] = {
+					["enabled"] = false,
+					["version"] = 3,
+					["onebag"] = true,
+					["position"] = {
+						["x"] = 478.2779541015625,
+						["point"] = "BOTTOM",
+						["y"] = 139.5555114746094,
+					},
+				},
+			},
+		},
+		["StanceBar"] = {
+			["profiles"] = {
+				["Potray - Dun Modr"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = 224.832763671875,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+						["y"] = 36,
+					},
+				},
+			},
+		},
+		["PetBar"] = {
+			["profiles"] = {
+				["Potray - Dun Modr"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = 297.0555419921875,
+						["point"] = "CENTER",
+						["y"] = 94.85565185546875,
+					},
+				},
+			},
+		},
+		["RepBar"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Potray - Dun Modr",
+	},
+	["profiles"] = {
+		["Potray - Dun Modr"] = {
+			["blizzardVehicle"] = true,
+			["focuscastmodifier"] = false,
+			["outofrange"] = "hotkey",
+		},
+	},
+}

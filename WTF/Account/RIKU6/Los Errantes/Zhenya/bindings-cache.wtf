@@ -1,0 +1,19 @@
+BINDINGMODE 0
+bind NUMLOCK TOGGLEAUTORUN
+bind BUTTON4 TOGGLEAUTORUN
+bind 1 CLICK BT4Button49:LeftButton
+bind 2 CLICK BT4Button50:LeftButton
+bind 3 CLICK BT4Button51:LeftButton
+bind 4 CLICK BT4Button52:LeftButton
+bind 5 CLICK BT4Button53:LeftButton
+bind 6 CLICK BT4Button54:LeftButton
+bind 7 CLICK BT4Button55:LeftButton
+bind 8 CLICK BT4Button56:LeftButton
+bind SHIFT-2 CLICK BT4Button39:LeftButton
+bind F CLICK BT4Button103:LeftButton
+bind ALT-M CARTOGRAPHER_OPENALTERNATEMAP
+bind BUTTON5 NONE
+bind SHIFT-S NONE
+bind SHIFT-BUTTON4 CLICK BT4Button85:LeftButton
+bind SHIFT-BUTTON5 CLICK BT4Button43:LeftButton
+bind SHIFT-D CLICK BT4Button42:LeftButton

@@ -1,0 +1,5 @@
+Skinner: disabled
+Postal: disabled
+SatrinaBuffFrame: disabled
+SBFOptions: disabled
+TidyPlates: enabled

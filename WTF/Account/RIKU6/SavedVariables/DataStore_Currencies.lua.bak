@@ -1,0 +1,48 @@
+
+DataStore_CurrenciesDB = {
+	["profileKeys"] = {
+		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
+	},
+	["global"] = {
+		["Reference"] = {
+			["Currencies"] = {
+				"Dungeon and Raid|", -- [1]
+				"Justice Points|Interface\\Icons\\pvecurrency-justice", -- [2]
+				"Miscellaneous|", -- [3]
+				"Champion's Seal|Interface\\Icons\\Ability_Paladin_ArtofWar", -- [4]
+				"Player vs. Player|", -- [5]
+				"Conquest Points|Interface\\Icons\\PVPCurrency-Conquest-Alliance", -- [6]
+				"Honor Points|Interface\\Icons\\PVPCurrency-Honor-Alliance", -- [7]
+			},
+			["CurrencyTextRev"] = {
+				["Miscellaneous"] = 3,
+				["Justice Points"] = 2,
+				["Conquest Points"] = 6,
+				["Player vs. Player"] = 5,
+				["Honor Points"] = 7,
+				["Champion's Seal"] = 4,
+				["Dungeon and Raid"] = 1,
+			},
+		},
+		["Characters"] = {
+			["Default.Los Errantes.Kobash"] = {
+				["Currencies"] = {
+					3, -- [1]
+					76420, -- [2]
+					7, -- [3]
+					392, -- [4]
+					11, -- [5]
+					12, -- [6]
+					45582, -- [7]
+				},
+				["lastUpdate"] = 1409840760,
+				["CurrencyInfo"] = {
+					[392] = "356-0-0-4000",
+					[390] = "0-0-29200-0",
+					[396] = "0-0-0-0",
+					[395] = "597-0-0-4000",
+				},
+			},
+		},
+	},
+}

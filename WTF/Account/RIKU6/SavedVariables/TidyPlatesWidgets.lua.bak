@@ -1,0 +1,15 @@
+
+TidyPlatesWidgetData = {
+	["CachedAuraDurations"] = {
+	},
+	["UnitClass"] = {
+		["Potray"] = "PALADIN",
+	},
+	["UnitDescriptions"] = {
+		["Volatile Mutation"] = "|cffffff001  |cffffffffElemental",
+		["Vale Moth"] = "|cffffff001  |cffffffffMoth",
+		["Mutated Root Lasher"] = "|cffffff003  |cffffffffElemental",
+	},
+	["UnitGuild"] = {
+	},
+}

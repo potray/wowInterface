@@ -1,0 +1,29 @@
+MACRO 16777227 "AOE" INV_Misc_QuestionMark
+/cast !Volley 
+END
+MACRO 16777230 "black arrow" INV_Misc_QuestionMark
+/cast black arrow
+/cast kill command
+END
+MACRO 16777229 "explosive shot" INV_Misc_QuestionMark
+/cast explosive shot
+/cast kill command
+END
+MACRO 16777228 "kill shot" INV_Misc_QuestionMark
+/cast kill shot
+/cast kill command
+END
+MACRO 16777226 "misdi" INV_Misc_QuestionMark
+#showtooltip
+/cast [target=mouseover] misdirection
+END
+MACRO 16777234 "NUKE NUKE NUKE" INV_Misc_QuestionMark
+#showtooltip
+/cast rapid fire
+/use 13
+/use 14
+END
+MACRO 16777233 "Steady shot" INV_Misc_QuestionMark
+/cast steady shot
+/cast kill command
+END

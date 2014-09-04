@@ -1,0 +1,30 @@
+
+DataStore_CharactersDB = {
+	["profileKeys"] = {
+		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
+	},
+	["global"] = {
+		["Characters"] = {
+			["Default.Los Errantes.Kobash"] = {
+				["XPMax"] = 1686300,
+				["played"] = 1420382,
+				["isResting"] = 1,
+				["lastUpdate"] = 1409840818,
+				["class"] = "Hunter",
+				["race"] = "Night Elf",
+				["level"] = 80,
+				["XP"] = 21162,
+				["RestXP"] = 2003114,
+				["money"] = 4775482,
+				["gender"] = 2,
+				["subZone"] = "Trade District",
+				["name"] = "Kobash",
+				["faction"] = "Alliance",
+				["englishRace"] = "NightElf",
+				["zone"] = "Stormwind City",
+				["lastLogoutTimestamp"] = 1409840818,
+				["englishClass"] = "HUNTER",
+			},
+		},
+	},
+}

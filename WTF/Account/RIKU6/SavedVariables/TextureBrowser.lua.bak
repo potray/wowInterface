@@ -1,0 +1,3 @@
+
+TextureBrowser_Config = {
+}

@@ -1,0 +1,22 @@
+tag v4.0.1
+84f12503d35b1a28689090b5db1771700ea8dbac
+Shadowed <shadowed.wow@gmail.com>
+2014-06-12 15:52:24 -0700
+
+Tagging as release v4.0.1
+
+
+--------------------
+
+Shadowed:
+	- Do a one time force enable on all aura filters
+	- Visual tweaks to the aura indicators UI
+	- Linked Dalarn Brilliance and Arcane Brilliance
+	- Fixed localization handling for aura groups
+	- Added icons and coloring where possible to aura indicators
+	- Removed unneeded localization
+	- Don't inline auras in groups to show an icon and make it easier to reconfigure
+	- Redid default aura indicators with configured class auras (Thanks Tonyleila!)
+	- Fixed new auras groups not being save properly
+	- Sort class aura groups ahead of misc groups
+	- Consolidated filters only applies to buffs

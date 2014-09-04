@@ -1,0 +1,121 @@
+
+kgPanelsDB = {
+	["namespaces"] = {
+		["LibDualSpec-1.0"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Default",
+	},
+	["global"] = {
+		["layouts"] = {
+			["Default"] = {
+				["asd"] = {
+					["border_advanced"] = {
+						["enable"] = true,
+						["show"] = {
+							["BOTRIGHTCORNER"] = true,
+							["TOPRIGHTCORNER"] = true,
+							["TOPLEFTCORNER"] = true,
+							["BOTLEFTCORNER"] = true,
+							["RIGHT"] = true,
+							["LEFT"] = true,
+							["TOP"] = true,
+							["BOT"] = true,
+						},
+					},
+					["parent"] = "UIParent",
+					["sub_level"] = 0,
+					["anchorFrom"] = "CENTER",
+					["hflip"] = false,
+					["vflip"] = false,
+					["tileSize"] = 0,
+					["bg_texture"] = "Solid",
+					["anchor"] = "UIParent",
+					["level"] = 0,
+					["use_absolute_bg"] = false,
+					["bg_blend"] = "BLEND",
+					["text"] = {
+						["y"] = 0,
+						["x"] = 0,
+						["justifyH"] = "CENTER",
+						["font"] = "Blizzard",
+						["color"] = {
+							["a"] = 1,
+							["b"] = 1,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["text"] = "",
+						["justifyV"] = "MIDDLE",
+						["size"] = 12,
+					},
+					["y"] = -469.9997310638428,
+					["x"] = -753.999856054783,
+					["bg_alpha"] = 1,
+					["border_edgeSize"] = 16,
+					["height"] = 174.9999542236328,
+					["tiling"] = false,
+					["strata"] = "BACKGROUND",
+					["anchorTo"] = "CENTER",
+					["absolute_bg"] = {
+						["ULx"] = 0,
+						["ULy"] = 0,
+						["LLy"] = 1,
+						["LLx"] = 0,
+						["URy"] = 0,
+						["URx"] = 1,
+						["LRx"] = 1,
+						["LRy"] = 1,
+					},
+					["crop"] = false,
+					["scripts"] = {
+					},
+					["bg_style"] = "SOLID",
+					["gradient_color"] = {
+						["a"] = 1,
+						["b"] = 1,
+						["g"] = 1,
+						["r"] = 1,
+					},
+					["border_color"] = {
+						["a"] = 1,
+						["b"] = 1,
+						["g"] = 1,
+						["r"] = 1,
+					},
+					["border_texture"] = "Blizzard Tooltip",
+					["width"] = 410.9999084472656,
+					["bg_insets"] = {
+						["r"] = -4,
+						["t"] = -4,
+						["l"] = 4,
+						["b"] = 4,
+					},
+					["bg_color"] = {
+						["a"] = 0.873493030667305,
+						["b"] = 0,
+						["g"] = 0.00392156862745098,
+						["r"] = 0.203921568627451,
+					},
+					["mouse"] = false,
+					["rotation"] = 0,
+					["bg_orientation"] = "HORIZONTAL",
+				},
+			},
+		},
+		["defaultPanel"] = {
+			["bg_color"] = {
+				["a"] = 0.6000000238418579,
+				["r"] = 0.3019607843137255,
+				["g"] = 0,
+				["b"] = 0.03529411764705882,
+			},
+		},
+	},
+	["profiles"] = {
+		["Default"] = {
+			["layout"] = "Default",
+		},
+	},
+}

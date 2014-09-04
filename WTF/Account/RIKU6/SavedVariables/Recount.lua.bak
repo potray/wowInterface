@@ -1,0 +1,35 @@
+
+RecountDB = {
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Potray - Dun Modr",
+	},
+	["profiles"] = {
+		["Potray - Dun Modr"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["y"] = -233.0000305175781,
+					["x"] = 716.5001220703125,
+					["w"] = 186.9999542236328,
+					["h"] = 213.9999084472656,
+				},
+			},
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["DetailWindowX"] = 0,
+			["MainWindowWidth"] = 186.9999542236328,
+			["MainWindowHeight"] = 213.9999084472656,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
+		},
+	},
+}

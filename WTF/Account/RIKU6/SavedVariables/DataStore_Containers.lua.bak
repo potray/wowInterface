@@ -1,0 +1,311 @@
+
+DataStore_ContainersDB = {
+	["profileKeys"] = {
+		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
+	},
+	["global"] = {
+		["Characters"] = {
+			["Default.Los Errantes.Kobash"] = {
+				["numFreeBankSlots"] = 110,
+				["numBankSlots"] = 142,
+				["lastUpdate"] = 1409840812,
+				["Containers"] = {
+					["Bag10"] = {
+						["ids"] = {
+							[2] = 29735,
+							[6] = 26043,
+						},
+						["links"] = {
+							[6] = "|cffffffff|Hitem:26043:0:0:0:0:0:0:-2049587888:80:0:0|h[Oshu'gun Crystal Powder Sample]|h|r",
+						},
+						["link"] = "|cff1eff00|Hitem:21841:0:0:0:0:0:0:1418303638:80:0:0|h[Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_23_Netherweave",
+						["size"] = 16,
+						["counts"] = {
+							[2] = 8,
+							[6] = 6,
+						},
+						["freeslots"] = 14,
+					},
+					["Bag8"] = {
+						["ids"] = {
+							[4] = 39684,
+							[16] = 33016,
+						},
+						["link"] = "|cff1eff00|Hitem:21841:0:0:0:0:0:0:1405414100:80:0:0|h[Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_23_Netherweave",
+						["size"] = 16,
+						["counts"] = {
+							[4] = 3,
+						},
+						["freeslots"] = 14,
+					},
+					["Bag100"] = {
+						["size"] = 28,
+						["ids"] = {
+							49362, -- [1]
+							41119, -- [2]
+							[24] = 41119,
+							[25] = 41119,
+							[26] = 41119,
+							[15] = 41119,
+							[16] = 41119,
+							[17] = 41119,
+							[18] = 41119,
+							[19] = 41119,
+							[20] = 41119,
+							[21] = 41119,
+							[23] = 41119,
+						},
+						["freeslots"] = 15,
+						["counts"] = {
+							[24] = 20,
+							[25] = 20,
+							[26] = 20,
+							[2] = 2,
+							[15] = 20,
+							[16] = 20,
+							[17] = 20,
+							[18] = 20,
+							[19] = 20,
+							[20] = 20,
+							[21] = 20,
+							[23] = 20,
+						},
+						["links"] = {
+							[24] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-1027499111:80:0:0|h[Saronite Bomb]|h|r",
+							[25] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-1507222631:80:0:0|h[Saronite Bomb]|h|r",
+							[26] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-1798792295:80:0:0|h[Saronite Bomb]|h|r",
+							[2] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-677995623:80:0:0|h[Saronite Bomb]|h|r",
+							[15] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-391668839:80:0:0|h[Saronite Bomb]|h|r",
+							[16] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-1206084711:80:0:0|h[Saronite Bomb]|h|r",
+							[17] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-374498407:80:0:0|h[Saronite Bomb]|h|r",
+							[18] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-660104295:80:0:0|h[Saronite Bomb]|h|r",
+							[19] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-1295934567:80:0:0|h[Saronite Bomb]|h|r",
+							[20] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-1474520167:80:0:0|h[Saronite Bomb]|h|r",
+							[21] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-1490248807:80:0:0|h[Saronite Bomb]|h|r",
+							[23] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-409560167:80:0:0|h[Saronite Bomb]|h|r",
+						},
+					},
+					["Bag3"] = {
+						["ids"] = {
+							[17] = 44890,
+							[12] = 34722,
+							[7] = 35947,
+						},
+						["link"] = "|cff1eff00|Hitem:21843:0:0:0:0:0:0:1455063025:80:0:0|h[Imbued Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_24_Netherweave_Imbued",
+						["size"] = 18,
+						["counts"] = {
+							[12] = 18,
+						},
+						["freeslots"] = 15,
+					},
+					["Bag1"] = {
+						["ids"] = {
+							39691, -- [1]
+							25633, -- [2]
+							23821, -- [3]
+							36388, -- [4]
+							33445, -- [5]
+							25509, -- [6]
+							34736, -- [7]
+							35685, -- [8]
+							37500, -- [9]
+							nil, -- [10]
+							43102, -- [11]
+							36930, -- [12]
+							nil, -- [13]
+							38551, -- [14]
+							37701, -- [15]
+							41427, -- [16]
+							[18] = 34052,
+						},
+						["links"] = {
+							[4] = "|cff1eff00|Hitem:36388:0:0:0:0:0:-13:2034630734:80:0:0|h[Revenant Greaves of the Wolf]|h|r",
+							[16] = "|cffffffff|Hitem:41427:0:0:0:0:0:0:-608696532:80:0:0|h[Dalaran Firework]|h|r",
+						},
+						["link"] = "|cff1eff00|Hitem:21843:0:0:0:0:0:0:848551543:80:0:0|h[Imbued Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_24_Netherweave_Imbued",
+						["size"] = 18,
+						["counts"] = {
+							20, -- [1]
+							[16] = 5,
+							[8] = 7,
+							[18] = 2,
+							[12] = 3,
+							[14] = 108,
+							[5] = 4,
+							[15] = 2,
+						},
+						["freeslots"] = 3,
+					},
+					["Bag5"] = {
+						["ids"] = {
+							[16] = 32569,
+						},
+						["link"] = "|cff1eff00|Hitem:21841:0:0:0:0:0:0:374908120:80:0:0|h[Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_23_Netherweave",
+						["size"] = 16,
+						["counts"] = {
+							[16] = 9,
+						},
+						["freeslots"] = 15,
+					},
+					["Bag4"] = {
+						["ids"] = {
+							[2] = 43089,
+						},
+						["link"] = "|cff1eff00|Hitem:21841:0:0:0:0:0:0:945293824:80:0:0|h[Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_23_Netherweave",
+						["size"] = 16,
+						["counts"] = {
+							[2] = 6,
+						},
+						["freeslots"] = 15,
+					},
+					["Bag0"] = {
+						["ids"] = {
+							6948, -- [1]
+							40772, -- [2]
+							33434, -- [3]
+							33470, -- [4]
+							46106, -- [5]
+							47562, -- [6]
+							45625, -- [7]
+							37615, -- [8]
+							31655, -- [9]
+							35797, -- [10]
+							39690, -- [11]
+							8529, -- [12]
+							5976, -- [13]
+							25490, -- [14]
+							39681, -- [15]
+							33454, -- [16]
+						},
+						["links"] = {
+							[8] = "|cff0070dd|Hitem:37615:0:0:0:0:0:0:-1630342656:80:0:0|h[Titanium Compound Bow]|h|r",
+							[16] = "|cffffffff|Hitem:33454:0:0:0:0:0:0:-2142505703:80:0:0|h[Salted Venison]|h|r",
+							[4] = "|cffffffff|Hitem:33470:0:0:0:0:0:0:-1987175808:80:0:0|h[Frostweave Cloth]|h|r",
+							[14] = "|cffffffff|Hitem:25490:0:0:0:0:0:0:-1976053442:80:0:0|h[Boulderfist Key]|h|r",
+						},
+						["icon"] = "Interface\\Buttons\\Button-Backpack-Up",
+						["size"] = 16,
+						["counts"] = {
+							[11] = 2,
+							[15] = 3,
+							[12] = 2,
+							[4] = 6,
+							[9] = 4,
+							[16] = 10,
+						},
+					},
+					["Bag7"] = {
+						["ids"] = {
+							[12] = 24579,
+						},
+						["link"] = "|cff1eff00|Hitem:21841:0:0:0:0:0:0:1627557049:80:0:0|h[Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_23_Netherweave",
+						["size"] = 16,
+						["counts"] = {
+							[12] = 3,
+						},
+						["freeslots"] = 15,
+					},
+					["Bag2"] = {
+						["ids"] = {
+							35671, -- [1]
+							36047, -- [2]
+							38749, -- [3]
+							39520, -- [4]
+							nil, -- [5]
+							34055, -- [6]
+							20390, -- [7]
+							[9] = 33447,
+							[10] = 35723,
+							[13] = 39854,
+							[14] = 9252,
+							[15] = 32474,
+							[17] = 43011,
+						},
+						["links"] = {
+							[14] = "|cff9d9d9d|Hitem:9252:0:0:0:0:0:0:-1618935570:80:0:0|h[Lower Map Fragment]|h|r",
+							[2] = "|cff1eff00|Hitem:36047:0:0:0:0:0:-21:-1943076763:80:0:0|h[Crystalsong Crown of Intellect]|h|r",
+							[9] = "|cffffffff|Hitem:33447:0:0:0:0:0:0:-2005358720:80:0:0|h[Runic Healing Potion]|h|r",
+							[10] = "|cffffffff|Hitem:35723:0:0:0:0:0:0:-1564737920:80:0:0|h[Shards of Ahune]|h|r",
+						},
+						["link"] = "|cff1eff00|Hitem:21843:0:0:0:0:0:0:2131855866:80:0:0|h[Imbued Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_24_Netherweave_Imbued",
+						["size"] = 18,
+						["counts"] = {
+							[4] = 16,
+							[7] = 5,
+						},
+						["freeslots"] = 6,
+					},
+					["Bag9"] = {
+						["ids"] = {
+							[15] = 26044,
+						},
+						["link"] = "|cff1eff00|Hitem:21841:0:0:0:0:0:0:111345666:80:0:0|h[Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_23_Netherweave",
+						["size"] = 16,
+						["counts"] = {
+							[15] = 4,
+						},
+						["freeslots"] = 15,
+					},
+					["Bag11"] = {
+						["ids"] = {
+							29209, -- [1]
+							[6] = 24421,
+							[10] = 12840,
+							[18] = 12846,
+							[9] = 25433,
+							[11] = 12841,
+						},
+						["links"] = {
+							[11] = "|cffffffff|Hitem:12841:0:0:0:0:0:0:-1583889796:80:0:0|h[Invader's Scourgestone]|h|r",
+						},
+						["link"] = "|cff1eff00|Hitem:21843:0:0:0:0:0:0:1899313763:80:0:0|h[Imbued Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_24_Netherweave_Imbued",
+						["size"] = 18,
+						["counts"] = {
+							2, -- [1]
+							[11] = 2,
+							[6] = 18,
+							[9] = 8,
+							[10] = 29,
+						},
+						["freeslots"] = 12,
+					},
+					["Bag6"] = {
+						["ids"] = {
+							[11] = 31251,
+							[7] = 44819,
+							[8] = 39286,
+							[4] = 41119,
+							[9] = 33117,
+							[15] = 20388,
+						},
+						["links"] = {
+							[4] = "|cffffffff|Hitem:41119:0:0:0:0:0:0:-1238787175:80:0:0|h[Saronite Bomb]|h|r",
+							[9] = "|cff0070dd|Hitem:33117:0:0:0:0:0:0:-2030984132:80:0:0|h[Jack-o'-Lantern]|h|r",
+						},
+						["link"] = "|cff1eff00|Hitem:21841:0:0:0:0:0:0:2083937250:80:0:0|h[Netherweave Bag]|h|r",
+						["icon"] = "Interface\\Icons\\INV_Misc_Bag_23_Netherweave",
+						["size"] = 16,
+						["counts"] = {
+							[4] = 20,
+							[15] = 4,
+						},
+						["freeslots"] = 10,
+					},
+				},
+				["numFreeBagSlots"] = 39,
+				["numBagSlots"] = 86,
+			},
+		},
+		["Version"] = 1,
+	},
+}

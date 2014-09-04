@@ -1,0 +1,16 @@
+Texture Browser Changes | 2013 Jul 20
+-------------------------------------
+- Changed the TOC version to 50300 for the 5.3 patch.
+- Updated to work with the new API functions for retrieving macro icons. That is, GetMacroIcons() and GetMacroItemIcons().
+
+Texture Browser Changes | 2010 Nov 10
+-------------------------------------
+- Added textures from achievements and feats of strength.
+- Added textures from spells using the GetSpellInfo() function.
+- No longer shows duplicate textures.
+- When linking a texture path into the chat edit, it will now use double blackslash, instead of just a single one.
+- Added a large 128 x 128 texture preview to the right side of the frame.
+
+Texture Browser Changes | 2010 Nov 07
+-------------------------------------
+- First release.

@@ -1,0 +1,18 @@
+MACRO 2 "BigBrother" Spell_unused2
+/bigbrother quickcheck self
+END
+MACRO 1 "Montar" Ability_Mount_JungleTiger
+#showtooltip
+/ei mount
+END
+MACRO 4 "Mount" ABILITY_MOUNT_DREADSTEED
+#showtooltip
+/GP am
+END
+MACRO 3 "mouseover" INV_Misc_QuestionMark
+/run ChatFrame1:AddMessage(GetMouseFocus():GetName())
+END
+MACRO 5 "Quitar raid fram" Ability_Hunter_OneWithNature
+/run CompactRaidFrameManager:UnregisterAllEvents()
+CompactRaidFrameManager:Hide() CompactRaidFrameContainer:UnregisterAllEvents() CompactRaidFrameContainer:Hide() 
+END

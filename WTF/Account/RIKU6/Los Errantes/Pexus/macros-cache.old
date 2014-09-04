@@ -1,0 +1,77 @@
+MACRO 16777227 "AOE" INV_Misc_QuestionMark
+#showtooltip blizzard
+/cast icy veins
+/cast blizzard
+END
+MACRO 16777225 "assist" Ability_CheapShot
+/assist gabr
+END
+MACRO 16777234 "cubito" INV_Misc_QuestionMark
+#showtooltip
+/cancelaura Ice Block
+/cast Ice Block
+END
+MACRO 16777226 "Frost" INV_Misc_QuestionMark
+#showtooltip
+/cast frostbolt
+/petattack
+END
+MACRO 16777235 "invis" INV_Misc_QuestionMark
+#showtooltip
+/cancelaura invisibility
+/cast invisibility
+END
+MACRO 16777231 "NUKE NUKE" INV_Misc_QuestionMark
+#showtooltip
+/y ¡¡¡SIENTE EL PODER DE LA ATROFIA MUSCULAR!!!
+/cast icy veins
+/cast Arcane Power
+/use 13
+/use 14
+/cast arcane blast
+END
+MACRO 16777232 "NUKE NUKE 2" INV_Misc_QuestionMark
+#showtooltip
+/cast combustion
+/use 13
+/use 14
+/cast fireball
+END
+MACRO 16777233 "PoM+AB" INV_Misc_QuestionMark
+#showtooltip
+/cast Presence of Mind
+/cast Arcane Blast
+END
+MACRO 16777229 "Scrolls 2" Spell_Arcane_PortalStonard
+/ktq queue 5 38971
+/ktq queue 5 38912
+/ktq queue 5 39002
+/ktq queue 5 38767
+/ktq queue 5 38766
+/ktq queue 5 39001
+/ktq queue 5 44456
+/ktq queue 5 44458
+/ktq queue 5 38964
+/ktq queue 5 44455
+/ktq queue 5 45060
+/ktq queue 5 38995
+/ktq queue 5 38963
+END
+MACRO 16777230 "Scrolls 3" Spell_Arcane_PortalShattrath
+/ktq queue 5 39006
+END
+MACRO 16777228 "scrolls1" Spell_Arcane_PortalSilvermoon
+/ktq queue 5 38992
+/ktq queue 5 44449
+/ktq queue 5 44469
+/ktq queue 5 38966
+/ktq queue 5 38974
+/ktq queue 5 38786
+/ktq queue 5 38846
+/ktq queue 5 38777
+/ktq queue 5 38679
+/ktq queue 5 38809
+/ktq queue 5 38817
+/ktq queue 5 38968
+/ktq queue 5 44947
+END

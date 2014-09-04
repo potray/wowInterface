@@ -1,0 +1,146 @@
+
+DataStore_TalentsDB = {
+	["profileKeys"] = {
+		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
+	},
+	["global"] = {
+		["Characters"] = {
+			["Default.Los Errantes.Kobash"] = {
+				["Talents2"] = 0,
+				["Talents1"] = 0,
+				["Glyphs"] = {
+					5, -- [1]
+					3, -- [2]
+					1048581, -- [3]
+					1048579, -- [4]
+					2097157, -- [5]
+					2097155, -- [6]
+					5, -- [7]
+					3, -- [8]
+					1048581, -- [9]
+					1048579, -- [10]
+					2097157, -- [11]
+					2097155, -- [12]
+				},
+				["Class"] = "HUNTER",
+				["lastUpdate"] = 1409840760,
+				["GlyphList"] = {
+					11, -- [1]
+					5898, -- [2]
+					5642, -- [3]
+					5722, -- [4]
+					5738, -- [5]
+					5690, -- [6]
+					5706, -- [7]
+					5802, -- [8]
+					5754, -- [9]
+					5770, -- [10]
+					5658, -- [11]
+					11098, -- [12]
+					5674, -- [13]
+					11130, -- [14]
+					5786, -- [15]
+					5834, -- [16]
+					5850, -- [17]
+					11114, -- [18]
+					5882, -- [19]
+					5946, -- [20]
+					11066, -- [21]
+					5810, -- [22]
+					16370, -- [23]
+					10834, -- [24]
+					17666, -- [25]
+					17634, -- [26]
+					5906, -- [27]
+					13, -- [28]
+					11084, -- [29]
+					7100, -- [30]
+					5628, -- [31]
+					7068, -- [32]
+					7052, -- [33]
+					7036, -- [34]
+					7084, -- [35]
+					5868, -- [36]
+					16356, -- [37]
+					16804, -- [38]
+					16852, -- [39]
+					16820, -- [40]
+				},
+				["ActiveTalents"] = 2,
+			},
+		},
+		["Reference"] = {
+			["GlyphNames"] = {
+				[353] = "Liberation",
+				[354] = "Mending",
+				[355] = "Distracting Shot",
+				[356] = "Endless Wrath",
+				[357] = "Deterrence",
+				[358] = "Disengage",
+				[359] = "Freezing Trap",
+				[360] = "Ice Trap",
+				[361] = "Misdirection",
+				[362] = "Explosive Trap",
+				[363] = "Animal Bond",
+				[364] = "No Escape",
+				[365] = "Pathfinding",
+				[366] = "Tame Beast",
+				[367] = "Snake Trap",
+				[368] = "Aimed Shot",
+				[369] = "Mend Pet",
+				[371] = "Solace",
+				[677] = "Chimera Shot",
+				[439] = "Revive Pet",
+				[440] = "Lesser Proportion",
+				[1102] = "Lean Pack",
+				[442] = "Stampede",
+				[443] = "Aspect of the Pack",
+				[691] = "Tranquilizing Shot",
+				[693] = "Master's Call",
+				[695] = "Mirrored Blades",
+				[1022] = "Aspect of the Beast",
+				[1051] = "Marking",
+				[1053] = "Fetch",
+				[1050] = "Direction",
+				[1104] = "Enduring Deceit",
+				[441] = "Fireworks",
+				[1023] = "Black Ice",
+				[692] = "Aspect of the Cheetah",
+				[694] = "Scatter Shot",
+				[352] = "Camouflage",
+				[351] = "Aspects",
+			},
+		},
+	},
+}
+DataStore_TalentsRefDB = {
+	["profileKeys"] = {
+		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
+	},
+	["global"] = {
+		["HUNTER"] = {
+			["Locale"] = "enUS",
+			["Version"] = 18414,
+			["Talents"] = {
+				"19354|Posthaste|ability_hunter_posthaste|1|1", -- [1]
+				"19363|Narrow Escape|INV_Misc_Web_01|1|2", -- [2]
+				"19364|Crouching Tiger, Hidden Chimera|ability_hunter_pet_chimera|1|3", -- [3]
+				"19347|Binding Shot|spell_shaman_bindelemental|2|1", -- [4]
+				"19348|Wyvern Sting|INV_Spear_02|2|2", -- [5]
+				"19359|Intimidation|Ability_Devour|2|3", -- [6]
+				"19350|Exhilaration|ability_hunter_onewithnature|3|1", -- [7]
+				"19356|Aspect of the Iron Hawk|spell_hunter_aspectoftheironhawk|3|2", -- [8]
+				"19351|Spirit Bond|Ability_Druid_DemoralizingRoar|3|3", -- [9]
+				"19352|Fervor|Ability_Hunter_AspectoftheViper|4|1", -- [10]
+				"19353|Dire Beast|ability_hunter_sickem|4|2", -- [11]
+				"19365|Thrill of the Hunt|Ability_Hunter_ThrilloftheHunt|4|3", -- [12]
+				"19360|A Murder of Crows|ability_hunter_murderofcrows|5|1", -- [13]
+				"19361|Blink Strikes|Spell_Arcane_Arcane04|5|2", -- [14]
+				"19362|Lynx Rush|Ability_Hunter_CatlikeReflexes|5|3", -- [15]
+				"19357|Glaive Toss|ability_glaivetoss|6|1", -- [16]
+				"19358|Powershot|ability_hunter_resistanceisfutile|6|2", -- [17]
+				"19349|Barrage|Ability_Hunter_RapidRegeneration|6|3", -- [18]
+			},
+		},
+	},
+}

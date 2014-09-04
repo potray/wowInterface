@@ -1,0 +1,11 @@
+MACRO 16777217 "carga 1" INV_Misc_QuestionMark
+/showtooltipe
+/cast charge
+/stopcasting
+/cast rend
+/stopcasting
+/cast heroic strike
+END
+MACRO 16777218 "ihml" INV_Misc_QuestionMark
+/print "Default macro when no other macro exists and you are in talent spec 1."
+END

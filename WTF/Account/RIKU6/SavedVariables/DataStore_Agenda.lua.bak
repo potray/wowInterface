@@ -1,0 +1,48 @@
+
+DataStore_AgendaDB = {
+	["profileKeys"] = {
+		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
+	},
+	["global"] = {
+		["Characters"] = {
+			["Default.Los Errantes.Kobash"] = {
+				["lastUpdate"] = 1409840760,
+				["Contacts"] = {
+					["Hyorinmaru"] = {
+						["note"] = "",
+					},
+					["Pexus"] = {
+						["note"] = "",
+					},
+					["Babel"] = {
+						["note"] = "",
+					},
+					["Kalarankor"] = {
+						["note"] = "",
+					},
+					["Draina"] = {
+						["note"] = "",
+					},
+					["Ataegina"] = {
+						["note"] = "",
+					},
+					["Laurent"] = {
+						["note"] = "",
+					},
+					["Draya"] = {
+						["note"] = "",
+					},
+					["Yhury"] = {
+						["note"] = "",
+					},
+					["Xadha"] = {
+						["note"] = "",
+					},
+					["Londo"] = {
+						["note"] = "",
+					},
+				},
+			},
+		},
+	},
+}
