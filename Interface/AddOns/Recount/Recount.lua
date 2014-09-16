@@ -11,7 +11,7 @@ local FilterSize	= 20
 local RampUp		= 5
 local RampDown		= 10
 
-Recount.Version = tonumber(string.sub("$Revision: 1256 $", 12, -3))
+Recount.Version = tonumber(string.sub("$Revision: 1269 $", 12, -3))
 
 local _G = _G
 local abs = abs
@@ -37,6 +37,7 @@ local unpack = unpack
 local GetNumPartyMembers = GetNumPartyMembers or GetNumSubgroupMembers
 local GetNumRaidMembers = GetNumRaidMembers or GetNumGroupMembers
 local GetTime = GetTime
+local IsInRaid = IsInRaid
 local UnitAffectingCombat = UnitAffectingCombat
 local UnitClass = UnitClass
 local UnitExists = UnitExists
@@ -333,7 +334,7 @@ local Default_Profile = {
 		MainWindowVis = true,
 		MainWindowMode = 1,
 		Locked = false,
-		EnableSync = true, -- Elsia: Default enable sync is set to true again now, thanks to lazy syncing.
+		EnableSync = false, -- Elsia: Default enable sync is set to true again now, thanks to lazy syncing.
 		GlobalDataCollect = true, -- Elsia: Global toggle for data collection
 		HideCollect = false, -- Elsia: Hide Recount window when not collecting data
 		Font = "Arial Narrow",
@@ -355,6 +356,7 @@ local Default_Profile = {
 			HideTotalBar = true,
 			BarText = {
 				RankNum = true,
+				ServerName = false,
 				PerSec = true,
 				Percent = true,
 				NumFormat = 1,
@@ -583,7 +585,8 @@ Recount.consoleOptions = {
 			desc = L["Shows the main window"],
 			type = 'execute',
 			func = function()
-				Recount.MainWindow:Show()Recount:RefreshMainWindow()
+				Recount.MainWindow:Show()
+				Recount:RefreshMainWindow()
 			end,
 			dialogHidden = true
 		},
@@ -621,7 +624,8 @@ Recount.consoleOptions = {
 				if Recount.MainWindow:IsShown() then
 					Recount.MainWindow:Hide()
 				else
-					Recount.MainWindow:Show()Recount:RefreshMainWindow()
+					Recount.MainWindow:Show()
+					Recount:RefreshMainWindow()
 				end
 			end
 		},
@@ -887,10 +891,14 @@ Recount.consoleOptions2.args.realtime = {
 }
 
 function Recount:ReportVersions() -- Elsia: Functionified so GUI can use it too
-	Recount:Print(L["Displaying Versions"])
-	if Recount.VerTable then -- Elsia: Fixed nil error on non sync situation.
-		for k, v in pairs(Recount.VerTable) do
-			Recount:Print(k.." "..v)
+	if GetNumGroupMembers() == 0 then
+		Recount:Print(L["No other Recount users found."])
+	else
+		if Recount.VerTable then -- Elsia: Fixed nil error on non sync situation.
+			Recount:Print(L["Displaying Versions"]..":")
+			for k, v in pairs(Recount.VerTable) do
+				Recount:Print(k.." "..v)
+			end
 		end
 	end
 end
@@ -1169,14 +1177,14 @@ function Recount:FindPetUnitFromFlags(unitFlags, unitGUID)
 	if bit_band(unitFlags, COMBATLOG_OBJECT_TYPE_PET) ~= 0 and bit_band(unitFlags, COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID + COMBATLOG_OBJECT_AFFILIATION_MINE) ~= 0 then
 		if bit_band(unitFlags, COMBATLOG_OBJECT_AFFILIATION_RAID) ~= 0 then
 			local Num = GetNumRaidMembers() 
-			if Num > 0 then
+			if Num > 0 and IsInRaid() then
 				for i = 1, Num do
 					if vGUID == UnitGUID("raidpet"..i) then
 						return "raidpet"..i
 					end
 				end
 			end
-		elseif bit_band(unitFlags, COMBATLOG_OBJECT_AFFILIATION_PARTY)~=0 then
+		elseif bit_band(unitFlags, COMBATLOG_OBJECT_AFFILIATION_PARTY) ~= 0 then
 			local Num = GetNumPartyMembers()
 			if Num > 0 then
 				for i = 1, Num do
@@ -1885,7 +1893,7 @@ function Recount:LeaveCombat(Time)
 		Recount:BroadcastLazySync()
 	end
 
-	if abs(Time-Recount.InCombatT) > 3 then
+	if abs(Time - Recount.InCombatT) > 3 then
 		Recount.db2.CombatTimes[#Recount.db2.CombatTimes + 1] = {Recount.InCombatT, Time, Recount.InCombatF, date("%H:%M:%S"),Recount.FightingWho}
 
 		--Save current data as the last fight
@@ -2112,7 +2120,7 @@ function Recount:OnInitialize()
 	Recount:LockWindows(Recount.db.profile.Locked)
 end
 
-function Recount:OnEnable(first)
+function Recount:OnEnable()
 
 	Recount:IsTimeDataActive() -- Make sure we don't tick time data if we don't have to.
 	Recount.TimeTick() -- Elsia: Prevent that time data is not initialized when an event comes in before the first tick.

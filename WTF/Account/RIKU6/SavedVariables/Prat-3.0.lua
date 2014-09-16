@@ -18,6 +18,17 @@ Prat3DB = {
 			},
 		},
 		["Prat_ChannelColorMemory"] = {
+			["profiles"] = {
+				["Default"] = {
+					["colors"] = {
+						["trade"] = {
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
+							["r"] = 1,
+						},
+					},
+				},
+			},
 		},
 		["Prat_Editbox"] = {
 			["profiles"] = {
@@ -57,17 +68,11 @@ Prat3DB = {
 		},
 		["Prat_Scroll"] = {
 		},
-		["Prat_ChatTabs"] = {
-			["profiles"] = {
-				["Default"] = {
-					["displaymode"] = {
-						["ChatFrame2"] = false,
-					},
-					["on"] = true,
-				},
-			},
+		["Prat_ChannelNames"] = {
 		},
 		["Prat_Paragraph"] = {
+		},
+		["Prat_Alias"] = {
 		},
 		["Prat_Clear"] = {
 			["profiles"] = {
@@ -76,15 +81,20 @@ Prat3DB = {
 				},
 			},
 		},
-		["Prat_Alias"] = {
-		},
 		["Prat_UrlCopy"] = {
 		},
 		["Prat_Sounds"] = {
 		},
-		["Prat_Timestamps"] = {
+		["Prat_ChatLog"] = {
+			["profiles"] = {
+				["Default"] = {
+					["on"] = true,
+				},
+			},
 		},
 		["Prat_ChannelSticky"] = {
+		},
+		["Prat_PopupMessage"] = {
 		},
 		["Prat_History"] = {
 			["profiles"] = {
@@ -95,42 +105,45 @@ Prat3DB = {
 				},
 			},
 		},
-		["Prat_PopupMessage"] = {
-		},
 		["Prat_CopyChat"] = {
 		},
-		["Prat_ChatLog"] = {
-			["profiles"] = {
-				["Default"] = {
-					["on"] = true,
-				},
-			},
+		["Prat_Timestamps"] = {
 		},
 		["Prat_Search"] = {
 		},
 		["Prat_Buttons"] = {
 			["profiles"] = {
 				["Default"] = {
-					["showminimize"] = false,
+					["showButtons"] = false,
 					["showBnet"] = false,
 					["scrollReminder"] = false,
+					["showminimize"] = false,
 					["showMenu"] = false,
-					["showButtons"] = false,
 				},
 			},
 		},
 		["Prat_ServerNames"] = {
 		},
-		["Prat_ChannelNames"] = {
+		["Prat_ChatTabs"] = {
+			["profiles"] = {
+				["Default"] = {
+					["displaymode"] = {
+						["ChatFrame2"] = false,
+					},
+					["on"] = true,
+				},
+			},
 		},
 	},
 	["profileKeys"] = {
+		["Pexuss - Dun Modr"] = "Default",
 		["Drublock - Los Errantes"] = "Default",
 		["Kareitris - Los Errantes"] = "Default",
 		["Potray - Dun Modr"] = "Default",
 		["Zhenya - Los Errantes"] = "Default",
 		["Kobash - Los Errantes"] = "Default",
 		["Kalarankor - Los Errantes"] = "Default",
+		["Ringeki - Dun Modr"] = "Default",
 		["Prason - Los Errantes"] = "Default",
 		["Elrad - Los Errantes"] = "Default",
 		["Pexus - Los Errantes"] = "Default",

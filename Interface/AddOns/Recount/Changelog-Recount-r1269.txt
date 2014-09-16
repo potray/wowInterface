@@ -1,4 +1,89 @@
 ------------------------------------------------------------------------
+r1269 | Resike | 2014-09-06 19:22:48 +0000 (Sat, 06 Sep 2014) | 4 lines
+Changed paths:
+   M /trunk/LazySync.lua
+   M /trunk/Recount.lua
+   M /trunk/Tracker.lua
+
+- Enabled sync for connected realms.
+- Enabled sync in battleground.
+- Localization fix.
+- Some other minor fixes.
+------------------------------------------------------------------------
+r1268 | ananhaid | 2014-08-25 07:19:49 +0000 (Mon, 25 Aug 2014) | 1 line
+Changed paths:
+   M /trunk/locales/Recount-deDE.lua
+   M /trunk/locales/Recount-enUS.lua
+   M /trunk/locales/Recount-esES.lua
+   M /trunk/locales/Recount-frFR.lua
+   M /trunk/locales/Recount-ptBR.lua
+   M /trunk/locales/Recount-zhCN.lua
+   M /trunk/locales/Recount-zhTW.lua
+
+- purge locale unused blank.
+------------------------------------------------------------------------
+r1267 | Resike | 2014-08-24 18:52:57 +0000 (Sun, 24 Aug 2014) | 1 line
+Changed paths:
+   M /trunk/GUI_Config.lua
+
+- Localization fix.
+------------------------------------------------------------------------
+r1266 | Resike | 2014-08-24 18:31:37 +0000 (Sun, 24 Aug 2014) | 10 lines
+Changed paths:
+   M /trunk/GUI_Config.lua
+   M /trunk/GUI_Main.lua
+   M /trunk/LazySync.lua
+   M /trunk/Recount.lua
+   M /trunk/deletion.lua
+   M /trunk/roster.lua
+
+@Phanx: I might have overwritten the loc folder with my debug values, sorry.
+
+- Sync should properly work again.
+- Added party/instance/battleground support for sync. (Yet still only same server sync is possible.)
+- Sync should properly update on group roster updates.
+- Set sync to disabled by default.
+- Party/raid check fixes.
+- Check version button fixes.
+- Added an option to enable/disable server names for cross-realm players.
+- A lot of other smaller fixes.
+------------------------------------------------------------------------
+r1265 | Phanx | 2014-08-22 07:21:04 +0000 (Fri, 22 Aug 2014) | 1 line
+Changed paths:
+   M /trunk/GUI_Config.lua
+   M /trunk/Recount.toc
+   M /trunk/colors.lua
+
+- Fix CUSTOM_CLASS_COLORS support (blindly upvaluing all the things is no bueno, feel free to contact me if you are confused after reading the documentation)
+------------------------------------------------------------------------
+r1264 | Phanx | 2014-08-22 07:14:13 +0000 (Fri, 22 Aug 2014) | 1 line
+Changed paths:
+   M /trunk/locales/Recount-enUS.lua
+
+- Didn't revert enUS localization file far enough
+------------------------------------------------------------------------
+r1263 | Phanx | 2014-08-22 06:16:54 +0000 (Fri, 22 Aug 2014) | 7 lines
+Changed paths:
+   M /trunk/Recount.toc
+   M /trunk/locales/Recount-deDE.lua
+   M /trunk/locales/Recount-enUS.lua
+   M /trunk/locales/Recount-esES.lua
+   A /trunk/locales/Recount-esMX.lua
+   M /trunk/locales/Recount-frFR.lua
+   M /trunk/locales/Recount-koKR.lua
+   M /trunk/locales/Recount-ptBR.lua
+   M /trunk/locales/Recount-ruRU.lua
+   M /trunk/locales/Recount-zhCN.lua
+   M /trunk/locales/Recount-zhTW.lua
+
+Fixed localization files which were all broken by the last 2 commits, and added support for esMX locale.
+
+@Developers:
+DO NOT commit files not from an SVN checkout! Doing so causes all SVN and Curse packager keywords to be lost, including the ones that instruct the packager to automatically pull in all the latest translations.
+
+@Translators:
+DO NOT add translations directly in the Lua files! Use the web interface on the project page.
+------------------------------------------------------------------------
 r1262 | Resike | 2014-08-18 22:05:30 +0000 (Mon, 18 Aug 2014) | 1 line
 Changed paths:
    M /trunk/GUI_Config.lua
@@ -125,12 +210,4 @@ Changed paths:
 - Fixed an issue due corrupted profiles.
 - Updated libraries.
 - Tons of other smaller fixes.
-------------------------------------------------------------------------
-r1253 | reglohpri | 2014-07-21 20:09:29 +0000 (Mon, 21 Jul 2014) | 1 line
-Changed paths:
-   M /trunk/GUI_Detail.lua
-   M /trunk/GUI_Main.lua
-   M /trunk/GUI_Report.lua
-
-Added BNSendWhisper and a choice field for sending reports over Battle Tag/RealID (Cross-Realm)
 ------------------------------------------------------------------------

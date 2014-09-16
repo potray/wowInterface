@@ -15,11 +15,11 @@ _NPCScanOptions = {
 		},
 	},
 	["CacheWarnings"] = true,
+	["Version"] = 3,
 	["NPCWorldIDs"] = {
 		[64004] = "Pandaria",
 		[50410] = "Kalimdor",
 		[50409] = "Kalimdor",
 		[64191] = "Pandaria",
 	},
-	["Version"] = 3,
 }

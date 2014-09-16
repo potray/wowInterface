@@ -6,7 +6,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 local BC = {} -- = LibStub("LibBabble-Class-3.0"):GetLookupTable()
 
-local revision = tonumber(string.sub("$Revision: 1262 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1267 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -30,7 +30,6 @@ local UIDropDownMenu_SetSelectedID = UIDropDownMenu_SetSelectedID
 
 local GameTooltip = GameTooltip
 
-local CUSTOM_CLASS_COLORS = CUSTOM_CLASS_COLORS
 local RAID_CLASS_COLORS = RAID_CLASS_COLORS
 
 FillLocalizedClassList(BC, false) -- We are sexist here but not much of a choice, when there is no neutral
@@ -530,7 +529,7 @@ function me:SetupFilterOptions(parent)
 		Recount:RefreshMainWindow()
 	end)
 
-	theFrame.MergeAbsorbs = me:CreateSavedCheckbox(L["Merge Aborbs w/ Heals"], theFrame, "Data", "MergeAbsorbs")
+	theFrame.MergeAbsorbs = me:CreateSavedCheckbox(L["Merge Absorbs w/ Heals"], theFrame, "Data", "MergeAbsorbs")
 	theFrame.MergeAbsorbs:SetPoint("TOPLEFT", theFrame.MergePets, "BOTTOMLEFT", 0, 2)
 	theFrame.MergeAbsorbs:SetScript("OnClick", function(this)
 		if this:GetChecked() then
@@ -735,8 +734,24 @@ function me:CreateBarSelection(parent)
 		end
 	end)
 
+	theFrame.ServerName = me:CreateSavedCheckbox(L["Server Name"], theFrame, "Window", "ServerName")
+	theFrame.ServerName:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -40 - 14)
+	theFrame.ServerName:SetScript("OnClick", function(this)
+		if this:GetChecked() then
+			this:SetChecked(true)
+			Recount.db.profile.MainWindow.BarText.ServerName = true
+			Recount:RefreshMainWindow()
+			me:RefreshTestBar()
+		else
+			this:SetChecked(false)
+			Recount.db.profile.MainWindow.BarText.ServerName = false
+			Recount:RefreshMainWindow()
+			me:RefreshTestBar()
+		end
+	end)
+
 	theFrame.PerSec = me:CreateSavedCheckbox(L["Per Second"], theFrame, "Window", "PerSec")
-	theFrame.PerSec:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -40 - 14)
+	theFrame.PerSec:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -57 - 14)
 	theFrame.PerSec:SetScript("OnClick", function(this)
 		if this:GetChecked() then
 			this:SetChecked(true)
@@ -752,7 +767,7 @@ function me:CreateBarSelection(parent)
 	end)
 
 	theFrame.Percent = me:CreateSavedCheckbox(L["Percent"], theFrame, "Window", "Percent")
-	theFrame.Percent:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -57 - 14)
+	theFrame.Percent:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -74 - 14)
 	theFrame.Percent:SetScript("OnClick", function(this)
 		if this:GetChecked() then
 			this:SetChecked(true)
@@ -769,10 +784,10 @@ function me:CreateBarSelection(parent)
 
 	theFrame.Title2 = theFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 	theFrame.Title2:SetText(L["Number Format"])
-	theFrame.Title2:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -77 - 14)
+	theFrame.Title2:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -94 - 14)
 
 	theFrame.Standard = me:CreateSavedCheckbox(L["Standard"], theFrame, "Window", "Standard")
-	theFrame.Standard:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -91 - 14)
+	theFrame.Standard:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -108 - 14)
 	theFrame.Standard:SetScript("OnClick", function(this)
 		if this:GetChecked() then
 			this:SetChecked(true)
@@ -787,7 +802,7 @@ function me:CreateBarSelection(parent)
 	end)
 
 	theFrame.Commas = me:CreateSavedCheckbox(L["Commas"], theFrame, "Window", "Commas")
-	theFrame.Commas:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -108 - 14)
+	theFrame.Commas:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -125 - 14)
 	theFrame.Commas:SetScript("OnClick", function(this)
 		if this:GetChecked() then
 			this:SetChecked(true)
@@ -802,7 +817,7 @@ function me:CreateBarSelection(parent)
 	end)
 
 	theFrame.Short = me:CreateSavedCheckbox(L["Short"], theFrame, "Window", "Short")
-	theFrame.Short:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -125 - 14)
+	theFrame.Short:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -142 - 14)
 	theFrame.Short:SetScript("OnClick", function(this)
 		if this:GetChecked() then
 			this:SetChecked(true)
@@ -818,7 +833,7 @@ function me:CreateBarSelection(parent)
 
 	theFrame.BarTextColorSwap = me:CreateSavedCheckbox(L["Swap Text and Bar Color"], theFrame, "Window", "BarTextColorSwap")
 
-	theFrame.BarTextColorSwap:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -159 - 14)
+	theFrame.BarTextColorSwap:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -176 - 14)
 	theFrame.BarTextColorSwap:SetScript("OnClick", function(this)
 		if not this:GetChecked() then
 			this:SetChecked(false)
@@ -1977,6 +1992,7 @@ function me:LoadConfig()
 	me:ScaleConfigWindow(Recount.db.profile.Scaling)
 
 	me.BarOptions.RankNum:SetChecked(Recount.db.profile.MainWindow.BarText.RankNum)
+	me.BarOptions.ServerName:SetChecked(Recount.db.profile.MainWindow.BarText.ServerName)
 	me.BarOptions.PerSec:SetChecked(Recount.db.profile.MainWindow.BarText.PerSec)
 	me.BarOptions.Percent:SetChecked(Recount.db.profile.MainWindow.BarText.Percent)
 
@@ -1992,6 +2008,7 @@ function me:SaveFilterConfig()
 		Recount.db.profile.Filters.Data[k] = v.RecordData:GetChecked() == 1
 		Recount.db.profile.Filters.TimeData[k] = v.RecordTime:GetChecked() == 1
 		Recount.db.profile.Filters.TrackDeaths[k] = v.TrackDeaths:GetChecked() == 1
+		--Recount.db.profile.Filters.TrackBuffs[k] = v.TrackBuffs:GetChecked() == 1
 	end
 	Recount:IsTimeDataActive()
 	Recount:FullRefreshMainWindow()

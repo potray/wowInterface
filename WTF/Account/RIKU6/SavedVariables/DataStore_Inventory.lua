@@ -1,38 +1,62 @@
 
 DataStore_InventoryDB = {
 	["profileKeys"] = {
+		["Pexuss - Dun Modr"] = "Pexuss - Dun Modr",
+		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
+		["Kareitris - Los Errantes"] = "Kareitris - Los Errantes",
+		["Potray - Dun Modr"] = "Potray - Dun Modr",
 		["Zhenya - Los Errantes"] = "Zhenya - Los Errantes",
 		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
 		["Kalarankor - Los Errantes"] = "Kalarankor - Los Errantes",
-		["Potray - Dun Modr"] = "Potray - Dun Modr",
-		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
+		["Ringeki - Dun Modr"] = "Ringeki - Dun Modr",
 		["Drublock - Los Errantes"] = "Drublock - Los Errantes",
-		["Kareitris - Los Errantes"] = "Kareitris - Los Errantes",
 		["Pexus - Los Errantes"] = "Pexus - Los Errantes",
 	},
 	["global"] = {
 		["Characters"] = {
-			["Default.Los Errantes.Zhenya"] = {
+			["Default.Los Errantes.Pexus"] = {
 				["Inventory"] = {
-					7931, -- [1]
-					33265, -- [2]
-					42950, -- [3]
-					23345, -- [4]
-					19128, -- [5]
-					19125, -- [6]
-					15456, -- [7]
-					4109, -- [8]
-					14770, -- [9]
-					34417, -- [10]
-					1319, -- [11]
-					9622, -- [12]
-					[16] = 48716,
-					[15] = 4114,
-					[17] = 44091,
+					"|cffffffff|Hitem:50276:3820:0:0:0:0:0:0:80:0:0|h[]|h|r", -- [1]
+					49799, -- [2]
+					"|cffffffff|Hitem:47751:3810:0:0:0:0:0:0:80:0:0|h[]|h|r", -- [3]
+					4334, -- [4]
+					"|cffffffff|Hitem:55716:0:0:0:0:0:-6:2074345810:80:0:0|h[]|h|r", -- [5]
+					51017, -- [6]
+					"|cffffffff|Hitem:49822:3872:0:0:0:0:0:612856080:80:0:0|h[]|h|r", -- [7]
+					"|cffffffff|Hitem:55725:0:0:0:0:0:-138:1929052411:80:0:0|h[]|h|r", -- [8]
+					"|cffffffff|Hitem:55707:0:0:0:0:0:-39:960495804:80:0:0|h[]|h|r", -- [9]
+					"|cffffffff|Hitem:47752:3246:0:0:0:0:0:0:80:0:0|h[]|h|r", -- [10]
+					"|cffffffff|Hitem:50397:3840:0:0:0:0:0:37809632:80:0:0|h[]|h|r", -- [11]
+					"|cffffffff|Hitem:50313:3840:0:0:0:0:0:803350592:80:0:0|h[]|h|r", -- [12]
+					48724, -- [13]
+					"|cffffffff|Hitem:50259:0:0:0:0:0:0:-1755313792:80:0:0|h[]|h|r", -- [14]
+					"|cffffffff|Hitem:49823:3722:0:0:0:0:0:717985104:80:0:0|h[]|h|r", -- [15]
+					"|cffffffff|Hitem:51582:3854:0:0:0:0:0:-1677328640:80:0:0|h[]|h|r", -- [16]
 				},
-				["averageItemLvl"] = 39.125,
-				["overallAIL"] = 39.125,
-				["lastUpdate"] = 1409841533,
+				["averageItemLvl"] = 247.8666839599609,
+				["overallAIL"] = 247.8666839599609,
+				["lastUpdate"] = 1409841722,
+			},
+			["Default.Dun Modr.Pexuss"] = {
+				["Inventory"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					6134, -- [4]
+					2370, -- [5]
+					2371, -- [6]
+					2372, -- [7]
+					4942, -- [8]
+					2374, -- [9]
+					2375, -- [10]
+					[17] = 2376,
+					[19] = 5976,
+					[15] = 4944,
+					[16] = 4948,
+				},
+				["averageItemLvl"] = 5.9375,
+				["overallAIL"] = 6.1875,
+				["lastUpdate"] = 1410628216,
 			},
 			["Default.Los Errantes.Kareitris"] = {
 				["Inventory"] = {
@@ -58,53 +82,6 @@ DataStore_InventoryDB = {
 				["overallAIL"] = 210.9375,
 				["lastUpdate"] = 1409842229,
 			},
-			["Default.Los Errantes.Kobash"] = {
-				["Inventory"] = {
-					44410, -- [1]
-					39652, -- [2]
-					39237, -- [3]
-					3342, -- [4]
-					44406, -- [5]
-					47231, -- [6]
-					"|cffa335ee|Hitem:37669:0:0:0:0:0:0:-1786645120:80:0:0|h[Leggings of the Stone Halls]|h|r", -- [7]
-					35659, -- [8]
-					41844, -- [9]
-					39194, -- [10]
-					"|cffa335ee|Hitem:37642:0:0:0:0:0:0:-1587320960:80:0:0|h[Hemorrhaging Circle]|h|r", -- [11]
-					38251, -- [12]
-					38764, -- [13]
-					44597, -- [14]
-					45704, -- [15]
-					41815, -- [16]
-					[19] = 43156,
-				},
-				["averageItemLvl"] = 181.2000122070313,
-				["overallAIL"] = 187.1333465576172,
-				["lastUpdate"] = 1409841976,
-			},
-			["Default.Los Errantes.Drublock"] = {
-				["Inventory"] = {
-					nil, -- [1]
-					nil, -- [2]
-					"|cffe6cc80|Hitem:42985:3852:0:0:0:0:0:0:26:0:0|h[Tattered Dreadmist Mantle]|h|r", -- [3]
-					6097, -- [4]
-					"|cffe6cc80|Hitem:48691:908:0:0:0:0:0:0:26:0:0|h[Tattered Dreadmist Robe]|h|r", -- [5]
-					"|cffffffff|Hitem:4684:0:0:0:0:0:0:-1776306816:26:0:0|h[Spellbinder Belt]|h|r", -- [6]
-					"|cff1eff00|Hitem:6540:0:0:0:0:0:-69:-1371930619:26:0:0|h[Willow Pants of the Eagle]|h|r", -- [7]
-					"|cff1eff00|Hitem:6562:0:0:0:0:0:-69:-1174208507:26:0:0|h[Shimmering Boots of the Eagle]|h|r", -- [8]
-					710, -- [9]
-					1304, -- [10]
-					1319, -- [11]
-					nil, -- [12]
-					nil, -- [13]
-					42992, -- [14]
-					6378, -- [15]
-					42947, -- [16]
-				},
-				["averageItemLvl"] = 16.80000114440918,
-				["overallAIL"] = 18.86666679382324,
-				["lastUpdate"] = 1409841671,
-			},
 			["Default.Los Errantes.Elrad"] = {
 				["Inventory"] = {
 					"|cff0070dd|Hitem:58098:4208:0:0:0:0:0:0:85:0:0|h[Helm of Easeful Death]|h|r", -- [1]
@@ -129,18 +106,28 @@ DataStore_InventoryDB = {
 				["overallAIL"] = 352.0666809082031,
 				["lastUpdate"] = 1409842250,
 			},
-			["Default.Dun Modr.Potray"] = {
+			["Default.Los Errantes.Drublock"] = {
 				["Inventory"] = {
-					[13] = 42991,
-					[8] = 52533,
-					[9] = 24131,
-					[7] = 24423,
-					[5] = 24133,
-					[16] = "|cffffffff|Hitem:48718:2646:0:0:0:0:0:0:5:0:0|h[]|h|r",
+					nil, -- [1]
+					nil, -- [2]
+					"|cffe6cc80|Hitem:42985:3852:0:0:0:0:0:0:26:0:0|h[Tattered Dreadmist Mantle]|h|r", -- [3]
+					6097, -- [4]
+					"|cffe6cc80|Hitem:48691:908:0:0:0:0:0:0:26:0:0|h[Tattered Dreadmist Robe]|h|r", -- [5]
+					"|cffffffff|Hitem:4684:0:0:0:0:0:0:-1776306816:26:0:0|h[Spellbinder Belt]|h|r", -- [6]
+					"|cff1eff00|Hitem:6540:0:0:0:0:0:-69:-1371930619:26:0:0|h[Willow Pants of the Eagle]|h|r", -- [7]
+					"|cff1eff00|Hitem:6562:0:0:0:0:0:-69:-1174208507:26:0:0|h[Shimmering Boots of the Eagle]|h|r", -- [8]
+					710, -- [9]
+					1304, -- [10]
+					1319, -- [11]
+					nil, -- [12]
+					nil, -- [13]
+					42992, -- [14]
+					6378, -- [15]
+					42947, -- [16]
 				},
-				["averageItemLvl"] = 2.400000095367432,
-				["overallAIL"] = 2.400000095367432,
-				["lastUpdate"] = 1409858902,
+				["averageItemLvl"] = 16.80000114440918,
+				["overallAIL"] = 18.86666679382324,
+				["lastUpdate"] = 1409841671,
 			},
 			["Default.Los Errantes.Kalarankor"] = {
 				["Inventory"] = {
@@ -162,31 +149,114 @@ DataStore_InventoryDB = {
 				["overallAIL"] = 19.25,
 				["lastUpdate"] = 1409841472,
 			},
-			["Default.Los Errantes.Pexus"] = {
+			["Default.Los Errantes.Zhenya"] = {
 				["Inventory"] = {
-					"|cffffffff|Hitem:50276:3820:0:0:0:0:0:0:80:0:0|h[]|h|r", -- [1]
-					49799, -- [2]
-					"|cffffffff|Hitem:47751:3810:0:0:0:0:0:0:80:0:0|h[]|h|r", -- [3]
-					4334, -- [4]
-					"|cffffffff|Hitem:55716:0:0:0:0:0:-6:2074345810:80:0:0|h[]|h|r", -- [5]
-					51017, -- [6]
-					"|cffffffff|Hitem:49822:3872:0:0:0:0:0:612856080:80:0:0|h[]|h|r", -- [7]
-					"|cffffffff|Hitem:55725:0:0:0:0:0:-138:1929052411:80:0:0|h[]|h|r", -- [8]
-					"|cffffffff|Hitem:55707:0:0:0:0:0:-39:960495804:80:0:0|h[]|h|r", -- [9]
-					"|cffffffff|Hitem:47752:3246:0:0:0:0:0:0:80:0:0|h[]|h|r", -- [10]
-					"|cffffffff|Hitem:50397:3840:0:0:0:0:0:37809632:80:0:0|h[]|h|r", -- [11]
-					"|cffffffff|Hitem:50313:3840:0:0:0:0:0:803350592:80:0:0|h[]|h|r", -- [12]
-					48724, -- [13]
-					"|cffffffff|Hitem:50259:0:0:0:0:0:0:-1755313792:80:0:0|h[]|h|r", -- [14]
-					"|cffffffff|Hitem:49823:3722:0:0:0:0:0:717985104:80:0:0|h[]|h|r", -- [15]
-					"|cffffffff|Hitem:51582:3854:0:0:0:0:0:-1677328640:80:0:0|h[]|h|r", -- [16]
+					7931, -- [1]
+					33265, -- [2]
+					42950, -- [3]
+					23345, -- [4]
+					19128, -- [5]
+					19125, -- [6]
+					15456, -- [7]
+					4109, -- [8]
+					14770, -- [9]
+					34417, -- [10]
+					1319, -- [11]
+					9622, -- [12]
+					[16] = 48716,
+					[15] = 4114,
+					[17] = 44091,
 				},
-				["averageItemLvl"] = 247.8666839599609,
-				["overallAIL"] = 247.8666839599609,
-				["lastUpdate"] = 1409841722,
+				["averageItemLvl"] = 39.125,
+				["overallAIL"] = 39.125,
+				["lastUpdate"] = 1409841533,
+			},
+			["Default.Los Errantes.Kobash"] = {
+				["Inventory"] = {
+					44410, -- [1]
+					39652, -- [2]
+					39237, -- [3]
+					3342, -- [4]
+					44406, -- [5]
+					47231, -- [6]
+					"|cffa335ee|Hitem:37669:0:0:0:0:0:0:-1786645120:80:0:0|h[Leggings of the Stone Halls]|h|r", -- [7]
+					35659, -- [8]
+					41844, -- [9]
+					39194, -- [10]
+					"|cffa335ee|Hitem:37642:0:0:0:0:0:0:-1587320960:80:0:0|h[Hemorrhaging Circle]|h|r", -- [11]
+					38251, -- [12]
+					38764, -- [13]
+					44597, -- [14]
+					45704, -- [15]
+					41815, -- [16]
+					[19] = 43156,
+				},
+				["averageItemLvl"] = 181.2000122070313,
+				["overallAIL"] = 187.1333465576172,
+				["lastUpdate"] = 1409841976,
+			},
+			["Default.Dun Modr.Ringeki"] = {
+				["Inventory"] = {
+					34652, -- [1]
+					34657, -- [2]
+					34655, -- [3]
+					nil, -- [4]
+					34650, -- [5]
+					34651, -- [6]
+					34656, -- [7]
+					34648, -- [8]
+					34653, -- [9]
+					34649, -- [10]
+					34658, -- [11]
+					38147, -- [12]
+					[15] = 34659,
+				},
+				["averageItemLvl"] = 48.00000381469727,
+				["overallAIL"] = 48.00000381469727,
+				["lastUpdate"] = 1410628407,
+			},
+			["Default.Dun Modr.Potray"] = {
+				["Inventory"] = {
+					nil, -- [1]
+					nil, -- [2]
+					1744, -- [3]
+					nil, -- [4]
+					26030, -- [5]
+					26038, -- [6]
+					26033, -- [7]
+					26037, -- [8]
+					26040, -- [9]
+					26035, -- [10]
+					24349, -- [11]
+					25439, -- [12]
+					42991, -- [13]
+					nil, -- [14]
+					26017, -- [15]
+					"|cffffffff|Hitem:48718:2646:0:0:0:0:0:0:22:0:0|h[]|h|r", -- [16]
+					[19] = 24344,
+				},
+				["averageItemLvl"] = 15.7333345413208,
+				["overallAIL"] = 16,
+				["lastUpdate"] = 1410774733,
 			},
 		},
 		["Guilds"] = {
+			["Default.Los Errantes.Striders"] = {
+				["Members"] = {
+					["Pexus"] = {
+						["averageItemLvl"] = 247,
+					},
+					["Kareitris"] = {
+						["averageItemLvl"] = 208,
+					},
+					["Zhenya"] = {
+						["averageItemLvl"] = 39,
+					},
+					["Drublock"] = {
+						["averageItemLvl"] = 16,
+					},
+				},
+			},
 			["Default.Los Errantes.Elrad guardians"] = {
 				["Members"] = {
 					["Kalarankor"] = {
@@ -194,19 +264,10 @@ DataStore_InventoryDB = {
 					},
 				},
 			},
-			["Default.Los Errantes.Striders"] = {
+			["Default.Dun Modr.Blood Pact"] = {
 				["Members"] = {
-					["Pexus"] = {
-						["averageItemLvl"] = 247,
-					},
-					["Zhenya"] = {
-						["averageItemLvl"] = 39,
-					},
-					["Kareitris"] = {
-						["averageItemLvl"] = 208,
-					},
-					["Drublock"] = {
-						["averageItemLvl"] = 16,
+					["Potray"] = {
+						["averageItemLvl"] = 15,
 					},
 				},
 			},

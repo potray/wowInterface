@@ -1,6 +1,6 @@
 local Recount = _G.Recount
 
-local revision = tonumber(string.sub("$Revision: 1254 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1265 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -16,7 +16,6 @@ local PlaySound = PlaySound
 local ColorPickerFrame = ColorPickerFrame
 local OpacitySliderFrame = OpacitySliderFrame
 
-local CUSTOM_CLASS_COLORS = CUSTOM_CLASS_COLORS
 local RAID_CLASS_COLORS = RAID_CLASS_COLORS
 
 local Colors = {}

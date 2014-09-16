@@ -1,0 +1,4 @@
+VER 3 0100000000000001 "Crusader Hammer" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [mod:shift] Hammer of the Righteous; Crusader Strike
+END

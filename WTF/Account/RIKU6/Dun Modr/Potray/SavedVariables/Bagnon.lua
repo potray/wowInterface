@@ -17,6 +17,9 @@ BagnonFrameSettings = {
 			["dataBrokerObject"] = "BankStack",
 		},
 		["bank"] = {
+			["y"] = 449.4999694824219,
+			["point"] = "BOTTOMLEFT",
+			["dataBrokerObject"] = "BankStack",
 		},
 	},
 	["version"] = "5.4.15",

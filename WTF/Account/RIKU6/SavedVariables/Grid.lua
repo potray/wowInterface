@@ -24,66 +24,66 @@ GridDB = {
 		},
 		["GridStatusRange"] = {
 		},
-		["GridStatusVoiceComm"] = {
+		["GridStatusAuras"] = {
 		},
 		["GridStatus"] = {
 			["profiles"] = {
 				["Default"] = {
 					["colors"] = {
-						["HUNTER"] = {
-							["r"] = 0.67,
-							["g"] = 0.83,
-							["b"] = 0.45,
-						},
-						["PALADIN"] = {
-							["r"] = 0.96,
-							["g"] = 0.55,
-							["b"] = 0.73,
+						["SHAMAN"] = {
+							["b"] = 0.87,
+							["g"] = 0.44,
+							["r"] = 0,
 						},
 						["MAGE"] = {
-							["r"] = 0.41,
-							["g"] = 0.8,
 							["b"] = 0.94,
+							["g"] = 0.8,
+							["r"] = 0.41,
 						},
 						["DRUID"] = {
-							["r"] = 1,
-							["g"] = 0.49,
 							["b"] = 0.04,
+							["g"] = 0.49,
+							["r"] = 1,
 						},
 						["MONK"] = {
-							["r"] = 0,
-							["g"] = 1,
 							["b"] = 0.59,
+							["g"] = 1,
+							["r"] = 0,
 						},
 						["DEATHKNIGHT"] = {
-							["r"] = 0.77,
-							["g"] = 0.12,
 							["b"] = 0.23,
+							["g"] = 0.12,
+							["r"] = 0.77,
 						},
 						["PRIEST"] = {
-							["r"] = 1,
-							["g"] = 1,
 							["b"] = 1,
+							["g"] = 1,
+							["r"] = 1,
+						},
+						["PALADIN"] = {
+							["b"] = 0.73,
+							["g"] = 0.55,
+							["r"] = 0.96,
 						},
 						["WARLOCK"] = {
-							["r"] = 0.58,
-							["g"] = 0.51,
 							["b"] = 0.79,
+							["g"] = 0.51,
+							["r"] = 0.58,
+						},
+						["HUNTER"] = {
+							["b"] = 0.45,
+							["g"] = 0.83,
+							["r"] = 0.67,
 						},
 						["WARRIOR"] = {
-							["r"] = 0.78,
-							["g"] = 0.61,
 							["b"] = 0.43,
-						},
-						["SHAMAN"] = {
-							["r"] = 0,
-							["g"] = 0.44,
-							["b"] = 0.87,
+							["g"] = 0.61,
+							["r"] = 0.78,
 						},
 						["ROGUE"] = {
-							["r"] = 1,
-							["g"] = 0.96,
 							["b"] = 0.41,
+							["g"] = 0.96,
+							["r"] = 1,
 						},
 					},
 				},
@@ -91,58 +91,60 @@ GridDB = {
 		},
 		["GridStatusAggro"] = {
 		},
-		["GridStatusHeals"] = {
+		["GridStatusVoiceComm"] = {
 		},
 		["GridStatusReadyCheck"] = {
 		},
-		["GridStatusName"] = {
-		},
-		["GridRoster"] = {
-		},
-		["GridStatusHealth"] = {
+		["GridStatusMana"] = {
 		},
 		["GridLayout"] = {
 			["profiles"] = {
 				["Default"] = {
 					["hideTab"] = true,
-					["anchorRel"] = "TOPLEFT",
+					["backgroundTexture"] = "Solid",
 					["layouts"] = {
 						["solo"] = "By Group 25",
 					},
 					["FrameLock"] = true,
-					["PosX"] = 1171,
+					["Spacing"] = 4,
 					["backgroundColor"] = {
 						["a"] = 1,
-						["r"] = 0.1254901960784314,
-						["g"] = 0,
 						["b"] = 0,
+						["g"] = 0,
+						["r"] = 0.1254901960784314,
 					},
 					["PosY"] = -665,
 					["layout"] = "By Group 25",
 					["borderInset"] = 1,
-					["Spacing"] = 4,
-					["backgroundTexture"] = "Solid",
 					["borderColor"] = {
-						["r"] = 1,
-						["g"] = 0,
 						["b"] = 0.05098039215686274,
+						["g"] = 0,
+						["r"] = 1,
 					},
+					["anchorRel"] = "TOPLEFT",
 					["borderTexture"] = "Blizzard Dialog",
+					["PosX"] = 1171,
 				},
 			},
 		},
-		["GridStatusMana"] = {
+		["GridStatusHealth"] = {
 		},
-		["GridStatusAuras"] = {
+		["GridRoster"] = {
+		},
+		["GridStatusName"] = {
+		},
+		["GridStatusHeals"] = {
 		},
 	},
 	["profileKeys"] = {
+		["Pexuss - Dun Modr"] = "Default",
 		["Drublock - Los Errantes"] = "Default",
 		["Kareitris - Los Errantes"] = "Default",
 		["Potray - Dun Modr"] = "Default",
 		["Zhenya - Los Errantes"] = "Default",
 		["Kobash - Los Errantes"] = "Default",
 		["Kalarankor - Los Errantes"] = "Default",
+		["Ringeki - Dun Modr"] = "Default",
 		["Prason - Los Errantes"] = "Default",
 		["Elrad - Los Errantes"] = "Default",
 		["Pexus - Los Errantes"] = "Default",

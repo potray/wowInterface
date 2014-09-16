@@ -1,10 +1,26 @@
 
 OmniCC4Config = {
+	["groups"] = {
+	},
+	["engine"] = "AniUpdater",
 	["version"] = "5.4.3",
 	["groupSettings"] = {
 		["base"] = {
 			["enabled"] = true,
 			["fontFace"] = "Fonts\\FRIZQT__.TTF",
+			["fontSize"] = 18,
+			["effect"] = "pulse",
+			["scaleText"] = true,
+			["minEffectDuration"] = 30,
+			["minSize"] = 0.5600000000000001,
+			["spiralOpacity"] = 1.009999977424741,
+			["minDuration"] = 2,
+			["xOff"] = 0,
+			["tenthsDuration"] = 0,
+			["fontOutline"] = "OUTLINE",
+			["anchor"] = "TOP",
+			["mmSSDuration"] = 0,
+			["yOff"] = 0,
 			["styles"] = {
 				["soon"] = {
 					["a"] = 1,
@@ -13,12 +29,12 @@ OmniCC4Config = {
 					["g"] = 0.1,
 					["b"] = 0.1,
 				},
-				["minutes"] = {
+				["seconds"] = {
 					["a"] = 1,
 					["r"] = 1,
 					["scale"] = 1.000000007450581,
 					["g"] = 1,
-					["b"] = 1,
+					["b"] = 0.1,
 				},
 				["hours"] = {
 					["a"] = 1,
@@ -34,30 +50,14 @@ OmniCC4Config = {
 					["g"] = 0.98,
 					["b"] = 0.4,
 				},
-				["seconds"] = {
+				["minutes"] = {
 					["a"] = 1,
 					["r"] = 1,
 					["scale"] = 1.000000007450581,
 					["g"] = 1,
-					["b"] = 0.1,
+					["b"] = 1,
 				},
 			},
-			["effect"] = "pulse",
-			["scaleText"] = true,
-			["mmSSDuration"] = 0,
-			["anchor"] = "TOP",
-			["spiralOpacity"] = 1.009999977424741,
-			["minDuration"] = 2,
-			["xOff"] = 0,
-			["tenthsDuration"] = 0,
-			["fontOutline"] = "OUTLINE",
-			["minSize"] = 0.5600000000000001,
-			["minEffectDuration"] = 30,
-			["yOff"] = 0,
-			["fontSize"] = 18,
 		},
-	},
-	["engine"] = "AniUpdater",
-	["groups"] = {
 	},
 }

@@ -5,6 +5,8 @@ AucAdvancedFilterBasic_IgnoreList = {
 		},
 	},
 	["Dun Modr"] = {
+		["Horde"] = {
+		},
 		["Alliance"] = {
 		},
 	},

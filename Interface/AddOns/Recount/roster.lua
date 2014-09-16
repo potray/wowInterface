@@ -1,6 +1,6 @@
 local Recount = _G.Recount
 
-local revision = tonumber(string.sub("$Revision: 1254 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1266 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -9,6 +9,7 @@ local type = type
 
 local GetNumPartyMembers = GetNumPartyMembers or GetNumSubgroupMembers
 local GetNumRaidMembers = GetNumRaidMembers or GetNumGroupMembers
+local IsInRaid = IsInRaid
 local UnitAffectingCombat = UnitAffectingCombat
 local UnitExists = UnitExists
 local UnitGUID = UnitGUID
@@ -16,7 +17,7 @@ local UnitName = UnitName
 
 function Recount:CheckPartyCombatWithPets()
 
-	if GetNumRaidMembers() > 0 then
+	if IsInRaid() and GetNumRaidMembers() > 0 then
 		for i = 1, GetNumRaidMembers() , 1 do -- GetNumRaidMembers() per arrowmaster, raid40 can be set even if there are fewer than 40 people in raid. <- Tested this and this is incorrect.
 			if UnitAffectingCombat("raid"..i) then
 				return true
@@ -27,13 +28,15 @@ function Recount:CheckPartyCombatWithPets()
 		end
 	end
 	
-	for i = 1, GetNumPartyMembers(), 1 do -- If arrow is correct this is not the case and we are good to use GetNumPartyMembers()
+	if not IsInRaid() and GetNumPartyMembers() > 0 then
+		for i = 1, GetNumPartyMembers(), 1 do -- If arrow is correct this is not the case and we are good to use GetNumPartyMembers()
 
-		if UnitAffectingCombat("party"..i) then
-			return true
-		end
-		if UnitAffectingCombat("partypet"..i) then
-			return true
+			if UnitAffectingCombat("party"..i) then
+				return true
+			end
+			if UnitAffectingCombat("partypet"..i) then
+				return true
+			end
 		end
 	end
 	
@@ -75,7 +78,7 @@ function Recount:GetPetPrefixUnit(name, realm)
 		return "player"
 	end
 
-	if GetNumRaidMembers() > 0 then
+	if IsInRaid() and GetNumRaidMembers() > 0 then
 		for i = 1, GetNumRaidMembers(), 1 do -- GetNumRaidMembers() per arrowmaster, raid40 can be set even if there are fewer than 40 people in raid.
 			local unitname, unitrealm = UnitName("raid"..i)
 			if unitname == name and unitrealm == realm then
@@ -148,8 +151,8 @@ function Recount:FindOwnerPetFromGUID(petName, petGUID)
 	end
 
 	if petGUID == UnitGUID("pet") then
-			ownerName = UnitName("player")
-			ownerGUID = UnitGUID("player")
+		ownerName = UnitName("player")
+		ownerGUID = UnitGUID("player")
 		return ownerName, ownerGUID
 	end
 	

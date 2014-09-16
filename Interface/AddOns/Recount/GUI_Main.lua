@@ -6,7 +6,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 local LD = LibStub("LibDropdown-1.0")
 
-local revision = tonumber(string.sub("$Revision: 1260 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1266 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -455,7 +455,9 @@ function me:FixRow(i)
 
 	local LText = row.LeftText:GetText()
 
-	LText = string.gsub(LText, "%-[^|]+", "")
+	if not Recount.db.profile.MainWindow.BarText.ServerName then
+		LText = string.gsub(LText, "%-[^|]+", "")
+	end
 	row.LeftText:SetText(LText)
 	while row.LeftText:GetStringWidth() > MaxNameWidth do
 		LText = string.sub(LText, 1, #LText - 1)

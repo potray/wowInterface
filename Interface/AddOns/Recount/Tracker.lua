@@ -4,7 +4,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 local BossIDs = LibStub("LibBossIDs-1.0")
 
-local revision = tonumber(string.sub("$Revision: 1261 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1269 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -1085,8 +1085,10 @@ function Recount:AddTimeEvent(who, onWho, ability, friendly)
 
 	Adding = math_floor(100 * Adding + 0.5) / 100
 
-	Recount:AddOwnerPetLazySyncAmount(who, "ActiveTime", Adding)
-	--Recount:AddSyncAmount(who, "ActiveTime", Adding)
+	if Recount.db.profile.EnableSync then
+		Recount:AddOwnerPetLazySyncAmount(who, "ActiveTime", Adding)
+		--Recount:AddSyncAmount(who, "ActiveTime", Adding)
+	end
 
 	Recount:AddAmount(who, "ActiveTime", Adding)
 	Recount:AddTableDataSum(who, "TimeSpent", onWho, ability, Adding)
@@ -1704,8 +1706,10 @@ function Recount:AddDamageData(source, victim, ability, element, hittype, damage
 
 				--Alright now if there was a friendly damage done or not decides where this data goes for the source
 				if not FriendlyFire then
-					Recount:AddOwnerPetLazySyncAmount(sourceData, "Damage", damage)
-					--Recount:AddSyncAmount(sourceData, "Damage", damage)
+					if Recount.db.profile.EnableSync then
+						Recount:AddOwnerPetLazySyncAmount(sourceData, "Damage", damage)
+						--Recount:AddSyncAmount(sourceData, "Damage", damage)
+					end
 					Recount:AddAmount(sourceData, "Damage", damage)
 					local newhittype = hittype
 					if blocked then
@@ -1714,8 +1718,10 @@ function Recount:AddDamageData(source, victim, ability, element, hittype, damage
 					Recount:AddTableDataStats(sourceData, "Attacks", ability, newhittype, damage)
 					Recount:AddAmount2(sourceData, "ElementDone", element, damage)
 				else
-					--Recount:AddOwnerPetLazySyncAmount(sourceData, "FDamage", damage) -- We don't currently sync friendly damage
-					--Recount:AddSyncAmount(sourceData, "FDamage", damage)
+					if Recount.db.profile.EnableSync then
+						--Recount:AddOwnerPetLazySyncAmount(sourceData, "FDamage", damage) -- We don't currently sync friendly damage
+						--Recount:AddSyncAmount(sourceData, "FDamage", damage)
+					end
 					Recount:AddAmount(sourceData, "FDamage", damage)
 					Recount:AddTableDataStats(sourceData, "FAttacks", ability, hittype, damage)
 					Recount:AddTableDataSum(sourceData, "FDamagedWho", victim, ability, damage)
@@ -1815,8 +1821,10 @@ function Recount:AddDamageData(source, victim, ability, element, hittype, damage
 				Recount:AddTableDataSum(victimData, "WhoDamaged", source, ability, damage)
 
 				--Sync Data
-				Recount:AddOwnerPetLazySyncAmount(victimData, "DamageTaken", damage)
-				--Recount:AddSyncAmount(victimData, "DamageTaken", damage)
+				if Recount.db.profile.EnableSync then
+					Recount:AddOwnerPetLazySyncAmount(victimData, "DamageTaken", damage)
+					--Recount:AddSyncAmount(victimData, "DamageTaken", damage)
+				end
 
 				Recount:AddAmount2(victimData, "ElementTaken", element, damage)
 
@@ -1978,9 +1986,11 @@ function Recount:AddHealData(source, victim, ability, healtype, amount, overheal
 		if srcRetention and sourceData then
 
 			sourceData.LastFightIn = Recount.db2.FightNum
-			
-			Recount:AddOwnerPetLazySyncAmount(sourceData, "Healing", amount)
-			Recount:AddOwnerPetLazySyncAmount(sourceData, "Overhealing", overheal)
+
+			if Recount.db.profile.EnableSync then
+				Recount:AddOwnerPetLazySyncAmount(sourceData, "Healing", amount)
+				Recount:AddOwnerPetLazySyncAmount(sourceData, "Overhealing", overheal)
+			end
 
 			--Tracking for passing data to other functions
 			if Tracking["HEALING"] then
@@ -2036,7 +2046,9 @@ function Recount:AddHealData(source, victim, ability, healtype, amount, overheal
 			VictimUnit = Recount:FindUnit(victim)
 			victimData.unit = VictimUnit
 		end]]
-		Recount:AddOwnerPetLazySyncAmount(victimData, "HealingTaken", amount)
+		if Recount.db.profile.EnableSync then
+			Recount:AddOwnerPetLazySyncAmount(victimData, "HealingTaken", amount)
+		end
 
 		if Tracking["HEALINGTAKEN"] then
 			if Tracking["HEALINGTAKEN"][victim] then
