@@ -41,4 +41,6 @@ bind CTRL-SHIFT-< CLICK BT4Button43:LeftButton
 bind CTRL-SHIFT-ç CLICK BT4Button74:LeftButton
 bind SHIFT-E CLICK BT4Button99:LeftButton
 bind SHIFT-Q CLICK BT4Button43:LeftButton
+bind ALT-CTRL-SHIFT-1 CLICK BT4Button85:LeftButton
+bind CTRL-SHIFT-2 CLICK BT4Button14:LeftButton
 modifiedclick NONE SELFCAST

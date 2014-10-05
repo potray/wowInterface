@@ -1,4 +1,8 @@
-VER 3 0100000000000001 "Crusader Hammer" "INV_MISC_QUESTIONMARK"
+VER 3 0100000000000003 "Single Target" "INV_MISC_QUESTIONMARK"
+/cast Seal of Truth
+/swapactionbars 1 6
+END
+VER 3 0100000000000002 "Templar's Storm" "INV_MISC_QUESTIONMARK"
 #showtooltip
-/cast [mod:shift] Hammer of the Righteous; Crusader Strike
+/cast [mod:shift]Divine Storm; Templar's Verdict
 END

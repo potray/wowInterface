@@ -1,30 +1,44 @@
 
 AucAdvancedConfig = {
+	["users.Dun Modr.Potray"] = "Default",
+	["version"] = 1,
 	["profile.Default"] = {
-		["core"] = {
-			["matcher"] = {
-				["matcherlist"] = {
-					"Undercut", -- [1]
-					"BeanCount", -- [2]
-				},
+		["configator.left"] = 759.0000610351563,
+		["match"] = {
+			["undercut"] = {
+				["usevalue"] = true,
+			},
+			["undermarket"] = {
+				["undermarket"] = -10,
+				["overmarket"] = 100,
+				["undercut"] = 0,
 			},
 		},
 		["util"] = {
 			["appraiser"] = {
-				["columnsortcurSort"] = 6,
-				["columnsortcurDir"] = -1,
-				["item.2835.bulk"] = true,
-				["item.3609.match"] = false,
-				["item.3609.bulk"] = true,
+				["item.12713.model"] = "fixed",
+				["item.12713.match"] = false,
 				["item.2835.stack"] = 5,
+				["item.2838.match"] = true,
+				["item.13004.model"] = "market",
+				["item.3609.bulk"] = true,
+				["item.12713.fixed.buy"] = 991999,
+				["columnsortcurSort"] = 6,
+				["item.12203.match"] = false,
+				["item.2835.bulk"] = true,
+				["item.7974.stack"] = 10,
+				["columnsortcurDir"] = -1,
+				["item.3609.match"] = false,
+				["bid.markdown"] = 0,
+				["item.12713.fixed.bid"] = 932479,
 			},
 			["mover"] = {
 				["anchors"] = {
-					"TOPLEFT", -- [1]
+					"LEFT", -- [1]
 					nil, -- [2]
-					"TOPLEFT", -- [3]
-					17.00000762939453, -- [4]
-					-117.0000228881836, -- [5]
+					"LEFT", -- [3]
+					142.9998016357422, -- [4]
+					98.49998474121094, -- [5]
 				},
 			},
 			["automagic"] = {
@@ -36,15 +50,22 @@ AucAdvancedConfig = {
 			["pricelevel"] = {
 			},
 		},
+		["core"] = {
+			["matcher"] = {
+				["matcherlist"] = {
+					"Undercut", -- [1]
+					"BeanCount", -- [2]
+				},
+			},
+		},
 		["stat"] = {
 			["sales"] = {
 				["ignoredsigs"] = {
 				},
 			},
 		},
+		["configator.top"] = 743,
 	},
-	["users.Dun Modr.Potray"] = "Default",
-	["version"] = 1,
 }
 AucAdvancedData = {
 	["AserArbitrageRealms"] = {
@@ -56,6 +77,9 @@ AucAdvancedData = {
 	["UtilSearchUiData"] = {
 		["Version"] = 1,
 		["Current"] = {
+			["columnsortcurDir"] = 1,
+			["general.name"] = "netherweave bag",
+			["columnsortcurSort"] = 5,
 			["snatch.itemsList"] = {
 			},
 		},

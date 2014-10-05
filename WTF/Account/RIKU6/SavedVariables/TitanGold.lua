@@ -8,7 +8,7 @@ GoldSave = {
 	["Potray_Dun Modr::Alliance"] = {
 		["show"] = true,
 		["name"] = "Potray",
-		["gold"] = 33655,
+		["gold"] = 10482964,
 	},
 	["Ringeki_Dun Modr::Alliance"] = {
 		["show"] = true,

@@ -33,14 +33,19 @@ Prat3DB = {
 		["Prat_Editbox"] = {
 			["profiles"] = {
 				["Default"] = {
+					["edgeSize"] = 16,
 					["attach"] = "TOP",
-					["tileSize"] = 10,
+					["border"] = "Blizzard Dialog",
+					["background"] = "Blizzard ChatFrame Background",
 					["borderColor"] = {
 						["g"] = 0,
-						["b"] = 0,
+						["b"] = 0.07450980392156863,
 					},
+					["colorByChannel"] = false,
+					["inset"] = 4,
 					["backgroundColor"] = {
-						["r"] = 0.2117647058823529,
+						["g"] = 0.00392156862745098,
+						["r"] = 0.1098039215686275,
 					},
 				},
 			},

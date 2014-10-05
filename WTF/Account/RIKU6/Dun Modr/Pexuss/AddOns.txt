@@ -1,5 +1,5 @@
-Skinner: disabled
-Postal: disabled
+Skinner: enabled
+Postal: enabled
 SatrinaBuffFrame: disabled
 SBFOptions: disabled
 TidyPlates: enabled

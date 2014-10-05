@@ -1,10 +1,12 @@
 
 _NPCScanOptionsCharacter = {
 	["AchievementsAddFound"] = true,
+	["PrintTime"] = true,
 	["FlightSupress"] = true,
 	["TrackMouseover"] = true,
 	["AlertScreenEdgeFlash"] = true,
 	["Version"] = 3,
+	["TargetIcon"] = 8,
 	["TrackRares"] = true,
 	["TrackBeasts"] = true,
 	["Achievements"] = {
@@ -15,5 +17,4 @@ _NPCScanOptionsCharacter = {
 		[7439] = true,
 		[8714] = true,
 	},
-	["TargetIcon"] = 8,
 }

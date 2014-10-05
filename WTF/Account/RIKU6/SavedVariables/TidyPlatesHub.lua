@@ -131,15 +131,15 @@ TidyPlatesHubGlobal = {
 		["g"] = 1,
 		["r"] = 0,
 	},
+	["WidgetAuraTrackDispelFriendly"] = false,
 	["UnitSpotlightOpacity"] = 1,
-	["OpacityFilterList"] = "Fanged Pit Viper",
 	["TextHealthTextMode"] = 1,
 	["ColorEnemyBarMode"] = 1,
 	["HeadlineFriendlyColor"] = 4,
 	["WidgetsDebuffPriority"] = {
 	},
 	["ScaleStandard"] = 1,
-	["WidgetAuraTrackDispelFriendly"] = false,
+	["OpacityFilterList"] = "Fanged Pit Viper",
 	["ColorHostilePlayer"] = {
 		["b"] = 0,
 		["g"] = 0,

@@ -1,0 +1,21 @@
+BlizzardError.exe
+Cache/
+Data/
+Utils/
+Logs/Sound.log
+Logs/
+Launcher.db
+Microsoft.VC80.CRT.manifest
+MovieProxy.exe
+Scan-64.dll
+SetupWin.mpq
+SystemSurvey.exe
+Updates/wow-0-18414-Win-final.MPQ
+WoW.mfil
+WoW.pfil
+WoW.tfil
+World of Warcraft Launcher.exe
+Wow-64.exe
+Wow.exe
+dbghelp.dll
+divxdecoder.dll

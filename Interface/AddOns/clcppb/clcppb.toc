@@ -1,0 +1,16 @@
+## Interface: 50400
+## Title: clcPaladinPowerBar
+## Author: clc
+## SavedVariables: clcppbDB
+## X-Curse-Packaged-Version: v.1.5.40.001
+## X-Curse-Project-Name: clcPaladinPowerBar
+## X-Curse-Project-ID: clcppb
+## X-Curse-Repository-ID: wow/clcppb/mainline
+
+#@no-lib-strip@
+embeds.xml
+#@end-no-lib-strip@
+
+ppbar.xml
+core.lua
+options.lua

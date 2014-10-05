@@ -17,6 +17,11 @@ Quartz3DB = {
 			},
 		},
 		["Buff"] = {
+			["profiles"] = {
+				["Default"] = {
+					["bufftexture"] = "Blizzard",
+				},
+			},
 		},
 		["Interrupt"] = {
 		},
@@ -27,6 +32,7 @@ Quartz3DB = {
 				["Default"] = {
 					["x"] = 726.0004272460938,
 					["y"] = 286.0000915527344,
+					["texture"] = "Blizzard",
 				},
 			},
 		},
@@ -39,7 +45,6 @@ Quartz3DB = {
 					["font"] = "Arial Narrow",
 					["border"] = "Blizzard Dialog",
 					["x"] = 728,
-					["texture"] = "Runes",
 				},
 			},
 		},
@@ -67,7 +72,7 @@ Quartz3DB = {
 				["Default"] = {
 					["y"] = 243.9999084472656,
 					["border"] = "Blizzard Dialog",
-					["texture"] = "Runes",
+					["texture"] = "Blizzard",
 					["x"] = 518.9995727539063,
 				},
 			},
@@ -80,12 +85,17 @@ Quartz3DB = {
 					["y"] = 165,
 					["x"] = 965,
 					["border"] = "Blizzard Dialog",
-					["texture"] = "Runes",
+					["texture"] = "Blizzard",
 					["font"] = "Arial Narrow",
 				},
 			},
 		},
 		["Mirror"] = {
+			["profiles"] = {
+				["Default"] = {
+					["mirrortexture"] = "Blizzard",
+				},
+			},
 		},
 		["Range"] = {
 		},
@@ -107,6 +117,15 @@ Quartz3DB = {
 	},
 	["profiles"] = {
 		["Default"] = {
+			["bordercolor"] = {
+				1, -- [1]
+				nil, -- [2]
+				0.07450980392156863, -- [3]
+			},
+			["backgroundcolor"] = {
+				0.1098039215686275, -- [1]
+				0.00392156862745098, -- [2]
+			},
 		},
 	},
 }

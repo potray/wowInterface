@@ -127,7 +127,7 @@ DataStore_AgendaDB = {
 				["lastUpdate"] = 1410628407,
 			},
 			["Default.Dun Modr.Potray"] = {
-				["lastUpdate"] = 1410774733,
+				["lastUpdate"] = 1412504977,
 			},
 		},
 	},

@@ -1,3 +1,7 @@
+VER 3 0000000000000006 "Audio On/Off" "Ability_Druid_Berserk"
+/run Sound_ToggleSound()
+/run Sound_ToggleMusic()
+END
 VER 3 0000000000000002 "BigBrother" "Spell_unused2"
 /bigbrother quickcheck self
 END

@@ -1340,10 +1340,10 @@ SexyMap2DB = {
 			},
 			["dragPositions"] = {
 				["LibDBIcon10_Bartender4"] = 182.9682439801737,
-				["LibDBIcon10_AtlasLoot"] = -9.824541009631121,
-				["LibDBIcon10_Grid"] = -24.65745401559063,
-				["MiniMapTracking"] = 133.8882911351995,
 				["EnxMiniMapIcon"] = 171.6093917272257,
+				["LibDBIcon10_AtlasLoot"] = -9.824541009631121,
+				["MiniMapTracking"] = 133.8882911351995,
+				["LibDBIcon10_Grid"] = -24.65745401559063,
 				["LibDBIcon10_BankStack"] = 143.5465051238768,
 				["Gatherer_MinimapOptionsButton"] = 198.8056774726441,
 			},

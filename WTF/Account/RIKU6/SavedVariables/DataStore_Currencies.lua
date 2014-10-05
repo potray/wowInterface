@@ -33,8 +33,8 @@ DataStore_CurrenciesDB = {
 				["Ironpaw Token"] = 13,
 				["Epicurean's Award"] = 12,
 				["Honor Points"] = 7,
-				["Miscellaneous"] = 3,
 				["Illustrious Jewelcrafter's Token"] = 9,
+				["Conquest Points"] = 6,
 				["Dalaran Jewelcrafter's Token"] = 11,
 				["Champion's Seal"] = 4,
 				["Valor Points"] = 10,
@@ -42,7 +42,7 @@ DataStore_CurrenciesDB = {
 				["Justice Points"] = 2,
 				["Dungeon and Raid"] = 1,
 				["Player vs. Player"] = 5,
-				["Conquest Points"] = 6,
+				["Miscellaneous"] = 3,
 			},
 		},
 		["Characters"] = {
@@ -222,28 +222,31 @@ DataStore_CurrenciesDB = {
 			},
 			["Default.Dun Modr.Potray"] = {
 				["Currencies"] = {
-					11, -- [1]
-					12, -- [2]
+					7, -- [1]
+					152, -- [2]
+					11, -- [3]
+					12, -- [4]
+					4622, -- [5]
 				},
 				["Archeology"] = {
-					0, -- [1]
+					4, -- [1]
 					0, -- [2]
-					0, -- [3]
-					13, -- [4]
+					13, -- [3]
+					24, -- [4]
 					0, -- [5]
-					0, -- [6]
+					44, -- [6]
 					0, -- [7]
-					0, -- [8]
+					84, -- [8]
 					0, -- [9]
 					0, -- [10]
 					0, -- [11]
 					0, -- [12]
 					0, -- [13]
 				},
-				["lastUpdate"] = 1410778044,
+				["lastUpdate"] = 1412504977,
 				["CurrencyInfo"] = {
-					[392] = "0-0-0-0",
-					[390] = "0-0-30200-0",
+					[392] = "36-0-0-4000",
+					[390] = "0-0-33200-0",
 					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
 				},

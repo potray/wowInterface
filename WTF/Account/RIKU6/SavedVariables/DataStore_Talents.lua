@@ -565,63 +565,69 @@ DataStore_TalentsDB = {
 			},
 			["Default.Dun Modr.Potray"] = {
 				["Talents2"] = 0,
-				["Talents1"] = 8,
+				["Talents1"] = 4208,
 				["ActiveTalents"] = 1,
 				["Glyphs"] = {
-					4, -- [1]
-					2, -- [2]
-					1048580, -- [3]
-					1048578, -- [4]
+					8288872173, -- [1]
+					1535554643, -- [2]
+					1048581, -- [3]
+					1048579, -- [4]
 					2097156, -- [5]
 					2097154, -- [6]
+					5, -- [7]
+					3, -- [8]
+					1048581, -- [9]
+					1048579, -- [10]
+					2097156, -- [11]
+					2097154, -- [12]
 				},
-				["lastUpdate"] = 1410778044,
+				["lastUpdate"] = 1412504977,
 				["Class"] = "PALADIN",
 				["GlyphList"] = {
 					11, -- [1]
-					11266, -- [2]
-					3010, -- [3]
-					15938, -- [4]
-					11218, -- [5]
-					3202, -- [6]
-					3090, -- [7]
-					3074, -- [8]
-					3026, -- [9]
-					8962, -- [10]
-					8946, -- [11]
-					2946, -- [12]
-					11282, -- [13]
-					2978, -- [14]
-					17074, -- [15]
-					11250, -- [16]
-					3170, -- [17]
-					2930, -- [18]
-					3106, -- [19]
-					7282, -- [20]
-					3058, -- [21]
-					11234, -- [22]
-					17090, -- [23]
-					3154, -- [24]
-					11298, -- [25]
-					2962, -- [26]
-					3138, -- [27]
-					8978, -- [28]
-					11314, -- [29]
-					3186, -- [30]
-					16146, -- [31]
+					2938, -- [2]
+					11322, -- [3]
+					16154, -- [4]
+					11266, -- [5]
+					3010, -- [6]
+					15938, -- [7]
+					11218, -- [8]
+					3202, -- [9]
+					3090, -- [10]
+					3074, -- [11]
+					3026, -- [12]
+					8962, -- [13]
+					8946, -- [14]
+					2946, -- [15]
+					11282, -- [16]
+					2978, -- [17]
+					17074, -- [18]
+					11250, -- [19]
+					3170, -- [20]
+					3106, -- [21]
+					7282, -- [22]
+					3058, -- [23]
+					11234, -- [24]
+					17090, -- [25]
+					3154, -- [26]
+					11298, -- [27]
+					2962, -- [28]
+					3138, -- [29]
+					8978, -- [30]
+					3186, -- [31]
 					14882, -- [32]
 					2994, -- [33]
 					3122, -- [34]
 					13, -- [35]
-					15828, -- [36]
-					7236, -- [37]
-					17316, -- [38]
-					15796, -- [39]
-					7316, -- [40]
-					15780, -- [41]
-					3044, -- [42]
-					17332, -- [43]
-					15812, -- [44]
+					15820, -- [36]
+					15828, -- [37]
+					7236, -- [38]
+					17316, -- [39]
+					15796, -- [40]
+					7316, -- [41]
+					15780, -- [42]
+					3044, -- [43]
+					17332, -- [44]
 					7300, -- [45]
 					7252, -- [46]
 					7268, -- [47]
@@ -930,7 +936,6 @@ DataStore_TalentsRefDB = {
 	["global"] = {
 		["HUNTER"] = {
 			["Locale"] = "enUS",
-			["Version"] = 18414,
 			["Talents"] = {
 				"19354|Posthaste|ability_hunter_posthaste|1|1", -- [1]
 				"19363|Narrow Escape|INV_Misc_Web_01|1|2", -- [2]
@@ -951,10 +956,10 @@ DataStore_TalentsRefDB = {
 				"19358|Powershot|ability_hunter_resistanceisfutile|6|2", -- [17]
 				"19349|Barrage|Ability_Hunter_RapidRegeneration|6|3", -- [18]
 			},
+			["Version"] = 18414,
 		},
 		["WARLOCK"] = {
 			["Locale"] = "enUS",
-			["Version"] = 18414,
 			["Talents"] = {
 				"19279|Dark Regeneration|spell_warlock_darkregeneration|1|1", -- [1]
 				"19280|Soul Leech|warlock_siphonlife|1|2", -- [2]
@@ -975,10 +980,10 @@ DataStore_TalentsRefDB = {
 				"19297|Kil'jaeden's Cunning|Achievement_Boss_Kiljaedan|6|2", -- [17]
 				"19298|Mannoroth's Fury|Achievement_Boss_Magtheridon|6|3", -- [18]
 			},
+			["Version"] = 18414,
 		},
 		["PALADIN"] = {
 			["Locale"] = "enUS",
-			["Version"] = 18414,
 			["Talents"] = {
 				"17565|Speed of Light|ability_paladin_speedoflight|1|1", -- [1]
 				"17567|Long Arm of the Law|ability_paladin_longarmofthelaw|1|2", -- [2]
@@ -999,10 +1004,10 @@ DataStore_TalentsRefDB = {
 				"17607|Light's Hammer|spell_paladin_lightshammer|6|2", -- [17]
 				"17609|Execution Sentence|spell_paladin_executionsentence|6|3", -- [18]
 			},
+			["Version"] = 18414,
 		},
 		["MAGE"] = {
 			["Locale"] = "enUS",
-			["Version"] = 18414,
 			["Talents"] = {
 				"16011|Presence of Mind|Spell_Nature_EnchantArmor|1|1", -- [1]
 				"16012|Blazing Speed|Spell_Fire_BurningSpeed|1|2", -- [2]
@@ -1023,10 +1028,10 @@ DataStore_TalentsRefDB = {
 				"16032|Rune of Power|spell_mage_runeofpower|6|2", -- [17]
 				"16033|Incanter's Ward|Spell_Shadow_DetectLesserInvisibility|6|3", -- [18]
 			},
+			["Version"] = 18414,
 		},
 		["DRUID"] = {
 			["Locale"] = "enUS",
-			["Version"] = 18414,
 			["Talents"] = {
 				"18569|Feline Swiftness|spell_druid_tirelesspursuit|1|1", -- [1]
 				"18570|Displacer Beast|spell_druid_displacement|1|2", -- [2]
@@ -1047,10 +1052,10 @@ DataStore_TalentsRefDB = {
 				"18585|Dream of Cenarius|Ability_Druid_Dreamstate|6|2", -- [17]
 				"18586|Nature's Vigil|Achievement_Zone_Feralas|6|3", -- [18]
 			},
+			["Version"] = 18414,
 		},
 		["DEATHKNIGHT"] = {
 			["Locale"] = "enUS",
-			["Version"] = 18414,
 			["Talents"] = {
 				"19165|Roiling Blood|ability_deathknight_roilingblood|1|1", -- [1]
 				"19166|Plague Leech|Ability_Creature_Disease_02|1|2", -- [2]
@@ -1071,10 +1076,10 @@ DataStore_TalentsRefDB = {
 				"19231|Remorseless Winter|ability_deathknight_remorselesswinters2|6|2", -- [17]
 				"19232|Desecrated Ground|ability_deathknight_desecratedground|6|3", -- [18]
 			},
+			["Version"] = 18414,
 		},
 		["SHAMAN"] = {
 			["Locale"] = "enUS",
-			["Version"] = 18414,
 			["Talents"] = {
 				"19262|Nature's Guardian|Spell_Nature_NatureGuardian|1|1", -- [1]
 				"19263|Stone Bulwark Totem|ability_shaman_stonebulwark|1|2", -- [2]
@@ -1095,6 +1100,7 @@ DataStore_TalentsRefDB = {
 				"19266|Primal Elementalist|shaman_talent_primalelementalist|6|2", -- [17]
 				"19267|Elemental Blast|shaman_talent_elementalblast|6|3", -- [18]
 			},
+			["Version"] = 18414,
 		},
 	},
 }

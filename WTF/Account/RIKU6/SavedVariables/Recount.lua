@@ -133,7 +133,7 @@ RecountDB = {
 			["DetailWindowX"] = 0,
 			["GraphWindowX"] = 0,
 			["Locked"] = true,
-			["BarTextColorSwap"] = false,
+			["LastInstanceName"] = "Blackrock Spire",
 			["RealtimeWindows"] = {
 				["Realtime_FPS_FPS"] = {
 					"FPS", -- [1]
@@ -157,6 +157,7 @@ RecountDB = {
 				},
 			},
 			["CurDataSet"] = "OverallData",
+			["BarTextColorSwap"] = false,
 			["MainWindowWidth"] = 151.9999389648438,
 			["MainWindowHeight"] = 158.9998779296875,
 		},

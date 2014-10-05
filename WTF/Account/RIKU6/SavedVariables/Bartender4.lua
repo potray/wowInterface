@@ -216,6 +216,12 @@ Bartender4DB = {
 								["scale"] = 0.800000011920929,
 							},
 							["padding"] = 1,
+							["states"] = {
+								["customEnabled"] = false,
+								["default"] = 1,
+								["actionbar"] = true,
+								["custom"] = "local s = GetShapeshiftForm();\n[s:1]1;2",
+							},
 						}, -- [1]
 						{
 							["showgrid"] = true,
@@ -248,7 +254,7 @@ Bartender4DB = {
 							["version"] = 3,
 							["position"] = {
 								["y"] = 99,
-								["x"] = 167,
+								["x"] = 169,
 								["point"] = "BOTTOM",
 								["scale"] = 1.3,
 								["growHorizontal"] = "LEFT",
@@ -262,7 +268,7 @@ Bartender4DB = {
 							["version"] = 3,
 							["position"] = {
 								["y"] = 99,
-								["x"] = -165,
+								["x"] = -167,
 								["point"] = "BOTTOM",
 								["scale"] = 1.3,
 							},
@@ -306,7 +312,14 @@ Bartender4DB = {
 							},
 							["padding"] = 1,
 						}, -- [8]
-						nil, -- [9]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -105.7887878417969,
+								["x"] = -467.9446868896484,
+								["point"] = "CENTER",
+							},
+						}, -- [9]
 						{
 						}, -- [10]
 					},
@@ -1224,10 +1237,11 @@ Bartender4DB = {
 					},
 				},
 				["Potray - Dun Modr"] = {
+					["rows"] = 3,
 					["position"] = {
-						["y"] = 184.52783203125,
-						["x"] = -282.9014892578125,
-						["point"] = "BOTTOMRIGHT",
+						["y"] = 99,
+						["x"] = -208,
+						["point"] = "BOTTOM",
 						["scale"] = 1,
 					},
 					["version"] = 3,

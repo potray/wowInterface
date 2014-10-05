@@ -1,5 +1,6 @@
 
 _NPCScanOptions = {
+	["PersistentToast"] = true,
 	["NPCs"] = {
 		[64004] = "Ghostly Pandaren Fisherman",
 		[50410] = "Mysterious Camel Figurine",
@@ -14,6 +15,7 @@ _NPCScanOptions = {
 		["WorldID"] = {
 		},
 	},
+	["ShowAlertAsToast"] = false,
 	["CacheWarnings"] = true,
 	["Version"] = 3,
 	["NPCWorldIDs"] = {
