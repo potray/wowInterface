@@ -19,4 +19,24 @@ SpellFlashAddonConfig = {
 			},
 		},
 	},
+	["REALM"] = {
+		["Los Errantes"] = {
+			["PLAYER"] = {
+				["Elrad"] = {
+					["MODULE"] = {
+					},
+				},
+			},
+		},
+		["Dun Modr"] = {
+			["PLAYER"] = {
+				["Potray"] = {
+					["MODULE"] = {
+						["BittensSpellFlash_Pally"] = {
+						},
+					},
+				},
+			},
+		},
+	},
 }

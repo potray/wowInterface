@@ -1,5 +1,4 @@
 local _, Addon = ...
-local Breeds = LibStub('LibPetBreedInfo-1.0')
 local Pet = setmetatable(Addon:NewModule('TamerPet'), Addon.Specie)
 local Tamer = Addon:NewModule('Tamer')
 
@@ -44,11 +43,10 @@ end
 --[[ API ]]--
 
 function Tamer:Display()
-	local _,_,_, enabled = GetAddOnInfo('PetTracker_Journal')
-	if enabled then
+	if GetAddOnEnableState(UnitName('player'), 'PetTracker_Journal') >= 2 then
 		PetJournal_LoadUI()
 		ShowUIPanel(PetJournalParent)
-		PetJournalParent_SetTab(PetJournalParent, 3)
+		PetJournalParent_SetTab(PetJournalParent, 4)
 		PetTrackerTamerJournal:SetTamer(self)
 	end
 end
@@ -56,6 +54,10 @@ end
 function Tamer:GetZoneTitle()
 	local name = GetMapNameByID(self.zone)
 	local continent = Addon.ContinentByZone[name]
+	if continent == 'Draenor' and self:GetLevel() < 25 then
+		continent = 'Outland'
+	end
+
 	return name .. (continent and (', ' .. continent) or '')
 end
 
@@ -144,11 +146,11 @@ end
 --[[ Pets ]]--
 
 function Pet:GetStats()
-	return Breeds:GetPetPredictedStats(self.Specie, self:GetBreed(), self.Quality, self.Level)
+	return Addon.Predict:Stats(self.Specie, self.Level, self.Quality, self:GetBreed())
 end
 
 function Pet:GetBreed()
-	return Breeds:GetAvailableBreeds(self.Specie)[1]
+	return Addon.Breeds[self.Specie][1]
 end
 
 function Pet:GetAbility(i)

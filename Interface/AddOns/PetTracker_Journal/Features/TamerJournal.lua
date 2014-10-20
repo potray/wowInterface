@@ -33,7 +33,7 @@ function Journal:Startup()
 	self:SetScript('OnShow', nil)
 	self.List.scrollBar.doNotHide = true
 	self.Count.Number:SetText(#Addon.TamerOrder)
-	self.SearchBox:SetText(Addon.Sets.TamerSearch or SEARCH)
+	self.SearchBox:SetText(Addon.Sets.TamerSearch or '')
 	self.SearchBox:SetScript('OnTextChanged', self.Search)
 
 	self.Tab1.tip = TEAM
@@ -66,7 +66,7 @@ function Journal:Startup()
 	for i = 1, 4 do
 		local loot = CreateFrame('Button', '$parentLoot' .. i, self.Card, 'PetTrackerReward')
 		loot:SetPoint('TOPRIGHT', -58 + 45 * (i % 2), - 45 * ceil(i/2))
-		loot.count:Show()
+		loot.Count:Show()
 
 		self.Card[i] = loot
 	end
@@ -87,7 +87,8 @@ end
 --[[ Events ]]--
 
 function Journal:Search()
-	Addon.Sets.TamerSearch = self:GetText() ~= SEARCH and self:GetText() or nil
+	Addon.Sets.TamerSearch = self:GetText()
+	self.Instructions:SetShown(self:GetText() == '')
 	self:GetParent().List:update()
 end
 
@@ -212,7 +213,7 @@ function Journal.Card:Display(tamer)
 			local slot = self[i]
 			slot.icon:SetTexture(loot.icon)
 			slot.icon:SetDesaturated(completed)
-			slot.count:SetText(loot.count)
+			slot.Count:SetText(loot.count)
 			slot.link = loot.link
 			slot:Show()
 		end
@@ -221,7 +222,7 @@ function Journal.Card:Display(tamer)
 			local slot = self[#rewards+1]
 			slot.icon:SetTexture('Interface/icons/inv_misc_coin_01')
 			slot.icon:SetDesaturated(completed)
-			slot.count:SetText(tamer.gold)
+			slot.Count:SetText(tamer.gold)
 			slot.link = nil
 			slot:Show()
 		end
@@ -271,8 +272,8 @@ end
 --[[ Start this Baby ]]--
 
 local function Startup()
-	Tabs:Startup(PetJournalParent, MountJournal, PetJournal)
-	Tabs:Add(PetJournalParent, Journal, 'Rivals')
+	Tabs:Startup(PetJournalParent, MountJournal, PetJournal, ToyBox)
+	Tabs:Add(PetJournalParent, Journal, L.Rivals)
 	Journal:SetScript('OnShow', Journal.Startup)
 end
 

@@ -1,0 +1,27 @@
+
+NXQuest = {
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["QuestOpts"] = {
+				["NXWHideDist"] = 20000,
+				["NXWPriGroup"] = -100,
+				["NXWPriLevel"] = 20,
+				["NXWPriComplete"] = 50,
+				["NXShowHeaders"] = true,
+				["NXWPriDist"] = 1,
+				["NXWHideNotInZone"] = false,
+				["NXWHideGroup"] = false,
+				["NXSortWatchMode"] = 1,
+				["NXWWatchParty"] = true,
+				["NXWHideUnfinished"] = false,
+				["NXWShowOnMap"] = true,
+				["NXWHideNotInCont"] = false,
+				["Version"] = 0.12,
+				["NXWVisMax"] = 8,
+			},
+		},
+	},
+}

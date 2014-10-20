@@ -442,4 +442,4 @@ function private.EBMessage(messageString)
 	print(messageString)
 end
 
-AucAdvanced.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.20/Auc-Util-EasyBuyout/EasyBuyout.lua $", "$Rev: 5458 $")
+AucAdvanced.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21a/Auc-Util-EasyBuyout/EasyBuyout.lua $", "$Rev: 5458 $")

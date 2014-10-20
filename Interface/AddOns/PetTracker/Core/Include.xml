@@ -3,6 +3,7 @@
 	<Script file="Static.lua"/>
 
 	<Script file="Filters.lua"/>
+	<Script file="Predict.lua"/>
 	<Script file="Compare.lua"/>
 
 	<Script file="Journal.lua"/>

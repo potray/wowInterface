@@ -1,6 +1,6 @@
 --[[
 	Auctioneer
-	Version: 5.20.5464 (RidiculousRockrat)
+	Version: 5.21.5490 (SanctimoniousSwamprat)
 	Revision: $Id: CoreResources.lua 5285 2012-04-17 15:45:55Z brykrys $
 	URL: http://auctioneeraddon.com/
 
@@ -99,7 +99,7 @@ AucAdvanced.Resources = lib
 --[[ Faction handlers ]]--
 local function UpdateServerKey()
 	local factionSelect
-	if lib.AuctionHouseOpen or not GetSetting("core.general.alwaysHomeFaction") then
+	if AucAdvanced.HYBRID5 and (lib.AuctionHouseOpen or not GetSetting("core.general.alwaysHomeFaction")) then
 		local currentZone = GetZoneText()
 		factionSelect = ZoneFactionCache[currentZone]
 		if not factionSelect then

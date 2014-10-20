@@ -25,8 +25,8 @@ function Menus:Startup()
 		Addon:ForAllModules('AddOptions', self)
 	end)
 
-	local FAQ = self:CreatePanel('FAQ', ADDON)
-	FAQ:SetChildren(function(self)
+	local Help = self:CreatePanel(HELP_LABEL, ADDON)
+	Help:SetChildren(function(self)
 		for i = 1, #Questions, 2 do
 			local question = self:CreateChild('Header')
 			question:SetWidth(400)
@@ -40,9 +40,9 @@ function Menus:Startup()
 		end
 	end)
 
-	local ShowTutorial = SushiButton(FAQ)
+	local ShowTutorial = SushiButton(Help)
 	ShowTutorial:SetText(RESET_TUTORIALS)
-	ShowTutorial:SetPoint('LEFT', FAQ, 'TOP', 170, -70)
+	ShowTutorial:SetPoint('LEFT', Help, 'TOP', 170, -70)
 	ShowTutorial:SetCall('OnClick', function()
 		Addon.Tutorial:Restart()
 		HideUIPanel(InterfaceOptionsFrame)

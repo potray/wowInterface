@@ -22,13 +22,23 @@ GridDB = {
 		},
 		["GridStatusTarget"] = {
 		},
-		["GridStatusRange"] = {
-		},
 		["GridStatusAuras"] = {
 			["profiles"] = {
 				["Default"] = {
+					["buff_Renew"] = {
+						["icon"] = "Interface\\Icons\\Spell_Holy_Renew",
+					},
+					["buff_PowerWord:Shield"] = {
+						["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
+					},
+					["buff_LifeCocoon"] = {
+						["icon"] = "Interface\\Icons\\ability_monk_chicocoon",
+					},
 					["buff_Rejuvenation"] = {
 						["icon"] = "Interface\\Icons\\Spell_Nature_Rejuvenation",
+					},
+					["buff_EarthShield"] = {
+						["icon"] = "Interface\\Icons\\Spell_Nature_SkinofEarth",
 					},
 					["buff_Regrowth"] = {
 						["icon"] = "Interface\\Icons\\Spell_Nature_ResistNature",
@@ -38,6 +48,50 @@ GridDB = {
 					},
 				},
 			},
+		},
+		["GridStatusMana"] = {
+		},
+		["GridLayout"] = {
+			["profiles"] = {
+				["Default"] = {
+					["hideTab"] = true,
+					["backgroundTexture"] = "Solid",
+					["BorderB"] = 0.0745098039215686,
+					["layouts"] = {
+						["solo"] = "By Group 25",
+					},
+					["BackgroundR"] = 0.109803921568628,
+					["FrameLock"] = true,
+					["BorderA"] = 1,
+					["BorderR"] = 1,
+					["PosX"] = 1171,
+					["backgroundColor"] = {
+						["a"] = 1,
+						["b"] = 0,
+						["g"] = 0,
+						["r"] = 0.125490196078431,
+					},
+					["BackgroundG"] = 0.00392156862745098,
+					["PosY"] = -665,
+					["layout"] = "By Group 25",
+					["Spacing"] = 4,
+					["BackgroundB"] = 0,
+					["BackgroundA"] = 1,
+					["borderInset"] = 1,
+					["BorderG"] = 0,
+					["borderColor"] = {
+						["b"] = 0.0509803921568627,
+						["g"] = 0,
+						["r"] = 1,
+					},
+					["anchorRel"] = "TOPLEFT",
+					["borderTexture"] = "Blizzard Dialog",
+				},
+			},
+		},
+		["GridStatusRange"] = {
+		},
+		["GridStatusHealth"] = {
 		},
 		["GridStatus"] = {
 			["profiles"] = {
@@ -108,53 +162,17 @@ GridDB = {
 		},
 		["GridStatusReadyCheck"] = {
 		},
-		["GridStatusMana"] = {
-		},
-		["GridLayout"] = {
-			["profiles"] = {
-				["Default"] = {
-					["hideTab"] = true,
-					["backgroundTexture"] = "Solid",
-					["BorderB"] = 0.07450980392156863,
-					["layouts"] = {
-						["solo"] = "By Group 25",
-					},
-					["BackgroundR"] = 0.1098039215686275,
-					["FrameLock"] = true,
-					["BorderA"] = 1,
-					["BorderR"] = 1,
-					["PosX"] = 1171,
-					["backgroundColor"] = {
-						["a"] = 1,
-						["b"] = 0,
-						["g"] = 0,
-						["r"] = 0.1254901960784314,
-					},
-					["BackgroundG"] = 0.00392156862745098,
-					["PosY"] = -665,
-					["layout"] = "By Group 25",
-					["BackgroundA"] = 1,
-					["anchorRel"] = "TOPLEFT",
-					["borderInset"] = 1,
-					["Spacing"] = 4,
-					["BorderG"] = 0,
-					["borderColor"] = {
-						["b"] = 0.05098039215686274,
-						["g"] = 0,
-						["r"] = 1,
-					},
-					["borderTexture"] = "Blizzard Dialog",
-					["BackgroundB"] = 0,
-				},
-			},
-		},
-		["GridStatusHealth"] = {
-		},
-		["GridRoster"] = {
-		},
 		["GridStatusName"] = {
 		},
+		["GridStatusGroup"] = {
+		},
+		["GridStatusRaidIcon"] = {
+		},
 		["GridStatusHeals"] = {
+		},
+		["GridStatusMouseover"] = {
+		},
+		["GridRoster"] = {
 		},
 	},
 	["profileKeys"] = {

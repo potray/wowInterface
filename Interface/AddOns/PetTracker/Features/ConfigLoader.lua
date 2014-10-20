@@ -19,7 +19,7 @@ local _, Addon = ...
 local Loader = Addon:NewModule('ConfigLoader')
 
 function Loader:Startup()
-	if not PetTracker_Tutorial or PetTracker_Tutorial < 8 then
+	if (Addon.Sets.MainTutorial or 0) < 8 then
 		LoadAddOn('PetTracker_Config')
 	else
 		local original = InterfaceOptionsFrame:GetScript('OnShow')

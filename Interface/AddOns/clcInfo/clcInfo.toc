@@ -1,9 +1,9 @@
-## Interface: 50400
+## Interface: 60000
 ## Title: clcInfo
 ## Author: clc
 ## SavedVariables: clcInfoDB
 ## SavedVariablesPerCharacter: clcInfoCharDB
-## X-Curse-Packaged-Version: v.1.5.40.003
+## X-Curse-Packaged-Version: v.1.6.02.001
 ## X-Curse-Project-Name: clcInfo
 ## X-Curse-Project-ID: clctracker
 ## X-Curse-Repository-ID: wow/clctracker/mainline

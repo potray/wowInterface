@@ -1,10 +1,10 @@
-## Interface: 50400
+## Interface: 60000
 ## Title: clcInfo_Options
 ## Notes: Configuration window for clcInfo
 ## Author: Calcute
 ## Dependencies: clcInfo
 ## LoadOnDemand: 1
-## X-Curse-Packaged-Version: v.1.5.40.003
+## X-Curse-Packaged-Version: v.1.6.02.001
 ## X-Curse-Project-Name: clcInfo
 ## X-Curse-Project-ID: clctracker
 ## X-Curse-Repository-ID: wow/clctracker/mainline

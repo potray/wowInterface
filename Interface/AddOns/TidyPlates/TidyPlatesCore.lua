@@ -1,5 +1,7 @@
 -- Tidy Plates - SMILE! :-D
 
+TidyPlatesDebug = false
+DebugCount = 1
 ---------------------------------------------------------------------------------------------------------------------
 -- Variables and References
 ---------------------------------------------------------------------------------------------------------------------
@@ -57,6 +59,18 @@ local OnUpdate
 local OnNewNameplate
 local ForEachPlate
 
+-- Context
+local function isHighlighted(plate)
+	--local r,g,b = plate.extended.regions.name:GetTextColor()
+	return (plate.extended.regions.highlight:IsShown())		-- 5.x Mouseover; Not valid in 6.0
+	--return ((b < .1) and (g > .8)) --or (plate.extended.unit.guid == UnitGUID("mouseover"))
+	-- ceil(select(3, plate.extended.regions.name:GetTextColor())) == 0	-- 6.0 Mouseover; Check name color
+	--[[
+		if you're in combat with something, the name goes red.
+		if you've got it highlighted, the name goes yellow, but not if it's red.
+	--]]
+end
+
 -- UpdateReferences
 local function UpdateReferences(plate)
 	nameplate = plate
@@ -104,6 +118,11 @@ do
 		-- Poll Loop
         local plate, curChildren
 
+
+			DebugCount = DebugCount + 1
+			if DebugCount > 200 then DebugCount = 1 end
+
+
 		for plate in pairs(PlatesVisible) do
 			local UpdateMe = UpdateAll or plate.UpdateMe
 			local UpdateHealth = plate.UpdateHealth
@@ -129,17 +148,17 @@ do
 			end
 
 			-- Get Highlight (Mouseover Detection)
-			if extended.regions.highlight:IsShown() then
+			if isHighlighted(plate) then
 				if not plate.isMouseover then
 					plate.isMouseover = true
 					UpdateMe = true
-				--print(GetTime(), extended.unit.name)
-				--print()
 				end
 
 			elseif plate.isMouseover then
 				plate.isMouseover = false
 				UpdateMe = true
+			else
+
 			end
 
 
@@ -158,7 +177,7 @@ do
 
 			-- Alpha Animation
 			--EnableFadeIn
-			local increment = e * 3
+			local increment = e * 7
 			if extended.visibleAlpha ~= extended.requestedAlpha then
 
 				if EnableFadeIn and extended.requestedAlpha > extended.visibleAlpha + increment then
@@ -239,6 +258,7 @@ do
 			= select(2, cast:GetRegions())
 
 		-- Make Blizzard Plate invisible
+		-- [[
 		health:SetStatusBarTexture(EMPTY_TEXTURE)
 		cast:SetStatusBarTexture(EMPTY_TEXTURE)
 
@@ -251,8 +271,10 @@ do
 		regions.level:SetWidth( 000.1 )
 		regions.level:Hide()
 		regions.skullicon:SetTexture(nil)
+		--regions.skullicon:SetAlpha(0)
 		regions.raidicon:SetAlpha( 0 )
-		regions.eliteicon:SetTexture(nil)
+		--regions.eliteicon:SetTexture(nil)
+		regions.eliteicon:SetAlpha(0)
 
 		regions.name:Hide()
 
@@ -263,6 +285,7 @@ do
 		regions.spellshadow:SetTexture(nil)
 		regions.spellshadow:Hide()
 		regions.spelltext:Hide()
+		--]]
 
 
         -- Tidy Plates Frame
@@ -548,7 +571,20 @@ do
 	-- GetUnitAggroStatus: Determines if a unit is attacking, by looking at aggro glow region
 	local function GetUnitAggroStatus( threatRegion )
 		if not  threatRegion:IsShown() then return "LOW", 0 end
-		local red, green, blue = threatRegion:GetVertexColor()
+
+
+
+		local red, green, blue, alpha = threatRegion:GetVertexColor()
+		local opacity = threatRegion:GetVertexColor()
+
+
+		if threatRegion:IsShown() and (alpha < .9 or opacity < .9) then
+		--if threatRegion:IsShown() and alpha > .9 then
+			print(unit.name, alpha, opacity)
+
+		end
+
+
 		if red > 0 then
 			if green > 0 then
 				if blue > 0 then return "MEDIUM", 1 end
@@ -581,7 +617,8 @@ do
 
 		unit.isBoss = regions.skullicon:IsShown()
 		unit.isDangerous = unit.isBoss
-		unit.isElite = (regions.eliteicon:IsShown() or 0) == 1
+
+		unit.isElite = regions.eliteicon:IsShown()						-- 6.0
 
 		if bars.group:GetScale() > .9 then
 			unit.platetype = 1
@@ -602,6 +639,7 @@ do
 		end
 	end
 
+
         -- UpdateUnitContext: Updates Target/Mouseover
 	function UpdateUnitContext(plate)
 		UpdateReferences(plate)
@@ -614,9 +652,12 @@ do
 			unit.alpha = 1
 		end
 
-		-- Context Indicators
-		unit.isMouseover = (regions.highlight:IsShown() == 1)
+
+
+		unit.isMouseover = isHighlighted(plate)
+
 		unit.isTarget = HasTarget and unit.alpha == 1
+
 
 		if unit.isMouseover then
 			visual.highlight:Show()
@@ -914,7 +955,10 @@ do
 	function events:PLAYER_ENTERING_WORLD() TidyPlatesCore:SetScript("OnUpdate", OnUpdate); end
 	function events:PLAYER_REGEN_ENABLED() InCombat = false; SetUpdateAll() end
 	function events:PLAYER_REGEN_DISABLED() InCombat = true; SetUpdateAll() end
-	function events:PLAYER_TARGET_CHANGED() HasTarget = UnitExists("target") == 1; 	SetUpdateAll() 	end
+
+	-- 6.0
+	function events:PLAYER_TARGET_CHANGED() HasTarget = UnitExists("target") == true; 	SetUpdateAll() 	end
+
 	function events:RAID_TARGET_UPDATE() SetUpdateAll() end
 	function events:UNIT_THREAT_SITUATION_UPDATE() SetUpdateAll() end  -- Only fired when a target changes
 	function events:UNIT_LEVEL() SetUpdateAll() end

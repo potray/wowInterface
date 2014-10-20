@@ -137,6 +137,25 @@ function Battle:GetAbility(i)
 	end
 end
 
+function Battle:GetStats()
+	local speedScale  = self:GetStateValue(25)
+	local healthScale = self:GetStateValue(99)
+	local healthBonus = self:GetStateValue(2)
+
+	if speedScale and healthScale and healthBonus then
+		speedScale  = 100/(speedScale+100)
+		healthScale = 100/(healthScale+100)
+
+		if self:IsWildBattle() and not self:IsAlly() then
+			healthScale = healthScale * 1.2
+		end
+
+		return floor(self:GetMaxHealth() * healthScale - healthBonus + .5),
+			   self:GetPower(),
+			   floor(self:GetSpeed() * speedScale + .5)
+	end
+end
+
 function Battle:IsAlly()
 	return self.owner ~= ENEMY
 end
@@ -147,6 +166,10 @@ end
 
 
 --[[ General ]]--
+
+function Battle:GetBreed()
+	return Addon.Predict:Breed(self:GetSpecie(), self:GetLevel(), self:GetQuality(), self:GetStats())
+end
 
 function Battle:GetSpecie()
 	return self:GetPetSpeciesID()
@@ -162,14 +185,6 @@ end
 
 function Battle:GetType()
 	return self:GetPetType()
-end
-
-function Battle:GetBreed()
-	return LibStub('LibPetBreedInfo-1.0'):GetBreedByPetBattleSlot(self.owner, self.index)
-end
-
-function Battle:GetStats()
-	return self:GetMaxHealth(), self:GetPower(), self:GetSpeed()
 end
 
 

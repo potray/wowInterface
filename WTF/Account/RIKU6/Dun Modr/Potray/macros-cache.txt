@@ -1,6 +1,16 @@
+VER 3 0100000000000005 "CS/HoR" "INV_Misc_QuestionMark"
+#showtooltip
+/cast [mod:shift] Hammer of the Righteous; Crusader Strike
+END
+VER 3 0100000000000004 "Multiple Target" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [nomod] Seal of Righteousness
+/ChangeActionBar 2
+END
 VER 3 0100000000000003 "Single Target" "INV_MISC_QUESTIONMARK"
-/cast Seal of Truth
-/swapactionbars 1 6
+#showtooltip
+/cast [nomod]  Seal of Truth
+/ChangeActionBar 1
 END
 VER 3 0100000000000002 "Templar's Storm" "INV_MISC_QUESTIONMARK"
 #showtooltip

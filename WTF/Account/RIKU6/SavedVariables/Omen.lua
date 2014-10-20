@@ -16,32 +16,32 @@ Omen3DB = {
 	["profiles"] = {
 		["Pexuss - Dun Modr"] = {
 			["PositionX"] = 847.5,
-			["PositionY"] = 614.9999389648438,
+			["PositionY"] = 614.999938964844,
 		},
 		["Drublock - Los Errantes"] = {
 			["PositionX"] = 847.5,
-			["PositionY"] = 614.9999389648438,
+			["PositionY"] = 614.999938964844,
 		},
 		["Kareitris - Los Errantes"] = {
 			["PositionX"] = 847.5,
-			["PositionY"] = 614.9999389648438,
+			["PositionY"] = 614.999938964844,
 		},
 		["Potray - Dun Modr"] = {
-			["PositionW"] = 209.7144470214844,
+			["PositionW"] = 209.714447021484,
 			["Scale"] = 0.98,
-			["PositionH"] = 156.0206909179688,
-			["VGrip2"] = 118.7043032145032,
-			["PositionY"] = 151.0500030517578,
+			["PositionH"] = 156.020690917969,
+			["VGrip2"] = 118.704303214503,
+			["PositionY"] = 151.050003051758,
 			["Locked"] = true,
 			["Background"] = {
 				["EdgeSize"] = 1,
 				["BorderColor"] = {
-					["g"] = 0.05490196078431373,
+					["g"] = 0.0549019607843137,
 					["r"] = 1,
 				},
 				["Color"] = {
 					["a"] = 0,
-					["r"] = 0.1333333333333333,
+					["r"] = 0.133333333333333,
 					["g"] = 0.00392156862745098,
 					["b"] = 0,
 				},
@@ -55,7 +55,7 @@ Omen3DB = {
 				["Alone"] = true,
 				["HideWhileResting"] = false,
 			},
-			["VGrip1"] = 80.94922423173557,
+			["VGrip1"] = 80.9492242317356,
 			["ClampToScreen"] = false,
 			["TitleBar"] = {
 				["ShowTitleBar"] = false,
@@ -72,31 +72,31 @@ Omen3DB = {
 		},
 		["Zhenya - Los Errantes"] = {
 			["PositionX"] = 847.5,
-			["PositionY"] = 614.9999389648438,
+			["PositionY"] = 614.999938964844,
 		},
 		["Kobash - Los Errantes"] = {
 			["PositionX"] = 847.5,
-			["PositionY"] = 614.9999389648438,
+			["PositionY"] = 614.999938964844,
 		},
 		["Kalarankor - Los Errantes"] = {
 			["PositionX"] = 847.5,
-			["PositionY"] = 614.9999389648438,
+			["PositionY"] = 614.999938964844,
 		},
 		["Ringeki - Dun Modr"] = {
 			["PositionX"] = 847.5,
-			["PositionY"] = 614.9999389648438,
+			["PositionY"] = 614.999938964844,
 		},
 		["Prason - Los Errantes"] = {
 			["PositionX"] = 847.5,
-			["PositionY"] = 614.9999389648438,
+			["PositionY"] = 614.999938964844,
 		},
 		["Elrad - Los Errantes"] = {
 			["PositionX"] = 847.5,
-			["PositionY"] = 614.9999389648438,
+			["PositionY"] = 614.999938964844,
 		},
 		["Pexus - Los Errantes"] = {
 			["PositionX"] = 847.5,
-			["PositionY"] = 614.9999389648438,
+			["PositionY"] = 614.999938964844,
 		},
 	},
 }

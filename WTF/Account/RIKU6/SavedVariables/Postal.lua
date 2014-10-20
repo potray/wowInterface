@@ -1,16 +1,25 @@
 
 Postal3DB = {
+	["profileKeys"] = {
+		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
+		["Potray - Dun Modr"] = "Potray - Dun Modr",
+	},
 	["global"] = {
 		["BlackBook"] = {
 			["alts"] = {
-				"Potray|Dun Modr|Alliance|59|PALADIN", -- [1]
+				"Elrad|Los Errantes|Alliance|85|PALADIN", -- [1]
+				"Potray|Dun Modr|Alliance|76|PALADIN", -- [2]
 			},
 		},
 	},
-	["profileKeys"] = {
-		["Potray - Dun Modr"] = "Potray - Dun Modr",
-	},
 	["profiles"] = {
+		["Elrad - Los Errantes"] = {
+			["BlackBook"] = {
+				["recent"] = {
+					"Potray-Dun Modr|Los Errantes|Alliance", -- [1]
+				},
+			},
+		},
 		["Potray - Dun Modr"] = {
 			["BlackBook"] = {
 				["contacts"] = {

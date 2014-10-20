@@ -1,3 +1,7 @@
+TipTacTalents Changes | 2014 Oct 15
+-----------------------------------
+- TOC version has been changed to 60000 for the Warlords of Draenor 6.0.2 patch.
+
 TipTacTalents Changes | 2013 Sep 21
 -----------------------------------
 - Changed the TOC version to 50400 for the 5.4 patch.

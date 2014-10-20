@@ -1,3 +1,11 @@
+TipTacItemRef Changes | 2014 Oct 16
+-----------------------------------
+- Updated the "GetUpgradedItemLevel" library. This update will again properly find the correct itemlevel of updated items.
+
+TipTacItemRef Changes | 2014 Oct 15
+-----------------------------------
+- TOC version has been changed to 60000 for the Warlords of Draenor 6.0.2 patch.
+
 TipTacItemRef Changes | 2014 May 24
 -----------------------------------
 - Updated the "GetUpgradedItemLevel.lua" library, to include the new upgrade IDs.

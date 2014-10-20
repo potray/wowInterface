@@ -8,7 +8,7 @@ GoldSave = {
 	["Potray_Dun Modr::Alliance"] = {
 		["show"] = true,
 		["name"] = "Potray",
-		["gold"] = 10482964,
+		["gold"] = 26909334,
 	},
 	["Ringeki_Dun Modr::Alliance"] = {
 		["show"] = true,
@@ -40,19 +40,19 @@ GoldSave = {
 		["name"] = "Zhenya",
 		["gold"] = 1059053,
 	},
-	["Prason_Los Errantes::Alliance"] = {
+	["Kareitris_Los Errantes::Alliance"] = {
 		["show"] = true,
-		["name"] = "Prason",
-		["gold"] = 1202519,
+		["name"] = "Kareitris",
+		["gold"] = 6445370,
 	},
 	["Pexus_Los Errantes::Alliance"] = {
 		["show"] = true,
 		["name"] = "Pexus",
 		["gold"] = 71814133,
 	},
-	["Kareitris_Los Errantes::Alliance"] = {
+	["Prason_Los Errantes::Alliance"] = {
 		["show"] = true,
-		["name"] = "Kareitris",
-		["gold"] = 6445370,
+		["name"] = "Prason",
+		["gold"] = 1202519,
 	},
 }

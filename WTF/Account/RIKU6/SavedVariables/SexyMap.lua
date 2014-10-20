@@ -84,19 +84,19 @@ SexyMap2DB = {
 			["borders"] = {
 				{
 					["name"] = "Rune 1",
-					["r"] = 0.3098039215686275,
+					["r"] = 0.309803921568628,
 					["scale"] = 1.4,
 					["rotSpeed"] = -30,
-					["g"] = 0.4784313725490196,
+					["g"] = 0.47843137254902,
 					["texture"] = "SPELLS\\AURARUNE256.BLP",
 				}, -- [1]
 				{
-					["a"] = 0.3799999952316284,
+					["a"] = 0.379999995231628,
 					["rotSpeed"] = 60,
 					["r"] = 0.196078431372549,
 					["scale"] = 2.1,
 					["name"] = "Rune 2",
-					["g"] = 0.2901960784313725,
+					["g"] = 0.290196078431373,
 					["texture"] = "SPELLS\\AuraRune_A.blp",
 				}, -- [2]
 				{
@@ -104,7 +104,7 @@ SexyMap2DB = {
 					["name"] = "Fade",
 					["r"] = 0,
 					["scale"] = 1.6,
-					["g"] = 0.2235294117647059,
+					["g"] = 0.223529411764706,
 					["texture"] = "SPELLS\\T_VFX_HERO_CIRCLE.BLP",
 				}, -- [3]
 			},
@@ -229,19 +229,19 @@ SexyMap2DB = {
 			["borders"] = {
 				{
 					["name"] = "Rune 1",
-					["r"] = 0.3098039215686275,
+					["r"] = 0.309803921568628,
 					["scale"] = 1.4,
 					["rotSpeed"] = -30,
-					["g"] = 0.4784313725490196,
+					["g"] = 0.47843137254902,
 					["texture"] = "SPELLS\\AURARUNE256.BLP",
 				}, -- [1]
 				{
-					["a"] = 0.3799999952316284,
+					["a"] = 0.379999995231628,
 					["rotSpeed"] = 60,
 					["r"] = 0.196078431372549,
 					["scale"] = 2.1,
 					["name"] = "Rune 2",
-					["g"] = 0.2901960784313725,
+					["g"] = 0.290196078431373,
 					["texture"] = "SPELLS\\AuraRune_A.blp",
 				}, -- [2]
 				{
@@ -249,7 +249,7 @@ SexyMap2DB = {
 					["name"] = "Fade",
 					["r"] = 0,
 					["scale"] = 1.6,
-					["g"] = 0.2235294117647059,
+					["g"] = 0.223529411764706,
 					["texture"] = "SPELLS\\T_VFX_HERO_CIRCLE.BLP",
 				}, -- [3]
 			},
@@ -320,8 +320,8 @@ SexyMap2DB = {
 				["TimeManagerClockButton"] = "always",
 			},
 			["dragPositions"] = {
-				["LibDBIcon10_Bartender4"] = 260.3481437572776,
-				["LibDBIcon10_Omen"] = 189.6170890960819,
+				["LibDBIcon10_Bartender4"] = 260.348143757278,
+				["LibDBIcon10_Omen"] = 189.617089096082,
 			},
 			["controlVisibility"] = true,
 		},
@@ -378,19 +378,19 @@ SexyMap2DB = {
 			["borders"] = {
 				{
 					["name"] = "Rune 1",
-					["r"] = 0.3098039215686275,
+					["r"] = 0.309803921568628,
 					["scale"] = 1.4,
 					["rotSpeed"] = -30,
-					["g"] = 0.4784313725490196,
+					["g"] = 0.47843137254902,
 					["texture"] = "SPELLS\\AURARUNE256.BLP",
 				}, -- [1]
 				{
-					["a"] = 0.3799999952316284,
+					["a"] = 0.379999995231628,
 					["rotSpeed"] = 60,
 					["r"] = 0.196078431372549,
 					["scale"] = 2.1,
 					["name"] = "Rune 2",
-					["g"] = 0.2901960784313725,
+					["g"] = 0.290196078431373,
 					["texture"] = "SPELLS\\AuraRune_A.blp",
 				}, -- [2]
 				{
@@ -398,7 +398,7 @@ SexyMap2DB = {
 					["name"] = "Fade",
 					["r"] = 0,
 					["scale"] = 1.6,
-					["g"] = 0.2235294117647059,
+					["g"] = 0.223529411764706,
 					["texture"] = "SPELLS\\T_VFX_HERO_CIRCLE.BLP",
 				}, -- [3]
 			},
@@ -523,19 +523,19 @@ SexyMap2DB = {
 			["borders"] = {
 				{
 					["name"] = "Rune 1",
-					["r"] = 0.3098039215686275,
+					["r"] = 0.309803921568628,
 					["scale"] = 1.4,
 					["rotSpeed"] = -30,
-					["g"] = 0.4784313725490196,
+					["g"] = 0.47843137254902,
 					["texture"] = "SPELLS\\AURARUNE256.BLP",
 				}, -- [1]
 				{
-					["a"] = 0.3799999952316284,
+					["a"] = 0.379999995231628,
 					["rotSpeed"] = 60,
 					["r"] = 0.196078431372549,
 					["scale"] = 2.1,
 					["name"] = "Rune 2",
-					["g"] = 0.2901960784313725,
+					["g"] = 0.290196078431373,
 					["texture"] = "SPELLS\\AuraRune_A.blp",
 				}, -- [2]
 				{
@@ -543,7 +543,7 @@ SexyMap2DB = {
 					["name"] = "Fade",
 					["r"] = 0,
 					["scale"] = 1.6,
-					["g"] = 0.2235294117647059,
+					["g"] = 0.223529411764706,
 					["texture"] = "SPELLS\\T_VFX_HERO_CIRCLE.BLP",
 				}, -- [3]
 			},
@@ -668,19 +668,19 @@ SexyMap2DB = {
 			["borders"] = {
 				{
 					["name"] = "Rune 1",
-					["r"] = 0.3098039215686275,
+					["r"] = 0.309803921568628,
 					["scale"] = 1.4,
 					["rotSpeed"] = -30,
-					["g"] = 0.4784313725490196,
+					["g"] = 0.47843137254902,
 					["texture"] = "SPELLS\\AURARUNE256.BLP",
 				}, -- [1]
 				{
-					["a"] = 0.3799999952316284,
+					["a"] = 0.379999995231628,
 					["rotSpeed"] = 60,
 					["r"] = 0.196078431372549,
 					["scale"] = 2.1,
 					["name"] = "Rune 2",
-					["g"] = 0.2901960784313725,
+					["g"] = 0.290196078431373,
 					["texture"] = "SPELLS\\AuraRune_A.blp",
 				}, -- [2]
 				{
@@ -688,7 +688,7 @@ SexyMap2DB = {
 					["name"] = "Fade",
 					["r"] = 0,
 					["scale"] = 1.6,
-					["g"] = 0.2235294117647059,
+					["g"] = 0.223529411764706,
 					["texture"] = "SPELLS\\T_VFX_HERO_CIRCLE.BLP",
 				}, -- [3]
 			},
@@ -813,19 +813,19 @@ SexyMap2DB = {
 			["borders"] = {
 				{
 					["name"] = "Rune 1",
-					["r"] = 0.3098039215686275,
+					["r"] = 0.309803921568628,
 					["scale"] = 1.4,
 					["rotSpeed"] = -30,
-					["g"] = 0.4784313725490196,
+					["g"] = 0.47843137254902,
 					["texture"] = "SPELLS\\AURARUNE256.BLP",
 				}, -- [1]
 				{
-					["a"] = 0.3799999952316284,
+					["a"] = 0.379999995231628,
 					["rotSpeed"] = 60,
 					["r"] = 0.196078431372549,
 					["scale"] = 2.1,
 					["name"] = "Rune 2",
-					["g"] = 0.2901960784313725,
+					["g"] = 0.290196078431373,
 					["texture"] = "SPELLS\\AuraRune_A.blp",
 				}, -- [2]
 				{
@@ -833,7 +833,7 @@ SexyMap2DB = {
 					["name"] = "Fade",
 					["r"] = 0,
 					["scale"] = 1.6,
-					["g"] = 0.2235294117647059,
+					["g"] = 0.223529411764706,
 					["texture"] = "SPELLS\\T_VFX_HERO_CIRCLE.BLP",
 				}, -- [3]
 			},
@@ -958,19 +958,19 @@ SexyMap2DB = {
 			["borders"] = {
 				{
 					["name"] = "Rune 1",
-					["r"] = 0.3098039215686275,
+					["r"] = 0.309803921568628,
 					["scale"] = 1.4,
 					["rotSpeed"] = -30,
-					["g"] = 0.4784313725490196,
+					["g"] = 0.47843137254902,
 					["texture"] = "SPELLS\\AURARUNE256.BLP",
 				}, -- [1]
 				{
-					["a"] = 0.3799999952316284,
+					["a"] = 0.379999995231628,
 					["rotSpeed"] = 60,
 					["r"] = 0.196078431372549,
 					["scale"] = 2.1,
 					["name"] = "Rune 2",
-					["g"] = 0.2901960784313725,
+					["g"] = 0.290196078431373,
 					["texture"] = "SPELLS\\AuraRune_A.blp",
 				}, -- [2]
 				{
@@ -978,7 +978,7 @@ SexyMap2DB = {
 					["name"] = "Fade",
 					["r"] = 0,
 					["scale"] = 1.6,
-					["g"] = 0.2235294117647059,
+					["g"] = 0.223529411764706,
 					["texture"] = "SPELLS\\T_VFX_HERO_CIRCLE.BLP",
 				}, -- [3]
 			},
@@ -1103,19 +1103,19 @@ SexyMap2DB = {
 			["borders"] = {
 				{
 					["name"] = "Rune 1",
-					["r"] = 0.3098039215686275,
+					["r"] = 0.309803921568628,
 					["scale"] = 1.4,
 					["rotSpeed"] = -30,
-					["g"] = 0.4784313725490196,
+					["g"] = 0.47843137254902,
 					["texture"] = "SPELLS\\AURARUNE256.BLP",
 				}, -- [1]
 				{
-					["a"] = 0.3799999952316284,
+					["a"] = 0.379999995231628,
 					["rotSpeed"] = 60,
 					["r"] = 0.196078431372549,
 					["scale"] = 2.1,
 					["name"] = "Rune 2",
-					["g"] = 0.2901960784313725,
+					["g"] = 0.290196078431373,
 					["texture"] = "SPELLS\\AuraRune_A.blp",
 				}, -- [2]
 				{
@@ -1123,7 +1123,7 @@ SexyMap2DB = {
 					["name"] = "Fade",
 					["r"] = 0,
 					["scale"] = 1.6,
-					["g"] = 0.2235294117647059,
+					["g"] = 0.223529411764706,
 					["texture"] = "SPELLS\\T_VFX_HERO_CIRCLE.BLP",
 				}, -- [3]
 			},
@@ -1248,19 +1248,19 @@ SexyMap2DB = {
 			["borders"] = {
 				{
 					["name"] = "Rune 1",
-					["r"] = 0.3098039215686275,
+					["r"] = 0.309803921568628,
 					["scale"] = 1.4,
 					["rotSpeed"] = -30,
-					["g"] = 0.4784313725490196,
+					["g"] = 0.47843137254902,
 					["texture"] = "SPELLS\\AURARUNE256.BLP",
 				}, -- [1]
 				{
-					["a"] = 0.3799999952316284,
+					["a"] = 0.379999995231628,
 					["rotSpeed"] = 60,
 					["r"] = 0.196078431372549,
 					["scale"] = 2.1,
 					["name"] = "Rune 2",
-					["g"] = 0.2901960784313725,
+					["g"] = 0.290196078431373,
 					["texture"] = "SPELLS\\AuraRune_A.blp",
 				}, -- [2]
 				{
@@ -1268,7 +1268,7 @@ SexyMap2DB = {
 					["name"] = "Fade",
 					["r"] = 0,
 					["scale"] = 1.6,
-					["g"] = 0.2235294117647059,
+					["g"] = 0.223529411764706,
 					["texture"] = "SPELLS\\T_VFX_HERO_CIRCLE.BLP",
 				}, -- [3]
 			},
@@ -1331,7 +1331,7 @@ SexyMap2DB = {
 			["visibilitySettings"] = {
 				["MinimapZoomIn"] = "never",
 				["MinimapZoneTextButton"] = "always",
-				["TimeManagerClockButton"] = "always",
+				["TimeManagerClockButton"] = "never",
 				["MiniMapMailFrame"] = "never",
 				["MiniMapTracking"] = "hover",
 				["GameTimeFrame"] = "never",
@@ -1339,13 +1339,14 @@ SexyMap2DB = {
 				["MiniMapWorldMapButton"] = "never",
 			},
 			["dragPositions"] = {
-				["LibDBIcon10_Bartender4"] = 182.9682439801737,
-				["EnxMiniMapIcon"] = 171.6093917272257,
-				["LibDBIcon10_AtlasLoot"] = -9.824541009631121,
-				["MiniMapTracking"] = 133.8882911351995,
-				["LibDBIcon10_Grid"] = -24.65745401559063,
-				["LibDBIcon10_BankStack"] = 143.5465051238768,
-				["Gatherer_MinimapOptionsButton"] = 198.8056774726441,
+				["LibDBIcon10_Bartender4"] = 182.968243980174,
+				["LibDBIcon10_AtlasLoot"] = -9.82454100963112,
+				["NXMiniMapBut"] = 147.38121588019,
+				["LibDBIcon10_Grid"] = -24.6574540155906,
+				["MiniMapTracking"] = 133.888291135199,
+				["EnxMiniMapIcon"] = 171.609391727226,
+				["LibDBIcon10_BankStack"] = 143.546505123877,
+				["Gatherer_MinimapOptionsButton"] = 198.805677472644,
 			},
 			["controlVisibility"] = true,
 		},
@@ -1366,7 +1367,7 @@ SexyMap2DB = {
 				["a"] = 1,
 				["b"] = 0,
 				["g"] = 0,
-				["r"] = 0.1490196078431373,
+				["r"] = 0.149019607843137,
 			},
 			["font"] = "Arial Narrow",
 			["fontColor"] = {
@@ -1378,7 +1379,7 @@ SexyMap2DB = {
 			["borderColor"] = {
 				["a"] = 1,
 				["b"] = 0,
-				["g"] = 0.01176470588235294,
+				["g"] = 0.0117647058823529,
 				["r"] = 1,
 			},
 			["xOffset"] = 0,
@@ -1394,14 +1395,14 @@ SexyMap2DB = {
 			["font"] = "Arial Narrow",
 			["fontColor"] = {
 				["a"] = 1,
-				["b"] = 0.01176470588235294,
+				["b"] = 0.0117647058823529,
 				["g"] = 0,
 				["r"] = 1,
 			},
 			["borderColor"] = {
 				["a"] = 1,
 				["b"] = 0,
-				["g"] = 0.08235294117647059,
+				["g"] = 0.0823529411764706,
 				["r"] = 1,
 			},
 			["xOffset"] = 0,
@@ -1415,12 +1416,15 @@ SexyMap2DB = {
 			["backdrop"] = {
 				["show"] = false,
 				["textureColor"] = {
+					["r"] = 0,
+					["g"] = 0,
+					["b"] = 0,
 				},
 				["settings"] = {
-					["bgFile"] = "Interface\\DialogFrame\\UI-DialogBox-Background",
-					["edgeFile"] = "Interface\\DialogFrame\\UI-DialogBox-Border",
+					["bgFile"] = "Interface\\Tooltips\\UI-Tooltip-Background",
+					["edgeFile"] = "Interface\\Tooltips\\UI-Tooltip-Border",
+					["edgeSize"] = 17,
 					["tile"] = false,
-					["edgeSize"] = 14,
 					["insets"] = {
 						["top"] = 4,
 						["right"] = 4,
@@ -1429,23 +1433,19 @@ SexyMap2DB = {
 					},
 				},
 				["borderColor"] = {
-					["a"] = 1,
-					["b"] = 0.04313725490196078,
-					["g"] = 0,
-					["r"] = 1,
 				},
-				["scale"] = 1.1,
+				["scale"] = 1.07,
 			},
 			["hideBlizzard"] = true,
 		},
 		["core"] = {
-			["clamp"] = true,
+			["clamp"] = false,
 			["point"] = "BOTTOM",
 			["relpoint"] = "BOTTOM",
 			["autoZoom"] = 5,
 			["northTag"] = true,
-			["y"] = 3.200243711471558,
-			["x"] = 256.0001525878906,
+			["y"] = 5.19180583953857,
+			["x"] = 253.631973266602,
 			["lock"] = true,
 			["shape"] = "Interface\\BUTTONS\\WHITE8X8",
 			["rightClickToConfig"] = true,
@@ -1453,6 +1453,14 @@ SexyMap2DB = {
 		["movers"] = {
 			["enabled"] = false,
 			["framePositions"] = {
+				["ObjectiveTrackerFrame"] = {
+					["y"] = 1027,
+					["x"] = 1684.00012207031,
+				},
+				["VehicleSeatIndicator"] = {
+					["y"] = 276.200134277344,
+					["x"] = 1771.00012207031,
+				},
 			},
 			["lock"] = false,
 		},
@@ -1541,19 +1549,19 @@ SexyMap2DB = {
 			["borders"] = {
 				{
 					["name"] = "Rune 1",
-					["r"] = 0.3098039215686275,
+					["r"] = 0.309803921568628,
 					["scale"] = 1.4,
 					["rotSpeed"] = -30,
-					["g"] = 0.4784313725490196,
+					["g"] = 0.47843137254902,
 					["texture"] = "SPELLS\\AURARUNE256.BLP",
 				}, -- [1]
 				{
-					["a"] = 0.3799999952316284,
+					["a"] = 0.379999995231628,
 					["rotSpeed"] = 60,
 					["r"] = 0.196078431372549,
 					["scale"] = 2.1,
 					["name"] = "Rune 2",
-					["g"] = 0.2901960784313725,
+					["g"] = 0.290196078431373,
 					["texture"] = "SPELLS\\AuraRune_A.blp",
 				}, -- [2]
 				{
@@ -1561,7 +1569,7 @@ SexyMap2DB = {
 					["name"] = "Fade",
 					["r"] = 0,
 					["scale"] = 1.6,
-					["g"] = 0.2235294117647059,
+					["g"] = 0.223529411764706,
 					["texture"] = "SPELLS\\T_VFX_HERO_CIRCLE.BLP",
 				}, -- [3]
 			},

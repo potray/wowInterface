@@ -18,23 +18,22 @@ DataStore_AgendaDB = {
 				["lastUpdate"] = 1409841722,
 			},
 			["Default.Dun Modr.Pexuss"] = {
-				["lastUpdate"] = 1410628216,
 				["Contacts"] = {
 					["Cuenee"] = {
 						["note"] = "",
 					},
 				},
+				["lastUpdate"] = 1410628216,
 			},
 			["Default.Los Errantes.Kareitris"] = {
-				["lastUpdate"] = 1409842229,
 				["Contacts"] = {
 					["Ithaisa"] = {
 						["note"] = "",
 					},
 				},
+				["lastUpdate"] = 1409842229,
 			},
 			["Default.Los Errantes.Elrad"] = {
-				["lastUpdate"] = 1409842250,
 				["Contacts"] = {
 					["Fitipaldi"] = {
 						["note"] = "",
@@ -64,12 +63,12 @@ DataStore_AgendaDB = {
 						["note"] = "",
 					},
 				},
+				["lastUpdate"] = 1409842250,
 			},
 			["Default.Los Errantes.Drublock"] = {
 				["lastUpdate"] = 1409841653,
 			},
 			["Default.Los Errantes.Kalarankor"] = {
-				["lastUpdate"] = 1409841444,
 				["Contacts"] = {
 					["Kareitris"] = {
 						["note"] = "",
@@ -81,12 +80,12 @@ DataStore_AgendaDB = {
 						["note"] = "",
 					},
 				},
+				["lastUpdate"] = 1409841444,
 			},
 			["Default.Los Errantes.Zhenya"] = {
 				["lastUpdate"] = 1409841533,
 			},
 			["Default.Los Errantes.Kobash"] = {
-				["lastUpdate"] = 1409841976,
 				["Contacts"] = {
 					["Hyorinmaru"] = {
 						["note"] = "",
@@ -122,13 +121,19 @@ DataStore_AgendaDB = {
 						["note"] = "",
 					},
 				},
+				["lastUpdate"] = 1409841976,
 			},
 			["Default.Dun Modr.Ringeki"] = {
 				["lastUpdate"] = 1410628407,
 			},
 			["Default.Dun Modr.Potray"] = {
-				["lastUpdate"] = 1412504977,
+				["lastUpdate"] = 1413792807,
 			},
+		},
+		["Options"] = {
+			["WeeklyResetHour"] = 6,
+			["WeeklyResetDay"] = 3,
+			["NextWeeklyReset"] = "2014-10-22",
 		},
 	},
 }

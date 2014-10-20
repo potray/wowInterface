@@ -1,8 +1,8 @@
-## Interface: 50400
+## Interface: 60000
 ## Title: clcPaladinPowerBar
 ## Author: clc
 ## SavedVariables: clcppbDB
-## X-Curse-Packaged-Version: v.1.5.40.001
+## X-Curse-Packaged-Version: v.1.6.02.001
 ## X-Curse-Project-Name: clcPaladinPowerBar
 ## X-Curse-Project-ID: clcppb
 ## X-Curse-Repository-ID: wow/clcppb/mainline

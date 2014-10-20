@@ -6,7 +6,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 local BC = {} -- = LibStub("LibBabble-Class-3.0"):GetLookupTable()
 
-local revision = tonumber(string.sub("$Revision: 1267 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1273 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -2004,11 +2004,11 @@ end
 
 function me:SaveFilterConfig()
 	for k, v in pairs(me.FilterOptions.Filters) do
-		Recount.db.profile.Filters.Show[k] = v.ShowData:GetChecked() == 1
-		Recount.db.profile.Filters.Data[k] = v.RecordData:GetChecked() == 1
-		Recount.db.profile.Filters.TimeData[k] = v.RecordTime:GetChecked() == 1
-		Recount.db.profile.Filters.TrackDeaths[k] = v.TrackDeaths:GetChecked() == 1
-		--Recount.db.profile.Filters.TrackBuffs[k] = v.TrackBuffs:GetChecked() == 1
+		Recount.db.profile.Filters.Show[k] = v.ShowData:GetChecked() == true
+		Recount.db.profile.Filters.Data[k] = v.RecordData:GetChecked() == true
+		Recount.db.profile.Filters.TimeData[k] = v.RecordTime:GetChecked() == true
+		Recount.db.profile.Filters.TrackDeaths[k] = v.TrackDeaths:GetChecked() == true
+		--Recount.db.profile.Filters.TrackBuffs[k] = v.TrackBuffs:GetChecked() == true
 	end
 	Recount:IsTimeDataActive()
 	Recount:FullRefreshMainWindow()

@@ -52,7 +52,7 @@ local modAlerts = clcInfo.display.alerts
 function iconPrototype:Init()
 	self.texMain = self:CreateTexture(nil, "BORDER")
 	-- cooldown
-	self.cooldown = CreateFrame("Cooldown", nil, self)
+	self.cooldown = CreateFrame("Cooldown", nil, self, "CooldownFrameTemplate")
 	-- icon for omnicc pulse
 	self.icon = self.texMain
 	

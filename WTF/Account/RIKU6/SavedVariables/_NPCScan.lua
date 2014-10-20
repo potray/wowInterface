@@ -1,5 +1,12 @@
 
 _NPCScanOptions = {
+	["NPCWorldIDs"] = {
+		[64004] = "Pandaria",
+		[50410] = "Kalimdor",
+		[50409] = "Kalimdor",
+		[64191] = "Pandaria",
+	},
+	["CacheWarnings"] = true,
 	["PersistentToast"] = true,
 	["NPCs"] = {
 		[64004] = "Ghostly Pandaren Fisherman",
@@ -16,12 +23,6 @@ _NPCScanOptions = {
 		},
 	},
 	["ShowAlertAsToast"] = false,
-	["CacheWarnings"] = true,
 	["Version"] = 3,
-	["NPCWorldIDs"] = {
-		[64004] = "Pandaria",
-		[50410] = "Kalimdor",
-		[50409] = "Kalimdor",
-		[64191] = "Pandaria",
-	},
+	["ChangeAlertShown"] = true,
 }

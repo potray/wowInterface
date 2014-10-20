@@ -189,7 +189,7 @@ local actions = {
 			return GetCooldown(esId)
 		end,
 		info = "Execution Sentence",
-		reqTalent = 18,
+		reqTalent = 17609,
 	},
 	hpr = {
 		id = hprId,
@@ -197,7 +197,7 @@ local actions = {
 			return GetCooldown(hprId)
 		end,
 		info = "Holy Prism",
-		reqTalent = 16,
+		reqTalent = 17605,
 	},
 	lh = {
 		id = lhId,
@@ -205,7 +205,7 @@ local actions = {
 			return GetCooldown(lhId)
 		end,
 		info = "Light's Hammer",
-		reqTalent = 17,
+		reqTalent = 17607,
 	},
 	ss = {
 		id = ssId,
@@ -216,7 +216,7 @@ local actions = {
 			return 100
 		end,
 		info = "Sacred Shield",
-		reqTalent = 9,
+		reqTalent = 21098,
 	},
 	ssx = {
 		id = ssId,
@@ -227,7 +227,7 @@ local actions = {
 			return 100
 		end,
 		info = "Sacred Shield with high priority",
-		reqTalent = 9,
+		reqTalent = 21098,
 	},
 }
 mod.actions = actions
@@ -346,7 +346,7 @@ local function GetWorkingQueue()
 		-- see if it has a talent requirement
 		if actions[v].reqTalent then
 			-- see if the talent is activated
-			name, _, _, _, selected, available = GetTalentInfo(actions[v].reqTalent)
+			_, name, _, selected, available = GetTalentInfoByID(actions[v].reqTalent, GetActiveSpecGroup())
 			if name and selected and available then
 				table.insert(q, v)
 			end

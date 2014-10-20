@@ -16,11 +16,10 @@ This file is part of PetTracker.
 --]]
 
 local Addon = PetTracker
-local Breeds = LibStub('LibPetBreedInfo-1.0')
 local Tooltip = Addon.MapTip()
 local Icons = {}
 
-local L, Journal = Addon.Locals, Addon.Journal
+local L, Journal, Battle = Addon.Locals, Addon.Journal, Addon.Battle
 local NoneCollected = NORMAL_FONT_COLOR_CODE .. L.NoneCollected .. FONT_COLOR_CODE_CLOSE
 local Stats = {PET_BATTLE_STAT_HEALTH, PET_BATTLE_STAT_POWER, PET_BATTLE_STAT_SPEED}
 
@@ -28,20 +27,18 @@ local Stats = {PET_BATTLE_STAT_HEALTH, PET_BATTLE_STAT_POWER, PET_BATTLE_STAT_SP
 --[[ Combat ]]--
 
 hooksecurefunc('PetBattleUnitTooltip_UpdateForUnit', function(self, ...)
-	local specie = C_PetBattles.GetPetSpeciesID(...)
-	local breed, confidence = Breeds:GetBreedByPetBattleSlot(...)
-
+	local pet = Battle:Get(...)
 	local icon = Icons[self] or self:CreateFontString(nil, 'OVERLAY', 'GameFontNormal')
 	icon:SetPoint('CENTER', self.Icon, 'TOPLEFT', 3, -2)
-	icon:SetText(Addon:GetBreedIcon(breed, .9))
+	icon:SetText(Addon:GetBreedIcon(pet:GetBreed(), .9))
 	Icons[self] = icon
 
-	self.CollectedText:SetText(Journal:GetOwnedText(specie) or NoneCollected)
+	self.CollectedText:SetText(pet:GetOwnedText() or NoneCollected)
 end)
 
 hooksecurefunc("PetBattleUnitFrame_UpdateDisplay", function(self)
 	local frame = self:GetName() or ''
-	local breed, confidence = Breeds:GetBreedByPetBattleSlot(self.petOwner, self.petIndex)
+	local breed = Battle:Get(self.petOwner, self.petIndex):GetBreed()
 
 	if self.Name and not frame:find('Tooltip') then
 		self.Name:SetText((self.Name:GetText() or '') .. ' ' .. Addon:GetBreedIcon(breed, .8))
@@ -60,7 +57,7 @@ do
 		Tooltip:AddLine(L.BreedExplanation)
 		Tooltip:AddLine('\n' .. Addon:GetBreedName(self.breed), 1,1,1)
 
-		for stat, bonus in ipairs(Breeds.breedData.breeds[self.breed] or {}) do
+		for stat, bonus in ipairs(Addon.BreedStats[self.breed] or {}) do
 			if bonus > 0 then
 				Tooltip:AddLine(format('+ %d%% %s', bonus*50, Stats[stat]))
 			end
@@ -125,7 +122,7 @@ end
 local owned = {}
 
 hooksecurefunc('BattlePetTooltipTemplate_SetBattlePet', function(tooltip, data)
-	local breed = Breeds:GetBreedByStats(data.speciesID, data.level, data.breedQuality + 1, data.maxHealth, data.power, data.speed)
+	local breed = Addon.Predict:Breed(data.speciesID, data.level, data.breedQuality + 1, data.maxHealth, data.power, data.speed)
 	local string = tooltip.Owned
 
 	if not string.__SetText then

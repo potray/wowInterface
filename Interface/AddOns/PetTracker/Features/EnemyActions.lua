@@ -15,9 +15,11 @@ along with the addon. If not, see <http://www.gnu.org/licenses/gpl-3.0.txt>.
 This file is part of PetTracker.
 --]]
 
-local _, Addon = ...
+local ADDON, Addon = ...
 local ActionBar = PetBattleFrame.BottomFrame
-local Actions = Addon:NewModule('EnemyActions', CreateFrame('CheckButton', nil, ActionBar))
+local Actions = Addon:NewModule('EnemyActions', CreateFrame('CheckButton', ADDON .. 'EnemyActions', ActionBar))
+Actions:SetPoint('BOTTOM', ActionBar, 'TOP')
+Actions:SetMovable(true)
 
 local Ability = Addon.AbilityAction
 local Pets = Addon.Battle
@@ -29,9 +31,15 @@ local Player = LE_BATTLE_PET_ALLY
 --[[ Startup ]]--
 
 function Actions:Startup()
-	self:SetPoint('BOTTOM', ActionBar, 'TOP')
+	for i = 1, 6 do
+		self:CreateButton(i)
+	end
+
+	self:SetScript('OnDragStop', self.StopMovingOrSizing)
+	self:SetScript('OnDragStart', self.StartMoving)
 	self:SetSize(300, 100)
 	self:SetScale(.8)
+	self:UpdateLock()
 	
 	self:RegisterEvent('PET_BATTLE_PET_CHANGED')
 	self:RegisterEvent('PET_BATTLE_PET_ROUND_PLAYBACK_COMPLETE')
@@ -40,10 +48,13 @@ function Actions:Startup()
 	self:SetHook('PetBattlePetSelectionFrame_Hide', self.Show)
 	self:SetHook('PetBattlePetSelectionFrame_Show', self.Hide)
 	self:SetScript('OnShow', self.Update)
-	
-	for i = 1, 6 do
-		self:CreateButton(i)
-	end
+end
+
+function Actions:AddOptions(panel)
+	panel:Create('CheckButton', 'UnlockActions'):SetCall('OnInput', function(_, value)
+		Addon.Sets.UnlockActions = value
+		self:UpdateLock()
+	end)
 end
 
 function Actions:SetHook(target, hook)
@@ -61,7 +72,7 @@ function Actions:CreateButton(i)
 	button:SetHighlightTexture(nil)
 	button:SetPushedTexture(nil)
 	button:UnregisterAllEvents()
-	button:SetFrameLevel(5-y)
+	button:SetFrameLevel(8-y)
 	
 	self[i] = button
 end
@@ -76,4 +87,8 @@ function Actions:Update()
 	for i = 1, 6 do
 		self[i]:Display(enemy, i, target)
 	end
+end
+
+function Actions:UpdateLock()
+	self:RegisterForDrag(Addon.Sets.UnlockActions and 'LeftButton' or nil)
 end

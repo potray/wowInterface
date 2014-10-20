@@ -1,5 +1,6 @@
 
 BagnonGlobalSettings = {
 	["showEmptyItemSlotTexture"] = false,
-	["version"] = "5.4.15",
+	["highlightUnusableItems"] = true,
+	["version"] = "6.0.10",
 }

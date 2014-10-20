@@ -222,7 +222,7 @@ function prototype:Init()
 	-- todo create only what's needed
 	self.elements.texMain = self.elements:CreateTexture(nil, "BORDER")
 	-- cooldown
-	self.elements.cooldown = CreateFrame("Cooldown", nil, self.elements)
+	self.elements.cooldown = CreateFrame("Cooldown", nil, self.elements, "CooldownFrameTemplate")
 	-- icon for omnicc pulse
 	self.elements.icon = self.elements.texMain
 	

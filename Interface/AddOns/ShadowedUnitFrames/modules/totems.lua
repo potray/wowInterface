@@ -115,8 +115,8 @@ function Totems:OnLayoutApplied(frame)
 			totem.secure = totem.secure or CreateFrame("Button", frame:GetName() .. "Secure" .. totem.id, totem, "SecureUnitButtonTemplate")
 			totem.secure:RegisterForClicks("RightButtonUp")
 			totem.secure:SetAllPoints(totem)
-			totem.secure:SetAttribute("type2", "macro")
-			totem.secure:SetAttribute("macrotext2", "/click TotemFrameTotem" .. totem.id .. " RightButton")
+			totem.secure:SetAttribute("type2", "destroytotem")
+			totem.secure:SetAttribute("*totem-slot*", totem.id)
 			totem.secure:Show()
 
 		elseif( totem.secure ) then
@@ -184,8 +184,8 @@ function Totems:Update(frame)
 			indicator.endTime = nil
 		end
 
-		if( self.fontString ) then
-			self.fontString:UpdateTags()
+		if( indicator.fontString ) then
+			indicator.fontString:UpdateTags()
 		end
 	end
 	

@@ -103,7 +103,7 @@ function core.announce(level, message, r, g, b)
 end
 
 -- http://wowwiki.com/API_TYPE_bagID
-local bank_bags = {BANK_CONTAINER}
+local bank_bags = {REAGENTBANK_CONTAINER, BANK_CONTAINER}
 for i = NUM_BAG_SLOTS+1, NUM_BAG_SLOTS+NUM_BANKBAGSLOTS do
 	table.insert(bank_bags, i)
 end
@@ -133,7 +133,7 @@ local function is_valid_bag(bagid)
 end
 core.is_valid_bag = is_valid_bag
 local function is_bank_bag(bagid)
-	return (bagid == BANK_CONTAINER or (bagid > NUM_BAG_SLOTS and bagid <= NUM_BANKBAGSLOTS))
+	return (bagid == BANK_CONTAINER or bagid == REAGENTBANK_CONTAINER or (bagid > NUM_BAG_SLOTS and bagid <= NUM_BANKBAGSLOTS))
 end
 core.is_bank_bag = is_bank_bag
 local function is_guild_bank_bag(bagid)
@@ -230,8 +230,8 @@ do
 			-- bank slot or the keyring since they're not real bags.
 			if bag == BANK_CONTAINER then
 				tooltip:SetInventoryItem("player", BankButtonIDToInvSlotID(slot, nil))
-			elseif bag == KEYRING_CONTAINER then
-				tooltip:SetInventoryItem("player", KeyRingButtonIDToInvSlotID(slot))
+			elseif bag == REAGENTBANK_CONTAINER then
+				tooltip:SetInventoryItem("player", ReagentBankButtonIDToInvSlotID(slot))
 			else
 				tooltip:SetBagItem(bag, slot)
 			end
@@ -380,6 +380,7 @@ do
 	}
 	function core.IsSpecialtyBag(bagid)
 		if safe[bagid] or is_guild_bank_bag(bagid) then return false end
+		if bagid == REAGENTBANK_CONTAINER then return true end
 		local invslot = ContainerIDToInventoryID(bagid)
 		if not invslot then return false end
 		local bag = GetInventoryItemLink("player", invslot)
@@ -411,9 +412,20 @@ function core.CanItemGoInBag(bag, slot, target_bag)
 		-- if the item is a profession bag, this will actually be the bag_family, and it should be zero
 		local equip_slot = select(9, GetItemInfo(item))
 		if equip_slot == "INVTYPE_BAG" then
-			item_family = 1
+			item_family = 0
 		end
 	end
+	if target_bag == REAGENTBANK_CONTAINER then
+		if not IsReagentBankUnlocked() then
+			return false
+		end
+		-- considered this route:
+		-- bag_family = bit.bor(0x0008, 0x0010, 0x0020, 0x0040, 0x0200, 0x0400, 0x10000) -- might add 0x0080 (engineering bag), but I don't think tools are allowed
+		-- but it's imprecise; there are tools and suchlike in there
+		-- For some strange reason this is "Crafting Reagent". I expect this to break later.
+		return core.CheckTooltipFor(bag, slot, PROFESSIONS_USED_IN_COOKING)
+	end
+
 	local bag_family = select(2, GetContainerNumFreeSlots(target_bag))
 	return bag_family == 0 or bit.band(item_family, bag_family) > 0
 end
@@ -674,7 +686,17 @@ function core.DoMove(move)
 		QueryGuildBankTab(target_bag - 50)
 	end
 	
-	Debug("Moved", source, source_itemid, target, target_itemid, guildbank)
+	if (source_itemid == target_itemid)
+		and
+		(target_count ~= stack_size)
+		and
+		((target_count + source_count) <= stack_size)
+	then
+		-- we're doing a merge, so we pass back that we're not moving anything from the target slot to the source slot
+		target_itemid = nil
+	end
+
+	Debug("Moved", source, source_itemid, target, target_itemid, source_guildbank or target_guildbank)
 	return true, source_itemid, source, target_itemid, target, source_guildbank or target_guildbank
 end
 

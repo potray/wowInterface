@@ -37,7 +37,7 @@ clcInfo.env = setmetatable({}, {__index = _G})  -- add all data functions in thi
 clcInfo.env2 = setmetatable({}, {__index = _G}) -- use a different one for alerts, events etc
 
 clcInfo.LSM = LibStub("LibSharedMedia-3.0")			-- SharedMedia
-clcInfo.MSQ = LibStub("Masque", true)						-- Masque
+--[[ clcInfo.MSQ = LibStub("Masque", true)						-- Masque
 if clcInfo.MSQ then
 	clcInfo.MSQ_ListSkins = function()
 		local list = {}
@@ -48,6 +48,7 @@ if clcInfo.MSQ then
 		return list
 	end
 end
+]]
 
 -- static popup dialog
 StaticPopupDialogs["CLCINFO"] = {

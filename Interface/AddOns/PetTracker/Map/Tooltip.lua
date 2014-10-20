@@ -22,7 +22,6 @@ local Tooltip = Addon:NewClass('GameTooltip', 'MapTip', 'GameTooltipTemplate')
 --[[ Constructor ]]--
 
 function Tooltip:OnAcquire()
-	self:SetFrameStrata('TOOLTIP')
 	self.Strokes = {}
 end
 
@@ -62,6 +61,7 @@ end
 function Tooltip:Display()
 	self:SetShown(self:NumLines() > 0)
 	self:SetHeight(self:GetHeight() + self.NumStrokes * 8)
+	self:SetFrameStrata('FULLSCREEN_DIALOG')
 end
 
 

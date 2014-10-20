@@ -1,3 +1,11 @@
+### Version 6.0.2.1674
+
+* Updated for WoW 6.0
+* Updated Clique support
+* Added status modules for Group Leader, Raid Assistant, Master Looter, and Raid Icon
+* [API] GridStatus now calls :UpdateAllUnits (if it exists) on status modules when resetting them.
+* [API] There is now an API for indicators. See the project page for details.
+
 ### Version 5.4.7.1653
 
 * Added Soulstone support to the Incoming Resurrection status

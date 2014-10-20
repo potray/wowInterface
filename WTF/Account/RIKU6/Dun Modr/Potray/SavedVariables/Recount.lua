@@ -2,61 +2,730 @@
 RecountPerCharDB = {
 	["version"] = "1.3",
 	["combatants"] = {
-		["Potray"] = {
-			["GUID"] = "0x06000000070C4A07",
+		["Hand of Drakuru <Potray>"] = {
+			["GUID"] = "Creature-0-1379-571-27-28802-00004459F7",
 			["LastEventHealth"] = {
-				"6433 (100%)", -- [1]
-				"6239 (96%)", -- [2]
-				"6239 (96%)", -- [3]
-				"6239 (96%)", -- [4]
-				"6171 (95%)", -- [5]
-				"6171 (95%)", -- [6]
-				"6171 (95%)", -- [7]
-				"6171 (95%)", -- [8]
-				"6171 (95%)", -- [9]
-				"6171 (95%)", -- [10]
-				"5829 (90%)", -- [11]
-				"5829 (90%)", -- [12]
-				"5829 (90%)", -- [13]
-				"5829 (90%)", -- [14]
-				"5829 (90%)", -- [15]
-				"5829 (90%)", -- [16]
-				"5624 (87%)", -- [17]
-				"5624 (87%)", -- [18]
-				"5624 (87%)", -- [19]
-				"5504 (85%)", -- [20]
-				"5504 (85%)", -- [21]
-				"5504 (85%)", -- [22]
-				"5313 (82%)", -- [23]
-				"5313 (82%)", -- [24]
-				"5313 (82%)", -- [25]
-				"5442 (84%)", -- [26]
-				"6088 (94%)", -- [27]
-				"6088 (94%)", -- [28]
-				"6088 (94%)", -- [29]
-				"6088 (94%)", -- [30]
-				"6088 (94%)", -- [31]
-				"6291 (97%)", -- [32]
-				"6355 (98%)", -- [33]
-				"6355 (98%)", -- [34]
-				"6355 (98%)", -- [35]
-				"6135 (95%)", -- [36]
-				"6135 (95%)", -- [37]
-				"6135 (95%)", -- [38]
-				"6110 (94%)", -- [39]
-				"6110 (94%)", -- [40]
-				"5932 (92%)", -- [41]
-				"5932 (92%)", -- [42]
-				"5932 (92%)", -- [43]
-				"5932 (92%)", -- [44]
-				"5932 (92%)", -- [45]
-				"6061 (94%)", -- [46]
-				"6433 (100%)", -- [47]
-				"6433 (100%)", -- [48]
-				"6433 (100%)", -- [49]
-				"6433 (100%)", -- [50]
+				"26195 (100%)", -- [1]
+				"26195 (100%)", -- [2]
+				"23358 (89%)", -- [3]
+				"23358 (89%)", -- [4]
+				"21690 (82%)", -- [5]
+				"21690 (82%)", -- [6]
+				"21690 (82%)", -- [7]
+				"20078 (76%)", -- [8]
+				"20078 (76%)", -- [9]
+				"20078 (76%)", -- [10]
+				"20078 (76%)", -- [11]
+				"18480 (70%)", -- [12]
+				"18480 (70%)", -- [13]
+				"18480 (70%)", -- [14]
+				"18480 (70%)", -- [15]
+				"18480 (70%)", -- [16]
+				"18480 (70%)", -- [17]
+				"18480 (70%)", -- [18]
+				"18480 (70%)", -- [19]
+				"18480 (70%)", -- [20]
+				"18480 (70%)", -- [21]
+				"16741 (63%)", -- [22]
+				"16741 (63%)", -- [23]
+				"16741 (63%)", -- [24]
+				"16741 (63%)", -- [25]
+				"16741 (63%)", -- [26]
+				"15443 (58%)", -- [27]
+				"15443 (58%)", -- [28]
+				"15443 (58%)", -- [29]
+				"14120 (53%)", -- [30]
+				"14120 (53%)", -- [31]
+				"14120 (53%)", -- [32]
+				"14120 (53%)", -- [33]
 			},
-			["LastAttackedBy"] = "Starving Helboar",
+			["LastAttackedBy"] = "Darmuk",
+			["LastEventType"] = {
+				"DAMAGE", -- [1]
+				"DAMAGE", -- [2]
+				"DAMAGE", -- [3]
+				"DAMAGE", -- [4]
+				"DAMAGE", -- [5]
+				"DAMAGE", -- [6]
+				"DAMAGE", -- [7]
+				"DAMAGE", -- [8]
+				"DAMAGE", -- [9]
+				"DAMAGE", -- [10]
+				"DAMAGE", -- [11]
+				"DAMAGE", -- [12]
+				"DAMAGE", -- [13]
+				"DAMAGE", -- [14]
+				"DAMAGE", -- [15]
+				"DAMAGE", -- [16]
+				"DAMAGE", -- [17]
+				"DAMAGE", -- [18]
+				"DAMAGE", -- [19]
+				"DAMAGE", -- [20]
+				"DAMAGE", -- [21]
+				"DAMAGE", -- [22]
+				"DAMAGE", -- [23]
+				"DAMAGE", -- [24]
+				"DAMAGE", -- [25]
+				"DAMAGE", -- [26]
+				"DAMAGE", -- [27]
+				"DAMAGE", -- [28]
+				"DAMAGE", -- [29]
+				"DAMAGE", -- [30]
+				"DAMAGE", -- [31]
+				"DAMAGE", -- [32]
+				"DAMAGE", -- [33]
+			},
+			["TimeWindows"] = {
+				["ActiveTime"] = {
+					21.94, -- [1]
+				},
+				["DOT_Time"] = {
+					12, -- [1]
+				},
+				["TimeDamage"] = {
+					21.94, -- [1]
+				},
+				["DamageTaken"] = {
+					15691, -- [1]
+				},
+				["Damage"] = {
+					13564, -- [1]
+				},
+			},
+			["enClass"] = "PET",
+			["unit"] = "Hand of Drakuru",
+			["level"] = 1,
+			["LastDamageAbility"] = "Melee",
+			["LastFightIn"] = 5,
+			["LastEventNum"] = {
+				[11] = 6.10040083985494,
+				[7] = 6.15384615384615,
+				[21] = 6.63867150219508,
+				[33] = 13.8041610994465,
+				[29] = 5.05058217217026,
+				[26] = 4.95514411147166,
+				[2] = 10.8303111280779,
+				[4] = 6.36762740981103,
+			},
+			["type"] = "Pet",
+			["FightsSaved"] = 5,
+			["LastDamageTaken"] = 3616,
+			["TimeLast"] = {
+				["DOT_Time"] = 1413793932,
+				["ActiveTime"] = 1413793933,
+				["TimeDamage"] = 1413793933,
+				["OVERALL"] = 1413793934,
+				["DamageTaken"] = 1413793934,
+				["Damage"] = 1413793932,
+			},
+			["Owner"] = "Potray",
+			["LastAbility"] = 174046.554,
+			["NextEventNum"] = 34,
+			["LastEventHealthNum"] = {
+				100, -- [1]
+				100, -- [2]
+				89.1696888719221, -- [3]
+				89.1696888719221, -- [4]
+				82.8020614621111, -- [5]
+				82.8020614621111, -- [6]
+				82.8020614621111, -- [7]
+				76.6482153082649, -- [8]
+				76.6482153082649, -- [9]
+				76.6482153082649, -- [10]
+				76.6482153082649, -- [11]
+				70.54781446841, -- [12]
+				70.54781446841, -- [13]
+				70.54781446841, -- [14]
+				70.54781446841, -- [15]
+				70.54781446841, -- [16]
+				70.54781446841, -- [17]
+				70.54781446841, -- [18]
+				70.54781446841, -- [19]
+				70.54781446841, -- [20]
+				70.54781446841, -- [21]
+				63.9091429662149, -- [22]
+				63.9091429662149, -- [23]
+				63.9091429662149, -- [24]
+				63.9091429662149, -- [25]
+				63.9091429662149, -- [26]
+				58.9539988547433, -- [27]
+				58.9539988547433, -- [28]
+				58.9539988547433, -- [29]
+				53.903416682573, -- [30]
+				53.903416682573, -- [31]
+				53.903416682573, -- [32]
+				53.903416682573, -- [33]
+			},
+			["LastEvents"] = {
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -575 (Physical)", -- [1]
+				"Darmuk Melee Hand of Drakuru <Potray> Crit -2837 (Physical)", -- [2]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -689 (Physical)", -- [3]
+				"Darmuk Melee Hand of Drakuru <Potray> Hit -1668 (Physical)", -- [4]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -644 (Physical)", -- [5]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -770 (Physical)", -- [6]
+				"Darmuk Melee Hand of Drakuru <Potray> Hit -1612 (Physical)", -- [7]
+				"Hand of Drakuru <Potray> Gut Rip Darmuk Hit -851 (Physical)", -- [8]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -765 (Physical)", -- [9]
+				"Hand of Drakuru <Potray> Melee Darmuk Crit -1464 (Physical)", -- [10]
+				"Darmuk Melee Hand of Drakuru <Potray> Hit -1598 (Physical)", -- [11]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -618 (Physical)", -- [12]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -630 (Physical)", -- [13]
+				"Hand of Drakuru <Potray> Gut Rip (DoT) Darmuk Tick -375 (Physical)", -- [14]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -717 (Physical)", -- [15]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -623 (Physical)", -- [16]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -563 (Physical)", -- [17]
+				"Hand of Drakuru <Potray> Gut Rip (DoT) Darmuk Tick -375 (Physical)", -- [18]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -593 (Physical)", -- [19]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -555 (Physical)", -- [20]
+				"Darmuk Melee Hand of Drakuru <Potray> Hit -1739 (Physical)", -- [21]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -607 (Physical)", -- [22]
+				"Hand of Drakuru <Potray> Gut Rip (DoT) Darmuk Tick -374 (Physical)", -- [23]
+				"Hand of Drakuru <Potray> Gut Rip Darmuk Hit -688 (Physical)", -- [24]
+				"Hand of Drakuru <Potray> Melee Darmuk Hit -713 (Physical)", -- [25]
+				"Darmuk Melee Hand of Drakuru <Potray> Hit -1298 (Physical)", -- [26]
+				"Hand of Drakuru <Potray> Melee Darmuk Dodge", -- [27]
+				"Hand of Drakuru <Potray> Melee Darmuk Dodge", -- [28]
+				"Darmuk Melee Hand of Drakuru <Potray> Hit -1323 (Physical)", -- [29]
+				"Hand of Drakuru <Potray> Melee Darmuk Dodge", -- [30]
+				"Hand of Drakuru <Potray> Gut Rip (DoT) Darmuk Tick -375 (Physical)", -- [31]
+				"Hand of Drakuru <Potray> Melee Darmuk Dodge", -- [32]
+				"Darmuk Melee Hand of Drakuru <Potray> Crit -3616 (Physical)", -- [33]
+			},
+			["Name"] = "Hand of Drakuru",
+			["LastEventIncoming"] = {
+				false, -- [1]
+				true, -- [2]
+				false, -- [3]
+				true, -- [4]
+				false, -- [5]
+				false, -- [6]
+				true, -- [7]
+				false, -- [8]
+				false, -- [9]
+				false, -- [10]
+				true, -- [11]
+				false, -- [12]
+				false, -- [13]
+				false, -- [14]
+				false, -- [15]
+				false, -- [16]
+				false, -- [17]
+				false, -- [18]
+				false, -- [19]
+				false, -- [20]
+				true, -- [21]
+				false, -- [22]
+				false, -- [23]
+				false, -- [24]
+				false, -- [25]
+				true, -- [26]
+				false, -- [27]
+				false, -- [28]
+				true, -- [29]
+				false, -- [30]
+				false, -- [31]
+				false, -- [32]
+				true, -- [33]
+			},
+			["LastEventTimes"] = {
+				174028.129, -- [1]
+				174028.74, -- [2]
+				174029.936, -- [3]
+				174030.446, -- [4]
+				174031.448, -- [5]
+				174032.35, -- [6]
+				174032.35, -- [7]
+				174033.2, -- [8]
+				174033.311, -- [9]
+				174034.267, -- [10]
+				174034.421, -- [11]
+				174035.175, -- [12]
+				174036.173, -- [13]
+				174036.173, -- [14]
+				174037.061, -- [15]
+				174038.016, -- [16]
+				174039.03, -- [17]
+				174039.198, -- [18]
+				174039.896, -- [19]
+				174040.878, -- [20]
+				174040.878, -- [21]
+				174041.765, -- [22]
+				174042.196, -- [23]
+				174042.483, -- [24]
+				174042.723, -- [25]
+				174042.843, -- [26]
+				174043.662, -- [27]
+				174044.598, -- [28]
+				174044.84, -- [29]
+				174045.598, -- [30]
+				174045.598, -- [31]
+				174046.554, -- [32]
+				174047.087, -- [33]
+			},
+			["Fights"] = {
+				["LastFightData"] = {
+					["DOTs"] = {
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 0,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+					},
+					["DOT_Time"] = 0,
+					["Damage"] = 0,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 0,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["DamagedWho"] = {
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 0,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 0,
+					["TimeDamaging"] = {
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["CurrentFightData"] = {
+					["DOTs"] = {
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 0,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+					},
+					["DOT_Time"] = 0,
+					["Damage"] = 0,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 0,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["DamagedWho"] = {
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 0,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 0,
+					["TimeDamaging"] = {
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["OverallData"] = {
+					["DOTs"] = {
+						["Gut Rip (DoT)"] = {
+							["Details"] = {
+								["Darmuk"] = {
+									["count"] = 12,
+								},
+							},
+							["amount"] = 12,
+						},
+					},
+					["TimeSpent"] = {
+						["Darmuk"] = {
+							["Details"] = {
+								["Gut Rip"] = {
+									["count"] = 1.14,
+								},
+								["Melee"] = {
+									["count"] = 20.2,
+								},
+								["Gut Rip (DoT)"] = {
+									["count"] = 0.6,
+								},
+							},
+							["amount"] = 21.94,
+						},
+					},
+					["DamageTaken"] = 15691,
+					["PartialResist"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 8,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 8,
+							["amount"] = 0,
+						},
+					},
+					["PartialAbsorb"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 8,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 8,
+							["amount"] = 0,
+						},
+					},
+					["ActiveTime"] = 21.94,
+					["ElementTaken"] = {
+						["Melee"] = 15691,
+					},
+					["DOT_Time"] = 12,
+					["Damage"] = 13564,
+					["ElementDone"] = {
+						["Melee"] = 10526,
+						["Physical"] = 3038,
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["count"] = 2,
+								},
+								["Hit"] = {
+									["count"] = 6,
+								},
+							},
+							["amount"] = 8,
+						},
+					},
+					["DamagedWho"] = {
+						["Darmuk"] = {
+							["Details"] = {
+								["Gut Rip"] = {
+									["count"] = 1539,
+								},
+								["Melee"] = {
+									["count"] = 10526,
+								},
+								["Gut Rip (DoT)"] = {
+									["count"] = 1499,
+								},
+							},
+							["amount"] = 13564,
+						},
+					},
+					["TimeDamage"] = 21.94,
+					["TimeDamaging"] = {
+						["Darmuk"] = {
+							["Details"] = {
+								["Gut Rip"] = {
+									["count"] = 1.14,
+								},
+								["Melee"] = {
+									["count"] = 20.2,
+								},
+								["Gut Rip (DoT)"] = {
+									["count"] = 0.6,
+								},
+							},
+							["amount"] = 21.94,
+						},
+					},
+					["Attacks"] = {
+						["Gut Rip"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 851,
+									["min"] = 688,
+									["count"] = 2,
+									["amount"] = 1539,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 1539,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Dodge"] = {
+									["count"] = 4,
+									["amount"] = 0,
+								},
+								["Crit"] = {
+									["max"] = 1464,
+									["min"] = 1464,
+									["count"] = 1,
+									["amount"] = 1464,
+								},
+								["Hit"] = {
+									["max"] = 770,
+									["min"] = 555,
+									["count"] = 14,
+									["amount"] = 9062,
+								},
+							},
+							["count"] = 19,
+							["amount"] = 10526,
+						},
+						["Gut Rip (DoT)"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 375,
+									["min"] = 374,
+									["count"] = 4,
+									["amount"] = 1499,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 1499,
+						},
+					},
+					["WhoDamaged"] = {
+						["Darmuk"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 15691,
+								},
+							},
+							["amount"] = 15691,
+						},
+					},
+					["ElementHitsDone"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Dodge"] = {
+									["count"] = 4,
+								},
+								["Crit"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 14,
+								},
+							},
+							["amount"] = 19,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 4,
+								},
+								["Hit"] = {
+									["count"] = 2,
+								},
+							},
+							["amount"] = 6,
+						},
+					},
+				},
+			},
+			["UnitLockout"] = 1413793915,
+			["LastActive"] = 1413793934,
+		},
+		["Potray"] = {
+			["GUID"] = "Player-1378-070C4A07",
+			["LastEventHealth"] = {
+				"13915 (71%)", -- [1]
+				"13915 (71%)", -- [2]
+				"13915 (71%)", -- [3]
+				"13915 (71%)", -- [4]
+				"14303 (73%)", -- [5]
+				"14303 (73%)", -- [6]
+				"14303 (73%)", -- [7]
+				"14303 (73%)", -- [8]
+				"14303 (73%)", -- [9]
+				"13867 (71%)", -- [10]
+				"13403 (69%)", -- [11]
+				"13403 (69%)", -- [12]
+				"13403 (69%)", -- [13]
+				"13403 (69%)", -- [14]
+				"13403 (69%)", -- [15]
+				"13403 (69%)", -- [16]
+				"13403 (69%)", -- [17]
+				"13403 (69%)", -- [18]
+				"12953 (66%)", -- [19]
+				"12953 (66%)", -- [20]
+				"12953 (66%)", -- [21]
+				"12953 (66%)", -- [22]
+				"12953 (66%)", -- [23]
+				"12953 (66%)", -- [24]
+				"13341 (68%)", -- [25]
+				"13341 (68%)", -- [26]
+				"12801 (65%)", -- [27]
+				"12801 (65%)", -- [28]
+				"12328 (63%)", -- [29]
+				"12328 (63%)", -- [30]
+				"12716 (65%)", -- [31]
+				"12273 (63%)", -- [32]
+				"12485 (64%)", -- [33]
+				"12485 (64%)", -- [34]
+				"12485 (64%)", -- [35]
+				"12873 (66%)", -- [36]
+				"12873 (66%)", -- [37]
+				"12873 (66%)", -- [38]
+				"12363 (63%)", -- [39]
+				"12363 (63%)", -- [40]
+				"12363 (63%)", -- [41]
+				"11839 (61%)", -- [42]
+				"11839 (61%)", -- [43]
+				"11839 (61%)", -- [44]
+				"12227 (63%)", -- [45]
+				"13616 (70%)", -- [46]
+				"13616 (70%)", -- [47]
+				"13616 (70%)", -- [48]
+				"13616 (70%)", -- [49]
+				"13915 (71%)", -- [50]
+			},
+			["LastAttackedBy"] = "Rampaging Geist",
 			["LastEventType"] = {
 				"DAMAGE", -- [1]
 				"DAMAGE", -- [2]
@@ -82,8 +751,6353 @@ RecountPerCharDB = {
 				"DAMAGE", -- [22]
 				"DAMAGE", -- [23]
 				"DAMAGE", -- [24]
+				"HEAL", -- [25]
+				"DAMAGE", -- [26]
+				"DAMAGE", -- [27]
+				"DAMAGE", -- [28]
+				"DAMAGE", -- [29]
+				"DAMAGE", -- [30]
+				"HEAL", -- [31]
+				"DAMAGE", -- [32]
+				"HEAL", -- [33]
+				"DAMAGE", -- [34]
+				"DAMAGE", -- [35]
+				"HEAL", -- [36]
+				"DAMAGE", -- [37]
+				"DAMAGE", -- [38]
+				"DAMAGE", -- [39]
+				"DAMAGE", -- [40]
+				"DAMAGE", -- [41]
+				"DAMAGE", -- [42]
+				"DAMAGE", -- [43]
+				"DAMAGE", -- [44]
+				"HEAL", -- [45]
+				"DAMAGE", -- [46]
+				"DAMAGE", -- [47]
+				"DAMAGE", -- [48]
+				"DAMAGE", -- [49]
+				"HEAL", -- [50]
+			},
+			["TimeWindows"] = {
+				["TimeHeal"] = {
+					6.3, -- [1]
+				},
+				["Healing"] = {
+					24252, -- [1]
+				},
+				["DamageTaken"] = {
+					53876, -- [1]
+				},
+				["HealingTaken"] = {
+					24252, -- [1]
+				},
+				["Overhealing"] = {
+					670, -- [1]
+				},
+				["TimeDamage"] = {
+					168.95, -- [1]
+				},
+				["ActiveTime"] = {
+					175.25, -- [1]
+				},
+				["DOT_Time"] = {
+					66, -- [1]
+				},
+				["Damage"] = {
+					182364, -- [1]
+				},
+			},
+			["enClass"] = "PALADIN",
+			["unit"] = "Potray",
+			["TimeLast"] = {
+				["TimeHeal"] = 1413795677,
+				["OVERALL"] = 1413795677,
+				["DamageTaken"] = 1413795675,
+				["HealingTaken"] = 1413795677,
+				["Overhealing"] = 1413793246,
+				["TimeDamage"] = 1413795677,
+				["ActiveTime"] = 1413795677,
+				["Healing"] = 1413795677,
+				["DOT_Time"] = 1413795637,
+				["Damage"] = 1413795677,
+			},
+			["LastDamageTaken"] = 524,
+			["level"] = 76,
+			["LastDamageAbility"] = "Melee",
+			["LastFightIn"] = 15,
+			["LastEventNum"] = {
+				[31] = 2,
+				[32] = 2.90721649484536,
+				[33] = 4,
+				[9] = 2.24742268041237,
+				[18] = 2.31958762886598,
+				[36] = 2,
+				[5] = 2,
+				[38] = 2.62886597938144,
+				[41] = 2.70103092783505,
+				[45] = 2,
+				[48] = 2.45876288659794,
+				[25] = 2,
+				[50] = 4,
+				[26] = 2.78350515463918,
+				[28] = 2.43814432989691,
+				[29] = 2.28350515463918,
+				[10] = 2.39175257731959,
+			},
+			["type"] = "Self",
+			["FightsSaved"] = 5,
+			["GuardianReverseGUIDs"] = {
+				["Persistence"] = {
+					["LatestGuardian"] = 2,
+					["GUIDs"] = {
+						"Vehicle-0-1379-571-26-29863-000044C77F", -- [1]
+						"Vehicle-0-1379-571-26-29863-000044C974", -- [2]
+						[0] = "Vehicle-0-1379-571-27-29863-0000443135",
+					},
+				},
+			},
+			["LastEventIncoming"] = {
+				false, -- [1]
+				false, -- [2]
+				false, -- [3]
+				false, -- [4]
+				true, -- [5]
+				false, -- [6]
+				false, -- [7]
+				false, -- [8]
+				true, -- [9]
+				true, -- [10]
+				false, -- [11]
+				false, -- [12]
+				false, -- [13]
+				false, -- [14]
+				false, -- [15]
+				false, -- [16]
+				false, -- [17]
+				true, -- [18]
+				true, -- [19]
+				false, -- [20]
+				false, -- [21]
+				false, -- [22]
+				false, -- [23]
+				false, -- [24]
+				true, -- [25]
+				true, -- [26]
+				false, -- [27]
+				true, -- [28]
+				true, -- [29]
+				false, -- [30]
+				true, -- [31]
+				true, -- [32]
+				true, -- [33]
+				false, -- [34]
+				false, -- [35]
+				true, -- [36]
+				false, -- [37]
+				true, -- [38]
+				false, -- [39]
+				false, -- [40]
+				true, -- [41]
+				false, -- [42]
+				false, -- [43]
+				false, -- [44]
+				true, -- [45]
+				false, -- [46]
+				false, -- [47]
+				true, -- [48]
+				true, -- [49]
+				true, -- [50]
+			},
+			["Owner"] = false,
+			["Pet"] = {
+				"Overlord Drakuru <Potray>", -- [1]
+				"Persistence <Potray>", -- [2]
+				"Blight Geist <Potray>", -- [3]
+				"Hand of Drakuru <Potray>", -- [4]
+				"Bloated Abomination <Potray>", -- [5]
+			},
+			["NextEventNum"] = 46,
+			["LastEventHealthNum"] = {
+				71.7268041237114, -- [1]
+				71.7268041237114, -- [2]
+				71.7268041237114, -- [3]
+				71.7268041237114, -- [4]
+				73.7268041237114, -- [5]
+				73.7268041237114, -- [6]
+				73.7268041237114, -- [7]
+				73.7268041237114, -- [8]
+				73.7268041237114, -- [9]
+				71.479381443299, -- [10]
+				69.0876288659794, -- [11]
+				69.0876288659794, -- [12]
+				69.0876288659794, -- [13]
+				69.0876288659794, -- [14]
+				69.0876288659794, -- [15]
+				69.0876288659794, -- [16]
+				69.0876288659794, -- [17]
+				69.0876288659794, -- [18]
+				66.7680412371134, -- [19]
+				66.7680412371134, -- [20]
+				66.7680412371134, -- [21]
+				66.7680412371134, -- [22]
+				66.7680412371134, -- [23]
+				66.7680412371134, -- [24]
+				68.7680412371134, -- [25]
+				68.7680412371134, -- [26]
+				65.9845360824742, -- [27]
+				65.9845360824742, -- [28]
+				63.5463917525773, -- [29]
+				63.5463917525773, -- [30]
+				65.5463917525773, -- [31]
+				63.2628865979381, -- [32]
+				64.3556701030928, -- [33]
+				64.3556701030928, -- [34]
+				64.3556701030928, -- [35]
+				66.3556701030928, -- [36]
+				66.3556701030928, -- [37]
+				66.3556701030928, -- [38]
+				63.7268041237114, -- [39]
+				63.7268041237114, -- [40]
+				63.7268041237114, -- [41]
+				61.0257731958763, -- [42]
+				61.0257731958763, -- [43]
+				61.0257731958763, -- [44]
+				63.0257731958763, -- [45]
+				70.1855670103093, -- [46]
+				70.1855670103093, -- [47]
+				70.1855670103093, -- [48]
+				70.1855670103093, -- [49]
+				71.7268041237114, -- [50]
+			},
+			["LastEvents"] = {
+				"Potray Divine Storm Carrion Eater Crit -1429 (Holy)", -- [1]
+				"Potray Divine Storm Carrion Eater Hit -738 (Holy)", -- [2]
+				"Potray Divine Storm Carrion Eater Hit -726 (Holy)", -- [3]
+				"Potray Divine Storm Rampaging Geist Hit -752 (Holy)", -- [4]
+				"Potray Swift Hand of Justice Potray Hit +388", -- [5]
+				"Potray Seal of Righteousness Carrion Eater Hit -107 (Holy)", -- [6]
+				"Potray Seal of Righteousness Carrion Eater Hit -114 (Holy)", -- [7]
+				"Potray Seal of Righteousness Rampaging Geist Crit -230 (Holy)", -- [8]
+				"Carrion Eater Melee Potray Hit -436 (Physical)", -- [9]
+				"Carrion Eater Melee Potray Hit -464 (Physical)", -- [10]
+				"Potray Hammer of the Righteous Carrion Eater Hit -266 (Physical)", -- [11]
+				"Potray Hammer of the Righteous Carrion Eater Hit -228 (Holy)", -- [12]
+				"Potray Hammer of the Righteous Carrion Eater Hit -223 (Holy)", -- [13]
+				"Potray Hammer of the Righteous Rampaging Geist Hit -227 (Holy)", -- [14]
+				"Potray Seal of Righteousness Carrion Eater Hit -118 (Holy)", -- [15]
+				"Potray Seal of Righteousness Carrion Eater Hit -108 (Holy)", -- [16]
+				"Potray Seal of Righteousness Rampaging Geist Hit -117 (Holy)", -- [17]
+				"Carrion Eater Melee Potray Hit -450 (Physical)", -- [18]
+				"Carrion Eater Melee Potray Miss", -- [19]
+				"Potray Melee Carrion Eater Crit -1474 (Physical)", -- [20]
+				"Potray Seal of Righteousness Carrion Eater Crit -221 (Holy)", -- [21]
+				"Potray Seal of Righteousness Carrion Eater Hit -118 (Holy)", -- [22]
+				"Potray Seal of Righteousness Rampaging Geist Hit -112 (Holy)", -- [23]
+				"Potray Judgment Carrion Eater Hit -1172 (Holy)", -- [24]
+				"Potray Swift Hand of Justice Potray Hit +388", -- [25]
+				"Carrion Eater Melee Potray Hit -540 (Physical)", -- [26]
+				"Potray Exorcism Carrion Eater Hit -1034 (Holy)", -- [27]
+				"Rampaging Geist Melee Potray Hit -473 (Physical)", -- [28]
+				"Carrion Eater Melee Potray Hit -443 (Physical)", -- [29]
+				"Potray Hammer of Wrath Carrion Eater Hit -1556 (Holy)", -- [30]
+				"Potray Swift Hand of Justice Potray Hit +388", -- [31]
+				"Rampaging Geist Melee Potray Hit -564 (Physical)", -- [32]
+				"Potray Glyph of Divine Storm Potray Hit +776", -- [33]
+				"Potray Divine Storm Rampaging Geist Hit -751 (Holy)", -- [34]
+				"Potray Divine Storm Rampaging Geist Hit -733 (Holy)", -- [35]
+				"Potray Swift Hand of Justice Potray Hit +388", -- [36]
+				"Potray Seal of Righteousness Rampaging Geist Hit -113 (Holy)", -- [37]
+				"Rampaging Geist Melee Potray Hit -510 (Physical)", -- [38]
+				"Potray Judgment Rampaging Geist Hit -976 (Holy)", -- [39]
+				"Potray Seal of Truth Rampaging Geist Hit -126 (Holy)", -- [40]
+				"Rampaging Geist Melee Potray Hit -524 (Physical)", -- [41]
+				"Potray Melee Rampaging Geist Hit -761 (Physical)", -- [42]
+				"Potray Seal of Truth Rampaging Geist Hit -122 (Holy)", -- [43]
+				"Potray Crusader Strike Rampaging Geist Hit -773 (Physical)", -- [44]
+				"Potray Swift Hand of Justice Potray Hit +388", -- [45]
+				"Potray Seal of Righteousness Carrion Eater Crit -228 (Holy)", -- [46]
+				"Potray Seal of Righteousness Rampaging Geist Crit -233 (Holy)", -- [47]
+				"Carrion Eater Melee Potray Hit -477 (Physical)", -- [48]
+				"Carrion Eater Melee Potray Parry", -- [49]
+				"Potray Glyph of Divine Storm Potray Hit +776", -- [50]
+			},
+			["Name"] = "Potray",
+			["LastEventTimes"] = {
+				175773.869, -- [1]
+				175773.869, -- [2]
+				175773.869, -- [3]
+				175773.869, -- [4]
+				175773.869, -- [5]
+				175773.869, -- [6]
+				175773.869, -- [7]
+				175773.869, -- [8]
+				175774.902, -- [9]
+				175774.902, -- [10]
+				175775.318, -- [11]
+				175775.318, -- [12]
+				175775.318, -- [13]
+				175775.318, -- [14]
+				175775.318, -- [15]
+				175775.318, -- [16]
+				175775.318, -- [17]
+				175776.941, -- [18]
+				175777.008, -- [19]
+				175777.308, -- [20]
+				175777.308, -- [21]
+				175777.308, -- [22]
+				175777.308, -- [23]
+				175778.048, -- [24]
+				175778.048, -- [25]
+				175778.92, -- [26]
+				175779.453, -- [27]
+				175779.725, -- [28]
+				175780.842, -- [29]
+				175780.842, -- [30]
+				175780.842, -- [31]
+				175781.78, -- [32]
+				175782.435, -- [33]
+				175782.435, -- [34]
+				175782.435, -- [35]
+				175782.435, -- [36]
+				175782.435, -- [37]
+				175783.809, -- [38]
+				175788.605, -- [39]
+				175788.605, -- [40]
+				175788.831, -- [41]
+				175789.033, -- [42]
+				175789.124, -- [43]
+				175790.051, -- [44]
+				175790.051, -- [45]
+				175772.884, -- [46]
+				175772.884, -- [47]
+				175772.884, -- [48]
+				175772.884, -- [49]
+				175773.869, -- [50]
+			},
+			["LastActive"] = 1413795677,
+			["Fights"] = {
+				["Fight3"] = {
+					["DOTs"] = {
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 581,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 1,
+								},
+								["Miss"] = {
+									["count"] = 1,
+								},
+							},
+							["amount"] = 2,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+						["Melee"] = 581,
+						["Physical"] = 0,
+					},
+					["DOT_Time"] = 0,
+					["Damage"] = 0,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 0,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+					},
+					["PartialAbsorb"] = {
+						["Falling"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 0,
+						},
+					},
+					["DamagedWho"] = {
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 581,
+								},
+							},
+							["amount"] = 581,
+						},
+						["Environment"] = {
+							["Details"] = {
+								["Falling"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+						["Falling"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 0,
+						},
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 0,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 0,
+					["TimeDamaging"] = {
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["Fight2"] = {
+					["DOTs"] = {
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Carrion Eater"] = {
+									["count"] = 3,
+								},
+							},
+							["amount"] = 3,
+						},
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 8465,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Dodge"] = {
+									["count"] = 3,
+								},
+								["Parry"] = {
+									["count"] = 6,
+								},
+								["Crit"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 14,
+								},
+							},
+							["amount"] = 24,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 2,
+								},
+								["Dodge"] = {
+									["count"] = 1,
+								},
+							},
+							["amount"] = 3,
+						},
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+						["Holy"] = {
+							["Details"] = {
+								["Evade"] = {
+									["count"] = 1,
+								},
+								["Tick"] = {
+									["count"] = 1,
+								},
+								["Crit"] = {
+									["count"] = 13,
+								},
+								["Hit"] = {
+									["count"] = 48,
+								},
+							},
+							["amount"] = 63,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 5,
+								},
+							},
+							["amount"] = 6,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Crit"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 4,
+								},
+							},
+							["amount"] = 5,
+						},
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+						["Melee"] = 7938,
+						["Physical"] = 527,
+					},
+					["DOT_Time"] = 3,
+					["Damage"] = 31807,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 2.34,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+						["Holy"] = 23428,
+						["Melee"] = 5320,
+						["Physical"] = 3059,
+					},
+					["PartialAbsorb"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 24,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 24,
+							["amount"] = 0,
+						},
+						["Ravenous Claw"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 3,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 3,
+							["amount"] = 0,
+						},
+					},
+					["DamagedWho"] = {
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 3104,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 1104,
+								},
+								["Divine Storm"] = {
+									["count"] = 1450,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 1693,
+								},
+								["Melee"] = {
+									["count"] = 2243,
+								},
+							},
+							["amount"] = 9594,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 2070,
+								},
+								["Melee"] = {
+									["count"] = 3077,
+								},
+								["Judgment"] = {
+									["count"] = 3123,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 3002,
+								},
+								["Divine Storm"] = {
+									["count"] = 5829,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 2988,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1624,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 114,
+								},
+								["Seal of Truth"] = {
+									["count"] = 386,
+								},
+							},
+							["amount"] = 22213,
+						},
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 2787,
+								},
+							},
+							["amount"] = 2787,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 5151,
+								},
+								["Ravenous Claw"] = {
+									["count"] = 527,
+								},
+							},
+							["amount"] = 5678,
+						},
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 24,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 24,
+							["amount"] = 0,
+						},
+						["Ravenous Claw"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 3,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 3,
+							["amount"] = 0,
+						},
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 2.34,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 2.34,
+						},
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 1552,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 1940,
+								},
+							},
+							["amount"] = 3492,
+						},
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 4.97,
+								},
+								["Melee"] = {
+									["count"] = 3.82,
+								},
+								["Judgment"] = {
+									["count"] = 4.31,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 4.51,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 1.45,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 19.06,
+						},
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 2.34,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 2.34,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 1.38,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 0.18,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0.22,
+								},
+								["Melee"] = {
+									["count"] = 3.8,
+								},
+							},
+							["amount"] = 5.58,
+						},
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+						["Glyph of Divine Storm"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 776,
+									["min"] = 776,
+									["count"] = 2,
+									["amount"] = 1552,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 1552,
+						},
+						["Swift Hand of Justice"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 388,
+									["min"] = 388,
+									["count"] = 5,
+									["amount"] = 1940,
+								},
+							},
+							["count"] = 5,
+							["amount"] = 1940,
+						},
+					},
+					["WhoHealed"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 1552,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 1940,
+								},
+							},
+							["amount"] = 3492,
+						},
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 26.98,
+					["Healing"] = 3492,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+						["Exorcism"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 2069,
+									["min"] = 2069,
+									["count"] = 1,
+									["amount"] = 2069,
+								},
+								["Hit"] = {
+									["max"] = 1035,
+									["min"] = 1035,
+									["count"] = 3,
+									["amount"] = 3105,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 5174,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 1502,
+									["min"] = 1502,
+									["count"] = 1,
+									["amount"] = 1502,
+								},
+								["Hit"] = {
+									["max"] = 780,
+									["min"] = 741,
+									["count"] = 5,
+									["amount"] = 3818,
+								},
+							},
+							["count"] = 6,
+							["amount"] = 5320,
+						},
+						["Judgment"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 1171,
+									["min"] = 976,
+									["count"] = 3,
+									["amount"] = 3123,
+								},
+							},
+							["count"] = 3,
+							["amount"] = 3123,
+						},
+						["Hammer of the Righteous"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 295,
+									["min"] = 217,
+									["count"] = 13,
+									["amount"] = 3084,
+								},
+								["Crit"] = {
+									["max"] = 576,
+									["min"] = 446,
+									["count"] = 2,
+									["amount"] = 1022,
+								},
+								["Evade"] = {
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 16,
+							["amount"] = 4106,
+						},
+						["Divine Storm"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 1501,
+									["min"] = 1445,
+									["count"] = 3,
+									["amount"] = 4394,
+								},
+								["Hit"] = {
+									["max"] = 727,
+									["min"] = 708,
+									["count"] = 4,
+									["amount"] = 2885,
+								},
+							},
+							["count"] = 7,
+							["amount"] = 7279,
+						},
+						["Seal of Righteousness"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 239,
+									["min"] = 219,
+									["count"] = 8,
+									["amount"] = 1824,
+								},
+								["Hit"] = {
+									["max"] = 120,
+									["min"] = 107,
+									["count"] = 25,
+									["amount"] = 2857,
+								},
+							},
+							["count"] = 33,
+							["amount"] = 4681,
+						},
+						["Templar's Verdict"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 1624,
+									["min"] = 1624,
+									["count"] = 1,
+									["amount"] = 1624,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 1624,
+						},
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 114,
+									["min"] = 114,
+									["count"] = 1,
+									["amount"] = 114,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 114,
+						},
+						["Seal of Truth"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 133,
+									["min"] = 122,
+									["count"] = 3,
+									["amount"] = 386,
+								},
+							},
+							["count"] = 3,
+							["amount"] = 386,
+						},
+					},
+					["HealingTaken"] = 3492,
+					["RageGain"] = 0,
+					["TimeDamage"] = 24.64,
+					["TimeDamaging"] = {
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 1.38,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 0.18,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0.22,
+								},
+								["Melee"] = {
+									["count"] = 3.8,
+								},
+							},
+							["amount"] = 5.58,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 4.97,
+								},
+								["Melee"] = {
+									["count"] = 3.82,
+								},
+								["Judgment"] = {
+									["count"] = 4.31,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 4.51,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 1.45,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 19.06,
+						},
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["CurrentFightData"] = {
+					["DOTs"] = {
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Drakkari Skullcrusher"] = {
+									["count"] = 0,
+								},
+								["Blightguard"] = {
+									["count"] = 0,
+								},
+								["Blight Geist"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Flatulate (DoT)"] = {
+							["Details"] = {
+								["Drakkari Skullcrusher"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 0,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Dodge"] = {
+									["count"] = 0,
+								},
+								["Miss"] = {
+									["count"] = 0,
+								},
+								["Parry"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+						["Holy"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Nature"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+						["Melee"] = 0,
+					},
+					["DOT_Time"] = 0,
+					["Damage"] = 0,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 0,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+						["Holy"] = 0,
+						["Physical"] = 0,
+						["Melee"] = 0,
+						["Nature"] = 0,
+					},
+					["PartialAbsorb"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Shadowstrike"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["DamagedWho"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Blightguard"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Blightguard"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Shadowstrike"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Shadowstrike"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Potray"] = {
+							["Details"] = {
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Blightguard"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+						["Swift Hand of Justice"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["WhoHealed"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 0,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+						["Exorcism"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Judgment"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Hammer of Wrath"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Flatulate (DoT)"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Templar's Verdict"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Crusader Strike"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Tick"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Seal of Truth"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 0,
+					["TimeDamaging"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Blightguard"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["Fight4"] = {
+					["TimeHealing"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["DOTs"] = {
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Servant of Drakuru"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["TimeSpent"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Blightguard"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Servant of Drakuru"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["DamageTaken"] = 839,
+					["PartialResist"] = {
+						["Falling"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Shadowstrike"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["PartialAbsorb"] = {
+						["Falling"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Shadowstrike"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["ActiveTime"] = 0,
+					["ElementTaken"] = {
+						["Melee"] = 0,
+						["Physical"] = 839,
+					},
+					["DOT_Time"] = 0,
+					["Damage"] = 0,
+					["TimeHeal"] = 0,
+					["WhoHealed"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["ElementHitsDone"] = {
+						["Holy"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["Healing"] = 0,
+					["HealedWho"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["Heals"] = {
+						["Swift Hand of Justice"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["Attacks"] = {
+						["Exorcism"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Templar's Verdict"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Judgment"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Crusader Strike"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Seal of Truth"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["HealingTaken"] = 0,
+					["DamagedWho"] = {
+						["Blightguard"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Servant of Drakuru"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["TimeDamage"] = 0,
+					["WhoDamaged"] = {
+						["Servant of Drakuru"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Blightguard"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Environment"] = {
+							["Details"] = {
+								["Falling"] = {
+									["count"] = 839,
+								},
+							},
+							["amount"] = 839,
+						},
+					},
+					["ElementDone"] = {
+						["Holy"] = 0,
+						["Melee"] = 0,
+						["Physical"] = 0,
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Dodge"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 1,
+								},
+							},
+							["amount"] = 1,
+						},
+					},
+					["TimeDamaging"] = {
+						["Blightguard"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Servant of Drakuru"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Judgment"] = {
+									["count"] = 0,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+				},
+				["LastFightData"] = {
+					["DOTs"] = {
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Rotting Abomination"] = {
+									["count"] = 3,
+								},
+							},
+							["amount"] = 3,
+						},
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 11370,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Miss"] = {
+									["count"] = 3,
+								},
+								["Hit"] = {
+									["count"] = 21,
+								},
+								["Parry"] = {
+									["count"] = 4,
+								},
+							},
+							["amount"] = 28,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 3,
+								},
+							},
+							["amount"] = 3,
+						},
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+						["Holy"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 1,
+								},
+								["Crit"] = {
+									["count"] = 8,
+								},
+								["Hit"] = {
+									["count"] = 52,
+								},
+							},
+							["amount"] = 61,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 7,
+								},
+							},
+							["amount"] = 8,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 7,
+								},
+							},
+							["amount"] = 7,
+						},
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+						["Melee"] = 10121,
+						["Physical"] = 1249,
+					},
+					["DOT_Time"] = 3,
+					["Damage"] = 39699,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 2.58,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+						["Holy"] = 27345,
+						["Melee"] = 6565,
+						["Physical"] = 5789,
+					},
+					["PartialAbsorb"] = {
+						["Ravenous Claw"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 28,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 28,
+							["amount"] = 0,
+						},
+						["Cleave"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 0,
+						},
+					},
+					["DamagedWho"] = {
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 1555,
+								},
+								["Exorcism"] = {
+									["count"] = 1034,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 112,
+								},
+								["Melee"] = {
+									["count"] = 780,
+								},
+								["Judgment"] = {
+									["count"] = 976,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1696,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 75,
+								},
+								["Seal of Truth"] = {
+									["count"] = 376,
+								},
+							},
+							["amount"] = 6604,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 1035,
+								},
+								["Melee"] = {
+									["count"] = 2768,
+								},
+								["Judgment"] = {
+									["count"] = 976,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1556,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 730,
+								},
+								["Divine Storm"] = {
+									["count"] = 2236,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1698,
+								},
+								["Crusader Strike"] = {
+									["count"] = 1577,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 1809,
+								},
+								["Seal of Truth"] = {
+									["count"] = 493,
+								},
+							},
+							["amount"] = 14878,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 2069,
+								},
+								["Melee"] = {
+									["count"] = 3017,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 1692,
+								},
+								["Judgment"] = {
+									["count"] = 2148,
+								},
+								["Divine Storm"] = {
+									["count"] = 2893,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1556,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 2050,
+								},
+							},
+							["amount"] = 15425,
+						},
+						["Snake"] = {
+							["Details"] = {
+								["Seal of Righteousness"] = {
+									["count"] = 2792,
+								},
+							},
+							["amount"] = 2792,
+						},
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 1357,
+								},
+								["Cleave"] = {
+									["count"] = 644,
+								},
+							},
+							["amount"] = 2001,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 4470,
+								},
+							},
+							["amount"] = 4470,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 4294,
+								},
+								["Ravenous Claw"] = {
+									["count"] = 605,
+								},
+							},
+							["amount"] = 4899,
+						},
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+						["Ravenous Claw"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 28,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 28,
+							["amount"] = 0,
+						},
+						["Cleave"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 0,
+						},
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+						["Melee"] = 230,
+					},
+					["TimeHealing"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 2.58,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 2.58,
+						},
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 1552,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 3492,
+								},
+							},
+							["amount"] = 5044,
+						},
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+						["Snake"] = {
+							["Details"] = {
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 2.58,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 2.58,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 2.76,
+								},
+								["Melee"] = {
+									["count"] = 5.99,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 1.74,
+								},
+								["Judgment"] = {
+									["count"] = 2.11,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1.39,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0.08,
+								},
+							},
+							["amount"] = 14.07,
+						},
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 0.43,
+								},
+								["Exorcism"] = {
+									["count"] = 1.4,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 2.15,
+								},
+								["Judgment"] = {
+									["count"] = 1.39,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0.6,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 1.02,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 6.99,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 3.5,
+								},
+								["Melee"] = {
+									["count"] = 5.2,
+								},
+								["Judgment"] = {
+									["count"] = 3.5,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 0.66,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1.26,
+								},
+								["Crusader Strike"] = {
+									["count"] = 2.51,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.09,
+								},
+							},
+							["amount"] = 16.72,
+						},
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+						["Glyph of Divine Storm"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 776,
+									["min"] = 776,
+									["count"] = 2,
+									["amount"] = 1552,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 1552,
+						},
+						["Swift Hand of Justice"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 388,
+									["min"] = 388,
+									["count"] = 9,
+									["amount"] = 3492,
+								},
+							},
+							["count"] = 9,
+							["amount"] = 3492,
+						},
+					},
+					["WhoHealed"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 1552,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 3492,
+								},
+							},
+							["amount"] = 5044,
+						},
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 40.36,
+					["Healing"] = 5044,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+						["Exorcism"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 1035,
+									["min"] = 1034,
+									["count"] = 4,
+									["amount"] = 4138,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 4138,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Hit (Blocked)"] = {
+									["max"] = 536,
+									["min"] = 536,
+									["count"] = 1,
+									["amount"] = 536,
+								},
+								["Crit"] = {
+									["max"] = 1474,
+									["min"] = 1474,
+									["count"] = 1,
+									["amount"] = 1474,
+								},
+								["Hit"] = {
+									["max"] = 780,
+									["min"] = 710,
+									["count"] = 6,
+									["amount"] = 4555,
+								},
+							},
+							["count"] = 8,
+							["amount"] = 6565,
+						},
+						["Judgment"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 1172,
+									["min"] = 976,
+									["count"] = 4,
+									["amount"] = 4100,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 4100,
+						},
+						["Hammer of Wrath"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 1556,
+									["min"] = 1555,
+									["count"] = 3,
+									["amount"] = 4667,
+								},
+							},
+							["count"] = 3,
+							["amount"] = 4667,
+						},
+						["Divine Storm"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 1429,
+									["min"] = 1429,
+									["count"] = 1,
+									["amount"] = 1429,
+								},
+								["Hit"] = {
+									["max"] = 752,
+									["min"] = 726,
+									["count"] = 5,
+									["amount"] = 3700,
+								},
+							},
+							["count"] = 6,
+							["amount"] = 5129,
+						},
+						["Hammer of the Righteous"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 281,
+									["min"] = 223,
+									["count"] = 10,
+									["amount"] = 2422,
+								},
+							},
+							["count"] = 10,
+							["amount"] = 2422,
+						},
+						["Crusader Strike"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 804,
+									["min"] = 773,
+									["count"] = 2,
+									["amount"] = 1577,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 1577,
+						},
+						["Seal of Righteousness"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 240,
+									["min"] = 214,
+									["count"] = 6,
+									["amount"] = 1366,
+								},
+								["Hit"] = {
+									["max"] = 2792,
+									["min"] = 107,
+									["count"] = 24,
+									["amount"] = 5397,
+								},
+							},
+							["count"] = 30,
+							["amount"] = 6763,
+						},
+						["Templar's Verdict"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 1698,
+									["min"] = 1696,
+									["count"] = 2,
+									["amount"] = 3394,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 3394,
+						},
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 75,
+									["min"] = 75,
+									["count"] = 1,
+									["amount"] = 75,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 75,
+						},
+						["Seal of Truth"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 247,
+									["min"] = 247,
+									["count"] = 1,
+									["amount"] = 247,
+								},
+								["Hit"] = {
+									["max"] = 129,
+									["min"] = 120,
+									["count"] = 5,
+									["amount"] = 622,
+								},
+							},
+							["count"] = 6,
+							["amount"] = 869,
+						},
+					},
+					["HealingTaken"] = 5044,
+					["RageGain"] = 0,
+					["TimeDamage"] = 37.78,
+					["TimeDamaging"] = {
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 0.43,
+								},
+								["Exorcism"] = {
+									["count"] = 1.4,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 2.15,
+								},
+								["Judgment"] = {
+									["count"] = 1.39,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0.6,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 1.02,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 6.99,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 3.5,
+								},
+								["Melee"] = {
+									["count"] = 5.2,
+								},
+								["Judgment"] = {
+									["count"] = 3.5,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 0.66,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1.26,
+								},
+								["Crusader Strike"] = {
+									["count"] = 2.51,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.09,
+								},
+							},
+							["amount"] = 16.72,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 2.76,
+								},
+								["Melee"] = {
+									["count"] = 5.99,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 1.74,
+								},
+								["Judgment"] = {
+									["count"] = 2.11,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1.39,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0.08,
+								},
+							},
+							["amount"] = 14.07,
+						},
+						["Snake"] = {
+							["Details"] = {
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["Fight1"] = {
+					["DOTs"] = {
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Rotting Abomination"] = {
+									["count"] = 3,
+								},
+							},
+							["amount"] = 3,
+						},
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 11370,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Miss"] = {
+									["count"] = 3,
+								},
+								["Hit"] = {
+									["count"] = 21,
+								},
+								["Parry"] = {
+									["count"] = 4,
+								},
+							},
+							["amount"] = 28,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 3,
+								},
+							},
+							["amount"] = 3,
+						},
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+						["Holy"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 1,
+								},
+								["Crit"] = {
+									["count"] = 8,
+								},
+								["Hit"] = {
+									["count"] = 52,
+								},
+							},
+							["amount"] = 61,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 7,
+								},
+							},
+							["amount"] = 8,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 7,
+								},
+							},
+							["amount"] = 7,
+						},
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+						["Melee"] = 10121,
+						["Physical"] = 1249,
+					},
+					["DOT_Time"] = 3,
+					["Damage"] = 39699,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 2.58,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+						["Holy"] = 27345,
+						["Melee"] = 6565,
+						["Physical"] = 5789,
+					},
+					["PartialAbsorb"] = {
+						["Ravenous Claw"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 28,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 28,
+							["amount"] = 0,
+						},
+						["Cleave"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 0,
+						},
+					},
+					["DamagedWho"] = {
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 1555,
+								},
+								["Exorcism"] = {
+									["count"] = 1034,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 112,
+								},
+								["Melee"] = {
+									["count"] = 780,
+								},
+								["Judgment"] = {
+									["count"] = 976,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1696,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 75,
+								},
+								["Seal of Truth"] = {
+									["count"] = 376,
+								},
+							},
+							["amount"] = 6604,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 1035,
+								},
+								["Melee"] = {
+									["count"] = 2768,
+								},
+								["Judgment"] = {
+									["count"] = 976,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1556,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 730,
+								},
+								["Divine Storm"] = {
+									["count"] = 2236,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1698,
+								},
+								["Crusader Strike"] = {
+									["count"] = 1577,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 1809,
+								},
+								["Seal of Truth"] = {
+									["count"] = 493,
+								},
+							},
+							["amount"] = 14878,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 2069,
+								},
+								["Melee"] = {
+									["count"] = 3017,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 1692,
+								},
+								["Judgment"] = {
+									["count"] = 2148,
+								},
+								["Divine Storm"] = {
+									["count"] = 2893,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1556,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 2050,
+								},
+							},
+							["amount"] = 15425,
+						},
+						["Snake"] = {
+							["Details"] = {
+								["Seal of Righteousness"] = {
+									["count"] = 2792,
+								},
+							},
+							["amount"] = 2792,
+						},
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 1357,
+								},
+								["Cleave"] = {
+									["count"] = 644,
+								},
+							},
+							["amount"] = 2001,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 4470,
+								},
+							},
+							["amount"] = 4470,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 4294,
+								},
+								["Ravenous Claw"] = {
+									["count"] = 605,
+								},
+							},
+							["amount"] = 4899,
+						},
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+						["Ravenous Claw"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 28,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 28,
+							["amount"] = 0,
+						},
+						["Cleave"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 0,
+						},
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+						["Melee"] = 230,
+					},
+					["TimeHealing"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 2.58,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 2.58,
+						},
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 1552,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 3492,
+								},
+							},
+							["amount"] = 5044,
+						},
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+						["Snake"] = {
+							["Details"] = {
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 2.58,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 2.58,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 2.76,
+								},
+								["Melee"] = {
+									["count"] = 5.99,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 1.74,
+								},
+								["Judgment"] = {
+									["count"] = 2.11,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1.39,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0.08,
+								},
+							},
+							["amount"] = 14.07,
+						},
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 0.43,
+								},
+								["Exorcism"] = {
+									["count"] = 1.4,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 2.15,
+								},
+								["Judgment"] = {
+									["count"] = 1.39,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0.6,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 1.02,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 6.99,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 3.5,
+								},
+								["Melee"] = {
+									["count"] = 5.2,
+								},
+								["Judgment"] = {
+									["count"] = 3.5,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 0.66,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1.26,
+								},
+								["Crusader Strike"] = {
+									["count"] = 2.51,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.09,
+								},
+							},
+							["amount"] = 16.72,
+						},
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+						["Glyph of Divine Storm"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 776,
+									["min"] = 776,
+									["count"] = 2,
+									["amount"] = 1552,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 1552,
+						},
+						["Swift Hand of Justice"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 388,
+									["min"] = 388,
+									["count"] = 9,
+									["amount"] = 3492,
+								},
+							},
+							["count"] = 9,
+							["amount"] = 3492,
+						},
+					},
+					["WhoHealed"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Glyph of Divine Storm"] = {
+									["count"] = 1552,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 3492,
+								},
+							},
+							["amount"] = 5044,
+						},
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 40.36,
+					["Healing"] = 5044,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+						["Exorcism"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 1035,
+									["min"] = 1034,
+									["count"] = 4,
+									["amount"] = 4138,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 4138,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Hit (Blocked)"] = {
+									["max"] = 536,
+									["min"] = 536,
+									["count"] = 1,
+									["amount"] = 536,
+								},
+								["Crit"] = {
+									["max"] = 1474,
+									["min"] = 1474,
+									["count"] = 1,
+									["amount"] = 1474,
+								},
+								["Hit"] = {
+									["max"] = 780,
+									["min"] = 710,
+									["count"] = 6,
+									["amount"] = 4555,
+								},
+							},
+							["count"] = 8,
+							["amount"] = 6565,
+						},
+						["Judgment"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 1172,
+									["min"] = 976,
+									["count"] = 4,
+									["amount"] = 4100,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 4100,
+						},
+						["Hammer of Wrath"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 1556,
+									["min"] = 1555,
+									["count"] = 3,
+									["amount"] = 4667,
+								},
+							},
+							["count"] = 3,
+							["amount"] = 4667,
+						},
+						["Divine Storm"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 1429,
+									["min"] = 1429,
+									["count"] = 1,
+									["amount"] = 1429,
+								},
+								["Hit"] = {
+									["max"] = 752,
+									["min"] = 726,
+									["count"] = 5,
+									["amount"] = 3700,
+								},
+							},
+							["count"] = 6,
+							["amount"] = 5129,
+						},
+						["Hammer of the Righteous"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 281,
+									["min"] = 223,
+									["count"] = 10,
+									["amount"] = 2422,
+								},
+							},
+							["count"] = 10,
+							["amount"] = 2422,
+						},
+						["Crusader Strike"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 804,
+									["min"] = 773,
+									["count"] = 2,
+									["amount"] = 1577,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 1577,
+						},
+						["Seal of Righteousness"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 240,
+									["min"] = 214,
+									["count"] = 6,
+									["amount"] = 1366,
+								},
+								["Hit"] = {
+									["max"] = 2792,
+									["min"] = 107,
+									["count"] = 24,
+									["amount"] = 5397,
+								},
+							},
+							["count"] = 30,
+							["amount"] = 6763,
+						},
+						["Templar's Verdict"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 1698,
+									["min"] = 1696,
+									["count"] = 2,
+									["amount"] = 3394,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 3394,
+						},
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 75,
+									["min"] = 75,
+									["count"] = 1,
+									["amount"] = 75,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 75,
+						},
+						["Seal of Truth"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 247,
+									["min"] = 247,
+									["count"] = 1,
+									["amount"] = 247,
+								},
+								["Hit"] = {
+									["max"] = 129,
+									["min"] = 120,
+									["count"] = 5,
+									["amount"] = 622,
+								},
+							},
+							["count"] = 6,
+							["amount"] = 869,
+						},
+					},
+					["HealingTaken"] = 5044,
+					["RageGain"] = 0,
+					["TimeDamage"] = 37.78,
+					["TimeDamaging"] = {
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 0.43,
+								},
+								["Exorcism"] = {
+									["count"] = 1.4,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 2.15,
+								},
+								["Judgment"] = {
+									["count"] = 1.39,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0.6,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 1.02,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 6.99,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 3.5,
+								},
+								["Melee"] = {
+									["count"] = 5.2,
+								},
+								["Judgment"] = {
+									["count"] = 3.5,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 0.66,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1.26,
+								},
+								["Crusader Strike"] = {
+									["count"] = 2.51,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.09,
+								},
+							},
+							["amount"] = 16.72,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 2.76,
+								},
+								["Melee"] = {
+									["count"] = 5.99,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 1.74,
+								},
+								["Judgment"] = {
+									["count"] = 2.11,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1.39,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0.08,
+								},
+							},
+							["amount"] = 14.07,
+						},
+						["Snake"] = {
+							["Details"] = {
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["OverallData"] = {
+					["ElementDoneBlock"] = {
+						["Melee"] = 230,
+					},
+					["TimeHealing"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Flash of Light"] = {
+									["count"] = 1.38,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+								["Glyph of Divine Storm"] = {
+									["count"] = 4.92,
+								},
+							},
+							["amount"] = 6.3,
+						},
+					},
+					["OverHeals"] = {
+						["Swift Hand of Justice"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 376,
+									["min"] = 294,
+									["count"] = 2,
+									["amount"] = 670,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 670,
+						},
+					},
+					["TimeSpent"] = {
+						["Alarmed Blightguard"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 3.5,
+								},
+								["Crusader Strike"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 7,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 7.73,
+								},
+								["Melee"] = {
+									["count"] = 9.81,
+								},
+								["Judgment"] = {
+									["count"] = 6.42,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1.39,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 6.25,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0.08,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 1.45,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 33.13,
+						},
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 1.05,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 2.4,
+								},
+								["Judgment"] = {
+									["count"] = 1.47,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1.21,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0.42,
+								},
+								["Melee"] = {
+									["count"] = 5.73,
+								},
+								["Crusader Strike"] = {
+									["count"] = 1.75,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 4.44,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 18.47,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Templar's Verdict"] = {
+									["count"] = 1.47,
+								},
+								["Exorcism"] = {
+									["count"] = 0.72,
+								},
+								["Melee"] = {
+									["count"] = 3.71,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0.48,
+								},
+								["Judgment"] = {
+									["count"] = 1.73,
+								},
+								["Crusader Strike"] = {
+									["count"] = 6.86,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 4.2,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.1,
+								},
+							},
+							["amount"] = 19.27,
+						},
+						["Potray"] = {
+							["Details"] = {
+								["Flash of Light"] = {
+									["count"] = 1.38,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 0,
+								},
+								["Glyph of Divine Storm"] = {
+									["count"] = 4.92,
+								},
+							},
+							["amount"] = 6.3,
+						},
+						["Snake"] = {
+							["Details"] = {
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Darmuk"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0.33,
+								},
+								["Melee"] = {
+									["count"] = 2.22,
+								},
+								["Judgment"] = {
+									["count"] = 1.35,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1.16,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0.15,
+								},
+								["Gut Rip (DoT)"] = {
+									["count"] = 4.44,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0.37,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 2.82,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.23,
+								},
+							},
+							["amount"] = 13.07,
+						},
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 0.43,
+								},
+								["Exorcism"] = {
+									["count"] = 1.4,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 2.15,
+								},
+								["Judgment"] = {
+									["count"] = 1.39,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0.6,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 1.02,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 6.99,
+						},
+						["Servant of Drakuru"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 1.39,
+								},
+								["Melee"] = {
+									["count"] = 3.27,
+								},
+								["Crusader Strike"] = {
+									["count"] = 4.03,
+								},
+								["Judgment"] = {
+									["count"] = 2.02,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 2.79,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 4.47,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.11,
+								},
+							},
+							["amount"] = 18.08,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 4.88,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0.22,
+								},
+								["Judgment"] = {
+									["count"] = 3.5,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 0.84,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1.26,
+								},
+								["Melee"] = {
+									["count"] = 9,
+								},
+								["Crusader Strike"] = {
+									["count"] = 2.51,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.09,
+								},
+							},
+							["amount"] = 22.3,
+						},
+						["Blightguard"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 1.4,
+								},
+								["Exorcism"] = {
+									["count"] = 3.63,
+								},
+								["Melee"] = {
+									["count"] = 13.32,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 4.17,
+								},
+								["Judgment"] = {
+									["count"] = 3.06,
+								},
+								["Crusader Strike"] = {
+									["count"] = 4.16,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0.69,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.21,
+								},
+							},
+							["amount"] = 30.64,
+						},
+					},
+					["DamageTaken"] = 53876,
+					["PartialResist"] = {
+						["Falling"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 106,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 106,
+							["amount"] = 0,
+						},
+						["Shadowstrike"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 4,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 0,
+						},
+						["Ravenous Claw"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 5,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 5,
+							["amount"] = 0,
+						},
+						["Cleave"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 0,
+						},
+					},
+					["PartialAbsorb"] = {
+						["Falling"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 106,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 106,
+							["amount"] = 0,
+						},
+						["Shadowstrike"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 4,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 0,
+						},
+						["Ravenous Claw"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 5,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 5,
+							["amount"] = 0,
+						},
+						["Cleave"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 0,
+						},
+					},
+					["ActiveTime"] = 175.25,
+					["ElementTaken"] = {
+						["Melee"] = 47089,
+						["Physical"] = 6262,
+					},
+					["DOT_Time"] = 66,
+					["Damage"] = 182364,
+					["DOTs"] = {
+						["Gut Rip (DoT)"] = {
+							["Details"] = {
+								["Darmuk"] = {
+									["count"] = 6,
+								},
+							},
+							["amount"] = 6,
+						},
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Rotting Abomination"] = {
+									["count"] = 3,
+								},
+								["Carrion Eater"] = {
+									["count"] = 3,
+								},
+								["Blightguard"] = {
+									["count"] = 3,
+								},
+								["Darmuk"] = {
+									["count"] = 6,
+								},
+								["Servant of Drakuru"] = {
+									["count"] = 18,
+								},
+								["Drakkari Skullcrusher"] = {
+									["count"] = 12,
+								},
+								["Blight Geist"] = {
+									["count"] = 9,
+								},
+							},
+							["amount"] = 54,
+						},
+						["Flatulate (DoT)"] = {
+							["Details"] = {
+								["Drakkari Skullcrusher"] = {
+									["count"] = 6,
+								},
+							},
+							["amount"] = 6,
+						},
+					},
+					["TimeHeal"] = 6.3,
+					["Overhealing"] = 670,
+					["WhoHealed"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Flash of Light"] = {
+									["count"] = 10357,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 10791,
+								},
+								["Glyph of Divine Storm"] = {
+									["count"] = 3104,
+								},
+							},
+							["amount"] = 24252,
+						},
+					},
+					["ElementHitsDone"] = {
+						["Physical"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 2,
+								},
+								["Crit"] = {
+									["count"] = 4,
+								},
+								["Hit"] = {
+									["count"] = 31,
+								},
+							},
+							["amount"] = 37,
+						},
+						["Holy"] = {
+							["Details"] = {
+								["Evade"] = {
+									["count"] = 1,
+								},
+								["Tick"] = {
+									["count"] = 17,
+								},
+								["Crit"] = {
+									["count"] = 34,
+								},
+								["Hit"] = {
+									["count"] = 161,
+								},
+							},
+							["amount"] = 213,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["count"] = 5,
+								},
+								["Hit"] = {
+									["count"] = 33,
+								},
+							},
+							["amount"] = 38,
+						},
+						["Nature"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 2,
+								},
+							},
+							["amount"] = 2,
+						},
+					},
+					["Healing"] = 24252,
+					["HealedWho"] = {
+						["Potray"] = {
+							["Details"] = {
+								["Flash of Light"] = {
+									["count"] = 10357,
+								},
+								["Swift Hand of Justice"] = {
+									["count"] = 10791,
+								},
+								["Glyph of Divine Storm"] = {
+									["count"] = 3104,
+								},
+							},
+							["amount"] = 24252,
+						},
+					},
+					["Heals"] = {
+						["Flash of Light"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 10357,
+									["min"] = 10357,
+									["count"] = 1,
+									["amount"] = 10357,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 10357,
+						},
+						["Swift Hand of Justice"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 388,
+									["min"] = 83,
+									["count"] = 29,
+									["amount"] = 10791,
+								},
+							},
+							["count"] = 29,
+							["amount"] = 10791,
+						},
+						["Glyph of Divine Storm"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 776,
+									["min"] = 776,
+									["count"] = 4,
+									["amount"] = 3104,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 3104,
+						},
+					},
+					["Attacks"] = {
+						["Exorcism"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 2069,
+									["min"] = 2053,
+									["count"] = 2,
+									["amount"] = 4122,
+								},
+								["Hit"] = {
+									["max"] = 1035,
+									["min"] = 1026,
+									["count"] = 14,
+									["amount"] = 14429,
+								},
+							},
+							["count"] = 16,
+							["amount"] = 18551,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Hit (Blocked)"] = {
+									["max"] = 536,
+									["min"] = 536,
+									["count"] = 1,
+									["amount"] = 536,
+								},
+								["Crit"] = {
+									["max"] = 1502,
+									["min"] = 1394,
+									["count"] = 5,
+									["amount"] = 7225,
+								},
+								["Hit"] = {
+									["max"] = 11285,
+									["min"] = 696,
+									["count"] = 32,
+									["amount"] = 34402,
+								},
+							},
+							["count"] = 38,
+							["amount"] = 42163,
+						},
+						["Judgment"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 1937,
+									["min"] = 1936,
+									["count"] = 2,
+									["amount"] = 3873,
+								},
+								["Hit"] = {
+									["max"] = 1172,
+									["min"] = 968,
+									["count"] = 17,
+									["amount"] = 17293,
+								},
+							},
+							["count"] = 19,
+							["amount"] = 21166,
+						},
+						["Hammer of Wrath"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 3086,
+									["min"] = 3086,
+									["count"] = 1,
+									["amount"] = 3086,
+								},
+								["Hit"] = {
+									["max"] = 1556,
+									["min"] = 1543,
+									["count"] = 6,
+									["amount"] = 9296,
+								},
+							},
+							["count"] = 7,
+							["amount"] = 12382,
+						},
+						["Divine Storm"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 1501,
+									["min"] = 1429,
+									["count"] = 4,
+									["amount"] = 5823,
+								},
+								["Hit"] = {
+									["max"] = 752,
+									["min"] = 708,
+									["count"] = 9,
+									["amount"] = 6585,
+								},
+							},
+							["count"] = 13,
+							["amount"] = 12408,
+						},
+						["Seal of Righteousness"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 240,
+									["min"] = 214,
+									["count"] = 14,
+									["amount"] = 3190,
+								},
+								["Hit"] = {
+									["max"] = 2792,
+									["min"] = 107,
+									["count"] = 49,
+									["amount"] = 8254,
+								},
+							},
+							["count"] = 63,
+							["amount"] = 11444,
+						},
+						["Flatulate (DoT)"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 215,
+									["min"] = 192,
+									["count"] = 2,
+									["amount"] = 407,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 407,
+						},
+						["Hammer of the Righteous"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 295,
+									["min"] = 217,
+									["count"] = 23,
+									["amount"] = 5506,
+								},
+								["Crit"] = {
+									["max"] = 576,
+									["min"] = 446,
+									["count"] = 2,
+									["amount"] = 1022,
+								},
+								["Evade"] = {
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 26,
+							["amount"] = 6528,
+						},
+						["Templar's Verdict"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 3154,
+									["min"] = 3082,
+									["count"] = 2,
+									["amount"] = 6236,
+								},
+								["Hit"] = {
+									["max"] = 1698,
+									["min"] = 1487,
+									["count"] = 9,
+									["amount"] = 14232,
+								},
+							},
+							["count"] = 11,
+							["amount"] = 20468,
+						},
+						["Gut Rip (DoT)"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 750,
+									["min"] = 750,
+									["count"] = 2,
+									["amount"] = 1500,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 1500,
+						},
+						["Crusader Strike"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 1546,
+									["min"] = 1546,
+									["count"] = 1,
+									["amount"] = 1546,
+								},
+								["Hit"] = {
+									["max"] = 11513,
+									["min"] = 752,
+									["count"] = 16,
+									["amount"] = 23369,
+								},
+							},
+							["count"] = 17,
+							["amount"] = 24915,
+						},
+						["Censure (DoT)"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 225,
+									["min"] = 225,
+									["count"] = 1,
+									["amount"] = 225,
+								},
+								["Tick"] = {
+									["max"] = 188,
+									["min"] = 37,
+									["count"] = 17,
+									["amount"] = 1802,
+								},
+							},
+							["count"] = 18,
+							["amount"] = 2027,
+						},
+						["Seal of Truth"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 262,
+									["min"] = 242,
+									["count"] = 9,
+									["amount"] = 2235,
+								},
+								["Hit"] = {
+									["max"] = 133,
+									["min"] = 118,
+									["count"] = 49,
+									["amount"] = 6170,
+								},
+							},
+							["count"] = 58,
+							["amount"] = 8405,
+						},
+					},
+					["HealingTaken"] = 24252,
+					["DamagedWho"] = {
+						["Alarmed Blightguard"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 11285,
+								},
+								["Crusader Strike"] = {
+									["count"] = 11513,
+								},
+							},
+							["amount"] = 22798,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 4139,
+								},
+								["Melee"] = {
+									["count"] = 6094,
+								},
+								["Judgment"] = {
+									["count"] = 5271,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1556,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 4694,
+								},
+								["Divine Storm"] = {
+									["count"] = 8722,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 5038,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1624,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 114,
+								},
+								["Seal of Truth"] = {
+									["count"] = 386,
+								},
+							},
+							["amount"] = 37638,
+						},
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 1026,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 407,
+								},
+								["Judgment"] = {
+									["count"] = 969,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 3086,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1495,
+								},
+								["Melee"] = {
+									["count"] = 3602,
+								},
+								["Crusader Strike"] = {
+									["count"] = 1601,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 374,
+								},
+								["Seal of Truth"] = {
+									["count"] = 890,
+								},
+							},
+							["amount"] = 13450,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Templar's Verdict"] = {
+									["count"] = 1494,
+								},
+								["Exorcism"] = {
+									["count"] = 1027,
+								},
+								["Melee"] = {
+									["count"] = 3717,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1543,
+								},
+								["Judgment"] = {
+									["count"] = 4066,
+								},
+								["Crusader Strike"] = {
+									["count"] = 3908,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 301,
+								},
+								["Seal of Truth"] = {
+									["count"] = 1368,
+								},
+							},
+							["amount"] = 17424,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 4139,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 3502,
+								},
+								["Judgment"] = {
+									["count"] = 976,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1556,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 1834,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1698,
+								},
+								["Melee"] = {
+									["count"] = 5011,
+								},
+								["Crusader Strike"] = {
+									["count"] = 1577,
+								},
+								["Divine Storm"] = {
+									["count"] = 3686,
+								},
+								["Seal of Truth"] = {
+									["count"] = 493,
+								},
+							},
+							["amount"] = 24472,
+						},
+						["Darmuk"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 1026,
+								},
+								["Melee"] = {
+									["count"] = 2910,
+								},
+								["Judgment"] = {
+									["count"] = 1936,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1543,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1487,
+								},
+								["Gut Rip (DoT)"] = {
+									["count"] = 1500,
+								},
+								["Crusader Strike"] = {
+									["count"] = 1550,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 301,
+								},
+								["Seal of Truth"] = {
+									["count"] = 1110,
+								},
+							},
+							["amount"] = 13363,
+						},
+						["Snake"] = {
+							["Details"] = {
+								["Seal of Righteousness"] = {
+									["count"] = 2792,
+								},
+							},
+							["amount"] = 2792,
+						},
+						["Servant of Drakuru"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 2054,
+								},
+								["Melee"] = {
+									["count"] = 2909,
+								},
+								["Crusader Strike"] = {
+									["count"] = 1635,
+								},
+								["Judgment"] = {
+									["count"] = 2905,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 4729,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 637,
+								},
+								["Seal of Truth"] = {
+									["count"] = 1391,
+								},
+							},
+							["amount"] = 16260,
+						},
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 1555,
+								},
+								["Exorcism"] = {
+									["count"] = 1034,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 112,
+								},
+								["Melee"] = {
+									["count"] = 780,
+								},
+								["Judgment"] = {
+									["count"] = 976,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1696,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 75,
+								},
+								["Seal of Truth"] = {
+									["count"] = 376,
+								},
+							},
+							["amount"] = 6604,
+						},
+						["Blightguard"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 1543,
+								},
+								["Exorcism"] = {
+									["count"] = 4106,
+								},
+								["Melee"] = {
+									["count"] = 5855,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 6245,
+								},
+								["Judgment"] = {
+									["count"] = 4067,
+								},
+								["Crusader Strike"] = {
+									["count"] = 3131,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 225,
+								},
+								["Seal of Truth"] = {
+									["count"] = 2391,
+								},
+							},
+							["amount"] = 27563,
+						},
+					},
+					["TimeDamage"] = 168.95,
+					["WhoDamaged"] = {
+						["Alarmed Blightguard"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 83,
+								},
+							},
+							["amount"] = 83,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 9445,
+								},
+								["Ravenous Claw"] = {
+									["count"] = 1132,
+								},
+							},
+							["amount"] = 10577,
+						},
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 2609,
+								},
+							},
+							["amount"] = 2609,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 4335,
+								},
+							},
+							["amount"] = 4335,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 7838,
+								},
+							},
+							["amount"] = 7838,
+						},
+						["Environment"] = {
+							["Details"] = {
+								["Falling"] = {
+									["count"] = 4486,
+								},
+							},
+							["amount"] = 4486,
+						},
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 1357,
+								},
+								["Cleave"] = {
+									["count"] = 644,
+								},
+							},
+							["amount"] = 2001,
+						},
+						["Servant of Drakuru"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 5449,
+								},
+							},
+							["amount"] = 5449,
+						},
+						["Blightguard"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 6300,
+								},
+								["Shadowstrike"] = {
+									["count"] = 525,
+								},
+							},
+							["amount"] = 6825,
+						},
+						["Darmuk"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 9673,
+								},
+							},
+							["amount"] = 9673,
+						},
+					},
+					["ElementDone"] = {
+						["Physical"] = 49136,
+						["Holy"] = 90658,
+						["Melee"] = 42163,
+						["Nature"] = 407,
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 77,
+								},
+								["Dodge"] = {
+									["count"] = 6,
+								},
+								["Miss"] = {
+									["count"] = 10,
+								},
+								["Crit"] = {
+									["count"] = 1,
+								},
+								["Parry"] = {
+									["count"] = 12,
+								},
+							},
+							["amount"] = 106,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Dodge"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 7,
+								},
+							},
+							["amount"] = 8,
+						},
+					},
+					["TimeDamaging"] = {
+						["Alarmed Blightguard"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 3.5,
+								},
+								["Crusader Strike"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 7,
+						},
+						["Carrion Eater"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 7.73,
+								},
+								["Melee"] = {
+									["count"] = 9.81,
+								},
+								["Judgment"] = {
+									["count"] = 6.42,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1.39,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 6.25,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0.08,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 1.45,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 33.13,
+						},
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 1.05,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 2.4,
+								},
+								["Judgment"] = {
+									["count"] = 1.47,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1.21,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0.42,
+								},
+								["Melee"] = {
+									["count"] = 5.73,
+								},
+								["Crusader Strike"] = {
+									["count"] = 1.75,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 4.44,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 18.47,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Templar's Verdict"] = {
+									["count"] = 1.47,
+								},
+								["Exorcism"] = {
+									["count"] = 0.72,
+								},
+								["Melee"] = {
+									["count"] = 3.71,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0.48,
+								},
+								["Judgment"] = {
+									["count"] = 1.73,
+								},
+								["Crusader Strike"] = {
+									["count"] = 6.86,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 4.2,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.1,
+								},
+							},
+							["amount"] = 19.27,
+						},
+						["Rampaging Geist"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 4.88,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0.22,
+								},
+								["Judgment"] = {
+									["count"] = 3.5,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 0,
+								},
+								["Hammer of the Righteous"] = {
+									["count"] = 0.84,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 1.26,
+								},
+								["Melee"] = {
+									["count"] = 9,
+								},
+								["Crusader Strike"] = {
+									["count"] = 2.51,
+								},
+								["Divine Storm"] = {
+									["count"] = 0,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.09,
+								},
+							},
+							["amount"] = 22.3,
+						},
+						["Darmuk"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 0.33,
+								},
+								["Melee"] = {
+									["count"] = 2.22,
+								},
+								["Judgment"] = {
+									["count"] = 1.35,
+								},
+								["Hammer of Wrath"] = {
+									["count"] = 1.16,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0.15,
+								},
+								["Gut Rip (DoT)"] = {
+									["count"] = 4.44,
+								},
+								["Crusader Strike"] = {
+									["count"] = 0.37,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 2.82,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.23,
+								},
+							},
+							["amount"] = 13.07,
+						},
+						["Snake"] = {
+							["Details"] = {
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Servant of Drakuru"] = {
+							["Details"] = {
+								["Exorcism"] = {
+									["count"] = 1.39,
+								},
+								["Melee"] = {
+									["count"] = 3.27,
+								},
+								["Crusader Strike"] = {
+									["count"] = 4.03,
+								},
+								["Judgment"] = {
+									["count"] = 2.02,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 2.79,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 4.47,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.11,
+								},
+							},
+							["amount"] = 18.08,
+						},
+						["Rotting Abomination"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 0.43,
+								},
+								["Exorcism"] = {
+									["count"] = 1.4,
+								},
+								["Seal of Righteousness"] = {
+									["count"] = 0,
+								},
+								["Melee"] = {
+									["count"] = 2.15,
+								},
+								["Judgment"] = {
+									["count"] = 1.39,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 0.6,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 1.02,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 6.99,
+						},
+						["Blightguard"] = {
+							["Details"] = {
+								["Hammer of Wrath"] = {
+									["count"] = 1.4,
+								},
+								["Exorcism"] = {
+									["count"] = 3.63,
+								},
+								["Melee"] = {
+									["count"] = 13.32,
+								},
+								["Templar's Verdict"] = {
+									["count"] = 4.17,
+								},
+								["Judgment"] = {
+									["count"] = 3.06,
+								},
+								["Crusader Strike"] = {
+									["count"] = 4.16,
+								},
+								["Censure (DoT)"] = {
+									["count"] = 0.69,
+								},
+								["Seal of Truth"] = {
+									["count"] = 0.21,
+								},
+							},
+							["amount"] = 30.64,
+						},
+					},
+				},
+			},
+			["UnitLockout"] = 1413793067,
+			["LastAbility"] = 175790.051,
+		},
+		["Overlord Drakuru <Potray>"] = {
+			["GUID"] = "Creature-0-1379-571-27-28717-0000443007",
+			["LastEventHealth"] = {
+				"15894 (100%)", -- [1]
+				"15894 (100%)", -- [2]
+				"15894 (100%)", -- [3]
+				"15894 (100%)", -- [4]
+				"15894 (100%)", -- [5]
+				"15894 (100%)", -- [6]
+				"15894 (100%)", -- [7]
+				"15894 (100%)", -- [8]
+				"15894 (100%)", -- [9]
+				"15894 (100%)", -- [10]
+				"???", -- [11]
+				"???", -- [12]
+				"???", -- [13]
+				"???", -- [14]
+				"???", -- [15]
+				"???", -- [16]
+				"???", -- [17]
+				"???", -- [18]
+				"???", -- [19]
+				"???", -- [20]
+				"???", -- [21]
+				"???", -- [22]
+			},
+			["LastEventType"] = {
+				"DAMAGE", -- [1]
+				"DAMAGE", -- [2]
+				"DAMAGE", -- [3]
+				"DAMAGE", -- [4]
+				"DAMAGE", -- [5]
+				"DAMAGE", -- [6]
+				"DAMAGE", -- [7]
+				"DAMAGE", -- [8]
+				"DAMAGE", -- [9]
+				"DAMAGE", -- [10]
+				"DAMAGE", -- [11]
+				"DAMAGE", -- [12]
+				"DAMAGE", -- [13]
+				"DAMAGE", -- [14]
+				"DAMAGE", -- [15]
+				"DAMAGE", -- [16]
+				"DAMAGE", -- [17]
+				"DAMAGE", -- [18]
+				"DAMAGE", -- [19]
+				"DAMAGE", -- [20]
+				"DAMAGE", -- [21]
+				"DAMAGE", -- [22]
+			},
+			["TimeWindows"] = {
+				["Damage"] = {
+					269, -- [1]
+				},
+				["TimeDamage"] = {
+					49.1, -- [1]
+				},
+				["FDamage"] = {
+					2073, -- [1]
+				},
+				["ActiveTime"] = {
+					49.1, -- [1]
+				},
+			},
+			["enClass"] = "PET",
+			["level"] = 1,
+			["LastFightIn"] = 0,
+			["type"] = "Pet",
+			["FightsSaved"] = 5,
+			["LastAbility"] = 172909.818,
+			["Owner"] = "Potray",
+			["LastEventTimes"] = {
+				135249.274, -- [1]
+				135251.281, -- [2]
+				135253.315, -- [3]
+				135255.28, -- [4]
+				135257.274, -- [5]
+				135259.297, -- [6]
+				135261.295, -- [7]
+				135263.317, -- [8]
+				135265.286, -- [9]
+				135267.77, -- [10]
+				135289.94, -- [11]
+				135291.858, -- [12]
+				135318.739, -- [13]
+				135320.828, -- [14]
+				135322.96, -- [15]
+				135325.01, -- [16]
+				135326.831, -- [17]
+				135328.829, -- [18]
+				135331.034, -- [19]
+				135332.816, -- [20]
+				135334.928, -- [21]
+				135336.939, -- [22]
+			},
+			["NextEventNum"] = 23,
+			["LastEventHealthNum"] = {
+				100, -- [1]
+				100, -- [2]
+				100, -- [3]
+				100, -- [4]
+				100, -- [5]
+				100, -- [6]
+				100, -- [7]
+				100, -- [8]
+				100, -- [9]
+				100, -- [10]
+				0, -- [11]
+				0, -- [12]
+				0, -- [13]
+				0, -- [14]
+				0, -- [15]
+				0, -- [16]
+				0, -- [17]
+				0, -- [18]
+				0, -- [19]
+				0, -- [20]
+				0, -- [21]
+				0, -- [22]
+			},
+			["LastEvents"] = {
+				"Overlord Drakuru <Potray> Melee Flying Fiend Hit -129 (Physical)", -- [1]
+				"Overlord Drakuru <Potray> Melee Flying Fiend Hit -132 (Physical)", -- [2]
+				"Overlord Drakuru <Potray> Melee Flying Fiend Hit -155 (Physical)", -- [3]
+				"Overlord Drakuru <Potray> Melee Flying Fiend Hit -127 (Physical)", -- [4]
+				"Overlord Drakuru <Potray> Melee Flying Fiend Hit -127 (Physical)", -- [5]
+				"Overlord Drakuru <Potray> Melee Flying Fiend Miss", -- [6]
+				"Overlord Drakuru <Potray> Melee Flying Fiend Hit -140 (Physical)", -- [7]
+				"Overlord Drakuru <Potray> Melee Flying Fiend Hit -146 (Physical)", -- [8]
+				"Overlord Drakuru <Potray> Melee Flying Fiend Hit -174 (Physical)", -- [9]
+				"Overlord Drakuru <Potray> Melee Flying Fiend Hit -159 (Physical)", -- [10]
+				"Overlord Drakuru <Potray> Melee Blight Geist Hit -153 (Physical)", -- [11]
+				"Overlord Drakuru <Potray> Melee Blight Geist Hit -109 (Physical)", -- [12]
+				"Overlord Drakuru <Potray> Melee Blight Geist Parry", -- [13]
+				"Overlord Drakuru <Potray> Melee Blight Geist Hit -149 (Physical)", -- [14]
+				"Overlord Drakuru <Potray> Melee Blight Geist Hit -157 (Physical)", -- [15]
+				"Overlord Drakuru <Potray> Melee Blight Geist Hit -133 (Physical)", -- [16]
+				"Overlord Drakuru <Potray> Melee Blight Geist Hit -83 (Physical)", -- [17]
+				"Overlord Drakuru <Potray> Melee Blight Geist Miss", -- [18]
+				"Overlord Drakuru <Potray> Melee Blight Geist Miss", -- [19]
+				"Overlord Drakuru <Potray> Melee Blight Geist Dodge", -- [20]
+				"Overlord Drakuru <Potray> Melee Blight Geist Hit -140 (Physical)", -- [21]
+				"Overlord Drakuru <Potray> Melee Blight Geist Hit -129 (Physical)", -- [22]
+			},
+			["Name"] = "Overlord Drakuru",
+			["LastEventIncoming"] = {
+				false, -- [1]
+				false, -- [2]
+				false, -- [3]
+				false, -- [4]
+				false, -- [5]
+				false, -- [6]
+				false, -- [7]
+				false, -- [8]
+				false, -- [9]
+				false, -- [10]
+				false, -- [11]
+				false, -- [12]
+				false, -- [13]
+				false, -- [14]
+				false, -- [15]
+				false, -- [16]
+				false, -- [17]
+				false, -- [18]
+				false, -- [19]
+				false, -- [20]
+				false, -- [21]
+				false, -- [22]
+			},
+			["TimeLast"] = {
+				["FDamage"] = 1413755214,
+				["ActiveTime"] = 1413755224,
+				["OVERALL"] = 1413755224,
+				["TimeDamage"] = 1413755224,
+				["Damage"] = 1413755224,
+			},
+			["Fights"] = {
+				["LastFightData"] = {
+					["DOTs"] = {
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 0,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+					},
+					["DOT_Time"] = 0,
+					["Damage"] = 0,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 0,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["DamagedWho"] = {
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 0,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 0,
+					["TimeDamaging"] = {
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["CurrentFightData"] = {
+					["DOTs"] = {
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 0,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+					},
+					["DOT_Time"] = 0,
+					["Damage"] = 0,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 0,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["DamagedWho"] = {
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 0,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 0,
+					["TimeDamaging"] = {
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["OverallData"] = {
+					["ElementDone"] = {
+						["Melee"] = 269,
+					},
+					["TimeSpent"] = {
+						["Flying Fiend"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 21.98,
+								},
+							},
+							["amount"] = 21.98,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 27.12,
+								},
+							},
+							["amount"] = 27.12,
+						},
+					},
+					["FAttacks"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 174,
+									["min"] = 83,
+									["count"] = 15,
+									["amount"] = 2073,
+								},
+							},
+							["count"] = 15,
+							["amount"] = 2073,
+						},
+					},
+					["FDamage"] = 2073,
+					["Attacks"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 140,
+									["min"] = 129,
+									["count"] = 2,
+									["amount"] = 269,
+								},
+								["Dodge"] = {
+									["count"] = 1,
+									["amount"] = 0,
+								},
+								["Parry"] = {
+									["count"] = 1,
+									["amount"] = 0,
+								},
+								["Miss"] = {
+									["count"] = 3,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 7,
+							["amount"] = 269,
+						},
+					},
+					["TimeDamage"] = 49.1,
+					["FDamagedWho"] = {
+						["Flying Fiend"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 1289,
+								},
+							},
+							["amount"] = 1289,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 784,
+								},
+							},
+							["amount"] = 784,
+						},
+					},
+					["ActiveTime"] = 49.1,
+					["TimeDamaging"] = {
+						["Flying Fiend"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 21.98,
+								},
+							},
+							["amount"] = 21.98,
+						},
+						["Blight Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 27.12,
+								},
+							},
+							["amount"] = 27.12,
+						},
+					},
+					["DamagedWho"] = {
+						["Blight Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 269,
+								},
+							},
+							["amount"] = 269,
+						},
+					},
+					["ElementHitsDone"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 2,
+								},
+								["Dodge"] = {
+									["count"] = 1,
+								},
+								["Parry"] = {
+									["count"] = 1,
+								},
+								["Miss"] = {
+									["count"] = 3,
+								},
+							},
+							["amount"] = 7,
+						},
+					},
+					["Damage"] = 269,
+				},
+			},
+			["UnitLockout"] = 1413755224,
+			["LastActive"] = 1413755224,
+		},
+		["Blight Geist <Potray>"] = {
+			["GUID"] = "Creature-0-1379-571-26-28750-000044C5F7",
+			["LastEventHealth"] = {
+				"4973 (100%)", -- [1]
+			},
+			["LastEventType"] = {
+				"DAMAGE", -- [1]
+			},
+			["TimeWindows"] = {
+				["Damage"] = {
+					261, -- [1]
+				},
+				["TimeDamage"] = {
+					3.5, -- [1]
+				},
+				["ActiveTime"] = {
+					3.5, -- [1]
+				},
+			},
+			["enClass"] = "PET",
+			["unit"] = "Blight Geist",
+			["level"] = 1,
+			["LastFightIn"] = 4,
+			["type"] = "Pet",
+			["FightsSaved"] = 5,
+			["TimeLast"] = {
+				["Damage"] = 1413793381,
+				["OVERALL"] = 1413793381,
+				["TimeDamage"] = 1413793381,
+				["ActiveTime"] = 1413793381,
+			},
+			["Owner"] = "Potray",
+			["LastAbility"] = 173494.779,
+			["NextEventNum"] = 2,
+			["LastEventHealthNum"] = {
+				100, -- [1]
+			},
+			["LastEvents"] = {
+				"Blight Geist <Potray> Melee Blight Geist Hit -261 (Physical)", -- [1]
+			},
+			["Name"] = "Blight Geist",
+			["LastEventIncoming"] = {
+				false, -- [1]
+			},
+			["LastEventTimes"] = {
+				173494.779, -- [1]
+			},
+			["Fights"] = {
+				["LastFightData"] = {
+					["DOTs"] = {
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 0,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+					},
+					["DOT_Time"] = 0,
+					["Damage"] = 0,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 0,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["DamagedWho"] = {
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 0,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 0,
+					["TimeDamaging"] = {
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["CurrentFightData"] = {
+					["DOTs"] = {
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 0,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+					},
+					["DOT_Time"] = 0,
+					["Damage"] = 0,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 0,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["DamagedWho"] = {
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 0,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 0,
+					["TimeDamaging"] = {
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["OverallData"] = {
+					["TimeSpent"] = {
+						["Blight Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+					},
+					["ElementDone"] = {
+						["Melee"] = 261,
+					},
+					["ElementHitsDone"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 1,
+								},
+							},
+							["amount"] = 1,
+						},
+					},
+					["DamagedWho"] = {
+						["Blight Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 261,
+								},
+							},
+							["amount"] = 261,
+						},
+					},
+					["TimeDamage"] = 3.5,
+					["TimeDamaging"] = {
+						["Blight Geist"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+					},
+					["Attacks"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 261,
+									["min"] = 261,
+									["count"] = 1,
+									["amount"] = 261,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 261,
+						},
+					},
+					["ActiveTime"] = 3.5,
+					["Damage"] = 261,
+				},
+			},
+			["UnitLockout"] = 1413793381,
+			["LastActive"] = 1413793381,
+		},
+		["Bloated Abomination <Potray>"] = {
+			["GUID"] = "Creature-0-1379-571-27-28843-0003C459F7",
+			["LastEventHealth"] = {
+				"967 (18%)", -- [1]
+				"967 (18%)", -- [2]
+				"503 (9%)", -- [3]
+				"503 (9%)", -- [4]
+				"0 (0%)", -- [5]
+				"5239 (100%)", -- [6]
+				"5239 (100%)", -- [7]
+				"0 (0%)", -- [8]
+				"3489 (66%)", -- [9]
+				"3489 (66%)", -- [10]
+				"3489 (66%)", -- [11]
+				"3489 (66%)", -- [12]
+				"2984 (56%)", -- [13]
+				"2746 (52%)", -- [14]
+				"2746 (52%)", -- [15]
+				"2746 (52%)", -- [16]
+				"1981 (37%)", -- [17]
+				"1981 (37%)", -- [18]
+				"0 (0%)", -- [19]
+				"5118 (100%)", -- [20]
+				"5118 (100%)", -- [21]
+				"4849 (94%)", -- [22]
+				"4849 (94%)", -- [23]
+				"4645 (90%)", -- [24]
+				"4645 (90%)", -- [25]
+				"4645 (90%)", -- [26]
+				"4192 (81%)", -- [27]
+				"4192 (81%)", -- [28]
+				"4192 (81%)", -- [29]
+				"4192 (81%)", -- [30]
+				"4192 (81%)", -- [31]
+				"4192 (81%)", -- [32]
+				"4192 (81%)", -- [33]
+				"4192 (81%)", -- [34]
+				"3971 (77%)", -- [35]
+				"3971 (77%)", -- [36]
+				"3971 (77%)", -- [37]
+				"3489 (68%)", -- [38]
+				"3248 (63%)", -- [39]
+				"2968 (57%)", -- [40]
+				"2742 (53%)", -- [41]
+				"2451 (47%)", -- [42]
+				"2240 (43%)", -- [43]
+				"2240 (43%)", -- [44]
+				"1982 (38%)", -- [45]
+				"1740 (33%)", -- [46]
+				"1740 (33%)", -- [47]
+				"1740 (33%)", -- [48]
+				"1501 (29%)", -- [49]
+				"1501 (29%)", -- [50]
+			},
+			["LastEventType"] = {
+				"DAMAGE", -- [1]
+				"DAMAGE", -- [2]
+				"DAMAGE", -- [3]
+				"DAMAGE", -- [4]
+				"MISC", -- [5]
+				"DAMAGE", -- [6]
+				"DAMAGE", -- [7]
+				"MISC", -- [8]
+				"DAMAGE", -- [9]
+				"DAMAGE", -- [10]
+				"DAMAGE", -- [11]
+				"DAMAGE", -- [12]
+				"DAMAGE", -- [13]
+				"DAMAGE", -- [14]
+				"DAMAGE", -- [15]
+				"DAMAGE", -- [16]
+				"DAMAGE", -- [17]
+				"DAMAGE", -- [18]
+				"MISC", -- [19]
+				"DAMAGE", -- [20]
+				"DAMAGE", -- [21]
+				"DAMAGE", -- [22]
+				"DAMAGE", -- [23]
+				"DAMAGE", -- [24]
 				"DAMAGE", -- [25]
-				"HEAL", -- [26]
+				"DAMAGE", -- [26]
 				"DAMAGE", -- [27]
 				"DAMAGE", -- [28]
 				"DAMAGE", -- [29]
@@ -103,16163 +7117,66 @@ RecountPerCharDB = {
 				"DAMAGE", -- [43]
 				"DAMAGE", -- [44]
 				"DAMAGE", -- [45]
-				"HEAL", -- [46]
+				"DAMAGE", -- [46]
 				"DAMAGE", -- [47]
 				"DAMAGE", -- [48]
 				"DAMAGE", -- [49]
 				"DAMAGE", -- [50]
 			},
 			["TimeWindows"] = {
-				["TimeHeal"] = {
-					33.68, -- [1]
-				},
-				["Healing"] = {
-					30091, -- [1]
-				},
-				["DamageTaken"] = {
-					98423, -- [1]
+				["DeathCount"] = {
+					5, -- [1]
 				},
 				["ActiveTime"] = {
-					963.6999999999986, -- [1]
-				},
-				["Absorbs"] = {
-					7908, -- [1]
-				},
-				["HealingTaken"] = {
-					30091, -- [1]
-				},
-				["Overhealing"] = {
-					15971, -- [1]
-				},
-				["Interrupts"] = {
-					12, -- [1]
-				},
-				["DeathCount"] = {
-					3, -- [1]
-				},
-				["TimeDamage"] = {
-					930.0199999999991, -- [1]
+					50.91, -- [1]
 				},
 				["DOT_Time"] = {
-					366, -- [1]
+					18, -- [1]
+				},
+				["TimeDamage"] = {
+					50.91, -- [1]
+				},
+				["DamageTaken"] = {
+					15294, -- [1]
 				},
 				["Damage"] = {
-					633333, -- [1]
+					6393, -- [1]
 				},
 			},
-			["enClass"] = "PALADIN",
-			["unit"] = "Potray",
-			["LastAbility"] = 239255.365,
-			["LastEventTimes"] = {
-				164548.791, -- [1]
-				164549.993, -- [2]
-				164550.781, -- [3]
-				164551.214, -- [4]
-				164551.595, -- [5]
-				164556.916, -- [6]
-				164557.207, -- [7]
-				164558.021, -- [8]
-				164558.235, -- [9]
-				164558.405, -- [10]
-				164558.405, -- [11]
-				164558.841, -- [12]
-				164558.841, -- [13]
-				164559.646, -- [14]
-				164560.013, -- [15]
-				164560.013, -- [16]
-				164560.438, -- [17]
-				164561.85, -- [18]
-				164561.946, -- [19]
-				164562.063, -- [20]
-				164562.433, -- [21]
-				164562.433, -- [22]
-				164562.897, -- [23]
-				164562.897, -- [24]
-				164563.893, -- [25]
-				164564.009, -- [26]
-				164640.242, -- [27]
-				164674.608, -- [28]
-				164674.608, -- [29]
-				164675.025, -- [30]
-				164675.408, -- [31]
-				164796.063, -- [32]
-				164809.281, -- [33]
-				164810.518, -- [34]
-				164810.518, -- [35]
-				164810.956, -- [36]
-				164811.029, -- [37]
-				164811.029, -- [38]
-				164811.569, -- [39]
-				164812.041, -- [40]
-				164813.393, -- [41]
-				164813.999, -- [42]
-				164813.999, -- [43]
-				164813.999, -- [44]
-				164813.999, -- [45]
-				164813.999, -- [46]
-				164548.475, -- [47]
-				164548.607, -- [48]
-				164548.791, -- [49]
-				164548.791, -- [50]
-			},
-			["LastDamageTaken"] = 178,
-			["level"] = 58,
-			["LastDamageAbility"] = "Melee",
-			["LastFightIn"] = 73,
-			["LastEventNum"] = {
-				3.015700295352091, -- [1]
-				[46] = 2.005285247940308,
-				[34] = 3.046789989118607,
-				[26] = 2.005285247940308,
-				[27] = 5.362972174724079,
-				[39] = 0.388621172081455,
-				[15] = 3.186693611067931,
-				[8] = 3.45095600808332,
-				[40] = 2.76698274521996,
-				[32] = 2.207368257422664,
-				[5] = 2.005285247940308,
-				[19] = 2.969065754702316,
-				[20] = 1.865381625990984,
-				[3] = 3.062334836001865,
-				[11] = 1.865381625990984,
-				[36] = 0.3730763251981968,
-				[30] = 2.798072438986476,
-			},
-			["type"] = "Self",
-			["FightsSaved"] = 5,
-			["GuardianReverseGUIDs"] = {
-				["Rhea's Child"] = {
-					["LatestGuardian"] = 0,
-					["GUIDs"] = {
-						[0] = "0xF130C898003D971D",
-					},
-				},
-			},
-			["TimeLast"] = {
-				["TimeHeal"] = 1412433536,
-				["DeathCount"] = 1412431887,
-				["OVERALL"] = 1412433536,
-				["DamageTaken"] = 1412433534,
-				["TimeDamage"] = 1412433536,
-				["Absorbs"] = 1412432507,
-				["HealingTaken"] = 1412433536,
-				["Overhealing"] = 1412433205,
-				["Interrupts"] = 1412433207,
-				["ActiveTime"] = 1412433536,
-				["Healing"] = 1412433536,
-				["DOT_Time"] = 1412433536,
-				["Damage"] = 1412433536,
-			},
-			["Owner"] = false,
-			["Pet"] = {
-				"Rhea's Child <Potray>", -- [1]
-			},
-			["NextEventNum"] = 47,
-			["LastEventHealthNum"] = {
-				100, -- [1]
-				96.98429970464791, -- [2]
-				96.98429970464791, -- [3]
-				96.98429970464791, -- [4]
-				95.92725011658635, -- [5]
-				95.92725011658635, -- [6]
-				95.92725011658635, -- [7]
-				95.92725011658635, -- [8]
-				95.92725011658635, -- [9]
-				95.92725011658635, -- [10]
-				90.61091248251205, -- [11]
-				90.61091248251205, -- [12]
-				90.61091248251205, -- [13]
-				90.61091248251205, -- [14]
-				90.61091248251205, -- [15]
-				90.61091248251205, -- [16]
-				87.42421887144411, -- [17]
-				87.42421887144411, -- [18]
-				87.42421887144411, -- [19]
-				85.55883724545313, -- [20]
-				85.55883724545313, -- [21]
-				85.55883724545313, -- [22]
-				82.58977149075082, -- [23]
-				82.58977149075082, -- [24]
-				82.58977149075082, -- [25]
-				84.59505673869113, -- [26]
-				94.63702782527592, -- [27]
-				94.63702782527592, -- [28]
-				94.63702782527592, -- [29]
-				94.63702782527592, -- [30]
-				94.63702782527592, -- [31]
-				97.79263174257734, -- [32]
-				98.78750194310587, -- [33]
-				98.78750194310587, -- [34]
-				98.78750194310587, -- [35]
-				95.36763562878906, -- [36]
-				95.36763562878906, -- [37]
-				95.36763562878906, -- [38]
-				94.9790144567076, -- [39]
-				94.9790144567076, -- [40]
-				92.21203171148764, -- [41]
-				92.21203171148764, -- [42]
-				92.21203171148764, -- [43]
-				92.21203171148764, -- [44]
-				92.21203171148764, -- [45]
-				94.21731695942795, -- [46]
-				100, -- [47]
-				100, -- [48]
-				100, -- [49]
-				100, -- [50]
-			},
-			["LastEvents"] = {
-				"Bleeding Hollow Grunt Melee Potray Hit -194 (Physical)", -- [1]
-				"Potray Exorcism Bleeding Hollow Grunt Hit -2461 (Holy)", -- [2]
-				"Bleeding Hollow Grunt Melee Potray Hit -197 (Physical)", -- [3]
-				"Potray Hammer of Wrath Bleeding Hollow Grunt Hit -1366 (Holy)", -- [4]
-				"Potray Swift Hand of Justice Potray Hit +129", -- [5]
-				"Potray Judgment Bleeding Hollow Dark Shaman Hit -722 (Holy)", -- [6]
-				"Potray Seal of Truth Bleeding Hollow Dark Shaman Hit -79 (Holy)", -- [7]
-				"Bleeding Hollow Dark Shaman Melee Potray Hit -222 (Physical)", -- [8]
-				"Potray Melee Bleeding Hollow Dark Shaman Crit -665 (Physical)", -- [9]
-				"Potray Templar's Verdict Bleeding Hollow Dark Shaman Hit -1289 (Physical)", -- [10]
-				"Bleeding Hollow Dark Shaman Lightning Shield Potray Hit -120 (Nature)", -- [11]
-				"Potray Seal of Truth Bleeding Hollow Dark Shaman Hit -72 (Holy)", -- [12]
-				"Potray Seal of Truth Bleeding Hollow Dark Shaman Crit -136 (Holy)", -- [13]
-				"Potray Crusader Strike Bleeding Hollow Dark Shaman Hit -629 (Physical)", -- [14]
-				"Bleeding Hollow Dark Shaman Melee Potray Hit -205 (Physical)", -- [15]
-				"Potray Censure (DoT) Bleeding Hollow Dark Shaman Tick -181 (Holy)", -- [16]
-				"Potray Seal of Truth Bleeding Hollow Dark Shaman Hit -72 (Holy)", -- [17]
-				"Potray Melee Bleeding Hollow Dark Shaman Hit -353 (Physical)", -- [18]
-				"Bleeding Hollow Dark Shaman Melee Potray Hit -191 (Physical)", -- [19]
-				"Bleeding Hollow Dark Shaman Lightning Shield Potray Hit -120 (Nature)", -- [20]
-				"Potray Seal of Truth Bleeding Hollow Dark Shaman Hit -64 (Holy)", -- [21]
-				"Potray Judgment Bleeding Hollow Dark Shaman Hit -722 (Holy)", -- [22]
-				"Potray Seal of Truth Bleeding Hollow Dark Shaman Hit -75 (Holy)", -- [23]
-				"Potray Censure (DoT) Bleeding Hollow Dark Shaman Tick -303 (Holy)", -- [24]
-				"Potray Hammer of Wrath Bleeding Hollow Dark Shaman Hit -1332 (Holy)", -- [25]
-				"Potray Swift Hand of Justice Potray Hit +129", -- [26]
-				"Bleeding Hollow Necrolyte Fireball Potray Hit -345 (Fire)", -- [27]
-				"Potray Exorcism Starving Helboar Hit -2378 (Holy)", -- [28]
-				"Potray Melee Starving Helboar Glancing -360 (Physical)", -- [29]
-				"Starving Helboar Melee Potray Hit -180 (Physical)", -- [30]
-				"Starving Helboar Burning Spikes Potray Resist (Fire)", -- [31]
-				"Environment Falling Potray Hit -142 (Physical)", -- [32]
-				"Potray Exorcism Starving Helboar Hit -2369 (Holy)", -- [33]
-				"Starving Helboar Melee Potray Hit -196 (Physical)", -- [34]
-				"Potray Melee Starving Helboar Hit -369 (Physical)", -- [35]
-				"Starving Helboar Burning Spikes Potray Hit -24 (Fire)", -- [36]
-				"Potray Crusader Strike Starving Helboar Dodge (Physical)", -- [37]
-				"Potray Seal of Truth Starving Helboar Hit -76 (Holy)", -- [38]
-				"Starving Helboar Burning Spikes Potray Hit -25 (Fire)", -- [39]
-				"Starving Helboar Melee Potray Hit -178 (Physical)", -- [40]
-				"Potray Exorcism Starving Helboar Hit -2361 (Holy)", -- [41]
-				"Potray Censure (DoT) Starving Helboar Tick -60 (Holy)", -- [42]
-				"Potray Melee Starving Helboar Hit -386 (Physical)", -- [43]
-				"Potray Hammer of Wrath Starving Helboar Hit -1327 (Holy)", -- [44]
-				"Starving Helboar Burning Spikes Potray Resist (Fire)", -- [45]
-				"Potray Swift Hand of Justice Potray Hit +129", -- [46]
-				"Potray Crusader Strike Bleeding Hollow Grunt Hit -541 (Physical)", -- [47]
-				"Potray Melee Bleeding Hollow Grunt Hit -359 (Physical)", -- [48]
-				"Potray Seal of Truth Bleeding Hollow Grunt Hit -68 (Holy)", -- [49]
-				"Potray Seal of Truth Bleeding Hollow Grunt Crit -134 (Holy)", -- [50]
-			},
-			["Name"] = "Potray",
-			["LastEventIncoming"] = {
-				true, -- [1]
-				false, -- [2]
-				true, -- [3]
-				false, -- [4]
-				true, -- [5]
-				false, -- [6]
-				false, -- [7]
-				true, -- [8]
-				false, -- [9]
-				false, -- [10]
-				true, -- [11]
-				false, -- [12]
-				false, -- [13]
-				false, -- [14]
-				true, -- [15]
-				false, -- [16]
-				false, -- [17]
-				false, -- [18]
-				true, -- [19]
-				true, -- [20]
-				false, -- [21]
-				false, -- [22]
-				false, -- [23]
-				false, -- [24]
-				false, -- [25]
-				true, -- [26]
-				true, -- [27]
-				false, -- [28]
-				false, -- [29]
-				true, -- [30]
-				true, -- [31]
-				true, -- [32]
-				false, -- [33]
-				true, -- [34]
-				false, -- [35]
-				true, -- [36]
-				false, -- [37]
-				false, -- [38]
-				true, -- [39]
-				true, -- [40]
-				false, -- [41]
-				false, -- [42]
-				false, -- [43]
-				false, -- [44]
-				true, -- [45]
-				true, -- [46]
-				false, -- [47]
-				false, -- [48]
-				false, -- [49]
-				false, -- [50]
-			},
-			["Fights"] = {
-				["Fight3"] = {
-					["DOTs"] = {
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Shattered Hand Grunt"] = {
-									["count"] = 0,
-								},
-								["Bonechewer Scavenger"] = {
-									["count"] = 0,
-								},
-								["Shattered Hand Captain"] = {
-									["count"] = 0,
-								},
-								["Shattered Hand Warlock"] = {
-									["count"] = 0,
-								},
-								["Shattered Hand Neophyte"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Necrolyte"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Grunt"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Dark Shaman"] = {
-									["count"] = 6,
-								},
-							},
-							["amount"] = 6,
-						},
-					},
-					["ElementDoneAbsorb"] = {
-					},
-					["PartialBlock"] = {
-					},
-					["RunicPowerGain"] = 0,
-					["ElementDoneResist"] = {
-					},
-					["ElementHitsTaken"] = {
-						["Shadow"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Tick"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Crushing"] = {
-									["count"] = 0,
-								},
-								["Immune"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 5,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 5,
-						},
-						["Fire"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Tick"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Absorb"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Nature"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 2,
-								},
-							},
-							["amount"] = 2,
-						},
-					},
-					["DamageTaken"] = 1249,
-					["RageGainedFrom"] = {
-					},
-					["Absorbs"] = 0,
-					["DeathCount"] = 0,
-					["HOT_Time"] = 0,
-					["DOT_Time"] = 6,
-					["ElementTakenBlock"] = {
-					},
-					["ElementTaken"] = {
-						["Shadow"] = 0,
-						["Melee"] = 1009,
-						["Fire"] = 0,
-						["Physical"] = 0,
-						["Nature"] = 240,
-					},
-					["HOTs"] = {
-					},
-					["Damage"] = 14079,
-					["FDamagedWho"] = {
-					},
-					["TimeHeal"] = 0.5,
-					["ShieldedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Dispels"] = 0,
-					["HealingTaken"] = 258,
-					["HealedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 258,
-								},
-								["Healing Potion"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 258,
-						},
-					},
-					["FAttacks"] = {
-					},
-					["DamagedWho"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 1289,
-								},
-								["Melee"] = {
-									["count"] = 1018,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 484,
-								},
-								["Judgment"] = {
-									["count"] = 1444,
-								},
-								["Crusader Strike"] = {
-									["count"] = 629,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1332,
-								},
-								["Seal of Truth"] = {
-									["count"] = 498,
-								},
-							},
-							["amount"] = 6694,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 4917,
-								},
-								["Melee"] = {
-									["count"] = 359,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 541,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1366,
-								},
-								["Seal of Truth"] = {
-									["count"] = 202,
-								},
-							},
-							["amount"] = 7385,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ElementDone"] = {
-						["Holy"] = 10243,
-						["Melee"] = 1377,
-						["Physical"] = 2459,
-					},
-					["Absorbed"] = {
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Potray"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ElementHitsDone"] = {
-						["Holy"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 12,
-								},
-								["Tick"] = {
-									["count"] = 2,
-								},
-								["Crit"] = {
-									["count"] = 2,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 16,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 2,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 1,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 3,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 3,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 3,
-						},
-					},
-					["CCBroken"] = {
-					},
-					["WhoDamaged"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Immolate"] = {
-									["count"] = 0,
-								},
-								["Immolate (DoT)"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Shadow Bolt"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Scryer Arcane Guardian"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 618,
-								},
-								["Lightning Shield"] = {
-									["count"] = 240,
-								},
-							},
-							["amount"] = 858,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Kick"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Strike"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Fire Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Cleave"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Environment"] = {
-							["Details"] = {
-								["Falling"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Shadow Word: Pain (DoT)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 391,
-								},
-								["Strike"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 391,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["EnergyGainedFrom"] = {
-					},
-					["Dispelled"] = 0,
-					["RunicPowerGainedFrom"] = {
-					},
-					["ElementDoneBlock"] = {
-						["Melee"] = 0,
-						["Physical"] = 0,
-					},
-					["TimeHealing"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 0.5,
-								},
-								["Healing Potion"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0.5,
-						},
-					},
-					["OverHeals"] = {
-						["Flash of Light"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["WhoHealed"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 258,
-								},
-								["Healing Potion"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 258,
-						},
-					},
-					["PartialAbsorb"] = {
-						["Strike"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 5,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 5,
-							["amount"] = 0,
-						},
-						["Cleave"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolate"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Bolt"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Lightning Shield"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 0,
-						},
-						["Fire Shield"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolate (DoT)"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Word: Pain (DoT)"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["CCBreak"] = 0,
-					["EnergyGain"] = 0,
-					["FDamage"] = 0,
-					["PartialResist"] = {
-						["Strike"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 5,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 5,
-							["amount"] = 0,
-						},
-						["Cleave"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolate"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Bolt"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Lightning Shield"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 0,
-						},
-						["Fire Shield"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolate (DoT)"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Word: Pain (DoT)"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ManaGained"] = {
-					},
-					["ElementTakenAbsorb"] = {
-						["Physical"] = 0,
-						["Melee"] = 0,
-						["Fire"] = 0,
-					},
-					["Interrupts"] = 0,
-					["WhoDispelled"] = {
-					},
-					["Overhealing"] = 0,
-					["ElementTakenResist"] = {
-					},
-					["InterruptData"] = {
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Fireball (Rebuke)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Fireball (Rebuke)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Shadow Bolt (Rebuke)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ActiveTime"] = 18.87,
-					["Heals"] = {
-						["Flash of Light"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 129,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 258,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 258,
-						},
-						["Healing Potion"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["TimeSpent"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0.17,
-								},
-								["Melee"] = {
-									["count"] = 2.44,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.37,
-								},
-								["Judgment"] = {
-									["count"] = 3.5,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.8,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2.19,
-								},
-							},
-							["amount"] = 10.47,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 0.5,
-								},
-								["Healing Potion"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0.5,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 4.7,
-								},
-								["Melee"] = {
-									["count"] = 0.13,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1.67,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1.22,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0.18,
-								},
-							},
-							["amount"] = 7.9,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["EnergyGained"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["Healing"] = 258,
-					["ManaGainedFrom"] = {
-					},
-					["RageGained"] = {
-					},
-					["Attacks"] = {
-						["Exorcism"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 2461,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 4917,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 4917,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 359,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 712,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Glancing"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 665,
-									["min"] = 665,
-									["count"] = 1,
-									["amount"] = 665,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 1377,
-						},
-						["Judgment"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 722,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 1444,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 1444,
-						},
-						["Hammer of Wrath"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 1366,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 2698,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 2698,
-						},
-						["Censure"] = {
-							["Details"] = {
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Hammer of the Righteous"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Crusader Strike"] = {
-							["Details"] = {
-								["Hit (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 629,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 1170,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 1170,
-						},
-						["Templar's Verdict"] = {
-							["Details"] = {
-								["Hit (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 1289,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 1289,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 1289,
-						},
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Tick"] = {
-									["max"] = 303,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 484,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 484,
-						},
-						["Seal of Truth"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 136,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 270,
-								},
-								["Hit"] = {
-									["max"] = 79,
-									["min"] = 0,
-									["count"] = 6,
-									["amount"] = 430,
-								},
-							},
-							["count"] = 8,
-							["amount"] = 700,
-						},
-					},
-					["RageGain"] = 0,
-					["RessedWho"] = {
-					},
-					["TimeDamage"] = 18.36999999999999,
-					["TimeDamaging"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0.17,
-								},
-								["Melee"] = {
-									["count"] = 2.44,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.37,
-								},
-								["Judgment"] = {
-									["count"] = 3.5,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.8,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2.19,
-								},
-							},
-							["amount"] = 10.47,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 4.7,
-								},
-								["Melee"] = {
-									["count"] = 0.13,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1.67,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1.22,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0.18,
-								},
-							},
-							["amount"] = 7.9,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ManaGain"] = 0,
-					["Ressed"] = 0,
-					["DispelledWho"] = {
-					},
-				},
-				["Fight5"] = {
-					["PartialBlock"] = {
-					},
-					["Ressed"] = 0,
-					["DOTs"] = {
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Bonechewer Scavenger"] = {
-									["count"] = 0,
-								},
-								["Heckling Fel Sprite"] = {
-									["count"] = 0,
-								},
-								["Shattered Hand Grunt"] = {
-									["count"] = 0,
-								},
-								["Bonechewer Riding Wolf"] = {
-									["count"] = 0,
-								},
-								["Shattered Hand Captain"] = {
-									["count"] = 0,
-								},
-								["Shattered Hand Warlock"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Grunt"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Necrolyte"] = {
-									["count"] = 9,
-								},
-								["Bonechewer Evoker"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 9,
-						},
-					},
-					["RunicPowerGain"] = 0,
-					["ElementDoneResist"] = {
-					},
-					["ElementHitsTaken"] = {
-						["Shadow"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Immune"] = {
-									["count"] = 7,
-								},
-								["Crushing"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 1,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 1,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 9,
-						},
-						["Fire"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["DamageTaken"] = 489,
-					["ElementDoneAbsorb"] = {
-					},
-					["Absorbs"] = 0,
-					["DeathCount"] = 0,
-					["HOT_Time"] = 0,
-					["HOTs"] = {
-					},
-					["ElementTakenBlock"] = {
-					},
-					["ElementTaken"] = {
-						["Shadow"] = 0,
-						["Physical"] = 0,
-						["Melee"] = 489,
-						["Fire"] = 0,
-					},
-					["DOT_Time"] = 9,
-					["Damage"] = 12714,
-					["FDamagedWho"] = {
-					},
-					["TimeHeal"] = 0,
-					["ShieldedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Dispels"] = 0,
-					["HealingTaken"] = 129,
-					["RageGained"] = {
-					},
-					["FAttacks"] = {
-					},
-					["DamagedWho"] = {
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 856,
-								},
-								["Exorcism"] = {
-									["count"] = 4801,
-								},
-								["Melee"] = {
-									["count"] = 1016,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1345,
-								},
-								["Judgment"] = {
-									["count"] = 1228,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2521,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 424,
-								},
-								["Seal of Truth"] = {
-									["count"] = 523,
-								},
-							},
-							["amount"] = 12714,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ElementDone"] = {
-						["Holy"] = 8321,
-						["Melee"] = 1016,
-						["Physical"] = 3377,
-					},
-					["Absorbed"] = {
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Potray"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ElementHitsDone"] = {
-						["Holy"] = {
-							["Details"] = {
-								["Tick"] = {
-									["count"] = 3,
-								},
-								["Hit"] = {
-									["count"] = 16,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 19,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 3,
-								},
-								["Crit"] = {
-									["count"] = 1,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 4,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 3,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 1,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 4,
-						},
-					},
-					["CCBroken"] = {
-					},
-					["WhoDamaged"] = {
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Shadow Bolt"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Kick"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Fire Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Cleave"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 489,
-								},
-							},
-							["amount"] = 489,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Throw Wrench"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 0,
-								},
-								["Immolation"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["EnergyGainedFrom"] = {
-					},
-					["RunicPowerGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["ElementDoneBlock"] = {
-						["Melee"] = 196,
-						["Physical"] = 0,
-					},
-					["TimeHealing"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["OverHeals"] = {
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 128,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 128,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 128,
-						},
-					},
-					["WhoHealed"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 129,
-								},
-							},
-							["amount"] = 129,
-						},
-					},
-					["Overhealing"] = 128,
-					["CCBreak"] = 0,
-					["PartialAbsorb"] = {
-						["Strike"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 9,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 9,
-							["amount"] = 0,
-						},
-						["Cleave"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fire Shield"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Bolt"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fireball"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["FDamage"] = 0,
-					["PartialResist"] = {
-						["Strike"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 9,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 9,
-							["amount"] = 0,
-						},
-						["Cleave"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fire Shield"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Bolt"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fireball"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ManaGained"] = {
-					},
-					["ElementTakenAbsorb"] = {
-						["Melee"] = 0,
-					},
-					["Interrupts"] = 1,
-					["WhoDispelled"] = {
-					},
-					["TimeSpent"] = {
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0.87,
-								},
-								["Exorcism"] = {
-									["count"] = 5.92,
-								},
-								["Melee"] = {
-									["count"] = 2.859999999999999,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0.15,
-								},
-								["Judgment"] = {
-									["count"] = 2.8,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1.37,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1.33,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2.27,
-								},
-							},
-							["amount"] = 17.57,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ElementTakenResist"] = {
-					},
-					["InterruptData"] = {
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Fireball (Rebuke)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Fireball (Rebuke)"] = {
-									["count"] = 1,
-								},
-							},
-							["amount"] = 1,
-						},
-					},
-					["ActiveTime"] = 17.57,
-					["Heals"] = {
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 129,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 129,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 129,
-						},
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["EnergyGain"] = 0,
-					["EnergyGained"] = {
-					},
-					["Dispelled"] = 0,
-					["Healing"] = 129,
-					["ManaGainedFrom"] = {
-					},
-					["HealedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 129,
-								},
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 129,
-						},
-					},
-					["Attacks"] = {
-						["Exorcism"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 2402,
-									["min"] = 0,
-									["count"] = 3,
-									["amount"] = 4801,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 4801,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit (Blocked)"] = {
-									["max"] = 232,
-									["min"] = 232,
-									["count"] = 1,
-									["amount"] = 232,
-								},
-								["Hit"] = {
-									["max"] = 382,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 560,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 224,
-									["min"] = 224,
-									["count"] = 1,
-									["amount"] = 224,
-								},
-								["Glancing (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 4,
-							["amount"] = 1016,
-						},
-						["Judgment"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 867,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 1228,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 1228,
-						},
-						["Hammer of Wrath"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 1345,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 1345,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 1345,
-						},
-						["Censure"] = {
-							["Details"] = {
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Hammer of the Righteous"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Divine Storm"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Templar's Verdict"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 1270,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 1270,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 1251,
-									["min"] = 1251,
-									["count"] = 1,
-									["amount"] = 1251,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 2521,
-						},
-						["Crusader Strike"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 548,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 856,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 856,
-						},
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Tick"] = {
-									["max"] = 181,
-									["min"] = 0,
-									["count"] = 3,
-									["amount"] = 424,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 424,
-						},
-						["Seal of Truth"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 74,
-									["min"] = 0,
-									["count"] = 10,
-									["amount"] = 523,
-								},
-							},
-							["count"] = 10,
-							["amount"] = 523,
-						},
-					},
-					["RageGain"] = 0,
-					["RessedWho"] = {
-					},
-					["TimeDamage"] = 17.57,
-					["TimeDamaging"] = {
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0.87,
-								},
-								["Exorcism"] = {
-									["count"] = 5.92,
-								},
-								["Melee"] = {
-									["count"] = 2.859999999999999,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0.15,
-								},
-								["Judgment"] = {
-									["count"] = 2.8,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1.37,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1.33,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2.27,
-								},
-							},
-							["amount"] = 17.57,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ManaGain"] = 0,
-					["RageGainedFrom"] = {
-					},
-					["DispelledWho"] = {
-					},
-				},
-				["CurrentFightData"] = {
-					["ElementHitsTaken"] = {
-						["Shadow"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Tick"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Crushing"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Fire"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Nature"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ElementTakenResist"] = {
-					},
-					["DOTs"] = {
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Infernal Warbringer"] = {
-									["count"] = 0,
-								},
-								["Dreadcaller"] = {
-									["count"] = 0,
-								},
-								["Shattered Hand Grunt"] = {
-									["count"] = 0,
-								},
-								["Shattered Hand Captain"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Dark Shaman"] = {
-									["count"] = 0,
-								},
-								["Shattered Hand Neophyte"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Necrolyte"] = {
-									["count"] = 0,
-								},
-								["Bonechewer Scavenger"] = {
-									["count"] = 0,
-								},
-								["Bonechewer Evoker"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["RunicPowerGain"] = 0,
-					["ElementDoneResist"] = {
-					},
-					["Ressed"] = 0,
-					["DamageTaken"] = 0,
-					["RageGainedFrom"] = {
-					},
-					["Absorbs"] = 0,
-					["DeathCount"] = 0,
-					["HOT_Time"] = 0,
-					["DOT_Time"] = 0,
-					["ElementTakenBlock"] = {
-					},
-					["ElementTaken"] = {
-						["Shadow"] = 0,
-						["Melee"] = 0,
-						["Fire"] = 0,
-						["Physical"] = 0,
-						["Nature"] = 0,
-					},
-					["HOTs"] = {
-					},
-					["Damage"] = 0,
-					["PartialBlock"] = {
-					},
-					["TimeHeal"] = 0,
-					["ShieldedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Dispels"] = 0,
-					["HealingTaken"] = 0,
-					["WhoHealed"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-								["Word of Glory"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["FAttacks"] = {
-					},
-					["RageGained"] = {
-					},
-					["ElementDone"] = {
-						["Holy"] = 0,
-						["Melee"] = 0,
-						["Physical"] = 0,
-					},
-					["ManaGainedFrom"] = {
-					},
-					["DamagedWho"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Dreadcaller"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["RunicPowerGainedFrom"] = {
-					},
-					["WhoDamaged"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Immolation"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Dreadcaller"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Shadow Bolt"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Hamstring"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Fire Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Lightning Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Throw Wrench"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Kick"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Shadow Word: Pain (DoT)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Cleave"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Environment"] = {
-							["Details"] = {
-								["Falling"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["EnergyGainedFrom"] = {
-					},
-					["CCBroken"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["ElementDoneBlock"] = {
-						["Melee"] = 0,
-						["Physical"] = 0,
-					},
-					["TimeHealing"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-								["Word of Glory"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["OverHeals"] = {
-						["Flash of Light"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Word of Glory"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["RessedWho"] = {
-					},
-					["HealedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-								["Word of Glory"] = {
-									["count"] = 0,
-								},
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["CCBreak"] = 0,
-					["ElementTakenAbsorb"] = {
-						["Physical"] = 0,
-						["Melee"] = 0,
-						["Shadow"] = 0,
-					},
-					["PartialAbsorb"] = {
-						["Strike"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Cleave"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Word: Pain"] = {
-							["Details"] = {
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fire Shield"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Bolt"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Lightning Shield"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Hamstring"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Word: Pain (DoT)"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fireball"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["PartialResist"] = {
-						["Strike"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Cleave"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Word: Pain"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fire Shield"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Bolt"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Lightning Shield"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Hamstring"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Shadow Word: Pain (DoT)"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fireball"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ManaGained"] = {
-					},
-					["FDamage"] = 0,
-					["Interrupts"] = 0,
-					["WhoDispelled"] = {
-					},
-					["TimeSpent"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Dreadcaller"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-								["Word of Glory"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Fist of Justice"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Overhealing"] = 0,
-					["InterruptData"] = {
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Fireball (Rebuke)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ActiveTime"] = 0,
-					["Heals"] = {
-						["Flash of Light"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Word of Glory"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["EnergyGain"] = 0,
-					["EnergyGained"] = {
-					},
-					["Dispelled"] = 0,
-					["Healing"] = 0,
-					["Absorbed"] = {
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Potray"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ElementHitsDone"] = {
-						["Holy"] = {
-							["Details"] = {
-								["Tick"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Attacks"] = {
-						["Exorcism"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Glancing (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Judgment"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Hammer of Wrath"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fist of Justice"] = {
-							["Details"] = {
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Hammer of the Righteous"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Divine Storm"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Templar's Verdict"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Crusader Strike"] = {
-							["Details"] = {
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Tick"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Seal of Truth"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["RageGain"] = 0,
-					["FDamagedWho"] = {
-					},
-					["TimeDamage"] = 0,
-					["TimeDamaging"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Dreadcaller"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Fist of Justice"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ManaGain"] = 0,
-					["ElementDoneAbsorb"] = {
-					},
-					["DispelledWho"] = {
-					},
-				},
-				["Fight2"] = {
-					["DOTs"] = {
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Shattered Hand Grunt"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Grunt"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Peon"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ElementHitsTaken"] = {
-						["Physical"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 1,
-								},
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-								["Crushing"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 1,
-						},
-						["Fire"] = {
-							["Details"] = {
-								["Resist"] = {
-									["count"] = 1,
-								},
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 1,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 2,
-						},
-					},
-					["HealedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Absorbs"] = 0,
-					["Overhealing"] = 0,
-					["ElementTaken"] = {
-						["Physical"] = 0,
-						["Melee"] = 180,
-						["Fire"] = 345,
-					},
-					["DOT_Time"] = 0,
-					["Damage"] = 2738,
-					["TimeHeal"] = 0,
-					["ShieldedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ElementDone"] = {
-						["Holy"] = 2378,
-						["Melee"] = 360,
-						["Physical"] = 0,
-					},
-					["DamagedWho"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 360,
-								},
-								["Exorcism"] = {
-									["count"] = 2378,
-								},
-							},
-							["amount"] = 2738,
-						},
-					},
-					["WhoDamaged"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Immolation"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Kick"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Environment"] = {
-							["Details"] = {
-								["Falling"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Strike"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Redstone Basilisk"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 345,
-								},
-							},
-							["amount"] = 345,
-						},
-						["Deranged Helboar"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 180,
-								},
-							},
-							["amount"] = 180,
-						},
-					},
-					["Absorbed"] = {
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Potray"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ElementDoneBlock"] = {
-						["Melee"] = 0,
-						["Physical"] = 0,
-					},
-					["TimeHealing"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["OverHeals"] = {
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["PartialResist"] = {
-						["Fireball"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Strike"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Burning Spikes"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-					},
-					["PartialAbsorb"] = {
-						["Fireball"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Strike"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Burning Spikes"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-					},
-					["Interrupts"] = 0,
-					["InterruptData"] = {
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Fireball (Rebuke)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Heals"] = {
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["Healing"] = 0,
-					["ElementHitsDone"] = {
-						["Holy"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 1,
-								},
-								["Tick"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 1,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["count"] = 1,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 1,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Block"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["WhoHealed"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Attacks"] = {
-						["Exorcism"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 2378,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 2378,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 2378,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["max"] = 360,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 360,
-								},
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 360,
-						},
-						["Rebuke"] = {
-							["Details"] = {
-								["Block"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Hammer of Wrath"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Censure"] = {
-							["Details"] = {
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Judgment"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Crusader Strike"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Templar's Verdict"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Tick"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Seal of Truth"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["HealingTaken"] = 0,
-					["ActiveTime"] = 3.5,
-					["TimeDamage"] = 3.5,
-					["TimeDamaging"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Rebuke"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 3.5,
-								},
-							},
-							["amount"] = 3.5,
-						},
-					},
-					["DamageTaken"] = 525,
-					["TimeSpent"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Rebuke"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 3.5,
-								},
-							},
-							["amount"] = 3.5,
-						},
-					},
-					["ElementTakenAbsorb"] = {
-						["Melee"] = 0,
-						["Fire"] = 0,
-					},
-				},
-				["Fight4"] = {
-					["DOTs"] = {
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Bonechewer Scavenger"] = {
-									["count"] = 0,
-								},
-								["Shattered Hand Grunt"] = {
-									["count"] = 0,
-								},
-								["Bonechewer Riding Wolf"] = {
-									["count"] = 0,
-								},
-								["Bonechewer Raider"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Peon"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Grunt"] = {
-									["count"] = 3,
-								},
-								["Infernal Warbringer"] = {
-									["count"] = 0,
-								},
-								["Bonechewer Evoker"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 3,
-						},
-					},
-					["ElementDoneAbsorb"] = {
-					},
-					["PartialBlock"] = {
-					},
-					["RunicPowerGain"] = 0,
-					["ElementDoneResist"] = {
-					},
-					["ElementHitsTaken"] = {
-						["Fire"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Absorb"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 1,
-								},
-								["Crushing"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 1,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 1,
-								},
-							},
-							["amount"] = 1,
-						},
-					},
-					["DamageTaken"] = 238,
-					["RageGainedFrom"] = {
-					},
-					["Absorbs"] = 0,
-					["DeathCount"] = 0,
-					["HOT_Time"] = 0,
-					["DOT_Time"] = 3,
-					["ElementTakenBlock"] = {
-					},
-					["ElementTaken"] = {
-						["Fire"] = 0,
-						["Melee"] = 238,
-						["Physical"] = 0,
-					},
-					["HOTs"] = {
-					},
-					["Damage"] = 6227,
-					["FDamagedWho"] = {
-					},
-					["TimeHeal"] = 0.12,
-					["ShieldedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Dispels"] = 0,
-					["HealingTaken"] = 129,
-					["HealedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 129,
-								},
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 129,
-						},
-					},
-					["FAttacks"] = {
-					},
-					["DamagedWho"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonestripper Buzzard"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 2372,
-								},
-								["Melee"] = {
-									["count"] = 634,
-								},
-								["Crusader Strike"] = {
-									["count"] = 397,
-								},
-								["Judgment"] = {
-									["count"] = 723,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1376,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 363,
-								},
-								["Seal of Truth"] = {
-									["count"] = 362,
-								},
-							},
-							["amount"] = 6227,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ElementDone"] = {
-						["Holy"] = 3820,
-						["Melee"] = 634,
-						["Physical"] = 1773,
-					},
-					["Absorbed"] = {
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Potray"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ElementHitsDone"] = {
-						["Holy"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 5,
-								},
-								["Tick"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 2,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 7,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["count"] = 1,
-								},
-								["Hit"] = {
-									["count"] = 1,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 2,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 2,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 2,
-						},
-					},
-					["CCBroken"] = {
-					},
-					["WhoDamaged"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Immolation"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonestripper Buzzard"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Bonechewer Bite"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 238,
-								},
-							},
-							["amount"] = 238,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["EnergyGainedFrom"] = {
-					},
-					["Dispelled"] = 0,
-					["RunicPowerGainedFrom"] = {
-					},
-					["ElementDoneBlock"] = {
-						["Melee"] = 0,
-						["Physical"] = 170,
-					},
-					["TimeHealing"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 0.12,
-								},
-							},
-							["amount"] = 0.12,
-						},
-					},
-					["OverHeals"] = {
-					},
-					["WhoHealed"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 129,
-								},
-							},
-							["amount"] = 129,
-						},
-					},
-					["PartialAbsorb"] = {
-						["Fireball"] = {
-							["Details"] = {
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Bonechewer Bite"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Strike"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["CCBreak"] = 0,
-					["EnergyGain"] = 0,
-					["FDamage"] = 0,
-					["PartialResist"] = {
-						["Fireball"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Bonechewer Bite"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Strike"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ManaGained"] = {
-					},
-					["ElementTakenAbsorb"] = {
-						["Fire"] = 0,
-						["Melee"] = 0,
-						["Physical"] = 0,
-					},
-					["Interrupts"] = 0,
-					["WhoDispelled"] = {
-					},
-					["Overhealing"] = 0,
-					["ElementTakenResist"] = {
-					},
-					["InterruptData"] = {
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Fireball (Rebuke)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ActiveTime"] = 9.18,
-					["Heals"] = {
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 129,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 129,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 129,
-						},
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["TimeSpent"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonestripper Buzzard"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 0.12,
-								},
-							},
-							["amount"] = 0.12,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 3.5,
-								},
-								["Melee"] = {
-									["count"] = 1.42,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1.61,
-								},
-								["Judgment"] = {
-									["count"] = 0.11,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.51,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.89,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1.02,
-								},
-							},
-							["amount"] = 9.060000000000001,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["EnergyGained"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["Healing"] = 129,
-					["ManaGainedFrom"] = {
-					},
-					["RageGained"] = {
-					},
-					["Attacks"] = {
-						["Crusader Strike"] = {
-							["Details"] = {
-								["Hit (Blocked)"] = {
-									["max"] = 397,
-									["min"] = 397,
-									["count"] = 1,
-									["amount"] = 397,
-								},
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 397,
-						},
-						["Exorcism"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 2372,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 2372,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 2372,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["max"] = 322,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 322,
-								},
-								["Glancing (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 312,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 312,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 634,
-						},
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 363,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 363,
-								},
-								["Tick"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 363,
-						},
-						["Judgment"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 723,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 723,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 723,
-						},
-						["Templar's Verdict"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 1376,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 1376,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 1376,
-						},
-						["Hammer of Wrath"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Seal of Truth"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 142,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 142,
-								},
-								["Hit"] = {
-									["max"] = 79,
-									["min"] = 0,
-									["count"] = 3,
-									["amount"] = 220,
-								},
-							},
-							["count"] = 4,
-							["amount"] = 362,
-						},
-					},
-					["RageGain"] = 0,
-					["RessedWho"] = {
-					},
-					["TimeDamage"] = 9.060000000000001,
-					["TimeDamaging"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonestripper Buzzard"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 3.5,
-								},
-								["Melee"] = {
-									["count"] = 1.42,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1.61,
-								},
-								["Judgment"] = {
-									["count"] = 0.11,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.51,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.89,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1.02,
-								},
-							},
-							["amount"] = 9.060000000000001,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ManaGain"] = 0,
-					["Ressed"] = 0,
-					["DispelledWho"] = {
-					},
-				},
-				["LastFightData"] = {
-					["ElementHitsTaken"] = {
-						["Physical"] = {
-							["Details"] = {
-								["Parry"] = {
-									["count"] = 0,
-								},
-								["Immune"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Immune"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 2,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 2,
-						},
-						["Arcane"] = {
-							["Details"] = {
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Fire"] = {
-							["Details"] = {
-								["Resist"] = {
-									["count"] = 1,
-								},
-								["Hit"] = {
-									["count"] = 2,
-								},
-							},
-							["amount"] = 3,
-						},
-						["Nature"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ElementTakenResist"] = {
-					},
-					["DOTs"] = {
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Shattered Hand Grunt"] = {
-									["count"] = 0,
-								},
-								["Infernal Warbringer"] = {
-									["count"] = 0,
-								},
-								["Pescailla-Zul'jin"] = {
-									["count"] = 0,
-								},
-								["Bonechewer Scavenger"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Peon"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Necrolyte"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Dark Shaman"] = {
-									["count"] = 0,
-								},
-								["Starving Helboar"] = {
-									["count"] = 3,
-								},
-							},
-							["amount"] = 3,
-						},
-					},
-					["RunicPowerGain"] = 0,
-					["ElementDoneResist"] = {
-					},
-					["Ressed"] = 0,
-					["DamageTaken"] = 423,
-					["RageGainedFrom"] = {
-					},
-					["Absorbs"] = 0,
-					["DeathCount"] = 0,
-					["HOT_Time"] = 0,
-					["DOT_Time"] = 3,
-					["ElementTakenBlock"] = {
-					},
-					["ElementTaken"] = {
-						["Physical"] = 0,
-						["Melee"] = 374,
-						["Arcane"] = 0,
-						["Fire"] = 49,
-						["Nature"] = 0,
-					},
-					["HOTs"] = {
-					},
-					["Damage"] = 6948,
-					["PartialBlock"] = {
-					},
-					["TimeHeal"] = 0,
-					["ShieldedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Dispels"] = 0,
-					["HealingTaken"] = 129,
-					["WhoHealed"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 129,
-								},
-							},
-							["amount"] = 129,
-						},
-					},
-					["FAttacks"] = {
-					},
-					["RageGained"] = {
-					},
-					["ElementDone"] = {
-						["Physical"] = 0,
-						["Melee"] = 755,
-						["Holy"] = 6193,
-					},
-					["ManaGainedFrom"] = {
-					},
-					["DamagedWho"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4730,
-								},
-								["Melee"] = {
-									["count"] = 755,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 60,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1327,
-								},
-								["Seal of Truth"] = {
-									["count"] = 76,
-								},
-							},
-							["amount"] = 6948,
-						},
-					},
-					["RunicPowerGainedFrom"] = {
-					},
-					["WhoDamaged"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Immolation"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["OMGSoyRojo"] = {
-							["Details"] = {
-								["Claw"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Kill Command"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Lightning Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Throw Wrench"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Kick"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Crust Burster"] = {
-							["Details"] = {
-								["Poison"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Steady Shot"] = {
-									["count"] = 0,
-								},
-								["Auto Shot"] = {
-									["count"] = 0,
-								},
-								["Arcane Shot"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Environment"] = {
-							["Details"] = {
-								["Falling"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 374,
-								},
-								["Burning Spikes"] = {
-									["count"] = 49,
-								},
-							},
-							["amount"] = 423,
-						},
-					},
-					["EnergyGainedFrom"] = {
-					},
-					["CCBroken"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["ElementDoneBlock"] = {
-						["Melee"] = 0,
-					},
-					["TimeHealing"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["OverHeals"] = {
-					},
-					["RessedWho"] = {
-					},
-					["HealedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 129,
-								},
-							},
-							["amount"] = 129,
-						},
-					},
-					["CCBreak"] = 0,
-					["ElementTakenAbsorb"] = {
-						["Physical"] = 0,
-					},
-					["PartialAbsorb"] = {
-						["Strike"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 0,
-						},
-						["Burning Spikes"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 3,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 0,
-						},
-						["Auto Shot"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kill Command"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Steady Shot"] = {
-							["Details"] = {
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Arcane Shot"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Lightning Shield"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Poison"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Claw"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fireball"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["PartialResist"] = {
-						["Strike"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 0,
-						},
-						["Burning Spikes"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 3,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 0,
-						},
-						["Auto Shot"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kill Command"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Steady Shot"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Arcane Shot"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Lightning Shield"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Poison"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Claw"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fireball"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ManaGained"] = {
-					},
-					["FDamage"] = 0,
-					["Interrupts"] = 0,
-					["WhoDispelled"] = {
-					},
-					["TimeSpent"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 5.859999999999999,
-								},
-								["Melee"] = {
-									["count"] = 1.24,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.61,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.51,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 8.219999999999999,
-						},
-					},
-					["Overhealing"] = 0,
-					["InterruptData"] = {
-					},
-					["ActiveTime"] = 8.219999999999999,
-					["Heals"] = {
-						["Flash of Light"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 129,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 129,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 129,
-						},
-					},
-					["EnergyGain"] = 0,
-					["EnergyGained"] = {
-					},
-					["Dispelled"] = 0,
-					["Healing"] = 129,
-					["Absorbed"] = {
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Potray"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ElementHitsDone"] = {
-						["Holy"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 4,
-								},
-								["Tick"] = {
-									["count"] = 1,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 5,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 2,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 2,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 1,
-								},
-							},
-							["amount"] = 1,
-						},
-					},
-					["Attacks"] = {
-						["Exorcism"] = {
-							["Details"] = {
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 2369,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 4730,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 4730,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 386,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 755,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 755,
-						},
-						["Judgment"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Hammer of Wrath"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 1327,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 1327,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 1327,
-						},
-						["Censure"] = {
-							["Details"] = {
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Templar's Verdict"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Crusader Strike"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Tick"] = {
-									["max"] = 60,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 60,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 60,
-						},
-						["Seal of Truth"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 76,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 76,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 76,
-						},
-					},
-					["RageGain"] = 0,
-					["FDamagedWho"] = {
-					},
-					["TimeDamage"] = 8.219999999999999,
-					["TimeDamaging"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 5.859999999999999,
-								},
-								["Melee"] = {
-									["count"] = 1.24,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.61,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.51,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 8.219999999999999,
-						},
-					},
-					["ManaGain"] = 0,
-					["ElementDoneAbsorb"] = {
-					},
-					["DispelledWho"] = {
-					},
-				},
-				["Fight1"] = {
-					["ElementHitsTaken"] = {
-						["Physical"] = {
-							["Details"] = {
-								["Parry"] = {
-									["count"] = 0,
-								},
-								["Immune"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Immune"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 2,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 2,
-						},
-						["Arcane"] = {
-							["Details"] = {
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Fire"] = {
-							["Details"] = {
-								["Resist"] = {
-									["count"] = 1,
-								},
-								["Hit"] = {
-									["count"] = 2,
-								},
-							},
-							["amount"] = 3,
-						},
-						["Nature"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["ElementTakenResist"] = {
-					},
-					["DOTs"] = {
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Shattered Hand Grunt"] = {
-									["count"] = 0,
-								},
-								["Infernal Warbringer"] = {
-									["count"] = 0,
-								},
-								["Pescailla-Zul'jin"] = {
-									["count"] = 0,
-								},
-								["Bonechewer Scavenger"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Peon"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Necrolyte"] = {
-									["count"] = 0,
-								},
-								["Bleeding Hollow Dark Shaman"] = {
-									["count"] = 0,
-								},
-								["Starving Helboar"] = {
-									["count"] = 3,
-								},
-							},
-							["amount"] = 3,
-						},
-					},
-					["RunicPowerGain"] = 0,
-					["ElementDoneResist"] = {
-					},
-					["Ressed"] = 0,
-					["DamageTaken"] = 423,
-					["RageGainedFrom"] = {
-					},
-					["Absorbs"] = 0,
-					["DeathCount"] = 0,
-					["HOT_Time"] = 0,
-					["DOT_Time"] = 3,
-					["ElementTakenBlock"] = {
-					},
-					["ElementTaken"] = {
-						["Physical"] = 0,
-						["Melee"] = 374,
-						["Arcane"] = 0,
-						["Fire"] = 49,
-						["Nature"] = 0,
-					},
-					["HOTs"] = {
-					},
-					["Damage"] = 6948,
-					["PartialBlock"] = {
-					},
-					["TimeHeal"] = 0,
-					["ShieldedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Dispels"] = 0,
-					["HealingTaken"] = 129,
-					["WhoHealed"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 129,
-								},
-							},
-							["amount"] = 129,
-						},
-					},
-					["FAttacks"] = {
-					},
-					["RageGained"] = {
-					},
-					["ElementDone"] = {
-						["Physical"] = 0,
-						["Melee"] = 755,
-						["Holy"] = 6193,
-					},
-					["ManaGainedFrom"] = {
-					},
-					["DamagedWho"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4730,
-								},
-								["Melee"] = {
-									["count"] = 755,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 60,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1327,
-								},
-								["Seal of Truth"] = {
-									["count"] = 76,
-								},
-							},
-							["amount"] = 6948,
-						},
-					},
-					["RunicPowerGainedFrom"] = {
-					},
-					["WhoDamaged"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Immolation"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["OMGSoyRojo"] = {
-							["Details"] = {
-								["Claw"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Kill Command"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Lightning Shield"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Throw Wrench"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Strike"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Kick"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Crust Burster"] = {
-							["Details"] = {
-								["Poison"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Steady Shot"] = {
-									["count"] = 0,
-								},
-								["Auto Shot"] = {
-									["count"] = 0,
-								},
-								["Arcane Shot"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Environment"] = {
-							["Details"] = {
-								["Falling"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 374,
-								},
-								["Burning Spikes"] = {
-									["count"] = 49,
-								},
-							},
-							["amount"] = 423,
-						},
-					},
-					["EnergyGainedFrom"] = {
-					},
-					["CCBroken"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["ElementDoneBlock"] = {
-						["Melee"] = 0,
-					},
-					["TimeHealing"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["OverHeals"] = {
-					},
-					["RessedWho"] = {
-					},
-					["HealedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Sacred Shield"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 129,
-								},
-							},
-							["amount"] = 129,
-						},
-					},
-					["CCBreak"] = 0,
-					["ElementTakenAbsorb"] = {
-						["Physical"] = 0,
-					},
-					["PartialAbsorb"] = {
-						["Strike"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 0,
-						},
-						["Burning Spikes"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 3,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 0,
-						},
-						["Auto Shot"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kill Command"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Steady Shot"] = {
-							["Details"] = {
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Arcane Shot"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Lightning Shield"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Poison"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Claw"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fireball"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["PartialResist"] = {
-						["Strike"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 0,
-						},
-						["Burning Spikes"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 3,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 0,
-						},
-						["Auto Shot"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kill Command"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Steady Shot"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Arcane Shot"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Lightning Shield"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Poison"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Claw"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Fireball"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ManaGained"] = {
-					},
-					["FDamage"] = 0,
-					["Interrupts"] = 0,
-					["WhoDispelled"] = {
-					},
-					["TimeSpent"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 0,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 5.859999999999999,
-								},
-								["Melee"] = {
-									["count"] = 1.24,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.61,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.51,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 8.219999999999999,
-						},
-					},
-					["Overhealing"] = 0,
-					["InterruptData"] = {
-					},
-					["ActiveTime"] = 8.219999999999999,
-					["Heals"] = {
-						["Flash of Light"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 129,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 129,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 129,
-						},
-					},
-					["EnergyGain"] = 0,
-					["EnergyGained"] = {
-					},
-					["Dispelled"] = 0,
-					["Healing"] = 129,
-					["Absorbed"] = {
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Potray"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-					},
-					["ElementHitsDone"] = {
-						["Holy"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 4,
-								},
-								["Tick"] = {
-									["count"] = 1,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 5,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 2,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 2,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 1,
-								},
-							},
-							["amount"] = 1,
-						},
-					},
-					["Attacks"] = {
-						["Exorcism"] = {
-							["Details"] = {
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 2369,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 4730,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 4730,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 386,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 755,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 755,
-						},
-						["Judgment"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Hammer of Wrath"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 1327,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 1327,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 1327,
-						},
-						["Censure"] = {
-							["Details"] = {
-								["Miss"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Templar's Verdict"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Parry"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Crusader Strike"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Tick"] = {
-									["max"] = 60,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 60,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 60,
-						},
-						["Seal of Truth"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Hit"] = {
-									["max"] = 76,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 76,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 76,
-						},
-					},
-					["RageGain"] = 0,
-					["FDamagedWho"] = {
-					},
-					["TimeDamage"] = 8.219999999999999,
-					["TimeDamaging"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 0,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 5.859999999999999,
-								},
-								["Melee"] = {
-									["count"] = 1.24,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.61,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.51,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 8.219999999999999,
-						},
-					},
-					["ManaGain"] = 0,
-					["ElementDoneAbsorb"] = {
-					},
-					["DispelledWho"] = {
-					},
-				},
-				["OverallData"] = {
-					["DOTs"] = {
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Infernal Warbringer"] = {
-									["count"] = 21,
-								},
-								["Heckling Fel Sprite"] = {
-									["count"] = 3,
-								},
-								["Shattered Hand Grunt"] = {
-									["count"] = 90,
-								},
-								["Shattered Hand Captain"] = {
-									["count"] = 42,
-								},
-								["Bleeding Hollow Peon"] = {
-									["count"] = 12,
-								},
-								["Shattered Hand Neophyte"] = {
-									["count"] = 30,
-								},
-								["Starving Helboar"] = {
-									["count"] = 3,
-								},
-								["Bleeding Hollow Dark Shaman"] = {
-									["count"] = 18,
-								},
-								["Dreadcaller"] = {
-									["count"] = 6,
-								},
-								["Bonechewer Raider"] = {
-									["count"] = 3,
-								},
-								["Bonechewer Riding Wolf"] = {
-									["count"] = 9,
-								},
-								["Pescailla-Zul'jin"] = {
-									["count"] = 21,
-								},
-								["Shattered Hand Warlock"] = {
-									["count"] = 18,
-								},
-								["Bonechewer Scavenger"] = {
-									["count"] = 27,
-								},
-								["Bleeding Hollow Necrolyte"] = {
-									["count"] = 18,
-								},
-								["Bleeding Hollow Grunt"] = {
-									["count"] = 30,
-								},
-								["Bonechewer Evoker"] = {
-									["count"] = 15,
-								},
-							},
-							["amount"] = 366,
-						},
-					},
-					["ElementHitsTaken"] = {
-						["Shadow"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 1,
-								},
-								["Hit"] = {
-									["count"] = 10,
-								},
-								["Tick"] = {
-									["count"] = 10,
-								},
-							},
-							["amount"] = 21,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 216,
-								},
-								["Immune"] = {
-									["count"] = 32,
-								},
-								["Dodge"] = {
-									["count"] = 2,
-								},
-								["Miss"] = {
-									["count"] = 2,
-								},
-								["Absorb"] = {
-									["count"] = 28,
-								},
-								["Crushing"] = {
-									["count"] = 41,
-								},
-								["Crit"] = {
-									["count"] = 17,
-								},
-								["Parry"] = {
-									["count"] = 62,
-								},
-							},
-							["amount"] = 400,
-						},
-						["Arcane"] = {
-							["Details"] = {
-								["Crit"] = {
-									["count"] = 1,
-								},
-								["Hit"] = {
-									["count"] = 3,
-								},
-							},
-							["amount"] = 4,
-						},
-						["Fire"] = {
-							["Details"] = {
-								["Resist"] = {
-									["count"] = 2,
-								},
-								["Absorb"] = {
-									["count"] = 4,
-								},
-								["Hit"] = {
-									["count"] = 46,
-								},
-								["Tick"] = {
-									["count"] = 7,
-								},
-								["Miss"] = {
-									["count"] = 2,
-								},
-							},
-							["amount"] = 61,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Immune"] = {
-									["count"] = 2,
-								},
-								["Hit"] = {
-									["count"] = 60,
-								},
-								["Absorb"] = {
-									["count"] = 5,
-								},
-								["Crit"] = {
-									["count"] = 1,
-								},
-								["Parry"] = {
-									["count"] = 2,
-								},
-							},
-							["amount"] = 70,
-						},
-						["Nature"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 9,
-								},
-							},
-							["amount"] = 9,
-						},
-					},
-					["HealedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Swift Hand of Justice"] = {
-									["count"] = 12703,
-								},
-								["Word of Glory"] = {
-									["count"] = 5444,
-								},
-								["Flash of Light"] = {
-									["count"] = 11153,
-								},
-								["Sacred Shield"] = {
-									["count"] = 7908,
-								},
-								["Healing Potion"] = {
-									["count"] = 791,
-								},
-							},
-							["amount"] = 37999,
-						},
-					},
-					["Absorbs"] = 7908,
-					["DeathCount"] = 3,
-					["Overhealing"] = 15971,
-					["ElementTaken"] = {
-						["Shadow"] = 2630,
-						["Melee"] = 64167,
-						["Arcane"] = 4487,
-						["Fire"] = 5331,
-						["Physical"] = 20600,
-						["Nature"] = 1208,
-					},
-					["DOT_Time"] = 366,
-					["Damage"] = 633333,
-					["TimeHeal"] = 33.68,
-					["ShieldedWho"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Sacred Shield"] = {
-									["count"] = 23,
-								},
-							},
-							["amount"] = 23,
-						},
-					},
-					["ElementDone"] = {
-						["Physical"] = 157051,
-						["Melee"] = 56630,
-						["Holy"] = 419652,
-					},
-					["DamagedWho"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 4162,
-								},
-								["Exorcism"] = {
-									["count"] = 13200,
-								},
-								["Melee"] = {
-									["count"] = 3919,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 7716,
-								},
-								["Judgment"] = {
-									["count"] = 4967,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 7041,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1396,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2158,
-								},
-							},
-							["amount"] = 44559,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 9519,
-								},
-								["Melee"] = {
-									["count"] = 1383,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1251,
-								},
-								["Crusader Strike"] = {
-									["count"] = 593,
-								},
-								["Seal of Truth"] = {
-									["count"] = 352,
-								},
-							},
-							["amount"] = 13098,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 6525,
-								},
-								["Divine Storm"] = {
-									["count"] = 2168,
-								},
-								["Judgment"] = {
-									["count"] = 3831,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1296,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 2011,
-								},
-								["Melee"] = {
-									["count"] = 3927,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2658,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1832,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 116,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1489,
-								},
-							},
-							["amount"] = 25853,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 6762,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 402,
-								},
-								["Melee"] = {
-									["count"] = 736,
-								},
-								["Judgment"] = {
-									["count"] = 851,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1450,
-								},
-								["Divine Storm"] = {
-									["count"] = 1082,
-								},
-								["Seal of Truth"] = {
-									["count"] = 212,
-								},
-							},
-							["amount"] = 11495,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 20558,
-								},
-								["Exorcism"] = {
-									["count"] = 49271,
-								},
-								["Melee"] = {
-									["count"] = 6319,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 5908,
-								},
-								["Judgment"] = {
-									["count"] = 14010,
-								},
-								["Crusader Strike"] = {
-									["count"] = 11123,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 16976,
-								},
-								["Seal of Truth"] = {
-									["count"] = 6289,
-								},
-							},
-							["amount"] = 130454,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 3774,
-								},
-								["Exorcism"] = {
-									["count"] = 8685,
-								},
-								["Melee"] = {
-									["count"] = 1604,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 3096,
-								},
-								["Judgment"] = {
-									["count"] = 3079,
-								},
-								["Crusader Strike"] = {
-									["count"] = 3206,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1995,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1289,
-								},
-							},
-							["amount"] = 26728,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 9708,
-								},
-								["Melee"] = {
-									["count"] = 2228,
-								},
-								["Crusader Strike"] = {
-									["count"] = 3189,
-								},
-								["Judgment"] = {
-									["count"] = 3035,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 4257,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 786,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1176,
-								},
-							},
-							["amount"] = 24379,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4419,
-								},
-								["Melee"] = {
-									["count"] = 870,
-								},
-								["Crusader Strike"] = {
-									["count"] = 2174,
-								},
-								["Judgment"] = {
-									["count"] = 2336,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1261,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 2732,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1119,
-								},
-							},
-							["amount"] = 14911,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 7108,
-								},
-								["Melee"] = {
-									["count"] = 1115,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 60,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1327,
-								},
-								["Seal of Truth"] = {
-									["count"] = 76,
-								},
-							},
-							["amount"] = 9686,
-						},
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 6651,
-								},
-								["Melee"] = {
-									["count"] = 1499,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1316,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 234,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1090,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1287,
-								},
-								["Seal of Truth"] = {
-									["count"] = 509,
-								},
-							},
-							["amount"] = 12586,
-						},
-						["Dreadcaller"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 686,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2491,
-								},
-								["Judgment"] = {
-									["count"] = 622,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1143,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 513,
-								},
-								["Seal of Truth"] = {
-									["count"] = 535,
-								},
-							},
-							["amount"] = 5990,
-						},
-						["Bonestripper Buzzard"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4384,
-								},
-								["Melee"] = {
-									["count"] = 397,
-								},
-								["Crusader Strike"] = {
-									["count"] = 626,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1308,
-								},
-								["Seal of Truth"] = {
-									["count"] = 138,
-								},
-							},
-							["amount"] = 6853,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 2428,
-								},
-								["Melee"] = {
-									["count"] = 263,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2430,
-								},
-								["Crusader Strike"] = {
-									["count"] = 633,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1348,
-								},
-								["Seal of Truth"] = {
-									["count"] = 126,
-								},
-							},
-							["amount"] = 7228,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 2966,
-								},
-								["Exorcism"] = {
-									["count"] = 4834,
-								},
-								["Melee"] = {
-									["count"] = 3098,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1270,
-								},
-								["Judgment"] = {
-									["count"] = 3755,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 6889,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1332,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1650,
-								},
-							},
-							["amount"] = 25794,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 3453,
-								},
-								["Exorcism"] = {
-									["count"] = 4499,
-								},
-								["Melee"] = {
-									["count"] = 1502,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 3841,
-								},
-								["Judgment"] = {
-									["count"] = 2843,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1576,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1571,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1193,
-								},
-							},
-							["amount"] = 20478,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 479,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 902,
-								},
-								["Judgment"] = {
-									["count"] = 1063,
-								},
-								["Crusader Strike"] = {
-									["count"] = 601,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1062,
-								},
-								["Seal of Truth"] = {
-									["count"] = 260,
-								},
-							},
-							["amount"] = 4367,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 2192,
-								},
-								["Melee"] = {
-									["count"] = 1912,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2397,
-								},
-								["Judgment"] = {
-									["count"] = 2851,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1211,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 643,
-								},
-								["Seal of Truth"] = {
-									["count"] = 771,
-								},
-							},
-							["amount"] = 11977,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 324,
-								},
-							},
-							["amount"] = 324,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 5896,
-								},
-								["Exorcism"] = {
-									["count"] = 18075,
-								},
-								["Melee"] = {
-									["count"] = 7843,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 2451,
-								},
-								["Judgment"] = {
-									["count"] = 5845,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 12236,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1282,
-								},
-								["Seal of Truth"] = {
-									["count"] = 3298,
-								},
-							},
-							["amount"] = 56926,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 6433,
-								},
-								["Exorcism"] = {
-									["count"] = 21907,
-								},
-								["Melee"] = {
-									["count"] = 3633,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1028,
-								},
-								["Judgment"] = {
-									["count"] = 4118,
-								},
-								["Crusader Strike"] = {
-									["count"] = 3783,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 4013,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1764,
-								},
-							},
-							["amount"] = 46679,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 5456,
-								},
-								["Exorcism"] = {
-									["count"] = 34210,
-								},
-								["Melee"] = {
-									["count"] = 6723,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 2358,
-								},
-								["Judgment"] = {
-									["count"] = 5059,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 9996,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 2718,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2796,
-								},
-							},
-							["amount"] = 69316,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 5965,
-								},
-								["Exorcism"] = {
-									["count"] = 31269,
-								},
-								["Melee"] = {
-									["count"] = 6170,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 6436,
-								},
-								["Judgment"] = {
-									["count"] = 2851,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 7386,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1226,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2349,
-								},
-							},
-							["amount"] = 63652,
-						},
-					},
-					["WhoDamaged"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Throw Wrench"] = {
-									["count"] = 565,
-								},
-								["Melee"] = {
-									["count"] = 4438,
-								},
-								["Bonechewer Bite"] = {
-									["count"] = 247,
-								},
-							},
-							["amount"] = 5250,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 1479,
-								},
-								["Hamstring"] = {
-									["count"] = 41,
-								},
-							},
-							["amount"] = 1520,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Immolate"] = {
-									["count"] = 443,
-								},
-								["Immolate (DoT)"] = {
-									["count"] = 169,
-								},
-								["Melee"] = {
-									["count"] = 1660,
-								},
-								["Shadow Bolt"] = {
-									["count"] = 1920,
-								},
-							},
-							["amount"] = 4192,
-						},
-						["Scryer Arcane Guardian"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 5835,
-								},
-							},
-							["amount"] = 5835,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Strike"] = {
-									["count"] = 4007,
-								},
-								["Melee"] = {
-									["count"] = 18932,
-								},
-								["Kick"] = {
-									["count"] = 245,
-								},
-							},
-							["amount"] = 23184,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 2793,
-								},
-							},
-							["amount"] = 2793,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 4841,
-								},
-								["Cleave"] = {
-									["count"] = 1155,
-								},
-							},
-							["amount"] = 5996,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 2766,
-								},
-								["Lightning Shield"] = {
-									["count"] = 966,
-								},
-							},
-							["amount"] = 3732,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 423,
-								},
-							},
-							["amount"] = 423,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 4218,
-								},
-								["Shadow Word: Pain (DoT)"] = {
-									["count"] = 242,
-								},
-							},
-							["amount"] = 4460,
-						},
-						["Crust Burster"] = {
-							["Details"] = {
-								["Poison"] = {
-									["count"] = 242,
-								},
-							},
-							["amount"] = 242,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 554,
-								},
-								["Burning Spikes"] = {
-									["count"] = 49,
-								},
-							},
-							["amount"] = 603,
-						},
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 176,
-								},
-							},
-							["amount"] = 176,
-						},
-						["OMGSoyRojo"] = {
-							["Details"] = {
-								["Claw"] = {
-									["count"] = 287,
-								},
-								["Melee"] = {
-									["count"] = 1382,
-								},
-								["Kill Command"] = {
-									["count"] = 785,
-								},
-							},
-							["amount"] = 2454,
-						},
-						["Environment"] = {
-							["Details"] = {
-								["Falling"] = {
-									["count"] = 10725,
-								},
-							},
-							["amount"] = 10725,
-						},
-						["Redstone Basilisk"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 157,
-								},
-							},
-							["amount"] = 157,
-						},
-						["Bonestripper Buzzard"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 362,
-								},
-							},
-							["amount"] = 362,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 1130,
-								},
-							},
-							["amount"] = 1130,
-						},
-						["Dreadcaller"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 557,
-								},
-								["Shadow Bolt"] = {
-									["count"] = 468,
-								},
-							},
-							["amount"] = 1025,
-						},
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 2255,
-								},
-								["Immolation"] = {
-									["count"] = 801,
-								},
-							},
-							["amount"] = 3056,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 1524,
-								},
-								["Fire Shield"] = {
-									["count"] = 738,
-								},
-							},
-							["amount"] = 2262,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 309,
-								},
-							},
-							["amount"] = 309,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Steady Shot"] = {
-									["count"] = 133,
-								},
-								["Auto Shot"] = {
-									["count"] = 814,
-								},
-								["Arcane Shot"] = {
-									["count"] = 4487,
-								},
-							},
-							["amount"] = 5434,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 117,
-								},
-							},
-							["amount"] = 117,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 6128,
-								},
-								["Strike"] = {
-									["count"] = 1596,
-								},
-							},
-							["amount"] = 7724,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 1597,
-								},
-								["Melee"] = {
-									["count"] = 1258,
-								},
-							},
-							["amount"] = 2855,
-						},
-						["Deranged Helboar"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 205,
-								},
-							},
-							["amount"] = 205,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Fireball"] = {
-									["count"] = 935,
-								},
-								["Immolation"] = {
-									["count"] = 290,
-								},
-								["Melee"] = {
-									["count"] = 977,
-								},
-							},
-							["amount"] = 2202,
-						},
-					},
-					["Absorbed"] = {
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Potray"] = {
-									["max"] = 479,
-									["min"] = 187,
-									["count"] = 19,
-									["amount"] = 7908,
-								},
-							},
-							["count"] = 19,
-							["amount"] = 7908,
-						},
-					},
-					["ElementDoneBlock"] = {
-						["Melee"] = 921,
-						["Physical"] = 2360,
-					},
-					["TimeHealing"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 5.69,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 26.91,
-								},
-								["Word of Glory"] = {
-									["count"] = 0.14,
-								},
-								["Healing Potion"] = {
-									["count"] = 0.94,
-								},
-							},
-							["amount"] = 33.68,
-						},
-					},
-					["OverHeals"] = {
-						["Flash of Light"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 11702,
-									["min"] = 11702,
-									["count"] = 1,
-									["amount"] = 11702,
-								},
-								["Hit"] = {
-									["max"] = 2808,
-									["min"] = 2808,
-									["count"] = 1,
-									["amount"] = 2808,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 14510,
-						},
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 129,
-									["min"] = 21,
-									["count"] = 6,
-									["amount"] = 649,
-								},
-							},
-							["count"] = 6,
-							["amount"] = 649,
-						},
-						["Word of Glory"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 812,
-									["min"] = 812,
-									["count"] = 1,
-									["amount"] = 812,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 812,
-						},
-					},
-					["PartialResist"] = {
-						["Fireball"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 13,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 13,
-							["amount"] = 0,
-						},
-						["Cleave"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 6,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 6,
-							["amount"] = 0,
-						},
-						["Auto Shot"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 7,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 7,
-							["amount"] = 0,
-						},
-						["Poison"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Immolate"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 4,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 4,
-							["amount"] = 0,
-						},
-						["Arcane Shot"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 4,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 4,
-							["amount"] = 0,
-						},
-						["Bonechewer Bite"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Strike"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 21,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 21,
-							["amount"] = 0,
-						},
-						["Burning Spikes"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 4,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 4,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 10,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 10,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 400,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 400,
-							["amount"] = 0,
-						},
-						["Claw"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 3,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 0,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 10,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 10,
-							["amount"] = 0,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 15,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 15,
-							["amount"] = 0,
-						},
-						["Fire Shield"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 18,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 18,
-							["amount"] = 0,
-						},
-						["Shadow Bolt"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 10,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 10,
-							["amount"] = 0,
-						},
-						["Steady Shot"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Lightning Shield"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 8,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 8,
-							["amount"] = 0,
-						},
-						["Kill Command"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Shadow Word: Pain"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Shadow Word: Pain (DoT)"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 10,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 10,
-							["amount"] = 0,
-						},
-						["Immolate (DoT)"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 7,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 7,
-							["amount"] = 0,
-						},
-						["Hamstring"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Resist"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 9,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 9,
-							["amount"] = 0,
-						},
-					},
-					["ElementTakenAbsorb"] = {
-						["Physical"] = 1114,
-						["Fire"] = 1166,
-						["Melee"] = 8265,
-						["Shadow"] = 24,
-					},
-					["ActiveTime"] = 963.6999999999986,
-					["InterruptData"] = {
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Fireball (Rebuke)"] = {
-									["count"] = 3,
-								},
-							},
-							["amount"] = 3,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Fireball (Rebuke)"] = {
-									["count"] = 8,
-								},
-							},
-							["amount"] = 8,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Shadow Bolt (Rebuke)"] = {
-									["count"] = 1,
-								},
-							},
-							["amount"] = 1,
-						},
-					},
-					["Heals"] = {
-						["Swift Hand of Justice"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 129,
-									["min"] = 8,
-									["count"] = 101,
-									["amount"] = 12703,
-								},
-							},
-							["count"] = 101,
-							["amount"] = 12703,
-						},
-						["Word of Glory"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 5444,
-									["min"] = 5444,
-									["count"] = 1,
-									["amount"] = 5444,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 5444,
-						},
-						["Flash of Light"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 3678,
-									["min"] = 3678,
-									["count"] = 1,
-									["amount"] = 3678,
-								},
-								["Hit"] = {
-									["max"] = 4668,
-									["min"] = 2807,
-									["count"] = 2,
-									["amount"] = 7475,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 11153,
-						},
-						["Sacred Shield"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["max"] = 479,
-									["min"] = 187,
-									["count"] = 19,
-									["amount"] = 7908,
-								},
-							},
-							["count"] = 19,
-							["amount"] = 7908,
-						},
-						["Healing Potion"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 791,
-									["min"] = 791,
-									["count"] = 1,
-									["amount"] = 791,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 791,
-						},
-					},
-					["Healing"] = 30091,
-					["PartialAbsorb"] = {
-						["Fireball"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 8,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 307,
-									["min"] = 116,
-									["count"] = 5,
-									["amount"] = 1118,
-								},
-							},
-							["count"] = 13,
-							["amount"] = 1118,
-						},
-						["Cleave"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 5,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 209,
-									["min"] = 209,
-									["count"] = 1,
-									["amount"] = 209,
-								},
-							},
-							["count"] = 6,
-							["amount"] = 209,
-						},
-						["Auto Shot"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 6,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 186,
-									["min"] = 186,
-									["count"] = 1,
-									["amount"] = 186,
-								},
-							},
-							["count"] = 7,
-							["amount"] = 186,
-						},
-						["Poison"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Immolate"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 24,
-									["min"] = 24,
-									["count"] = 2,
-									["amount"] = 48,
-								},
-							},
-							["count"] = 4,
-							["amount"] = 48,
-						},
-						["Arcane Shot"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 4,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 4,
-							["amount"] = 0,
-						},
-						["Bonechewer Bite"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Strike"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 21,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 21,
-							["amount"] = 0,
-						},
-						["Burning Spikes"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 4,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 4,
-							["amount"] = 0,
-						},
-						["Falling"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 10,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 10,
-							["amount"] = 0,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 364,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 386,
-									["min"] = 69,
-									["count"] = 36,
-									["amount"] = 8265,
-								},
-							},
-							["count"] = 400,
-							["amount"] = 8265,
-						},
-						["Claw"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 186,
-									["min"] = 186,
-									["count"] = 1,
-									["amount"] = 186,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 186,
-						},
-						["Kick"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 8,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 31,
-									["min"] = 31,
-									["count"] = 2,
-									["amount"] = 62,
-								},
-							},
-							["count"] = 10,
-							["amount"] = 62,
-						},
-						["Immolation"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 15,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 15,
-							["amount"] = 0,
-						},
-						["Fire Shield"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 18,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 18,
-							["amount"] = 0,
-						},
-						["Shadow Bolt"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 10,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 10,
-							["amount"] = 0,
-						},
-						["Steady Shot"] = {
-							["Details"] = {
-								["Absorbed"] = {
-									["max"] = 186,
-									["min"] = 186,
-									["count"] = 1,
-									["amount"] = 186,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 186,
-						},
-						["Lightning Shield"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 8,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 8,
-							["amount"] = 0,
-						},
-						["Kill Command"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Shadow Word: Pain"] = {
-							["Details"] = {
-								["Absorbed"] = {
-									["max"] = 24,
-									["min"] = 24,
-									["count"] = 1,
-									["amount"] = 24,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 24,
-						},
-						["Shadow Word: Pain (DoT)"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 10,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 10,
-							["amount"] = 0,
-						},
-						["Immolate (DoT)"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 7,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 7,
-							["amount"] = 0,
-						},
-						["Hamstring"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Throw Wrench"] = {
-							["Details"] = {
-								["No Absorb"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 6,
-									["amount"] = 0,
-								},
-								["Absorbed"] = {
-									["max"] = 95,
-									["min"] = 95,
-									["count"] = 3,
-									["amount"] = 285,
-								},
-							},
-							["count"] = 9,
-							["amount"] = 285,
-						},
-					},
-					["WhoHealed"] = {
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 11153,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 12703,
-								},
-								["Word of Glory"] = {
-									["count"] = 5444,
-								},
-								["Healing Potion"] = {
-									["count"] = 791,
-								},
-							},
-							["amount"] = 30091,
-						},
-					},
-					["Attacks"] = {
-						["Exorcism"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 2526,
-									["min"] = 1188,
-									["count"] = 94,
-									["amount"] = 213223,
-								},
-								["Crit"] = {
-									["max"] = 4955,
-									["min"] = 4266,
-									["count"] = 7,
-									["amount"] = 32423,
-								},
-								["Miss"] = {
-									["count"] = 10,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 111,
-							["amount"] = 245646,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing (Blocked)"] = {
-									["max"] = 117,
-									["min"] = 32,
-									["count"] = 6,
-									["amount"] = 408,
-								},
-								["Miss"] = {
-									["count"] = 3,
-									["amount"] = 0,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 280,
-									["min"] = 224,
-									["count"] = 6,
-									["amount"] = 1500,
-								},
-								["Parry"] = {
-									["count"] = 9,
-									["amount"] = 0,
-								},
-								["Glancing"] = {
-									["max"] = 360,
-									["min"] = 60,
-									["count"] = 47,
-									["amount"] = 8199,
-								},
-								["Hit"] = {
-									["max"] = 417,
-									["min"] = 176,
-									["count"] = 111,
-									["amount"] = 39156,
-								},
-								["Crit (Blocked)"] = {
-									["max"] = 232,
-									["min"] = 232,
-									["count"] = 1,
-									["amount"] = 232,
-								},
-								["Crit"] = {
-									["max"] = 788,
-									["min"] = 260,
-									["count"] = 11,
-									["amount"] = 7135,
-								},
-								["Dodge"] = {
-									["count"] = 12,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 206,
-							["amount"] = 56630,
-						},
-						["Judgment"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 876,
-									["min"] = 213,
-									["count"] = 74,
-									["amount"] = 52198,
-								},
-								["Crit"] = {
-									["max"] = 1445,
-									["min"] = 780,
-									["count"] = 7,
-									["amount"] = 8918,
-								},
-								["Miss"] = {
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 82,
-							["amount"] = 61116,
-						},
-						["Hammer of Wrath"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 1378,
-									["min"] = 756,
-									["count"] = 42,
-									["amount"] = 52668,
-								},
-								["Dodge"] = {
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 43,
-							["amount"] = 52668,
-						},
-						["Divine Storm"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 570,
-									["min"] = 512,
-									["count"] = 6,
-									["amount"] = 3250,
-								},
-							},
-							["count"] = 6,
-							["amount"] = 3250,
-						},
-						["Censure"] = {
-							["Details"] = {
-								["Miss"] = {
-									["count"] = 4,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 4,
-							["amount"] = 0,
-						},
-						["Fist of Justice"] = {
-							["Details"] = {
-								["Miss"] = {
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Hammer of the Righteous"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 427,
-									["min"] = 141,
-									["count"] = 2,
-									["amount"] = 568,
-								},
-								["Hit"] = {
-									["max"] = 217,
-									["min"] = 61,
-									["count"] = 11,
-									["amount"] = 1845,
-								},
-							},
-							["count"] = 13,
-							["amount"] = 2413,
-						},
-						["Templar's Verdict"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 1500,
-									["min"] = 665,
-									["count"] = 70,
-									["amount"] = 87029,
-								},
-								["Miss"] = {
-									["count"] = 2,
-									["amount"] = 0,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 959,
-									["min"] = 546,
-									["count"] = 5,
-									["amount"] = 4103,
-								},
-								["Dodge"] = {
-									["count"] = 7,
-									["amount"] = 0,
-								},
-								["Crit"] = {
-									["max"] = 2430,
-									["min"] = 1251,
-									["count"] = 4,
-									["amount"] = 8355,
-								},
-								["Parry"] = {
-									["count"] = 12,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 100,
-							["amount"] = 99487,
-						},
-						["Rebuke"] = {
-							["Details"] = {
-								["Block"] = {
-									["count"] = 1,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 0,
-						},
-						["Crusader Strike"] = {
-							["Details"] = {
-								["Dodge"] = {
-									["count"] = 6,
-									["amount"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 1,
-									["amount"] = 0,
-								},
-								["Hit (Blocked)"] = {
-									["max"] = 435,
-									["min"] = 235,
-									["count"] = 4,
-									["amount"] = 1401,
-								},
-								["Hit"] = {
-									["max"] = 659,
-									["min"] = 166,
-									["count"] = 93,
-									["amount"] = 51401,
-								},
-								["Crit"] = {
-									["max"] = 1142,
-									["min"] = 1087,
-									["count"] = 4,
-									["amount"] = 4423,
-								},
-								["Parry"] = {
-									["count"] = 5,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 113,
-							["amount"] = 57225,
-						},
-						["Censure (DoT)"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 594,
-									["min"] = 233,
-									["count"] = 11,
-									["amount"] = 4590,
-								},
-								["Tick"] = {
-									["max"] = 305,
-									["min"] = 52,
-									["count"] = 111,
-									["amount"] = 20759,
-								},
-							},
-							["count"] = 122,
-							["amount"] = 25349,
-						},
-						["Seal of Truth"] = {
-							["Details"] = {
-								["Crit"] = {
-									["max"] = 163,
-									["min"] = 42,
-									["count"] = 39,
-									["amount"] = 5488,
-								},
-								["Hit"] = {
-									["max"] = 82,
-									["min"] = 19,
-									["count"] = 355,
-									["amount"] = 24061,
-								},
-							},
-							["count"] = 394,
-							["amount"] = 29549,
-						},
-					},
-					["HealingTaken"] = 30091,
-					["ElementHitsDone"] = {
-						["Holy"] = {
-							["Details"] = {
-								["Hit"] = {
-									["count"] = 579,
-								},
-								["Tick"] = {
-									["count"] = 111,
-								},
-								["Miss"] = {
-									["count"] = 16,
-								},
-								["Crit"] = {
-									["count"] = 65,
-								},
-								["Dodge"] = {
-									["count"] = 1,
-								},
-							},
-							["amount"] = 772,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Glancing"] = {
-									["count"] = 53,
-								},
-								["Hit"] = {
-									["count"] = 117,
-								},
-								["Miss"] = {
-									["count"] = 3,
-								},
-								["Dodge"] = {
-									["count"] = 12,
-								},
-								["Crit"] = {
-									["count"] = 12,
-								},
-								["Parry"] = {
-									["count"] = 9,
-								},
-							},
-							["amount"] = 206,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Dodge"] = {
-									["count"] = 13,
-								},
-								["Miss"] = {
-									["count"] = 3,
-								},
-								["Hit"] = {
-									["count"] = 175,
-								},
-								["Block"] = {
-									["count"] = 1,
-								},
-								["Crit"] = {
-									["count"] = 9,
-								},
-								["Parry"] = {
-									["count"] = 17,
-								},
-							},
-							["amount"] = 218,
-						},
-					},
-					["TimeDamage"] = 930.0199999999991,
-					["TimeDamaging"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 4.64,
-								},
-								["Exorcism"] = {
-									["count"] = 11.18,
-								},
-								["Melee"] = {
-									["count"] = 7.91,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 6.300000000000001,
-								},
-								["Judgment"] = {
-									["count"] = 15.94,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 4.55,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 3.2,
-								},
-								["Seal of Truth"] = {
-									["count"] = 9.780000000000001,
-								},
-							},
-							["amount"] = 63.49999999999998,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 2.72,
-								},
-								["Melee"] = {
-									["count"] = 3.65,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.31,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.76,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1.06,
-								},
-							},
-							["amount"] = 8.5,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4.96,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 2.92,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0.52,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 5.130000000000001,
-								},
-								["Melee"] = {
-									["count"] = 9.73,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2.6,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1.16,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.89,
-								},
-								["Seal of Truth"] = {
-									["count"] = 9.01,
-								},
-							},
-							["amount"] = 36.92,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 7.74,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 3.89,
-								},
-								["Judgment"] = {
-									["count"] = 3.5,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.52,
-								},
-								["Divine Storm"] = {
-									["count"] = 1.14,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1.43,
-								},
-							},
-							["amount"] = 18.22,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 65.44999999999999,
-								},
-								["Melee"] = {
-									["count"] = 33.24,
-								},
-								["Judgment"] = {
-									["count"] = 15.18,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 11.42,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 18.42,
-								},
-								["Crusader Strike"] = {
-									["count"] = 21.74999999999999,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 17.11,
-								},
-								["Seal of Truth"] = {
-									["count"] = 36.11000000000001,
-								},
-							},
-							["amount"] = 218.6800000000001,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 7.52,
-								},
-								["Melee"] = {
-									["count"] = 10.89,
-								},
-								["Judgment"] = {
-									["count"] = 3.52,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 3.97,
-								},
-								["Censure"] = {
-									["count"] = 0.33,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 9.4,
-								},
-								["Crusader Strike"] = {
-									["count"] = 5.48,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 7.89,
-								},
-								["Seal of Truth"] = {
-									["count"] = 10.51,
-								},
-							},
-							["amount"] = 59.51000000000001,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 6.88,
-								},
-								["Melee"] = {
-									["count"] = 3.99,
-								},
-								["Crusader Strike"] = {
-									["count"] = 5.85,
-								},
-								["Judgment"] = {
-									["count"] = 3.62,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2.86,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.75,
-								},
-								["Seal of Truth"] = {
-									["count"] = 6.080000000000001,
-								},
-							},
-							["amount"] = 30.02999999999999,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4.19,
-								},
-								["Fist of Justice"] = {
-									["count"] = 0.79,
-								},
-								["Melee"] = {
-									["count"] = 5.479999999999999,
-								},
-								["Crusader Strike"] = {
-									["count"] = 2.78,
-								},
-								["Judgment"] = {
-									["count"] = 2.26,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.59,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 12.32,
-								},
-								["Seal of Truth"] = {
-									["count"] = 8.940000000000001,
-								},
-							},
-							["amount"] = 37.35000000000001,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 9.359999999999999,
-								},
-								["Melee"] = {
-									["count"] = 1.24,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.61,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.51,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 11.72,
-						},
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4.71,
-								},
-								["Melee"] = {
-									["count"] = 6.97,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.18,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.5,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.36,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0.24,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2.12,
-								},
-							},
-							["amount"] = 15.08,
-						},
-						["Dreadcaller"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 1.99,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1.97,
-								},
-								["Judgment"] = {
-									["count"] = 1.17,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.41,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.38,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2.91,
-								},
-							},
-							["amount"] = 8.83,
-						},
-						["Bonestripper Buzzard"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4.69,
-								},
-								["Melee"] = {
-									["count"] = 1.06,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.5600000000000001,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1.14,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0.4,
-								},
-							},
-							["amount"] = 7.850000000000001,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 3.5,
-								},
-								["Melee"] = {
-									["count"] = 3.5,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1.54,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1.27,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1.03,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0.66,
-								},
-							},
-							["amount"] = 11.5,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 6.129999999999999,
-								},
-								["Exorcism"] = {
-									["count"] = 1.4,
-								},
-								["Melee"] = {
-									["count"] = 7.28,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 2.5,
-								},
-								["Judgment"] = {
-									["count"] = 3.74,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 9.020000000000001,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1,
-								},
-								["Seal of Truth"] = {
-									["count"] = 8.260000000000002,
-								},
-							},
-							["amount"] = 39.33,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 10.5,
-								},
-								["Melee"] = {
-									["count"] = 6.349999999999999,
-								},
-								["Judgment"] = {
-									["count"] = 4.72,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1.08,
-								},
-								["Censure"] = {
-									["count"] = 0.41,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1,
-								},
-								["Crusader Strike"] = {
-									["count"] = 2.53,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 4.289999999999999,
-								},
-								["Seal of Truth"] = {
-									["count"] = 7.850000000000001,
-								},
-							},
-							["amount"] = 38.72999999999999,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 3.75,
-								},
-								["Censure"] = {
-									["count"] = 0.11,
-								},
-								["Melee"] = {
-									["count"] = 5.58,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.11,
-								},
-								["Judgment"] = {
-									["count"] = 2.4,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.92,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 9.52,
-								},
-								["Seal of Truth"] = {
-									["count"] = 5.04,
-								},
-							},
-							["amount"] = 27.43,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0.44,
-								},
-								["Melee"] = {
-									["count"] = 3.09,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2.37,
-								},
-								["Judgment"] = {
-									["count"] = 2.77,
-								},
-								["Crusader Strike"] = {
-									["count"] = 2.9,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1.34,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2.24,
-								},
-							},
-							["amount"] = 15.15,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 1.18,
-								},
-							},
-							["amount"] = 1.18,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 2.96,
-								},
-								["Exorcism"] = {
-									["count"] = 14.29,
-								},
-								["Melee"] = {
-									["count"] = 12.02,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 4.580000000000001,
-								},
-								["Judgment"] = {
-									["count"] = 4.9,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 6.74,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 2.41,
-								},
-								["Seal of Truth"] = {
-									["count"] = 18.86999999999999,
-								},
-							},
-							["amount"] = 66.77,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 2.58,
-								},
-								["Exorcism"] = {
-									["count"] = 21.14,
-								},
-								["Melee"] = {
-									["count"] = 12.15,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 2.35,
-								},
-								["Judgment"] = {
-									["count"] = 4.989999999999999,
-								},
-								["Crusader Strike"] = {
-									["count"] = 4.850000000000001,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 2.02,
-								},
-								["Seal of Truth"] = {
-									["count"] = 8.810000000000001,
-								},
-							},
-							["amount"] = 58.88999999999998,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 7.390000000000001,
-								},
-								["Exorcism"] = {
-									["count"] = 28.26,
-								},
-								["Melee"] = {
-									["count"] = 12.39,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 5.1,
-								},
-								["Judgment"] = {
-									["count"] = 4.010000000000001,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 5.64,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1.74,
-								},
-								["Seal of Truth"] = {
-									["count"] = 13.65,
-								},
-							},
-							["amount"] = 78.18000000000001,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 24.33,
-								},
-								["Melee"] = {
-									["count"] = 12.93,
-								},
-								["Rebuke"] = {
-									["count"] = 0.61,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 4.15,
-								},
-								["Judgment"] = {
-									["count"] = 2.1,
-								},
-								["Crusader Strike"] = {
-									["count"] = 12.17,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 5.29,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 3.65,
-								},
-								["Seal of Truth"] = {
-									["count"] = 11.44,
-								},
-							},
-							["amount"] = 76.67,
-						},
-					},
-					["DamageTaken"] = 98423,
-					["TimeSpent"] = {
-						["Infernal Warbringer"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 4.64,
-								},
-								["Exorcism"] = {
-									["count"] = 11.18,
-								},
-								["Melee"] = {
-									["count"] = 7.91,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 6.300000000000001,
-								},
-								["Judgment"] = {
-									["count"] = 15.94,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 4.55,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 3.2,
-								},
-								["Seal of Truth"] = {
-									["count"] = 9.780000000000001,
-								},
-							},
-							["amount"] = 63.49999999999998,
-						},
-						["Bleeding Hollow Tormentor"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 2.72,
-								},
-								["Melee"] = {
-									["count"] = 3.65,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.31,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.76,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1.06,
-								},
-							},
-							["amount"] = 8.5,
-						},
-						["Heckling Fel Sprite"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4.96,
-								},
-								["Divine Storm"] = {
-									["count"] = 0,
-								},
-								["Judgment"] = {
-									["count"] = 2.92,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0.52,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 5.130000000000001,
-								},
-								["Melee"] = {
-									["count"] = 9.73,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2.6,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1.16,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.89,
-								},
-								["Seal of Truth"] = {
-									["count"] = 9.01,
-								},
-							},
-							["amount"] = 36.92,
-						},
-						["Flamewaker Imp"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 7.74,
-								},
-								["Hammer of the Righteous"] = {
-									["count"] = 0,
-								},
-								["Melee"] = {
-									["count"] = 3.89,
-								},
-								["Judgment"] = {
-									["count"] = 3.5,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.52,
-								},
-								["Divine Storm"] = {
-									["count"] = 1.14,
-								},
-								["Seal of Truth"] = {
-									["count"] = 1.43,
-								},
-							},
-							["amount"] = 18.22,
-						},
-						["Shattered Hand Grunt"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 65.44999999999999,
-								},
-								["Melee"] = {
-									["count"] = 33.24,
-								},
-								["Judgment"] = {
-									["count"] = 15.18,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 11.42,
-								},
-								["Censure"] = {
-									["count"] = 0,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 18.42,
-								},
-								["Crusader Strike"] = {
-									["count"] = 21.74999999999999,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 17.11,
-								},
-								["Seal of Truth"] = {
-									["count"] = 36.11000000000001,
-								},
-							},
-							["amount"] = 218.6800000000001,
-						},
-						["Potray"] = {
-							["Details"] = {
-								["Flash of Light"] = {
-									["count"] = 5.69,
-								},
-								["Swift Hand of Justice"] = {
-									["count"] = 26.91,
-								},
-								["Word of Glory"] = {
-									["count"] = 0.14,
-								},
-								["Healing Potion"] = {
-									["count"] = 0.94,
-								},
-							},
-							["amount"] = 33.68,
-						},
-						["Shattered Hand Captain"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 7.52,
-								},
-								["Melee"] = {
-									["count"] = 10.89,
-								},
-								["Judgment"] = {
-									["count"] = 3.52,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 3.97,
-								},
-								["Censure"] = {
-									["count"] = 0.33,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 9.4,
-								},
-								["Crusader Strike"] = {
-									["count"] = 5.48,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 7.89,
-								},
-								["Seal of Truth"] = {
-									["count"] = 10.51,
-								},
-							},
-							["amount"] = 59.51000000000001,
-						},
-						["Bleeding Hollow Peon"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 6.88,
-								},
-								["Melee"] = {
-									["count"] = 3.99,
-								},
-								["Crusader Strike"] = {
-									["count"] = 5.85,
-								},
-								["Judgment"] = {
-									["count"] = 3.62,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2.86,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.75,
-								},
-								["Seal of Truth"] = {
-									["count"] = 6.080000000000001,
-								},
-							},
-							["amount"] = 30.02999999999999,
-						},
-						["Shattered Hand Neophyte"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4.19,
-								},
-								["Fist of Justice"] = {
-									["count"] = 0.79,
-								},
-								["Melee"] = {
-									["count"] = 5.479999999999999,
-								},
-								["Crusader Strike"] = {
-									["count"] = 2.78,
-								},
-								["Judgment"] = {
-									["count"] = 2.26,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.59,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 12.32,
-								},
-								["Seal of Truth"] = {
-									["count"] = 8.940000000000001,
-								},
-							},
-							["amount"] = 37.35000000000001,
-						},
-						["Starving Helboar"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 9.359999999999999,
-								},
-								["Melee"] = {
-									["count"] = 1.24,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.61,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.51,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 11.72,
-						},
-						["Bonechewer Raider"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4.71,
-								},
-								["Melee"] = {
-									["count"] = 6.97,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.18,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.5,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.36,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 0.24,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2.12,
-								},
-							},
-							["amount"] = 15.08,
-						},
-						["Dreadcaller"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 1.99,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1.97,
-								},
-								["Judgment"] = {
-									["count"] = 1.17,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.41,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 0.38,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2.91,
-								},
-							},
-							["amount"] = 8.83,
-						},
-						["Bonestripper Buzzard"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 4.69,
-								},
-								["Melee"] = {
-									["count"] = 1.06,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.5600000000000001,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1.14,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0.4,
-								},
-							},
-							["amount"] = 7.850000000000001,
-						},
-						["Bleeding Hollow Worg"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 3.5,
-								},
-								["Melee"] = {
-									["count"] = 3.5,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1.54,
-								},
-								["Crusader Strike"] = {
-									["count"] = 1.27,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1.03,
-								},
-								["Seal of Truth"] = {
-									["count"] = 0.66,
-								},
-							},
-							["amount"] = 11.5,
-						},
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 2.96,
-								},
-								["Exorcism"] = {
-									["count"] = 14.29,
-								},
-								["Melee"] = {
-									["count"] = 12.02,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 4.580000000000001,
-								},
-								["Judgment"] = {
-									["count"] = 4.9,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 6.74,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 2.41,
-								},
-								["Seal of Truth"] = {
-									["count"] = 18.86999999999999,
-								},
-							},
-							["amount"] = 66.77,
-						},
-						["Bleeding Hollow Grunt"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 7.390000000000001,
-								},
-								["Exorcism"] = {
-									["count"] = 28.26,
-								},
-								["Melee"] = {
-									["count"] = 12.39,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 5.1,
-								},
-								["Judgment"] = {
-									["count"] = 4.010000000000001,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 5.64,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1.74,
-								},
-								["Seal of Truth"] = {
-									["count"] = 13.65,
-								},
-							},
-							["amount"] = 78.18000000000001,
-						},
-						["Pescailla-Zul'jin"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 3.75,
-								},
-								["Censure"] = {
-									["count"] = 0.11,
-								},
-								["Melee"] = {
-									["count"] = 5.58,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 0.11,
-								},
-								["Judgment"] = {
-									["count"] = 2.4,
-								},
-								["Crusader Strike"] = {
-									["count"] = 0.92,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 9.52,
-								},
-								["Seal of Truth"] = {
-									["count"] = 5.04,
-								},
-							},
-							["amount"] = 27.43,
-						},
-						["Bonechewer Riding Wolf"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 0.44,
-								},
-								["Melee"] = {
-									["count"] = 3.09,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 2.37,
-								},
-								["Judgment"] = {
-									["count"] = 2.77,
-								},
-								["Crusader Strike"] = {
-									["count"] = 2.9,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 1.34,
-								},
-								["Seal of Truth"] = {
-									["count"] = 2.24,
-								},
-							},
-							["amount"] = 15.15,
-						},
-						["Eye of Grillok"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 1.18,
-								},
-							},
-							["amount"] = 1.18,
-						},
-						["Bleeding Hollow Dark Shaman"] = {
-							["Details"] = {
-								["Crusader Strike"] = {
-									["count"] = 6.129999999999999,
-								},
-								["Exorcism"] = {
-									["count"] = 1.4,
-								},
-								["Melee"] = {
-									["count"] = 7.28,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 2.5,
-								},
-								["Judgment"] = {
-									["count"] = 3.74,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 9.020000000000001,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1,
-								},
-								["Seal of Truth"] = {
-									["count"] = 8.260000000000002,
-								},
-							},
-							["amount"] = 39.33,
-						},
-						["Bleeding Hollow Necrolyte"] = {
-							["Details"] = {
-								["Templar's Verdict"] = {
-									["count"] = 2.58,
-								},
-								["Exorcism"] = {
-									["count"] = 21.14,
-								},
-								["Melee"] = {
-									["count"] = 12.15,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 2.35,
-								},
-								["Judgment"] = {
-									["count"] = 4.989999999999999,
-								},
-								["Crusader Strike"] = {
-									["count"] = 4.850000000000001,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 2.02,
-								},
-								["Seal of Truth"] = {
-									["count"] = 8.810000000000001,
-								},
-							},
-							["amount"] = 58.88999999999998,
-						},
-						["Shattered Hand Warlock"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 10.5,
-								},
-								["Melee"] = {
-									["count"] = 6.349999999999999,
-								},
-								["Judgment"] = {
-									["count"] = 4.72,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 1.08,
-								},
-								["Censure"] = {
-									["count"] = 0.41,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 1,
-								},
-								["Crusader Strike"] = {
-									["count"] = 2.53,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 4.289999999999999,
-								},
-								["Seal of Truth"] = {
-									["count"] = 7.850000000000001,
-								},
-							},
-							["amount"] = 38.72999999999999,
-						},
-						["Bonechewer Evoker"] = {
-							["Details"] = {
-								["Exorcism"] = {
-									["count"] = 24.33,
-								},
-								["Melee"] = {
-									["count"] = 12.93,
-								},
-								["Rebuke"] = {
-									["count"] = 0.61,
-								},
-								["Hammer of Wrath"] = {
-									["count"] = 4.15,
-								},
-								["Judgment"] = {
-									["count"] = 2.1,
-								},
-								["Crusader Strike"] = {
-									["count"] = 12.17,
-								},
-								["Templar's Verdict"] = {
-									["count"] = 5.29,
-								},
-								["Censure (DoT)"] = {
-									["count"] = 3.65,
-								},
-								["Seal of Truth"] = {
-									["count"] = 11.44,
-								},
-							},
-							["amount"] = 76.67,
-						},
-					},
-					["Interrupts"] = 12,
-				},
-			},
+			["enClass"] = "PET",
+			["unit"] = "Bloated Abomination",
 			["DeathLogs"] = {
 				{
 					["MessageIncoming"] = {
-						true, -- [1]
-						true, -- [2]
-						true, -- [3]
-						true, -- [4]
-						false, -- [5]
-						true, -- [6]
-						true, -- [7]
-						false, -- [8]
-						true, -- [9]
-						true, -- [10]
-						true, -- [11]
-						false, -- [12]
-						false, -- [13]
-						true, -- [14]
-						true, -- [15]
-						false, -- [16]
-						true, -- [17]
-						true, -- [18]
-						false, -- [19]
-						true, -- [20]
-						true, -- [21]
-						false, -- [22]
-						true, -- [23]
-						false, -- [24]
-						false, -- [25]
-						false, -- [26]
-						true, -- [27]
-						true, -- [28]
-						true, -- [29]
-						false, -- [30]
-						false, -- [31]
-						true, -- [32]
-						true, -- [33]
-						true, -- [34]
-						false, -- [35]
-						false, -- [36]
-						false, -- [37]
-						true, -- [38]
-						false, -- [39]
-						true, -- [40]
-						true, -- [41]
-						true, -- [42]
-						true, -- [43]
-						true, -- [44]
-						false, -- [45]
-						true, -- [46]
-						false, -- [47]
-						true, -- [48]
-						true, -- [49]
-						true, -- [50]
-					},
-					["Messages"] = {
-						"Shattered Hand Grunt Strike Potray Hit -270 (Physical)", -- [1]
-						"Shattered Hand Warlock Immolate (DoT) Potray Tick -24 (Fire)", -- [2]
-						"Shattered Hand Warlock Melee Potray Hit -220 (Physical)", -- [3]
-						"Potray Healing Potion Potray Hit +791", -- [4]
-						"Potray Crusader Strike Shattered Hand Neophyte Hit -542 (Physical)", -- [5]
-						"Shattered Hand Neophyte Shadow Word: Pain (DoT) Potray Tick -24 (Shadow)", -- [6]
-						"Shattered Hand Grunt Melee Potray Hit -199 (Physical)", -- [7]
-						"Potray Seal of Truth Shattered Hand Neophyte Hit -66 (Holy)", -- [8]
-						"Shattered Hand Neophyte Melee Potray Absorb (200 Absorbed)", -- [9]
-						"Shattered Hand Warlock Melee Potray Parry", -- [10]
-						"Shattered Hand Grunt Melee Potray Parry", -- [11]
-						"Potray Melee Shattered Hand Neophyte Glancing -91 (Physical)", -- [12]
-						"Potray Censure (DoT) Shattered Hand Neophyte Tick -178 (Holy)", -- [13]
-						"Shattered Hand Grunt Kick Potray Absorb (31 Absorbed) (Physical)", -- [14]
-						"Shattered Hand Grunt Melee Potray Crushing -77 (248 Absorbed) (Physical)", -- [15]
-						"Potray Seal of Truth Shattered Hand Neophyte Hit -75 (Holy)", -- [16]
-						"Shattered Hand Warlock Immolate (DoT) Potray Tick -24 (Fire)", -- [17]
-						"Shattered Hand Neophyte Shadow Word: Pain (DoT) Potray Tick -24 (Shadow)", -- [18]
-						"Potray Judgment Shattered Hand Neophyte Hit -730 (Holy)", -- [19]
-						"Shattered Hand Neophyte Melee Potray Crushing -308 (Physical)", -- [20]
-						"Shattered Hand Grunt Melee Potray Crushing -311 (Physical)", -- [21]
-						"Potray Seal of Truth Shattered Hand Neophyte Hit -68 (Holy)", -- [22]
-						"Shattered Hand Grunt Melee Potray Parry", -- [23]
-						"Potray Censure (DoT) Shattered Hand Neophyte Tick -297 (Holy)", -- [24]
-						"Potray Templar's Verdict Shattered Hand Neophyte Hit -1261 (Physical)", -- [25]
-						"Potray Melee Shattered Hand Neophyte Glancing -134 (Physical)", -- [26]
-						"Shattered Hand Warlock Shadow Bolt Potray Hit -236 (Shadow)", -- [27]
-						"Shattered Hand Neophyte Melee Potray Hit -189 (Physical)", -- [28]
-						"Shattered Hand Grunt Melee Potray Parry", -- [29]
-						"Potray Seal of Truth Shattered Hand Neophyte Hit -73 (Holy)", -- [30]
-						"Potray Seal of Truth Shattered Hand Neophyte Hit -77 (Holy)", -- [31]
-						"Shattered Hand Warlock Immolate (DoT) Potray Tick -24 (Fire)", -- [32]
-						"Shattered Hand Neophyte Shadow Word: Pain (DoT) Potray Tick -24 (Shadow)", -- [33]
-						"Shattered Hand Grunt Melee Potray Crushing -316 (Physical)", -- [34]
-						"Potray Crusader Strike Shattered Hand Neophyte Hit -532 (Physical)", -- [35]
-						"Potray Seal of Truth Shattered Hand Neophyte Hit -67 (Holy)", -- [36]
-						"Potray Melee Shattered Hand Neophyte Glancing -133 (Physical)", -- [37]
-						"Shattered Hand Grunt Melee Potray Absorb (379 Absorbed)", -- [38]
-						"Potray Exorcism Shattered Hand Neophyte Hit -2214 (Holy)", -- [39]
-						"Potray Swift Hand of Justice Potray Hit +129", -- [40]
-						"Shattered Hand Grunt Melee Potray Crushing -245 (100 Absorbed) (Physical)", -- [41]
-						"Shattered Hand Warlock Shadow Bolt Potray Hit -236 (Shadow)", -- [42]
-						"Shattered Hand Warlock Immolate (DoT) Potray Tick -25 (Fire)", -- [43]
-						"Shattered Hand Grunt Melee Potray Crit -395 (Physical)", -- [44]
-						"Potray Judgment Shattered Hand Grunt Hit -875 (Holy)", -- [45]
-						"Shattered Hand Neophyte Shadow Word: Pain (DoT) Potray Tick -24 (Shadow)", -- [46]
-						"Potray Seal of Truth Shattered Hand Grunt Hit -72 (Holy)", -- [47]
-						"Shattered Hand Warlock Melee Potray Hit -201 (Physical)", -- [48]
-						"Shattered Hand Grunt Melee Potray Crushing -328 (Physical)", -- [49]
-						"Potray dies.", -- [50]
-					},
-					["DeathAt"] = 1412431890,
-					["HealthNum"] = {
-						40.04643962848297, -- [1]
-						39.6749226006192, -- [2]
-						39.6749226006192, -- [3]
-						51.91950464396285, -- [4]
-						47.98761609907121, -- [5]
-						47.61609907120743, -- [6]
-						47.61609907120743, -- [7]
-						44.21052631578947, -- [8]
-						41.13003095975233, -- [9]
-						41.13003095975233, -- [10]
-						41.13003095975233, -- [11]
-						41.13003095975233, -- [12]
-						41.13003095975233, -- [13]
-						41.13003095975233, -- [14]
-						41.13003095975233, -- [15]
-						39.93808049535604, -- [16]
-						39.56656346749226, -- [17]
-						39.19504643962848, -- [18]
-						39.19504643962848, -- [19]
-						39.19504643962848, -- [20]
-						39.19504643962848, -- [21]
-						29.61300309597523, -- [22]
-						29.61300309597523, -- [23]
-						29.61300309597523, -- [24]
-						29.61300309597523, -- [25]
-						29.61300309597523, -- [26]
-						25.95975232198142, -- [27]
-						25.95975232198142, -- [28]
-						25.95975232198142, -- [29]
-						25.95975232198142, -- [30]
-						23.03405572755418, -- [31]
-						22.6625386996904, -- [32]
-						22.29102167182663, -- [33]
-						22.29102167182663, -- [34]
-						22.29102167182663, -- [35]
-						17.39938080495356, -- [36]
-						17.39938080495356, -- [37]
-						17.39938080495356, -- [38]
-						17.39938080495356, -- [39]
-						19.39628482972136, -- [40]
-						19.39628482972136, -- [41]
-						15.74303405572755, -- [42]
-						15.35603715170279, -- [43]
-						11.56346749226006, -- [44]
-						11.56346749226006, -- [45]
-						11.19195046439629, -- [46]
-						5.077399380804954, -- [47]
-						5.077399380804954, -- [48]
-						5.077399380804954, -- [49]
-						0, -- [50]
-					},
-					["MessageTimes"] = {
-						-10.80799999998999, -- [1]
-						-10.68299999998999, -- [2]
-						-10.56699999998091, -- [3]
-						-10.56699999998091, -- [4]
-						-10.41399999998976, -- [5]
-						-10.22599999999511, -- [6]
-						-10.22599999999511, -- [7]
-						-9.651999999972759, -- [8]
-						-9.209999999991851, -- [9]
-						-9.039999999979045, -- [10]
-						-8.914999999979045, -- [11]
-						-8.803999999974622, -- [12]
-						-8.638999999995576, -- [13]
-						-8.415999999997439, -- [14]
-						-8.142999999981839, -- [15]
-						-8.031999999977415, -- [16]
-						-7.669999999983702, -- [17]
-						-7.307000000000699, -- [18]
-						-7.155999999988126, -- [19]
-						-7.155999999988126, -- [20]
-						-6.938999999983935, -- [21]
-						-6.413000000000466, -- [22]
-						-6.144000000000233, -- [23]
-						-5.498999999981606, -- [24]
-						-5.498999999981606, -- [25]
-						-5.356999999989057, -- [26]
-						-5.142999999981839, -- [27]
-						-5.142999999981839, -- [28]
-						-4.838999999978114, -- [29]
-						-4.838999999978114, -- [30]
-						-4.73499999998603, -- [31]
-						-4.545999999972992, -- [32]
-						-4.320999999996275, -- [33]
-						-4.088999999978114, -- [34]
-						-4.050999999977648, -- [35]
-						-3.588999999978114, -- [36]
-						-3.114999999990687, -- [37]
-						-2.856999999989057, -- [38]
-						-2.634999999980209, -- [39]
-						-2.634999999980209, -- [40]
-						-2.163000000000466, -- [41]
-						-1.671999999991385, -- [42]
-						-1.671999999991385, -- [43]
-						-0.8959999999788124, -- [44]
-						-0.7859999999927823, -- [45]
-						-0.5719999999855645, -- [46]
-						-0.389999999984866, -- [47]
-						-0.2729999999864958, -- [48]
-						-0.1299999999755528, -- [49]
-						0, -- [50]
-					},
-					["KilledBy"] = "Shattered Hand Grunt",
-					["Health"] = {
-						"2587 (40%)", -- [1]
-						"2563 (39%)", -- [2]
-						"2563 (39%)", -- [3]
-						"3354 (51%)", -- [4]
-						"3100 (47%)", -- [5]
-						"3076 (47%)", -- [6]
-						"3076 (47%)", -- [7]
-						"2856 (44%)", -- [8]
-						"2657 (41%)", -- [9]
-						"2657 (41%)", -- [10]
-						"2657 (41%)", -- [11]
-						"2657 (41%)", -- [12]
-						"2657 (41%)", -- [13]
-						"2657 (41%)", -- [14]
-						"2657 (41%)", -- [15]
-						"2580 (39%)", -- [16]
-						"2556 (39%)", -- [17]
-						"2532 (39%)", -- [18]
-						"2532 (39%)", -- [19]
-						"2532 (39%)", -- [20]
-						"2532 (39%)", -- [21]
-						"1913 (29%)", -- [22]
-						"1913 (29%)", -- [23]
-						"1913 (29%)", -- [24]
-						"1913 (29%)", -- [25]
-						"1913 (29%)", -- [26]
-						"1677 (25%)", -- [27]
-						"1677 (25%)", -- [28]
-						"1677 (25%)", -- [29]
-						"1677 (25%)", -- [30]
-						"1488 (23%)", -- [31]
-						"1464 (22%)", -- [32]
-						"1440 (22%)", -- [33]
-						"1440 (22%)", -- [34]
-						"1440 (22%)", -- [35]
-						"1124 (17%)", -- [36]
-						"1124 (17%)", -- [37]
-						"1124 (17%)", -- [38]
-						"1124 (17%)", -- [39]
-						"1253 (19%)", -- [40]
-						"1253 (19%)", -- [41]
-						"1017 (15%)", -- [42]
-						"992 (15%)", -- [43]
-						"747 (11%)", -- [44]
-						"747 (11%)", -- [45]
-						"723 (11%)", -- [46]
-						"328 (5%)", -- [47]
-						"328 (5%)", -- [48]
-						"328 (5%)", -- [49]
-						"0 (0%)", -- [50]
-					},
-					["EventNum"] = {
-						4.179566563467493, -- [1]
-						0.3715170278637771, -- [2]
-						3.405572755417957, -- [3]
-						12.24458204334365, -- [4]
-						0, -- [5]
-						0.3715170278637771, -- [6]
-						3.080495356037152, -- [7]
-						0, -- [8]
-						0, -- [9]
-						0, -- [10]
-						0, -- [11]
-						0, -- [12]
-						0, -- [13]
-						0, -- [14]
-						1.191950464396285, -- [15]
-						0, -- [16]
-						0.3715170278637771, -- [17]
-						0.3715170278637771, -- [18]
-						0, -- [19]
-						4.767801857585139, -- [20]
-						4.814241486068111, -- [21]
-						0, -- [22]
-						0, -- [23]
-						0, -- [24]
-						0, -- [25]
-						0, -- [26]
-						3.653250773993808, -- [27]
-						2.925696594427245, -- [28]
-						0, -- [29]
-						0, -- [30]
-						0, -- [31]
-						0.3715170278637771, -- [32]
-						0.3715170278637771, -- [33]
-						4.891640866873065, -- [34]
-						0, -- [35]
-						0, -- [36]
-						0, -- [37]
-						0, -- [38]
-						0, -- [39]
-						1.996904024767802, -- [40]
-						3.792569659442724, -- [41]
-						3.653250773993808, -- [42]
-						0.3869969040247678, -- [43]
-						6.114551083591332, -- [44]
-						0, -- [45]
-						0.3715170278637771, -- [46]
-						0, -- [47]
-						3.111455108359133, -- [48]
-						5.077399380804954, -- [49]
-						0, -- [50]
-					},
-					["MessageType"] = {
-						"DAMAGE", -- [1]
-						"DAMAGE", -- [2]
-						"DAMAGE", -- [3]
-						"HEAL", -- [4]
-						"DAMAGE", -- [5]
-						"DAMAGE", -- [6]
-						"DAMAGE", -- [7]
-						"DAMAGE", -- [8]
-						"DAMAGE", -- [9]
-						"DAMAGE", -- [10]
-						"DAMAGE", -- [11]
-						"DAMAGE", -- [12]
-						"DAMAGE", -- [13]
-						"DAMAGE", -- [14]
-						"DAMAGE", -- [15]
-						"DAMAGE", -- [16]
-						"DAMAGE", -- [17]
-						"DAMAGE", -- [18]
-						"DAMAGE", -- [19]
-						"DAMAGE", -- [20]
-						"DAMAGE", -- [21]
-						"DAMAGE", -- [22]
-						"DAMAGE", -- [23]
-						"DAMAGE", -- [24]
-						"DAMAGE", -- [25]
-						"DAMAGE", -- [26]
-						"DAMAGE", -- [27]
-						"DAMAGE", -- [28]
-						"DAMAGE", -- [29]
-						"DAMAGE", -- [30]
-						"DAMAGE", -- [31]
-						"DAMAGE", -- [32]
-						"DAMAGE", -- [33]
-						"DAMAGE", -- [34]
-						"DAMAGE", -- [35]
-						"DAMAGE", -- [36]
-						"DAMAGE", -- [37]
-						"DAMAGE", -- [38]
-						"DAMAGE", -- [39]
-						"HEAL", -- [40]
-						"DAMAGE", -- [41]
-						"DAMAGE", -- [42]
-						"DAMAGE", -- [43]
-						"DAMAGE", -- [44]
-						"DAMAGE", -- [45]
-						"DAMAGE", -- [46]
-						"DAMAGE", -- [47]
-						"DAMAGE", -- [48]
-						"DAMAGE", -- [49]
-						"MISC", -- [50]
-					},
-				}, -- [1]
-				{
-					["MessageIncoming"] = {
-						true, -- [1]
+						false, -- [1]
 						true, -- [2]
 						true, -- [3]
 					},
 					["Messages"] = {
-						"Environment Falling Potray Hit -4263 (Physical)", -- [1]
-						"Scryer Arcane Guardian Melee Potray Crushing -5835 (Physical)", -- [2]
-						"Potray dies.", -- [3]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -310 (Physical)", -- [1]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -241 (Physical)", -- [2]
+						"Bloated Abomination <Potray> dies.", -- [3]
 					},
-					["DeathAt"] = 1412371633,
+					["DeathAt"] = 1413794610,
 					["HealthNum"] = {
-						32.11783439490446, -- [1]
-						32.11783439490446, -- [2]
+						100, -- [1]
+						100, -- [2]
 						0, -- [3]
 					},
 					["MessageTimes"] = {
-						-2.80000000000291, -- [1]
-						0, -- [2]
+						-0.310999999986962, -- [1]
+						-0.310999999986962, -- [2]
 						0, -- [3]
 					},
-					["KilledBy"] = "Scryer Arcane Guardian",
+					["KilledBy"] = "Drakkari Skullcrusher",
 					["Health"] = {
-						"2017 (32%)", -- [1]
-						"2017 (32%)", -- [2]
+						"5239 (100%)", -- [1]
+						"5239 (100%)", -- [2]
 						"0 (0%)", -- [3]
 					},
 					["EventNum"] = {
-						67.88216560509554, -- [1]
-						92.9140127388535, -- [2]
+						0, -- [1]
+						4.60011452567284, -- [2]
 						0, -- [3]
 					},
 					["MessageType"] = {
@@ -16267,219 +7184,225 @@ RecountPerCharDB = {
 						"DAMAGE", -- [2]
 						"MISC", -- [3]
 					},
-				}, -- [2]
+				}, -- [1]
 				{
 					["MessageIncoming"] = {
-						false, -- [1]
+						true, -- [1]
 						true, -- [2]
 						false, -- [3]
 						false, -- [4]
-						false, -- [5]
+						true, -- [5]
 						false, -- [6]
 						false, -- [7]
 						false, -- [8]
-						false, -- [9]
+						true, -- [9]
 						true, -- [10]
 						false, -- [11]
-						false, -- [12]
-						false, -- [13]
-						false, -- [14]
+						true, -- [12]
+						true, -- [13]
+						true, -- [14]
 						true, -- [15]
-						false, -- [16]
+						true, -- [16]
 						true, -- [17]
 						true, -- [18]
-						false, -- [19]
+						true, -- [19]
 						true, -- [20]
-						false, -- [21]
+						true, -- [21]
 						true, -- [22]
-						false, -- [23]
+						true, -- [23]
 						true, -- [24]
 						true, -- [25]
 						true, -- [26]
 						true, -- [27]
 						true, -- [28]
-						false, -- [29]
+						true, -- [29]
 						true, -- [30]
 						true, -- [31]
-						true, -- [32]
+						false, -- [32]
 						true, -- [33]
+						true, -- [34]
 					},
 					["Messages"] = {
-						"Potray Judgment Pescailla-Zul'jin Hit -213 (Holy)", -- [1]
-						"OMGSoyRojo Melee Potray Immune", -- [2]
-						"Potray Seal of Truth Pescailla-Zul'jin Hit -23 (Holy)", -- [3]
-						"Potray Crusader Strike Pescailla-Zul'jin Hit -211 (Physical)", -- [4]
-						"Potray Censure (DoT) Pescailla-Zul'jin Tick -70 (Holy)", -- [5]
-						"Potray Censure Pescailla-Zul'jin Miss (Holy)", -- [6]
-						"Potray Seal of Truth Pescailla-Zul'jin Hit -22 (Holy)", -- [7]
-						"Potray Melee Pescailla-Zul'jin Hit -219 (Physical)", -- [8]
-						"Potray Templar's Verdict Pescailla-Zul'jin Hit -902 (Physical)", -- [9]
-						"OMGSoyRojo Claw Potray Hit -102 (186 Absorbed) (Physical)", -- [10]
-						"Potray Seal of Truth Pescailla-Zul'jin Hit -40 (Holy)", -- [11]
-						"Potray Seal of Truth Pescailla-Zul'jin Hit -41 (Holy)", -- [12]
-						"Potray Censure (DoT) Pescailla-Zul'jin Tick -174 (Holy)", -- [13]
-						"Potray Censure (DoT) Pescailla-Zul'jin Tick -174 (Holy)", -- [14]
-						"Pescailla-Zul'jin Auto Shot Potray Crit -295 (Physical)", -- [15]
-						"Potray Judgment Pescailla-Zul'jin Hit -425 (Holy)", -- [16]
-						"OMGSoyRojo Claw Potray Parry (Physical)", -- [17]
-						"Pescailla-Zul'jin Steady Shot Potray Hit -133 (186 Absorbed) (Physical)", -- [18]
-						"Potray Seal of Truth Pescailla-Zul'jin Hit -39 (Holy)", -- [19]
-						"OMGSoyRojo Melee Potray Crit -307 (Physical)", -- [20]
-						"Potray Exorcism Pescailla-Zul'jin Miss (Holy)", -- [21]
-						"Pescailla-Zul'jin Auto Shot Potray Hit -186 (Physical)", -- [22]
-						"Potray Censure (DoT) Pescailla-Zul'jin Crit -348 (Holy)", -- [23]
-						"Pescailla-Zul'jin Arcane Shot Potray Hit -887 (Arcane)", -- [24]
-						"Pescailla-Zul'jin Arcane Shot Potray Hit -924 (Arcane)", -- [25]
-						"OMGSoyRojo Melee Potray Hit -153 (Physical)", -- [26]
-						"OMGSoyRojo Kill Command Potray Hit -785 (Physical)", -- [27]
-						"Pescailla-Zul'jin Auto Shot Potray Hit -151 (Physical)", -- [28]
-						"Potray Censure (DoT) Pescailla-Zul'jin Tick -174 (Holy)", -- [29]
-						"Pescailla-Zul'jin Arcane Shot Potray Crit -1788 (Arcane)", -- [30]
-						"Pescailla-Zul'jin Auto Shot Potray Hit -12 (186 Absorbed) (Physical)", -- [31]
-						"Pescailla-Zul'jin Arcane Shot Potray Hit -888 (Arcane)", -- [32]
-						"Potray dies.", -- [33]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [1]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -204 (Physical)", -- [2]
+						"Bloated Abomination <Potray> Flatulate (DoT) Drakkari Skullcrusher Tick -99 (Nature)", -- [3]
+						"Bloated Abomination <Potray> Flatulate (DoT) Drakkari Skullcrusher Tick -104 (Nature)", -- [4]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Crit -453 (Physical)", -- [5]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -248 (Physical)", -- [6]
+						"Bloated Abomination <Potray> Flatulate (DoT) Drakkari Skullcrusher Tick -88 (Nature)", -- [7]
+						"Bloated Abomination <Potray> Flatulate (DoT) Drakkari Skullcrusher Tick -92 (Nature)", -- [8]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Dodge", -- [9]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Parry", -- [10]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -323 (Physical)", -- [11]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [12]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -221 (Physical)", -- [13]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -253 (Physical)", -- [14]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [15]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -229 (Physical)", -- [16]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -241 (Physical)", -- [17]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -280 (Physical)", -- [18]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -226 (Physical)", -- [19]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -291 (Physical)", -- [20]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -211 (Physical)", -- [21]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [22]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -258 (Physical)", -- [23]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -242 (Physical)", -- [24]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [25]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -239 (Physical)", -- [26]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -300 (Physical)", -- [27]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [28]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -234 (Physical)", -- [29]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [30]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Crit -464 (Physical)", -- [31]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -250 (Physical)", -- [32]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Parry", -- [33]
+						"Bloated Abomination <Potray> dies.", -- [34]
 					},
-					["DeathAt"] = 1412370608,
+					["DeathAt"] = 1413794571,
 					["HealthNum"] = {
-						95.04777070063695, -- [1]
-						95.04777070063695, -- [2]
-						95.04777070063695, -- [3]
-						95.04777070063695, -- [4]
-						95.04777070063695, -- [5]
-						95.04777070063695, -- [6]
-						95.04777070063695, -- [7]
-						95.04777070063695, -- [8]
-						95.04777070063695, -- [9]
-						93.42356687898089, -- [10]
-						93.42356687898089, -- [11]
-						93.42356687898089, -- [12]
-						93.42356687898089, -- [13]
-						93.42356687898089, -- [14]
-						88.72611464968153, -- [15]
-						88.72611464968153, -- [16]
-						88.72611464968153, -- [17]
-						86.60828025477707, -- [18]
-						86.60828025477707, -- [19]
-						86.60828025477707, -- [20]
-						86.60828025477707, -- [21]
-						83.64649681528663, -- [22]
-						83.64649681528663, -- [23]
-						64.63375796178345, -- [24]
-						49.9203821656051, -- [25]
-						49.9203821656051, -- [26]
-						34.98407643312102, -- [27]
-						32.5796178343949, -- [28]
-						32.5796178343949, -- [29]
-						4.10828025477707, -- [30]
-						3.917197452229299, -- [31]
-						0.01592356687898089, -- [32]
-						0, -- [33]
+						94.7440406408754, -- [1]
+						94.7440406408754, -- [2]
+						90.758108636186, -- [3]
+						90.758108636186, -- [4]
+						90.758108636186, -- [5]
+						81.9069949198906, -- [6]
+						81.9069949198906, -- [7]
+						81.9069949198906, -- [8]
+						81.9069949198906, -- [9]
+						81.9069949198906, -- [10]
+						81.9069949198906, -- [11]
+						81.9069949198906, -- [12]
+						81.9069949198906, -- [13]
+						77.5889019148105, -- [14]
+						77.5889019148105, -- [15]
+						77.5889019148105, -- [16]
+						68.1711606096131, -- [17]
+						63.4622899570145, -- [18]
+						57.9914028917546, -- [19]
+						53.5756154747948, -- [20]
+						47.8898007033998, -- [21]
+						43.7670965220789, -- [22]
+						43.7670965220789, -- [23]
+						38.7260648690895, -- [24]
+						33.9976553341149, -- [25]
+						33.9976553341149, -- [26]
+						33.9976553341149, -- [27]
+						29.3278624462681, -- [28]
+						29.3278624462681, -- [29]
+						18.8940992575225, -- [30]
+						18.8940992575225, -- [31]
+						9.82805783509183, -- [32]
+						9.82805783509183, -- [33]
+						0, -- [34]
 					},
 					["MessageTimes"] = {
-						-14.84500000000116, -- [1]
-						-14.39100000000326, -- [2]
-						-14.08299999999872, -- [3]
-						-13.28600000000733, -- [4]
-						-12.99199999999837, -- [5]
-						-12.8859999999986, -- [6]
-						-12.49599999999919, -- [7]
-						-11.69599999999628, -- [8]
-						-11.58699999999953, -- [9]
-						-11.58699999999953, -- [10]
-						-10.89800000000105, -- [11]
-						-10.89800000000105, -- [12]
-						-10.04700000000594, -- [13]
-						-7.195999999996275, -- [14]
-						-7.195999999996275, -- [15]
-						-5.657000000006519, -- [16]
-						-5.254000000000815, -- [17]
-						-4.926999999996042, -- [18]
-						-4.812000000005355, -- [19]
-						-4.680999999996857, -- [20]
-						-4.562999999994645, -- [21]
-						-4.44199999999546, -- [22]
-						-4.256000000008498, -- [23]
-						-3.974000000001979, -- [24]
-						-3.089000000007218, -- [25]
-						-2.896000000007916, -- [26]
-						-2.436000000001513, -- [27]
-						-2.436000000001513, -- [28]
-						-1.347999999998137, -- [29]
-						-1.206999999994878, -- [30]
-						-0.4079999999958091, -- [31]
-						-0.2679999999963911, -- [32]
-						0, -- [33]
+						-14.1820000000007, -- [1]
+						-14.1820000000007, -- [2]
+						-11.3390000000072, -- [3]
+						-11.3390000000072, -- [4]
+						-10.9379999999946, -- [5]
+						-10.4100000000035, -- [6]
+						-10.4100000000035, -- [7]
+						-10.4100000000035, -- [8]
+						-9.74000000001979, -- [9]
+						-8.94000000000233, -- [10]
+						-8.40700000000652, -- [11]
+						-7.74000000001979, -- [12]
+						-7.74000000001979, -- [13]
+						-7.30999999999767, -- [14]
+						-6.94100000002072, -- [15]
+						-6.94100000002072, -- [16]
+						-5.72599999999511, -- [17]
+						-5.25299999999697, -- [18]
+						-4.88500000000931, -- [19]
+						-4.88500000000931, -- [20]
+						-4.37799999999697, -- [21]
+						-3.70000000001164, -- [22]
+						-3.70000000001164, -- [23]
+						-3.31299999999465, -- [24]
+						-2.86199999999371, -- [25]
+						-2.86199999999371, -- [26]
+						-2.44100000002072, -- [27]
+						-2.44100000002072, -- [28]
+						-2.44100000002072, -- [29]
+						-1.26300000000629, -- [30]
+						-1.26300000000629, -- [31]
+						-1.01500000001397, -- [32]
+						-1.01500000001397, -- [33]
+						0, -- [34]
 					},
-					["KilledBy"] = "Pescailla-Zul'jin",
+					["KilledBy"] = "Drakkari Skullcrusher",
 					["Health"] = {
-						"5969 (95%)", -- [1]
-						"5969 (95%)", -- [2]
-						"5969 (95%)", -- [3]
-						"5969 (95%)", -- [4]
-						"5969 (95%)", -- [5]
-						"5969 (95%)", -- [6]
-						"5969 (95%)", -- [7]
-						"5969 (95%)", -- [8]
-						"5969 (95%)", -- [9]
-						"5867 (93%)", -- [10]
-						"5867 (93%)", -- [11]
-						"5867 (93%)", -- [12]
-						"5867 (93%)", -- [13]
-						"5867 (93%)", -- [14]
-						"5572 (88%)", -- [15]
-						"5572 (88%)", -- [16]
-						"5572 (88%)", -- [17]
-						"5439 (86%)", -- [18]
-						"5439 (86%)", -- [19]
-						"5439 (86%)", -- [20]
-						"5439 (86%)", -- [21]
-						"5253 (83%)", -- [22]
-						"5253 (83%)", -- [23]
-						"4059 (64%)", -- [24]
-						"3135 (49%)", -- [25]
-						"3135 (49%)", -- [26]
-						"2197 (34%)", -- [27]
-						"2046 (32%)", -- [28]
-						"2046 (32%)", -- [29]
-						"258 (4%)", -- [30]
-						"246 (3%)", -- [31]
-						"1 (0%)", -- [32]
-						"0 (0%)", -- [33]
+						"4849 (94%)", -- [1]
+						"4849 (94%)", -- [2]
+						"4645 (90%)", -- [3]
+						"4645 (90%)", -- [4]
+						"4645 (90%)", -- [5]
+						"4192 (81%)", -- [6]
+						"4192 (81%)", -- [7]
+						"4192 (81%)", -- [8]
+						"4192 (81%)", -- [9]
+						"4192 (81%)", -- [10]
+						"4192 (81%)", -- [11]
+						"4192 (81%)", -- [12]
+						"4192 (81%)", -- [13]
+						"3971 (77%)", -- [14]
+						"3971 (77%)", -- [15]
+						"3971 (77%)", -- [16]
+						"3489 (68%)", -- [17]
+						"3248 (63%)", -- [18]
+						"2968 (57%)", -- [19]
+						"2742 (53%)", -- [20]
+						"2451 (47%)", -- [21]
+						"2240 (43%)", -- [22]
+						"2240 (43%)", -- [23]
+						"1982 (38%)", -- [24]
+						"1740 (33%)", -- [25]
+						"1740 (33%)", -- [26]
+						"1740 (33%)", -- [27]
+						"1501 (29%)", -- [28]
+						"1501 (29%)", -- [29]
+						"967 (18%)", -- [30]
+						"967 (18%)", -- [31]
+						"503 (9%)", -- [32]
+						"503 (9%)", -- [33]
+						"0 (0%)", -- [34]
 					},
 					["EventNum"] = {
 						0, -- [1]
-						0, -- [2]
+						3.98593200468933, -- [2]
 						0, -- [3]
 						0, -- [4]
-						0, -- [5]
+						8.85111371629543, -- [5]
 						0, -- [6]
 						0, -- [7]
 						0, -- [8]
 						0, -- [9]
-						1.624203821656051, -- [10]
+						0, -- [10]
 						0, -- [11]
 						0, -- [12]
-						0, -- [13]
-						0, -- [14]
-						4.697452229299363, -- [15]
-						0, -- [16]
-						0, -- [17]
-						2.117834394904459, -- [18]
-						0, -- [19]
-						4.888535031847134, -- [20]
-						0, -- [21]
-						2.961783439490446, -- [22]
-						0, -- [23]
-						14.12420382165605, -- [24]
-						14.71337579617834, -- [25]
-						2.436305732484076, -- [26]
-						12.5, -- [27]
-						2.404458598726114, -- [28]
-						0, -- [29]
-						28.47133757961784, -- [30]
-						0.1910828025477707, -- [31]
-						14.14012738853503, -- [32]
+						4.31809300508011, -- [13]
+						4.94333724110981, -- [14]
+						0, -- [15]
+						4.47440406408753, -- [16]
+						4.70887065259867, -- [17]
+						5.47088706525987, -- [18]
+						4.41578741695975, -- [19]
+						5.68581477139508, -- [20]
+						4.12270418132083, -- [21]
+						0, -- [22]
+						5.04103165298945, -- [23]
+						4.7284095349746, -- [24]
+						0, -- [25]
+						4.66979288784682, -- [26]
+						5.86166471277843, -- [27]
+						0, -- [28]
+						4.57209847596717, -- [29]
+						0, -- [30]
+						9.06604142243064, -- [31]
+						0, -- [32]
 						0, -- [33]
+						0, -- [34]
 					},
 					["MessageType"] = {
 						"DAMAGE", -- [1]
@@ -16514,162 +7437,1056 @@ RecountPerCharDB = {
 						"DAMAGE", -- [30]
 						"DAMAGE", -- [31]
 						"DAMAGE", -- [32]
-						"MISC", -- [33]
+						"DAMAGE", -- [33]
+						"MISC", -- [34]
+					},
+				}, -- [2]
+				{
+					["MessageIncoming"] = {
+						true, -- [1]
+						true, -- [2]
+						true, -- [3]
+						true, -- [4]
+						true, -- [5]
+						true, -- [6]
+						true, -- [7]
+						true, -- [8]
+						true, -- [9]
+						true, -- [10]
+						false, -- [11]
+						true, -- [12]
+						true, -- [13]
+						true, -- [14]
+						true, -- [15]
+						true, -- [16]
+						true, -- [17]
+						false, -- [18]
+						true, -- [19]
+						true, -- [20]
+					},
+					["Messages"] = {
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Parry", -- [1]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -310 (Physical)", -- [2]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [3]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -258 (Physical)", -- [4]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -223 (Physical)", -- [5]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -266 (Physical)", -- [6]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -218 (Physical)", -- [7]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -245 (Physical)", -- [8]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -230 (Physical)", -- [9]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -238 (Physical)", -- [10]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Crit -706 (Physical)", -- [11]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [12]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -267 (Physical)", -- [13]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -238 (Physical)", -- [14]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -247 (Physical)", -- [15]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -245 (Physical)", -- [16]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -273 (Physical)", -- [17]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -346 (Physical)", -- [18]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -310 (Physical)", -- [19]
+						"Bloated Abomination <Potray> dies.", -- [20]
+					},
+					["DeathAt"] = 1413794465,
+					["HealthNum"] = {
+						100, -- [1]
+						100, -- [2]
+						94.0828402366864, -- [3]
+						94.0828402366864, -- [4]
+						94.0828402366864, -- [5]
+						84.9016987974804, -- [6]
+						79.8243939683146, -- [7]
+						75.6632945218553, -- [8]
+						70.9868295476236, -- [9]
+						66.5966787554877, -- [10]
+						66.5966787554877, -- [11]
+						66.5966787554877, -- [12]
+						66.5966787554877, -- [13]
+						56.9574346249284, -- [14]
+						52.4145829356748, -- [15]
+						52.4145829356748, -- [16]
+						52.4145829356748, -- [17]
+						37.8125596487879, -- [18]
+						37.8125596487879, -- [19]
+						0, -- [20]
+					},
+					["MessageTimes"] = {
+						-12.6359999999986, -- [1]
+						-10.6369999999879, -- [2]
+						-8.9199999999837, -- [3]
+						-8.9199999999837, -- [4]
+						-8.63999999998487, -- [5]
+						-6.68299999998999, -- [6]
+						-6.49499999999534, -- [7]
+						-4.90799999999581, -- [8]
+						-4.63099999999395, -- [9]
+						-2.83299999998417, -- [10]
+						-2.71799999999348, -- [11]
+						-2.61799999998766, -- [12]
+						-2.61799999998766, -- [13]
+						-1.85399999999208, -- [14]
+						-1.11999999999534, -- [15]
+						-1.11999999999534, -- [16]
+						-0.843999999982771, -- [17]
+						-0.685999999986962, -- [18]
+						-0.685999999986962, -- [19]
+						0, -- [20]
+					},
+					["KilledBy"] = "Drakkari Skullcrusher",
+					["Health"] = {
+						"5239 (100%)", -- [1]
+						"5239 (100%)", -- [2]
+						"4929 (94%)", -- [3]
+						"4929 (94%)", -- [4]
+						"4929 (94%)", -- [5]
+						"4448 (84%)", -- [6]
+						"4182 (79%)", -- [7]
+						"3964 (75%)", -- [8]
+						"3719 (70%)", -- [9]
+						"3489 (66%)", -- [10]
+						"3489 (66%)", -- [11]
+						"3489 (66%)", -- [12]
+						"3489 (66%)", -- [13]
+						"2984 (56%)", -- [14]
+						"2746 (52%)", -- [15]
+						"2746 (52%)", -- [16]
+						"2746 (52%)", -- [17]
+						"1981 (37%)", -- [18]
+						"1981 (37%)", -- [19]
+						"0 (0%)", -- [20]
+					},
+					["EventNum"] = {
+						0, -- [1]
+						5.91715976331361, -- [2]
+						0, -- [3]
+						4.9246039320481, -- [4]
+						4.25653750715785, -- [5]
+						5.07730482916587, -- [6]
+						4.16109944645925, -- [7]
+						4.67646497423172, -- [8]
+						4.3901507921359, -- [9]
+						4.54285168925367, -- [10]
+						0, -- [11]
+						0, -- [12]
+						5.09639244130559, -- [13]
+						4.54285168925367, -- [14]
+						4.71464019851117, -- [15]
+						4.67646497423172, -- [16]
+						5.21091811414392, -- [17]
+						0, -- [18]
+						5.91715976331361, -- [19]
+						0, -- [20]
+					},
+					["MessageType"] = {
+						"DAMAGE", -- [1]
+						"DAMAGE", -- [2]
+						"DAMAGE", -- [3]
+						"DAMAGE", -- [4]
+						"DAMAGE", -- [5]
+						"DAMAGE", -- [6]
+						"DAMAGE", -- [7]
+						"DAMAGE", -- [8]
+						"DAMAGE", -- [9]
+						"DAMAGE", -- [10]
+						"DAMAGE", -- [11]
+						"DAMAGE", -- [12]
+						"DAMAGE", -- [13]
+						"DAMAGE", -- [14]
+						"DAMAGE", -- [15]
+						"DAMAGE", -- [16]
+						"DAMAGE", -- [17]
+						"DAMAGE", -- [18]
+						"DAMAGE", -- [19]
+						"MISC", -- [20]
 					},
 				}, -- [3]
+				{
+					["MessageIncoming"] = {
+						true, -- [1]
+						true, -- [2]
+						true, -- [3]
+						false, -- [4]
+						true, -- [5]
+						true, -- [6]
+						true, -- [7]
+						false, -- [8]
+						true, -- [9]
+						true, -- [10]
+						true, -- [11]
+						true, -- [12]
+						true, -- [13]
+						true, -- [14]
+						true, -- [15]
+						true, -- [16]
+						true, -- [17]
+						true, -- [18]
+						false, -- [19]
+						true, -- [20]
+						true, -- [21]
+						true, -- [22]
+						true, -- [23]
+						true, -- [24]
+						true, -- [25]
+						true, -- [26]
+						true, -- [27]
+						true, -- [28]
+						true, -- [29]
+					},
+					["Messages"] = {
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -281 (Physical)", -- [1]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [2]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -220 (Physical)", -- [3]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -346 (Physical)", -- [4]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -262 (Physical)", -- [5]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -304 (Physical)", -- [6]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -277 (Physical)", -- [7]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -342 (Physical)", -- [8]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -266 (Physical)", -- [9]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Dodge", -- [10]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -271 (Physical)", -- [11]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -313 (Physical)", -- [12]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -224 (Physical)", -- [13]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -223 (Physical)", -- [14]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -224 (Physical)", -- [15]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [16]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -262 (Physical)", -- [17]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -271 (Physical)", -- [18]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -291 (Physical)", -- [19]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -235 (Physical)", -- [20]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -223 (Physical)", -- [21]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -254 (Physical)", -- [22]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -240 (Physical)", -- [23]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [24]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -242 (Physical)", -- [25]
+						"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [26]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -281 (Physical)", -- [27]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Miss", -- [28]
+						"Bloated Abomination <Potray> dies.", -- [29]
+					},
+					["DeathAt"] = 1413794428,
+					["HealthNum"] = {
+						100, -- [1]
+						94.6363809887383, -- [2]
+						94.6363809887383, -- [3]
+						90.4371063179996, -- [4]
+						90.4371063179996, -- [5]
+						90.4371063179996, -- [6]
+						79.6335178469174, -- [7]
+						79.6335178469174, -- [8]
+						79.6335178469174, -- [9]
+						69.2689444550487, -- [10]
+						69.2689444550487, -- [11]
+						69.2689444550487, -- [12]
+						58.1217789654514, -- [13]
+						53.8461538461539, -- [14]
+						53.8461538461539, -- [15]
+						45.3139912196984, -- [16]
+						45.3139912196984, -- [17]
+						45.3139912196984, -- [18]
+						45.3139912196984, -- [19]
+						35.140293949227, -- [20]
+						35.140293949227, -- [21]
+						26.3981675892346, -- [22]
+						26.3981675892346, -- [23]
+						16.9688871922123, -- [24]
+						16.9688871922123, -- [25]
+						16.9688871922123, -- [26]
+						16.9688871922123, -- [27]
+						6.986066043138, -- [28]
+						0, -- [29]
+					},
+					["MessageTimes"] = {
+						-14.9850000000151, -- [1]
+						-12.9560000000056, -- [2]
+						-12.9560000000056, -- [3]
+						-11.0489999999991, -- [4]
+						-11.0489999999991, -- [5]
+						-10.9020000000019, -- [6]
+						-9.12900000001537, -- [7]
+						-9.12900000001537, -- [8]
+						-8.95300000000862, -- [9]
+						-8.47400000001653, -- [10]
+						-7.12200000000303, -- [11]
+						-6.94900000002235, -- [12]
+						-6.4890000000014, -- [13]
+						-5.13100000002305, -- [14]
+						-4.95600000000559, -- [15]
+						-4.45000000001164, -- [16]
+						-4.45000000001164, -- [17]
+						-4.04800000000978, -- [18]
+						-4.04800000000978, -- [19]
+						-3.1020000000135, -- [20]
+						-2.93000000002212, -- [21]
+						-2.39699999999721, -- [22]
+						-2.04700000002049, -- [23]
+						-1.08199999999488, -- [24]
+						-1.08199999999488, -- [25]
+						-0.934000000008382, -- [26]
+						-0.934000000008382, -- [27]
+						-0.404999999998836, -- [28]
+						0, -- [29]
+					},
+					["KilledBy"] = "Drakkari Skullcrusher",
+					["Health"] = {
+						"5239 (100%)", -- [1]
+						"4958 (94%)", -- [2]
+						"4958 (94%)", -- [3]
+						"4738 (90%)", -- [4]
+						"4738 (90%)", -- [5]
+						"4738 (90%)", -- [6]
+						"4172 (79%)", -- [7]
+						"4172 (79%)", -- [8]
+						"4172 (79%)", -- [9]
+						"3629 (69%)", -- [10]
+						"3629 (69%)", -- [11]
+						"3629 (69%)", -- [12]
+						"3045 (58%)", -- [13]
+						"2821 (53%)", -- [14]
+						"2821 (53%)", -- [15]
+						"2374 (45%)", -- [16]
+						"2374 (45%)", -- [17]
+						"2374 (45%)", -- [18]
+						"2374 (45%)", -- [19]
+						"1841 (35%)", -- [20]
+						"1841 (35%)", -- [21]
+						"1383 (26%)", -- [22]
+						"1383 (26%)", -- [23]
+						"889 (16%)", -- [24]
+						"889 (16%)", -- [25]
+						"889 (16%)", -- [26]
+						"889 (16%)", -- [27]
+						"366 (6%)", -- [28]
+						"0 (0%)", -- [29]
+					},
+					["EventNum"] = {
+						5.36361901126169, -- [1]
+						0, -- [2]
+						4.19927467073869, -- [3]
+						0, -- [4]
+						5.00095438060699, -- [5]
+						5.80263409047528, -- [6]
+						5.28726856270281, -- [7]
+						0, -- [8]
+						5.07730482916587, -- [9]
+						0, -- [10]
+						5.17274288986448, -- [11]
+						5.97442259973277, -- [12]
+						4.27562511929758, -- [13]
+						4.25653750715785, -- [14]
+						4.27562511929758, -- [15]
+						0, -- [16]
+						5.00095438060699, -- [17]
+						5.17274288986448, -- [18]
+						0, -- [19]
+						4.48558885283451, -- [20]
+						4.25653750715785, -- [21]
+						4.84825348348922, -- [22]
+						4.58102691353312, -- [23]
+						0, -- [24]
+						4.61920213781256, -- [25]
+						0, -- [26]
+						5.36361901126169, -- [27]
+						0, -- [28]
+						0, -- [29]
+					},
+					["MessageType"] = {
+						"DAMAGE", -- [1]
+						"DAMAGE", -- [2]
+						"DAMAGE", -- [3]
+						"DAMAGE", -- [4]
+						"DAMAGE", -- [5]
+						"DAMAGE", -- [6]
+						"DAMAGE", -- [7]
+						"DAMAGE", -- [8]
+						"DAMAGE", -- [9]
+						"DAMAGE", -- [10]
+						"DAMAGE", -- [11]
+						"DAMAGE", -- [12]
+						"DAMAGE", -- [13]
+						"DAMAGE", -- [14]
+						"DAMAGE", -- [15]
+						"DAMAGE", -- [16]
+						"DAMAGE", -- [17]
+						"DAMAGE", -- [18]
+						"DAMAGE", -- [19]
+						"DAMAGE", -- [20]
+						"DAMAGE", -- [21]
+						"DAMAGE", -- [22]
+						"DAMAGE", -- [23]
+						"DAMAGE", -- [24]
+						"DAMAGE", -- [25]
+						"DAMAGE", -- [26]
+						"DAMAGE", -- [27]
+						"DAMAGE", -- [28]
+						"MISC", -- [29]
+					},
+				}, -- [4]
+				{
+					["MessageIncoming"] = {
+						true, -- [1]
+						false, -- [2]
+						true, -- [3]
+						false, -- [4]
+						true, -- [5]
+						false, -- [6]
+						true, -- [7]
+						false, -- [8]
+						false, -- [9]
+						false, -- [10]
+						true, -- [11]
+						false, -- [12]
+						true, -- [13]
+						false, -- [14]
+						true, -- [15]
+						false, -- [16]
+						true, -- [17]
+					},
+					["Messages"] = {
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -247 (Physical)", -- [1]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -306 (Physical)", -- [2]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -303 (Physical)", -- [3]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -256 (Physical)", -- [4]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -279 (Physical)", -- [5]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -248 (Physical)", -- [6]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -234 (Physical)", -- [7]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -319 (Physical)", -- [8]
+						"Bloated Abomination <Potray> Flatulate (DoT) Drakkari Skullcrusher Tick -94 (Nature)", -- [9]
+						"Bloated Abomination <Potray> Flatulate (DoT) Drakkari Skullcrusher Tick -95 (Nature)", -- [10]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -216 (Physical)", -- [11]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -286 (Physical)", -- [12]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -225 (Physical)", -- [13]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -248 (Physical)", -- [14]
+						"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -218 (Physical)", -- [15]
+						"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -265 (Physical)", -- [16]
+						"Bloated Abomination <Potray> dies.", -- [17]
+					},
+					["DeathAt"] = 1413794393,
+					["HealthNum"] = {
+						94.6268073466198, -- [1]
+						89.8007033997656, -- [2]
+						89.8007033997656, -- [3]
+						83.8804220398593, -- [4]
+						83.8804220398593, -- [5]
+						78.4290738569754, -- [6]
+						78.4290738569754, -- [7]
+						73.8569753810082, -- [8]
+						73.8569753810082, -- [9]
+						73.8569753810082, -- [10]
+						73.8569753810082, -- [11]
+						73.8569753810082, -- [12]
+						69.6365767878077, -- [13]
+						69.6365767878077, -- [14]
+						65.2403282532239, -- [15]
+						60.9808518952716, -- [16]
+						0, -- [17]
+					},
+					["MessageTimes"] = {
+						-14.3330000000133, -- [1]
+						-13.3850000000093, -- [2]
+						-12.3330000000133, -- [3]
+						-11.3800000000047, -- [4]
+						-10.3390000000072, -- [5]
+						-9.38500000000931, -- [6]
+						-8.32400000002235, -- [7]
+						-7.38500000000931, -- [8]
+						-7.26399999999558, -- [9]
+						-6.15000000002328, -- [10]
+						-5.64699999999721, -- [11]
+						-5.36699999999837, -- [12]
+						-3.6359999999986, -- [13]
+						-3.36500000001979, -- [14]
+						-1.625, -- [15]
+						-1.36699999999837, -- [16]
+						0, -- [17]
+					},
+					["KilledBy"] = "Drakkari Skullcrusher",
+					["Health"] = {
+						"4843 (94%)", -- [1]
+						"4596 (89%)", -- [2]
+						"4596 (89%)", -- [3]
+						"4293 (83%)", -- [4]
+						"4293 (83%)", -- [5]
+						"4014 (78%)", -- [6]
+						"4014 (78%)", -- [7]
+						"3780 (73%)", -- [8]
+						"3780 (73%)", -- [9]
+						"3780 (73%)", -- [10]
+						"3780 (73%)", -- [11]
+						"3780 (73%)", -- [12]
+						"3564 (69%)", -- [13]
+						"3564 (69%)", -- [14]
+						"3339 (65%)", -- [15]
+						"3121 (60%)", -- [16]
+						"0 (0%)", -- [17]
+					},
+					["EventNum"] = {
+						4.82610394685424, -- [1]
+						0, -- [2]
+						5.92028135990621, -- [3]
+						0, -- [4]
+						5.45134818288394, -- [5]
+						0, -- [6]
+						4.57209847596717, -- [7]
+						0, -- [8]
+						0, -- [9]
+						0, -- [10]
+						4.22039859320047, -- [11]
+						0, -- [12]
+						4.39624853458382, -- [13]
+						0, -- [14]
+						4.25947635795233, -- [15]
+						0, -- [16]
+						0, -- [17]
+					},
+					["MessageType"] = {
+						"DAMAGE", -- [1]
+						"DAMAGE", -- [2]
+						"DAMAGE", -- [3]
+						"DAMAGE", -- [4]
+						"DAMAGE", -- [5]
+						"DAMAGE", -- [6]
+						"DAMAGE", -- [7]
+						"DAMAGE", -- [8]
+						"DAMAGE", -- [9]
+						"DAMAGE", -- [10]
+						"DAMAGE", -- [11]
+						"DAMAGE", -- [12]
+						"DAMAGE", -- [13]
+						"DAMAGE", -- [14]
+						"DAMAGE", -- [15]
+						"DAMAGE", -- [16]
+						"MISC", -- [17]
+					},
+				}, -- [5]
 			},
-			["UnitLockout"] = 1412369460,
-			["LastActive"] = 1412433536,
-		},
-		["Rhea's Child <Potray>"] = {
-			["GUID"] = "0xF130C898003D971D",
-			["LastEventHealth"] = {
-				"???", -- [1]
-				"???", -- [2]
-				"???", -- [3]
-				"???", -- [4]
-				"???", -- [5]
-			},
-			["LastEventType"] = {
-				"DAMAGE", -- [1]
-				"DAMAGE", -- [2]
-				"DAMAGE", -- [3]
-				"DAMAGE", -- [4]
-				"DAMAGE", -- [5]
-			},
-			["TimeWindows"] = {
-				["ActiveTime"] = {
-					16.97, -- [1]
-				},
-				["TimeDamage"] = {
-					16.97, -- [1]
-				},
-			},
-			["enClass"] = "PET",
 			["level"] = 1,
-			["LastFightIn"] = 10,
+			["LastDamageAbility"] = "Melee",
+			["LastFightIn"] = 12,
+			["LastEventNum"] = {
+				nil, -- [1]
+				9.06604142243064, -- [2]
+				nil, -- [3]
+				nil, -- [4]
+				nil, -- [5]
+				nil, -- [6]
+				4.60011452567284, -- [7]
+				nil, -- [8]
+				4.54285168925367, -- [9]
+				nil, -- [10]
+				nil, -- [11]
+				5.09639244130559, -- [12]
+				4.54285168925367, -- [13]
+				4.71464019851117, -- [14]
+				4.67646497423172, -- [15]
+				5.21091811414392, -- [16]
+				nil, -- [17]
+				5.91715976331361, -- [18]
+				[21] = 5.25595935912466,
+				[23] = 3.98593200468933,
+				[26] = 8.85111371629543,
+				[48] = 5.86166471277843,
+				[35] = 4.94333724110981,
+				[37] = 4.47440406408753,
+				[39] = 5.47088706525987,
+				[41] = 5.68581477139508,
+				[45] = 4.7284095349746,
+				[47] = 4.66979288784682,
+				[34] = 4.31809300508011,
+				[38] = 4.70887065259867,
+				[40] = 4.41578741695975,
+				[42] = 4.12270418132083,
+				[44] = 5.04103165298945,
+				[50] = 4.57209847596717,
+			},
 			["type"] = "Pet",
 			["FightsSaved"] = 5,
-			["LastActive"] = 1412431399,
+			["LastDamageTaken"] = 241,
+			["TimeLast"] = {
+				["DeathCount"] = 1413794608,
+				["DOT_Time"] = 1413794559,
+				["ActiveTime"] = 1413794608,
+				["TimeDamage"] = 1413794608,
+				["OVERALL"] = 1413794608,
+				["DamageTaken"] = 1413794608,
+				["Damage"] = 1413794608,
+			},
 			["Owner"] = "Potray",
-			["UnitLockout"] = 1412431399,
-			["NextEventNum"] = 6,
+			["LastAbility"] = 174721.497,
+			["NextEventNum"] = 9,
 			["LastEventHealthNum"] = {
-				0, -- [1]
-				0, -- [2]
-				0, -- [3]
-				0, -- [4]
+				18.8940992575225, -- [1]
+				18.8940992575225, -- [2]
+				9.82805783509183, -- [3]
+				9.82805783509183, -- [4]
 				0, -- [5]
+				100, -- [6]
+				100, -- [7]
+				0, -- [8]
+				66.5966787554877, -- [9]
+				66.5966787554877, -- [10]
+				66.5966787554877, -- [11]
+				66.5966787554877, -- [12]
+				56.9574346249284, -- [13]
+				52.4145829356748, -- [14]
+				52.4145829356748, -- [15]
+				52.4145829356748, -- [16]
+				37.8125596487879, -- [17]
+				37.8125596487879, -- [18]
+				0, -- [19]
+				100, -- [20]
+				100, -- [21]
+				94.7440406408754, -- [22]
+				94.7440406408754, -- [23]
+				90.758108636186, -- [24]
+				90.758108636186, -- [25]
+				90.758108636186, -- [26]
+				81.9069949198906, -- [27]
+				81.9069949198906, -- [28]
+				81.9069949198906, -- [29]
+				81.9069949198906, -- [30]
+				81.9069949198906, -- [31]
+				81.9069949198906, -- [32]
+				81.9069949198906, -- [33]
+				81.9069949198906, -- [34]
+				77.5889019148105, -- [35]
+				77.5889019148105, -- [36]
+				77.5889019148105, -- [37]
+				68.1711606096131, -- [38]
+				63.4622899570145, -- [39]
+				57.9914028917546, -- [40]
+				53.5756154747948, -- [41]
+				47.8898007033998, -- [42]
+				43.7670965220789, -- [43]
+				43.7670965220789, -- [44]
+				38.7260648690895, -- [45]
+				33.9976553341149, -- [46]
+				33.9976553341149, -- [47]
+				33.9976553341149, -- [48]
+				29.3278624462681, -- [49]
+				29.3278624462681, -- [50]
 			},
 			["LastEvents"] = {
-				"Rhea's Child <Potray> Melee Bonechewer Scavenger Dodge", -- [1]
-				"Rhea's Child <Potray> Fireball Bonechewer Scavenger Miss (Fire)", -- [2]
-				"Rhea's Child <Potray> Fireball Bonechewer Scavenger Miss (Fire)", -- [3]
-				"Rhea's Child <Potray> Melee Bonechewer Scavenger Dodge", -- [4]
-				"Rhea's Child <Potray> Fireball Bonechewer Scavenger Miss (Fire)", -- [5]
+				"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [1]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Crit -464 (Physical)", -- [2]
+				"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -250 (Physical)", -- [3]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Parry", -- [4]
+				"Bloated Abomination <Potray> dies.", -- [5]
+				"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -310 (Physical)", -- [6]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -241 (Physical)", -- [7]
+				"Bloated Abomination <Potray> dies.", -- [8]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -238 (Physical)", -- [9]
+				"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Crit -706 (Physical)", -- [10]
+				"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [11]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -267 (Physical)", -- [12]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -238 (Physical)", -- [13]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -247 (Physical)", -- [14]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -245 (Physical)", -- [15]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -273 (Physical)", -- [16]
+				"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -346 (Physical)", -- [17]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -310 (Physical)", -- [18]
+				"Bloated Abomination <Potray> dies.", -- [19]
+				"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -257 (Physical)", -- [20]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -269 (Physical)", -- [21]
+				"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [22]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -204 (Physical)", -- [23]
+				"Bloated Abomination <Potray> Flatulate (DoT) Drakkari Skullcrusher Tick -99 (Nature)", -- [24]
+				"Bloated Abomination <Potray> Flatulate (DoT) Drakkari Skullcrusher Tick -104 (Nature)", -- [25]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Crit -453 (Physical)", -- [26]
+				"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -248 (Physical)", -- [27]
+				"Bloated Abomination <Potray> Flatulate (DoT) Drakkari Skullcrusher Tick -88 (Nature)", -- [28]
+				"Bloated Abomination <Potray> Flatulate (DoT) Drakkari Skullcrusher Tick -92 (Nature)", -- [29]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Dodge", -- [30]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Parry", -- [31]
+				"Bloated Abomination <Potray> Melee Drakkari Skullcrusher Hit -323 (Physical)", -- [32]
+				"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [33]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -221 (Physical)", -- [34]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -253 (Physical)", -- [35]
+				"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [36]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -229 (Physical)", -- [37]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -241 (Physical)", -- [38]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -280 (Physical)", -- [39]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -226 (Physical)", -- [40]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -291 (Physical)", -- [41]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -211 (Physical)", -- [42]
+				"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [43]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -258 (Physical)", -- [44]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -242 (Physical)", -- [45]
+				"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [46]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -239 (Physical)", -- [47]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -300 (Physical)", -- [48]
+				"Drakkari Skullcrusher Dazed Bloated Abomination <Potray> Immune (Physical)", -- [49]
+				"Drakkari Skullcrusher Melee Bloated Abomination <Potray> Hit -234 (Physical)", -- [50]
 			},
-			["Name"] = "Rhea's Child",
+			["Name"] = "Bloated Abomination",
+			["LastEventIncoming"] = {
+				true, -- [1]
+				true, -- [2]
+				false, -- [3]
+				true, -- [4]
+				true, -- [5]
+				false, -- [6]
+				true, -- [7]
+				true, -- [8]
+				true, -- [9]
+				false, -- [10]
+				true, -- [11]
+				true, -- [12]
+				true, -- [13]
+				true, -- [14]
+				true, -- [15]
+				true, -- [16]
+				false, -- [17]
+				true, -- [18]
+				true, -- [19]
+				false, -- [20]
+				true, -- [21]
+				true, -- [22]
+				true, -- [23]
+				false, -- [24]
+				false, -- [25]
+				true, -- [26]
+				false, -- [27]
+				false, -- [28]
+				false, -- [29]
+				true, -- [30]
+				true, -- [31]
+				false, -- [32]
+				true, -- [33]
+				true, -- [34]
+				true, -- [35]
+				true, -- [36]
+				true, -- [37]
+				true, -- [38]
+				true, -- [39]
+				true, -- [40]
+				true, -- [41]
+				true, -- [42]
+				true, -- [43]
+				true, -- [44]
+				true, -- [45]
+				true, -- [46]
+				true, -- [47]
+				true, -- [48]
+				true, -- [49]
+				true, -- [50]
+			},
+			["LastEventTimes"] = {
+				174681.255, -- [1]
+				174681.255, -- [2]
+				174681.503, -- [3]
+				174681.503, -- [4]
+				174682.518, -- [5]
+				174721.497, -- [6]
+				174721.497, -- [7]
+				174721.808, -- [8]
+				174573.148, -- [9]
+				174573.263, -- [10]
+				174573.363, -- [11]
+				174573.363, -- [12]
+				174574.127, -- [13]
+				174574.861, -- [14]
+				174574.861, -- [15]
+				174575.137, -- [16]
+				174575.295, -- [17]
+				174575.295, -- [18]
+				174575.981, -- [19]
+				174666.353, -- [20]
+				174666.353, -- [21]
+				174668.336, -- [22]
+				174668.336, -- [23]
+				174671.179, -- [24]
+				174671.179, -- [25]
+				174671.58, -- [26]
+				174672.108, -- [27]
+				174672.108, -- [28]
+				174672.108, -- [29]
+				174672.778, -- [30]
+				174673.578, -- [31]
+				174674.111, -- [32]
+				174674.778, -- [33]
+				174674.778, -- [34]
+				174675.208, -- [35]
+				174675.577, -- [36]
+				174675.577, -- [37]
+				174676.792, -- [38]
+				174677.265, -- [39]
+				174677.633, -- [40]
+				174677.633, -- [41]
+				174678.14, -- [42]
+				174678.818, -- [43]
+				174678.818, -- [44]
+				174679.205, -- [45]
+				174679.656, -- [46]
+				174679.656, -- [47]
+				174680.077, -- [48]
+				174680.077, -- [49]
+				174680.077, -- [50]
+			},
 			["Fights"] = {
-				["LastFightData"] = {
+				["Fight5"] = {
 					["DOTs"] = {
+						["Flatulate (DoT)"] = {
+							["Details"] = {
+								["Drakkari Skullcrusher"] = {
+									["count"] = 12,
+								},
+							},
+							["amount"] = 12,
+						},
 					},
 					["ElementDoneResist"] = {
 					},
 					["Ressed"] = 0,
-					["DamageTaken"] = 0,
+					["DamageTaken"] = 4615,
 					["RageGainedFrom"] = {
 					},
 					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Parry"] = {
+									["count"] = 2,
+								},
+								["Dodge"] = {
+									["count"] = 1,
+								},
+								["Crit"] = {
+									["count"] = 2,
+								},
+								["Hit"] = {
+									["count"] = 15,
+								},
+							},
+							["amount"] = 20,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Immune"] = {
+									["count"] = 7,
+								},
+							},
+							["amount"] = 7,
+						},
 					},
-					["DeathCount"] = 0,
+					["DeathCount"] = 1,
 					["HOT_Time"] = 0,
-					["DOT_Time"] = 0,
-					["ManaGain"] = 0,
+					["ElementHitsDone"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 4,
+								},
+							},
+							["amount"] = 4,
+						},
+						["Nature"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 4,
+								},
+							},
+							["amount"] = 4,
+						},
+					},
+					["ElementTakenAbsorb"] = {
+					},
 					["ElementTaken"] = {
+						["Melee"] = 4615,
 					},
-					["HOTs"] = {
-					},
+					["DOT_Time"] = 12,
+					["Damage"] = 1461,
 					["ElementTakenBlock"] = {
-					},
-					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["PartialBlock"] = {
+					["ElementTakenResist"] = {
 					},
-					["FDamagedWho"] = {
+					["ElementDoneAbsorb"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RageGain"] = 0,
-					["ElementDone"] = {
+					["RunicPowerGainedFrom"] = {
 					},
-					["ManaGainedFrom"] = {
+					["ElementDone"] = {
+						["Melee"] = 1078,
+						["Nature"] = 383,
+					},
+					["PartialAbsorb"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 20,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 20,
+							["amount"] = 0,
+						},
+						["Dazed"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 7,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 7,
+							["amount"] = 0,
+						},
 					},
 					["DamagedWho"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 1078,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 383,
+								},
+							},
+							["amount"] = 1461,
+						},
 					},
-					["RageGained"] = {
+					["PartialBlock"] = {
 					},
 					["WhoDamaged"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 4615,
+								},
+							},
+							["amount"] = 4615,
+						},
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["OverHeals"] = {
+					["PartialResist"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 20,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 20,
+							["amount"] = 0,
+						},
+						["Dazed"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 7,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 7,
+							["amount"] = 0,
+						},
 					},
-					["RunicPowerGained"] = {
+					["CCBroken"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
 					["TimeHealing"] = {
 					},
-					["Dispelled"] = 0,
-					["WhoHealed"] = {
+					["OverHeals"] = {
 					},
-					["PartialResist"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["CCBreak"] = 0,
-					["FDamage"] = 0,
-					["Interrupts"] = 0,
-					["EnergyGain"] = 0,
-					["ManaGained"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
-					["ActiveTime"] = 0,
-					["Overhealing"] = 0,
-					["ElementTakenResist"] = {
-					},
-					["InterruptData"] = {
-					},
-					["WhoDispelled"] = {
-					},
-					["TimeSpent"] = {
-					},
-					["Heals"] = {
-					},
-					["PartialAbsorb"] = {
-					},
-					["EnergyGained"] = {
+					["RageGained"] = {
 					},
 					["HealedWho"] = {
 					},
-					["Healing"] = 0,
-					["RunicPowerGainedFrom"] = {
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
 					},
-					["CCBroken"] = {
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 9.93,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 13.43,
+						},
 					},
-					["Attacks"] = {
+					["WhoDispelled"] = {
 					},
-					["HealingTaken"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["TimeDamage"] = 0,
-					["TimeDamaging"] = {
+					["InterruptData"] = {
 					},
 					["RunicPowerGain"] = 0,
-					["Damage"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 13.43,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 323,
+									["min"] = 248,
+									["count"] = 4,
+									["amount"] = 1078,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 1078,
+						},
+						["Flatulate (DoT)"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 104,
+									["min"] = 88,
+									["count"] = 4,
+									["amount"] = 383,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 383,
+						},
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 13.43,
+					["TimeDamaging"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 9.93,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 13.43,
+						},
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
 					["DispelledWho"] = {
 					},
 				},
@@ -16686,715 +8503,852 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["DOT_Time"] = 0,
-					["ManaGain"] = 0,
+					["ElementHitsDone"] = {
+					},
+					["ElementTakenAbsorb"] = {
+					},
 					["ElementTaken"] = {
 					},
-					["HOTs"] = {
-					},
+					["DOT_Time"] = 0,
+					["Damage"] = 0,
 					["ElementTakenBlock"] = {
-					},
-					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["PartialBlock"] = {
+					["ElementTakenResist"] = {
 					},
-					["FDamagedWho"] = {
+					["ElementDoneAbsorb"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RageGain"] = 0,
+					["RunicPowerGainedFrom"] = {
+					},
 					["ElementDone"] = {
 					},
-					["ManaGainedFrom"] = {
+					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["RageGained"] = {
+					["PartialBlock"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["OverHeals"] = {
+					["PartialResist"] = {
 					},
-					["RunicPowerGained"] = {
+					["CCBroken"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
 					["TimeHealing"] = {
 					},
-					["Dispelled"] = 0,
-					["WhoHealed"] = {
+					["OverHeals"] = {
 					},
-					["PartialResist"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["CCBreak"] = 0,
-					["FDamage"] = 0,
-					["Interrupts"] = 0,
-					["EnergyGain"] = 0,
-					["ManaGained"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
-					["ActiveTime"] = 0,
-					["Overhealing"] = 0,
-					["ElementTakenResist"] = {
-					},
-					["InterruptData"] = {
-					},
-					["WhoDispelled"] = {
-					},
-					["TimeSpent"] = {
-					},
-					["Heals"] = {
-					},
-					["PartialAbsorb"] = {
-					},
-					["EnergyGained"] = {
+					["RageGained"] = {
 					},
 					["HealedWho"] = {
 					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 0,
 					["Healing"] = 0,
-					["RunicPowerGainedFrom"] = {
+					["FDamagedWho"] = {
 					},
-					["CCBroken"] = {
-					},
+					["Dispelled"] = 0,
 					["Attacks"] = {
 					},
 					["HealingTaken"] = 0,
-					["ElementHitsDone"] = {
-					},
+					["RageGain"] = 0,
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["Fight4"] = {
+					["DOTs"] = {
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 241,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 1,
+								},
+							},
+							["amount"] = 1,
+						},
+					},
+					["DeathCount"] = 1,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 1,
+								},
+							},
+							["amount"] = 1,
+						},
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+						["Melee"] = 241,
+					},
+					["DOT_Time"] = 0,
+					["Damage"] = 310,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 0,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+						["Melee"] = 310,
+					},
+					["PartialAbsorb"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 0,
+						},
+					},
+					["DamagedWho"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 310,
+								},
+							},
+							["amount"] = 310,
+						},
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 241,
+								},
+							},
+							["amount"] = 241,
+						},
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 0,
+						},
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
 					["RunicPowerGain"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 3.5,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 310,
+									["min"] = 310,
+									["count"] = 1,
+									["amount"] = 310,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 310,
+						},
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 3.5,
+					["TimeDamaging"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
+					["DispelledWho"] = {
+					},
+				},
+				["LastFightData"] = {
+					["DOTs"] = {
+					},
+					["ElementDoneResist"] = {
+					},
+					["Ressed"] = 0,
+					["DamageTaken"] = 0,
+					["RageGainedFrom"] = {
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 0,
+								},
+								["Parry"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Immune"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["DeathCount"] = 0,
+					["HOT_Time"] = 0,
+					["ElementHitsDone"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["ElementTakenAbsorb"] = {
+					},
+					["ElementTaken"] = {
+						["Melee"] = 0,
+					},
+					["DOT_Time"] = 0,
 					["Damage"] = 0,
+					["ElementTakenBlock"] = {
+					},
+					["TimeHeal"] = 0,
+					["RessedWho"] = {
+					},
+					["Dispels"] = 0,
+					["ElementTakenResist"] = {
+					},
+					["ElementDoneAbsorb"] = {
+					},
+					["FAttacks"] = {
+					},
+					["RunicPowerGainedFrom"] = {
+					},
+					["ElementDone"] = {
+						["Melee"] = 0,
+					},
+					["PartialAbsorb"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Dazed"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["DamagedWho"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["PartialBlock"] = {
+					},
+					["WhoDamaged"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["EnergyGainedFrom"] = {
+					},
+					["PartialResist"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Dazed"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["CCBroken"] = {
+					},
+					["ElementDoneBlock"] = {
+					},
+					["TimeHealing"] = {
+					},
+					["OverHeals"] = {
+					},
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
+					},
+					["CCBreak"] = 0,
+					["RageGained"] = {
+					},
+					["HealedWho"] = {
+					},
+					["EnergyGain"] = 0,
+					["ManaGained"] = {
+					},
+					["FDamage"] = 0,
+					["Interrupts"] = 0,
+					["Overhealing"] = 0,
+					["TimeSpent"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["WhoDispelled"] = {
+					},
+					["InterruptData"] = {
+					},
+					["RunicPowerGain"] = 0,
+					["Heals"] = {
+					},
+					["WhoHealed"] = {
+					},
+					["EnergyGained"] = {
+					},
+					["ActiveTime"] = 0,
+					["Healing"] = 0,
+					["FDamagedWho"] = {
+					},
+					["Dispelled"] = 0,
+					["Attacks"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["HealingTaken"] = 0,
+					["RageGain"] = 0,
+					["TimeDamage"] = 0,
+					["TimeDamaging"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["ManaGain"] = 0,
+					["HOTs"] = {
+					},
 					["DispelledWho"] = {
 					},
 				},
 				["OverallData"] = {
+					["DOTs"] = {
+						["Flatulate (DoT)"] = {
+							["Details"] = {
+								["Drakkari Skullcrusher"] = {
+									["count"] = 18,
+								},
+							},
+							["amount"] = 18,
+						},
+					},
+					["TimeSpent"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 46.18,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 4.73,
+								},
+							},
+							["amount"] = 50.91,
+						},
+					},
+					["DamageTaken"] = 15294,
+					["PartialResist"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 65,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 65,
+							["amount"] = 0,
+						},
+						["Dazed"] = {
+							["Details"] = {
+								["No Resist"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 13,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 13,
+							["amount"] = 0,
+						},
+					},
+					["DeathCount"] = 5,
+					["PartialAbsorb"] = {
+						["Melee"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 65,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 65,
+							["amount"] = 0,
+						},
+						["Dazed"] = {
+							["Details"] = {
+								["No Absorb"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 13,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 13,
+							["amount"] = 0,
+						},
+					},
+					["ActiveTime"] = 50.91,
+					["ElementTaken"] = {
+						["Melee"] = 15294,
+					},
+					["DOT_Time"] = 18,
+					["Damage"] = 6393,
+					["ElementDone"] = {
+						["Melee"] = 5821,
+						["Nature"] = 572,
+					},
+					["ElementHitsTaken"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 57,
+								},
+								["Miss"] = {
+									["count"] = 1,
+								},
+								["Dodge"] = {
+									["count"] = 2,
+								},
+								["Crit"] = {
+									["count"] = 2,
+								},
+								["Parry"] = {
+									["count"] = 3,
+								},
+							},
+							["amount"] = 65,
+						},
+						["Physical"] = {
+							["Details"] = {
+								["Immune"] = {
+									["count"] = 13,
+								},
+							},
+							["amount"] = 13,
+						},
+					},
+					["DamagedWho"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 5821,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 572,
+								},
+							},
+							["amount"] = 6393,
+						},
+					},
+					["TimeDamage"] = 50.91,
+					["TimeDamaging"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 46.18,
+								},
+								["Flatulate (DoT)"] = {
+									["count"] = 4.73,
+								},
+							},
+							["amount"] = 50.91,
+						},
+					},
 					["Attacks"] = {
 						["Melee"] = {
 							["Details"] = {
-								["Dodge"] = {
-									["count"] = 2,
-									["amount"] = 0,
+								["Crit"] = {
+									["max"] = 706,
+									["min"] = 706,
+									["count"] = 1,
+									["amount"] = 706,
+								},
+								["Hit"] = {
+									["max"] = 346,
+									["min"] = 224,
+									["count"] = 18,
+									["amount"] = 5115,
 								},
 							},
-							["count"] = 2,
-							["amount"] = 0,
+							["count"] = 19,
+							["amount"] = 5821,
 						},
-						["Fireball"] = {
+						["Flatulate (DoT)"] = {
 							["Details"] = {
-								["Miss"] = {
-									["count"] = 3,
-									["amount"] = 0,
+								["Tick"] = {
+									["max"] = 104,
+									["min"] = 88,
+									["count"] = 6,
+									["amount"] = 572,
 								},
 							},
-							["count"] = 3,
-							["amount"] = 0,
+							["count"] = 6,
+							["amount"] = 572,
+						},
+					},
+					["WhoDamaged"] = {
+						["Drakkari Skullcrusher"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 15294,
+								},
+							},
+							["amount"] = 15294,
 						},
 					},
 					["ElementHitsDone"] = {
 						["Melee"] = {
 							["Details"] = {
-								["Dodge"] = {
-									["count"] = 2,
+								["Crit"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 18,
 								},
 							},
-							["amount"] = 2,
+							["amount"] = 19,
 						},
-						["Fire"] = {
+						["Nature"] = {
 							["Details"] = {
-								["Miss"] = {
-									["count"] = 3,
+								["Tick"] = {
+									["count"] = 6,
 								},
 							},
-							["amount"] = 3,
+							["amount"] = 6,
 						},
 					},
-					["ActiveTime"] = 16.97,
-					["TimeDamaging"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 6.54,
-								},
-								["Fireball"] = {
-									["count"] = 10.43,
-								},
-							},
-							["amount"] = 16.97,
-						},
-					},
-					["TimeSpent"] = {
-						["Bonechewer Scavenger"] = {
-							["Details"] = {
-								["Melee"] = {
-									["count"] = 6.54,
-								},
-								["Fireball"] = {
-									["count"] = 10.43,
-								},
-							},
-							["amount"] = 16.97,
-						},
-					},
-					["TimeDamage"] = 16.97,
 				},
 			},
-			["TimeLast"] = {
-				["OVERALL"] = 1412431399,
-				["ActiveTime"] = 1412431399,
-				["TimeDamage"] = 1412431399,
-			},
-			["LastEventIncoming"] = {
-				false, -- [1]
-				false, -- [2]
-				false, -- [3]
-				false, -- [4]
-				false, -- [5]
-			},
-			["LastEventTimes"] = {
-				162660.822, -- [1]
-				162665.912, -- [2]
-				162670.722, -- [3]
-				162673.76, -- [4]
-				162677.194, -- [5]
-			},
-			["LastAbility"] = 239255.365,
+			["UnitLockout"] = 1413794373,
+			["LastActive"] = 1413794608,
 		},
 	},
-	["FightNum"] = 74,
+	["FightNum"] = 16,
 	["CombatTimes"] = {
 		{
-			1412369497, -- [1]
-			1412369511, -- [2]
-			"22:51:38", -- [3]
-			"22:51:51", -- [4]
-			"Redstone Basilisk", -- [5]
+			1413793067, -- [1]
+			1413793079, -- [2]
+			"10:17:48", -- [3]
+			"10:17:59", -- [4]
+			"Blightguard", -- [5]
 		}, -- [1]
 		{
-			1412370580, -- [1]
-			1412370607, -- [2]
-			"23:09:40", -- [3]
-			"23:10:07", -- [4]
-			"Pescailla-Zul'jin", -- [5]
+			1413793202, -- [1]
+			1413793214, -- [2]
+			"10:20:03", -- [3]
+			"10:20:14", -- [4]
+			"Alarmed Blightguard", -- [5]
 		}, -- [2]
 		{
-			1412370692, -- [1]
-			1412370703, -- [2]
-			"23:11:32", -- [3]
-			"23:11:43", -- [4]
-			"Shattered Hand Grunt", -- [5]
+			1413793218, -- [1]
+			1413793224, -- [2]
+			"10:20:19", -- [3]
+			"10:20:24", -- [4]
+			"Blightguard", -- [5]
 		}, -- [3]
 		{
-			1412370707, -- [1]
-			1412370728, -- [2]
-			"23:11:48", -- [3]
-			"23:12:08", -- [4]
-			"Shattered Hand Warlock", -- [5]
+			1413793253, -- [1]
+			1413793267, -- [2]
+			"10:20:54", -- [3]
+			"10:21:07", -- [4]
+			"Blightguard", -- [5]
 		}, -- [4]
 		{
-			1412370825, -- [1]
-			1412370831, -- [2]
-			"23:13:45", -- [3]
-			"23:13:51", -- [4]
-			"Bonestripper Buzzard", -- [5]
+			1413793380, -- [1]
+			1413793393, -- [2]
+			"10:23:01", -- [3]
+			"10:23:13", -- [4]
+			"Blight Geist", -- [5]
 		}, -- [5]
 		{
-			1412371628, -- [1]
-			1412371632, -- [2]
-			"23:27:08", -- [3]
-			"23:27:12", -- [4]
-			"Environment", -- [5]
+			1413793915, -- [1]
+			1413793952, -- [2]
+			"10:31:56", -- [3]
+			"10:32:32", -- [4]
+			"Darmuk", -- [5]
 		}, -- [6]
 		{
-			1412431247, -- [1]
-			1412431253, -- [2]
-			"16:00:48", -- [3]
-			"16:00:53", -- [4]
-			"Bonechewer Evoker", -- [5]
+			1413794333, -- [1]
+			1413794341, -- [2]
+			"10:38:54", -- [3]
+			"10:39:01", -- [4]
+			"Servant of Drakuru", -- [5]
 		}, -- [7]
 		{
-			1412431310, -- [1]
-			1412431316, -- [2]
-			"16:01:50", -- [3]
-			"16:01:56", -- [4]
-			"Bonechewer Scavenger", -- [5]
+			1413794373, -- [1]
+			1413794393, -- [2]
+			"10:39:34", -- [3]
+			"10:39:53", -- [4]
+			"Drakkari Skullcrusher", -- [5]
 		}, -- [8]
 		{
-			1412431325, -- [1]
-			1412431333, -- [2]
-			"16:02:05", -- [3]
-			"16:02:13", -- [4]
-			"Bonechewer Evoker", -- [5]
+			1413794411, -- [1]
+			1413794430, -- [2]
+			"10:40:12", -- [3]
+			"10:40:30", -- [4]
+			"Drakkari Skullcrusher", -- [5]
 		}, -- [9]
 		{
-			1412431340, -- [1]
-			1412431358, -- [2]
-			"16:02:21", -- [3]
-			"16:02:38", -- [4]
-			"Bonechewer Scavenger", -- [5]
+			1413794450, -- [1]
+			1413794464, -- [2]
+			"10:40:51", -- [3]
+			"10:41:04", -- [4]
+			"Drakkari Skullcrusher", -- [5]
 		}, -- [10]
 		{
-			1412431360, -- [1]
-			1412431403, -- [2]
-			"16:02:41", -- [3]
-			"16:03:23", -- [4]
-			"Bonechewer Raider", -- [5]
+			1413794501, -- [1]
+			1413794520, -- [2]
+			"10:41:42", -- [3]
+			"10:42:00", -- [4]
+			"Drakkari Skullcrusher", -- [5]
 		}, -- [11]
 		{
-			1412431419, -- [1]
-			1412431431, -- [2]
-			"16:03:39", -- [3]
-			"16:03:51", -- [4]
-			"Bonechewer Evoker", -- [5]
+			1413794553, -- [1]
+			1413794572, -- [2]
+			"10:42:34", -- [3]
+			"10:42:52", -- [4]
+			"Drakkari Skullcrusher", -- [5]
 		}, -- [12]
 		{
-			1412431440, -- [1]
-			1412431447, -- [2]
-			"16:04:00", -- [3]
-			"16:04:07", -- [4]
-			"Bonechewer Evoker", -- [5]
+			1413794608, -- [1]
+			1413794614, -- [2]
+			"10:43:29", -- [3]
+			"10:43:34", -- [4]
+			"Drakkari Skullcrusher", -- [5]
 		}, -- [13]
 		{
-			1412431467, -- [1]
-			1412431474, -- [2]
-			"16:04:28", -- [3]
-			"16:04:34", -- [4]
-			"Bonechewer Scavenger", -- [5]
+			1413795476, -- [1]
+			1413795481, -- [2]
+			"10:57:57", -- [3]
+			"10:58:01", -- [4]
+			"Rampaging Geist", -- [5]
 		}, -- [14]
 		{
-			1412431486, -- [1]
-			1412431501, -- [2]
-			"16:04:47", -- [3]
-			"16:05:01", -- [4]
-			"Bonechewer Evoker", -- [5]
+			1413795560, -- [1]
+			1413795585, -- [2]
+			"10:59:21", -- [3]
+			"10:59:45", -- [4]
+			"Carrion Eater", -- [5]
 		}, -- [15]
 		{
-			1412431537, -- [1]
-			1412431568, -- [2]
-			"16:05:38", -- [3]
-			"16:06:08", -- [4]
-			"Bonechewer Raider", -- [5]
+			1413795625, -- [1]
+			1413795679, -- [2]
+			"11:00:26", -- [3]
+			"11:01:19", -- [4]
+			"Rampaging Geist", -- [5]
 		}, -- [16]
-		{
-			1412431577, -- [1]
-			1412431584, -- [2]
-			"16:06:18", -- [3]
-			"16:06:24", -- [4]
-			"Bonechewer Evoker", -- [5]
-		}, -- [17]
-		{
-			1412431598, -- [1]
-			1412431605, -- [2]
-			"16:06:38", -- [3]
-			"16:06:45", -- [4]
-			"Bonechewer Evoker", -- [5]
-		}, -- [18]
-		{
-			1412431622, -- [1]
-			1412431640, -- [2]
-			"16:07:02", -- [3]
-			"16:07:20", -- [4]
-			"Deranged Helboar", -- [5]
-		}, -- [19]
-		{
-			1412431742, -- [1]
-			1412431758, -- [2]
-			"16:09:02", -- [3]
-			"16:09:18", -- [4]
-			"Deranged Helboar", -- [5]
-		}, -- [20]
-		{
-			1412431760, -- [1]
-			1412431794, -- [2]
-			"16:09:21", -- [3]
-			"16:09:54", -- [4]
-			"Environment", -- [5]
-		}, -- [21]
-		{
-			1412431804, -- [1]
-			1412431812, -- [2]
-			"16:10:05", -- [3]
-			"16:10:12", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [22]
-		{
-			1412431826, -- [1]
-			1412431835, -- [2]
-			"16:10:27", -- [3]
-			"16:10:35", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [23]
-		{
-			1412431849, -- [1]
-			1412431888, -- [2]
-			"16:10:50", -- [3]
-			"16:11:28", -- [4]
-			"Shattered Hand Captain", -- [5]
-		}, -- [24]
-		{
-			1412431968, -- [1]
-			1412431976, -- [2]
-			"16:12:49", -- [3]
-			"16:12:56", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [25]
-		{
-			1412431998, -- [1]
-			1412432007, -- [2]
-			"16:13:19", -- [3]
-			"16:13:27", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [26]
-		{
-			1412432010, -- [1]
-			1412432020, -- [2]
-			"16:13:30", -- [3]
-			"16:13:40", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [27]
-		{
-			1412432051, -- [1]
-			1412432066, -- [2]
-			"16:14:12", -- [3]
-			"16:14:26", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [28]
-		{
-			1412432079, -- [1]
-			1412432089, -- [2]
-			"16:14:39", -- [3]
-			"16:14:49", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [29]
-		{
-			1412432094, -- [1]
-			1412432101, -- [2]
-			"16:14:54", -- [3]
-			"16:15:01", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [30]
-		{
-			1412432115, -- [1]
-			1412432133, -- [2]
-			"16:15:16", -- [3]
-			"16:15:33", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [31]
-		{
-			1412432151, -- [1]
-			1412432164, -- [2]
-			"16:15:52", -- [3]
-			"16:16:04", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [32]
-		{
-			1412432172, -- [1]
-			1412432181, -- [2]
-			"16:16:12", -- [3]
-			"16:16:21", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [33]
-		{
-			1412432191, -- [1]
-			1412432197, -- [2]
-			"16:16:31", -- [3]
-			"16:16:37", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [34]
-		{
-			1412432216, -- [1]
-			1412432226, -- [2]
-			"16:16:57", -- [3]
-			"16:17:06", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [35]
-		{
-			1412432240, -- [1]
-			1412432248, -- [2]
-			"16:17:21", -- [3]
-			"16:17:28", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [36]
-		{
-			1412432282, -- [1]
-			1412432296, -- [2]
-			"16:18:03", -- [3]
-			"16:18:16", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [37]
-		{
-			1412432331, -- [1]
-			1412432344, -- [2]
-			"16:18:52", -- [3]
-			"16:19:04", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [38]
-		{
-			1412432355, -- [1]
-			1412432367, -- [2]
-			"16:19:16", -- [3]
-			"16:19:27", -- [4]
-			"Shattered Hand Captain", -- [5]
-		}, -- [39]
-		{
-			1412432379, -- [1]
-			1412432387, -- [2]
-			"16:19:39", -- [3]
-			"16:19:47", -- [4]
-			"Shattered Hand Warlock", -- [5]
-		}, -- [40]
-		{
-			1412432389, -- [1]
-			1412432397, -- [2]
-			"16:19:50", -- [3]
-			"16:19:57", -- [4]
-			"Shattered Hand Grunt", -- [5]
-		}, -- [41]
-		{
-			1412432484, -- [1]
-			1412432514, -- [2]
-			"16:21:25", -- [3]
-			"16:21:54", -- [4]
-			"Shattered Hand Warlock", -- [5]
-		}, -- [42]
-		{
-			1412432553, -- [1]
-			1412432557, -- [2]
-			"16:22:34", -- [3]
-			"16:22:37", -- [4]
-			"Infernal Warbringer", -- [5]
-		}, -- [43]
-		{
-			1412432562, -- [1]
-			1412432570, -- [2]
-			"16:22:43", -- [3]
-			"16:22:50", -- [4]
-			"Infernal Warbringer", -- [5]
-		}, -- [44]
-		{
-			1412432574, -- [1]
-			1412432582, -- [2]
-			"16:22:54", -- [3]
-			"16:23:02", -- [4]
-			"Infernal Warbringer", -- [5]
-		}, -- [45]
-		{
-			1412432587, -- [1]
-			1412432596, -- [2]
-			"16:23:08", -- [3]
-			"16:23:16", -- [4]
-			"Heckling Fel Sprite", -- [5]
-		}, -- [46]
-		{
-			1412432598, -- [1]
-			1412432608, -- [2]
-			"16:23:19", -- [3]
-			"16:23:28", -- [4]
-			"Infernal Warbringer", -- [5]
-		}, -- [47]
-		{
-			1412432615, -- [1]
-			1412432627, -- [2]
-			"16:23:36", -- [3]
-			"16:23:47", -- [4]
-			"Flamewaker Imp", -- [5]
-		}, -- [48]
-		{
-			1412432630, -- [1]
-			1412432636, -- [2]
-			"16:23:51", -- [3]
-			"16:23:56", -- [4]
-			"Infernal Warbringer", -- [5]
-		}, -- [49]
-		{
-			1412432639, -- [1]
-			1412432647, -- [2]
-			"16:24:00", -- [3]
-			"16:24:07", -- [4]
-			"Infernal Warbringer", -- [5]
-		}, -- [50]
-		{
-			1412432649, -- [1]
-			1412432669, -- [2]
-			"16:24:09", -- [3]
-			"16:24:29", -- [4]
-			"Flamewaker Imp", -- [5]
-		}, -- [51]
-		{
-			1412432677, -- [1]
-			1412432688, -- [2]
-			"16:24:38", -- [3]
-			"16:24:48", -- [4]
-			"Flamewaker Imp", -- [5]
-		}, -- [52]
-		{
-			1412432699, -- [1]
-			1412432708, -- [2]
-			"16:25:00", -- [3]
-			"16:25:08", -- [4]
-			"Infernal Warbringer", -- [5]
-		}, -- [53]
-		{
-			1412432714, -- [1]
-			1412432726, -- [2]
-			"16:25:15", -- [3]
-			"16:25:26", -- [4]
-			"Heckling Fel Sprite", -- [5]
-		}, -- [54]
-		{
-			1412432783, -- [1]
-			1412432789, -- [2]
-			"16:26:23", -- [3]
-			"16:26:29", -- [4]
-			"Bleeding Hollow Grunt", -- [5]
-		}, -- [55]
-		{
-			1412432795, -- [1]
-			1412432811, -- [2]
-			"16:26:35", -- [3]
-			"16:26:51", -- [4]
-			"Bleeding Hollow Dark Shaman", -- [5]
-		}, -- [56]
-		{
-			1412432818, -- [1]
-			1412432848, -- [2]
-			"16:26:58", -- [3]
-			"16:27:28", -- [4]
-			"Bleeding Hollow Necrolyte", -- [5]
-		}, -- [57]
-		{
-			1412432854, -- [1]
-			1412432860, -- [2]
-			"16:27:34", -- [3]
-			"16:27:40", -- [4]
-			"Bleeding Hollow Necrolyte", -- [5]
-		}, -- [58]
-		{
-			1412432863, -- [1]
-			1412432871, -- [2]
-			"16:27:44", -- [3]
-			"16:27:51", -- [4]
-			"Bleeding Hollow Peon", -- [5]
-		}, -- [59]
-		{
-			1412432885, -- [1]
-			1412432898, -- [2]
-			"16:28:06", -- [3]
-			"16:28:18", -- [4]
-			"Bleeding Hollow Necrolyte", -- [5]
-		}, -- [60]
-		{
-			1412432913, -- [1]
-			1412432937, -- [2]
-			"16:28:33", -- [3]
-			"16:28:57", -- [4]
-			"Bleeding Hollow Grunt", -- [5]
-		}, -- [61]
-		{
-			1412432941, -- [1]
-			1412432950, -- [2]
-			"16:29:02", -- [3]
-			"16:29:10", -- [4]
-			"Bleeding Hollow Dark Shaman", -- [5]
-		}, -- [62]
-		{
-			1412432959, -- [1]
-			1412432969, -- [2]
-			"16:29:19", -- [3]
-			"16:29:29", -- [4]
-			"Bleeding Hollow Worg", -- [5]
-		}, -- [63]
-		{
-			1412432983, -- [1]
-			1412432990, -- [2]
-			"16:29:44", -- [3]
-			"16:29:50", -- [4]
-			"Bleeding Hollow Grunt", -- [5]
-		}, -- [64]
-		{
-			1412433002, -- [1]
-			1412433006, -- [2]
-			"16:30:03", -- [3]
-			"16:30:06", -- [4]
-			"Bleeding Hollow Worg", -- [5]
-		}, -- [65]
-		{
-			1412433023, -- [1]
-			1412433037, -- [2]
-			"16:30:24", -- [3]
-			"16:30:37", -- [4]
-			"Bleeding Hollow Grunt", -- [5]
-		}, -- [66]
-		{
-			1412433070, -- [1]
-			1412433077, -- [2]
-			"16:31:11", -- [3]
-			"16:31:17", -- [4]
-			"Bleeding Hollow Peon", -- [5]
-		}, -- [67]
-		{
-			1412433092, -- [1]
-			1412433100, -- [2]
-			"16:31:33", -- [3]
-			"16:31:40", -- [4]
-			"Bleeding Hollow Necrolyte", -- [5]
-		}, -- [68]
-		{
-			1412433141, -- [1]
-			1412433147, -- [2]
-			"16:32:21", -- [3]
-			"16:32:27", -- [4]
-			"Bleeding Hollow Necrolyte", -- [5]
-		}, -- [69]
-		{
-			1412433198, -- [1]
-			1412433214, -- [2]
-			"16:33:18", -- [3]
-			"16:33:34", -- [4]
-			"Bleeding Hollow Necrolyte", -- [5]
-		}, -- [70]
-		{
-			1412433228, -- [1]
-			1412433236, -- [2]
-			"16:33:49", -- [3]
-			"16:33:56", -- [4]
-			"Bleeding Hollow Grunt", -- [5]
-		}, -- [71]
-		{
-			1412433269, -- [1]
-			1412433288, -- [2]
-			"16:34:30", -- [3]
-			"16:34:48", -- [4]
-			"Bleeding Hollow Grunt", -- [5]
-		}, -- [72]
-		{
-			1412433362, -- [1]
-			1412433400, -- [2]
-			"16:36:03", -- [3]
-			"16:36:40", -- [4]
-			"Bleeding Hollow Necrolyte", -- [5]
-		}, -- [73]
-		{
-			1412433531, -- [1]
-			1412433539, -- [2]
-			"16:38:52", -- [3]
-			"16:38:59", -- [4]
-			"Starving Helboar", -- [5]
-		}, -- [74]
 	},
 	["FoughtWho"] = {
-		"Starving Helboar 16:38:52-16:38:59", -- [1]
-		"Bleeding Hollow Necrolyte 16:36:03-16:36:40", -- [2]
-		"Bleeding Hollow Grunt 16:34:30-16:34:48", -- [3]
-		"Bleeding Hollow Grunt 16:33:49-16:33:56", -- [4]
-		"Bleeding Hollow Necrolyte 16:33:18-16:33:34", -- [5]
+		"Rampaging Geist 11:00:26-11:01:19", -- [1]
+		"Carrion Eater 10:59:21-10:59:45", -- [2]
+		"Rampaging Geist 10:57:57-10:58:01", -- [3]
+		"Drakkari Skullcrusher 10:43:29-10:43:34", -- [4]
+		"Drakkari Skullcrusher 10:42:34-10:42:52", -- [5]
 	},
 }

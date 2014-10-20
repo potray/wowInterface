@@ -33,8 +33,8 @@ DataStore_InventoryDB = {
 					"|cffffffff|Hitem:49823:3722:0:0:0:0:0:717985104:80:0:0|h[]|h|r", -- [15]
 					"|cffffffff|Hitem:51582:3854:0:0:0:0:0:-1677328640:80:0:0|h[]|h|r", -- [16]
 				},
-				["averageItemLvl"] = 247.8666839599609,
-				["overallAIL"] = 247.8666839599609,
+				["averageItemLvl"] = 247.866683959961,
+				["overallAIL"] = 247.866683959961,
 				["lastUpdate"] = 1409841722,
 			},
 			["Default.Dun Modr.Pexuss"] = {
@@ -78,7 +78,7 @@ DataStore_InventoryDB = {
 					"|cffa335ee|Hitem:47493:3368:0:0:0:0:0:1837926400:80:0:0|h[Edge of Ruin]|h|r", -- [16]
 					[19] = 43155,
 				},
-				["averageItemLvl"] = 208.6666717529297,
+				["averageItemLvl"] = 208.66667175293,
 				["overallAIL"] = 210.9375,
 				["lastUpdate"] = 1409842229,
 			},
@@ -102,8 +102,8 @@ DataStore_InventoryDB = {
 					"|cffa335ee|Hitem:59492:4099:0:0:0:0:0:1953342592:85:0:0|h[Akirus the Worm-Breaker]|h|r", -- [16]
 					[19] = 65907,
 				},
-				["averageItemLvl"] = 344.4666748046875,
-				["overallAIL"] = 352.0666809082031,
+				["averageItemLvl"] = 344.466674804688,
+				["overallAIL"] = 352.066680908203,
 				["lastUpdate"] = 1409842250,
 			},
 			["Default.Los Errantes.Drublock"] = {
@@ -125,8 +125,8 @@ DataStore_InventoryDB = {
 					6378, -- [15]
 					42947, -- [16]
 				},
-				["averageItemLvl"] = 16.80000114440918,
-				["overallAIL"] = 18.86666679382324,
+				["averageItemLvl"] = 16.8000011444092,
+				["overallAIL"] = 18.8666667938232,
 				["lastUpdate"] = 1409841671,
 			},
 			["Default.Los Errantes.Kalarankor"] = {
@@ -145,7 +145,7 @@ DataStore_InventoryDB = {
 					56659, -- [12]
 					[15] = 2316,
 				},
-				["averageItemLvl"] = 12.86666774749756,
+				["averageItemLvl"] = 12.8666677474976,
 				["overallAIL"] = 19.25,
 				["lastUpdate"] = 1409841472,
 			},
@@ -191,8 +191,8 @@ DataStore_InventoryDB = {
 					41815, -- [16]
 					[19] = 43156,
 				},
-				["averageItemLvl"] = 181.2000122070313,
-				["overallAIL"] = 187.1333465576172,
+				["averageItemLvl"] = 181.200012207031,
+				["overallAIL"] = 187.133346557617,
 				["lastUpdate"] = 1409841976,
 			},
 			["Default.Dun Modr.Ringeki"] = {
@@ -211,33 +211,33 @@ DataStore_InventoryDB = {
 					38147, -- [12]
 					[15] = 34659,
 				},
-				["averageItemLvl"] = 48.00000381469727,
-				["overallAIL"] = 48.00000381469727,
+				["averageItemLvl"] = 48.0000038146973,
+				["overallAIL"] = 48.0000038146973,
 				["lastUpdate"] = 1410628407,
 			},
 			["Default.Dun Modr.Potray"] = {
 				["Inventory"] = {
-					13073, -- [1]
-					63022, -- [2]
-					"|cff0070dd|Hitem:51984:0:0:0:0:0:-68:929497107:59:0:0|h[Stalwart Shoulderpads of the Bear]|h|r", -- [3]
+					"|cffffffff|Hitem:61931:0:0:0:0:0:0:0:76:0:14:0|h[]|h|r", -- [1]
+					"|cffffffff|Hitem:113688:0:0:0:0:0:0:0:76:0:1:1:37|h[]|h|r", -- [2]
+					37517, -- [3]
 					nil, -- [4]
-					62991, -- [5]
-					"|cff0070dd|Hitem:51985:0:0:0:0:0:-41:376569882:59:0:0|h[Stalwart Belt of the Beast]|h|r", -- [6]
-					29945, -- [7]
-					59386, -- [8]
-					59371, -- [9]
-					13162, -- [10]
-					59398, -- [11]
-					"|cff0070dd|Hitem:51992:0:0:0:0:0:-72:248709134:59:0:0|h[Tumultuous Ring of the Battle]|h|r", -- [12]
+					36938, -- [5]
+					"|cffffffff|Hitem:112361:0:0:0:0:0:0:0:76:0:1:1:31|h[]|h|r", -- [6]
+					"|cffffffff|Hitem:112354:0:0:0:0:0:0:0:76:0:1:1:31|h[]|h|r", -- [7]
+					"|cffffffff|Hitem:40755:0:0:0:0:0:0:0:76:0:11:0|h[]|h|r", -- [8]
+					"|cffffffff|Hitem:39680:0:0:0:0:0:0:0:76:0:11:0|h[]|h|r", -- [9]
+					"|cffffffff|Hitem:35651:0:0:0:0:0:0:0:76:0:1:0|h[]|h|r", -- [10]
+					"|cffffffff|Hitem:38251:0:0:0:0:0:0:0:76:0:11:0|h[]|h|r", -- [11]
+					"|cffffffff|Hitem:38218:0:0:0:0:0:0:0:76:0:11:0|h[]|h|r", -- [12]
 					42991, -- [13]
-					63194, -- [14]
-					59395, -- [15]
+					38212, -- [14]
+					"|cffffffff|Hitem:62038:0:0:0:0:0:0:0:76:0:14:0|h[]|h|r", -- [15]
 					42943, -- [16]
 					[19] = 24344,
 				},
-				["averageItemLvl"] = 57.5333366394043,
-				["overallAIL"] = 62.75,
-				["lastUpdate"] = 1412504977,
+				["averageItemLvl"] = 157.33332824707,
+				["overallAIL"] = 163.199996948242,
+				["lastUpdate"] = 1413792807,
 			},
 		},
 		["Guilds"] = {

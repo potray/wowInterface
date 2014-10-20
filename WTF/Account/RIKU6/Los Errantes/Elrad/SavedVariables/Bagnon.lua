@@ -1,12 +1,14 @@
 
 BagnonFrameSettings = {
+	["version"] = "6.0.4",
 	["frames"] = {
 		["inventory"] = {
 		},
 		["bank"] = {
 			["point"] = "BOTTOMLEFT",
-			["y"] = 162.5000152587891,
+			["y"] = 333.499938964844,
+			["x"] = 444.999908447266,
+			["dataBrokerObject"] = "Bartender4",
 		},
 	},
-	["version"] = "5.4.15",
 }

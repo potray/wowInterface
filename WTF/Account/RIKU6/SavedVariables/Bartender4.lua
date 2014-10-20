@@ -18,14 +18,14 @@ Bartender4DB = {
 							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -189.4999084472656,
-								["x"] = -231.5001831054688,
+								["y"] = -189.499908447266,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -34,8 +34,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -84,14 +84,14 @@ Bartender4DB = {
 							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -189.4999084472656,
-								["x"] = -231.5001831054688,
+								["y"] = -189.499908447266,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -100,8 +100,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -151,14 +151,14 @@ Bartender4DB = {
 							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -189.4999084472656,
-								["x"] = -231.5001831054688,
+								["y"] = -189.499908447266,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -167,8 +167,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -218,13 +218,14 @@ Bartender4DB = {
 							["padding"] = 1,
 							["states"] = {
 								["customEnabled"] = false,
-								["default"] = 1,
-								["actionbar"] = true,
 								["custom"] = "local s = GetShapeshiftForm();\n[s:1]1;2",
+								["actionbar"] = true,
+								["default"] = 1,
 							},
 						}, -- [1]
 						{
 							["showgrid"] = true,
+							["enabled"] = false,
 							["buttons"] = 7,
 							["version"] = 3,
 							["position"] = {
@@ -313,14 +314,25 @@ Bartender4DB = {
 							["padding"] = 1,
 						}, -- [8]
 						{
+							["showgrid"] = true,
+							["enabled"] = true,
+							["buttons"] = 7,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -105.7887878417969,
-								["x"] = -467.9446868896484,
-								["point"] = "CENTER",
+								["y"] = 65,
+								["x"] = -105,
+								["point"] = "BOTTOM",
+								["scale"] = 0.8,
 							},
+							["padding"] = 1,
 						}, -- [9]
 						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 75.300048828125,
+								["x"] = -231.500122070313,
+								["point"] = "CENTER",
+							},
 						}, -- [10]
 					},
 				},
@@ -339,14 +351,14 @@ Bartender4DB = {
 							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -189.4999084472656,
-								["x"] = -231.5001831054688,
+								["y"] = -189.499908447266,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -355,8 +367,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -405,14 +417,14 @@ Bartender4DB = {
 							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -189.4999084472656,
-								["x"] = -231.5001831054688,
+								["y"] = -189.499908447266,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -421,8 +433,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -472,14 +484,14 @@ Bartender4DB = {
 							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -189.4999084472656,
-								["x"] = -231.5001831054688,
+								["y"] = -189.499908447266,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -488,8 +500,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -539,14 +551,14 @@ Bartender4DB = {
 							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -189.4999084472656,
-								["x"] = -231.5001831054688,
+								["y"] = -189.499908447266,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -555,8 +567,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -605,14 +617,14 @@ Bartender4DB = {
 							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -189.4999084472656,
-								["x"] = -231.5001831054688,
+								["y"] = -189.499908447266,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -621,8 +633,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -671,14 +683,14 @@ Bartender4DB = {
 							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -189.4999084472656,
-								["x"] = -231.5001831054688,
+								["y"] = -189.499908447266,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -687,8 +699,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -737,14 +749,14 @@ Bartender4DB = {
 							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -189.4999084472656,
-								["x"] = -231.5001831054688,
+								["y"] = -189.499908447266,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -753,8 +765,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -798,30 +810,30 @@ Bartender4DB = {
 				["Pexuss - Dun Modr"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.0000152587891,
-						["x"] = -31.50006103515625,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
 				["Drublock - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.0000152587891,
-						["x"] = -31.50006103515625,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
 				["Kareitris - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.0000152587891,
-						["x"] = -31.50006103515625,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
 				["Potray - Dun Modr"] = {
 					["position"] = {
-						["y"] = 211.2533569335938,
+						["y"] = 211.253356933594,
 						["x"] = 323.828857421875,
 						["point"] = "BOTTOM",
 					},
@@ -830,56 +842,56 @@ Bartender4DB = {
 				["Zhenya - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.0000152587891,
-						["x"] = -31.50006103515625,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
 				["Kobash - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.0000152587891,
-						["x"] = -31.50006103515625,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
 				["Kalarankor - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.0000152587891,
-						["x"] = -31.50006103515625,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
 				["Ringeki - Dun Modr"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.0000152587891,
-						["x"] = -31.50006103515625,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
 				["Prason - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.0000152587891,
-						["x"] = -31.50006103515625,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
 				["Elrad - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.0000152587891,
-						["x"] = -31.50006103515625,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
 				["Pexus - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.0000152587891,
-						["x"] = -31.50006103515625,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
@@ -919,7 +931,7 @@ Bartender4DB = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = -24.271728515625,
-						["x"] = -5.500000476837158,
+						["x"] = -5.50000047683716,
 						["point"] = "TOPLEFT",
 						["scale"] = 1,
 					},
@@ -993,8 +1005,8 @@ Bartender4DB = {
 			["profiles"] = {
 				["Potray - Dun Modr"] = {
 					["position"] = {
-						["y"] = 174.1644660551865,
-						["x"] = -330.1697892052434,
+						["y"] = 174.164466055187,
+						["x"] = -330.169789205243,
 						["point"] = "BOTTOM",
 						["scale"] = 0.550000011920929,
 					},
@@ -1033,7 +1045,7 @@ Bartender4DB = {
 				},
 				["Potray - Dun Modr"] = {
 					["position"] = {
-						["y"] = -131.7777404785156,
+						["y"] = -131.777740478516,
 						["x"] = 473.02197265625,
 						["point"] = "LEFT",
 					},
@@ -1137,8 +1149,8 @@ Bartender4DB = {
 					["enabled"] = false,
 					["onebag"] = true,
 					["position"] = {
-						["y"] = 139.5555114746094,
-						["x"] = 478.2779541015625,
+						["y"] = 139.555511474609,
+						["x"] = 478.277954101563,
 						["point"] = "BOTTOM",
 					},
 					["version"] = 3,
@@ -1204,107 +1216,6 @@ Bartender4DB = {
 						["y"] = 41.75,
 						["x"] = 463.5,
 						["point"] = "BOTTOM",
-					},
-				},
-			},
-		},
-		["StanceBar"] = {
-			["profiles"] = {
-				["Pexuss - Dun Modr"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = -14.99996185302734,
-						["x"] = -82.5,
-						["point"] = "CENTER",
-					},
-				},
-				["Drublock - Los Errantes"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 116,
-						["x"] = -460,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Kareitris - Los Errantes"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 116,
-						["x"] = -460,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Potray - Dun Modr"] = {
-					["rows"] = 3,
-					["position"] = {
-						["y"] = 99,
-						["x"] = -208,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-					["version"] = 3,
-				},
-				["Zhenya - Los Errantes"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = -14.99996185302734,
-						["x"] = -82.5,
-						["point"] = "CENTER",
-					},
-				},
-				["Kobash - Los Errantes"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 116,
-						["x"] = -460,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Kalarankor - Los Errantes"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 116,
-						["x"] = -460,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Ringeki - Dun Modr"] = {
-					["version"] = 3,
-					["position"] = {
-						["scale"] = 1,
-						["x"] = -460,
-						["point"] = "BOTTOM",
-						["y"] = 116,
-					},
-				},
-				["Prason - Los Errantes"] = {
-					["version"] = 3,
-					["position"] = {
-						["scale"] = 1,
-						["x"] = -460,
-						["point"] = "BOTTOM",
-						["y"] = 116,
-					},
-				},
-				["Elrad - Los Errantes"] = {
-					["version"] = 3,
-					["position"] = {
-						["scale"] = 1,
-						["x"] = -460,
-						["point"] = "BOTTOM",
-						["y"] = 116,
-					},
-				},
-				["Pexus - Los Errantes"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = -14.99996185302734,
-						["x"] = -82.5,
-						["point"] = "CENTER",
 					},
 				},
 			},
@@ -1314,7 +1225,7 @@ Bartender4DB = {
 				["Pexuss - Dun Modr"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 47.50003051757813,
+						["y"] = 47.5000305175781,
 						["x"] = 99.5,
 						["point"] = "CENTER",
 					},
@@ -1322,7 +1233,7 @@ Bartender4DB = {
 				["Drublock - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 47.50003051757813,
+						["y"] = 47.5000305175781,
 						["x"] = 99.5,
 						["point"] = "CENTER",
 					},
@@ -1330,7 +1241,7 @@ Bartender4DB = {
 				["Kareitris - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 47.50003051757813,
+						["y"] = 47.5000305175781,
 						["x"] = 99.5,
 						["point"] = "CENTER",
 					},
@@ -1338,7 +1249,7 @@ Bartender4DB = {
 				["Potray - Dun Modr"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 191.9332580566406,
+						["y"] = 191.933258056641,
 						["x"] = -432.088623046875,
 						["point"] = "BOTTOMRIGHT",
 					},
@@ -1346,7 +1257,7 @@ Bartender4DB = {
 				["Zhenya - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 47.50003051757813,
+						["y"] = 47.5000305175781,
 						["x"] = 99.5,
 						["point"] = "CENTER",
 					},
@@ -1354,7 +1265,7 @@ Bartender4DB = {
 				["Kobash - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 47.50003051757813,
+						["y"] = 47.5000305175781,
 						["x"] = 99.5,
 						["point"] = "CENTER",
 					},
@@ -1362,7 +1273,7 @@ Bartender4DB = {
 				["Kalarankor - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 47.50003051757813,
+						["y"] = 47.5000305175781,
 						["x"] = 99.5,
 						["point"] = "CENTER",
 					},
@@ -1370,7 +1281,7 @@ Bartender4DB = {
 				["Ringeki - Dun Modr"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 47.50003051757813,
+						["y"] = 47.5000305175781,
 						["x"] = 99.5,
 						["point"] = "CENTER",
 					},
@@ -1378,7 +1289,7 @@ Bartender4DB = {
 				["Prason - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 47.50003051757813,
+						["y"] = 47.5000305175781,
 						["x"] = 99.5,
 						["point"] = "CENTER",
 					},
@@ -1386,7 +1297,7 @@ Bartender4DB = {
 				["Elrad - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 47.50003051757813,
+						["y"] = 47.5000305175781,
 						["x"] = 99.5,
 						["point"] = "CENTER",
 					},
@@ -1394,8 +1305,108 @@ Bartender4DB = {
 				["Pexus - Los Errantes"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 47.50003051757813,
+						["y"] = 47.5000305175781,
 						["x"] = 99.5,
+						["point"] = "CENTER",
+					},
+				},
+			},
+		},
+		["StanceBar"] = {
+			["profiles"] = {
+				["Pexuss - Dun Modr"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = -14.9999618530273,
+						["x"] = -82.5,
+						["point"] = "CENTER",
+					},
+				},
+				["Drublock - Los Errantes"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 116,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["Kareitris - Los Errantes"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 116,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["Potray - Dun Modr"] = {
+					["position"] = {
+						["y"] = 182.755493164063,
+						["x"] = 173.198852539063,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+					["version"] = 3,
+				},
+				["Zhenya - Los Errantes"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = -14.9999618530273,
+						["x"] = -82.5,
+						["point"] = "CENTER",
+					},
+				},
+				["Kobash - Los Errantes"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 116,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["Kalarankor - Los Errantes"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 116,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["Ringeki - Dun Modr"] = {
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 1,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+						["y"] = 116,
+					},
+				},
+				["Prason - Los Errantes"] = {
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 1,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+						["y"] = 116,
+					},
+				},
+				["Elrad - Los Errantes"] = {
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 1,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+						["y"] = 116,
+					},
+				},
+				["Pexus - Los Errantes"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = -14.9999618530273,
+						["x"] = -82.5,
 						["point"] = "CENTER",
 					},
 				},
@@ -1430,7 +1441,7 @@ Bartender4DB = {
 				["Potray - Dun Modr"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 139.5151672363281,
+						["y"] = 139.515167236328,
 						["x"] = -163.5,
 						["point"] = "BOTTOM",
 					},

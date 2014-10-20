@@ -1,0 +1,10 @@
+## Interface: 60000
+## Title: PetTracker Carbonite
+## Notes: Displays PetTracker data on Carbonite.
+## Author: Jaliborc (João Cardoso)
+
+## Dependencies: PetTracker, Carbonite
+## OptionalDeps: Carbonite.Quests
+## X-Category: Battle Pets
+
+Carbonite.lua

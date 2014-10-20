@@ -23,7 +23,8 @@ local L = Addon.Locals
 --[[ Values ]]--
 
 Addon.MaxLevel = 25
-Addon.MaxQuality = ITEM_QUALITY_RARE + 1
+Addon.MaxQuality = LE_ITEM_QUALITY_RARE + 1
+Addon.QualityScale = {1,1.1,1.2,1.3,1.4,1.5}
 Addon.ContinentByZone = {}
 
 Addon.SourceIcons = {
@@ -34,6 +35,19 @@ Addon.SourceIcons = {
 	'Interface/Icons/Tracking_WildPet',
 	'Interface/AchievementFrame/UI-Achievement-TinyShield',
 	'Interface/GossipFrame/DailyQuestIcon'
+}
+
+Addon.BreedStats = {
+	[3] = {.5,.5,.5},
+	[4] = {0,2,0},
+	[5] = {0,0,2},
+	[6] = {2,0,0}, 
+	[7] = {.9,.9,0},
+	[8] = {0,.9,.9},
+	[9] = {.9,0,.9},
+	[10] = {.4,.9,.4},
+	[11] = {.4,.4,.9},
+	[12] = {.9,.4,.4}
 }
 
 Addon.BreedNames = {
@@ -62,8 +76,9 @@ Addon.BreedIcons = {
 	[11] = {'|TInterface\\PetBattles\\PetBattle-StatIcons:%d:%d:%d:%d:32:32:0:16:16:32|t', 17, 17}
 }
 
-for i = 1, select('#', GetMapContinents()) do
-	local continent = select(i, GetMapContinents())
+for i = 1, select('#', GetMapContinents())/2 do
+	local continent = select(i*2, GetMapContinents())
+
 	for k = 1, select('#', GetMapZones(i)) do
 		Addon.ContinentByZone[select(k, GetMapZones(i))] = continent
 	end

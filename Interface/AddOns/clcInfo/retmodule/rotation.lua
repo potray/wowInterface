@@ -18,14 +18,12 @@ local ef = CreateFrame("Frame") 	-- event frame
 ef:Hide()
 local qTaint = true								-- will force queue check
 
-xmod.version = 5000006
+xmod.version = 6000001
 xmod.defaults = {
 	version = xmod.version,
 	
-	prio = "inq tv5 how exo cs j tv3",
+	prio = "cs j",
 	rangePerSkill = false,
-	inqRefresh = 5,
-	inqApplyMin = 3,
 
 	howclash = 0,  	-- priority time for hammer of wrath
 	csclash = 0,		-- priority time for cs
@@ -37,7 +35,6 @@ xmod.defaults = {
 --------------------------------------------------------------------------------
 local gcdId 				= 85256 	-- tv for gcd
 -- list of spellId
-local inqId					= 84963		-- inquisition
 local tvId					= 85256		-- templar's verdict
 local exoId					= 879			-- exorcism
 local mexoId				= 122032	-- mass exorcism
@@ -50,12 +47,11 @@ local hprId					= 114165	-- holy prism
 local lhId					= 114158	-- light's hammer
 local ssId					=	20925		-- sacred shield
 -- buffs
-local buffInq 	= GetSpellInfo(inqId)		-- inquisition
 local buffDP 		= GetSpellInfo(90174)		-- divine purpose
 local buffHA		= GetSpellInfo(105809)	-- holy avenger
 local buffAW    = GetSpellInfo(31884)		-- avenging wrath	
 local buff4T15 	= GetSpellInfo(138169)  -- templar's verdict buff
-local buff4T16	= GetSpellInfo(144595)	-- divine crusader
+local buff4T16  = GetSpellInfo(144595)	-- Item - Paladin T16 Retribution 4P Bonus
 
 -- custom function to check ss since there are 2 buffs with same name
 --local buffSS		= 65148
@@ -63,7 +59,7 @@ local buffSS = 20925
 
 -- status vars
 local s1, s2
-local s_ctime, s_otime, s_gcd, s_hp, s_inq, s_dp, s_ha, s_aw, s_ss, s_4t15, s_4t16, s_haste, s_targetType
+local s_ctime, s_otime, s_gcd, s_hp, s_dp, s_ha, s_aw, s_ss, s_4t15, s_4t16, s_haste, s_targetType
 local s_exoId = exoId
 
 -- the queue
@@ -80,40 +76,7 @@ end
 
 -- TODO	DP tests
 -- actions ---------------------------------------------------------------------
-local actions = {
-	-- inq
-	inq = {
-		id = inqId,
-		GetCD = function()
-			if s_inq <= db.inqRefresh and s_hp >= db.inqApplyMin then
-				return 0
-			end
-			return 100
-		end,
-		UpdateStatus = function()
-			s_ctime = s_ctime + s_gcd + 1.5 / s_haste
-			s_inq = 100 -- make sure it's not shown as next skill
-			if s_dp <= 0 then
-				s_hp = max(0, s_hp - 3)
-			end
-		end,
-		info = "apply Inquisition"
-	},
-	inqdp = {
-		id = inqId,
-		GetCD = function()
-			if s_inq <= db.inqRefresh and s_dp > 0.1 then
-				return 0
-			end
-			return 100
-		end,
-		UpdateStatus = function()
-			s_ctime = s_ctime + s_gcd + 1.5 / s_haste
-			s_inq = 100 -- make sure it's not shown as next skill
-			s_dp = 0
-		end,
-		info = "apply Inquisition when Divine Purpose procs",
-	},
+local actions = {	
 	tv5 = {
 		id = tvId,
 		GetCD = function()
@@ -404,21 +367,7 @@ local actions = {
 			s_ctime = s_ctime + s_gcd + 1.5 / s_haste
 		end,
 		info = "Execution Sentence",
-		reqTalent = 18,
-	},
-	inqes = {
-		id = esId,
-		GetCD = function()
-			if s1 ~= esId and s_inq > 0 then
-				return GetCooldown(esId)
-			end
-			return 100 -- lazy stuff
-		end,
-		UpdateStatus = function()
-			s_ctime = s_ctime + s_gcd + 1.5 / s_haste
-		end,
-		info = "Execution Sentence with Inquistion active",
-		reqTalent = 18,
+		reqTalent = 17609,
 	},
 	hpr = {
 		id = hprId,
@@ -432,21 +381,7 @@ local actions = {
 			s_ctime = s_ctime + s_gcd + 1.5 / s_haste
 		end,
 		info = "Holy Prism",
-		reqTalent = 16,
-	},
-	inqhpr = {
-		id = hprId,
-		GetCD = function()
-			if s1 ~= hprId and s_inq > 0 then
-				return GetCooldown(hprId)
-			end
-			return 100 -- lazy stuff
-		end,
-		UpdateStatus = function()
-			s_ctime = s_ctime + s_gcd + 1.5 / s_haste
-		end,
-		info = "Holy Prism with Inquisition active",
-		reqTalent = 16,
+		reqTalent = 17605,
 	},
 	lh = {
 		id = lhId,
@@ -460,21 +395,7 @@ local actions = {
 			s_ctime = s_ctime + s_gcd + 1.5 / s_haste
 		end,
 		info = "Light's Hammer",
-		reqTalent = 17,
-	},
-	inqlh = {
-		id = lhId,
-		GetCD = function()
-			if s1 ~= lhId and s_inq > 0 then
-				return GetCooldown(lhId)
-			end
-			return 100 -- lazy stuff
-		end,
-		UpdateStatus = function()
-			s_ctime = s_ctime + s_gcd + 1.5 / s_haste
-		end,
-		info = "Light's Hammer with Inquisition active",
-		reqTalent = 17,
+		reqTalent = 17607,
 	},
 	ss = {
 		id = ssId,
@@ -489,7 +410,7 @@ local actions = {
 			s_ss = 30
 		end,
 		info = "Sacred Shield",
-		reqTalent = 9,
+		reqTalent = 21098,
 	},
 	ds_4t16 = {
 		id = dsId,
@@ -574,7 +495,6 @@ local function GetStatus()
 	if s_gcd < 0 then s_gcd = 0 end
 	
 	-- the buffs
-	s_inq 	= GetBuff(buffInq)
 	s_dp	= GetBuff(buffDP)
 	s_ha	= GetBuff(buffHA)
 	s_aw	= GetBuff(buffAW)
@@ -605,7 +525,7 @@ local function GetWorkingQueue()
 		-- see if it has a talent requirement
 		if actions[v].reqTalent then
 			-- see if the talent is activated
-			name, _, _, _, selected, available = GetTalentInfo(actions[v].reqTalent)
+      _, name, _, selected, available = GetTalentInfoByID(actions[v].reqTalent, GetActiveSpecGroup())
 			if name and selected and available then
 				table.insert(q, v)
 			end
@@ -697,7 +617,6 @@ function xmod.Rotation()
 		debug:AddBoth("gcd", s_gcd)
 		debug:AddBoth("hp", s_hp)
 		debug:AddBoth("ha", s_ha)
-		debug:AddBoth("inq", s_inq)
 		debug:AddBoth("dp", s_dp)
 		debug:AddBoth("haste", s_haste)
 		debug:AddBoth("4t15", s_4t15)
@@ -713,12 +632,11 @@ function xmod.Rotation()
 	
 	-- adjust buffs
 	s_otime = s_ctime - s_otime
-	s_inq = max(0, s_inq - s_otime)
 	s_dp = max(0, s_dp - s_otime)
 	s_ha = max(0, s_ha - s_otime)
 	s_ss = max(0, s_ss - s_otime)
 	s_aw = max(0, s_aw - s_otime)
-	s_4t16 = max(0, s_4t16 - s_otime)
+	s_4t16 	= GetBuff(buff4T16)
 	
 	if debug and debug.enabled then
 		debug:AddBoth("ctime", s_ctime)
@@ -726,7 +644,6 @@ function xmod.Rotation()
 		debug:AddBoth("gcd", s_gcd)
 		debug:AddBoth("hp", s_hp)
 		debug:AddBoth("ha", s_ha)
-		debug:AddBoth("inq", s_inq)
 		debug:AddBoth("dp", s_dp)
 		debug:AddBoth("haste", s_haste)
 		debug:AddBoth("4t15", s_4t15)

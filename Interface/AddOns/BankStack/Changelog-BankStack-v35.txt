@@ -1,0 +1,12 @@
+tag v35
+567338a964925a987b27f61e6341e96c0ae97220
+David Lynch <kemayo@gmail.com>
+2014-10-15 11:55:30 -0500
+
+Tagging v35
+
+
+--------------------
+
+David Lynch:
+	- If you haven't bought the reagent bank, nothing can go into it

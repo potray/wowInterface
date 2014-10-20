@@ -1,44 +1,44 @@
-MACRO 16777224 "CDs" INV_Misc_QuestionMark
+VER 3 0100000000000008 "CDs" "INV_Misc_QuestionMark"
 /cast Avenging Wrath
 /cast Hammer of Wrath
 /startattack
 END
-MACRO 16777231 "Cons" INV_Misc_QuestionMark
+VER 3 010000000000000F "Cons" "INV_Misc_QuestionMark"
 #showtooltip 
 /castsequence reset=14 Holy Wrath, Consecration
 /startattack
 END
-MACRO 16777226 "CS/DS" INV_Misc_QuestionMark
+VER 3 010000000000000A "CS/DS" "INV_Misc_QuestionMark"
 #showtooltip
 /cast [modifier:shift]divine storm; Crusader Strike
 /startattact
 END
-MACRO 16777232 "CS/HoR" INV_Misc_QuestionMark
+VER 3 0100000000000010 "CS/HoR" "INV_Misc_QuestionMark"
 #showtoolip
 /cast [modifier:shift] Hammer of the Righteous; Crusader Strike
 /startattack
 END
-MACRO 16777228 "Exor" INV_Misc_QuestionMark
+VER 3 010000000000000C "Exor" "INV_Misc_QuestionMark"
 #showtooltip Exorcism
 /cast Exorcism
 /startattact
 END
-MACRO 16777227 "HoW" INV_Misc_QuestionMark
+VER 3 010000000000000B "HoW" "INV_Misc_QuestionMark"
 #showtooltip Hammer of Wrath
 /cast Hammer of Wrath
 /startattact
 END
-MACRO 16777229 "J" INV_Misc_QuestionMark
+VER 3 010000000000000D "J" "INV_Misc_QuestionMark"
 #showtooltip Judgement
 /cast Judgement
 /startattact
 END
-MACRO 16777225 "TV" INV_Misc_QuestionMark
+VER 3 0100000000000009 "TV" "INV_Misc_QuestionMark"
 #showtooltip templar's verdict
 /cast templar's verdict
 /startattact
 END
-MACRO 16777233 "Zea" INV_Misc_QuestionMark
+VER 3 0100000000000011 "Zea" "INV_Misc_QuestionMark"
 #showtooltip
 /cast Zealotry
 /cast avenging wrath

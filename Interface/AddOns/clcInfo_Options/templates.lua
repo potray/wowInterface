@@ -65,13 +65,17 @@ local function GetTalentTrees()
 	end
 	return list
 end
+
+-- get all talents from a specific tree
 local function GetTreeTalents()
 	local list = { "Any" }
-	local n = GetNumTalents(false)
 	local name
-	for i = 1, n do
-		name = GetTalentInfo(i)
-		table.insert(list, name)
+	local spec = GetActiveSpecGroup();
+	for talentTier = 1, MAX_TALENT_TIERS do
+		for talentColumn = 1, NUM_TALENT_COLUMNS do
+			_, name = GetTalentInfo(talentTier, talentColumn, spec)
+			table.insert(list, name)
+		end
 	end
 	return list
 end

@@ -114,6 +114,7 @@ local TT_DefaultConfig = {
 	iconRaid = true,
 	iconFaction = false,
 	iconCombat = false,
+	iconClass = false,
 	iconAnchor = "TOPLEFT",
 	iconSize = 24,
 
@@ -475,7 +476,7 @@ local function ModifyUnitTooltip()
 		lineInfo[#lineInfo + 1] = cfg.colRace;
 		lineInfo[#lineInfo + 1] = UnitRace(unit);
 		-- class
-		local class, classEng = UnitClass(unit);
+		local class, classEng = UnitClass(unit);	-- Az: UnitClass() is called too many times in TipTac's code, cache it!
 		lineInfo[#lineInfo + 1] = " ";
 		lineInfo[#lineInfo + 1] = (TT_ClassColors[classEng] or COL_WHITE);
 		lineInfo[#lineInfo + 1] = class;
@@ -1070,6 +1071,7 @@ function tt:HookTips()
 		-- Position Tip to Normal, Mouse or Parent anchor
 		gtt_anchorType, gtt_anchorPoint = GetAnchorPosition();
 		tooltip:SetOwner(parent,"ANCHOR_NONE");
+		tooltip:ClearAllPoints();
 		if (gtt_anchorType == "mouse") then
 			tt:AnchorFrameToMouse(tooltip);
 		elseif (gtt_anchorType == "parent") then
@@ -1176,12 +1178,13 @@ function tt:ApplySettings()
 		GameTooltipText:SetFont(cfg.fontFace,cfg.fontSize,cfg.fontFlags);
 		GameTooltipTextSmall:SetFont(cfg.fontFace,cfg.fontSize - cfg.fontSizeDelta,cfg.fontFlags);
 	end
-	-- Raid Icon
-	if (cfg.iconRaid or cfg.iconFaction or cfg.iconCombat) and (not tipIcon) then
+	-- Special Tooltip Icon
+	local isIconNeeded = (cfg.iconRaid or cfg.iconFaction or cfg.iconCombat or cfg.iconClass);
+	if (isIconNeeded) and (not tipIcon) then
 		tipIcon = gtt:CreateTexture(nil,"BACKGROUND");
 	end
 	if (tipIcon) then
-		if (cfg.iconRaid or cfg.iconFaction or cfg.iconCombat) then
+		if (isIconNeeded) then
 			tipIcon:SetWidth(cfg.iconSize);
 			tipIcon:SetHeight(cfg.iconSize);
 			tipIcon:ClearAllPoints();
@@ -1317,8 +1320,8 @@ function tt:ApplyGeneralAppearance(first)
 		local color = CLASS_COLORS[classEng] or CLASS_COLORS["PRIEST"];
 		gtt:SetBackdropBorderColor(color.r,color.g,color.b);
 	end
-	-- Raid Icon
-	if (cfg.iconRaid or cfg.iconFaction or cfg.iconCombat) then
+	-- Special Tooltip Icon
+	if (cfg.iconRaid or cfg.iconFaction or cfg.iconCombat or cfg.iconClass) then
 		local raidIconIndex = GetRaidTargetIndex(u.token);
 		if (cfg.iconRaid) and (raidIconIndex) then
 			tipIcon:SetTexture("Interface\\TargetingFrame\\UI-RaidTargetingIcons");
@@ -1335,6 +1338,12 @@ function tt:ApplyGeneralAppearance(first)
 		elseif (cfg.iconCombat) and (UnitAffectingCombat(u.token)) then
 			tipIcon:SetTexture("Interface\\CharacterFrame\\UI-StateIcon");
 			tipIcon:SetTexCoord(0.5,1,0,0.5);
+			tipIcon:Show();
+		elseif (u.isPlayer) and (cfg.iconClass) then
+			local _, classEng = UnitClass(u.token);		-- Az: UnitClass() is called too many times in TipTac's code, cache it!
+			local texCoord = CLASS_ICON_TCOORDS[classEng];
+			tipIcon:SetTexture("Interface\\TargetingFrame\\UI-Classes-Circles");
+			tipIcon:SetTexCoord(unpack(texCoord));
 			tipIcon:Show();
 		else
 			tipIcon:Hide();

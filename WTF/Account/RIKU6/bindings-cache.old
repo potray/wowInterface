@@ -7,12 +7,12 @@ bind SPACE JUMP
 bind NUMPAD0 JUMP
 bind NUMLOCK TOGGLEAUTORUN
 bind BUTTON4 TOGGLEAUTORUN
-bind 1 CLICK BT4Button49:LeftButton
-bind 2 CLICK BT4Button50:LeftButton
-bind 3 CLICK BT4Button51:LeftButton
-bind 4 CLICK BT4Button52:LeftButton
-bind 5 CLICK BT4Button53:LeftButton
-bind 6 CLICK BT4Button54:LeftButton
+bind 1 ACTIONBUTTON1
+bind 2 ACTIONBUTTON2
+bind 3 ACTIONBUTTON3
+bind 4 ACTIONBUTTON4
+bind 5 ACTIONBUTTON5
+bind 6 ACTIONBUTTON6
 bind 7 CLICK BT4Button55:LeftButton
 bind 8 CLICK BT4Button8:LeftButton
 bind 9 CLICK BT4Button9:LeftButton
@@ -20,17 +20,21 @@ bind 0 CLICK BT4Button10:LeftButton
 bind - CLICK BT4Button11:LeftButton
 bind = CLICK BT4Button12:LeftButton
 bind SHIFT-1 NONE
-bind SHIFT-2 NONE
-bind SHIFT-3 NONE
+bind SHIFT-2 CLICK BT4Button98:LeftButton
+bind SHIFT-3 CLICK BT4Button99:LeftButton
 bind SHIFT-4 NONE
-bind SHIFT-MOUSEWHEELDOWN CLICK BT4Button98:LeftButton
-bind F CLICK BT4Button44:LeftButton
+bind SHIFT-MOUSEWHEELDOWN NONE
+bind F1 CLICK BT4Button76:LeftButton
+bind F2 CLICK BT4Button77:LeftButton
+bind F3 CLICK BT4Button78:LeftButton
+bind F4 CLICK BT4Button79:LeftButton
+bind F CLICK BT4Button103:LeftButton
 bind SHIFT-F CLICK BT4Button26:LeftButton
 bind BUTTON5 NONE
 bind SHIFT-S CLICK BT4Button25:LeftButton
 bind SHIFT-D CLICK BT4Button27:LeftButton
 bind SHIFT-BUTTON4 CLICK BT4Button74:LeftButton
-bind SHIFT-BUTTON5 CLICK BT4Button97:LeftButton
+bind SHIFT-BUTTON5 NONE
 bind SHIFT-A CLICK BT4Button37:LeftButton
 bind SHIFT-BUTTON3 NONE
 bind CTRL-SHIFT-I CLICK WoWPro_FauxItemButton:LeftButton
@@ -39,6 +43,8 @@ bind ALT-CTRL-SHIFT-Z ARH_TOGGLEHUD
 bind ALT-CTRL-SHIFT-` NONE
 bind CTRL-SHIFT-< CLICK BT4Button43:LeftButton
 bind CTRL-SHIFT-ç CLICK BT4Button74:LeftButton
-bind SHIFT-E CLICK BT4Button99:LeftButton
+bind SHIFT-E NONE
 bind SHIFT-Q CLICK BT4Button43:LeftButton
+bind ALT-CTRL-SHIFT-1 CLICK BT4Button85:LeftButton
+bind CTRL-SHIFT-2 CLICK BT4Button14:LeftButton
 modifiedclick NONE SELFCAST

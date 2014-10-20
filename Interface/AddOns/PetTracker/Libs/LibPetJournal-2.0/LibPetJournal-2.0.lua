@@ -56,8 +56,7 @@ end)
 do
     local PJ_FLAG_FILTERS = {
         [LE_PET_JOURNAL_FLAG_COLLECTED] = true,
-        [LE_PET_JOURNAL_FLAG_NOT_COLLECTED] = true,
-        [LE_PET_JOURNAL_FLAG_FAVORITES] = false
+        [LE_PET_JOURNAL_FLAG_NOT_COLLECTED] = true
     }
 
     local s_search_filter

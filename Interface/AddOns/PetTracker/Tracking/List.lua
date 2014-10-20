@@ -31,10 +31,11 @@ end
 
 function List:NewLine()
 	local line = Line(self)
-	line:SetPoint('TOPLEFT', self:Last() or self.Anchor, 'BOTTOMLEFT', 0, -4)
-	line.text:SetPoint('Left', line.dash, 'Right', 22, 0)
-	line.text:SetHeight(WATCHFRAME_LINEHEIGHT)
-	line.icon:Show()
+	local last = self:Last() or self.Anchor
+
+	line:SetPoint('TOPLEFT', last, 'BOTTOMLEFT', last.xOff or 0, last.yOff or -4)
+	line.Text:SetPoint('Left', line.Icon, 'Right', 8, 0)
+	line.Icon:Show()
 	line:Show()
 	
 	tinsert(self.Lines, line)

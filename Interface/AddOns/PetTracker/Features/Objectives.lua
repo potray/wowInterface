@@ -19,36 +19,53 @@ if IsAddOnLoaded('Carbonite.Quests') then
 	return
 end
 
-local _, Addon = ...
-local Objectives = Addon:NewModule('Objectives', Addon.Tracker())
+local ADDON, Addon = ...
+local Objectives = Addon:NewModule('Objectives', ObjectiveTracker_GetModuleInfoTable())
+
+
+--[[ Startup ]]--
 
 function Objectives:Startup()
-	WatchFrame_AddObjectiveHandler(function(parent, anchor, _, width)
-		if Addon.Sets.HideTracker then
-			self:Hide()
-		else
-			self:SetParent(parent)
-			self:DisplayAt(anchor, width)
-			self:Show()
-		end
-		
-		return self:Last() or anchor, 0, self:Count(), 0
-	end)
+	local tracker = Addon.Tracker()
+	tracker.Anchor:SetScript('OnMouseDown', tracker.ToggleOptions)
+	tracker:SetParent(self.BlocksFrame)
+	tracker.module = Objectives
+	tracker.animateReason = 0
+	tracker.maxEntries = 10
+	tracker.height = 0
 
-	hooksecurefunc(WatchFrameHeaderDropDown, 'initialize', function()
-		self:ShowOptions(Addon.Locals.BattlePets)
-	end)
+	local header = CreateFrame('Button', nil, self.BlocksFrame, 'ObjectiveTrackerHeaderTemplate')
+	header:SetScript('OnClick', tracker.ToggleOptions)
+
+	self:SetHeader(header, Addon.Locals.BattlePets)
+	self.tracker, self.firstBlock = tracker, tracker
+	self.blockOffsetX = -15
+
+	self.updateReasonModule, self.updateReasonEvents = 0x80000000, OBJECTIVE_TRACKER_UPDATE_ALL
+	self.usedBlocks, self.freeItemButtons = {}, {}
+
+	tinsert(ObjectiveTrackerFrame.MODULES, self)
 end
+
+
+--[[ Events ]]--
 
 function Objectives:TrackingChanged()
-	self:Update()
-	WatchFrame_Update()
+	if self.tracker then
+		self.tracker:Update()
+		self.tracker.height = self.tracker:Count() * 20
+		ObjectiveTracker_Update(self.updateReasonModule)
+	end
 end
 
-function Objectives:DisplayAt(anchor, width)
-	local point = anchor and 'BOTTOMLEFT' or 'TOPLEFT'
-	local at = anchor or self:GetParent()
-	
-	self.Title:SetPoint('TOPLEFT', at, point, 2, -4)
-	self.Bar:SetWidth(width - 5)
+function Objectives:Update()
+	if self.tracker then
+		local display = not Addon.Sets.HideTracker
+		self.firstBlock = display and self.tracker
+		self.tracker:SetShown(display)
+
+		if display then
+			self:StaticReanchor()
+		end
+	end
 end

@@ -1,0 +1,26 @@
+------------------------------------------------------------------------
+r434 | kagaro | 2014-10-17 14:57:03 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   A /tags/1.19 (from /trunk:433)
+
+Tagging as 1.19
+------------------------------------------------------------------------
+r433 | kagaro | 2014-10-17 14:56:27 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/kgPanelsConfig/kgPanelsConfig.toc
+
+updated toc, missed as a full update
+------------------------------------------------------------------------
+r432 | kagaro | 2014-10-17 14:55:47 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/kgPanels.toc
+
+wod toc
+------------------------------------------------------------------------
+r430 | stanzilla | 2014-10-14 15:16:07 +0000 (Tue, 14 Oct 2014) | 1 line
+Changed paths:
+   M /trunk
+   D /trunk/Libs
+
+TOC update for Patch 6.0
+------------------------------------------------------------------------

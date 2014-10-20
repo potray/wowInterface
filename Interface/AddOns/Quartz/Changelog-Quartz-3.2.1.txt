@@ -1,0 +1,17 @@
+tag 3.2.1
+7a55554dc83ff4195fde79121d602c683164043e
+Hendrik Leppkes <h.leppkes@gmail.com>
+2014-10-17 14:35:21 +0200
+
+Tag as 3.2.1
+
+
+--------------------
+
+Hendrik Leppkes:
+	- Improve conditions to avoid false drawing of ticks outside of the bar
+	- Remove unused variable
+	- Another attempt at proper channel extension logic
+	- Remove pre-6.0 support
+	- Show the extra tick gained from clipping channeling spells on the cast bar
+	- Fix cast time

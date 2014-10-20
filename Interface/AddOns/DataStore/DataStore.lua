@@ -187,8 +187,13 @@ end
 
 local function OnGuildRosterUpdate()
 	wipe(guildMembersIndexes)
-	for i=1, GetNumGuildMembers(true) do		-- browse all players (online & offline)
+	local numGuildMembers, numOnline = GetNumGuildMembers()
+	
+	for i=1, numGuildMembers do		-- browse all players (online & offline)
 		local name, _, _, _, _, _, _, _, onlineStatus = GetGuildRosterInfo(i)
+		
+		onlineStatus = (onlineStatus) and true or nil	-- force a nil, instead of false
+		
 		if name then
 			name = Ambiguate(name, "guild")
 			guildMembersIndexes[name] = i

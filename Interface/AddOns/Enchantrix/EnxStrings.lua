@@ -5,7 +5,7 @@
 
 	AddOn: Enchantrix
 	Revision: $Id: EnxStrings.lua 5419 2013-06-12 04:01:17Z LocalizerAutoCommit $
-	Version: 5.20.5464 (RidiculousRockrat)
+	Version: 5.21.5490 (SanctimoniousSwamprat)
 
 	License:
 		This program is free software; you can redistribute it and/or

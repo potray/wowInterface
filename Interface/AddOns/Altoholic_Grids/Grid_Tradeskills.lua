@@ -36,6 +36,7 @@ local xPacks = {
 	EXPANSION_NAME2,	-- "Wrath of the Lich King"
 	EXPANSION_NAME3,	-- "Cataclysm"
 	EXPANSION_NAME4,	-- "Mists of Pandaria"
+	EXPANSION_NAME5,	-- "Warlords of Draenor"
 }
 
 local OPTION_XPACK = "UI.Tabs.Grids.Tradeskills.CurrentXPack"
@@ -236,7 +237,7 @@ local callbacks = {
 			itemText:SetFontObject("GameFontNormalSmall")
 			itemText:SetJustifyH("CENTER")
 			itemText:SetPoint("BOTTOMRIGHT", 5, 0)
-			itemTexture:SetDesaturated(0)
+			itemTexture:SetDesaturated(false)
 			itemTexture:SetTexCoord(0, 1, 0, 1)
 			
 			itemTexture:SetTexture(GetItemIcon(currentItemID) or ICON_QUESTIONMARK)

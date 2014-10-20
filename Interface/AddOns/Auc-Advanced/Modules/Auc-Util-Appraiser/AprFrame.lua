@@ -1,6 +1,6 @@
 --[[
 	Auctioneer - Appraisals and Auction Posting
-	Version: 5.20.5464 (RidiculousRockrat)
+	Version: 5.21.5490 (SanctimoniousSwamprat)
 	Revision: $Id: AprFrame.lua 5462 2014-06-19 11:01:56Z brykrys $
 	URL: http://auctioneeraddon.com/
 
@@ -2967,4 +2967,4 @@ function private.CreateFrames()
 
 end
 
-AucAdvanced.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.20/Auc-Util-Appraiser/AprFrame.lua $", "$Rev: 5462 $")
+AucAdvanced.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21a/Auc-Util-Appraiser/AprFrame.lua $", "$Rev: 5462 $")

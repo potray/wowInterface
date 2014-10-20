@@ -12,7 +12,7 @@ Prat3DB = {
 				["Default"] = {
 					["minchatwidthdefault"] = 296,
 					["maxchatheightdefault"] = 400,
-					["maxchatwidthdefault"] = 608.0000610351563,
+					["maxchatwidthdefault"] = 608.000061035156,
 					["initialized"] = true,
 				},
 			},
@@ -21,10 +21,75 @@ Prat3DB = {
 			["profiles"] = {
 				["Default"] = {
 					["colors"] = {
-						["trade"] = {
-							["b"] = 0.7529412508010864,
-							["g"] = 0.7529412508010864,
+						["crbz4001i1"] = {
 							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
+						},
+						["crbz4003i1"] = {
+							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
+						},
+						["crbb1"] = {
+							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
+						},
+						["crbz3006i1"] = {
+							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
+						},
+						["crbz3001i1"] = {
+							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
+						},
+						["crbz3007i1"] = {
+							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
+						},
+						["crbz3008i1"] = {
+							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
+						},
+						["crbz4010i1"] = {
+							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
+						},
+						["crbz2010i1"] = {
+							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
+						},
+						["crbz2020i1"] = {
+							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
+						},
+						["crbz3003i1"] = {
+							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
+						},
+						["trade"] = {
+							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
+						},
+						["crbz4004i1"] = {
+							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
+						},
+						["crbz4002i1"] = {
+							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
 						},
 					},
 				},
@@ -36,17 +101,17 @@ Prat3DB = {
 					["edgeSize"] = 16,
 					["attach"] = "TOP",
 					["border"] = "Blizzard Dialog",
-					["background"] = "Blizzard ChatFrame Background",
+					["inset"] = 4,
 					["borderColor"] = {
 						["g"] = 0,
-						["b"] = 0.07450980392156863,
+						["b"] = 0.0745098039215686,
 					},
 					["colorByChannel"] = false,
-					["inset"] = 4,
 					["backgroundColor"] = {
 						["g"] = 0.00392156862745098,
-						["r"] = 0.1098039215686275,
+						["r"] = 0.109803921568628,
 					},
+					["background"] = "Blizzard ChatFrame Background",
 				},
 			},
 		},
@@ -73,11 +138,17 @@ Prat3DB = {
 		},
 		["Prat_Scroll"] = {
 		},
-		["Prat_ChannelNames"] = {
+		["Prat_ChatTabs"] = {
+			["profiles"] = {
+				["Default"] = {
+					["displaymode"] = {
+						["ChatFrame2"] = false,
+					},
+					["on"] = true,
+				},
+			},
 		},
 		["Prat_Paragraph"] = {
-		},
-		["Prat_Alias"] = {
 		},
 		["Prat_Clear"] = {
 			["profiles"] = {
@@ -86,20 +157,15 @@ Prat3DB = {
 				},
 			},
 		},
+		["Prat_Alias"] = {
+		},
 		["Prat_UrlCopy"] = {
 		},
 		["Prat_Sounds"] = {
 		},
-		["Prat_ChatLog"] = {
-			["profiles"] = {
-				["Default"] = {
-					["on"] = true,
-				},
-			},
+		["Prat_Timestamps"] = {
 		},
 		["Prat_ChannelSticky"] = {
-		},
-		["Prat_PopupMessage"] = {
 		},
 		["Prat_History"] = {
 			["profiles"] = {
@@ -110,34 +176,33 @@ Prat3DB = {
 				},
 			},
 		},
+		["Prat_PopupMessage"] = {
+		},
 		["Prat_CopyChat"] = {
 		},
-		["Prat_Timestamps"] = {
+		["Prat_ChatLog"] = {
+			["profiles"] = {
+				["Default"] = {
+					["on"] = true,
+				},
+			},
 		},
 		["Prat_Search"] = {
 		},
 		["Prat_Buttons"] = {
 			["profiles"] = {
 				["Default"] = {
-					["showButtons"] = false,
+					["showminimize"] = false,
 					["showBnet"] = false,
 					["scrollReminder"] = false,
-					["showminimize"] = false,
 					["showMenu"] = false,
+					["showButtons"] = false,
 				},
 			},
 		},
 		["Prat_ServerNames"] = {
 		},
-		["Prat_ChatTabs"] = {
-			["profiles"] = {
-				["Default"] = {
-					["displaymode"] = {
-						["ChatFrame2"] = false,
-					},
-					["on"] = true,
-				},
-			},
+		["Prat_ChannelNames"] = {
 		},
 	},
 	["profileKeys"] = {

@@ -18,6 +18,7 @@ This file is part of PetTracker.
 local ADDON, Addon = ...
 local Journal, Tamer = Addon.Journal, Addon.Tamer
 local MapFrame, BlipParent = WorldMapDetailFrame, WorldMapButton
+local FilterButton = WorldMapFrame.UIElementsFrame.TrackingOptionsButton.Button
 
 local Map = Addon:NewModule('WorldMap', PetTrackerMapFilter)
 local Tooltip = Addon.MapTip(WorldMapFrame)
@@ -52,7 +53,7 @@ do
 				text = text, value = value,
 				tooltipTitle = tip,
 				checked = GetCVarBool(cvar),
-				func = WorldMapShowDropDown_OnClick,
+				func = WorldMapTrackingOptionsDropDown_OnClick,
 				keepShownOnClick = 1,
 				isNotRadio = 1
 			}
@@ -69,8 +70,8 @@ do
 		}
 	end
 
-	WorldMapShowDropDownButton:SetScript('OnClick', function(button)
-		SushiDropFrame:Toggle('BOTTOM', button:GetParent(), 'TOP', 0, 7, function(drop)
+	FilterButton:SetScript('OnClick', function(button)
+		SushiDropFrame:Toggle('TOPRIGHT', button:GetParent(), 'BOTTOM', 10, -15, true, function(drop)
 			BlizzLine(drop, 'quests', 'questPOI', SHOW_QUEST_OBJECTIVES_ON_MAP_TEXT, OPTION_TOOLTIP_SHOW_QUEST_OBJECTIVES_ON_MAP, 1)
 			BlizzLine(drop, 'bosses', 'showBosses', SHOW_BOSSES_ON_MAP_TEXT, OPTION_TOOLTIP_SHOW_BOSSES_ON_MAP, WorldMapFrame.hasBosses)
 			BlizzLine(drop, 'digsites', 'digSites', ARCHAEOLOGY_SHOW_DIG_SITES, OPTION_TOOLTIP_SHOW_DIG_SITES_ON_MAP, select(3, GetProfessions()))
@@ -85,10 +86,10 @@ end
 --[[ Events ]]--
 
 function Map:Startup()
-	self.DefaultText = L.FilterPets
-	self:SetText(Addon.Sets.MapFilter or L.FilterPets)
-	self:SetPoint('TOPRIGHT', BlipParent, -6, -6)
-	self:SetFrameLevel(self:GetFrameLevel() + 16)
+	self:SetText(Addon.Sets.MapFilter or '')
+	self:SetPoint('RIGHT', FilterButton, 'LEFT', 0, 1)
+	self:SetFrameLevel(FilterButton:GetFrameLevel() - 1)
+	self.Instructions:SetText(L.FilterPets)
 	self.blips, self.tamers = {}, {}
 
 	self:RegisterEvent('ZONE_CHANGED_NEW_AREA')
@@ -118,12 +119,8 @@ function Map:TrackingChanged()
 end
 
 function Map:FilterChanged()
-	local text = self:GetText()
-	if text == '' or text == self.DefaultText then
-		text = nil
-	end
-
-	Addon.Sets.MapFilter = text
+	Addon.Sets.MapFilter = self:GetText()
+	self.Instructions:SetShown(self:GetText() == '')
 	self:TrackingChanged()
 end
 
@@ -131,14 +128,13 @@ end
 --[[ Blips ]]--
 
 function Map:UpdateBlips()
-	local showSpecies = self:Active('Species')
-	self:SetAlpha(showSpecies and 1 or 0)
-	self:EnableMouse(showSpecies)
 	self:ColorTamers()
 	self:ResetBlips()
 
-	if showSpecies then
+	if self:Active('Species') then
 		self:ShowSpecies()
+	else
+		self:ShowFilter(false)
 	end
 
 	if self:Active('Stables') then
@@ -165,6 +161,13 @@ function Map:ShowSpecies()
 			end
 		end
 	end
+
+	self:ShowFilter(next(species))
+end
+
+function Map:ShowFilter(show)
+	self:SetAlpha(show and 1 or 0)
+	self:EnableMouse(show)
 end
 
 function Map:ShowStables()

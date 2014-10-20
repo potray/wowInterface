@@ -1,7 +1,11 @@
 --[[
-	GetUpgradedItemLevelFromItemLink(itemLink)
 	Until Blizzard adds an easier solution, this function can be used to get the true upgraded itemLevel.
 	The Lua file is easily portable between addons. The function is placed in the global namespace.
+	Syntax:
+		GetUpgradedItemLevelFromItemLink(itemLink)
+		= return value is the modified itemLevel based on the item's upgrade
+	Changelog:
+	* REV-06 (14.10.15) Patch 6.0.2:	Updated the pattern match for "upgradeId" to work for WoD.
 	* REV-05 (14.05.24) Patch 5.4.8:	Added IDs 504 to 507.
 	* REV-04 (13.09.21) Patch 5.4:		Added IDs 491 to 498 to the table.
 	* REV-03 (13.05.22) Patch 5.3:		Added the 465/466/467 IDs (0/4/8 lvls) to the table.
@@ -9,16 +13,21 @@
 --]]
 
 -- Make sure we do not override a newer revision.
-local REVISION = 5;
+local REVISION = 6;
 if (type(GET_UPGRADED_ITEM_LEVEL_REV) == "number") and (GET_UPGRADED_ITEM_LEVEL_REV >= REVISION) then
 	return;
 end
 GET_UPGRADED_ITEM_LEVEL_REV = REVISION;
 
--- ItemLink pattern
+-- Item links data change in 6.0:
+--	itemID:enchant:gem1:gem2:gem3:gem4:suffixID:uniqueID:level:reforgeId:upgradeId
+--	itemID:enchant:gem1:gem2:gem3:gem4:suffixID:uniqueID:level:upgradeId:instanceDifficultyID:numBonusIDs:bonusID1:bonusID2
+
+-- Extraction pattern for the complete itemLink, including all its properties
 local ITEMLINK_PATTERN = "(item:[^|]+)";
--- Finds the last and 11th parameter of an itemLink, which is the upgradeId
-local ITEMLINK_PATTERN_UPGRADE = ":(%d+)$";
+-- Matches the 10th property, upgradeId, of an itemLink. This pattern now scans from the start of the itemLink to make it future-proof with further property additions to itemLinks.
+local ITEMLINK_PATTERN_UPGRADE = "item:"..("[^:]+:"):rep(9).."(%d+)";
+
 -- Table for adjustment of levels due to upgrade -- Source: http://www.wowinterface.com/forums/showthread.php?t=45388
 local UPGRADED_LEVEL_ADJUST = {
 	[001] = 8, -- 1/1
@@ -73,7 +82,7 @@ local UPGRADED_LEVEL_ADJUST = {
 
 -- Analyses the itemLink and checks for upgrades that affects itemLevel -- Only itemLevel 450 and above will have this
 function GetUpgradedItemLevelFromItemLink(itemLink)
-	-- Make certain we only have the raw itemLink, and not the full itemString
+	-- Ensure we only have the raw itemLink, and not the full itemString
 	itemLink = itemLink:match(ITEMLINK_PATTERN);
 	local _, _, _, itemLevel = GetItemInfo(itemLink);
 	local upgradeId = tonumber(itemLink:match(ITEMLINK_PATTERN_UPGRADE));

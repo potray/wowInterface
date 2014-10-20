@@ -17,7 +17,6 @@ This file is part of PetTracker.
 
 local _, Addon = ...
 local Journal = Addon:NewModule('Journal')
-local Breeds = LibStub('LibPetBreedInfo-1.0')
 local Cache = LibStub('LibPetJournal-2.0')
 local Server = C_PetJournal
 local L = Addon.Locals
@@ -124,15 +123,6 @@ function Journal:GetSource(specie)
 	end
 end
 
-function Journal:GetAvailableBreeds(specie)
-	local breeds =  NORMAL_FONT_COLOR_CODE .. L.AvailableBreeds .. FONT_COLOR_CODE_CLOSE
-	for _, breed in pairs(Breeds:GetAvailableBreeds(specie) or {}) do
-		breeds  = breeds .. ' ' .. Addon:GetBreedIcon(breed, .75)
-	end
-
-	return breeds
-end
-
 function Journal:GetAbility(specie, i)
 	return self:GetAbilities(specie)[i]
 end
@@ -147,6 +137,15 @@ end
 
 
 --[[ Display ]]--
+
+function Journal:GetAvailableBreeds(specie)
+	local breeds =  NORMAL_FONT_COLOR_CODE .. L.AvailableBreeds .. FONT_COLOR_CODE_CLOSE
+	for _, breed in pairs(Addon.Breeds[specie] or {}) do
+		breeds  = breeds .. ' ' .. Addon:GetBreedIcon(breed, .75)
+	end
+
+	return breeds
+end
 
 function Journal:GetTypeName(specie)
 	return Addon:GetTypeName(self:GetType(specie))
@@ -164,7 +163,9 @@ end
 --[[ Stats ]]--
 
 function Journal:GetBreed(pet)
-	return Breeds:GetBreedByPetID(pet)
+	local specie, _, level = Server.GetPetInfoByPetID(pet)
+	local _, health, power, speed, quality = Server.GetPetStats(pet)
+	return Addon.Predict:Breed(specie, level, quality, health, power, speed)
 end
 
 function Journal:GetQuality(pet)

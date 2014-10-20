@@ -3,9 +3,10 @@
 ]]
 
 ShadowUF = select(2, ...)
+ShadowUF.IS_WOD = select(4, GetBuildInfo()) >= 60000
 
 local L = ShadowUF.L
-ShadowUF.dbRevision = 46
+ShadowUF.dbRevision = 47
 ShadowUF.playerUnit = "player"
 ShadowUF.enabledUnits = {}
 ShadowUF.modules = {}
@@ -94,12 +95,17 @@ function ShadowUF:CheckBuild()
 	if( self.db.profile.wowBuild == build ) then return end
 
 	-- Nothing to add here right now
-
 	self.db.profile.wowBuild = build
 end
 
 function ShadowUF:CheckUpgrade()
 	local revision = self.db.profile.revision or self.dbRevision
+	if( revision <= 46 ) then
+		local config = self.db.profile.units.arena
+		config.indicators.arenaSpec = {enabled = true, anchorPoint = "LC", size = 28, x = 0, y = 0, anchorTo = "$parent"}
+		config.indicators.lfdRole = {enabled = true, anchorPoint = "BR", size = 14, x = 3, y = 14, anchorTo = "$parent"}
+	end
+
 	if( revision <= 45 ) then
 		for unit, config in pairs(self.db.profile.units) do
 			if( config.auras ) then
@@ -478,6 +484,10 @@ function ShadowUF:LoadUnits()
 			self.Units:UninitializeFrame(type)
 		end
 	end
+
+	if( instanceType == "arena" ) then
+		self.Units:InitializeArena()
+	end
 end
 
 function ShadowUF:LoadUnitDefaults()
@@ -609,6 +619,8 @@ function ShadowUF:LoadUnitDefaults()
 	self.defaults.profile.units.arena.auras.debuffs.maxRows = 1
 	self.defaults.profile.units.arena.auras.buffs.maxRows = 1
 	self.defaults.profile.units.arena.offset = 0
+	self.defaults.profile.units.arena.indicators.arenaSpec = {enabled = true, size = 0, x = 0, y = 0}
+	self.defaults.profile.units.arena.indicators.lfdRole = {enabled = true, size = 0, x = 0, y = 0}
 	-- BATTLEGROUND
 	self.defaults.profile.units.battleground.enabled = false
 	self.defaults.profile.units.battleground.attribPoint = "TOP"
@@ -966,19 +978,6 @@ function ShadowUF:HideBlizzardFrames()
 
 	if( self.db.profile.hidden.playerAltPower and not active_hiddens.playerAltPower ) then
 		hideBlizzardFrames(false, PlayerPowerBarAlt)
-	end
-
-	-- fix LFD Cooldown Frame
-	-- this is technically not our problem, but due to having the frames on the same strata, it looks like this to the users
-	-- and the fix is simple enough
-	if( not active_hiddens.lfd ) then
-		active_hiddens.lfd = true
-		
-		LFDQueueFrameCooldownFrame:SetFrameLevel(QueueStatusFrame:GetFrameLevel() + 20)
-		LFDQueueFrameCooldownFrame:SetFrameStrata("TOOLTIP")
-		
-		QueueStatusFrame:SetFrameLevel(QueueStatusFrame:GetFrameLevel() + 20)
-		QueueStatusFrame:SetFrameStrata("TOOLTIP")
 	end
 
 	-- As a reload is required to reset the hidden hooks, we can just set this to true if anything is true

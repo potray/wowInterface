@@ -16,7 +16,7 @@ This file is part of PetTracker.
 --]]
 
 local ADDON, Addon = ...
-if not select(5, GetAddOnInfo(ADDON .. '_Journal')) then
+if GetAddOnEnableState(UnitName('player'), 'PetTracker_Journal') < 2 then
 	return
 end
 

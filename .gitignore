@@ -19,3 +19,5 @@ Wow-64.exe
 Wow.exe
 dbghelp.dll
 divxdecoder.dll
+.build.info
+.agent.db

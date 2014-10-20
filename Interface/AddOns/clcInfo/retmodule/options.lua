@@ -89,19 +89,6 @@ function xmod.BuildOptions()
 							},
 						},
 					},
-					igInquisition = {
-						order = 2, type = "group", inline = true, name = "Inquisition",
-						args = {
-							inqRefresh = {
-								order = 1, type = "range", min = 1, max = 15, step = 0.1, name = "Time before refresh",
-								get = Get, set = Set,
-							},
-							inqApplyMin = {
-								order = 2, type = "range", min = 1, max = 5, step = 1, name = "Min HP for Inquisition",
-								get = Get, set = Set,
-							},
-						},
-					},
 					clashes = {
 						order = 3, type = "group", inline = true, name = "Clashes",
 						args = {

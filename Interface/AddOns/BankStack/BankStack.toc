@@ -1,13 +1,13 @@
-## Interface: 50400
+## Interface: 60000
 ## Title: BankStack
 ## Author: Kemayo
 ## Notes: From bags we came, to bank we return
-## Version: v33
+## Version: v35
 ## X-Category: Inventory
 ## LoadOnDemand: 0
 ## OptionalDeps: Ace3, LibDBIcon-1.0, tekDebug
 ## SavedVariables: BankStackDB
-## X-Curse-Packaged-Version: v33
+## X-Curse-Packaged-Version: v35
 ## X-Curse-Project-Name: BankStack
 ## X-Curse-Project-ID: bank-stack
 ## X-Curse-Repository-ID: wow/bank-stack/mainline

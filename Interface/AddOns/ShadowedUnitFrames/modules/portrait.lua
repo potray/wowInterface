@@ -61,10 +61,9 @@ end
 
 function Portrait:Update(frame, event)
 	local type = ShadowUF.db.profile.units[frame.unitType].portrait.type
-	
 	-- Use class thingy
 	if( type == "class" ) then
-		local classToken = select(2, UnitClass(frame.unitOwner))
+		local classToken = frame:UnitClassToken()
 		if( classToken ) then
 			frame.portrait:SetTexture("Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Classes")
 			frame.portrait:SetTexCoord(CLASS_ICON_TCOORDS[classToken][1], CLASS_ICON_TCOORDS[classToken][2], CLASS_ICON_TCOORDS[classToken][3], CLASS_ICON_TCOORDS[classToken][4])
@@ -77,11 +76,14 @@ function Portrait:Update(frame, event)
 		SetPortraitTexture(frame.portrait, frame.unitOwner)
 	-- Using 3D portrait, but the players not in range so swap to question mark
 	elseif( not UnitIsVisible(frame.unitOwner) or not UnitIsConnected(frame.unitOwner) ) then
-		frame.portrait:SetModelScale(4.25)
-		frame.portrait:SetPosition(0, 0, -0.4)
-		frame.portrait:SetModel("Interface\\Buttons\\talktomequestionmark.mdx")
+		frame.portrait:ClearModel()
+		frame.portrait:SetModelScale(5.5)
+		frame.portrait:SetPosition(0, 0, -0.8)
+		frame.portrait:SetModel("Interface\\Buttons\\talktomequestionmark.m2")
+
 	-- Use animated 3D portrait
 	else
+		frame.portrait:ClearModel()
 		frame.portrait:SetUnit(frame.unitOwner)
 		frame.portrait:SetPortraitZoom(1)
 		frame.portrait:SetPosition(0, 0, 0)

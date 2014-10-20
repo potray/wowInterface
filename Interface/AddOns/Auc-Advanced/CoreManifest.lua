@@ -1,7 +1,7 @@
 --[[
 	Auctioneer
-	Version: 5.20.5464 (RidiculousRockrat)
-	Revision: $Id: CoreManifest.lua 5442 2013-11-28 09:50:05Z brykrys $
+	Version: 5.21.5490 (SanctimoniousSwamprat)
+	Revision: $Id: CoreManifest.lua 5471 2014-09-16 15:08:54Z brykrys $
 	URL: http://auctioneeraddon.com/
 
 	This is an addon for World of Warcraft that adds statistical history to the auction data that is collected
@@ -51,11 +51,11 @@
 AucAdvanced = {Modules = {Filter={}, Match={}, Stat={}, Util={}}}
 local lib = AucAdvanced
 
-local DEV_VERSION = "5.19.DEV"
+local DEV_VERSION = "5.21.DEV"
 local MINIMUM_TOC = 50400
 local MINIMUM_CLIENT = "5.4"
 
-lib.Version="5.20.5464";
+lib.Version="5.21.5490";
 if (lib.Version == "<".."%version%>") then
 	lib.Version = DEV_VERSION
 end
@@ -75,6 +75,10 @@ local _,_,_,tocVersion = GetBuildInfo()
 if (tocVersion < MINIMUM_TOC) then
 	message("Auctioneer requires game client version "..MINIMUM_CLIENT.." or higher.")
 	lib.ABORTLOAD = "Incorrect WoW client version"
+end
+if tocVersion < 60000 then
+	-- ### Hybrid mode: flag to indicate that we are *not* yet running WoW6.0 or higher
+	lib.HYBRID5 = true
 end
 
 -- Check that Stubby exists
@@ -251,4 +255,4 @@ function lib.ValidateInstall()
 end
 
 
-lib.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.20/Auc-Advanced/CoreManifest.lua $", "$Rev: 5442 $")
+lib.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21a/Auc-Advanced/CoreManifest.lua $", "$Rev: 5471 $")

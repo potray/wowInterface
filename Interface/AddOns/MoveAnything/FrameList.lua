@@ -57,20 +57,21 @@ local m = {
 		API:AddElement({name = "CriteriaAlertFrame1", displayName = "Criteria Alert 1", create = "CriteriaAlertFrameTemplate"}, c)
 		API:AddElement({name = "CriteriaAlertFrame2", displayName = "Criteria Alert 2", create = "CriteriaAlertFrameTemplate"}, c)
 		local gcaf = API:AddElement({name = "GuildChallengeAlertFrame", displayName = "Guild Challenge Achievement Alert"}, c)
-		API:AddElement({name = "WatchFrameMover", displayName = "Objectives Window", scaleWH = 1, run = function()
-			if not MovAny:IsModified(WatchFrameMover) then
+		API:AddElement({name = "ObjectiveTrackerFrameMover", displayName = "Objectives Window", scaleWH = 1, run = function()
+			--[[if not MovAny:IsModified(WatchFrameMover) then
 				_G["InterfaceOptionsObjectivesPanelWatchFrameWidth"]:SetEnabled(false)
-			end
+			end]]
 		end}, c)
-		API:AddElement({name = "WatchFrame", displayName = "Objectives Window Scale"}, c)
-		local qldf = API:AddElement({name = "QuestLogDetailFrame", displayName = "Quest Details", runOnce = function()
+		API:AddElement({name = "ObjectiveTrackerFrame", displayName = "Objectives Window Scale"}, c)
+		--[[local qldf = API:AddElement({name = "QuestLogDetailFrame", displayName = "Quest Details", runOnce = function()
 			if not QuestLogDetailFrame:IsShown() then
 				ShowUIPanel(QuestLogDetailFrame)
 				HideUIPanel(QuestLogDetailFrame)
 			end
-		end}, c)
+		end}, c)]]
+		API:AddElement({name = "QuestLogPopupDetailFrame", displayName = "Quest Details"}, c)
 		API:AddElement({name = "QuestNPCModel", displayName = "Quest Log NPC Model"}, c)
-		local qlf = API:AddElement({name = "QuestLogFrame", displayName = "Quest Log"}, c)
+		--local qlf = API:AddElement({name = "QuestLogFrame", displayName = "Quest Log"}, c)
 		local qf = API:AddElement({name = "QuestFrame", displayName = "Quest Offer / Return", runOnce = function()
 			hooksecurefunc(QuestFrame, "Show", function()
 				if MovAny:IsModified("QuestFrame") then
@@ -430,8 +431,8 @@ local m = {
 		API:AddElement({name = "FriendsFrame", displayName = "Social - Friends / Who / Guild / Chat / Raid"}, c)
 		API:AddElement({name = "TransmogrifyFrame", displayName = "Transmogrification"}, c)
 		pvpf:AddCategory(c)
-		qldf:AddCategory(c)
-		qlf:AddCategory(c)
+		--qldf:AddCategory(c)
+		--qlf:AddCategory(c)
 		qf:AddCategory(c)
 		API:AddElement({name = "SpellBookFrame", displayName = "Spellbook / Professions"}, c)
 		API:AddElement({name = "ItemUpgradeFrame", displayName = "Item Upgrade"}, c)
@@ -466,12 +467,12 @@ local m = {
 		API:AddElement({name = "GroupLootFrame4", displayName = "Loot Roll 4", create = "GroupLootFrameTemplate"}, c)
 		c = API:GetCategory("Map")
 		API:AddElement({name = "WorldMapFrame", displayName = "World Map"}, c)
-		API:AddElement({name = "WorldMapLevelDropDown", displayName = "Map Level"}, c)
-		API:AddElement({name = "WorldMapShowDropDown", displayName = "Map Options"}, c)
-		API:AddElement({name = "WorldMapTrackQuest", displayName = "Map Track Quest"}, c)
-		API:AddElement({name = "WorldMapPositioningGuide", displayName = "Map Coordinates"}, c)
+		--API:AddElement({name = "WorldMapLevelDropDown", displayName = "Map Level"}, c)
+		--API:AddElement({name = "WorldMapShowDropDown", displayName = "Map Options"}, c)
+		--API:AddElement({name = "WorldMapTrackQuest", displayName = "Map Track Quest"}, c)
+		--API:AddElement({name = "WorldMapPositioningGuide", displayName = "Map Coordinates"}, c)
 		c = API:GetCategory("Minimap")
-		API:AddElement({name = "MinimapCluster", displayName = "MiniMap"}, c)
+		API:AddElement({name = "Minimap", displayName = "MiniMap"}, c)
 		API:AddElement({name = "MinimapBorder", displayName = "MiniMap Border Texture"}, c)
 		API:AddElement({name = "MinimapZoneTextButton", displayName = "Zone Text"}, c)
 		API:AddElement({name = "MinimapBorderTop", displayName = "Top Border", noScale = 1}, c)

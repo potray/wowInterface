@@ -49,7 +49,6 @@
 			</Layer>
 		</Layers>
 
-		<NormalTexture file="Interface\Icons\Ability_Hunter_Pet_Cat"/>
 		<HighlightTexture file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
 		<Scripts>
 			<OnClick>

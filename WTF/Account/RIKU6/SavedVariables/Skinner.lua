@@ -34,11 +34,10 @@ SkinnerDB = {
 	["profiles"] = {
 		["Default"] = {
 			["BgUseTex"] = true,
-			["StoreUI"] = true,
 			["Backdrop"] = {
 				["a"] = 1,
 				["g"] = 0.00392156862745098,
-				["r"] = 0.1098039215686275,
+				["r"] = 0.109803921568628,
 			},
 			["DisabledSkins"] = {
 				["Bagnon"] = true,
@@ -48,8 +47,12 @@ SkinnerDB = {
 				["Bartender4"] = true,
 				["Prat-3.0"] = true,
 				["Bagnon_GuildBank"] = true,
+				["Carbonite"] = true,
 				["Bagnon_Forever"] = true,
+				["PetTracker"] = true,
+				["PetTracker_Switcher"] = true,
 				["Omen"] = true,
+				["PetTracker_Journal"] = true,
 			},
 			["ChatFrames"] = true,
 			["Gradient"] = {
@@ -59,7 +62,7 @@ SkinnerDB = {
 				["skin"] = false,
 			},
 			["StatusBar"] = {
-				["r"] = 0.3529411764705882,
+				["r"] = 0.352941176470588,
 				["b"] = 0.00392156862745098,
 				["g"] = 0,
 			},
@@ -69,21 +72,21 @@ SkinnerDB = {
 			["TabDDTexture"] = "Blizzard Low Health",
 			["BodyText"] = {
 				["a"] = 1,
-				["r"] = 0.9764705882352941,
+				["r"] = 0.976470588235294,
 				["g"] = 1,
 				["b"] = 1,
 			},
 			["BackdropBorder"] = {
 				["r"] = 1,
 				["g"] = 0,
-				["b"] = 0.07450980392156863,
+				["b"] = 0.0745098039215686,
 			},
 			["BdDefault"] = false,
 			["HeadText"] = {
 				["a"] = 1,
 				["r"] = 1,
-				["g"] = 0.9764705882352941,
-				["b"] = 0.9764705882352941,
+				["g"] = 0.976470588235294,
+				["b"] = 0.976470588235294,
 			},
 			["DropDownButtons"] = true,
 			["MainMenuBar"] = {
@@ -92,7 +95,7 @@ SkinnerDB = {
 			["BdBorderTexture"] = "Blizzard Dialog",
 			["ChatTabs"] = true,
 			["TooltipBorder"] = {
-				["b"] = 0.09411764705882353,
+				["b"] = 0.0941176470588235,
 				["g"] = 0,
 				["r"] = 1,
 			},

@@ -37,6 +37,9 @@ local function createConfigEnv()
 				return getValue("UnitBattlePetType", unit, math.random(#(PET_TYPE_SUFFIX)))
 			end
 		end,
+		GetArenaOpponentSpec = function(unitID)
+			return getValue("GetArenaOpponentSpec", unitID, math.random(250, 270))
+		end,
 		UnitHealthMax = function(unit) return 50000 end,
 		UnitPower = function(unit, powerType)
 			if( powerType == SPELL_POWER_HOLY_POWER or powerType == SPELL_POWER_SOUL_SHARDS ) then
@@ -350,7 +353,7 @@ function Movers:Disable()
 			frame:SetAttribute("unit", frame.originalUnit)
 			frame:SetScript("OnDragStop", nil)
 			frame:SetScript("OnDragStart", nil)
-			frame:SetScript("OnEvent", frame:IsVisible() and ShadowUF.Units.OnEvent)
+			frame:SetScript("OnEvent", frame:IsVisible() and ShadowUF.Units.OnEvent or nil)
 			frame:SetScript("OnUpdate", frame.originalOnUpdate)
 			frame.OnEnter = frame.originalOnEnter
 			frame.OnLeave = frame.originalOnLeave

@@ -40,6 +40,8 @@ local PlaySound = PlaySound
 local RegisterStateDriver = RegisterStateDriver
 local UnitName = UnitName
 
+--local WatchFrame = ObjectiveTrackerFrame
+
 local MOVANY = _G.MOVANY
 local MAOptions
 
@@ -555,7 +557,7 @@ local MovAny = {
 		ArenaPrepFrames:ma_Hide()
 		ArenaEnemyFrames:ma_Hide()
 	end,
-	hWatchFrameExpand = function()
+	--[[hWatchFrameExpand = function()
 		if ArenaEnemyFrames then
 			local _, instanceType = IsInInstance()
 			if not WatchFrame:IsUserPlaced() then
@@ -599,7 +601,7 @@ local MovAny = {
 				ArenaPrepFrames.hidWatchedQuests = false
 			end
 		end
-	end,
+	end,]]
 	hFocusFrame_Update = function()
 		if MovAny:IsModified(FocusFrame) then
 			RegisterStateDriver("FocusFrame", "visibility", "hide")
@@ -665,6 +667,13 @@ if CompactRaidFrameManager_Collapse then
 			self:ClearAllPoints()
 			self:SetPoint("TOPLEFT", UIParent, "TOPLEFT", xOfs - 175, yOfs)
 			MovAny:LockPoint(self)
+		end
+	end)
+end
+if WorldMap_ToggleSizeDown then
+	hooksecurefunc("WorldMap_ToggleSizeDown", function()
+		if MovAny:IsModified(WorldMapFrame) then
+			MovAny.API:SyncElement("WorldMapFrame")
 		end
 	end)
 end
@@ -921,9 +930,9 @@ function MovAny:Boot()
 			SpellBookPage1:SetPoint("LEFT", SpellBookFrame)
 		end)
 	end
-	if WatchFrame_Update then
+	--[[if WatchFrame_Update then
 		hooksecurefunc("WatchFrame_Update", self.hWatchFrameExpand)
-	end
+	end]]
 	--setfenv(WorldMapFrame_OnShow, setmetatable({UpdateMicroButtons = function() end }, { __index = _G}))
 	--[[hooksecurefunc("PetActionBar_UpdatePositionValues", function()
 		if MovAny:IsModified(PetActionButtonsVerticalMover) or MovAny:IsModified(PetActionButtonsMover) then
@@ -2551,6 +2560,13 @@ function MovAny:HideFrame(f, readOnly)
 	elseif fn == "CompactRaidFrameManager" then
 		f:UnregisterAllEvents()
 		CompactRaidFrameContainer:SetParent(UIParent)
+	elseif fn == "Boss1TargetFrame" or fn == "Boss2TargetFrame" or fn == "Boss3TargetFrame" or fn == "Boss4TargetFrame" or fn == "Boss5TargetFrame" then
+		f:UnregisterAllEvents()
+		f:Hide()
+		f.oldShow = f.Show
+		f.Show = function()
+			-- empty
+		end
 	elseif fn == "MicroButtonsMover" or fn == "MicroButtonsSplitMover" or fn == "MicroButtonsVerticalMover" or fn == "AchievementMicroButton" then
 		AchievementMicroButton.IsShown = function(self)
 			local opt = MovAny:GetUserData(fn)
@@ -2660,6 +2676,9 @@ function MovAny:ShowFrame(f, readOnly, dontHook)
 		CompactRaidFrameContainer:SetParent(f)
 		MovAny:UnlockPoint(CompactRaidFrameContainer)
 		CompactRaidFrameContainer:SetPoint("TOPLEFT", CompactRaidFrameManagerContainerResizeFrame, "TOPLEFT", 4, - 7)
+	elseif fn == "Boss1TargetFrame" or fn == "Boss2TargetFrame" or fn == "Boss3TargetFrame" or fn == "Boss4TargetFrame" or fn == "Boss5TargetFrame" then
+		f.Show = f.oldShow
+		f.oldShow = nil
 	end
 	--[[local mover = self:GetMoverByFrame(f)
 	if mover then
@@ -3987,15 +4006,11 @@ function MovAny:UnanchorRelatives(e, f, opt)
 	local num = p:GetNumChildren()
 	--assert((num < 8000), "Too much childrens stuck in owerflow")
 	if p.GetChildren then
-		if p.GetNumChildren then
-			if p:GetNumChildren() > 7999 then
-			-- maPrint("Too much childrens for "..(p:GetName() or UNKNOWN)..".Find-("..p:GetNumChildren()..") childrens. Some of your addon create too much unnecessary frame.")
-			else
-				local children = {p:GetChildren()}
-				if children ~= nil then
-					for i, v in ipairs(children) do
-						self:_AddDependents(relatives, v)
-					end
+		local children = {p:GetChildren()}
+		if children ~= nil then
+			for i, v in ipairs(children) do
+				if not v:IsForbidden() then
+					self:_AddDependents(relatives, v)
 				end
 			end
 		end
@@ -5349,6 +5364,12 @@ function MovAny_OnEvent(self, event, arg1)
 				if MovAny:IsModified(LFRParentFrame) then
 					MovAny:ResetFrame(LFRParentFrame)
 				end
+				if MovAny:IsModified(QuestLogFrame) then
+					MovAny:ResetFrame(QuestLogFrame)
+				end
+				if MovAny:IsModified(QuestLogDetailFrame) then
+					MovAny:ResetFrame(QuestLogDetailFrame)
+				end
 			end
 		elseif arg1 == "Blizzard_TalentUI" and MovAny.hBlizzard_TalentUI then
 			MovAny:hBlizzard_TalentUI()
@@ -5365,7 +5386,7 @@ function MovAny_OnEvent(self, event, arg1)
 					CompanionsMicroButton:SetButtonState("PUSHED", 1)
 				end
 			end }, { __index = _G}))]]
-		elseif arg1 == "Blizzard_ArenaUI" then
+		--[=[elseif arg1 == "Blizzard_ArenaUI" then
 			ArenaEnemyFrame_UpdatePet = function() end
 			ArenaEnemyFrames_UpdateWatchFrame = function()
 				local _, instanceType = IsInInstance()
@@ -5599,7 +5620,7 @@ function MovAny_OnEvent(self, event, arg1)
 					--RegisterStateDriver(_G[frame], "visibility", "[@arenapet"..i", exists] show hide")
 				end
 				MovAny.API:SyncElement(frame)
-			end
+			end]=]
 		end
 		MovAny:SyncFrames()
 	elseif event == "GROUP_ROSTER_UPDATE" then
