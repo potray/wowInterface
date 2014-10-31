@@ -214,7 +214,7 @@ local coloursPanel = {
 			get = function() return MT:HexToRGB(MT.db.profile.conditioncolour) end,
 			set = function(info, r, g, b, a) MT.db.profile.conditioncolour = MT:RGBToHex(r, g, b, a) end
 		},
-		scriptcolour = {
+		errorcolour = {
 			order = 9,
 			type = "color",
 			width = "full",

@@ -1,18 +1,18 @@
-﻿## Interface: 50400
+﻿## Interface: 60000
 ## Title: Skinner
 ## Notes: Changes the look of the default UI
 ## Notes-esES: Cambia el aspecto del UI predeterminado
 ## Notes-zhCN: 更改默认用户界面的视觉样式。
 ## Notes-zhTW: 更改預設用戶介面的視覺樣式。
 ## Author: Jncl
-## Version: b5.18414.7
+## Version: b6.19034.4
 ## OptionalDeps: Ace3, LibSharedMedia-3.0, AceGUI-3.0-SharedMediaWidgets, LibBetterBlizzOptions-1.0
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 ## SavedVariables: SkinnerDB
 #
 # LibStub & Callback Handler
-## X-Curse-Packaged-Version: b5.18414.7
+## X-Curse-Packaged-Version: b6.19034.4
 ## X-Curse-Project-Name: Skinner
 ## X-Curse-Project-ID: skinner
 ## X-Curse-Repository-ID: wow/skinner/mainline

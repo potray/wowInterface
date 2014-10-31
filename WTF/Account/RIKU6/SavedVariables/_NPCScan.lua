@@ -7,13 +7,15 @@ _NPCScanOptions = {
 		[64191] = "Pandaria",
 	},
 	["CacheWarnings"] = true,
-	["PersistentToast"] = true,
+	["PersistentToast"] = false,
 	["NPCs"] = {
 		[64004] = "Ghostly Pandaren Fisherman",
 		[50410] = "Mysterious Camel Figurine",
 		[50409] = "Mysterious Camel Figurine",
 		[64191] = "Ghostly Pandaren Craftsman",
 	},
+	["Version"] = 3,
+	["ShowAlertAsToast"] = true,
 	["IgnoreList"] = {
 		["NPCs"] = {
 		},
@@ -22,7 +24,5 @@ _NPCScanOptions = {
 		["WorldID"] = {
 		},
 	},
-	["ShowAlertAsToast"] = false,
-	["Version"] = 3,
 	["ChangeAlertShown"] = true,
 }

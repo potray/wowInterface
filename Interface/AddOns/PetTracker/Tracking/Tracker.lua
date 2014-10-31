@@ -30,10 +30,11 @@ end
 function Tracker:OnCreate()
 	self:SetScript('OnShow', self.Update)
 	self:SetScript('OnHide', self.Reset)
+	self:SetSize(1,1)
 
 	self.Anchor = Addon.ProgressBar(self)
-	self.Anchor:SetPoint('TOPLEFT')
 	self.Anchor.yOff = -10
+	self.maxEntries = 0
 
 	self.__super.OnCreate(self)
 end
@@ -42,13 +43,17 @@ end
 --[[ Display ]]--
 
 function Tracker:Update()
-	local progress = Journal:GetCurrentProgress()
 	self:Reset()
-	
+	self:AddSpecies()
+end
+
+function Tracker:AddSpecies()
+	local progress = Journal:GetCurrentProgress()
+
 	for quality = 0, self:MaxQuality() do
 		for level = 0, Addon.MaxLevel do
 			for i, specie in ipairs(progress[quality][level] or {}) do
-				if self:Count() < (self.maxEntries or 0) then
+				if self:Count() < self.maxEntries then
 					self:AddSpecie(specie, quality, level)
 				else
 					break
@@ -99,7 +104,7 @@ function Tracker:ShowOptions()
 	UIDropDownMenu_AddButton {
 		text = 'Battle Pets',
 		isTitle = true,
-		isNotRadio = true
+		notCheckable = true
 	}
 
 	UIDropDownMenu_AddButton {

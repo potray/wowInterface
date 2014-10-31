@@ -118,6 +118,7 @@ MADB = {
 					},
 					["name"] = "QuestNPCModel",
 					["scale"] = 1,
+					["orgScale"] = 1,
 					["pos"] = {
 						"TOPLEFT", -- [1]
 						"QuestLogDetailFrame", -- [2]
@@ -125,7 +126,6 @@ MADB = {
 						-336.99905204773, -- [4]
 						-496.838500976563, -- [5]
 					},
-					["orgScale"] = 1,
 				},
 				["WorldMapPositioningGuide"] = {
 					["name"] = "WorldMapPositioningGuide",
@@ -172,9 +172,22 @@ MADB = {
 						-2, -- [5]
 					},
 				},
-				["BattlefieldMinimap"] = {
-					["name"] = "BattlefieldMinimap",
-					["alpha"] = 1,
+				["ArcheologyDigsiteProgressBar"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						0, -- [4]
+						-135, -- [5]
+					},
+					["name"] = "ArcheologyDigsiteProgressBar",
+					["pos"] = {
+						"BOTTOM", -- [1]
+						"CastingBarFrame", -- [2]
+						"TOP", -- [3]
+						2.999755859375, -- [4]
+						-64.9999847412109, -- [5]
+					},
 				},
 				["MiniMapWorldMapButton"] = {
 					["orgPos"] = {
@@ -210,21 +223,22 @@ MADB = {
 						-103.999877929688, -- [5]
 					},
 				},
-				["DurabilityFrame"] = {
+				["MiniMapMailFrame"] = {
 					["orgPos"] = {
 						"TOPRIGHT", -- [1]
-						"MinimapCluster", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						0, -- [4]
-						0, -- [5]
+						"Minimap", -- [2]
+						"TOPRIGHT", -- [3]
+						24, -- [4]
+						-37, -- [5]
 					},
-					["name"] = "DurabilityFrame",
+					["name"] = "MiniMapMailFrame",
+					["hidden"] = true,
 					["pos"] = {
 						"TOPRIGHT", -- [1]
-						"MinimapCluster", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						-1829.00021362305, -- [4]
-						172.999877929688, -- [5]
+						"Minimap", -- [2]
+						"TOPRIGHT", -- [3]
+						23.9998779296875, -- [4]
+						-37.0000610351563, -- [5]
 					},
 				},
 				["WatchFrameMover"] = {
@@ -237,14 +251,22 @@ MADB = {
 						118.799926757813, -- [5]
 					},
 				},
-				["WorldMapTrackQuest"] = {
-					["name"] = "WorldMapTrackQuest",
+				["MinimapZoomOut"] = {
+					["orgPos"] = {
+						"CENTER", -- [1]
+						"MinimapBackdrop", -- [2]
+						"CENTER", -- [3]
+						50, -- [4]
+						-43, -- [5]
+					},
+					["name"] = "MinimapZoomOut",
+					["hidden"] = true,
 					["pos"] = {
-						"BOTTOMLEFT", -- [1]
-						"WorldMapPositioningGuide", -- [2]
-						"BOTTOMLEFT", -- [3]
-						22.9333343505859, -- [4]
-						10.9333323988867, -- [5]
+						"CENTER", -- [1]
+						"MinimapBackdrop", -- [2]
+						"CENTER", -- [3]
+						50.0000610351563, -- [4]
+						-43.0000305175781, -- [5]
 					},
 				},
 				["QuestFrame"] = {
@@ -268,57 +290,42 @@ MADB = {
 						551.999938964844, -- [5]
 					},
 				},
-				["MinimapZoomOut"] = {
-					["orgPos"] = {
-						"CENTER", -- [1]
-						"MinimapBackdrop", -- [2]
-						"CENTER", -- [3]
-						50, -- [4]
-						-43, -- [5]
-					},
-					["name"] = "MinimapZoomOut",
-					["hidden"] = true,
+				["WorldMapTrackQuest"] = {
+					["name"] = "WorldMapTrackQuest",
 					["pos"] = {
-						"CENTER", -- [1]
-						"MinimapBackdrop", -- [2]
-						"CENTER", -- [3]
-						50.0000610351563, -- [4]
-						-43.0000305175781, -- [5]
+						"BOTTOMLEFT", -- [1]
+						"WorldMapPositioningGuide", -- [2]
+						"BOTTOMLEFT", -- [3]
+						22.9333343505859, -- [4]
+						10.9333323988867, -- [5]
 					},
 				},
-				["MiniMapMailFrame"] = {
+				["DurabilityFrame"] = {
 					["orgPos"] = {
 						"TOPRIGHT", -- [1]
-						"Minimap", -- [2]
-						"TOPRIGHT", -- [3]
-						24, -- [4]
-						-37, -- [5]
+						"MinimapCluster", -- [2]
+						"BOTTOMRIGHT", -- [3]
+						0, -- [4]
+						0, -- [5]
 					},
-					["name"] = "MiniMapMailFrame",
-					["hidden"] = true,
+					["name"] = "DurabilityFrame",
 					["pos"] = {
 						"TOPRIGHT", -- [1]
-						"Minimap", -- [2]
-						"TOPRIGHT", -- [3]
-						23.9998779296875, -- [4]
-						-37.0000610351563, -- [5]
+						"MinimapCluster", -- [2]
+						"BOTTOMRIGHT", -- [3]
+						-1829.00021362305, -- [4]
+						172.999877929688, -- [5]
 					},
 				},
-				["ArcheologyDigsiteProgressBar"] = {
-					["name"] = "ArcheologyDigsiteProgressBar",
-					["pos"] = {
-						"BOTTOM", -- [1]
-						"CastingBarFrame", -- [2]
-						"TOP", -- [3]
-						2.999755859375, -- [4]
-						-64.9999847412109, -- [5]
-					},
+				["BattlefieldMinimap"] = {
+					["name"] = "BattlefieldMinimap",
+					["alpha"] = 1,
 				},
 			},
 		},
 	},
-	["playSound"] = false,
-	["noBags"] = false,
-	["frameListRows"] = 18,
 	["closeGUIOnEscape"] = false,
+	["frameListRows"] = 18,
+	["noBags"] = false,
+	["playSound"] = false,
 }

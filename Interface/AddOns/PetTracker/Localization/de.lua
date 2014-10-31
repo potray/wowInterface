@@ -24,6 +24,9 @@ L.StableTip = '|cffffd200Hier k\195\182nnen Haustiere gegen eine|nkleine Geb\195
 L.UpgradeAlert = 'Besseres Kampfhaustier entdeckt!'
 L.ZoneTracker = 'Zonen Tracker'
 
+L.Source1 = 'Erbeutet'
+L.Source10 = 'Haustiershop'
+
 L.Tutorial[1] = [[Willkommen! Du benutzt jetzt |cffffd200PetTracker|r, by |cffffd200Jaliborc|r.
 
 Dieses Tutorial hilft Dir, schnell mit dem Addon zurecht zu kommen, so das du Dich schnell wieder dem wichtigen widmen kannst: Haustiere zu fassen ... aehm ... ein zu fangen!]]

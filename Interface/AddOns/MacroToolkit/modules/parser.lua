@@ -1,7 +1,7 @@
 local MT = MacroToolkit
 local string, table, ipairs, pairs, type, math = string, table, ipairs, pairs, type, math
 local strsplit, select, wipe, tonumber, tostring = strsplit, select, wipe, tonumber, tostring
-local GetSpellInfo, GetItemInfo = GetSpellInfo, GetItemInfo
+local GetSpellInfo, GetItemInfo = GetSpellInfo, GetItemInfo, IsHelpfulSpell, IsHarmfulSpell
 local _G = _G
 local L = MT.L
 MT.clist = {cast={}, script={}, click={}, console={}, target={}, castsequence={}}
@@ -224,14 +224,14 @@ local function validateParameters(parameters, commandtext)
 	elseif GetItemInfo(parameters) then c = format("|c%s", MT.db.profile.itemcolour)
 	elseif isNumeric({parameters}) then c = format("|c%s", MT.db.profile.stringcolour)
 	elseif MT.db.profile.unknown then err = format("%s: |c%s%s|r", L["Unknown parameter"], MT.db.profile.stringcolour, parameters) end
-	return c, err
+	return c, err, err2
 end
 
 local function parseSequence(parameters)
 	local reset, cs = "", ""
 	local c = format("|c%s", MT.db.profile.stringcolour)
 	local s, e, rw, res = string.find(parameters, "(reset%s*=%s*)(.*)")
-	local err, rwhole
+	local err, err2, rwhole
 	if s then
 		local s1, e1 = string.find(res, " ")
 		if s1 then
@@ -254,9 +254,16 @@ local function parseSequence(parameters)
 				end
 			end
 		end
-	else cs = parameters end
+	else
+		cs = parameters
+	end
+	
+	--0 is no longer accepted as a valid slot as of 6.0.2
+	s, e, rw = string.find(cs, "0%s*,")
+	if s then err2 = format("%s: |c%s0|r", L["Invalid argument"], MT.db.profile.stringcolour) end
+	
 	if not err then c = format("|c%s", MT.db.profile.seqcolour) end
-	return err, reset, cs, c, rwhole
+	return err, reset, cs, c, rwhole, err2
 end
 
 local function validateCondition(condition, optionarguments)
@@ -392,8 +399,49 @@ function MT:ShortenMacro(macrotext)
 			l = string.gsub(l, "modifier%s-", "mod")
 			l = string.gsub(l, "mod%s-:%s+", "mod:")
 			l = string.gsub(l, "group%s-:%s+", "group:")
+			--ticket 52
+			local s, e = string.find(l, "%[.-help.-exists.-%]")
+			while s do
+				local s1, e1 = string.find(l, ",%s-exists", s)
+				l = format("%s%s", string.sub(l, 1, s1 - 1), string.sub(l, e1 + 1))
+				s, e = string.find(l, "%[.-help.-exists.-%]")
+			end
+			s, e = string.find(l, "%[.-,-exists.-help.-%]")
+			while s do
+				local s1, e1 = string.find(l, ",-%s-exists,+", s)
+				l = format("%s%s", string.sub(l, 1, s1 - 1), string.sub(l, e1 + 1))
+				s, e = string.find(l, "%[.-,-exists.-help.-%]")
+			end
+			s, e = string.find(l, "%[.-harm.-exists.-%]")
+			while s do
+				local s1, e1 = string.find(l, ",%s-exists", s)
+				l = format("%s%s", string.sub(l, 1, s1 - 1), string.sub(l, e1 + 1))
+				s, e = string.find(l, "%[.-harm.-exists.-%]")
+			end
+			s, e = string.find(l, "%[.-,-exists.-harm.-%]")
+			while s do
+				local s1, e1 = string.find(l, ",-%s-exists,+", s)
+				l = format("%s%s", string.sub(l, 1, s1 - 1), string.sub(l, e1 + 1))
+				s, e = string.find(l, "%[.-,-exists.-harm.-%]")
+			end
+			s, e = string.find(l, "%[.-noexists")
+			while s do
+				local _, _, cverb, cspell = MT:ParseMacro(l)
+				if isCast(cverb) then
+					if IsHelpfulSpell(cspell) then
+						local s1, e1 = string.find(l, "noexists", s)
+						l = format("%s%s%s", string.sub(l, 1, s1 - 1), "nohelp", string.sub(l, e1 + 1))
+					end
+					if IsHarmfulSpell(cspell) then
+						local s1, e1 = string.find(l, "noexists", s)
+						l = format("%s%s%s", string.sub(l, 1, s1 - 1), "noharm", string.sub(l, e1 + 1))
+					end
+				end
+				s, e = string.find(l, "%[.-noexists")
+			end
+			--end ticket
 			--avoid confusion between actionbar condition and swapactionbar / command
-			local s, e, s1 = string.find(l, "(%[.*)actionbar%s-")
+			s, e, s1 = string.find(l, "(%[.*)actionbar%s-")
 			if s then l = format("%s%s%s%s", string.sub(l, 1, s - 1), s1, "bar", string.sub(l, e + 1)) end
 			l = string.gsub(l, "bar%s-:%s+", "bar:")
 			l = string.gsub(l, "button%s-", "btn")
@@ -529,8 +577,9 @@ function MT:ParseMacro(macrotext)
 				pp = pp or parameters
 				if string.len(parameters or "") > 0 then
 					if isCastSequence(command_verb) then
-						local rerr, reset, sequence, col, rwhole = parseSequence(parameters)
+						local rerr, reset, sequence, col, rwhole, rerr2 = parseSequence(parameters)
 						if rerr then table.insert(errors, rerr) end
+						if rerr2 then table.insert(errors, rerr2) end
 						if rwhole then
 							local rpos = string.find(macrotext, escape(rwhole))
 							table.insert(parsed_text, {t = rwhole, c = col, s = rpos})

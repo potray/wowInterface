@@ -1,6 +1,6 @@
 --[[
 	Various Constant Information definitions
-	Revision: $Id: GatherConstants.lua 1008 2012-09-17 00:43:39Z Esamynn $
+	Revision: $Id: GatherConstants.lua 1119 2014-10-21 03:51:21Z Esamynn $
 
 	License:
 		This program is free software; you can redistribute it and/or
@@ -25,7 +25,7 @@
 		http://www.fsf.org/licensing/licenses/gpl-faq.html#InterpreterIncompat
 
 ]]
-Gatherer_RegisterRevision("$URL: http://svn.norganna.org/gatherer/tags/REL_4.4.1/Gatherer/GatherConstants.lua $", "$Rev: 1008 $")
+Gatherer_RegisterRevision("$URL: http://svn.norganna.org/gatherer/tags/REL_4.4.2/Gatherer/GatherConstants.lua $", "$Rev: 1119 $")
 
 local metatable = { __index = getfenv(0) }
 setmetatable( Gatherer.Constants, metatable )

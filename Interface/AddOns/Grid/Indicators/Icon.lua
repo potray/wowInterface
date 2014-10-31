@@ -11,7 +11,7 @@ local BACKDROP = {
 GridFrame:RegisterIndicator("icon", L["Center Icon"],
 	-- New
 	function(frame)
-		local icon = CreateFrame("Button", nil, frame)
+		local icon = CreateFrame("Frame", nil, frame)
 		icon:SetPoint("CENTER")
 		icon:SetBackdrop(BACKDROP)
 
@@ -28,6 +28,9 @@ GridFrame:RegisterIndicator("icon", L["Center Icon"],
 
 		local cd = CreateFrame("Cooldown", nil, icon, "CooldownFrameTemplate")
 		cd:SetAllPoints(true)
+		cd:SetDrawBling(false)
+		cd:SetDrawEdge(false)
+		cd:SetHideCountdownNumbers(true)
 		cd:SetReverse(true)
 		icon.cooldown = cd
 
@@ -60,7 +63,7 @@ GridFrame:RegisterIndicator("icon", L["Center Icon"],
 		BACKDROP.insets.right = iconBorderSize
 		BACKDROP.insets.top = iconBorderSize
 		BACKDROP.insets.bottom = iconBorderSize
-		
+
 		self:SetBackdrop(BACKDROP)
 		self:SetBackdropBorderColor(r, g, b, a)
 
@@ -99,12 +102,12 @@ GridFrame:RegisterIndicator("icon", L["Center Icon"],
 			self.cooldown:Hide()
 		end
 
-		if profile.enableIconStackText then
+		if profile.enableIconStackText and type(count) == "number" and count > 1 then
 			self.text:SetText(count)
 		else
 			self.text:SetText("")
 		end
-		
+
 		self:Show()
 	end,
 

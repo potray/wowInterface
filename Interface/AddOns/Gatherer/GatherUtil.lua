@@ -1,7 +1,7 @@
 --[[
 	Gatherer Addon for World of Warcraft(tm).
-	Version: 4.4.1 (<%codename%>)
-	Revision: $Id: GatherUtil.lua 997 2012-09-11 03:14:32Z Esamynn $
+	Version: 4.4.2 (<%codename%>)
+	Revision: $Id: GatherUtil.lua 1114 2014-10-11 07:13:26Z ccox $
 
 	License:
 	This program is free software; you can redistribute it and/or
@@ -27,7 +27,7 @@
 
 	Utility functions
 ]]
-Gatherer_RegisterRevision("$URL: http://svn.norganna.org/gatherer/tags/REL_4.4.1/Gatherer/GatherUtil.lua $", "$Rev: 997 $")
+Gatherer_RegisterRevision("$URL: http://svn.norganna.org/gatherer/tags/REL_4.4.2/Gatherer/GatherUtil.lua $", "$Rev: 1114 $")
 
 -- reference to the Astrolabe mapping library
 local Astrolabe = DongleStub(Gatherer.AstrolabeVersion)
@@ -348,12 +348,29 @@ function Gatherer.Util.GetGatherTexture( nodeID )
 	return selectedTexture, trimTexture
 end
 
+-- convert list of zoneID1, zoneName1, zoneID2, zoneName2, etc.
+-- into just a list of zone names
+local function stripZoneIDs(...)
+	local n = select("#", ...)
+	--print("zoneList count = ", n );
+	local temp = {};
+	local index = 1;
+	for i = 2, n, 2 do
+		temp[index] = select(i, ...);
+		--print("  item = ", temp[index] );
+		index = index + 1;
+	end
+	return temp;
+end
+
 Gatherer.Util.ZoneNames = { __index = 
 function(tbl, key)
 	setmetatable(tbl, nil)
 	tbl["__index"] = nil
-	for C, cname in pairs({GetMapContinents()}) do
-		for Z, zoneName in pairs({GetMapZones(C)}) do
+	local cList = stripZoneIDs(GetMapContinents());
+	for C, cname in pairs(cList) do
+		local nameList = stripZoneIDs(GetMapZones(C));
+		for Z, zoneName in pairs(nameList) do
 			tbl[zoneName] = Astrolabe:GetMapID(C, Z)
 		end
 	end

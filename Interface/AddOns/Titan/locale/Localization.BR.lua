@@ -322,6 +322,7 @@ L["TITAN_LOOTTYPE_ROUND_ROBIN"] = "\"Rodízio\"";
 L["TITAN_LOOTTYPE_MASTER_LOOTER"] = "Mestre Saqueador";
 L["TITAN_LOOTTYPE_GROUP_LOOT"] = "Saque em Grupo";
 L["TITAN_LOOTTYPE_NEED_BEFORE_GREED"] = "Necessidade sobre Ganância";
+L["TITAN_LOOTTYPE_PERSONAL"] = "Personal";
 L["TITAN_LOOTTYPE_TOOLTIP"] = "Informação de Tipo de Saque";
 L["TITAN_LOOTTYPE_MENU_TEXT"] = "Tipo de Saque";
 L["TITAN_LOOTTYPE_RANDOM_ROLL_LABEL"] = "Jogada Aleatória";

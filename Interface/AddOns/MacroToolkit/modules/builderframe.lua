@@ -144,7 +144,7 @@ function MT:CreateBuilderFrame()
 		"extrabar", "flyable", "noflyable", "flying", "noflying", "form", "indoors",
 		"outdoors", "mod", "nomod", "mounted", "nomounted", "overridebar", "party", "raid",
 		"pet", "nopet", "petbattle", "possessbar", "spec", "stealth", "nostealth",
-		"swimming", "noswimming", "vehicleui", "novehicleui", "worn",
+		"swimming", "noswimming", "talent", "vehicleui", "novehicleui", "worn",
 	}
 	L["zero"] = ""
 	local ddother = {}

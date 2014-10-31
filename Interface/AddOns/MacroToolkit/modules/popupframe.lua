@@ -347,9 +347,20 @@ function MT:GetSpellorMacroIconInfo(index)
 	return texture
 end
 
+local function getFilenameFromPath(path)
+	local s, e = string.find(string.lower(path), "interface\\icons\\(.-)")
+	return string.sub(path, e + 1)
+end
+
 function MT:GetBlizzSpellorMacroIconInfo(index)
 	if not index then return end
-	return MT.MACRO_ICON_FILENAMES[index]
+	local info = MT.MACRO_ICON_FILENAMES[index]
+	local texturename
+	if type(info) == "number" then
+		MacroToolkitFrame.nulltexture:SetToFileData(info)
+		texturename = getFilenameFromPath(MacroToolkitFrame.nulltexture:GetTexture())
+	else texturename = info end
+	return texturename
 end
 
 function MT:PopupOkayUpdate()

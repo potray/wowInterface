@@ -1,3 +1,9 @@
+VER 3 0100000000000006 "CD" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast Avenging Wrath
+/use 13
+/use 14
+END
 VER 3 0100000000000005 "CS/HoR" "INV_Misc_QuestionMark"
 #showtooltip
 /cast [mod:shift] Hammer of the Righteous; Crusader Strike

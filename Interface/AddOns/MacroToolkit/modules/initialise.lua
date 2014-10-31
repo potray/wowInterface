@@ -89,6 +89,7 @@ MT.conditions={
 	["stance"]=1,
 	["stealth"]=0,
 	["swimming"]=0,
+	["talent"]=1,
 	["unithasvehicleui"]=0,
 	["vehicleui"]=0,
 	["worn"]=2,
@@ -279,7 +280,7 @@ StaticPopupDialogs.MACROTOOLKIT_ALERT = {
 	hideOnEscape = 1,
 }
 
-StaticPopupDialogs["MACROTOOLKIT_CONFIRM_DELETING_CHARACTER_SPECIFIC_BINDINGS"] = {
+StaticPopupDialogs.MACROTOOLKIT_CONFIRM_DELETING_CHARACTER_SPECIFIC_BINDINGS = {
 	text = _G.CONFIRM_DELETING_CHARACTER_SPECIFIC_BINDINGS,
 	button1 = OKAY,
 	button2 = CANCEL,
@@ -293,4 +294,17 @@ StaticPopupDialogs["MACROTOOLKIT_CONFIRM_DELETING_CHARACTER_SPECIFIC_BINDINGS"] 
 	timeout = 0,
 	whileDead = 1,
 	showAlert = 1,
+}
+
+StaticPopupDialogs.MACROTOOLKIT_WOD_UPGRADE = {
+	text = L["Upgrade Mists of Pandria macros? Only answer yes if you used Macro Toolkit in Mists of Pandaria. This only needs to be done once per character."],
+	button1= _G.YES,
+	button2 = _G.NO,
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
+	hideOnEscape = 0,
+	showAlert = 1,
+	OnAccept = function() MT:UpgradeToWod() end,
+	OnCancel = function() MT.db.char.wodupgrade = true end,
 }

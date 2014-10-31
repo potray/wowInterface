@@ -39,6 +39,41 @@ SkinnerDB = {
 				["g"] = 0.00392156862745098,
 				["r"] = 0.109803921568628,
 			},
+			["DropDownButtons"] = true,
+			["ChatFrames"] = true,
+			["Gradient"] = {
+				["enable"] = false,
+			},
+			["ContainerFrames"] = {
+				["skin"] = false,
+			},
+			["StatusBar"] = {
+				["b"] = 0.00392156862745098,
+				["r"] = 0.352941176470588,
+				["g"] = 0,
+			},
+			["MinimapIcon"] = {
+				["hide"] = true,
+			},
+			["TabDDTexture"] = "Blizzard Low Health",
+			["BodyText"] = {
+				["a"] = 1,
+				["b"] = 1,
+				["g"] = 1,
+				["r"] = 0.976470588235294,
+			},
+			["BackdropBorder"] = {
+				["b"] = 0.0745098039215686,
+				["g"] = 0,
+				["r"] = 1,
+			},
+			["BdDefault"] = false,
+			["HeadText"] = {
+				["a"] = 1,
+				["b"] = 0.976470588235294,
+				["g"] = 0.976470588235294,
+				["r"] = 1,
+			},
 			["DisabledSkins"] = {
 				["Bagnon"] = true,
 				["Recount"] = true,
@@ -49,58 +84,23 @@ SkinnerDB = {
 				["Bagnon_GuildBank"] = true,
 				["Carbonite"] = true,
 				["Bagnon_Forever"] = true,
-				["PetTracker"] = true,
+				["PetTracker_Journal"] = true,
 				["PetTracker_Switcher"] = true,
 				["Omen"] = true,
-				["PetTracker_Journal"] = true,
+				["PetTracker"] = true,
 			},
-			["ChatFrames"] = true,
-			["Gradient"] = {
-				["enable"] = false,
-			},
-			["ContainerFrames"] = {
-				["skin"] = false,
-			},
-			["StatusBar"] = {
-				["r"] = 0.352941176470588,
-				["b"] = 0.00392156862745098,
-				["g"] = 0,
-			},
-			["MinimapIcon"] = {
-				["hide"] = true,
-			},
-			["TabDDTexture"] = "Blizzard Low Health",
-			["BodyText"] = {
-				["a"] = 1,
-				["r"] = 0.976470588235294,
-				["g"] = 1,
-				["b"] = 1,
-			},
-			["BackdropBorder"] = {
-				["r"] = 1,
-				["g"] = 0,
-				["b"] = 0.0745098039215686,
-			},
-			["BdDefault"] = false,
-			["HeadText"] = {
-				["a"] = 1,
-				["r"] = 1,
-				["g"] = 0.976470588235294,
-				["b"] = 0.976470588235294,
-			},
-			["DropDownButtons"] = true,
 			["MainMenuBar"] = {
 				["skin"] = false,
 			},
 			["BdBorderTexture"] = "Blizzard Dialog",
 			["ChatTabs"] = true,
-			["TooltipBorder"] = {
-				["b"] = 0.0941176470588235,
-				["g"] = 0,
-				["r"] = 1,
-			},
 			["Tooltips"] = {
 				["style"] = 3,
+			},
+			["TooltipBorder"] = {
+				["r"] = 1,
+				["g"] = 0,
+				["b"] = 0.0941176470588235,
 			},
 			["OverrideActionBar"] = false,
 		},

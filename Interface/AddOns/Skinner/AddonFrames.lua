@@ -10,7 +10,7 @@ local blizzLoDFrames = {
 	-- TradeSkillUI, loaded when TRADE_SKILL_SHOW event is fired
 	-- npc
  	-- AuctionUI, loaded when AUCTION_HOUSE_SHOW event is fired
-	"BarbershopUI", "BlackMarketUI", "ItemAlterationUI", "ItemUpgradeUI", "QuestChoice", "ReforgingUI", "TrainerUI", "VoidStorageUI",
+	"BarbershopUI", "BlackMarketUI", "ItemAlterationUI", "ItemUpgradeUI", "GarrisonUI", "QuestChoice", "TrainerUI", "VoidStorageUI",
 	-- ui
 	"BattlefieldMinimap", "BindingUI", "Calendar", "ChallengesUI", "DebugTools", "GMChatUI", "GMSurveyUI", "GuildBankUI", "MacroUI", "MovePad", "PetJournal", "StoreUI", "TimeManager",
 	--	ArenaUI the unitframes are skinned in UnitFrames.lua
@@ -39,8 +39,8 @@ function aObj:BlizzardFrames()
 			["LootFrames"] = true,
 			["LootHistory"] = true,
 			["MirrorTimers"] = true,
+			["ObjectiveTracker"] = true,
 			["OverrideActionBar"] = true,
-			["QuestLog"] = false, -- checked below
 			["ReadyCheck"] = true,
 			["RolePollPopup"] = true,
 			["ScrollOfResurrection"] = true,
@@ -48,7 +48,6 @@ function aObj:BlizzardFrames()
 			["SpellFlyout"] = true,
 			["StackSplit"] = true,
 			["TradeFrame"] = true,
-			["WatchFrame"] = true,
 			-- LoD frames
 			["AchievementUI"] = false,
 			["ArchaeologyUI"] = false,
@@ -88,6 +87,7 @@ function aObj:BlizzardFrames()
 			["VoidStorageUI"] = false,
 		},
 		ui = {
+			["AddonList"] = true,
 			["AlertFrames"] = true,
 			["AuthChallengeUI"] = false, -- N.B. cannot be skinned
 			["AutoComplete"] = true,
@@ -105,7 +105,9 @@ function aObj:BlizzardFrames()
 			["CoinPickup"] = true,
 			["ColorPicker"] = true,
 			["DestinyFrame"] = true,
+			["DraenorZoneAbility"] = true,
 			["DropDownPanels"] = true,
+			["GarrisonFollowerTooltips"] = true,
 			["HelpFrame"] = true,
 			["ItemText"] = true,
 			["LevelUpDisplay"] = true,
@@ -123,9 +125,11 @@ function aObj:BlizzardFrames()
 			["NavigationBar"] = true,
 			["PetBattleUI"] = true,
 			["PVEFrame"] = true,
+			["QuestMap"] = false, -- checked below
 			["QueueStatusFrame"] = true,
 			["RaidFrame"] = true,
 			["ScriptErrors"] = true,
+			["SplashFrame"] = true,
 			["StaticPopups"] = true,
 			["Tooltips"] = false, -- checked below
 			["Tutorial"] = true,
@@ -149,7 +153,6 @@ function aObj:BlizzardFrames()
 
 	-- optional frames
 	if _G.IsMacClient() then self.blizzFrames.ui["MovieProgress"] = true end
-
 	-- handle non standard ones here
 	-- skin the MinimapButtons if SexyMap isn't loaded
 	if not IsAddOnLoaded("SexyMap") then
@@ -172,7 +175,7 @@ end
 local addonSkins = {
 	"_NPCScan",
 	"Accomplishment", "Accountant", "Acheron", "AchievementsReminder", "AckisRecipeList", "ACP", "AdiBags", "AdvancedTradeSkillWindow", "AISeller", "AlleyMap", "Altoholic", "Analyst", "AnnounceIt", "AphesLootBrowser", "Ara_Broker_Guild_Friends", "Archy", "ArkInventory", "ArkInventoryRules", "Armory", "ArmoryGuildBank", "Atlas", "AtlasLoot", "AtlasQuest", "Auctionator", "AuctionLite", "AuctionMaster", "AuctionProfitMaster", "Auctionsnatch", "AutoDecline", "AutoPartyButtons", "AutoProfit",
-	"Badapples", "Baggins", "Bagnon", "Bagnon_Forever", "BankItems", "Bartender4", "BasicChatMods", "BattlePetCount", "BaudBag", "BaudManifest", "BeanCounter", "beql", "BetterInbox", "BindPad", "BlackList", "BossInfo", "BossNotes", "BossNotes_PersonalNotes", "BriefQuestComplete", "Broker_Transport", "Buffalo", "BugSack", "BulkMail2", "BulkMail2Inbox", "Butsu", "BuyEmAll",
+	"Badapples", "Baggins", "Bagnon", "Bagnon_Forever", "BankItems", "Bartender4", "BasicChatMods", "BattlePetCount", "BaudBag", "BaudManifest", "BeanCounter", "beql", "BetterInbox", "BindPad", "BlackList", "BossInfo", "BossNotes", "BossNotes_PersonalNotes", "BriefQuestComplete", "Broker_Transport", "Buffalo", "Bugger", "BugSack", "BulkMail2", "BulkMail2Inbox", "Butsu", "BuyEmAll",
 	"CalendarNotify", "CallToArms", "Capping", "Carbonite", "CensusPlus", "CFM", "ChatBar", "Chatr", "Chatter", "Chinchilla", "Clique", "CloseUp", "Collectinator", "CollectMe", "Combuctor", "CombustionHelper", "ConcessionStand", "Converse", "CoolLine", "Cork", "Cosplay", "CowTip", "CT_MailMod", "CT_RaidTracker",
 	"DaemonMailAssist", "DailiesQuestTracker", "DamageMeters", "DeathNote", "DockingStation", "Dominos", "DragonCore",
 	"EasyUnlock", "EavesDrop", "EditingUI", "EggTimer", "ElvUI", "EnchantMe", "EnergyWatch", "EngBags", "EnhancedColourPicker", "EnhancedFlightMap", "EnhancedStackSplit", "EnhancedTradeSkills", "epgp", "epgp_lootmaster", "epgp_lootmaster_ml", "EquipCompare", "EventEquip", "Examiner", "ExtVendor",
@@ -180,18 +183,18 @@ local addonSkins = {
 	"G15Buttons", "Gatherer", "GemMe", "Glamour", "GnomeWorks", "GnomishVendorShrinker", "Gobling", "Gossipmonger", "Grid", "GrimReaper", "GroupCalendar5", "GuildBankAccount", "GuildGreet", "GuildLaunchCT_RaidTracker", "GuildMaster",  "GupPet",
 	"HabeebIt", "Hack", "Hadar_FocusFrame", "HandyNotes", "HaveWeMet", "HatTrick", "HeadCount", "HealBot", "Highlight", "HitsMode", "HoloFriends",
 	"InboxMailBag", "InspectEquip", "IntricateChatMods", "IPopBar", "ItemDB", "ItemRack", "ItemSync",
-	"LauncherMenu", "LazyAFK", "LightHeaded", "Links", "LinkWrangler", "Livestock", "LUI",
+	"LauncherMenu", "LazyAFK", "LegacyQuest", "LightHeaded", "Links", "LinkWrangler", "Livestock", "LUI",
 	"MacroBank", "MacroBrokerGUI", "MailTo", "MakeRocketGoNow", "Mapster", "MapsterEnhanced", "MarkingBar", "Megaphone", "MinimalArchaeology", "MinimapButtonFrame", "MobMap", "MogIt", "MonkeyQuest", "MonkeyQuestLog", "Mountiful", "MoveAnything", "MrTrader_SkillWindow", "MTLove", "MuffinMOTD", "MyBags", "myClock",
 	"Necrosis", "NeonChat", "Notes", "nQuestLog",
 	"Odyssey", "oGlow", "Omen", "OneBag3", "OneBank3", "oQueue", "oRA3", "Outfitter", "Overachiever",
-	"PallyPower", "Panda", "PassLoot", "Pawn", "Perl_CombatDisplay", "Perl_Focus", "Perl_Party", "Perl_Party_Pet", "Perl_Party_Target", "Perl_Player", "Perl_Player_Pet", "Perl_Target", "Perl_Target_Target", "PetBattleHUD", "PetBattleMaster", "PetBattleTeams", "PetListPlus", "PetsPlus", "PetTracker", "PetTracker_Switcher", "PetTracker_Journal", "PhoenixStyle", "Planner", "PlayerExpBar", "PlusOneTable", "POMAssist", "PoMTracker", "Possessions", "Postal", "PowerAuras", "PowerAurasButtons", "PreformAVEnabler", "Producer", "ProfessionsBook", "ProfessionsVault", "ProspectBar", "PvpMessages",
+	"PallyPower", "Panda", "PassLoot", "Pawn", "Perl_CombatDisplay", "Perl_Focus", "Perl_Party", "Perl_Party_Pet", "Perl_Party_Target", "Perl_Player", "Perl_Player_Pet", "Perl_Target", "Perl_Target_Target", "PetBattleHUD", "PetBattleMaster", "PetListPlus", "PetsPlus", "PetTracker", "PetTracker_Switcher", "PetTracker_Journal", "PhoenixStyle", "Planner", "PlayerExpBar", "PlusOneTable", "POMAssist", "PoMTracker", "Possessions", "Postal", "PowerAuras", "PowerAurasButtons", "PreformAVEnabler", "Producer", "ProfessionsBook", "ProfessionsVault", "ProspectBar", "PvpMessages",
 	"Quartz", "Quelevel", "QuestAgent", "QuestCompletist", "QuestGuru_Tracker", "QuestHelper", "QuestHelper2", "QuestHistory", "QuickMark",
 	"RABuffs", "RaidAchievement", "RaidBuffStatus", "RaidChecklist", "RaidComp", "RaidRoll", "RaidRoll_LootTracker", "RaidTracker", "RaidyCheck", "RandomPet30", "RAQ", "ReagentRestocker", "Recap", "RecipeBook", "RecipeRadar", "Recount", "REFlex", "ReforgeLite", "Reforgenator", "Reforgerade", "RicoMiniMap",
 	"SayGMOTD", "ScrollMaster", "ShadowDancer3", "sienasGemViewer", "SilverDragon", "Skada", "Skillet", "Smoker", "SmoothQuest", "SnapShot", "SorhaQuestLog", "Spew", "Squeenix", "sRaidFrames", "StaggerMeter",
 	"tabDB", "Talented", "TargetAnnounce", "TargetCharms", "tekBlocks", "tekDebug", "tekErr", "tekPad", "TheCollector", "TinyDPS", "TinyPad", "TipTac", "tomQuest2", "TomTom", "TooManyAddons", "TourGuide", "TradeSkillMaster", "TrinketBar", "Tukui", "TwinValkyr_shieldmonitor",
 	"UberQuest", "UrbanAchiever",
 	"vBagnon", "Vendorizer", "Vendomatic", "VendorSearch", "Violation", "Visor2_GUI", "Volumizer", "VuhDo", "VuhDoOptions",
-	"Warden", "WeakAuras", "WebDKP", "Wholly", "WIM", "WoWEquip", "WowLua", "WoWPro", "WTFLatencyMeter",
+	"Warden", "WeakAuras", "WebDKP", "Wholly", "WIM", "WIM_Options", "WoWEquip", "WowLua", "WoWPro", "WTFLatencyMeter",
 	"xcalc", "XLoot", "xMerchant", "XPerl", "XPerl_RaidAdmin", "XPerl_RaidHelper",
 	"zfpoison", "ZOMGBuffs", "ZygorGuidesViewer",
 }
@@ -242,9 +245,9 @@ function aObj:AddonFrames()
 	-- skin tooltips here after checking whether the ttBorder setting needed changing
 	self:checkAndRun("Tooltips")
 
-	-- skin the QuestLog if EQL3 isn't loaded
+	-- skin the QuestMap if EQL3 isn't loaded
 	-- N.B. Do it here as other Addons use the QuestLog size
-	if not IsAddOnLoaded("EQL3") then self:checkAndRun("QuestLog") end
+	if not IsAddOnLoaded("EQL3") then self:checkAndRun("QuestMap") end
 
 	-- skin the CastingBar if other castbar addons aren't loaded
 	if not IsAddOnLoaded("Quartz")
@@ -277,6 +280,9 @@ function aObj:AddonFrames()
 
 	--	don't make Model Frames Rotatable if CloseUp is loaded
 	if not IsAddOnLoaded("CloseUp") then self:checkAndRun("ModelFrames") end
+
+	-- special case for dummy addon entry WIM_Options
+	if self.WIM_Options then self:checkAndRun("WIM_Options") end -- not an addon in its own right
 
 	-- used for Addons that aren't LoadOnDemand
 	for addon, skinFunc in pairs(self.addonsToSkin) do
@@ -313,7 +319,7 @@ function aObj:AddonFrames()
 		end
 	end
 
-	-- skin tekKonfig library objects
+	-- skin tekKonfig library objects (N.B. not a LibStub library)
 	if self.tekKonfig then self:checkAndRun("tekKonfig") end -- not an addon in its own right
 
 	-- skin the Blizzard LoD frames if they have already been loaded by other addons, wait for 0.2 secs to allow them to have been loaded
@@ -346,7 +352,7 @@ local lodFrames = {
 	"PetJournalEnhanced", "Perl_Config_Options",
 	"Scrap_Merchant", "Scrap_Options", "Scrap_Visualizer", "Squire2_Config",
 	"Talented_GlyphFrame", "TradeTabs", "TipTacOptions",
-	"WeakAurasOptions", "WIM_Options",
+	"WeakAurasOptions",
 	"XPerl_Options",
 	"ZOMGBuffs_BlessingsManager",
 }
@@ -386,6 +392,12 @@ function aObj:LoDFrames(addon)
 	if addon == "Blizzard_InspectUI" then
 		--	This addon is dependent upon the Inspect Frame
 		self:checkAndRunAddOn("Spyglass")
+	end
+
+	-- handle addons linked to the PetJournal
+	if addon == "Blizzard_PetJournal" then
+		--	This addon is dependent upon the PetJournal
+		self:checkAndRunAddOn("PetBattleTeams")
 	end
 
 	-- deal with Addons under the control of an LoadManager

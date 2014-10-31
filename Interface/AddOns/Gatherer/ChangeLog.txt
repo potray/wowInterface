@@ -1,6 +1,12 @@
 CHANGELOG
 ---------------------------------------
 
+4.4.2
+========
+Version Issue List: http://jira.norganna.org/browse/GATH/fixforversion/10952
+- GATH-216: WoW 6.0.2 compatibility (not WoD)
+- GATH-219: update Astrolabe library
+
 4.4.1
 ========
 Version Issue List: http://jira.norganna.org/browse/GATH/fixforversion/10852
@@ -600,4 +606,4 @@ Deleted a rogue print2 statement.
 - Added giant clam treasure
 
 --------------
-Revision: $Id: ChangeLog.txt 1108 2014-02-23 01:05:52Z Esamynn $
+Revision: $Id: ChangeLog.txt 1121 2014-10-21 06:00:26Z Esamynn $

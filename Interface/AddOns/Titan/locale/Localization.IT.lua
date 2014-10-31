@@ -362,6 +362,7 @@ L["TITAN_LOOTTYPE_ROUND_ROBIN"] = "Rotazione Fissa";
 L["TITAN_LOOTTYPE_MASTER_LOOTER"] = "Resp. del Bottino";
 L["TITAN_LOOTTYPE_GROUP_LOOT"] = "Bottino di Gruppo";
 L["TITAN_LOOTTYPE_NEED_BEFORE_GREED"] = "Necessità prima di Bramosia";
+L["TITAN_LOOTTYPE_PERSONAL"] = "Personal";
 L["TITAN_LOOTTYPE_TOOLTIP"] = "Info Tipo Predazione";
 L["TITAN_LOOTTYPE_MENU_TEXT"] = "Tipo Predazione";
 L["TITAN_LOOTTYPE_RANDOM_ROLL_LABEL"] = "Tiro casuale";

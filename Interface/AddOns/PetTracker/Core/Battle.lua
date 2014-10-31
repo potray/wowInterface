@@ -57,10 +57,13 @@ end
 
 function Battle:GetTamer()
 	if self:IsPvE() then
-		local specie = self:Get(ENEMY, 1):GetSpecie()
+		local specie1 = self:Get(ENEMY, 1):GetSpecie()
+		local specie2 = self:Get(ENEMY, 2):GetSpecie()
+		local specie3 = self:Get(ENEMY, 3):GetSpecie()
+
 		for id, tamer in pairs(Addon.Tamers) do
-			local first = tamer:match('^[^:]+:[^:]+:[^:]*:[^:]+:%w%w%w%w(%w%w%w)')
-			if tonumber(first, 36) == specie then
+			local first = tonumber(tamer:match('^[^:]+:[^:]+:[^:]*:[^:]+:%w%w%w%w(%w%w%w)'), 36)
+			if first == specie1 or first == specie2 or first == specie3 then
 				return id
 			end
 		end

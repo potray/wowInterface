@@ -28,7 +28,7 @@ Omen3DB = {
 		},
 		["Potray - Dun Modr"] = {
 			["PositionW"] = 209.714447021484,
-			["Scale"] = 0.98,
+			["Shown"] = true,
 			["PositionH"] = 156.020690917969,
 			["VGrip2"] = 118.704303214503,
 			["PositionY"] = 151.050003051758,
@@ -41,9 +41,9 @@ Omen3DB = {
 				},
 				["Color"] = {
 					["a"] = 0,
-					["r"] = 0.133333333333333,
-					["g"] = 0.00392156862745098,
 					["b"] = 0,
+					["g"] = 0.00392156862745098,
+					["r"] = 0.133333333333333,
 				},
 				["BarInset"] = 5,
 				["Texture"] = "Solid",
@@ -60,7 +60,7 @@ Omen3DB = {
 			["TitleBar"] = {
 				["ShowTitleBar"] = false,
 			},
-			["Shown"] = true,
+			["Scale"] = 0.98,
 			["PositionX"] = 1313.94873046875,
 			["Bar"] = {
 				["FontSize"] = 12,
@@ -91,8 +91,9 @@ Omen3DB = {
 			["PositionY"] = 614.999938964844,
 		},
 		["Elrad - Los Errantes"] = {
-			["PositionX"] = 847.5,
+			["Shown"] = false,
 			["PositionY"] = 614.999938964844,
+			["PositionX"] = 847.5,
 		},
 		["Pexus - Los Errantes"] = {
 			["PositionX"] = 847.5,

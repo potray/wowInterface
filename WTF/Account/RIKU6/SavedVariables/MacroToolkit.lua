@@ -8,6 +8,7 @@ MacroToolkitDB = {
 	},
 	["profileKeys"] = {
 		["Potray - Dun Modr"] = "profile",
+		["Elrad - Los Errantes"] = "profile",
 	},
 	["global"] = {
 		["ebackups"] = {

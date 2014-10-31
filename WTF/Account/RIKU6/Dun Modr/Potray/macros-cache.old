@@ -5,12 +5,12 @@ END
 VER 3 0100000000000004 "Multiple Target" "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cast [nomod] Seal of Righteousness
-/swapactionbar 2 1
+/ChangeActionBar 2
 END
 VER 3 0100000000000003 "Single Target" "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cast [nomod]  Seal of Truth
-/swapactionbar 1 2
+/ChangeActionBar 1
 END
 VER 3 0100000000000002 "Templar's Storm" "INV_MISC_QUESTIONMARK"
 #showtooltip

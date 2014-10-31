@@ -24,16 +24,16 @@ Grid.L = L
 
 L["Debugging"] = "디버깅"
 -- L["Debugging messages help developers or testers see what is happening inside Grid in real time. Regular users should leave debugging turned off except when troubleshooting a problem for a bug report."] = ""
--- L["Enable debugging messages for the %s module."] = ""
--- L["General"] = ""
+L["Enable debugging messages for the %s module."] = "%s 모듈에 대한 디버깅 메시지를 사용합니다." -- Needs review
+L["General"] = "일반" -- Needs review
 L["Module debugging menu."] = "모듈 디버깅 메뉴를 설정합니다."
--- L["Open Grid's options in their own window, instead of the Interface Options window, when typing /grid or right-clicking on the minimap icon, DataBroker icon, or layout tab."] = ""
--- L["Output Frame"] = ""
+L["Open Grid's options in their own window, instead of the Interface Options window, when typing /grid or right-clicking on the minimap icon, DataBroker icon, or layout tab."] = "인터페이스 옵션 창 대신 Grid 옵션을 열기위해 /grid를 대화창에 입력하거나 미니맵 아이콘, DataBroker 아이콘 또는 배치 탭에 오른쪽 버튼을 클릭하세요." -- Needs review
+L["Output Frame"] = "프레임 출력" -- Needs review
 L["Right-Click for more options."] = "옵션 메뉴을 열려면 오른쪽 버튼을 클릭하십시오."
--- L["Show debugging messages in this frame."] = ""
+L["Show debugging messages in this frame."] = "이 프레임의 디버깅 메시지를 표시합니다." -- Needs review
 L["Show minimap icon"] = "미니맵 아이콘 표시"
 L["Show the Grid icon on the minimap. Note that some DataBroker display addons may hide the icon regardless of this setting."] = "미니맵에 Grid 아이콘을 표시합니다.  DataBroker 애드온 설정에 관계없이 아이콘을 숨길 수 있습니다."
--- L["Standalone options"] = ""
+L["Standalone options"] = "독립형 옵션" -- Needs review
 L["Toggle debugging for %s."] = "%s|1을;를; 위해 디버깅을 사용합니다."
 
 ------------------------------------------------------------------------
@@ -63,7 +63,7 @@ L["Color the healing bar using the active status color instead of the health bar
 L["Corner Size"] = "모서리 크기"
 L["Darken the text color to match the inverted bar."] = "반대로 바에 맞춰 문자 색상을 어둡게합니다."
 L["Enable Mouseover Highlight"] = "마우스오버 강조 사용"
-L["Enable right-click menu"] = "Enable right-click menu" -- Needs review
+L["Enable right-click menu"] = "오른쪽 클릭 메뉴 사용" -- Needs review
 L["Enable %s"] = "%s|1을;를; 사용"
 L["Enable %s indicator"] = "%s 지시기 사용"
 L["Font"] = "글꼴"
@@ -105,7 +105,7 @@ L["Orientation of Text"] = "문자의 방향"
 L["Set frame orientation."] = "생명력 결손량의 프레임 방향을 설정합니다."
 L["Set frame text orientation."] = "프레임 문자의 방향을 설정합니다."
 L["Sets the opacity of the healing bar."] = "치유 바의 투명도를 설정합니다."
-L["Show the standard unit menu when right-clicking on a frame."] = "Show the standard unit menu when right-clicking on a frame." -- Needs review
+L["Show the standard unit menu when right-clicking on a frame."] = "창에 오른쪽 버튼을 클릭하면 기본 유닛 메뉴를 표시합니다." -- Needs review
 L["Show Tooltip"] = "툴팁 표시"
 L["Show unit tooltip.  Choose 'Always', 'Never', or 'OOC'."] = "유닛 툴팁을 표시합니다. '항상', '안함' 또는 '비전투'을 선택합니다."
 L["Statuses"] = "상태"
@@ -130,26 +130,26 @@ L["Vertical"] = "세로"
 
 L["10 Player Raid Layout"] = "10인 공격대 배치"
 L["25 Player Raid Layout"] = "25인 공격대 배치"
--- L["40 Player Raid Layout"] = ""
+L["40 Player Raid Layout"] = "40인 공격대 배치" -- Needs review
 L["Adjust background color and alpha."] = "배경의 색상과 투명도를 조정합니다."
 L["Adjust border color and alpha."] = "테두리의 색상과 투명도를 조정합니다."
 L["Adjust frame padding."] = "창 패팅을 조정합니다."
 L["Adjust frame spacing."] = "창 간격을 조정합니다."
 L["Adjust Grid scale."] = "Grid의 크기를 조정합니다."
--- L["Adjust the extra spacing inside the layout frame, around the unit frames."] = ""
--- L["Adjust the spacing between individual unit frames."] = ""
+L["Adjust the extra spacing inside the layout frame, around the unit frames."] = "유닛 프레임 주위의 배치 창 안 여분의 간격을 조정합니다." -- Needs review
+L["Adjust the spacing between individual unit frames."] = "유닛 프레임의 간격을 조정합니다." -- Needs review
 L["Advanced"] = "고급"
 L["Advanced options."] = "고급 옵션을 설정합니다."
 L["Allows mouse click through the Grid Frame."] = "Grid 창을 통해 마우스 클릭을 허용합니다."
 L["Alt-Click to permanantly hide this tab."] = "영구적으로 Alt-클릭으로 이 탭을 숨깁니다."
 L["Arena Layout"] = "투기장 배치"
 L["Background color"] = "배경 색상"
--- L["Background Texture"] = ""
+L["Background Texture"] = "배경 무늬" -- Needs review
 L["Battleground Layout"] = "전장 배치"
 L["Beast"] = "야수형"
 L["Border color"] = "테두리 색상"
--- L["Border Inset"] = ""
--- L["Border Size"] = ""
+L["Border Inset"] = "테두리 삽입" -- Needs review
+L["Border Size"] = "테두리 크기" -- Needs review
 L["Border Texture"] = "테두리 무늬"
 L["Bottom"] = "하단"
 L["Bottom Left"] = "좌측 하단"
@@ -173,17 +173,17 @@ L["Dragonkin"] = "용족"
 L["Drag this tab to move Grid."] = "Grid를 이동시키려면 이 탭을 드래그합니다."
 L["Elemental"] = "정령"
 L["Fallback colors"] = "대체 색상"
--- L["Flexible Raid Layout"] = ""
+L["Flexible Raid Layout"] = "공격대 찾기 배치" -- Needs review
 L["Frame lock"] = "창 잠금"
--- L["Frame Spacing"] = ""
+L["Frame Spacing"] = "창 간격" -- Needs review
 L["Group Anchor"] = "그룹 위치"
 L["Horizontal groups"] = "그룹 정렬"
 L["Humanoid"] = "인간형"
 L["Layout"] = "배치"
 L["Layout Anchor"] = "배치 위치"
--- L["Layout Background"] = ""
--- L["Layout Padding"] = ""
--- L["Layouts"] = ""
+L["Layout Background"] = "배치 배경" -- Needs review
+L["Layout Padding"] = "배치 간격" -- Needs review
+L["Layouts"] = "배치" -- Needs review
 L["Left"] = "좌측"
 L["Lock Grid to hide this tab."] = "이 탭을 숨기려면 Grid를 잠급니다."
 L["Locks/unlocks the grid for movement."] = "배치 창을 잠그거나 이동시킵니다."
@@ -199,9 +199,9 @@ L["Right"] = "우측"
 L["Scale"] = "크기"
 L["Select which layout to use when in a 10 player raid."] = "10인 공격대시 사용할 배치를 선택합니다."
 L["Select which layout to use when in a 25 player raid."] = "25인 공격대시 사용할 배치를 선택합니다."
--- L["Select which layout to use when in a 40 player raid."] = ""
+L["Select which layout to use when in a 40 player raid."] = "40인 공격대시 사용할 배치를 선택합니다." -- Needs review
 L["Select which layout to use when in a battleground."] = "전장에서 사용할 배치를 선택합니다."
--- L["Select which layout to use when in a flexible raid."] = ""
+L["Select which layout to use when in a flexible raid."] = "공격대 찾기에서 사용할 배치를 선택합니다." -- Needs review
 L["Select which layout to use when in an arena."] = "투기장에서 사용할 배치를 선택합니다."
 L["Select which layout to use when in a party."] = "파티시 사용할 배치를 선택합니다."
 L["Select which layout to use when not in a party."] = "솔로잉시 사용할 배치를 선택합니다."
@@ -224,9 +224,9 @@ L["Top Right"] = "우측 상단"
 L["Undead"] = "언데드"
 L["Unknown Pet"] = "알 수 없는 소환수"
 L["Unknown Unit"] = "알 수 없는 유닛"
--- L["Use the 40 Player Raid layout when in a raid group outside of a raid instance, instead of choosing a layout based on the current Raid Difficulty setting."] = ""
+L["Use the 40 Player Raid layout when in a raid group outside of a raid instance, instead of choosing a layout based on the current Raid Difficulty setting."] = "현재 공격대 난이도 설정에 따른 배치를 선택하는 대신, 공격대 인스턴스가 아닌 외부 공격대 그룹일 경우 40인 배치를 사용합니다." -- Needs review
 L["Using Fallback color"] = "대체 색상 사용"
--- L["World Raid as 40 Player"] = ""
+L["World Raid as 40 Player"] = "40인 월드 공격대" -- Needs review
 
 ------------------------------------------------------------------------
 --	GridLayoutLayouts
@@ -235,8 +235,8 @@ L["By Class 10"] = "10인 직업별"
 L["By Class 10 w/Pets"] = "10인 직업별, 소환수"
 L["By Class 25"] = "25인 직업별"
 L["By Class 25 w/Pets"] = "25인 직업별, 소환수"
--- L["By Class 40"] = ""
--- L["By Class 40 w/Pets"] = ""
+L["By Class 40"] = "40인 직업별" -- Needs review
+L["By Class 40 w/Pets"] = "40인 직업별, 소환수" -- Needs review
 L["By Group 10"] = "10인 공격대"
 L["By Group 10 w/Pets"] = "10인 공격대, 소환수"
 L["By Group 15"] = "15인 공격대"
@@ -265,7 +265,7 @@ L["Click to toggle the frame lock."] = "창을 잠그려면 왼쪽 버튼을 클
 L["Color"] = "색상"
 L["Color for %s"] = "%s 색상"
 L["Enable"] = "사용"
--- L["Opacity"] = ""
+L["Opacity"] = "투명도" -- Needs review
 L["Options for %s."] = "%s|1을;를; 위한 옵션을 설정합니다."
 L["Priority"] = "우선 순위"
 L["Priority for %s"] = "%s|1을;를; 위한 우선 순위입니다."
@@ -336,10 +336,12 @@ L["Remove Aura"] = "(디)버프 삭제"
 L["Remove %s from the menu"] = "메뉴에서 %s|1을;를; 제거합니다."
 L["%s colors"] = "%s 색상"
 L["%s colors and threshold values."] = "%s 색상과 수치값을 조정합니다."
--- L["Show advanced options"] = ""
---[==[ L[ [=[Show advanced options for buff and debuff statuses.
+L["Show advanced options"] = "상세 옵션 표시" -- Needs review
+L[ [=[Show advanced options for buff and debuff statuses.
 
-Beginning users may wish to leave this disabled until you are more familiar with Grid, to avoid being overwhelmed by complicated options menus.]=] ] = "" ]==]
+Beginning users may wish to leave this disabled until you are more familiar with Grid, to avoid being overwhelmed by complicated options menus.]=] ] = [=[버프 및 디버프에 대한 상세한 옵션을 표시합니다.
+
+복잡한 옵션 메뉴가 표시되며, Grid 설정에 익숙하지 않다면 해당 항목을 비활성화하세요."]=] -- Needs review
 L["Show duration"] = "지속시간 표시"
 L["Show if mine"] = "내것만 표시"
 L["Show if missing"] = "사라질때 표시"
@@ -436,14 +438,14 @@ L["X"] = "X"
 ------------------------------------------------------------------------
 --	GridStatusResurrect
 
--- L["Casting color"] = ""
--- L["Pending color"] = ""
--- L["RES"] = ""
--- L["Resurrection"] = ""
--- L["Show the status until the resurrection is accepted or expires, instead of only while it is being cast."] = ""
--- L["Show until used"] = ""
--- L["Use this color for resurrections that are currently being cast."] = ""
--- L["Use this color for resurrections that have finished casting and are waiting to be accepted."] = ""
+L["Casting color"] = "시전 색상" -- Needs review
+L["Pending color"] = "보류 색상" -- Needs review
+L["RES"] = "부활" -- Needs review
+L["Resurrection"] = "부활" -- Needs review
+L["Show the status until the resurrection is accepted or expires, instead of only while it is being cast."] = "부활이 수락될 때까지 상태 창에 표시합니다." -- Needs review
+L["Show until used"] = "부활 때까지 표시" -- Needs review
+L["Use this color for resurrections that are currently being cast."] = "현재 시전되는 부활에 이 색상을 사용합니다." -- Needs review
+L["Use this color for resurrections that have finished casting and are waiting to be accepted."] = "시전이 완료되어 수락을 대기중인 부활에 이 색상을 사용합니다." -- Needs review
 
 ------------------------------------------------------------------------
 --	GridStatusTarget

@@ -139,19 +139,20 @@ a.PetActions = {
 
 -- http://www.wowhead.com/npcs?filter=cr=34;crs=0;crv=270
 a.DummyIDNumbers = {
+	[24792] = "Advanced Training Dummy",
 	[1921] = "Combat Dummy",
 	[32542] = "Disciple's Training Dummy",
 	[25297] = "Drill Dummy",
 	[32546] = "Ebon Knight's Training Dummy",
-	[17059] = "Hellfire Combat Dummy",
-	[17060] = "Hellfire Combat Dummy Small",
 	[17578] = "Hellfire Training Dummy",
+	[54344] = "Highlord's Nemesis Trainer",
 	[32547] = "Highlord's Nemesis Trainer",
 	[32541] = "Initiate's Training Dummy",
 	[32545] = "Initiate's Training Dummy",
 	[33229] = "Melee Target",
 	[19139] = "Nagrand Target Dummy",
 	[16211] = "Naxxramas Combat Dummy",
+	[84991] = "Pet Training Post",
 	[42328] = "Practice Dummy",
 	[25225] = "Practice Dummy",
 	[31146] = "Raider's Training Dummy",
@@ -175,10 +176,13 @@ a.DummyIDNumbers = {
 	[32667] = "Training Dummy",
 	[31144] = "Training Dummy",
 	[46647] = "Training Dummy",
+	[67127] = "Training Dummy",
+	[79414] = "Training Dummy",
+	[79987] = "Training Dummy",
+	[70245] = "Training Dummy",
+	[89078] = "Training Dummy",
 	[5652] = "Undercity Practice Dummy",
 	[32543] = "Veteran's Training Dummy",
-	[1591] = "Training Dummy",
-	[31146] = "Raider's Training Dummy",
 }
 
 
@@ -305,7 +309,7 @@ end
 
 function s.Dummy(unit)
 	local Type, ID = s.UnitInfo(unit)
-	if Type == "npc" then
+	if Type == "Creature" then
 		return a.DummyIDNumbers[ID]
 	end
 	return nil
@@ -1663,12 +1667,13 @@ function s.AuraCastingOrChanneling(SpellName, unit)
 	return nil
 end
 
-local UnitTypesTable = {["0"] = "player", ["8"] = "player", ["4"] = "pet", ["3"] = "npc", ["5"] = "vehicle"}
-local UnitIDPosition = {player = {6}, pet = {6, 10}, npc = {7, 10}, vehicle = {7, 10}, unknown = {7, 10}}
 function s.GUIDInfo(GUID)
 	if type(GUID) == "string" and GUID ~= "" then
-		local Type = UnitTypesTable[GUID:sub(5, 5)] or "unknown"
-		return Type, tonumber(GUID:sub(unpack(UnitIDPosition[Type])), 16)
+		local Type, zero, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", GUID)
+		if Type == "Player" then
+			return Type, tonumber(server_id)
+		end
+		return Type, tonumber(npc_id)
 	end
 	return nil
 end

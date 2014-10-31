@@ -16,4 +16,5 @@ _NPCScanOptionsCharacter = {
 		[8714] = true,
 	},
 	["TargetIcon"] = 8,
+	["TrackVignettes"] = true,
 }

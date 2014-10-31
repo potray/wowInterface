@@ -49,10 +49,10 @@ DataStore_InventoryDB = {
 					4942, -- [8]
 					2374, -- [9]
 					2375, -- [10]
-					[17] = 2376,
-					[19] = 5976,
-					[15] = 4944,
 					[16] = 4948,
+					[19] = 5976,
+					[17] = 2376,
+					[15] = 4944,
 				},
 				["averageItemLvl"] = 5.9375,
 				["overallAIL"] = 6.1875,
@@ -84,27 +84,26 @@ DataStore_InventoryDB = {
 			},
 			["Default.Los Errantes.Elrad"] = {
 				["Inventory"] = {
-					"|cff0070dd|Hitem:58098:4208:0:0:0:0:0:0:85:0:0|h[Helm of Easeful Death]|h|r", -- [1]
+					nil, -- [1]
 					62447, -- [2]
-					"|cff0070dd|Hitem:63470:4201:0:0:0:0:0:1757206528:85:0:0|h[Missing Diplomat's Pauldrons]|h|r", -- [3]
+					nil, -- [3]
 					nil, -- [4]
-					60344, -- [5]
+					nil, -- [5]
 					59342, -- [6]
-					"|cff0070dd|Hitem:58097:4126:0:0:0:0:0:0:85:0:0|h[Greaves of Gallantry]|h|r", -- [7]
-					"|cff0070dd|Hitem:55856:1597:0:0:0:0:0:505363232:85:0:0|h[Greaves of Wu the Elder]|h|r", -- [8]
+					nil, -- [7]
+					"|cffffffff|Hitem:55856:1597:0:0:0:0:0:505363232:85:0:0:0|h[]|h|r", -- [8]
 					63925, -- [9]
-					62430, -- [10]
+					nil, -- [10]
 					62440, -- [11]
 					62350, -- [12]
 					65803, -- [13]
 					56100, -- [14]
-					"|cff0070dd|Hitem:56397:4087:0:0:0:0:0:607059104:85:0:0|h[Geordan's Cloak]|h|r", -- [15]
-					"|cffa335ee|Hitem:59492:4099:0:0:0:0:0:1953342592:85:0:0|h[Akirus the Worm-Breaker]|h|r", -- [16]
-					[19] = 65907,
+					"|cffffffff|Hitem:56397:4087:0:0:0:0:0:607059104:85:0:0:0|h[]|h|r", -- [15]
+					"|cffffffff|Hitem:59492:4099:0:0:0:0:0:1953342592:85:0:0:0|h[]|h|r", -- [16]
 				},
-				["averageItemLvl"] = 344.466674804688,
-				["overallAIL"] = 352.066680908203,
-				["lastUpdate"] = 1409842250,
+				["averageItemLvl"] = 228.266662597656,
+				["overallAIL"] = 361.866668701172,
+				["lastUpdate"] = 1414068114,
 			},
 			["Default.Los Errantes.Drublock"] = {
 				["Inventory"] = {
@@ -217,27 +216,27 @@ DataStore_InventoryDB = {
 			},
 			["Default.Dun Modr.Potray"] = {
 				["Inventory"] = {
-					"|cffffffff|Hitem:61931:0:0:0:0:0:0:0:76:0:14:0|h[]|h|r", -- [1]
-					"|cffffffff|Hitem:113688:0:0:0:0:0:0:0:76:0:1:1:37|h[]|h|r", -- [2]
-					37517, -- [3]
+					"|cffe6cc80|Hitem:61931:0:0:0:0:0:0:0:85:0:14:0|h[Polished Helm of Valor]|h|r", -- [1]
+					"|cff1eff00|Hitem:57377:0:0:0:0:0:0:0:85:0:11:0|h[Goldrinn's Locket]|h|r", -- [2]
+					"|cff1eff00|Hitem:57360:0:0:0:0:0:0:0:85:0:11:0|h[Shoulderguards of Empty Memory]|h|r", -- [3]
 					nil, -- [4]
-					36938, -- [5]
-					"|cffffffff|Hitem:112361:0:0:0:0:0:0:0:76:0:1:1:31|h[]|h|r", -- [6]
-					"|cffffffff|Hitem:112354:0:0:0:0:0:0:0:76:0:1:1:31|h[]|h|r", -- [7]
-					"|cffffffff|Hitem:40755:0:0:0:0:0:0:0:76:0:11:0|h[]|h|r", -- [8]
-					"|cffffffff|Hitem:39680:0:0:0:0:0:0:0:76:0:11:0|h[]|h|r", -- [9]
-					"|cffffffff|Hitem:35651:0:0:0:0:0:0:0:76:0:1:0|h[]|h|r", -- [10]
-					"|cffffffff|Hitem:38251:0:0:0:0:0:0:0:76:0:11:0|h[]|h|r", -- [11]
-					"|cffffffff|Hitem:38218:0:0:0:0:0:0:0:76:0:11:0|h[]|h|r", -- [12]
+					"|cff0070dd|Hitem:57264:0:0:0:0:0:0:0:85:0:11:0|h[Chestplate of Viridian Renewal]|h|r", -- [5]
+					"|cff1eff00|Hitem:57370:0:0:0:0:0:0:0:85:0:11:0|h[Belt of Binding Purification]|h|r", -- [6]
+					"|cff0070dd|Hitem:112354:0:0:0:0:0:0:0:85:0:1:1:31|h[Ice-Encrusted Plate Legguards of the Fireflash]|h|r", -- [7]
+					"|cff0070dd|Hitem:113781:0:0:0:0:0:0:0:85:0:1:1:23|h[Emberspark Plate Sabatons of the Fireflash]|h|r", -- [8]
+					"|cff0070dd|Hitem:55268:0:0:0:0:0:0:0:85:0:1:0|h[Bracers of Cooled Anger]|h|r", -- [9]
+					"|cff1eff00|Hitem:57284:0:0:0:0:0:0:0:85:0:11:0|h[Grips of Arcane Imprisonment]|h|r", -- [10]
+					"|cff1eff00|Hitem:57383:0:0:0:0:0:0:0:85:0:11:0|h[Sharptooth Signet]|h|r", -- [11]
+					"|cff0070dd|Hitem:66900:0:0:0:0:0:0:0:85:0:11:0|h[Band of the Dead End]|h|r", -- [12]
 					42991, -- [13]
-					38212, -- [14]
-					"|cffffffff|Hitem:62038:0:0:0:0:0:0:0:76:0:14:0|h[]|h|r", -- [15]
-					42943, -- [16]
-					[19] = 24344,
+					"|cff1eff00|Hitem:57316:0:0:0:0:0:0:0:85:0:11:0|h[Egg-Lift Talisman]|h|r", -- [14]
+					"|cffe6cc80|Hitem:62038:0:0:0:0:0:0:0:85:0:14:0|h[Worn Stoneskin Gargoyle Cape]|h|r", -- [15]
+					"|cff0070dd|Hitem:55811:0:0:0:0:0:0:0:85:0:1:0|h[Sword of the Bottomless Pit]|h|r", -- [16]
+					[19] = "|cffffffff|Hitem:45574:0:0:0:0:0:0:0:85:0:14:0|h[Stormwind Tabard]|h|r",
 				},
-				["averageItemLvl"] = 157.33332824707,
-				["overallAIL"] = 163.199996948242,
-				["lastUpdate"] = 1413792807,
+				["averageItemLvl"] = 277.866668701172,
+				["overallAIL"] = 290.466674804688,
+				["lastUpdate"] = 1414667049,
 			},
 		},
 		["Guilds"] = {
@@ -246,11 +245,11 @@ DataStore_InventoryDB = {
 					["Pexus"] = {
 						["averageItemLvl"] = 247,
 					},
-					["Kareitris"] = {
-						["averageItemLvl"] = 208,
-					},
 					["Zhenya"] = {
 						["averageItemLvl"] = 39,
+					},
+					["Kareitris"] = {
+						["averageItemLvl"] = 208,
 					},
 					["Drublock"] = {
 						["averageItemLvl"] = 16,

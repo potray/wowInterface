@@ -1,34 +1,15 @@
 ## Title: Lib: AdvancedIconSelector-1.0
-## Notes: Provides a searchable icon selection GUI to addons
-## Version: 1.0.9
-## Author: Darthyl of Bronzebeard-US
-## Interface: 50200
+## Notes: Provides a searchable icon selection GUI to addons, no longer supported by the original author. Local copy for Macro Toolkit, maintained by Deepac
+## Version: 6.0.0.0 (1.0.9)
+## Author: Darthyl of Bronzebeard-US, Deepac
+## Interface: 60000
 ## OptionalDeps: Ace3, LibDebug
-## X-Curse-Packaged-Version: 1.0.9
-## X-Curse-Project-Name: LibAdvancedIconSelector-1.0
-## X-Curse-Project-ID: libadvancediconselector-1-0
-## X-Curse-Repository-ID: wow/libadvancediconselector-1-0/mainline
+## X-Curse-Packaged-Version: v6.0.0.3
+## X-Curse-Project-Name: Macro Toolkit
+## X-Curse-Project-ID: macro-toolkit
+## X-Curse-Repository-ID: wow/macro-toolkit/mainline
 
 ## LoadOnDemand: 1
-## X-Revision: 14
-
-## X-Category: Library
-## X-Website: http://www.curse.com/addons/wow/libadvancediconselector-1-0
-## X-Donate: http://www.curse.com/addons/wow/libadvancediconselector-1-0
-## X-Feedback: http://www.curse.com/addons/wow/libadvancediconselector-1-0
-## X-Date: March 12, 2013
-## X-Email: darthyl@hotmail.com
-## X-Localizations: enUS
-## X-License: MIT
-## X-Embeds: Ace3
-## X-Credits: Darthyl of Bronzebeard-US
-
-### Embedded libraries
-#@no-lib-strip@
-Libs\LibStub\LibStub.lua
-Libs\AceLocale-3.0\AceLocale-3.0.xml
-Libs\AceTimer-3.0\AceTimer-3.0.xml
-#@end-no-lib-strip@
 
 ### Localization
 Locales\enUS.lua

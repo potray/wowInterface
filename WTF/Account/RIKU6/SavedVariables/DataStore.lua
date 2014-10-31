@@ -18,10 +18,10 @@ DataStoreDB = {
 			["Dun Modr.Los Errantes"] = true,
 		},
 		["Guilds"] = {
-			["Default.Dun Modr.Blood Pact"] = {
+			["Default.Los Errantes.Striders"] = {
 				["faction"] = "Alliance",
 			},
-			["Default.Los Errantes.Striders"] = {
+			["Default.Dun Modr.Blood Pact"] = {
 				["faction"] = "Alliance",
 			},
 			["Default.Los Errantes.Elrad guardians"] = {
@@ -34,30 +34,30 @@ DataStoreDB = {
 		["Version"] = 1,
 		["Characters"] = {
 			["Default.Los Errantes.Pexus"] = {
-				["guildName"] = "Striders",
 				["faction"] = "Alliance",
+				["guildName"] = "Striders",
 			},
 			["Default.Dun Modr.Pexuss"] = {
 				["faction"] = "Horde",
 			},
 			["Default.Los Errantes.Kareitris"] = {
-				["guildName"] = "Striders",
 				["faction"] = "Alliance",
+				["guildName"] = "Striders",
 			},
 			["Default.Los Errantes.Elrad"] = {
 				["faction"] = "Alliance",
 			},
 			["Default.Los Errantes.Drublock"] = {
-				["faction"] = "Alliance",
 				["guildName"] = "Striders",
+				["faction"] = "Alliance",
 			},
 			["Default.Los Errantes.Kalarankor"] = {
-				["guildName"] = "Elrad guardians",
 				["faction"] = "Alliance",
+				["guildName"] = "Elrad guardians",
 			},
 			["Default.Los Errantes.Zhenya"] = {
-				["faction"] = "Alliance",
 				["guildName"] = "Striders",
+				["faction"] = "Alliance",
 			},
 			["Default.Los Errantes.Kobash"] = {
 				["faction"] = "Alliance",

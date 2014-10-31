@@ -198,6 +198,8 @@ L["unithasvehicleui"] = "target has a vehicle UI"
 L["vehicleui"] = "player has a vehicle UI"
 L["novehicleui"] = "player has no vehicle UI"
 L["worn"] = "equipped"
+L["Upgrade Mists of Pandria macros? Only answer yes if you used Macro Toolkit in Mists of Pandaria. This only needs to be done once per character."] = true
+L["talent"] = true
 
 --parameters
 L["ctrl"] = true

@@ -4,7 +4,7 @@ SatrinaBuffFrame: disabled
 SBFOptions: disabled
 TidyPlates: enabled
 SexyMap: enabled
-Carbonite: enabled
+Carbonite: disabled
 CarboniteItems: enabled
 CarboniteNodes: enabled
 clcInfo: enabled
@@ -12,7 +12,7 @@ CarboniteTransfer: enabled
 TomTom: enabled
 Carbonite.Info: enabled
 Carbonite.Quests: enabled
-PetTracker_Carbonite: enabled
+PetTracker_Carbonite: disabled
 MoveAnything: disabled
 AtlasLoot: enabled
 AtlasLoot_Cataclysm: enabled
@@ -32,7 +32,7 @@ Carbonite.Weekly: enabled
 Carbonite.Warehouse: enabled
 Carbonite.Transfer: enabled
 Gatherer_HUD: enabled
-Gatherer: enabled
+Gatherer: disabled
 MacroToolkit: enabled
 TextureBrowser: enabled
 TitanBag: enabled
@@ -46,4 +46,6 @@ TitanXP: enabled
 TitanVolume: enabled
 TitanPerformance: enabled
 Prat-3.0_HighCPUUsageModules: disabled
-PetTracker: disabled
+PetTracker: enabled
+PetTracker_Journal: enabled
+SpellFlashCore: disabled

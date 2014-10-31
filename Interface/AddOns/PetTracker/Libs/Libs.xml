@@ -1,6 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<Script file="LibStub\LibStub.lua"/>
-	<Script file="AddonList-1.0\AddonList-1.0.lua"/>
 
 	<Script file="CallbackHandler-1.0\CallbackHandler-1.0.lua"/>
 	<Script file="LibPetJournal-2.0\LibPetJournal-2.0.lua"/>

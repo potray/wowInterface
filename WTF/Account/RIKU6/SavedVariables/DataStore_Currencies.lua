@@ -33,16 +33,16 @@ DataStore_CurrenciesDB = {
 				["Ironpaw Token"] = 13,
 				["Epicurean's Award"] = 12,
 				["Honor Points"] = 7,
-				["Conquest Points"] = 6,
 				["Miscellaneous"] = 3,
+				["Illustrious Jewelcrafter's Token"] = 9,
 				["Dalaran Jewelcrafter's Token"] = 11,
-				["Champion's Seal"] = 4,
+				["Player vs. Player"] = 5,
 				["Valor Points"] = 10,
 				["Cataclysm"] = 8,
-				["Justice Points"] = 2,
 				["Dungeon and Raid"] = 1,
-				["Player vs. Player"] = 5,
-				["Illustrious Jewelcrafter's Token"] = 9,
+				["Justice Points"] = 2,
+				["Champion's Seal"] = 4,
+				["Conquest Points"] = 6,
 			},
 		},
 		["Characters"] = {
@@ -60,8 +60,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "831-0-0-4000",
 					[390] = "0-0-29200-0",
-					[396] = "0-0-0-0",
 					[395] = "1171-0-0-4000",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Dun Modr.Pexuss"] = {
@@ -88,8 +88,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
 					[390] = "0-0-30200-0",
-					[396] = "0-0-0-0",
 					[395] = "0-0-0-0",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Kareitris"] = {
@@ -106,8 +106,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "503-0-0-4000",
 					[390] = "0-0-29200-0",
-					[396] = "0-0-0-0",
 					[395] = "463-0-0-4000",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Elrad"] = {
@@ -115,7 +115,7 @@ DataStore_CurrenciesDB = {
 					17, -- [1]
 					402, -- [2]
 					3, -- [3]
-					512004, -- [4]
+					4, -- [4]
 					20, -- [5]
 					7, -- [6]
 					6024, -- [7]
@@ -140,13 +140,15 @@ DataStore_CurrenciesDB = {
 					0, -- [11]
 					0, -- [12]
 					0, -- [13]
+					0, -- [14]
+					0, -- [15]
 				},
-				["lastUpdate"] = 1409842251,
+				["lastUpdate"] = 1414067311,
 				["CurrencyInfo"] = {
 					[392] = "1744-0-0-4000",
-					[390] = "0-0-29200-0",
+					[390] = "0-0-1700-0",
+					[395] = "0-0-0-0",
 					[396] = "0-0-1000-3000",
-					[395] = "4000-0-0-4000",
 				},
 			},
 			["Default.Los Errantes.Drublock"] = {
@@ -158,8 +160,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
 					[390] = "0-0-29200-0",
-					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
+					[395] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Kalarankor"] = {
@@ -171,8 +173,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
 					[390] = "0-0-29200-0",
-					[396] = "0-0-0-0",
 					[395] = "0-0-0-0",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Zhenya"] = {
@@ -185,8 +187,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-4000",
 					[390] = "0-0-29200-0",
-					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
+					[395] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Kobash"] = {
@@ -203,8 +205,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "356-0-0-4000",
 					[390] = "0-0-29200-0",
-					[395] = "597-0-0-4000",
 					[396] = "0-0-0-0",
+					[395] = "597-0-0-4000",
 				},
 			},
 			["Default.Dun Modr.Ringeki"] = {
@@ -216,27 +218,30 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
 					[390] = "0-0-30200-0",
-					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
+					[395] = "0-0-0-0",
 				},
 			},
 			["Default.Dun Modr.Potray"] = {
 				["Currencies"] = {
-					7, -- [1]
-					152, -- [2]
-					11, -- [3]
-					12, -- [4]
-					5774, -- [5]
+					17, -- [1]
+					274, -- [2]
+					7, -- [3]
+					150, -- [4]
+					152, -- [5]
+					11, -- [6]
+					12, -- [7]
+					1678, -- [8]
 				},
 				["Archeology"] = {
-					19, -- [1]
+					27, -- [1]
 					6, -- [2]
-					13, -- [3]
-					24, -- [4]
+					30, -- [3]
+					28, -- [4]
 					34, -- [5]
 					86, -- [6]
 					0, -- [7]
-					84, -- [8]
+					5, -- [8]
 					0, -- [9]
 					0, -- [10]
 					0, -- [11]
@@ -245,12 +250,12 @@ DataStore_CurrenciesDB = {
 					0, -- [14]
 					0, -- [15]
 				},
-				["lastUpdate"] = 1413792807,
+				["lastUpdate"] = 1414667171,
 				["CurrencyInfo"] = {
-					[392] = "45-0-0-4000",
+					[392] = "13-0-0-4000",
 					[390] = "0-0-1700-0",
-					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
+					[395] = "0-0-0-0",
 				},
 			},
 		},

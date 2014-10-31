@@ -38,7 +38,7 @@ function Cooldown:Stop()
 	end
 end
 
-function Cooldown:CanShow(start, duration, charges)
+function Cooldown:CanShow(start, duration)
 	if not self.noCooldownCount and start and duration then
 		local sets = OmniCC:GetGroupSettingsFor(self) 
 		return start > 0 and duration >= sets.minDuration and sets.enabled
@@ -80,16 +80,14 @@ function Cooldown:OnSizeChanged(width, ...)
 end
 
 function Cooldown:OnColorSet(...)
-	self.swipeR, self.swipeG, self.swipeB, swipeA = ...
+	self.swipeR, self.swipeG, self.swipeB, self.swipeA = ...
 end
 
 
 --[[ Misc ]]--
 
 function Cooldown:UpdateAlpha()
-	if not self.swipeA then
-		self:SetSwipeColor(self.swipeR or 0, self.swipeG or 0, self.swipeB or 0, OmniCC:GetGroupSettingsFor(self).spiralOpacity)
-	end
+	self:SetSwipeColor(self.swipeR or 0, self.swipeG or 0, self.swipeB or 0, OmniCC:GetGroupSettingsFor(self).spiralOpacity)
 end
 
 function Cooldown:ForAll(func, ...)

@@ -34,7 +34,7 @@ MT.defaults = {
 			mfont = "Friz Quadrata TT", mifont = "Friz Quadrata TT", misize = 10},
 	},
 	global = {custom = {}, extended = {}, extra = {}, allcharmacros = false},
-	char = {extended = {}},
+	char = {extended = {}, wodupgrade = false},
 }
 
 local function showtoolkit()
@@ -66,6 +66,12 @@ local function cleanMacros()
 	end
 	
 	for a = 1, dm do MT.db.char.macros[a] = nil end
+end
+
+local function countTables(tablein)
+	local ts = 0
+	for t, e in pairs(tablein) do ts = ts + 1 end
+	return ts
 end
 
 function MT:eventHandler(this, event, arg1, ...)
@@ -131,6 +137,22 @@ function MT:eventHandler(this, event, arg1, ...)
 		MT:CreateSecureFrames()
 		--upgrade extended macro variables
 		MT:CorrectExtendedMacros()
+		
+		if #MT.db.global.extra > 0 then
+			for i, e in pairs(MT.db.global.extra) do 
+				if i < 1000 then
+					--upgrade macro numbering for WoD
+					MT.global.extra[tostring(tonumber(i) * 10)] = MT.global.extra[i]
+					MT.global.extra[i] = nil
+				end
+			end
+		end
+		
+		--upgrade all macros to WoD
+		if MT.db.char.extended then
+			if not MT.db.char.wodupgrade and countTables(MT.db.char.extended) > 0 then StaticPopup_Show("MACROTOOLKIT_WOD_UPGRADE") end
+		end
+		
 		if MT.db.global.extended then
 			if not type(MT.db.global.extended["1"]) == "table" then
 				for i, e in pairs(MT.db.global.extended) do
@@ -167,9 +189,19 @@ function MT:eventHandler(this, event, arg1, ...)
 				end
 			end
 		end
-		for i, e in pairs(MT.db.global.extended) do _G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
-		for i, e in pairs(MT.db.char.extended) do _G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
-		for i, e in pairs(MT.db.global.extra) do _G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
+		--if #MT.db.global.extended > 0 then
+		if countTables(MT.db.global.extended) > 0 then
+			for i, e in pairs(MT.db.global.extended) do _G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
+		end
+		--if #MT.db.char.extended > 0 then
+		if countTables(MT.db.char.extended) > 0 then
+			for i, e in pairs(MT.db.char.extended) do _G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
+		end
+		--if #MT.db.global.extra > 0 then
+		if countTables(MT.db.global.extra) then
+			for i, e in pairs(MT.db.global.extra) do 			
+				_G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
+		end
 		if not MT.db.profile.usecolours then MacroToolkitFauxScrollFrame:Hide() end
 		if not MT.db.profile.viserrors then
 			MacroToolkitErrorBg:Hide()
@@ -324,9 +356,9 @@ function MT:SetMacros(account, extra, copy)
 	MTF.macroBase = account and 0 or _G.MAX_ACCOUNT_MACROS
 	MTF.macroMax = account and _G.MAX_ACCOUNT_MACROS or _G.MAX_CHARACTER_MACROS
 	if extra then
-		if MT:CountExtra() > 0 then MTF.selectedMacro = 101
+		if MT:CountExtra() > 0 then MTF.selectedMacro = 1001
 		else MTF.selectedMacro = nil end
-		MTF.macroBase = 100
+		MTF.macroBase = 1000
 	elseif copy then
 		MTF.selectedMacro = 1
 		MTF.macroBase = 1
@@ -379,9 +411,9 @@ function MT:GetNextIndex()
 	local index = (tab == 2) and (_G.MAX_ACCOUNT_MACROS + 1) or 1
 	local mstart, mend = index, (tab == 2) and (_G.MAX_ACCOUNT_MACROS + _G.MAX_CHARACTER_MACROS) or _G.MAX_ACCOUNT_MACROS
 	if tab == 3 then
-		index = 101
-		mstart = 101
-		mend = 100 + _G.MAX_ACCOUNT_MACROS
+		index = 1001
+		mstart = 1001
+		mend = 1000 + _G.MAX_ACCOUNT_MACROS
 	end
 	for m = mstart, mend do
 		local var = (m > _G.MAX_ACCOUNT_MACROS) and "char" or "global"
@@ -508,7 +540,7 @@ function MT:UpdateCharLimit()
 	local dct = MacroToolkitText:GetText()
 	local chars = strlenutf8(dct)
 	local limit = extended and 1024 or 255
-	if MTF.selectedMacro > 100 or extended then
+	if MTF.selectedMacro > 1000 or extended then
 		if chars > 1024 then
 			local ft = string.sub(dct, 1, 1024)
 			MacroToolkitText:SetText(ft)
@@ -545,7 +577,7 @@ end
 
 function MT:SelOnClick(this)
 	if InCombatLockdown() then return end
-	this:SetChecked(nil)
+	this:SetChecked(false)
 	PickupMacro(MTF.selectedMacro)
 end
 
@@ -597,6 +629,7 @@ function MT:MacroFrameUpdate()
 	local font = LSM:Fetch(LSM.MediaType.FONT, MT.db.profile.fonts.mifont)
 	local k1, k2
 	local bname = (tab == 4) and "MacroToolkitCButton" or "MacroToolkitButton"
+	
 	for i = 1, maxMacroButtons do
 		macroButtonName = format("%s%d", bname, i)
 		macroButton = _G[macroButtonName]
@@ -604,6 +637,7 @@ function MT:MacroFrameUpdate()
 		macroName = _G[format("%sName", macroButtonName)]
 		macroUnbound = _G[format("%sUnbound", macroButtonName)]
 		macroName:SetFont(font, MT.db.profile.fonts.misize)
+		--macroButton:SetChecked(false)
 		if i <= MTF.macroMax then
 			if i <= numMacros then
 				macroUnbound:Hide()
@@ -628,7 +662,7 @@ function MT:MacroFrameUpdate()
 				if MTF.selectedMacro then pos = ((tab == 3) and MTF.extrapos or (MTF.selectedMacro - MTF.macroBase)) end
 				if tab == 4 then pos = MT.MTCF.selectedMacro end
 				if MTF.selectedMacro and i == pos then
-					macroButton:SetChecked(1)
+					macroButton:SetChecked(true)
 					if tab < 4 then MacroToolkitSelMacroName:SetText(name)
 					else MacroToolkitCSelMacroName:SetText(name) end
 					local s, e, index = string.find(body, "MTSB(%d+)")
@@ -643,7 +677,7 @@ function MT:MacroFrameUpdate()
 						MacroToolkitText.extended = true
 						macroButton.extended = true
 						MacroToolkitExtend:Hide()
-						MacroToolkitSelMacroButton:SetScript("OnClick", function(this) this:SetChecked(nil) end)
+						MacroToolkitSelMacroButton:SetScript("OnClick", function(this) this:SetChecked(false) end)
 						if not (k1 or k2) then MacroToolkitLimit:SetText(_G.NOT_BOUND)
 						else
 							if k1 then MacroToolkitLimit:SetText(GetBindingText(k1, "KEY_"))
@@ -671,11 +705,11 @@ function MT:MacroFrameUpdate()
 						MacroToolkitCSelMacroButton:SetID(i)
 						MacroToolkitCSelMacroButtonIcon:SetTexture(texture)
 					end
-				else macroButton:SetChecked(0) end
+				else macroButton:SetChecked(false) end
 				if tab == 4 then macroButton.extended = exmacros[i].extended end
 			else
-				macroButton:SetChecked(0)
-				if tab == 3 then macroButton.extra = 100 end
+				macroButton:SetChecked(false)
+				if tab == 3 then macroButton.extra = 1000 end
 				macroIcon:SetTexture("")
 				macroName:SetText("")
 				macroUnbound:Hide()
@@ -840,7 +874,9 @@ end
 
 function MT:SaveMacro()
 	if MTF.textChanged and MTF.selectedMacro then
-		if MTF.selectedMacro > 100 then
+		if MTF.selectedMacro > 1000 then
+			if not MT.db.global.extra then MT.db.global.extra = {} end
+			if not MT.db.global.extra[tostring(MTF.extra)] then MT.db.global.extra[tostring(MTF.extra)] = {} end
 			MT.db.global.extra[tostring(MTF.extra)].body = MacroToolkitText:GetText()
 			_G[format("MTSB%d", MTF.selectedMacro)]:SetAttribute("macrotext", MacroToolkitText:GetText())
 		else
@@ -875,12 +911,12 @@ function MT:BackupMacros(backupname)
 	local finish = (tab == 1) and _G.MAX_ACCOUNT_MACROS or (_G.MAX_ACCOUNT_MACROS + _G.MAX_CHARACTER_MACROS)
 	if tab == 3 then
 		var = "global"
-		start = 101
-		finish = 100 + MT:CountExtra()
+		start = 1001
+		finish = 1000 + MT:CountExtra()
 	end
 	MT:RefreshPlayerSpellIconInfo()
 	for m = start, finish do
-		if start > 100 then
+		if start > 1000 then
 			local em = MT.db.global.extra[tostring(m)]
 			name, texture, body = em.name, em.texture, em.body
 		else name, texture, body = GetMacroInfo(m) end
@@ -950,6 +986,22 @@ local function MTSpellButton_OnModifiedClick(this, button)
 			return
 		end
 	end
+end
+
+function MT:UpgradeToWod()
+	for omn = 33, 50 do
+		if MT.db.char.extended[tostring(omn)] then
+			local mn = getExMacroIndex(tostring(omn))
+			if mn then
+				MT.db.char.extended[tostring(mn)] = MT.db.char.extended[tostring(omn)]
+				MT.db.char.extended[tostring(omn)] = nil
+				local body = GetMacroBody(mn)
+				body = string.gsub(body, string.format("MTSB%d", omn), string.format("MTSB%d", mn))
+				EditMacro(mn, nil, nil, body)
+			end
+		end
+	end
+	MT.db.char.wodupgrade = true
 end
 
 hooksecurefunc("SpellButton_OnModifiedClick", MTSpellButton_OnModifiedClick)

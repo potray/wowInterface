@@ -521,7 +521,8 @@ function IconSelectorFrame:Create(name, parent, options)
 		for i = 1, #self.icons do
 			local button = self.icons[i]
 			if button then
-				button:SetNormalTexture(nil)
+				--button:SetNormalTexture(nil)
+				button.icon:SetTexture(nil)
 			end
 		end
 	end)
@@ -736,7 +737,8 @@ function IconSelectorFrame.private_OnInternalFrameSizeChanged(internalFrame, wid
 			-- Create the button if it doesn't exist (but don't set its normal texture yet)
 			local button = self.icons[i]
 			if not button then
-				button = CreateFrame("CheckButton", nil, self.internalFrame)
+				button = CreateFrame("CheckButton", format("MTAISButton%d", i), self.internalFrame, "PopupButtonTemplate")
+				button.icon = _G[format("MTAISButton%dIcon", i)]
 				self.icons[i] = button
 				button:SetSize(36, 36)
 				button:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square")
@@ -753,6 +755,9 @@ function IconSelectorFrame.private_OnInternalFrameSizeChanged(internalFrame, wid
 					else
 						button:SetChecked(false)
 					end
+					--print(button.textureKind)
+					--print(button.textureID)
+					--print(button.globalID)
 				end)
 				
 				button:SetScript("OnEnter", function(button, motion)
@@ -819,7 +824,8 @@ function IconSelectorFrame.private_OnInternalFrameSizeChanged(internalFrame, wid
 	for i = self.iconsY * self.iconsX + 1, #self.icons do
 		local button = self.icons[i]
 		if button then
-			button:SetNormalTexture(nil)
+			--button:SetNormalTexture(nil)
+			button.icon:SetTexture(nil)
 			button:Hide()
 		end
 	end
@@ -895,9 +901,15 @@ function IconSelectorFrame:private_UpdateIcons()
 				end
 
 				if button.texture then
-					button:SetNormalTexture("Interface\\Icons\\" .. button.texture)
+					if type(button.texture) == "number" then
+						button.icon:SetToFileData(button.texture)
+					else
+						--button:SetNormalTexture("Interface\\Icons\\" .. button.texture)
+						button.icon:SetTexture("Interface\\Icons\\" .. button.texture)
+					end
 				else
-					button:SetNormalTexture(nil)
+					--button:SetNormalTexture(nil)
+					button.icon:SetTexture(nil)
 				end
 
 				-- Hook for the icon keyword editor (IKE) overlay

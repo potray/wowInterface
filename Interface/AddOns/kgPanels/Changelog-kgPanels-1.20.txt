@@ -1,0 +1,27 @@
+------------------------------------------------------------------------
+r435 | kagaro | 2014-10-24 15:21:09 +0000 (Fri, 24 Oct 2014) | 2 lines
+Changed paths:
+   A /tags/1.20 (from /trunk:434)
+
+Tagging as 1.20
+re taging to pick up new lib backdrop release
+------------------------------------------------------------------------
+r433 | kagaro | 2014-10-17 14:56:27 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/kgPanelsConfig/kgPanelsConfig.toc
+
+updated toc, missed as a full update
+------------------------------------------------------------------------
+r432 | kagaro | 2014-10-17 14:55:47 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/kgPanels.toc
+
+wod toc
+------------------------------------------------------------------------
+r430 | stanzilla | 2014-10-14 15:16:07 +0000 (Tue, 14 Oct 2014) | 1 line
+Changed paths:
+   M /trunk
+   D /trunk/Libs
+
+TOC update for Patch 6.0
+------------------------------------------------------------------------

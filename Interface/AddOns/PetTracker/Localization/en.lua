@@ -31,6 +31,10 @@ L.UnlockActionsTip = 'If enabled, the enemy actions bar can be dragged to anywhe
 L.UpgradeAlert = 'Wild upgrades have appeared!'
 L.ZoneTracker = 'Zone Tracker'
 
+for i = 1, 10 do
+	L['Source' .. i] = _G['BATTLE_PET_SOURCE_' .. i] -- do not translate. Automatic for most locales
+end
+
 L.FAQ = {
 	'How do I show/hide all pets on the map?',
 	'Click on the magnifying glass button at the top right corner of the map. Click on Show Battle Pets.',

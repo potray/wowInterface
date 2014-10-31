@@ -16,11 +16,11 @@ Prat3CharDB = {
 			},
 			["ChatFrame9EditBox"] = {
 			},
-			["ChatFrame1EditBox"] = {
-			},
 			["ChatFrame2EditBox"] = {
 			},
 			["ChatFrame3EditBox"] = {
+			},
+			["ChatFrame1EditBox"] = {
 			},
 		},
 	},

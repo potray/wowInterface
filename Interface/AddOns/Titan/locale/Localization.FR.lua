@@ -344,6 +344,7 @@ L["TITAN_LOOTTYPE_ROUND_ROBIN"] = "Chacun son tour";
 L["TITAN_LOOTTYPE_MASTER_LOOTER"] = "Responsable du butin";
 L["TITAN_LOOTTYPE_GROUP_LOOT"] = "Butin de groupe";
 L["TITAN_LOOTTYPE_NEED_BEFORE_GREED"] = "Le Besoin avant la Cupidité";
+L["TITAN_LOOTTYPE_PERSONAL"] = "Personnel";
 L["TITAN_LOOTTYPE_TOOLTIP"] = "Type de butin";
 L["TITAN_LOOTTYPE_MENU_TEXT"] = "Type de butin";
 L["TITAN_LOOTTYPE_RANDOM_ROLL_LABEL"] = "Lancer les dés";

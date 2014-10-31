@@ -20,52 +20,64 @@ if IsAddOnLoaded('Carbonite.Quests') then
 end
 
 local ADDON, Addon = ...
-local Objectives = Addon:NewModule('Objectives', ObjectiveTracker_GetModuleInfoTable())
+local Objectives = Addon:NewModule('Objectives', Addon.Tracker())
+local Parent, HeaderButton = ObjectiveTrackerBlocksFrame, ObjectiveTrackerFrame.HeaderMenu
 
 
---[[ Startup ]]--
+--[[ Events ]]--
 
 function Objectives:Startup()
-	local tracker = Addon.Tracker()
-	tracker.Anchor:SetScript('OnMouseDown', tracker.ToggleOptions)
-	tracker:SetParent(self.BlocksFrame)
-	tracker.module = Objectives
-	tracker.animateReason = 0
-	tracker.maxEntries = 10
-	tracker.height = 0
+	local header = CreateFrame('Button', nil, self, 'ObjectiveTrackerHeaderTemplate')
+	header:SetScript('OnClick', self.ToggleOptions)
+	header.Text:SetText(Addon.Locals.BattlePets)
+	header:SetPoint('TOPLEFT')
+	header:Show()
 
-	local header = CreateFrame('Button', nil, self.BlocksFrame, 'ObjectiveTrackerHeaderTemplate')
-	header:SetScript('OnClick', tracker.ToggleOptions)
+	self.Anchor:SetPoint('TOPLEFT', header, 'BOTTOMLEFT', -4, -10)
+	self.Anchor:SetScript('OnMouseDown', self.ToggleOptions)
+	self:SetParent(Parent)
+	self.Header = header
 
-	self:SetHeader(header, Addon.Locals.BattlePets)
-	self.tracker, self.firstBlock = tracker, tracker
-	self.blockOffsetX = -15
+	hooksecurefunc('ObjectiveTracker_Update', function()
+		local off = self:GetModulesHeight()
+		local availableEntries = floor((Parent.maxHeight - off - 45) / 20)
 
-	self.updateReasonModule, self.updateReasonEvents = 0x80000000, OBJECTIVE_TRACKER_UPDATE_ALL
-	self.usedBlocks, self.freeItemButtons = {}, {}
+		if availableEntries ~= self.maxEntries then
+			self.maxEntries = availableEntries
+			self:TrackingChanged()
+		end
 
-	tinsert(ObjectiveTrackerFrame.MODULES, self)
+		self:SetPoint('TOPLEFT', Parent, -10, -off)
+	end)
+
+	HeaderButton:HookScript('OnHide', function()
+		if self:IsShown() then
+			HeaderButton:Show()
+		end
+	end)
 end
-
-
---[[ Events ]]--
 
 function Objectives:TrackingChanged()
-	if self.tracker then
-		self.tracker:Update()
-		self.tracker.height = self.tracker:Count() * 20
-		ObjectiveTracker_Update(self.updateReasonModule)
-	end
+	self:Update()
+	self:SetShown(not Addon.Sets.HideTracker and self:Count() > 0)
+
+	HeaderButton:SetShown(Parent.currentBlock or self:IsShown())
 end
 
-function Objectives:Update()
-	if self.tracker then
-		local display = not Addon.Sets.HideTracker
-		self.firstBlock = display and self.tracker
-		self.tracker:SetShown(display)
 
-		if display then
-			self:StaticReanchor()
+--[[ API ]]--
+
+function Objectives:GetModulesHeight() -- can't trust blizzard value
+	local height = 0
+
+	for i, mod in pairs(ObjectiveTrackerFrame.MODULES) do
+		if mod.lastBlock then
+			local top, bottom = mod.Header:GetTop(), mod.lastBlock:GetBottom()
+			if top and bottom then
+				height = height + top - bottom + 15
+			end
 		end
 	end
+
+	return height
 end

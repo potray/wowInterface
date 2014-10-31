@@ -14,8 +14,9 @@ BankStackDB = {
 		},
 	},
 	["profileKeys"] = {
-		["Ringeki - Dun Modr"] = "Default",
 		["Pexuss - Dun Modr"] = "Default",
+		["Elrad - Los Errantes"] = "Default",
+		["Ringeki - Dun Modr"] = "Default",
 		["Potray - Dun Modr"] = "Default",
 	},
 	["profiles"] = {

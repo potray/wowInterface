@@ -387,6 +387,7 @@ L["TITAN_LOOTTYPE_ROUND_ROBIN"] = "Por turnos";
 L["TITAN_LOOTTYPE_MASTER_LOOTER"] = "Maestro despojador";
 L["TITAN_LOOTTYPE_GROUP_LOOT"] = "Botín de grupo";
 L["TITAN_LOOTTYPE_NEED_BEFORE_GREED"] = "Necesidad antes que codicia";
+L["TITAN_LOOTTYPE_PERSONAL"] = "Personal";
 L["TITAN_LOOTTYPE_TOOLTIP"] = "Tipo de saqueo";
 L["TITAN_LOOTTYPE_MENU_TEXT"] = "Tipo de saqueo";
 L["TITAN_LOOTTYPE_RANDOM_ROLL_LABEL"] = "Tirar dados";

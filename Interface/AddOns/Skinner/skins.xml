@@ -63,6 +63,7 @@
 <script file="SkinMe\BriefQuestComplete.lua"/>
 <script file="SkinMe\Broker_Transport.lua"/>
 <script file="SkinMe\Buffalo.lua"/>
+<script file="SkinMe\Bugger.lua"/>
 <script file="SkinMe\BugSack.lua"/>
 <script file="SkinMe\BulkMail2.lua"/>
 <script file="SkinMe\Butsu.lua"/>
@@ -175,6 +176,7 @@
 <script file="SkinMe\ItemSync.lua"/>
 <script file="SkinMe\LauncherMenu.lua"/>
 <script file="SkinMe\LazyAFK.lua"/>
+<script file="SkinMe\LegacyQuest.lua"/>
 <script file="SkinMe\LibDialog.lua"/>
 <script file="SkinMe\LibDropdown.lua"/>
 <script file="SkinMe\LibExtraTip.lua"/>

@@ -1,0 +1,14 @@
+
+RCDB = {
+	["tomtom"] = true,
+	["colorize"] = true,
+	["width"] = 199.999908447266,
+	["biggerbag"] = false,
+	["notifyy"] = 288.000061035156,
+	["sort"] = true,
+	["lastVersion"] = "6.0.2-2",
+	["height"] = 129.999984741211,
+	["notifyx"] = 1694,
+	["sound"] = "DIIING",
+	["notify"] = true,
+}

@@ -28,11 +28,28 @@ function Listener:Startup()
 		self:Reset()
 	end
 
+	self:Upgrade()
 	self:RegisterEvent('PET_BATTLE_FINAL_ROUND')
 	self:RegisterEvent('CHAT_MSG_PET_BATTLE_COMBAT_LOG')
 	self:SetScript('OnEvent', function(self, event, ...)
 		self[event](self, ...)
 	end)
+end
+
+function Listener:Upgrade()
+	for tamer, games in pairs(Addon.Sets.TamerHistory) do
+		for i = #games, 1, -1 do
+			local data = games[i]
+			local len = data:len()
+			if len ~= 26 and len ~= 48 and len ~= 70 then
+				if len == 82 and data:sub(15,18) == '0000' then -- MoP format
+					games[i] = data:sub(1,14) .. data:sub(19,40) .. data:sub(45,66) .. data:sub(71, 82)
+				else
+					tremove(games, i) -- corrupted data
+				end
+			end
+		end
+	end
 end
 
 function Listener:Reset()
@@ -78,11 +95,13 @@ function Listener:PET_BATTLE_FINAL_ROUND(winner)
 
 		for i = 1,3 do
 			local id, spell1, spell2, spell3 = C_PetJournal.GetPetLoadOutInfo(i)
-			local health = C_PetBattles.GetHealth(LE_BATTLE_PET_ALLY, i) / C_PetBattles.GetMaxHealth(LE_BATTLE_PET_ALLY, i)
+			if id then
+				local health = C_PetBattles.GetHealth(LE_BATTLE_PET_ALLY, i) / C_PetBattles.GetMaxHealth(LE_BATTLE_PET_ALLY, i)
 
-			entry = entry .. format('%01x', ceil(health * 15))
-						  .. format('%03x', spell1) .. format('%03x', spell2) .. format('%03x', spell3)
-						  .. id:sub(3)
+				entry = entry .. format('%01x', ceil(health * 15))
+							  .. format('%03x', spell1) .. format('%03x', spell2) .. format('%03x', spell3)
+							  .. id:sub(13)
+			end
 		end
 
 		tinsert(history, 1, entry)

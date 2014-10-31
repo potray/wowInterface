@@ -33,6 +33,8 @@ function MT:CreateMTFrame()
 	mtframe:SetPoint("BOTTOMLEFT", MT.db.profile.x, MT.db.profile.y)
 	mtframe:SetScript("OnMouseDown", function() mtframe:StartMoving() end)
 	mtframe:SetScript("OnMouseUp", frameMouseUp)
+	--need a null texture to get the filenames from icon numbers ... is there an api call to do this???
+	mtframe.nulltexture = mtframe:CreateTexture("BACKGROUND")
 	--if MT.db.profile.escape then mtframe:SetScript("OnKeyDown", function(this, key) MT:FrameOnKeyDown(this, key) end) end
 
 	local mtfportrait = mtframe:CreateTexture(nil, "OVERLAY", nil, 1)
@@ -469,7 +471,7 @@ function MT:CreateMTFrame()
 			PlaySound("igMainMenuOptionCheckBoxOn")
 			local selectedMacro = mtframe.selectedMacro
 			local numMacros
-			if selectedMacro > 100 then
+			if selectedMacro > 1000 then
 				local commandName = format("CLICK MTSB%d:LeftButton", mtframe.extra)
 				local k1, k2 = GetBindingKey(commandName)
 				if MacroToolkitBindingFrame then MacroToolkitBindingFrame.selected = nil end
@@ -858,7 +860,7 @@ function MT:CreateSecureFrames()
 		frame:SetAttribute("macrotext", "")
 	end
 	--extra macros
-	for b = 101, 100 + _G.MAX_ACCOUNT_MACROS do
+	for b = 1001, 1000 + _G.MAX_ACCOUNT_MACROS do
 		local frame = CreateFrame("Button", format("MTSB%d", b), nil, "SecureActionButtonTemplate")
 		_G[format("MTSB%d", b)] = _G[format("MTSB%d", b)]
 		frame:SetID(b)

@@ -8,18 +8,18 @@ BagnonFrameSettings = {
 				0.0156862745098039, -- [3]
 				1, -- [4]
 			},
+			["dataBrokerObject"] = "BankStack",
+			["y"] = 150.000137329102,
+			["x"] = -19.9993896484375,
 			["frameBorderColor"] = {
 				nil, -- [1]
 				0, -- [2]
 				0.0235294117647059, -- [3]
 			},
-			["y"] = 150.000137329102,
-			["x"] = -19.9993896484375,
-			["dataBrokerObject"] = "BankStack",
 		},
 		["voidstorage"] = {
-			["y"] = 214.000305175781,
-			["x"] = -390.000122070313,
+			["y"] = 509.000305175781,
+			["point"] = "BOTTOMLEFT",
 			["dataBrokerObject"] = "BankStack",
 		},
 		["bank"] = {
@@ -29,5 +29,5 @@ BagnonFrameSettings = {
 			["dataBrokerObject"] = "BankStack",
 		},
 	},
-	["version"] = "6.0.10",
+	["version"] = "6.0.13",
 }

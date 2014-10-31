@@ -32,19 +32,7 @@ local SUGGESTIONS = {
 }
 
 
---[[ Hacks ]]--
-
-do
-	local OnClick = WorldMapPOI_OnClick
-	function WorldMapPOI_OnClick(frame, ...)
-		local tamer = Map.tamers[frame]
-		if tamer then
-			tamer:Display()
-		else
-			OnClick(frame, ...)
-		end
-	end
-end
+--[[ Dropdown ]]--
 
 do
 	local function BlizzLine(drop, value, cvar, text, tip, visible)
@@ -142,6 +130,11 @@ function Map:UpdateBlips()
 	end
 end
 
+function Map:ShowFilter(show)
+	self:SetAlpha(show and 1 or 0)
+	self:EnableMouse(show)
+end
+
 function Map:ShowSpecies()
 	local species = Journal:GetSpeciesIn(Addon.zone)
 	
@@ -163,11 +156,6 @@ function Map:ShowSpecies()
 	end
 
 	self:ShowFilter(next(species))
-end
-
-function Map:ShowFilter(show)
-	self:SetAlpha(show and 1 or 0)
-	self:EnableMouse(show)
 end
 
 function Map:ShowStables()
@@ -207,8 +195,8 @@ function Map:CacheTamers()
 	for i = 1, GetNumMapLandmarks() do
 		local frame = _G['WorldMapFramePOI' .. i]
 		if frame then
-			local id = select(10, GetMapLandmarkInfo(i))
-			self.tamers[frame] = Tamer:At(id)
+			self.tamers[frame] = Tamer:At(select(10, GetMapLandmarkInfo(i)))
+			frame:SetScript('PreClick', self.ShowTamer)
 		end
 	end
 end
@@ -216,6 +204,13 @@ end
 function Map:ColorTamers()
 	for frame, tamer in pairs(self.tamers) do
 		frame.Texture:SetDesaturated(IsQuestFlaggedCompleted(tamer.quest))
+	end
+end
+
+function Map:ShowTamer()
+	local tamer = Map.tamers[self]
+	if tamer then
+		tamer:Display()
 	end
 end
 

@@ -95,10 +95,6 @@ function Addon:GetQualityColor(quality)
 	return Missing.r, Missing.g, Missing.b, RED_FONT_COLOR_CODE:sub(3)
 end
 
-function Addon:GetSourceName(source)
-	return _G['BATTLE_PET_SOURCE_' .. source]
-end
-
 function Addon:GetTypeName(type)
 	return _G['BATTLE_PET_NAME_' .. type]
 end

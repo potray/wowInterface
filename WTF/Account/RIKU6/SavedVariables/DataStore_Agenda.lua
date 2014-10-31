@@ -38,42 +38,36 @@ DataStore_AgendaDB = {
 					["Fitipaldi"] = {
 						["note"] = "",
 					},
-					["Azanami"] = {
-						["note"] = "",
-					},
-					["Ithaisa"] = {
-						["note"] = "",
-					},
-					["Kalarankor"] = {
+					["Kirie"] = {
 						["note"] = "",
 					},
 					["Kreaven"] = {
 						["note"] = "",
 					},
-					["Salvalf"] = {
+					["Ithaisa"] = {
 						["note"] = "",
 					},
-					["Rakkala"] = {
+					["Salvalf"] = {
 						["note"] = "",
 					},
 					["Adverik"] = {
 						["note"] = "",
 					},
-					["Kirie"] = {
+					["Kalarankor"] = {
 						["note"] = "",
 					},
 				},
-				["lastUpdate"] = 1409842250,
+				["lastUpdate"] = 1414067311,
 			},
 			["Default.Los Errantes.Drublock"] = {
 				["lastUpdate"] = 1409841653,
 			},
 			["Default.Los Errantes.Kalarankor"] = {
 				["Contacts"] = {
-					["Kareitris"] = {
+					["Elrad"] = {
 						["note"] = "",
 					},
-					["Elrad"] = {
+					["Kareitris"] = {
 						["note"] = "",
 					},
 					["Drublock"] = {
@@ -127,13 +121,13 @@ DataStore_AgendaDB = {
 				["lastUpdate"] = 1410628407,
 			},
 			["Default.Dun Modr.Potray"] = {
-				["lastUpdate"] = 1413792807,
+				["lastUpdate"] = 1414667049,
 			},
 		},
 		["Options"] = {
 			["WeeklyResetHour"] = 6,
 			["WeeklyResetDay"] = 3,
-			["NextWeeklyReset"] = "2014-10-22",
+			["NextWeeklyReset"] = "2014-11-05",
 		},
 	},
 }

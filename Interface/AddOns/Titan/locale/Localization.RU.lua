@@ -342,6 +342,7 @@ L["TITAN_LOOTTYPE_ROUND_ROBIN"] = "По очереди";
 L["TITAN_LOOTTYPE_MASTER_LOOTER"] = "Ответственный за добычу";
 L["TITAN_LOOTTYPE_GROUP_LOOT"] = "Групповая очередь";
 L["TITAN_LOOTTYPE_NEED_BEFORE_GREED"] = "Приоритет по нужности";
+L["TITAN_LOOTTYPE_PERSONAL"] = "Personal";
 L["TITAN_LOOTTYPE_TOOLTIP"] = "Информация о типе добычи";
 L["TITAN_LOOTTYPE_MENU_TEXT"] = "Тип добычи";
 L["TITAN_LOOTTYPE_RANDOM_ROLL_LABEL"] = "Случайный бросок костей";

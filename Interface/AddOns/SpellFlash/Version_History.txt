@@ -1,4 +1,14 @@
+DummyIDNumbers
 
+
+== Version 6.14
+
+* Updated the training dummy ID numbers.
+
+
+== Version 6.13
+
+* Updated the s.GUIDInfo and s.UnitInfo functions.
 
 
 == Version 6.12

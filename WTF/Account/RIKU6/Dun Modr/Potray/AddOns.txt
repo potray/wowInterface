@@ -6,7 +6,7 @@ SatrinaBuffFrame: disabled
 SBFOptions: disabled
 TidyPlates: enabled
 SexyMap: enabled
-Carbonite: enabled
+Carbonite: disabled
 CarboniteItems: enabled
 CarboniteNodes: enabled
 clcInfo: enabled
@@ -14,7 +14,7 @@ CarboniteTransfer: enabled
 TomTom: enabled
 Carbonite.Info: enabled
 Carbonite.Quests: enabled
-PetTracker_Carbonite: enabled
+PetTracker_Carbonite: disabled
 MoveAnything: enabled
 AtlasLoot: enabled
 AtlasLoot_BurningCrusade: enabled
@@ -33,7 +33,7 @@ Carbonite.Social: enabled
 Carbonite.Transfer: enabled
 Carbonite.Warehouse: enabled
 Carbonite.Weekly: enabled
-Gatherer: enabled
+Gatherer: disabled
 Gatherer_HUD: enabled
 MacroToolkit: enabled
 TextureBrowser: enabled
@@ -103,7 +103,7 @@ MSBTOptions: enabled
 Omen: enabled
 OmniCC: enabled
 OmniCC_Config: enabled
-PetTracker: disabled
+PetTracker: enabled
 PetTracker_Breeds: enabled
 PetTracker_Config: enabled
 PetTracker_Journal: enabled
@@ -117,7 +117,7 @@ Recount: enabled
 ShadowedUF_Options: enabled
 ShadowedUnitFrames: enabled
 SlideBar: enabled
-SpellFlashCore: enabled
+SpellFlashCore: disabled
 Stubby: enabled
 !Swatter: enabled
 TidyPlatesHub: enabled

@@ -116,8 +116,7 @@ function Journal:GetSource(specie)
 	local source = select(5, self:GetInfo(specie))
 
 	for i = 1, Server.GetNumPetSources() do
-		local name = Addon:GetSourceName(i)
-		if source:find('^|c%w+' .. name) then
+		if source:find('^|c%w+' .. L['Source' .. i]) then
 			return i, name
 		end
 	end
