@@ -14,7 +14,7 @@ CarboniteTransfer: enabled
 TomTom: enabled
 Carbonite.Info: enabled
 Carbonite.Quests: enabled
-PetTracker_Carbonite: disabled
+PetTracker_Carbonite: enabled
 MoveAnything: enabled
 AtlasLoot: enabled
 AtlasLoot_BurningCrusade: enabled
@@ -33,7 +33,7 @@ Carbonite.Social: enabled
 Carbonite.Transfer: enabled
 Carbonite.Warehouse: enabled
 Carbonite.Weekly: enabled
-Gatherer: disabled
+Gatherer: enabled
 Gatherer_HUD: enabled
 MacroToolkit: enabled
 TextureBrowser: enabled
@@ -117,7 +117,7 @@ Recount: enabled
 ShadowedUF_Options: enabled
 ShadowedUnitFrames: enabled
 SlideBar: enabled
-SpellFlashCore: disabled
+SpellFlashCore: enabled
 Stubby: enabled
 !Swatter: enabled
 TidyPlatesHub: enabled
@@ -130,7 +130,7 @@ TipTac: enabled
 TipTacItemRef: enabled
 TipTacOptions: enabled
 TipTacTalents: enabled
-SpellFlash: enabled
+SpellFlash: disabled
 DBM-StatusBarTimers: enabled
 DBM-Core: enabled
 DBM-DefaultSkin: enabled
@@ -142,3 +142,12 @@ DBM-Draenor: enabled
 DBM-Highmaul: enabled
 DBM-Party-WoD: enabled
 DBM-WorldEvents: enabled
+Breeze: enabled
+GarrisonCommander: disabled
+Broker_Garrison: enabled
+GarrisonMissionManager: enabled
+GatherMate2: enabled
+GatherMate2_Data: enabled
+MasterPlan: enabled
+RareCoordinator: enabled
+Routes: enabled

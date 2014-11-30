@@ -1,5 +1,31 @@
 
 SpellFlashAddonConfig = {
+	["REALM"] = {
+		["Los Errantes"] = {
+			["PLAYER"] = {
+				["Elrad"] = {
+					["selected_class_module"] = "BittensSpellFlash_Pally",
+					["MODULE"] = {
+					},
+				},
+				["Drublock"] = {
+					["MODULE"] = {
+					},
+				},
+			},
+		},
+		["Dun Modr"] = {
+			["PLAYER"] = {
+				["Potray"] = {
+					["selected_class_module"] = "BittensSpellFlash_Pally",
+					["MODULE"] = {
+						["BittensSpellFlash_Pally"] = {
+						},
+					},
+				},
+			},
+		},
+	},
 	["SERVER"] = {
 		["eu.logon.worldofwarcraft.com"] = {
 			["REALM"] = {
@@ -13,27 +39,6 @@ SpellFlashAddonConfig = {
 									["FlashProtection"] = false,
 								},
 							},
-						},
-					},
-				},
-			},
-		},
-	},
-	["REALM"] = {
-		["Los Errantes"] = {
-			["PLAYER"] = {
-				["Elrad"] = {
-					["MODULE"] = {
-					},
-				},
-			},
-		},
-		["Dun Modr"] = {
-			["PLAYER"] = {
-				["Potray"] = {
-					["selected_class_module"] = "BittensSpellFlash_Pally",
-					["MODULE"] = {
-						["BittensSpellFlash_Pally"] = {
 						},
 					},
 				},

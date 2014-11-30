@@ -31,6 +31,7 @@ local Tooltip = PetBattlePrimaryAbilityTooltip
 function Ability:OnCreate()
 	self:SetScript('OnEnter', self.OnEnter)
 	self:SetScript('OnLeave', self.OnLeave)
+	self:SetScript('OnEvent', nil)
 	self:SetScript('OnClick', nil)
 end
 

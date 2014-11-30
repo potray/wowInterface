@@ -63,6 +63,7 @@ function Tracker:AddSpecies()
 	end
 
 	self.Anchor:SetProgress(progress)
+	self:SetHeight(self:Count() * 20 + 65)
 end
 
 

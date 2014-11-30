@@ -31,8 +31,8 @@ function MT:CreateBindingFrame()
 			MacroToolkitFrame:Hide()
 			local tab = PanelTemplates_GetSelectedTab(MacroToolkitFrame)
 			local sel = (tab == 3) and MacroToolkitFrame.extra or MacroToolkitFrame.selectedMacro
-			local name = (sel > 100) and MT.db.global.extra[tostring(sel)].name or GetMacroInfo(sel)
-			local commandName = (sel > 100) and format("CLICK MTSB%d:LeftButton", sel) or format("MACRO %s", name)
+			local name = (sel > 1000) and MT.db.global.extra[tostring(sel)].name or GetMacroInfo(sel)
+			local commandName = (sel > 1000) and format("CLICK MTSB%d:LeftButton", sel) or format("MACRO %s", name)
 			frame.selected = commandName
 			frame.mname = name
 			MT:UpdateBindingFrame()
@@ -264,7 +264,7 @@ end
 
 function MT:UpdateBindingFrame()
 	local name = MTB.mname
-	local commandName = (MacroToolkitFrame.selectedMacro > 100) and format("CLICK MTSB%d:LeftButton", MacroToolkitFrame.selectedMacro) or format("MACRO %s", name)
+	local commandName = (MacroToolkitFrame.selectedMacro > 1000) and format("CLICK MTSB%d:LeftButton", MacroToolkitFrame.selectedMacro) or format("MACRO %s", name)
 	MTB.macroname:SetText(name)
 	local b1, b2 = MacroToolkitBindButton1, MacroToolkitBindButton2
 	local k1, k2 = GetBindingKey(commandName)

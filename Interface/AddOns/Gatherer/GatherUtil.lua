@@ -1,7 +1,7 @@
 --[[
 	Gatherer Addon for World of Warcraft(tm).
-	Version: 4.4.2 (<%codename%>)
-	Revision: $Id: GatherUtil.lua 1114 2014-10-11 07:13:26Z ccox $
+	Version: 5.0.0 (<%codename%>)
+	Revision: $Id: GatherUtil.lua 1130 2014-11-13 21:02:57Z esamynn $
 
 	License:
 	This program is free software; you can redistribute it and/or
@@ -27,7 +27,7 @@
 
 	Utility functions
 ]]
-Gatherer_RegisterRevision("$URL: http://svn.norganna.org/gatherer/tags/REL_4.4.2/Gatherer/GatherUtil.lua $", "$Rev: 1114 $")
+Gatherer_RegisterRevision("$URL: http://svn.norganna.org/gatherer/tags/REL_5.0.0/Gatherer/GatherUtil.lua $", "$Rev: 1130 $")
 
 -- reference to the Astrolabe mapping library
 local Astrolabe = DongleStub(Gatherer.AstrolabeVersion)
@@ -333,7 +333,12 @@ function Gatherer.Util.GetGatherTexture( nodeID )
 	if not ( selectedTexture ) then
 		local prime, pcount = Gatherer.DropRates.GetPrimaryItem(nodeID)
 		if ( prime ) then
-			local primaryName, _, _, _, _, _, _, _, _, nodeTexture = GetItemInfo(prime)
+			local primaryName, nodeTexture, _
+			if ( prime < 0 ) then
+				primaryName, _, nodeTexture = GetCurrencyInfo(-prime)
+			else
+				primaryName, _, _, _, _, _, _, _, _, nodeTexture = GetItemInfo(prime)
+			end
 			selectedTexture = nodeTexture
 			trimTexture = true
 		end
@@ -363,30 +368,16 @@ local function stripZoneIDs(...)
 	return temp;
 end
 
-Gatherer.Util.ZoneNames = { __index = 
-function(tbl, key)
-	setmetatable(tbl, nil)
-	tbl["__index"] = nil
-	local cList = stripZoneIDs(GetMapContinents());
-	for C, cname in pairs(cList) do
-		local nameList = stripZoneIDs(GetMapZones(C));
-		for Z, zoneName in pairs(nameList) do
-			tbl[zoneName] = Astrolabe:GetMapID(C, Z)
-		end
-	end
-	return tbl[key]
-end
-}
-setmetatable( Gatherer.Util.ZoneNames, Gatherer.Util.ZoneNames )
-
 function Gatherer.Util.GetPositionInCurrentZone()
 	local realZoneText = GetRealZoneText()
-	local zone = Gatherer.Util.ZoneNames[realZoneText]
+	local zoneToken = Gatherer.ZoneTokens.ZoneNames[realZoneText]
+	if ( type(zoneToken) == "table" ) then
+		local _, _, _, worldMapID = UnitPosition("player")
+		zoneToken = zoneToken[worldMapID] or zoneToken[""]
+	end
 	local mapID, mapFloor, px, py = Astrolabe:GetCurrentPlayerPosition()
 	if not ( mapID ) then return end
-	local zoneToken
-	if ( zone ) then
-		zoneToken = Gatherer.ZoneTokens.GetZoneToken(zone)
+	if ( zoneToken ) then
 		local realMapID, realMapFloor = Gatherer.ZoneTokens.GetZoneMapIDAndFloor(zoneToken)
 		if ( realMapID ) then
 			px, py = Astrolabe:TranslateWorldMapPosition(mapID, mapFloor, px, py, realMapID, realMapFloor)

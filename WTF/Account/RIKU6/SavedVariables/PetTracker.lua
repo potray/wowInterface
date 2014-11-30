@@ -6,7 +6,7 @@ PetTracker_Sets = {
 	["HideSpecies"] = true,
 	["HideStables"] = true,
 	["TamerSearch"] = "",
-	["PromptForfeit"] = true,
+	["MainTutorial"] = 6,
 	["CapturedPets"] = true,
 	["TamerHistory"] = {
 		[65656] = {
@@ -19,17 +19,17 @@ PetTracker_Sets = {
 		[66512] = {
 			"113450c109b0ac00000397E61211802c92c6000003837ED1c1bd1712340000038C5CC5", -- [1]
 		},
-		[63194] = {
-			"111431801162c6000003837ED1f3231fd21a000003837EB0c1bd1712340000038C5CC5", -- [1]
-		},
-		[66478] = {
-			"1134307109b0ac00000397E61201802c92c6000003837ED1b1bd1712340000038C5CC5", -- [1]
-		},
 		[66520] = {
 			"111e01802c92c6000003837ED103231fd21a000003837EB0c1bd1712340000038C5CC5", -- [1]
 			"211e51802c92c6000003837ED123231fd21a000003837EB001bd1712340000038C5CC5", -- [2]
 		},
+		[66478] = {
+			"1134307109b0ac00000397E61201802c92c6000003837ED1b1bd1712340000038C5CC5", -- [1]
+		},
+		[63194] = {
+			"111431801162c6000003837ED1f3231fd21a000003837EB0c1bd1712340000038C5CC5", -- [1]
+		},
 	},
 	["AlertUpgrades"] = true,
-	["MainTutorial"] = 6,
+	["PromptForfeit"] = true,
 }

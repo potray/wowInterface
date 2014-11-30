@@ -85,7 +85,7 @@ end
 -- DESC : Calculate coordinates and then display data on button
 -- VARS : id = button ID
 -- **************************************************************************
-function TitanPanelLocationButton_GetButtonText(id)		 
+function TitanPanelLocationButton_GetButtonText(id)
 	local button, id = TitanUtils_GetButton(id, true);
 
 	button.px, button.py = GetPlayerMapPosition("player");
@@ -95,7 +95,7 @@ function TitanPanelLocationButton_GetButtonText(id)
 	if button.px == nil then button.px = 0 end
 	if button.py == nil then button.py = 0 end
 	local locationText = "";
-	if (TitanGetVar(TITAN_LOCATION_ID, "CoordsFormat1")) then     
+	if (TitanGetVar(TITAN_LOCATION_ID, "CoordsFormat1")) then
 		locationText = format(L["TITAN_COORDS_FORMAT"], 100 * button.px, 100 * button.py);
 	elseif (TitanGetVar(TITAN_LOCATION_ID, "CoordsFormat2")) then
 		locationText = format(L["TITAN_COORDS_FORMAT2"], 100 * button.px, 100 * button.py);
@@ -120,9 +120,9 @@ function TitanPanelLocationButton_GetButtonText(id)
 	end
 
 	local locationRichText;
-	if (TitanGetVar(TITAN_LOCATION_ID, "ShowColoredText")) then     
+	if (TitanGetVar(TITAN_LOCATION_ID, "ShowColoredText")) then
 		if (TitanPanelLocationButton.isArena) then
-			locationRichText = TitanUtils_GetRedText(locationText);          
+			locationRichText = TitanUtils_GetRedText(locationText);
 		elseif (TitanPanelLocationButton.pvpType == "friendly") then
 			locationRichText = TitanUtils_GetGreenText(locationText);
 		elseif (TitanPanelLocationButton.pvpType == "hostile") then
@@ -436,14 +436,10 @@ end
 function TitanMapFrame_OnUpdate(self, elapsed)
 	-- using :Hide / :Show prevents coords from running
 	--	TitanMapFrame:Hide() -- hide parent
-	if not (TitanGetVar(TITAN_LOCATION_ID, "ShowCoordsOnMap")) then
-		return
-	end
 
 	-- Determine the text to show for player coords
 	--
-	if WorldMapFrameSizeUpButton:IsVisible() 
-	then
+	if WorldMapFrameSizeUpButton:IsVisible() then
 		TitanMapPlayerLocation:SetText("");
 	else
 		self.px, self.py = GetPlayerMapPosition("player");
@@ -482,18 +478,22 @@ function TitanMapFrame_OnUpdate(self, elapsed)
 			cy = 0
 		end
 		-- per the user requested format
-		if (TitanGetVar(TITAN_LOCATION_ID, "CoordsFormat1")) then     				
+		if (TitanGetVar(TITAN_LOCATION_ID, "CoordsFormat1")) then
 			cursorLocationText = format(L["TITAN_COORDS_FORMAT"], 100 * cx, 100 * cy);
 		elseif (TitanGetVar(TITAN_LOCATION_ID, "CoordsFormat2")) then
 			cursorLocationText = format(L["TITAN_COORDS_FORMAT2"], 100 * cx, 100 * cy);
 		elseif (TitanGetVar(TITAN_LOCATION_ID, "CoordsFormat3")) then
 			cursorLocationText = format(L["TITAN_COORDS_FORMAT3"], 100 * cx, 100 * cy);
 		end
-		TitanMapCursorLocation:SetText(format(L["TITAN_COORDS_MAP_CURSOR_COORDS_TEXT"], 
-			TitanUtils_GetHighlightText(cursorLocationText)));
-	
+		if (TitanGetVar(TITAN_LOCATION_ID, "ShowCoordsOnMap")) then
+			TitanMapCursorLocation:SetText(format(L["TITAN_COORDS_MAP_CURSOR_COORDS_TEXT"], 
+				TitanUtils_GetHighlightText(cursorLocationText)));
+		else
+			TitanMapCursorLocation:SetText("");
+		end
+
 	-- Determine where to show the text
-	
+
 	-- *
 	TitanMapPlayerLocation:ClearAllPoints()
 	if ( WorldMapFrameSizeUpButton:IsVisible() ) then

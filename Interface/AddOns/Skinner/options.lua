@@ -61,6 +61,7 @@ function aObj:Defaults()
 		MerchantFrame        = true,
 		Petition             = true,
 		PetStableFrame       = true,
+		QuestChoice          = true,
 		QuestFrame           = true,
 		SideDressUpFrame     = true,
 		Tabard               = true,
@@ -100,7 +101,6 @@ function aObj:Defaults()
 		RolePollPopup        = true,
 		ScrollOfResurrection = true,
 		SpellBookFrame       = true,
-		SpellFlyout          = true,
 		StackSplit           = true,
 		TalentUI             = true,
 		TradeFrame           = true,
@@ -780,6 +780,11 @@ function aObj:Options()
 					name = self.L["Stable Frame"],
 					desc = self.L["Toggle the skin of the Stable Frame"],
 				},
+				QuestChoice = {
+					type = "toggle",
+					name = self.L["Quest Choice Frame"],
+					desc = self.L["Toggle the skin of the Quest Choice Frame"],
+				},
 				QuestFrame = {
 					type = "toggle",
 					name = self.L["Quest Frame"],
@@ -1124,11 +1129,6 @@ function aObj:Options()
 					type = "toggle",
 					name = self.L["SpellBook Frame"],
 					desc = self.L["Toggle the skin of the SpellBook Frame"],
-				},
-				SpellFlyout = {
-					type = "toggle",
-					name = self.L["SpellFlyouts"],
-					desc = self.L["Toggle the skin of the SpellFlyouts"],
 				},
 				StackSplit = {
 					type = "toggle",
@@ -1793,10 +1793,10 @@ function aObj:Options()
 		if not input or input:trim() == "" then
 			-- Open general panel if there are no parameters, do twice to overcome Blizzard bug
 			InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame)
-			InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame)
+			-- InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame)
 		elseif optCheck[input:lower()] then
 			InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame[optCheck[input:lower()]])
-			InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame[optCheck[input:lower()]])
+			-- InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame[optCheck[input:lower()]])
 		else
 			LibStub("AceConfigCmd-3.0"):HandleCommand(aName, aName, input)
 		end

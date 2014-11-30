@@ -3,15 +3,15 @@ MSBTProfiles_SavedVars = {
 	["profiles"] = {
 		["Default"] = {
 			["scrollAreas"] = {
+				["Outgoing"] = {
+					["offsetY"] = -159,
+				},
 				["Static"] = {
 					["direction"] = "Up",
 					["offsetX"] = -17,
 					["offsetY"] = -275,
 					["animationStyle"] = "Straight",
 					["scrollHeight"] = 83.6113739013672,
-				},
-				["Outgoing"] = {
-					["offsetY"] = -159,
 				},
 			},
 			["events"] = {

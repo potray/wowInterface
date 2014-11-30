@@ -1,6 +1,7 @@
 
 DataStore_AgendaDB = {
 	["profileKeys"] = {
+		["Geddry - Dun Modr"] = "Geddry - Dun Modr",
 		["Pexuss - Dun Modr"] = "Pexuss - Dun Modr",
 		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
 		["Kareitris - Los Errantes"] = "Kareitris - Los Errantes",
@@ -57,17 +58,17 @@ DataStore_AgendaDB = {
 						["note"] = "",
 					},
 				},
-				["lastUpdate"] = 1414067311,
+				["lastUpdate"] = 1417275333,
 			},
 			["Default.Los Errantes.Drublock"] = {
-				["lastUpdate"] = 1409841653,
+				["lastUpdate"] = 1417273883,
 			},
 			["Default.Los Errantes.Kalarankor"] = {
 				["Contacts"] = {
-					["Elrad"] = {
+					["Kareitris"] = {
 						["note"] = "",
 					},
-					["Kareitris"] = {
+					["Elrad"] = {
 						["note"] = "",
 					},
 					["Drublock"] = {
@@ -121,13 +122,16 @@ DataStore_AgendaDB = {
 				["lastUpdate"] = 1410628407,
 			},
 			["Default.Dun Modr.Potray"] = {
-				["lastUpdate"] = 1414667049,
+				["lastUpdate"] = 1417387942,
+			},
+			["Default.Dun Modr.Geddry"] = {
+				["lastUpdate"] = 1417306931,
 			},
 		},
 		["Options"] = {
 			["WeeklyResetHour"] = 6,
 			["WeeklyResetDay"] = 3,
-			["NextWeeklyReset"] = "2014-11-05",
+			["NextWeeklyReset"] = "2014-12-03",
 		},
 	},
 }

@@ -1,0 +1,67 @@
+------------------------------------------------------------------------
+r315 | abija | 2014-11-29 01:20:00 +0000 (Sat, 29 Nov 2014) | 1 line
+Changed paths:
+   A /tags/v.1.6.03.002 (from /trunk:314)
+
+Tagging as v.1.6.03.002
+------------------------------------------------------------------------
+r314 | abija | 2014-11-28 07:43:30 +0000 (Fri, 28 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/retmodule/rotation.lua
+
+- various rotation.lua fixes
+------------------------------------------------------------------------
+r313 | abija | 2014-11-26 12:37:09 +0000 (Wed, 26 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/retmodule/rotation.lua
+
+- minor fixes
+------------------------------------------------------------------------
+r312 | abija | 2014-11-26 10:11:55 +0000 (Wed, 26 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/retmodule/rotation.lua
+
+retmodule: fix 2x how
+------------------------------------------------------------------------
+r310 | abija | 2014-11-23 17:53:31 +0000 (Sun, 23 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/data/global_text.lua
+
+- minor change
+------------------------------------------------------------------------
+r309 | abija | 2014-11-23 17:35:29 +0000 (Sun, 23 Nov 2014) | 3 lines
+Changed paths:
+   M /trunk/retmodule/rotation.lua
+
+empowered seals
+try with something like 
+es eds5 tv_dp_4s eds5_fv tv5 ds5 eds_4s how cs emp_sot_exp emp_sor_exp j exo emp_sot_return tv4 tv3
+------------------------------------------------------------------------
+r308 | abija | 2014-11-23 16:31:32 +0000 (Sun, 23 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/retmodule/rotation.lua
+
+- some fixes
+------------------------------------------------------------------------
+r307 | abija | 2014-11-23 16:22:40 +0000 (Sun, 23 Nov 2014) | 2 lines
+Changed paths:
+   M /trunk/retmodule/rotation.lua
+   D /trunk/retmodule/rotation.untested
+
+- cremor's rotation strings for WoD
+- changed some names for consistency
+------------------------------------------------------------------------
+r306 | abija | 2014-11-23 10:18:27 +0000 (Sun, 23 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/templates.lua
+
+- hopefuly fixed talent detection for templates
+------------------------------------------------------------------------
+r305 | abija | 2014-10-17 11:18:59 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/core.lua
+   M /trunk/display/icons.lua
+   M /trunk/display/micons.lua
+
+- trying to fix disappearing cooldowns on hide->show
+------------------------------------------------------------------------

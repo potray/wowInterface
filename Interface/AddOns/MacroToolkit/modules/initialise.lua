@@ -2,7 +2,7 @@
 local MT = MacroToolkit
 MT.LS = LibStub
 MT.L = MT.LS("AceLocale-3.0"):GetLocale("MacroToolkit")
-MT.AIS = MT.LS("LibAdvancedIconSelector-1.0")
+MT.AIS = MT.LS("LibAdvancedIconSelector-MTK")
 MT.slash = string.sub(_G.SLASH_CAST1, 1, 1)
 MT.click = _G.SLASH_CLICK1
 local L = MT.L

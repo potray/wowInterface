@@ -1,7 +1,7 @@
 ﻿--[[
 ********************************************************************************
 Routes
-v1.4.2-10-g7cf2dde
+v1.5.0-4-gf4569a7
 16 October 2014
 (Originally written for Live Servers v4.3.0.15050)
 (Hotfixed for v6.0.2.19034)
@@ -225,8 +225,12 @@ for cID_new, cname in next, {GetMapContinents()} do
 	if type(cname) == "string" then
 		local cID = cID_new / 2
 		for zID, zname in pairs(ZoneInfo(GetMapZones(cID))) do
+			-- old SMV/Nagrand in outlands
+			if zID == 473 or zID == 477 then
+				zname = ("%s (%s)"):format(zname, cname)
+			end
 			SetMapByID(zID)
-			Routes.LZName[zname] = {GetMapInfo(), GetCurrentMapAreaID(), cID, zID}
+			Routes.LZName[zname] = {GetMapInfo(), zID, cID, (GetCurrentMapZone())}
 		end
 	end
 end

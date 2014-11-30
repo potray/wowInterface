@@ -1,6 +1,13 @@
 CHANGELOG
 ---------------------------------------
 
+5.0.0
+========
+Version Issue List: http://jira.norganna.org/browse/GATH/fixforversion/10953
+- GATH-218: add basic WoD gatherables (Herbs/Ore/Archaeology)
+- GATH-222: correct problem with conflicts between zones with the same name
+- GATH-221: merge World Map show/hide button into default UI dropdown
+
 4.4.2
 ========
 Version Issue List: http://jira.norganna.org/browse/GATH/fixforversion/10952
@@ -606,4 +613,4 @@ Deleted a rogue print2 statement.
 - Added giant clam treasure
 
 --------------
-Revision: $Id: ChangeLog.txt 1121 2014-10-21 06:00:26Z Esamynn $
+Revision: $Id: ChangeLog.txt 1134 2014-11-14 01:27:24Z Esamynn $

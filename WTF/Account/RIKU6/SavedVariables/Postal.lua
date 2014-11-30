@@ -1,25 +1,26 @@
 
 Postal3DB = {
+	["profileKeys"] = {
+		["Drublock - Los Errantes"] = "Drublock - Los Errantes",
+		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
+		["Geddry - Dun Modr"] = "Geddry - Dun Modr",
+		["Potray - Dun Modr"] = "Potray - Dun Modr",
+	},
 	["global"] = {
 		["BlackBook"] = {
 			["alts"] = {
-				"Elrad|Los Errantes|Alliance|85|PALADIN", -- [1]
-				"Potray|Dun Modr|Alliance|85|PALADIN", -- [2]
+				"Drublock|Los Errantes|Alliance|26|WARLOCK", -- [1]
+				"Elrad|Los Errantes|Alliance|85|PALADIN", -- [2]
+				"Geddry|Dun Modr|Alliance|4|MAGE", -- [3]
+				"Potray|Dun Modr|Alliance|98|PALADIN", -- [4]
 			},
 		},
 	},
-	["profileKeys"] = {
-		["Potray - Dun Modr"] = "Potray - Dun Modr",
-		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
-	},
 	["profiles"] = {
-		["Potray - Dun Modr"] = {
+		["Drublock - Los Errantes"] = {
 			["BlackBook"] = {
-				["contacts"] = {
-					"Ringeki", -- [1]
-				},
 				["recent"] = {
-					"Ringeki|Dun Modr|Alliance", -- [1]
+					"Geddry-Dun Modr|Los Errantes|Alliance", -- [1]
 				},
 			},
 		},
@@ -27,6 +28,19 @@ Postal3DB = {
 			["BlackBook"] = {
 				["recent"] = {
 					"Potray-Dun Modr|Los Errantes|Alliance", -- [1]
+				},
+			},
+		},
+		["Geddry - Dun Modr"] = {
+		},
+		["Potray - Dun Modr"] = {
+			["BlackBook"] = {
+				["contacts"] = {
+					"Ringeki", -- [1]
+				},
+				["recent"] = {
+					"Geddry|Dun Modr|Alliance", -- [1]
+					"Ringeki|Dun Modr|Alliance", -- [2]
 				},
 			},
 		},

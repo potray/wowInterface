@@ -1,0 +1,22 @@
+tag v4.0.7
+a65db2e1b6bf242caab88c84f765d00a37deb67b
+Shadowed <shadowed.wow@gmail.com>
+2014-11-12 18:07:38 -0800
+
+Tagging as release v4.0.7
+
+
+--------------------
+
+Shadowed:
+	- Fixed range checker to use the proper interact distance
+	- Added an option to hide power bars unless the unit has mana for header units (raid/party/mt/ma)
+	- Link Dark Intent and Waterstrider to Arcane Brilliance
+	- Priests can always cure Magic
+	- Fixed export producing broken strings that could not be imported
+	- Added Lightwell totem bar for Holy Priests
+	- Commas hard
+	- Fixed enemy removal spells being flagged as curable
+	- Set PlayerFrame as movable
+	- Death Knights no longer have a controllable temporary pet
+	- Check IsUsableSpell instead of IsPlayerSpell for curable auras

@@ -11,7 +11,7 @@ do
 	aObj.ttCheck = {"GameTooltip", "ShoppingTooltip1", "ShoppingTooltip2", "ItemRefTooltip", "ItemRefShoppingTooltip1", "ItemRefShoppingTooltip2"}
 	-- list of Tooltips used when the Tooltip style is 3
 	-- using a metatable to manage tooltips when they are added in different functions
-	aObj.ttList = setmetatable({}, {__newindex = function(t, k, v)
+	aObj.ttList = _G.setmetatable({}, {__newindex = function(t, k, v)
 		_G.rawset(t, k, v)
 		-- get object reference for tooltip, handle either strings or objects being passed
 		local tt = _G.type(v) == "string" and _G[v] or v
@@ -26,9 +26,9 @@ do
 				-- handle in combat
 				if _G.InCombatLockdown() then
 					aObj:add2Table(aObj.oocTab, {aObj.glazeStatusBar, {aObj, _G.GameTooltipStatusBar, 0}})
-					return
+				else
+					aObj:glazeStatusBar(_G.GameTooltipStatusBar, 0)
 				end
-				aObj:glazeStatusBar(_G.GameTooltipStatusBar, 0)
 			end
 		end)
 		aObj:skinTooltip(tt) -- skin here so tooltip initially skinnned when logged on
@@ -47,7 +47,7 @@ function aObj:AddonList()
 	self:removeMagicBtnTex(_G.AddonList.OkayButton)
 	self:removeMagicBtnTex(_G.AddonList.EnableAllButton)
 	self:removeMagicBtnTex(_G.AddonList.DisableAllButton)
-	self:addSkinFrame{obj=_G.AddonList, ft=ftype, kfs=true, ri=true}
+	self:addSkinFrame{obj=_G.AddonList, ft=ftype, kfs=true, ri=true, ofs=2, x2=1}
 
 end
 
@@ -207,7 +207,7 @@ function aObj:AlertFrames()
 		if not frame.sf then
 			aObj:getRegion(frame, 1):SetTexture(nil) -- Background toast texture
 			aObj:addSkinFrame{obj=frame, ft=ftype, af=true, afas=true, ofs=-10}
-			aObj:ScheduleTimer(function(obj) obj.sf.tfade:SetParent(obj.sf) end, 0.2, frame)
+			aObj:ScheduleTimer(function(obj) obj.sf.tfade:SetParent(obj.sf) end, 0.5, frame)
 		end
 	end
 	self:SecureHook("LootUpgradeFrame_SetUp", function(frame, ...)
@@ -478,22 +478,32 @@ function aObj:ChatBubbles()
 	if not self.db.profile.ChatBubbles or self.initialized.ChatBubbles then return end
 	self.initialized.ChatBubbles = true
 
-	local cbTmr
 	local function skinChatBubbles()
 
-		local kids = {_G.WorldFrame:GetChildren()}
-		for _, child in _G.ipairs(kids) do
+		-- _G.print("skinChatBubbles")
+		aObj.RegisterCallback("skinChatBubbles", "WorldFrame_GetChildren", function(this, child)
 			if aObj:hasTextInTexture(aObj:getRegion(child, 1), "ChatBubble-Background", true) then
 				aObj:applySkin{obj=child, ft=ftype, kfs=true} -- use apply skin otherwise text is behind
-				aObj:CancelTimer(cbTmr, true)
-				cbTmr = nil
+				-- _G.print("ChatBubble skinned", child)
 			end
-		end
-		kids = _G.null
+		end)
+		aObj:scanWorldFrameChildren()
 
 	end
+	-- skin any existing ones
+	skinChatBubbles()
 
-	cbTmr = self:ScheduleRepeatingTimer(skinChatBubbles, 0.2)
+	local cbTmr
+	-- hook these to skin ChatBubbles
+	self:RegisterEvent("CINEMATIC_START", function()
+		-- _G.print("CINEMATIC_START")
+		cbTmr = self:ScheduleRepeatingTimer(skinChatBubbles, 0.5)
+	end)
+	self:RegisterEvent("CINEMATIC_STOP", function()
+		-- _G.print("CINEMATIC_STOP")
+		self:CancelTimer(cbTmr, true)
+		cbTmr = nil
+	end)
 
 end
 
@@ -773,8 +783,11 @@ function aObj:ChatTemporaryWindow()
 			aObj:addSkinFrame{obj=obj, ft=ftype, x1=-4, y1=4, x2=4, y2=-8}
 		end
 		if aObj.db.profile.ChatEditBox.skin
-		and not aObj.skinned[obj.editBox]
-			then skinChatEB(obj.editBox)
+		and not obj.editBox.sknd
+		then
+			aObj:add2Table(aObj.skinned, obj.editBox) -- TODO: deprecate when all skins changed
+			obj.editBox.sknd = true
+			skinChatEB(obj.editBox)
 		end
 		if aObj.db.profile.ChatButtons
 		and not obj.buttonFrame.sknd
@@ -826,7 +839,7 @@ function aObj:ColorPicker()
 
 	_G.ColorPickerFrame:SetBackdrop(nil)
 	_G.ColorPickerFrameHeader:SetAlpha(0)
-	self:skinSlider(_G.OpacitySliderFrame, 4)
+	self:skinSlider{obj=_G.OpacitySliderFrame, size=4}
 	self:addSkinFrame{obj=_G.ColorPickerFrame, ft=ftype, y1=6}
 
 -->>-- Opacity Frame, used by BattlefieldMinimap amongst others
@@ -934,7 +947,7 @@ function aObj:GarrisonUI() -- LoD
 	end
 	local function skinFollowerList(opts)
 		if not opts.noEB then
-			aObj:skinEditBox{obj=opts.obj.SearchBox, regs={9}, mi=true}
+			aObj:skinEditBox{obj=opts.obj.SearchBox, regs={9, 10}, mi=true}
 		end
 		aObj:skinSlider{obj=opts.obj.listScroll.scrollBar, adj=-4}
 		for i = 1, #opts.obj.listScroll.buttons do
@@ -1105,7 +1118,7 @@ function aObj:GarrisonUI() -- LoD
 			btn:DisableDrawLayer("BACKGROUND")
 			aObj:removeRegions(btn, {7, 8, 9, 10, 11, 12, 13, 14, 23, 24, 25, 26})
 			for i = 1, #btn.Rewards do
-				aObj:addButtonBorder{obj=btn.Rewards[i], relTo=btn.Rewards[i].Icon}
+				aObj:addButtonBorder{obj=btn.Rewards[i], relTo=btn.Rewards[i].Icon, reParent={btn.Rewards[i].Quantity}}
 				btn.Overlay.Overlay:SetTexture(nil)
 			end
 		end
@@ -1124,8 +1137,10 @@ function aObj:GarrisonUI() -- LoD
 		mp:DisableDrawLayer("BORDER")
 		mp.ButtonFrame:SetTexture(nil)
 		aObj:addSkinFrame{obj=mp, ft=ftype, x1=-320, y1=0, x2=-2, y2=-20}
-		-- TODO handle animation of StartMissionButton
-		mp.StartMissionButton.sb.tfade:SetParent(mp.sf)
+		-- handle animation of StartMissionButton
+		if self.modBtns then
+			 mp.StartMissionButton.sb.tfade:SetParent(mp.sf)
+		end
 		aObj:removeRegions(mp.Stage, stageRegs)
 		for i = 1, #mp.Followers do
 			self:removeRegions(mp.Followers[i], {1})
@@ -1137,7 +1152,7 @@ function aObj:GarrisonUI() -- LoD
 		for i = 1, #mp.RewardsFrame.Rewards do
 			local frame = mp.RewardsFrame.Rewards[i]
 			frame.BG:SetTexture(nil)
-			aObj:addButtonBorder{obj=frame, relTo=frame.Icon}
+			aObj:addButtonBorder{obj=frame, relTo=frame.Icon, reParent={frame.Quantity}}
 		end
 		for i = 1, #mp.Enemies do
 			local frame = mp.Enemies[i]
@@ -1174,7 +1189,7 @@ function aObj:GarrisonUI() -- LoD
 			for i = 1, #this.Rewards do
 				local frame = this.Rewards[i]
 				frame.BG:SetTexture(nil)
-				aObj:addButtonBorder{obj=frame, relTo=frame.Icon}
+				aObj:addButtonBorder{obj=frame, relTo=frame.Icon, reParent={frame.Quantity}}
 			end
 		end)
 		mc.BonusRewards.Saturated:DisableDrawLayer("BACKGROUND")
@@ -1304,7 +1319,11 @@ function aObj:GarrisonUI() -- LoD
 	skinGarrisonRecruiterUI()
 	skinGarrisonTooltips()
 
+	-- N.B. Garrison Landing Page Minimap Button skinned with other minimap buttons
+
 end
+
+-- N.B. The following function has been separated from the GarrisonUI skin code as it is used by several Quest Frames
 function aObj:GarrisonFollowerTooltips()
 	if not self.db.profile.GarrisonUI then return end
 
@@ -1390,7 +1409,7 @@ function aObj:GuildBankUI() -- LoD
 		local objName = "GuildBankColumn" .. i
 		_G[objName .. "Background"]:SetAlpha(0)
 	end
-	self:skinEditBox{obj=_G.GuildItemSearchBox, regs={9}, mi=true, noHeight=true, noMove=true}
+	self:skinEditBox{obj=_G.GuildItemSearchBox, regs={9, 10}, mi=true, noHeight=true, noMove=true}
 	self:skinTabs{obj=_G.GuildBankFrame, lod=true}
 	_G.GuildBankMoneyFrameBackground:DisableDrawLayer("BACKGROUND")
 	self:addSkinFrame{obj=_G.GuildBankFrame, ft=ftype, kfs=true, hdr=true, x1=-3, y1=2, x2=1, y2=-5}
@@ -1738,9 +1757,11 @@ function aObj:MainMenuBar()
 
 -->>-- Action Buttons
 	for i = 1, _G.NUM_ACTIONBAR_BUTTONS do
-		local btnName = "ActionButton" .. i
-		_G[btnName .. "Border"]:SetAlpha(0) -- texture changed in blizzard code
-		self:addButtonBorder{obj=_G[btnName], abt=true, sec=true}
+		local btn = _G["ActionButton" .. i]
+		btn.FlyoutBorder:SetTexture(nil)
+		btn.FlyoutBorderShadow:SetTexture(nil)
+		btn.Border:SetAlpha(0) -- texture changed in blizzard code
+		self:addButtonBorder{obj=btn, abt=true, sec=true}
 	end
 
 	-- Micro buttons, skinned before checks for a consistent look, 12.10.12
@@ -1804,10 +1825,12 @@ function aObj:MainMenuBar()
 -->>-- MultiBar Buttons
 	for _, v in pairs{"BottomLeft", "BottomRight", "Right", "Left"} do
 		for i = 1, _G.NUM_MULTIBAR_BUTTONS do
-			local btnName = "MultiBar" .. v .. "Button" .. i
-			_G[btnName .. "FloatingBG"]:SetAlpha(0)
-			_G[btnName .. "Border"]:SetAlpha(0) -- texture changed in blizzard code
-			self:addButtonBorder{obj=_G[btnName], abt=true, sec=true}
+			local btn = _G["MultiBar" .. v .. "Button" .. i]
+			btn.FlyoutBorder:SetTexture(nil)
+			btn.FlyoutBorderShadow:SetTexture(nil)
+			btn.Border:SetAlpha(0) -- texture changed in blizzard code
+			_G["MultiBar" .. v .. "Button" .. i .. "FloatingBG"]:SetAlpha(0)
+			self:addButtonBorder{obj=btn, abt=true, sec=true}
 		end
 	end
 
@@ -2205,6 +2228,8 @@ function aObj:MinimapButtons()
 			["WIM"] = _G.WIM3MinimapButton,
 			["HealBot"] = _G.HealBot_MMButton,
 			["Altoholic"] = _G.AltoholicMinimapButton,
+			["Armory"] = _G.ArmoryMinimapButton,
+			["ZygorGuidesViewer"] = _G.ZygorGuidesViewerMapIcon,
 		}
 		local function skinMMBtn(btn, name)
 
@@ -2237,7 +2262,7 @@ function aObj:MinimapButtons()
 		end
 	end
 
-	-- GarrisonLandingPage button
+	-- Garrison Landing Page Minimap button
 	local obj = _G.GarrisonLandingPageMinimapButton
 	obj:SetSize(26, 26)
 	local x1, y1, x2, y2 = 0.25, 0.76, 0.32, 0.685
@@ -2302,7 +2327,7 @@ function aObj:MovieFrame()
 
 end
 
-if IsMacClient() then
+if _G.IsMacClient() then
 	function aObj:MovieProgress()
 		if not self.db.profile.MovieProgress or self.initialized.MovieProgress then return end
 		self.initialized.MovieProgress = true
@@ -2331,10 +2356,7 @@ function aObj:Nameplates()
 		-- skin both status bars (health & cast)
 		obj.sb1, obj.sb2 = obj:GetChildren()
 		for i = 1, 2 do
-			obj["sb" .. i]:SetStatusBarTexture(sbTex)
-			obj["sb" .. i].bg = obj.sb1:CreateTexture(nil, "BACKGROUND")
-			obj["sb" .. i].bg:SetTexture(sbTex)
-			obj["sb" .. i].bg:SetVertexColor(r, g, b, a)
+			aObj:glazeStatusBar(obj["sb" .. i], 0,  nil)
 		end
 
 		-- Cast bar uninterruptible shield texture
@@ -2342,29 +2364,12 @@ function aObj:Nameplates()
 		rg2:SetTexture(nil)
 		rg6:SetTexture(nil)
 		aObj:changeShield(obj.sb2.rg3, obj.sb2.rg4)
-		obj.sb2.rg3.SetWidth = function() end -- prevent change of width
+		obj.sb2.rg3.sw = obj.sb2.rg3.SetWidth -- store original function
+		obj.sb2.rg3.SetWidth = function() end
 
 	end
 	local npEvt
 	local function skinNameplates()
-
-		-- _G.print("skinNameplates")
-
-		local kids = {_G.WorldFrame:GetChildren()}
-		for _, child in _G.ipairs(kids) do
-			if aObj:hasTextInName(child, "NamePlate") then
-				local npObj = aObj:getChild(child, 1) -- use first child frame (5.1)
-				if not npObj.sknd then
-					skinPlate(npObj)
-					npObj.sknd = true
-				else
-					 -- reset shield texture's width & position
-					npObj.sb2.rg3:SetWidth(46)
-					npObj.sb2.rg3:SetPoint("CENTER", npObj.sb2.rg4, "CENTER", 9, -1)
-				end
-			end
-		end
-		kids = _G.null
 
 		-- if the nameplates are off then disable the skinning code
 		if not _G.GetCVarBool("nameplateShowEnemies")
@@ -2372,22 +2377,41 @@ function aObj:Nameplates()
 		then
 			aObj:CancelTimer(npEvt, true)
 			npEvt = nil
+		else
+			aObj.RegisterCallback("skinNameplates", "WorldFrame_GetChildren", function(this, child)
+				if aObj:hasTextInName(child, "NamePlate") then
+					local npObj = aObj:getChild(child, 1) -- use first child frame (5.1)
+					if not npObj.sknd then
+						skinPlate(npObj)
+						npObj.sknd = true
+					else
+						 -- reset shield texture's width & position
+						npObj.sb2.rg3:sw(46)
+						npObj.sb2.rg3:SetPoint("CENTER", npObj.sb2.rg4, "CENTER", 9, -1)
+					end
+				end
+			end)
+			aObj:scanWorldFrameChildren()
 		end
 
 	end
 
 	local function showFunc()
 
-		-- _G.print("showFunc")
 		if not npEvt then
 			npEvt = aObj:ScheduleRepeatingTimer(skinNameplates, 0.2)
 		end
 
 	end
 
+	-- track changes to Saved Variables to enable Nameplate skinning
 	self:SecureHook("SetCVar", function(varName, varValue, ...)
-		-- _G.print("SetCVar", varName, varValue, ...)
 		if varName:find("nameplateShow") and varValue == 1 then showFunc() end
+	end)
+
+	-- track combat starting to enable Nameplate skinning
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", function()
+		showFunc()
 	end)
 
 	if _G.GetCVarBool("nameplateShowEnemies")
@@ -2399,6 +2423,7 @@ function aObj:Nameplates()
 end
 
 function aObj:NavigationBar()
+	-- Helper function, used by several frames
 
 	-- hook this to handle navbar buttons
 	self:SecureHook("NavBar_AddButton", function(this, buttonData)
@@ -2652,7 +2677,7 @@ function aObj:PVEFrame() -- a.k.a. GroupFinderFrame
 	self:removeMagicBtnTex(cs.StartGroupButton)
 	-- SearchPanel
 	local sp = _G.LFGListFrame.SearchPanel
-	self:skinEditBox{obj=sp.SearchBox, regs={9}, mi=true}
+	self:skinEditBox{obj=sp.SearchBox, regs={9, 10}, mi=true}
 	self:addSkinFrame{obj=sp.AutoCompleteFrame, ft=ftype, kfs=true, nb=true, x1=4, y1=4, y2=4}
 	self:addButtonBorder{obj=sp.RefreshButton, ofs=-2}
 	self:removeInset(sp.ResultsInset)
@@ -3012,10 +3037,10 @@ function aObj:WorldMap()
 
 		end
 		local function sizeDown()
-			local x1, y1, x2, y2 = 0, 2, 2, -2
+
 			_G.WorldMapFrame.sf:ClearAllPoints()
-			_G.WorldMapFrame.sf:SetPoint("TOPLEFT", _G.WorldMapFrame, "TOPLEFT", x1, y1)
-			_G.WorldMapFrame.sf:SetPoint("BOTTOMRIGHT", _G.WorldMapFrame, "BOTTOMRIGHT", x2, y2)
+			_G.WorldMapFrame.sf:SetPoint("TOPLEFT", _G.WorldMapFrame, "TOPLEFT", 0, 2)
+			_G.WorldMapFrame.sf:SetPoint("BOTTOMRIGHT", _G.WorldMapFrame, "BOTTOMRIGHT", 2, -2)
 
 		end
 		-- handle size change

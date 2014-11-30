@@ -40,20 +40,12 @@ L["Background"] = "Plano de Fundo"
 -- L["Background Disclaimer"] = "This will perform the TSP route generation in the background much more slowly without locking up WoW. Please note that your WoW will still take a noticable performance hit."
 L["Cancel route edit"] = "Cancelar edição de Rota"
 -- L["Cancel taboo edit"] = "Cancel taboo edit"
--- L["CartographerExtractGas"] = "Extract Gas"
--- L["CartographerFishing"] = "Fishing"
--- L["CartographerHerbalism"] = "Herbalism"
--- L["CartographerMining"] = "Mining"
--- L["CartographerTreasure"] = "Treasure"
 L["Cartographer_Waypoints module is missing or disabled"] = "Módulo Cartographer_Waypoints não existe ou está desabilitado"
 -- L["|cffffd200     %d|r node(s) are at |cffffd2000|r yards of a cluster point"] = "|cffffd200     %d|r node(s) are at |cffffd2000|r yards of a cluster point"
 -- L["|cffffd200     %d|r node(s) are between |cffffd200%d|r-|cffffd200%d|r yards of a cluster point"] = "|cffffd200     %d|r node(s) are between |cffffd200%d|r-|cffffd200%d|r yards of a cluster point"
 L["Change default hidden route color"] = "Alterar para esconder cor padrão da rota"
 L["Change default route color"] = "Alterar cor padrão da rota"
-L["Change direction"] = "Alterar direções"
-L["Change direction (Carto)"] = "Alterar direções (Carto)"
 L["Change direction (TomTom)"] = "Alterar direções (TomTom)"
--- L["Change the direction of the nodes in the route being added as the next waypoint"] = "Change the direction of the nodes in the route being added as the next waypoint"
 L["Change the line color"] = "Alterar a cor da linha" -- Needs review
 -- L["Cluster"] = "Cluster"
 -- L["CLUSTER_DESC"] = "Clustering a route makes Routes take all the nodes that are near each other and combine then into a single node as a travel point. This process takes a while, but is reasonably fast."
@@ -224,18 +216,12 @@ L[" Gatherer/HandyNotes currently does not support callbacks, so this is impossi
 -- L["GatherMate2Herb Gathering"] = "Herbalism"
 -- L["GatherMate2Mining"] = "Mining"
 -- L["GatherMate2Treasure"] = "Treasure"
--- L["GatherMateExtract Gas"] = "Extract Gas"
--- L["GatherMateFishing"] = "Fishing"
--- L["GatherMateHerb Gathering"] = "Herbalism"
--- L["GatherMateMining"] = "Mining"
--- L["GatherMateTreasure"] = "Treasure"
 L["Help File"] = "Arquivo de Ajuda" -- Needs review
 -- L["Herbalism"] = "Herbalism"
 -- L["Hidden route"] = "Hidden route"
 L["Hide Route"] = "Ocultar Rota" -- Needs review
 -- L["Hide the route from being shown on the maps"] = "Hide the route from being shown on the maps"
 L["Information"] = "Informação" -- Needs review
--- L["Integrated support options for Cartographer_Waypoints"] = "Integrated support options for Cartographer_Waypoints"
 -- L["Integrated support options for TomTom"] = "Integrated support options for TomTom"
 L["Line Color"] = "Cor da Linha" -- Needs review
 -- L["Line gaps"] = "Line gaps"
@@ -339,21 +325,15 @@ L["Show hidden routes"] = "Mostrar rotas ocultas" -- Needs review
 -- L["Skill-Mining"] = "Mining"
 -- L["Skip clustered node points"] = "Skip clustered node points"
 L["%s - Node %d"] = "%s - Nodo %d" -- Needs review
--- L["Start using Cartographer_Waypoints by finding the closest visible route/node in the current zone and using that as the waypoint"] = "Start using Cartographer_Waypoints by finding the closest visible route/node in the current zone and using that as the waypoint"
 -- L["Start using TomTom"] = "Start using TomTom"
 -- L["Start using TomTom by finding the closest visible route/node in the current zone and using that as the waypoint"] = "Start using TomTom by finding the closest visible route/node in the current zone and using that as the waypoint"
--- L["Start using Waypoints"] = "Start using Waypoints"
--- L["Start using Waypoints (Carto)"] = "Start using Waypoints (Carto)"
 -- L["Start using Waypoints (TomTom)"] = "Start using Waypoints (TomTom)"
 -- L["Stop editing this route on the world map and abandon changes made"] = "Stop editing this route on the world map and abandon changes made"
 -- L["Stop editing this route on the world map and save the edits"] = "Stop editing this route on the world map and save the edits"
 -- L["Stop editing this taboo region on the world map and abandon changes made"] = "Stop editing this taboo region on the world map and abandon changes made"
 -- L["Stop editing this taboo region on the world map and save the edits"] = "Stop editing this taboo region on the world map and save the edits"
--- L["Stop using Cartographer_Waypoints by clearing the last queued node"] = "Stop using Cartographer_Waypoints by clearing the last queued node"
 -- L["Stop using TomTom"] = "Stop using TomTom"
 -- L["Stop using TomTom by clearing the last queued node"] = "Stop using TomTom by clearing the last queued node"
--- L["Stop using Waypoints"] = "Stop using Waypoints"
--- L["Stop using Waypoints (Carto)"] = "Stop using Waypoints (Carto)"
 -- L["Stop using Waypoints (TomTom)"] = "Stop using Waypoints (TomTom)"
 -- L["TABOO_DESC"] = "Taboo regions are areas which you can define to exclude nodes. Once you have created a taboo region, you can attach the taboo region to an existing route, and all nodes inside this region will be removed and no new ones will be added to it."
 -- L["TABOO_DESC2"] = "Taboo regions are areas you specify for a route to ignore. Nodes in these taboo regions are ignored and not included in a route. Additionally when optimizing a route, the generated route will attempt to avoid crossing any taboo regions if possible."
@@ -364,7 +344,6 @@ L["%s - Node %d"] = "%s - Nodo %d" -- Needs review
 -- L["The following error occured in the background path generation coroutine, please report to Grum or Xinhuan:"] = "The following error occured in the background path generation coroutine, please report to Grum or Xinhuan:"
 -- L["There is already a TSP running in background. Wait for it to complete first."] = "There is already a TSP running in background. Wait for it to complete first."
 -- L["These settings control the visibility and look of the drawn route."] = "These settings control the visibility and look of the drawn route."
--- L["This is the distance in yards away from a waypoint to consider as having reached it so that the next node in the route can be added as the waypoint"] = "This is the distance in yards away from a waypoint to consider as having reached it so that the next node in the route can be added as the waypoint"
 -- L["This route contains |cffffd200%d|r nodes that have been tabooed."] = "This route contains |cffffd200%d|r nodes that have been tabooed."
 -- L["This route contains the following nodes:"] = "This route contains the following nodes:"
 -- L["This route has |cffffd200%d|r nodes and is |cffffd200%d|r yards long."] = "This route has |cffffd200%d|r nodes and is |cffffd200%d|r yards long."
@@ -373,9 +352,6 @@ L["%s - Node %d"] = "%s - Nodo %d" -- Needs review
 -- L["This route has the following taboo regions:"] = "This route has the following taboo regions:"
 -- L["This route is a clustered route, down from the original |cffffd200%d|r nodes."] = "This route is a clustered route, down from the original |cffffd200%d|r nodes."
 -- L["This route is not a clustered route."] = "This route is not a clustered route."
---[==[ L[ [=[This section implements Cartographer_Waypoints support for Routes. Click Start to find the nearest node in a visible route in the current zone.
-]=] ] = [=[This section implements Cartographer_Waypoints support for Routes. Click Start to find the nearest node in a visible route in the current zone.
-]=] ]==]
 --[==[ L[ [=[This section implements TomTom support for Routes. Click Start to find the nearest node in a visible route in the current zone.
 ]=] ] = [=[This section implements TomTom support for Routes. Click Start to find the nearest node in a visible route in the current zone.
 ]=] ]==]
@@ -387,8 +363,6 @@ L["%s - Node %d"] = "%s - Nodo %d" -- Needs review
 -- L["Uncluster this route"] = "Uncluster this route"
 -- L["Update distance"] = "Update distance"
 -- L["Use Auto Show/Hide"] = "Use Auto Show/Hide"
--- L["Waypoint hit distance"] = "Waypoint hit distance"
--- L["Waypoints (Carto)"] = "Waypoints (Carto)"
 -- L["Waypoints Integration"] = "Waypoints Integration"
 --[==[ L["WAYPOINTS_INTEGRATION_TEXT"] = [=[
 Routes comes with direct support for |cffffff78Cartographer_Waypoints|r or |cffffff78TomTom|r, using the waypoints system so that you can quickly travel along your routes without getting lost amidst the lines.

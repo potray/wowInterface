@@ -157,17 +157,37 @@ local function UnregisterAll(self, handler)
 	end
 end
 
+-- TODO: Remove once Blizzard fixes cooldown wheels not taking parents alpha
+local function SetAuraAlpha(self, alpha)
+	if( not self.auras ) then return end
+
+	local childAlpha = 0.8 * alpha
+	if( self.auras.buffs ) then
+		for id, button in pairs(self.auras.buffs.buttons) do
+			button.cooldown:SetSwipeColor(0, 0, 0, childAlpha)
+		end
+	end
+
+	if( self.auras.debuffs ) then
+		for id, button in pairs(self.auras.debuffs.buttons) do
+			button.cooldown:SetSwipeColor(0, 0, 0, childAlpha)
+		end
+	end
+end
+
 -- Handles setting alphas in a way so combat fader and range checker don't override each other
 local function DisableRangeAlpha(self, toggle)
 	self.disableRangeAlpha = toggle
 	
 	if( not toggle and self.rangeAlpha ) then
+		self:SetAuraAlpha(self.rangeAlpha)
 		self:SetAlpha(self.rangeAlpha)
 	end
 end
 
 local function SetRangeAlpha(self, alpha)
 	if( not self.disableRangeAlpha ) then
+		self:SetAuraAlpha(alpha)
 		self:SetAlpha(alpha)
 	else
 		self.rangeAlpha = alpha
@@ -694,6 +714,7 @@ function Units:CreateUnit(...)
 	frame.fullUpdates = {}
 	frame.registeredEvents = {}
 	frame.visibility = {}
+	frame.SetAuraAlpha = SetAuraAlpha
 	frame.BlizzRegisterUnitEvent = frame.RegisterUnitEvent
 	frame.RegisterNormalEvent = RegisterNormalEvent
 	frame.RegisterUnitEvent = RegisterUnitEvent
@@ -1455,24 +1476,17 @@ function Units:CheckPlayerZone(force)
 	end
 end
 
--- Handle figuring out what auras players can cure and also account for symbiosis which can let you cure additional ones
+-- Handle figuring out what auras players can cure
 local curableSpells = {
-	["DRUID"] = {[88423] = {"Magic", "Curse", "Poison"}, [2782] = {"Curse", "Poison"}, [2908] = {"Enrage"}},
-	["HUNTER"] = {[19801] = {"Magic", "Enrage"}},
-	["ROGUE"] = {[5938] = {"Enrage"}},
+	["DRUID"] = {[88423] = {"Magic", "Curse", "Poison"}, [2782] = {"Curse", "Poison"}},
 	["MAGE"] = {[475] = {"Curse"}},
-	["PRIEST"] = {[528] = {"Magic"}, [527] = {"Magic", "Disease"}},
+	["PRIEST"] = {[527] = {"Magic", "Disease"}, [32375] = {"Magic"}},
 	["PALADIN"] = {[4987] = {"Poison", "Disease"}, [53551] = {"Magic"}},
 	["SHAMAN"] = {[77130] = {"Curse", "Magic"}, [51886] = {"Curse"}},
 	["MONK"] = {[115450] = {"Poison", "Disease"}, [115451] = {"Magic"}}
 }
 
-local symbiosisSpells = {
-	["DRUID"] = {["Disease"] = 122288},
-}
-
 curableSpells = curableSpells[select(2, UnitClass("player"))]
-symbiosisSpells = symbiosisSpells[select(2, UnitClass("player"))]
 
 local function checkCurableSpells()
 	if( not curableSpells ) then return end
@@ -1481,29 +1495,12 @@ local function checkCurableSpells()
 
 	for spellID, cures in pairs(curableSpells) do
 		if( IsPlayerSpell(spellID) ) then
-			for _, type in pairs(cures) do
-				Units.canCure[type] = true
+			for _, auraType in pairs(cures) do
+				Units.canCure[auraType] = true
 			end
 		end
 	end
 end
-
-local function checkSymbiosisSpells()
-	if( not symbiosisSpells ) then return end
-	if( ShadowUF.IS_WOD ) then return false end
-
-	local changed = false
-	for type, spellID in pairs(symbiosisSpells) do
-		local hasSpell = IsPlayerSpell(spellID)
-		if( ( Units.canCure[type] and not hasSpell ) or ( not Units.canCure[type] and hasSpell ) ) then
-			changed = true
-			Units.canCure[type] = hasSpell
-		end
-	end
-
-	return changed
-end
-
 
 local centralFrame = CreateFrame("Frame")
 centralFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
@@ -1540,17 +1537,6 @@ centralFrame:SetScript("OnEvent", function(self, event, unit)
 			unitFrames.player:FullUpdate()
 		end
 
-	-- Symbiosis for curable changes
-	elseif( event == "SPELL_UPDATE_USABLE" ) then
-		local changed = checkSymbiosisSpells()
-		if( changed ) then
-			for frame in pairs(ShadowUF.Units.frameList) do
-				if( frame.unit and frame:IsVisible() ) then
-					frame:FullUpdate()
-				end
-		    end
-		end
-
 	-- Monitor talent changes for curable changes
 	elseif( event == "PLAYER_SPECIALIZATION_CHANGED" ) then
 		checkCurableSpells()
@@ -1567,13 +1553,7 @@ centralFrame:SetScript("OnEvent", function(self, event, unit)
 
 	elseif( event == "PLAYER_LOGIN" ) then
 		checkCurableSpells()
-		checkSymbiosisSpells()
-
 		self:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
-
-		if( symbiosisSpells ) then
-			self:RegisterEvent("SPELL_UPDATE_USABLE")
-		end
 
 	-- This is slightly hackish, but it suits the purpose just fine for somthing thats rarely called.
 	elseif( event == "PLAYER_REGEN_ENABLED" ) then

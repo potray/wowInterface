@@ -110,7 +110,10 @@ local initialConfigSnippet = [[
    self:SetHeight(%d)
    self:SetAttribute("initial-width", %d)
    self:SetAttribute("initial-height", %d)
-   self:SetAttribute("type2", %s)
+   local attr = self:GetAttribute("type2")
+   if attr == "togglemnu" or attr == nil then
+      self:SetAttribute("type2", %s)
+   end
 ]]
 
 function GridFrame:GetInitialConfigSnippet()
@@ -152,12 +155,11 @@ end
 -- shows the default unit tooltip
 function GridFrame.prototype:OnEnter()
 	local unit = self.unit
+	GridFrame:SendMessage("Grid_UnitFrame_OnEnter", unit, self.unitGUID)
+
 	local showTooltip = GridFrame.db.profile.showTooltip
-	GridFrame:SendMessage("Grid_UnitFrame_OnEnter", self.unit, self.unitGUID)
 	if unit and UnitExists(unit) and (showTooltip == "Always" or (showTooltip == "OOC" and (not InCombatLockdown() or UnitIsDeadOrGhost(unit)))) then
 		UnitFrame_OnEnter(self)
-	else
-		self:OnLeave()
 	end
 end
 
@@ -806,7 +808,7 @@ function GridFrame:UpdateIndicator(frame, indicator)
 			status.texture,
 			status.start,
 			status.duration,
-			status.stack,
+			status.count,
 			status.texCoords)
 	else
 		self:Debug("Clearing indicator", indicator, "for", (UnitName(frame.unit)))
@@ -872,7 +874,7 @@ end
 
 ------------------------------------------------------------------------
 
-function GridFrame:Grid_StatusGained(event, guid, status, priority, range, color, text, value, maxValue, texture, start, duration, stack)
+function GridFrame:Grid_StatusGained(event, guid, status, priority, range, color, text, value, maxValue, texture, start, duration, count)
 	for _, frame in pairs(self.registeredFrames) do
 		if frame.unitGUID == guid then
 			self:UpdateIndicatorsForStatus(frame, status)

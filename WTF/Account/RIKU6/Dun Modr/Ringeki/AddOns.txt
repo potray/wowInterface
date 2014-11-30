@@ -4,7 +4,7 @@ SexyMap: enabled
 Carbonite: disabled
 CarboniteItems: enabled
 CarboniteNodes: enabled
-clcInfo: enabled
+clcInfo: disabled
 CarboniteTransfer: enabled
 TomTom: enabled
 Carbonite.Info: enabled
@@ -20,7 +20,7 @@ AtlasLoot_WrathoftheLichKing: enabled
 AtlasLoot_WorldEvents: enabled
 AtlasLoot_MistsofPandaria: enabled
 AtlasLoot_ClassicWoW: enabled
-BittensSpellFlash_Pally: enabled
+BittensSpellFlash_Pally: disabled
 Carbonite.Items: enabled
 Carbonite.Notes.Sample: enabled
 Carbonite.Notes: enabled
@@ -46,3 +46,15 @@ Prat-3.0_HighCPUUsageModules: disabled
 PetTracker: enabled
 PetTracker_Journal: enabled
 SpellFlashCore: disabled
+Breeze: enabled
+GarrisonCommander: disabled
+SpellFlash: disabled
+clcppb: disabled
+Altoholic: enabled
+_NPCScan: enabled
+Altoholic_Achievements: enabled
+Altoholic_Summary: enabled
+Altoholic_Search: enabled
+GarrisonMissionManager: enabled
+LibSharedMedia-3.0: enabled
+MasterPlan: enabled

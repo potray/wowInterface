@@ -1475,7 +1475,7 @@ function TitanRepair_RepairItems()
 	if TitanGetVar(TITAN_REPAIR_ID,"UseGuildBank") then
 		if IsInGuild() and CanGuildBankRepair() then
 			if withdrawLimit > cost then
-				RepairAllItems(1)
+				RepairAllItems(true)
 				-- disable repair all icon in merchant
 				SetDesaturation(MerchantRepairAllIcon, 1);
 				MerchantRepairAllButton:Disable();

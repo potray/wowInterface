@@ -49,3 +49,4 @@ Prat-3.0_HighCPUUsageModules: disabled
 PetTracker: enabled
 PetTracker_Journal: enabled
 SpellFlashCore: disabled
+Breeze: disabled

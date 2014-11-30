@@ -1,7 +1,7 @@
 local AuraPoints = setmetatable({
 	isComboPoints = true,
 	spells = {
-		["MAGE"] = {max = 4, name = GetSpellInfo(114664), filter = "HARMFUL"},
+		["MAGE"] = {max = 4, name = GetSpellInfo(36032), filter = "HARMFUL"},
 		["ROGUE"] = {max = 5, name = GetSpellInfo(115189), filter = "HELPFUL"}
 	}
 }, {__index = ShadowUF.ComboPoints})
@@ -14,7 +14,7 @@ local auraConfig = {max = trackSpell.max, key = "auraPoints", colorKey = "AURAPO
 
 function AuraPoints:OnEnable(frame)
 	frame.auraPoints = frame.auraPoints or CreateFrame("Frame", nil, frame)
-	frame.auraPoints.config = auraConfig
+	frame.auraPoints.cpConfig = auraConfig
 	frame.comboPointType = auraConfig.key
 
 	frame:RegisterUnitEvent("UNIT_AURA", self, "Update")

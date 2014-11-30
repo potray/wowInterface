@@ -1,6 +1,6 @@
+if GetLocale() ~= 'zhCN' then return end
 local _, Addon = ...
 local L = Addon.Locals
-if GetLocale() ~= 'zhCN' then return end
 
 L.AddWaypoint = '添加路径点'
 L.AlertUpgrades = '升级提醒'

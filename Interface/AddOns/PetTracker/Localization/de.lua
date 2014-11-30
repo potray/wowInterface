@@ -1,6 +1,6 @@
+if GetLocale() ~= 'deDE' then return end
 local _, Addon = ...
 local L = Addon.Locals
-if GetLocale() ~= 'deDE' then return end
 	
 L.AddWaypoint = 'Wegpunkt hinzuf\195\188gen'
 L.AlertUpgrades = 'Alarm f\195\188r Upgrades'

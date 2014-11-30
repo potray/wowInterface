@@ -1,15 +1,15 @@
 
 BagnonFrameSettings = {
-	["version"] = "6.0.12",
+	["version"] = "6.0.16",
 	["frames"] = {
 		["inventory"] = {
 			["hasBagFrame"] = false,
 			["dataBrokerObject"] = "BankStack",
 		},
 		["voidstorage"] = {
-			["point"] = "BOTTOMLEFT",
 			["y"] = 543.999938964844,
 			["x"] = 586.999877929688,
+			["point"] = "BOTTOMLEFT",
 		},
 		["bank"] = {
 			["y"] = 225.999984741211,

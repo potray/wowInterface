@@ -18,7 +18,7 @@ This file is part of PetTracker.
 local ADDON, Addon = ...
 local ActionBar = PetBattleFrame.BottomFrame
 local Actions = Addon:NewModule('EnemyActions', CreateFrame('CheckButton', ADDON .. 'EnemyActions', ActionBar))
-Actions:SetPoint('BOTTOM', ActionBar, 'TOP')
+Actions:SetPoint('BOTTOM', ActionBar, 'TOP', 0, 30)
 Actions:SetMovable(true)
 
 local Ability = Addon.AbilityAction
@@ -35,9 +35,7 @@ function Actions:Startup()
 		self:CreateButton(i)
 	end
 
-	self:SetScript('OnDragStop', self.StopMovingOrSizing)
-	self:SetScript('OnDragStart', self.StartMoving)
-	self:SetSize(300, 100)
+	self:SetSize(175, 55)
 	self:SetScale(.8)
 	self:UpdateLock()
 	
@@ -65,14 +63,17 @@ end
 
 function Actions:CreateButton(i)
 	local y = floor((i-1) / 3)
-	local x = (i-1) % 3 + 1
+	local x = (i-1) % 3
 
 	local button = Ability(self)
-	button:SetPoint('LEFT', (button:GetWidth() + 5) * x, y * button:GetHeight())
+	button:SetPoint('BOTTOMLEFT', (button:GetWidth() + 10) * x, y * button:GetHeight())
+	button:SetScript('OnDragStop', function() self:StopMovingOrSizing() end)
+	button:SetScript('OnDragStart', function() self:StartMoving() end)
 	button:SetHighlightTexture(nil)
 	button:SetPushedTexture(nil)
 	button:UnregisterAllEvents()
 	button:SetFrameLevel(8-y)
+	button:Enable()
 	
 	self[i] = button
 end
@@ -90,5 +91,7 @@ function Actions:Update()
 end
 
 function Actions:UpdateLock()
-	self:RegisterForDrag(Addon.Sets.UnlockActions and 'LeftButton' or nil)
+	for i = 1, 6 do
+		self[i]:RegisterForDrag(Addon.Sets.UnlockActions and 'LeftButton' or nil)
+	end
 end

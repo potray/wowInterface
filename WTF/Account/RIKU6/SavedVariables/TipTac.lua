@@ -7,7 +7,9 @@ TipTac_Config = {
 		0, -- [3]
 		1, -- [4]
 	},
-	["tipBackdropBG"] = "Interface\\ChatFrame\\ChatFrameBackground",
+	["anchorFrameTipPoint"] = "BOTTOMRIGHT",
+	["left"] = 1781.00012207031,
+	["optionsBottom"] = 528.999938964844,
 	["tipBorderColor"] = {
 		1, -- [1]
 		0, -- [2]
@@ -15,15 +17,13 @@ TipTac_Config = {
 		1, -- [4]
 	},
 	["targetYouText"] = "<<YOU>>",
-	["barTexture"] = "Interface\\TargetingFrame\\UI-StatusBar",
-	["optionsBottom"] = 528.999938964844,
-	["anchorWorldUnitPoint"] = "BOTTOMRIGHT",
+	["tipBackdropEdge"] = "Interface\\DialogFrame\\UI-DialogBox-Border",
 	["top"] = 184.000183105469,
 	["optionsLeft"] = 1311.0009765625,
+	["anchorWorldUnitPoint"] = "BOTTOMRIGHT",
 	["backdropEdgeSize"] = 16,
-	["tipBackdropEdge"] = "Interface\\DialogFrame\\UI-DialogBox-Border",
 	["backdropInsets"] = 4,
-	["left"] = 1781.00012207031,
-	["anchorFrameTipPoint"] = "BOTTOMRIGHT",
+	["barTexture"] = "Interface\\TargetingFrame\\UI-StatusBar",
+	["tipBackdropBG"] = "Interface\\ChatFrame\\ChatFrameBackground",
 	["anchorFrameUnitPoint"] = "BOTTOMRIGHT",
 }

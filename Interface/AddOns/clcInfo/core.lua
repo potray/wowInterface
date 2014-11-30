@@ -16,7 +16,8 @@ clcInfo.lastBuild = nil	 -- string that has talent info, used to see if talents 
 
 clcInfo.mf = CreateFrame("Frame", "clcInfoMF", UIParent)  -- all elements parented to this frame, so it's easier to hide/show them
 
-clcInfo.mf.unit = "player" -- fix parent unit for when we have to parent bars here
+clcInfo.mf.unit = "player" 	-- fix parent unit for when we have to parent bars here
+clcInfo.mf.hideTime = 0			-- fix for cooldown disappearing after a hide
 
 -- table with information that could be used by functions, like roster etc
 clcInfo.util = {
@@ -285,12 +286,14 @@ function clcInfo.ChangeShowWhen()
 	-- pet battle check
 	if C_PetBattles.IsInBattle() then
 		mf:Hide()
+		mf.hideTime = GetTime();
 		return
 	end
 	
 	-- vehicle check
 	if UnitUsingVehicle("player") then
 		mf:Hide()
+		mf.hideTime = GetTime();
 		return
 	end
 
@@ -310,6 +313,7 @@ function clcInfo.ChangeShowWhen()
 			mf:Show()
 		else
 			mf:Hide()
+			mf.hideTime = GetTime();
 		end
 		f:RegisterEvent("PLAYER_REGEN_ENABLED")
 		f:RegisterEvent("PLAYER_REGEN_DISABLED")
@@ -336,6 +340,7 @@ function clcInfo.PLAYER_TARGET_CHANGED()
 	if show == "boss" then
 		if UnitClassification("target") ~= "worldboss" and UnitClassification("target") ~= "elite" then
 			clcInfo.mf:Hide()
+			clcInfo.mf.hideTime = GetTime();
 			return
 		end
 	end
@@ -344,6 +349,7 @@ function clcInfo.PLAYER_TARGET_CHANGED()
 		clcInfo.mf:Show()
 	else
 		clcInfo.mf:Hide()
+		clcInfo.mf.hideTime = GetTime();
 	end
 end
 -- force target update on rezoning
@@ -362,8 +368,13 @@ function clcInfo.UNIT_FACTION(self, event, unit)
 end
 
 -- hide out of combat
-function clcInfo.PLAYER_REGEN_ENABLED() clcInfo.mf:Hide() end
-function clcInfo.PLAYER_REGEN_DISABLED() clcInfo.mf:Show() end
+function clcInfo.PLAYER_REGEN_ENABLED()
+	clcInfo.mf:Hide()
+	clcInfo.mf.hideTime = GetTime();
+end
+function clcInfo.PLAYER_REGEN_DISABLED()
+	clcInfo.mf:Show()
+end
 
 -- hide in vehicles
 function clcInfo.UNIT_ENTERED_VEHICLE(self, event, unit)
@@ -371,6 +382,7 @@ function clcInfo.UNIT_ENTERED_VEHICLE(self, event, unit)
 	-- vehicle check
 		if UnitUsingVehicle("player") then
 			clcInfo.mf:Hide()
+			clcInfo.mf.hideTime = GetTime();
 			return
 		end
 	end

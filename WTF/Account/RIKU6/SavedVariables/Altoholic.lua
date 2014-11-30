@@ -1,6 +1,7 @@
 
 AltoholicDB = {
 	["profileKeys"] = {
+		["Geddry - Dun Modr"] = "Geddry - Dun Modr",
 		["Pexuss - Dun Modr"] = "Pexuss - Dun Modr",
 		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
 		["Kareitris - Los Errantes"] = "Kareitris - Los Errantes",
@@ -16,7 +17,7 @@ AltoholicDB = {
 		["options"] = {
 			["ShowMinimap"] = 0,
 			["TabSummaryMode"] = 3,
-			["UI.Mail.LastExpiryWarning"] = 1414662109,
+			["UI.Mail.LastExpiryWarning"] = 1417377679,
 		},
 	},
 }

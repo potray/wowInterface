@@ -1,6 +1,6 @@
 --[[
 	Gatherer Addon for World of Warcraft(tm).
-	Version: 4.4.2 (<%codename%>)
+	Version: 5.0.0 (<%codename%>)
 	Revision: $Id: GathererNodeSearch.lua 1114 2014-10-11 07:13:26Z ccox $
 
 	License:
@@ -29,7 +29,7 @@
 --]]
 
 
-Gatherer_RegisterRevision("$URL: http://svn.norganna.org/gatherer/tags/REL_4.4.2/Gatherer/GathererNodeSearch.lua $", "$Rev: 1114 $")
+Gatherer_RegisterRevision("$URL: http://svn.norganna.org/gatherer/tags/REL_5.0.0/Gatherer/GathererNodeSearch.lua $", "$Rev: 1114 $")
 
 local _tr = Gatherer.Locale.Tr
 local _trC = Gatherer.Locale.TrClient

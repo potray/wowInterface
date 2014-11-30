@@ -4,10 +4,7 @@ local MAX_TOTEMS = MAX_TOTEMS
 
 -- Death Knights untalented ghouls are guardians and are considered totems........... so set it up for them
 local playerClass = select(2, UnitClass("player"))
-if( playerClass == "DEATHKNIGHT" ) then
-	MAX_TOTEMS = 1
-	ShadowUF:RegisterModule(Totems, "totemBar", ShadowUF.L["Guardian bar"], true, "DEATHKNIGHT", {1, 2}, 55)
-elseif( playerClass == "PALADIN" ) then
+if( playerClass == "PALADIN" ) then
 	MAX_TOTEMS = 1
 	ShadowUF:RegisterModule(Totems, "totemBar", ShadowUF.L["Ancient Kings bar"], true, "PALADIN", 75)
 elseif( playerClass == "DRUID" ) then
@@ -19,6 +16,9 @@ elseif( playerClass == "MONK" ) then
 elseif( playerClass == "MAGE" ) then
 	MAX_TOTEMS = 1
 	ShadowUF:RegisterModule(Totems, "totemBar", ShadowUF.L["Rune of Power bar"], true, "MAGE", {1, 2, 3}, 90)
+elseif( playerClass == "PRIEST" ) then
+	MAX_TOTEMS = 1
+	ShadowUF:RegisterModule(Totems, "totemBar", ShadowUF.L["Lightwell bar"], true, "PRIEST", 2, 36)
 else
 	ShadowUF:RegisterModule(Totems, "totemBar", ShadowUF.L["Totem bar"], true, "SHAMAN")
 end
@@ -59,6 +59,8 @@ function Totems:OnEnable(frame)
 			totemColors[1] = ShadowUF.db.profile.powerColors.STATUE
 		elseif( playerClass == "MAGE" ) then
 			totemColors[1] = ShadowUF.db.profile.powerColors.RUNEOFPOWER
+		elseif( playerClass == "PRIEST" ) then
+			totemColors[1] = ShadowUF.db.profile.powerColors.LIGHTWELL
 		else
 			totemColors[1] = {r = 1, g = 0, b = 0.4}
 			totemColors[2] = {r = 0, g = 1, b = 0.4}

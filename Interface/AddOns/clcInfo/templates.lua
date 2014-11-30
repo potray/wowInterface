@@ -4,9 +4,14 @@ local mod = clcInfo.templates -- the module
 local function IsActiveTemplate(spec, showWhen)
 	-- check primary tree
 	if spec.primary ~= GetSpecialization() then return false end
+
+	-- get row/column values
+	local spec_talent = spec.talent - 1 -- (1 is any)
+	local talent_row = floor((spec_talent - 1) / 3) + 1 
+	local talent_column = spec_talent - (3 * (talent_row - 1))
 	
 	-- check distinctive talent
-	local name, _, _, _, selected, available = GetTalentInfo((spec.talent - 1), false, GetActiveSpecGroup(false))
+	local _, name, _, selected, available = GetTalentInfo(talent_row, talent_column, GetActiveSpecGroup())
 	if (name and selected and available) or (spec.talent == 1) then
 		-- talents fit, check for showwhen
 		local sw = "solo"

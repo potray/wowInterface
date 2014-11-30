@@ -302,7 +302,7 @@ function aObj:ArchaeologyUI() -- LoD
 	self:addButtonBorder{obj=_G.ArchaeologyFrame.artifactPage, relTo=_G.ArchaeologyFrame.artifactPage.icon, ofs=0}
 	_G.ArchaeologyFrame.artifactPage.historyTitle:SetTextColor(self.HTr, self.HTg, self.HTb)
 	_G.ArchaeologyFrame.artifactPage.historyScroll.child.text:SetTextColor(self.BTr, self.BTg, self.BTb)
-	self:skinScrollBar{obj=_G.ArchaeologyFrame.artifactPage.historyScroll}
+	self:skinSlider{obj=_G.ArchaeologyFrame.artifactPage.historyScroll.ScrollBar, adj=-4}
 	-- Solve Frame
 	_G.ArchaeologyFrameArtifactPageSolveFrameStatusBarBarBG:Hide()
 	self:glazeStatusBar(_G.ArchaeologyFrame.artifactPage.solveFrame.statusBar, 0, nil)
@@ -315,7 +315,7 @@ function aObj:ArchaeologyUI() -- LoD
 	_G.ArchaeologyFrameHelpPageHelpScrollHelpText:SetTextColor(self.BTr, self.BTg, self.BTb)
 
 	-- ArcheologyDigsiteProgressBar
-	self:removeRegions(_G.ArcheologyDigsiteProgressBar, {1, 2, 3})
+	self:rmRegionsTex(_G.ArcheologyDigsiteProgressBar, {1, 2, 3})
 	self:glazeStatusBar(_G.ArcheologyDigsiteProgressBar.FillBar, 0)
 	-- N.B. DigsiteCompleteToastFrame is managed as part of the Alert Frames skin
 
@@ -671,7 +671,7 @@ function aObj:ContainerFrames()
 		cfpb.Highlight:SetSize(22, 22)
 		aObj:moveObject{obj=cfpb, x=6, y=-5}
 	end
-	self:skinEditBox{obj=_G.BagItemSearchBox, regs={9}, noInsert=true}
+	self:skinEditBox{obj=_G.BagItemSearchBox, regs={9, 10}, mi=true, noInsert=true}
 	-- Hook this to hide/show the gear button
 	self:SecureHook("ContainerFrame_GenerateFrame", function(frame, size, id)
 		-- if it's a profession bag
@@ -712,7 +712,7 @@ function aObj:EncounterJournal() -- LoD
 	self:addSkinFrame{obj=_G.EncounterJournal, ft=ftype, kfs=true, y1=2, x2=1}
 
 -->>-- Search EditBox, dropdown and results frame
-	self:skinEditBox{obj=_G.EncounterJournal.searchBox, regs={9}, mi=true, noHeight=true, noMove=true}
+	self:skinEditBox{obj=_G.EncounterJournal.searchBox, regs={9, 10}, mi=true, noHeight=true, noMove=true}
 	_G.EncounterJournal.searchBox.sbutton1:DisableDrawLayer("OVERLAY")
 	self:addSkinFrame{obj=_G.EncounterJournal.searchResults, ft=ftype, kfs=true, ofs=6, y1=-1, x2=4}
 	self:skinSlider{obj=_G.EncounterJournal.searchResults.scrollFrame.scrollBar, adj=-4}
@@ -836,9 +836,9 @@ function aObj:EncounterJournal() -- LoD
 	self:rmRegionsTex(eje.info.model, {2, 3}) -- Shadow, TitleBG
 	local function skinCreatureBtn(idx)
 		local btn = eje.info.creatureButtons[idx]
-		if btn
-		and not aObj.skinned[btn]
-		then
+		if btn and not btn.sknd then
+			aObj:add2Table(aObj.skinned, btn) -- TODO: deprecate when all skins changed
+			btn.sknd = true
 			btn:SetNormalTexture(nil)
 			local hTex = btn:GetHighlightTexture()
 			hTex:SetTexture([[Interface\EncounterJournal\UI-EncounterJournalTextures]])
@@ -1067,7 +1067,9 @@ function aObj:GuildControlUI() -- LoD
 		local obj
 		for i = 1, _G.MAX_GUILDRANKS do
 			local obj = _G["GuildControlUIRankOrderFrameRank" .. i]
-			if obj and not aObj.skinned[obj] then
+			if obj and not obj.sknd then
+				aObj:add2Table(aObj.skinned, obj) -- TODO: deprecate when all skins changed
+				obj.sknd = true
 				aObj:skinEditBox{obj=obj.nameBox, regs={9}, x=-5}
 				self:addButtonBorder{obj=obj.downButton, ofs=0}
 				self:addButtonBorder{obj=obj.upButton, ofs=0}
@@ -1096,7 +1098,9 @@ function aObj:GuildControlUI() -- LoD
 	self:SecureHook("GuildControlUI_BankTabPermissions_Update", function(this)
 		for i = 1, _G.MAX_BUY_GUILDBANK_TABS do
 			local btn = _G["GuildControlBankTab" .. i]
-			if btn and not self.skinned[btn] then
+			if btn and not btn.sknd then
+				aObj:add2Table(aObj.skinned, btn) -- TODO: deprecate when all skins changed
+				btn.sknd = true
 				btn:DisableDrawLayer("BACKGROUND")
 				self:skinEditBox{obj=btn.owned.editBox, regs={9}}
 				self:skinButton{obj=btn.buy.button, as=true}
@@ -1612,12 +1616,14 @@ function aObj:ObjectiveTracker()
 		local function skinAutoPopUps()
 
 			for i = 1, _G.GetNumAutoQuestPopUps() do
-				local questID, popUpType = GetAutoQuestPopUp(i)
-				local questTitle = GetQuestLogTitle(GetQuestLogIndexByID(questID))
+				local questID, popUpType = _G.GetAutoQuestPopUp(i)
+				local questTitle = _G.GetQuestLogTitle(_G.GetQuestLogIndexByID(questID))
 				if ( questTitle and questTitle ~= "" ) then
-					local block = AUTO_QUEST_POPUP_TRACKER_MODULE:GetBlock(questID)
+					local block = _G.AUTO_QUEST_POPUP_TRACKER_MODULE:GetBlock(questID)
 					local obj = block.ScrollChild
-					if obj and not aObj.skinned[obj] then
+					if obj and not obj.sknd then
+						aObj:add2Table(aObj.skinned, obj) -- TODO: deprecate when all skins changed
+						obj.sknd = true
 						for k, reg in ipairs{obj:GetRegions()} do
 							if k < 11 or k > 16 then reg:SetTexture(nil) end -- Animated textures
 						end
@@ -1735,7 +1741,7 @@ function aObj:PetJournal() -- LoD
 	self:removeInset(mj.LeftInset)
 	self:removeInset(mj.RightInset)
 	self:removeInset(mj.MountCount)
-	self:skinEditBox{obj=mj.searchBox, regs={9}, noWidth=true, noInsert=true}
+	self:skinEditBox{obj=mj.searchBox, regs={9, 10}, mi=true, noWidth=true, noInsert=true}
 	self:keepFontStrings(mj.MountDisplay)
 	self:keepFontStrings(mj.MountDisplay.ShadowOverlay)
 	self:makeMFRotatable(mj.MountDisplay.ModelFrame)
@@ -1756,7 +1762,7 @@ function aObj:PetJournal() -- LoD
 	_G.PetJournalHealPetButtonBorder:SetTexture(nil)
 	self:removeInset(_G.PetJournal.LeftInset)
 	self:removeInset(_G.PetJournal.RightInset)
-	self:skinEditBox{obj=_G.PetJournal.searchBox, regs={9}, noWidth=true, noInsert=true}
+	self:skinEditBox{obj=_G.PetJournal.searchBox, regs={9, 10}, mi=true, noWidth=true, noInsert=true}
 	self:skinButton{obj=_G.PetJournalFilterButton}
 	self:skinDropDown{obj=_G.PetJournalFilterDropDown}
 	self:skinSlider{obj=_G.PetJournal.listScroll.scrollBar, adj=-4}
@@ -1829,7 +1835,7 @@ function aObj:PetJournal() -- LoD
 	-- Toy Box
 	self:glazeStatusBar(_G.ToyBox.progressBar, 0,  nil)
 	self:removeRegions(_G.ToyBox.progressBar, {2, 3})
-	self:skinEditBox{obj=_G.ToyBox.searchBox, regs={9}, noWidth=true, noInsert=true}
+	self:skinEditBox{obj=_G.ToyBox.searchBox, regs={9, 10}, mi=true, noWidth=true, noInsert=true}
 	self:skinButton{obj=_G.ToyBoxFilterButton}
 	self:removeInset(_G.ToyBoxIconsFrame)
 	_G.ToyBoxIconsFrame:DisableDrawLayer("OVERLAY")
@@ -2160,21 +2166,6 @@ function aObj:SpellBookFrame()
 		self:removeRegions(obj, {1}) -- N.B. other regions are icon and highlight
 		self:addButtonBorder{obj=obj}
 	end
-
-end
-
-function aObj:SpellFlyout()
-	if not self.db.profile.SpellFlyout or self.initialized.SpellFlyout then return end
-	self.initialized.SpellFlyout = true
-
-	self:SecureHook("ActionButton_UpdateFlyout", function(this)
-		if this.FlyoutBorder
-		and not self.skinned[this]
-		then
-			this.FlyoutBorder:SetAlpha(0)
-			this.FlyoutBorderShadow:SetAlpha(0)
-		end
-	end)
 
 end
 

@@ -1,6 +1,7 @@
 
 DataStore_CurrenciesDB = {
 	["profileKeys"] = {
+		["Geddry - Dun Modr"] = "Geddry - Dun Modr",
 		["Pexuss - Dun Modr"] = "Pexuss - Dun Modr",
 		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
 		["Kareitris - Los Errantes"] = "Kareitris - Los Errantes",
@@ -28,21 +29,31 @@ DataStore_CurrenciesDB = {
 				"Dalaran Jewelcrafter's Token|Interface\\Icons\\INV_Misc_Gem_Variety_01", -- [11]
 				"Epicurean's Award|Interface\\Icons\\INV_Misc_Ribbon_01", -- [12]
 				"Ironpaw Token|Interface\\Icons\\inv_relics_idolofferocity", -- [13]
+				"Mists of Pandaria|", -- [14]
+				"Lesser Charm of Good Fortune|Interface\\Icons\\inv_misc_coin_18", -- [15]
+				"Warlords of Draenor|", -- [16]
+				"Garrison Resources|Interface\\Icons\\inv_garrison_resource", -- [17]
+				"Apexis Crystal|Interface\\Icons\\inv_apexis_draenor", -- [18]
 			},
 			["CurrencyTextRev"] = {
 				["Ironpaw Token"] = 13,
-				["Epicurean's Award"] = 12,
-				["Honor Points"] = 7,
-				["Miscellaneous"] = 3,
 				["Illustrious Jewelcrafter's Token"] = 9,
 				["Dalaran Jewelcrafter's Token"] = 11,
-				["Player vs. Player"] = 5,
 				["Valor Points"] = 10,
-				["Cataclysm"] = 8,
-				["Dungeon and Raid"] = 1,
+				["Mists of Pandaria"] = 14,
+				["Player vs. Player"] = 5,
+				["Epicurean's Award"] = 12,
+				["Honor Points"] = 7,
+				["Warlords of Draenor"] = 16,
+				["Miscellaneous"] = 3,
+				["Garrison Resources"] = 17,
+				["Apexis Crystal"] = 18,
 				["Justice Points"] = 2,
-				["Champion's Seal"] = 4,
+				["Cataclysm"] = 8,
+				["Lesser Charm of Good Fortune"] = 15,
 				["Conquest Points"] = 6,
+				["Champion's Seal"] = 4,
+				["Dungeon and Raid"] = 1,
 			},
 		},
 		["Characters"] = {
@@ -60,8 +71,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "831-0-0-4000",
 					[390] = "0-0-29200-0",
-					[395] = "1171-0-0-4000",
 					[396] = "0-0-0-0",
+					[395] = "1171-0-0-4000",
 				},
 			},
 			["Default.Dun Modr.Pexuss"] = {
@@ -88,8 +99,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
 					[390] = "0-0-30200-0",
-					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
+					[395] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Kareitris"] = {
@@ -106,8 +117,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "503-0-0-4000",
 					[390] = "0-0-29200-0",
-					[395] = "463-0-0-4000",
 					[396] = "0-0-0-0",
+					[395] = "463-0-0-4000",
 				},
 			},
 			["Default.Los Errantes.Elrad"] = {
@@ -143,12 +154,12 @@ DataStore_CurrenciesDB = {
 					0, -- [14]
 					0, -- [15]
 				},
-				["lastUpdate"] = 1414067311,
+				["lastUpdate"] = 1417275332,
 				["CurrencyInfo"] = {
 					[392] = "1744-0-0-4000",
 					[390] = "0-0-1700-0",
-					[395] = "0-0-0-0",
 					[396] = "0-0-1000-3000",
+					[395] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Drublock"] = {
@@ -156,12 +167,12 @@ DataStore_CurrenciesDB = {
 					11, -- [1]
 					12, -- [2]
 				},
-				["lastUpdate"] = 1409841653,
+				["lastUpdate"] = 1417273883,
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
-					[390] = "0-0-29200-0",
-					[396] = "0-0-0-0",
+					[390] = "0-0-1700-0",
 					[395] = "0-0-0-0",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Kalarankor"] = {
@@ -173,8 +184,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
 					[390] = "0-0-29200-0",
-					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
+					[395] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Zhenya"] = {
@@ -187,8 +198,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-4000",
 					[390] = "0-0-29200-0",
-					[396] = "0-0-0-0",
 					[395] = "0-0-0-0",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Kobash"] = {
@@ -205,8 +216,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "356-0-0-4000",
 					[390] = "0-0-29200-0",
-					[396] = "0-0-0-0",
 					[395] = "597-0-0-4000",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Dun Modr.Ringeki"] = {
@@ -218,8 +229,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
 					[390] = "0-0-30200-0",
-					[396] = "0-0-0-0",
 					[395] = "0-0-0-0",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Dun Modr.Potray"] = {
@@ -229,33 +240,51 @@ DataStore_CurrenciesDB = {
 					7, -- [3]
 					150, -- [4]
 					152, -- [5]
-					11, -- [6]
-					12, -- [7]
-					1678, -- [8]
+					29, -- [6]
+					542, -- [7]
+					11, -- [8]
+					12, -- [9]
+					1678, -- [10]
+					33, -- [11]
+					21284, -- [12]
+					76322, -- [13]
 				},
 				["Archeology"] = {
-					27, -- [1]
+					35, -- [1]
 					6, -- [2]
-					30, -- [3]
-					28, -- [4]
+					2, -- [3]
+					2, -- [4]
 					34, -- [5]
-					86, -- [6]
+					91, -- [6]
 					0, -- [7]
 					5, -- [8]
 					0, -- [9]
 					0, -- [10]
 					0, -- [11]
 					0, -- [12]
-					0, -- [13]
-					0, -- [14]
-					0, -- [15]
+					38, -- [13]
+					24, -- [14]
+					38, -- [15]
 				},
-				["lastUpdate"] = 1414667171,
+				["lastUpdate"] = 1417387942,
 				["CurrencyInfo"] = {
 					[392] = "13-0-0-4000",
 					[390] = "0-0-1700-0",
-					[396] = "0-0-0-0",
 					[395] = "0-0-0-0",
+					[396] = "0-0-0-0",
+				},
+			},
+			["Default.Dun Modr.Geddry"] = {
+				["Currencies"] = {
+					11, -- [1]
+					12, -- [2]
+				},
+				["lastUpdate"] = 1417306931,
+				["CurrencyInfo"] = {
+					[392] = "0-0-0-0",
+					[390] = "0-0-1700-0",
+					[395] = "0-0-0-0",
+					[396] = "0-0-0-0",
 				},
 			},
 		},

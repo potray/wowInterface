@@ -1,6 +1,9 @@
 
 RoutesDB = {
 	["profileKeys"] = {
+		["Geddry - Dun Modr"] = "Geddry - Dun Modr",
+		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
+		["Drublock - Los Errantes"] = "Drublock - Los Errantes",
 		["Potray - Dun Modr"] = "Potray - Dun Modr",
 	},
 	["global"] = {

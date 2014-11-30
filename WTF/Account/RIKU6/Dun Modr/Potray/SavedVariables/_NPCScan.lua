@@ -3,6 +3,7 @@ _NPCScanOptionsCharacter = {
 	["AchievementsAddFound"] = true,
 	["PrintTime"] = true,
 	["FlightSupress"] = true,
+	["AlertSoundUnmute"] = true,
 	["TrackMouseover"] = true,
 	["AlertScreenEdgeFlash"] = true,
 	["Version"] = 3,

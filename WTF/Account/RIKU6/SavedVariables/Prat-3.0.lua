@@ -22,74 +22,74 @@ Prat3DB = {
 				["Default"] = {
 					["colors"] = {
 						["crbz4001i1"] = {
-							["b"] = 0.749019622802734,
-							["g"] = 0.749019622802734,
 							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
 						},
 						["crbz4003i1"] = {
-							["b"] = 0.749019622802734,
-							["g"] = 0.749019622802734,
 							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
 						},
 						["crbb1"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
 							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
 						},
 						["crbz3006i1"] = {
-							["r"] = 1,
-							["g"] = 0.749019622802734,
 							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
 						},
 						["crbz3001i1"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
 							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
 						},
 						["crbz3007i1"] = {
-							["r"] = 1,
-							["g"] = 0.749019622802734,
 							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
 						},
 						["crbz3008i1"] = {
-							["r"] = 1,
-							["g"] = 0.749019622802734,
 							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
 						},
 						["crbz4010i1"] = {
-							["r"] = 1,
-							["g"] = 0.749019622802734,
 							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
 						},
 						["crbz2010i1"] = {
+							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
+						},
+						["crbz2020i1"] = {
 							["b"] = 0.749019622802734,
 							["g"] = 0.749019622802734,
 							["r"] = 1,
 						},
-						["crbz2020i1"] = {
+						["crbz3003i1"] = {
+							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
+						},
+						["trade"] = {
+							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
+						},
+						["crbz4004i1"] = {
 							["r"] = 1,
 							["g"] = 0.749019622802734,
 							["b"] = 0.749019622802734,
 						},
 						["crbz4002i1"] = {
-							["b"] = 0.749019622802734,
+							["r"] = 1,
 							["g"] = 0.749019622802734,
-							["r"] = 1,
-						},
-						["crbz4004i1"] = {
 							["b"] = 0.749019622802734,
-							["g"] = 0.749019622802734,
-							["r"] = 1,
-						},
-						["trade"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
-							["r"] = 1,
-						},
-						["crbz3003i1"] = {
-							["b"] = 0.749019622802734,
-							["g"] = 0.749019622802734,
-							["r"] = 1,
 						},
 					},
 				},
@@ -101,17 +101,17 @@ Prat3DB = {
 					["edgeSize"] = 16,
 					["attach"] = "TOP",
 					["border"] = "Blizzard Dialog",
-					["background"] = "Blizzard ChatFrame Background",
+					["backgroundColor"] = {
+						["g"] = 0.00392156862745098,
+						["r"] = 0.109803921568628,
+					},
 					["borderColor"] = {
 						["g"] = 0,
 						["b"] = 0.0745098039215686,
 					},
 					["colorByChannel"] = false,
 					["inset"] = 4,
-					["backgroundColor"] = {
-						["g"] = 0.00392156862745098,
-						["r"] = 0.109803921568628,
-					},
+					["background"] = "Blizzard ChatFrame Background",
 				},
 			},
 		},
@@ -138,62 +138,6 @@ Prat3DB = {
 		},
 		["Prat_Scroll"] = {
 		},
-		["Prat_ChannelNames"] = {
-		},
-		["Prat_Paragraph"] = {
-		},
-		["Prat_Alias"] = {
-		},
-		["Prat_Clear"] = {
-			["profiles"] = {
-				["Default"] = {
-					["on"] = true,
-				},
-			},
-		},
-		["Prat_UrlCopy"] = {
-		},
-		["Prat_Sounds"] = {
-		},
-		["Prat_ChatLog"] = {
-			["profiles"] = {
-				["Default"] = {
-					["on"] = true,
-				},
-			},
-		},
-		["Prat_ChannelSticky"] = {
-		},
-		["Prat_PopupMessage"] = {
-		},
-		["Prat_History"] = {
-			["profiles"] = {
-				["Default"] = {
-					["chatlinesframes"] = {
-						["ChatFrame1"] = false,
-					},
-				},
-			},
-		},
-		["Prat_CopyChat"] = {
-		},
-		["Prat_Timestamps"] = {
-		},
-		["Prat_Search"] = {
-		},
-		["Prat_Buttons"] = {
-			["profiles"] = {
-				["Default"] = {
-					["showButtons"] = false,
-					["showBnet"] = false,
-					["scrollReminder"] = false,
-					["showminimize"] = false,
-					["showMenu"] = false,
-				},
-			},
-		},
-		["Prat_ServerNames"] = {
-		},
 		["Prat_ChatTabs"] = {
 			["profiles"] = {
 				["Default"] = {
@@ -204,8 +148,65 @@ Prat3DB = {
 				},
 			},
 		},
+		["Prat_Paragraph"] = {
+		},
+		["Prat_Clear"] = {
+			["profiles"] = {
+				["Default"] = {
+					["on"] = true,
+				},
+			},
+		},
+		["Prat_Alias"] = {
+		},
+		["Prat_UrlCopy"] = {
+		},
+		["Prat_Sounds"] = {
+		},
+		["Prat_Timestamps"] = {
+		},
+		["Prat_ChannelSticky"] = {
+		},
+		["Prat_History"] = {
+			["profiles"] = {
+				["Default"] = {
+					["chatlinesframes"] = {
+						["ChatFrame1"] = false,
+					},
+				},
+			},
+		},
+		["Prat_PopupMessage"] = {
+		},
+		["Prat_CopyChat"] = {
+		},
+		["Prat_ChatLog"] = {
+			["profiles"] = {
+				["Default"] = {
+					["on"] = true,
+				},
+			},
+		},
+		["Prat_Search"] = {
+		},
+		["Prat_Buttons"] = {
+			["profiles"] = {
+				["Default"] = {
+					["showMenu"] = false,
+					["showBnet"] = false,
+					["showButtons"] = false,
+					["showminimize"] = false,
+					["scrollReminder"] = false,
+				},
+			},
+		},
+		["Prat_ServerNames"] = {
+		},
+		["Prat_ChannelNames"] = {
+		},
 	},
 	["profileKeys"] = {
+		["Geddry - Dun Modr"] = "Default",
 		["Pexuss - Dun Modr"] = "Default",
 		["Drublock - Los Errantes"] = "Default",
 		["Kareitris - Los Errantes"] = "Default",

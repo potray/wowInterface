@@ -464,17 +464,32 @@ local function loadGeneralOptions()
 		
 		return true
 	end
-	
+
 	local function setRange(info, spell)
 		ShadowUF.db.profile.range[info[#(info)] .. playerClass] = spell and spell ~= "" and spell or nil
 		ShadowUF.Layout:Reload()
 	end
 	
-	local function getRange(info, spell)
+	local function getRange(info)
 		local spell = ShadowUF.db.profile.range[info[#(info)] .. playerClass]
 		return spell and spell ~= "" and spell or ShadowUF.modules.range[info[#(info)]][playerClass]
 	end
-								
+
+	local function rangeWithIcon(info)
+		local name = getRange(info)
+		local text = L["Spell Name"]
+		if( string.match(info[#(info)], "Alt") ) then
+			text = L["Alternate Spell Name"]
+		end
+
+		local icon = select(3, GetSpellInfo(name))
+		if( not icon ) then
+			icon = "Interface\\Icons\\Inv_misc_questionmark"
+		end
+
+		return "|T" .. icon .. ":18:18:0:0|t " .. text
+	end
+
 	local textData = {}
 	
 	local function writeTable(tbl)
@@ -486,7 +501,7 @@ local function loadGeneralOptions()
 			if( type(key) == "number" ) then
 				key = string.format("[%s]", key)
 			-- Wrap the string with quotes if it has a space in it
-			elseif( string.match(key, "[%p%s%c]") ) then
+			elseif( string.match(key, "[%p%s%c]") or string.match(key, "^[0-9]+$") ) then
 				key = string.format("['%s']", string.gsub(key, "'", "\\'"))
 			end
 			
@@ -554,15 +569,6 @@ local function loadGeneralOptions()
 						get = function(info) return layoutData[info[#(info)]] end,
 						width = "double",
 					},
-					modules = {
-						order = 4,
-						type = "toggle",
-						name = L["Import non-standard module settings"],
-						desc = L["Will not import settings of modules that are not included with Shadowed Unit Frames by default."],
-						set = function(info, value) layoutData[info[#(info)]] = value end,
-						get = function(info) return layoutData[info[#(info)]] end,
-						width = "double",
-					},
 					import = {
 						order = 5,
 						type = "input",
@@ -594,18 +600,6 @@ local function loadGeneralOptions()
 							for unit in pairs(layout.units) do
 								if( not ShadowUF.defaults.profile.units[unit] ) then
 									layout.units[unit] = nil
-								end
-							end
-							
-							-- Strip module settings that aren't with SUF by default
-							if( not layoutData.modules ) then
-								local validModules = {["healthBar"] = true, ["powerBar"] = true, ["portrait"] = true, ["range"] = true, ["text"] = true, ["indicators"] = true, ["auras"] = true, ["incAbsorb"] = true, ["healAbsorb"] = true, ["incHeal"] = true, ["castBar"] = true, ["combatText"] = true, ["highlight"] = true, ["runeBar"] = true, ["totemBar"] = true, ["xpBar"] = true, ["fader"] = true, ["comboPoints"] = true, ["eclipseBar"] = true, ["soulShards"] = true, ["holyPower"] = true, ["altPowerBar"] = true, ["demonicFuryBar"] = true, ["burningEmbersBar"] = true, ["chi"] = true, ["shadowOrbs"] = true, ["auraPoints"] = true, ["staggerBar"] = true}
-								for _, unitData in pairs(layout.units) do
-									for key, data in pairs(unitData) do
-										if( type(data) == "table" and not validModules[key] and ShadowUF.modules[key] ) then
-											unitData[key] = nil
-										end
-									end
 								end
 							end
 							
@@ -959,32 +953,6 @@ local function loadGeneralOptions()
 							},
 						},
 					},
-					range = {
-						order = 5,
-						type = "group",
-						inline = true,
-						name = L["Range spells"],
-						args = {
-							friendly = {
-								order = 0,
-								type = "input",
-								name = L["Friendly spell"],
-								desc = L["Name of a friendly spell to check range on friendlies.|n|nThis is automatically set for your current class only."],
-								validate = validateSpell,
-								set = setRange,
-								get = getRange,
-							},
-							hostile = {
-								order = 1,
-								type = "input",
-								name = L["Hostile spell"],
-								desc = L["Name of a hostile spell to check range on enemies.|n|nThis is automatically set for your current class only."],
-								validate = validateSpell,
-								set = setRange,
-								get = getRange,
-							},
-						},
-					},
 				},
 			},
 			color = {
@@ -1276,12 +1244,19 @@ local function loadGeneralOptions()
 								arg = "powerColors.STATUE",
 								hidden = function(info) return select(2, UnitClass("player")) ~= "MONK" end,
 							},
-							STATUE = {
+							RUNEOFPOWER = {
 								order = 17.5,
 								type = "color",
 								name = L["Rune of Power"],
 								arg = "powerColors.RUNEOFPOWER",
 								hidden = function(info) return select(2, UnitClass("player")) ~= "MAGE" end,
+							},
+							LIGHTWELL = {
+								order = 17.6,
+								type = "color",
+								name = L["Lightwell"],
+								arg = "powerColors.LIGHTWELL",
+								hidden = function(info) return select(2, UnitClass("player")) ~= "PRIEST" end,
 							},
 							POWER_TYPE_FEL_ENERGY = {
 								order = 18,
@@ -1383,7 +1358,92 @@ local function loadGeneralOptions()
 					},
 				},
 			},
-			profile = LibStub("AceDBOptions-3.0"):GetOptionsTable(ShadowUF.db, true),
+			range = {
+				order = 5,
+				type = "group",
+				name = L["Range Checker"],
+				args = {
+					help = {
+						order = 0,
+						type = "group",
+						inline = true,
+						name = L["Help"],
+						args = {
+							help = {
+								order = 0,
+								type = "description",
+								name = L["This will be set for your current class only."],
+							},
+						},
+					},
+					friendly = {
+						order = 1,
+						inline = true,
+						type = "group",
+						name = L["On Friendly Units"],
+						args = {
+							friendly = {
+								order = 1,
+								type = "input",
+								name = rangeWithIcon,
+								desc = L["Name of a friendly spell to check range."],
+								validate = validateSpell,
+								set = setRange,
+								get = getRange,
+							},
+							spacer = {
+								order = 2,
+								type = "description",
+								width = "normal",
+								name = ""
+							},
+							friendlyAlt = {
+								order = 3,
+								type = "input",
+								name = rangeWithIcon,
+								desc = L["Alternatively friendly spell to use to check range."],
+								hidden = hideAdvancedOption,
+								validate = validateSpell,
+								set = setRange,
+								get = getRange,
+							},
+						}
+					},
+					hostile = {
+						order = 2,
+						inline = true,
+						type = "group",
+						name = L["On Hostile Units"],
+						args = {
+							hostile = {
+								order = 1,
+								type = "input",
+								name = rangeWithIcon,
+								desc = L["Name of a friendly spell to check range."],
+								validate = validateSpell,
+								set = setRange,
+								get = getRange,
+							},
+							spacer = {
+								order = 2,
+								type = "description",
+								width = "normal",
+								name = ""
+							},
+							hostileAlt = {
+								order = 3,
+								type = "input",
+								name = rangeWithIcon,
+								desc = L["Alternatively friendly spell to use to check range."],
+								hidden = hideAdvancedOption,
+								validate = validateSpell,
+								set = setRange,
+								get = getRange,
+							},
+						}
+					},
+				},
+			},
 			text = {
 				type = "group",
 				order = 6,
@@ -1493,11 +1553,6 @@ local function loadGeneralOptions()
 	
 	options.args.general.args.color.args.classColors.args.PET = Config.classTable
 	options.args.general.args.color.args.classColors.args.VEHICLE = Config.classTable
-	
-	options.args.general.args.profile.order = 4
-
-	local LibDualSpec = LibStub("LibDualSpec-1.0")
-	LibDualSpec:EnhanceOptions(options.args.general.args.profile, ShadowUF.db)
 end
 
 ---------------------
@@ -3952,13 +4007,6 @@ local function loadUnitOptions()
 								name = string.format(L["Enable %s"], L["Power bar"]),
 								arg = "powerBar.enabled",
 							},
-							--predictPower = {
-							--	order = 2,
-							--	type = "toggle",
-							--	name = L["Enable quick power"],
-							--	desc = L["Turns fast updating of the power bar on giving you more up to date power information than normal."],
-							--	arg = "powerBar.predicted",
-							--},
 							altPowerBar = {
 								order = 3,
 								type = "toggle",
@@ -3974,6 +4022,14 @@ local function loadUnitOptions()
 								desc = L["Primary means of coloring the power bar. Coloring by class only applies to players, for non-players it will default to the power type."],
 								values = {["class"] = L["Class"], ["type"] = L["Power Type"]},
 								arg = "powerBar.colorType",
+							},
+							onlyMana = {
+								order = 6,
+								type = "toggle",
+								name = L["Only show when mana"],
+								desc = L["Hides the power bar unless the class has mana."],
+								hidden = function(info) return not ShadowUF.Units.headerUnits[info[2]] end,
+								arg = "powerBar.onlyMana",
 							}
 						},
 					},
@@ -4230,7 +4286,6 @@ local function loadUnitOptions()
 								order = 3,
 								type = "toggle",
 								name = L["Dismissable Totem bars"],
-								hidden = function() return not ShadowUF.IS_WOD end,
 								desc = function(info)
 									return L["Allows you to disable the totem by right clicking it.|n|nWarning: Inner bars for this unit will not resize in combat if you enable this."]
 								end,
@@ -4579,6 +4634,9 @@ local function loadUnitOptions()
 	
 		return true
 	end
+
+	options.args.profile = LibStub("AceDBOptions-3.0"):GetOptionsTable(ShadowUF.db, true)
+	LibStub("LibDualSpec-1.0"):EnhanceOptions(options.args.profile, ShadowUF.db)
 	
 	options.args.enableUnits = {
 		type = "group",
@@ -6269,8 +6327,8 @@ local function loadAuraIndicatorsOptions()
 			-- Wrap the key in brackets if it's a number
 			if( type(key) == "number" ) then
 				key = string.format("[%s]", key)
-			-- Wrap the string with quotes if it has a space in it
-			elseif( string.match(key, " ") ) then
+			-- Wrap the string with quotes if it has a space or digits in it
+			elseif( string.match(key, " ") or string.match(key, "^[0-9]+$") ) then
 				key = string.format("[\"%s\"]", key)
 			end
 			
@@ -7400,6 +7458,7 @@ local function loadOptions()
 
 	-- Ordering
 	options.args.general.order = 1
+	options.args.profile.order = 1.5
 	options.args.enableUnits.order = 2
 	options.args.units.order = 3
 	options.args.filter.order = 4

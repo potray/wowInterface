@@ -1,4 +1,4 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("Titan","esES")
+﻿local L = LibStub("AceLocale-3.0"):NewLocale("Titan","esES")
 if not L then return end
 
 L["TITAN_DEBUG"] = "<Titan>";
@@ -576,6 +576,7 @@ L["TITAN_VOLUME_TOOLTIP"] = "Control de Volumen";
 L["TITAN_VOLUME_MASTER_TOOLTIP_VALUE"] = "Volumen general: ";
 L["TITAN_VOLUME_SOUND_TOOLTIP_VALUE"] = "Volumen de los efectos: ";
 L["TITAN_VOLUME_AMBIENCE_TOOLTIP_VALUE"] = "Volumen de ambiente: ";
+L["TITAN_VOLUME_DIALOG_TOOLTIP_VALUE"] = "Volumen de los diálogos: ";
 L["TITAN_VOLUME_MUSIC_TOOLTIP_VALUE"] = "Volumen de la música: ";
 L["TITAN_VOLUME_MICROPHONE_TOOLTIP_VALUE"] = "Volumen del micrófono: ";
 L["TITAN_VOLUME_SPEAKER_TOOLTIP_VALUE"] = "Volumen de los altavoces: ";
@@ -586,6 +587,7 @@ L["TITAN_VOLUME_CONTROL_TITLE"] = "Volumen";
 L["TITAN_VOLUME_MASTER_CONTROL_TITLE"] = "General";
 L["TITAN_VOLUME_SOUND_CONTROL_TITLE"] = "Efectos";
 L["TITAN_VOLUME_AMBIENCE_CONTROL_TITLE"] = "Ambiente";
+L["TITAN_VOLUME_DIALOG_CONTROL_TITLE"] = "Diálogos";
 L["TITAN_VOLUME_MUSIC_CONTROL_TITLE"] = "Música";
 L["TITAN_VOLUME_MICROPHONE_CONTROL_TITLE"] = "Micrófono";
 L["TITAN_VOLUME_SPEAKER_CONTROL_TITLE"] = "Altavoz";

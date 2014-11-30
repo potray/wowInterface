@@ -389,6 +389,7 @@ function MT:ShortenMacro(macrotext)
 	macrotext = format("%s\n", macrotext)
 	local lines = {strsplit("\n", macrotext)}
 	for i, l in ipairs(lines) do
+	--if i == 3 then print(l) return end
 		if l ~= "" then
 			l = string.gsub(l, "%s+", " ")
 			l = string.gsub(l, "%s-([%]=,;])", "%1")
@@ -427,17 +428,19 @@ function MT:ShortenMacro(macrotext)
 			s, e = string.find(l, "%[.-noexists")
 			while s do
 				local _, _, cverb, cspell = MT:ParseMacro(l)
-				if isCast(cverb) then
-					if IsHelpfulSpell(cspell) then
-						local s1, e1 = string.find(l, "noexists", s)
-						l = format("%s%s%s", string.sub(l, 1, s1 - 1), "nohelp", string.sub(l, e1 + 1))
+				if cspell ~= "" then	--ticket 62
+					if isCast(cverb) then
+						if IsHelpfulSpell(cspell) then
+							local s1, e1 = string.find(l, "noexists", s)
+							l = format("%s%s%s", string.sub(l, 1, s1 - 1), "nohelp", string.sub(l, e1 + 1))
+						end
+						if IsHarmfulSpell(cspell) then
+							local s1, e1 = string.find(l, "noexists", s)
+							l = format("%s%s%s", string.sub(l, 1, s1 - 1), "noharm", string.sub(l, e1 + 1))
+						end
 					end
-					if IsHarmfulSpell(cspell) then
-						local s1, e1 = string.find(l, "noexists", s)
-						l = format("%s%s%s", string.sub(l, 1, s1 - 1), "noharm", string.sub(l, e1 + 1))
-					end
-				end
-				s, e = string.find(l, "%[.-noexists")
+					s, e = string.find(l, "%[.-noexists")
+				else s = nil end
 			end
 			--end ticket
 			--avoid confusion between actionbar condition and swapactionbar / command

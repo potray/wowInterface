@@ -112,7 +112,7 @@ local function OnUpdate(self, elapsed)
 	-- check if this is working properly, don't want to miss timers
 	if enable == 1 then
 		-- check if settings changed from last call
-		if start ~= self.lastStart or duration ~= self.lastDuration or enable ~= self.lastEnable then
+		if (start ~= self.lastStart) or (duration ~= self.lastDuration) or (enable ~= self.lastEnable) or (clcInfo.mf.hideTime > self.lastUpdate) then
 			e:StopAnimating()
 			-- hide instead of seting 0, 0 to avoid omnicc extra pulse
 			if duration > 0 then
@@ -180,6 +180,8 @@ local function OnUpdate(self, elapsed)
 			a.last = v
 		end
 	end
+
+	self.lastUpdate = GetTime();
 end
 function prototype:DoUpdate()
 	OnUpdate(self, 100)
@@ -215,6 +217,9 @@ function prototype:Init()
 	self.etype = "icon"
 	-- event dispatcher
 	self:SetScript("OnEvent", clcInfo.DisplayElementsEventDispatch)
+
+	-- last time onupdate was called
+	self.lastUpdate = 0
 	
 	-- create a child frame that holds all the elements and it's hidden/shown instead of main one that has update function
 	self.elements = CreateFrame("Frame", nil, self)

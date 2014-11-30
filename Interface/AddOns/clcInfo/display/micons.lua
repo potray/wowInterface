@@ -51,6 +51,9 @@ local modAlerts = clcInfo.display.alerts
 -- reduce number of frames?
 function iconPrototype:Init()
 	self.texMain = self:CreateTexture(nil, "BORDER")
+
+	self.lastUpdate = 0
+
 	-- cooldown
 	self.cooldown = CreateFrame("Cooldown", nil, self, "CooldownFrameTemplate")
 	-- icon for omnicc pulse
@@ -274,7 +277,7 @@ function prototype:___AddIcon(id, texture, start, duration, enable, reversed, co
 	--]]
 	if enable == 1 then
 		-- check if settings changed from last call
-		if start ~= icon.lastStart or duration ~= icon.lastDuration or enable ~= icon.lastEnable then
+		if (start ~= self.lastStart) or (duration ~= self.lastDuration) or (enable ~= self.lastEnable) or (clcInfo.mf.hideTime > self.lastUpdate) then
 			e:StopAnimating()
 			-- hide instead of seting 0, 0 to avoid omnicc extra pulse
 			if duration > 0 then
@@ -341,6 +344,8 @@ function prototype:___AddIcon(id, texture, start, duration, enable, reversed, co
 			end
 		end
 	end
+
+	self.lastUpdate = GetTime()
 end
 
 

@@ -9,14 +9,9 @@ clcInfoCharDB = {
 				["bars"] = {
 					["iconBottom"] = 0,
 					["t1HSize"] = 80,
-					["t3Aliasing"] = true,
+					["iconRight"] = 2,
 					["iconLeft"] = 0,
-					["barBgColor"] = {
-						0.17, -- [1]
-						0.22, -- [2]
-						0.43, -- [3]
-						0.5, -- [4]
-					},
+					["t1Outline"] = true,
 					["t3HSize"] = 20,
 					["t2Color"] = {
 						1, -- [1]
@@ -25,52 +20,57 @@ clcInfoCharDB = {
 						1, -- [4]
 					},
 					["t1Font"] = "Arial Narrow",
-					["iconRight"] = 2,
-					["t3Font"] = "Arial Narrow",
+					["t3Aliasing"] = true,
+					["bdColor"] = {
+						0, -- [1]
+						0, -- [2]
+						0, -- [3]
+						0, -- [4]
+					},
 					["iconAlign"] = "left",
-					["t1Outline"] = true,
 					["t3Center"] = 0,
-					["t2ThickOutline"] = false,
 					["barRight"] = 0,
-					["iconBd"] = true,
-					["barBd"] = true,
+					["t2ThickOutline"] = false,
 					["barColor"] = {
 						0.43, -- [1]
 						0.56, -- [2]
 						1, -- [3]
 						1, -- [4]
 					},
+					["t1Center"] = 0,
+					["iconTop"] = 0,
+					["barBgColor"] = {
+						0.17, -- [1]
+						0.22, -- [2]
+						0.43, -- [3]
+						0.5, -- [4]
+					},
 					["t3Outline"] = true,
-					["t3Size"] = 70,
+					["barTexture"] = "Aluminium",
 					["iconPadding"] = 1,
 					["bdBorder"] = "Blizzard Tooltip",
 					["t1Size"] = 70,
 					["iconBdBorder"] = "Blizzard Tooltip",
 					["barBottom"] = 0,
-					["iconBdColor"] = {
-						0, -- [1]
-						0, -- [2]
-						0, -- [3]
-						0, -- [4]
-					},
 					["barBg"] = true,
-					["barPadding"] = 2,
-					["iconBdBg"] = "Blizzard Tooltip",
-					["t2Font"] = "Arial Narrow",
-					["barInset"] = 2,
-					["bdBg"] = "Blizzard Tooltip",
-					["barBgTexture"] = "Aluminium",
 					["iconBdBorderColor"] = {
 						1, -- [1]
 						1, -- [2]
 						1, -- [3]
 						1, -- [4]
 					},
-					["barBdBorderColor"] = {
-						1, -- [1]
-						1, -- [2]
-						1, -- [3]
-						1, -- [4]
+					["barPadding"] = 2,
+					["iconBdBg"] = "Blizzard Tooltip",
+					["t3Right"] = 2,
+					["t2Font"] = "Arial Narrow",
+					["bdBg"] = "Blizzard Tooltip",
+					["barBgTexture"] = "Aluminium",
+					["bd"] = false,
+					["iconBdColor"] = {
+						0, -- [1]
+						0, -- [2]
+						0, -- [3]
+						0, -- [4]
 					},
 					["t1Left"] = 2,
 					["t2HSize"] = 80,
@@ -90,13 +90,18 @@ clcInfoCharDB = {
 						1, -- [4]
 					},
 					["t1ThickOutline"] = false,
-					["bd"] = false,
-					["t3ThickOutline"] = false,
+					["barInset"] = 2,
+					["inset"] = 0,
 					["t2Center"] = 0,
 					["advancedSkin"] = false,
 					["barLeft"] = 0,
-					["t3Right"] = 2,
-					["inset"] = 0,
+					["barBdBorderColor"] = {
+						1, -- [1]
+						1, -- [2]
+						1, -- [3]
+						1, -- [4]
+					},
+					["t3ThickOutline"] = false,
 					["t2Size"] = 70,
 					["t2Outline"] = true,
 					["barTop"] = 0,
@@ -108,16 +113,11 @@ clcInfoCharDB = {
 					},
 					["t1Aliasing"] = true,
 					["barEdgeSize"] = 6,
+					["t3Size"] = 70,
+					["barBd"] = true,
+					["iconBd"] = true,
 					["barBdBorder"] = "Blizzard Tooltip",
-					["iconTop"] = 0,
-					["t1Center"] = 0,
-					["barTexture"] = "Aluminium",
-					["bdColor"] = {
-						0, -- [1]
-						0, -- [2]
-						0, -- [3]
-						0, -- [4]
-					},
+					["t3Font"] = "Arial Narrow",
 					["iconInset"] = 0,
 				},
 				["micons"] = {
@@ -145,14 +145,9 @@ clcInfoCharDB = {
 				["mbars"] = {
 					["iconBottom"] = 0,
 					["t1HSize"] = 80,
-					["t3Aliasing"] = true,
+					["iconRight"] = 2,
 					["iconLeft"] = 0,
-					["barBgColor"] = {
-						0.17, -- [1]
-						0.22, -- [2]
-						0.43, -- [3]
-						0.5, -- [4]
-					},
+					["t1Outline"] = true,
 					["t3HSize"] = 20,
 					["t2Color"] = {
 						1, -- [1]
@@ -161,52 +156,57 @@ clcInfoCharDB = {
 						1, -- [4]
 					},
 					["t1Font"] = "Arial Narrow",
-					["iconRight"] = 2,
-					["t3Font"] = "Arial Narrow",
+					["t3Aliasing"] = true,
+					["bdColor"] = {
+						0, -- [1]
+						0, -- [2]
+						0, -- [3]
+						0, -- [4]
+					},
 					["iconAlign"] = "left",
-					["t1Outline"] = true,
 					["t3Center"] = 0,
-					["t2ThickOutline"] = false,
 					["barRight"] = 0,
-					["iconBd"] = true,
-					["barBd"] = true,
+					["t2ThickOutline"] = false,
 					["barColor"] = {
 						0.43, -- [1]
 						0.56, -- [2]
 						1, -- [3]
 						1, -- [4]
 					},
+					["t1Center"] = 0,
+					["iconTop"] = 0,
+					["barBgColor"] = {
+						0.17, -- [1]
+						0.22, -- [2]
+						0.43, -- [3]
+						0.5, -- [4]
+					},
 					["t3Outline"] = true,
-					["t3Size"] = 70,
+					["barTexture"] = "Aluminium",
 					["iconPadding"] = 1,
 					["bdBorder"] = "Blizzard Tooltip",
 					["t1Size"] = 70,
 					["iconBdBorder"] = "Blizzard Tooltip",
 					["barBottom"] = 0,
-					["iconBdColor"] = {
-						0, -- [1]
-						0, -- [2]
-						0, -- [3]
-						0, -- [4]
-					},
 					["barBg"] = true,
-					["barPadding"] = 2,
-					["iconBdBg"] = "Blizzard Tooltip",
-					["t2Font"] = "Arial Narrow",
-					["barInset"] = 2,
-					["bdBg"] = "Blizzard Tooltip",
-					["barBgTexture"] = "Aluminium",
 					["iconBdBorderColor"] = {
 						1, -- [1]
 						1, -- [2]
 						1, -- [3]
 						1, -- [4]
 					},
-					["barBdBorderColor"] = {
-						1, -- [1]
-						1, -- [2]
-						1, -- [3]
-						1, -- [4]
+					["barPadding"] = 2,
+					["iconBdBg"] = "Blizzard Tooltip",
+					["t3Right"] = 2,
+					["t2Font"] = "Arial Narrow",
+					["bdBg"] = "Blizzard Tooltip",
+					["barBgTexture"] = "Aluminium",
+					["bd"] = false,
+					["iconBdColor"] = {
+						0, -- [1]
+						0, -- [2]
+						0, -- [3]
+						0, -- [4]
 					},
 					["t1Left"] = 2,
 					["t2HSize"] = 80,
@@ -226,13 +226,18 @@ clcInfoCharDB = {
 						1, -- [4]
 					},
 					["t1ThickOutline"] = false,
-					["bd"] = false,
-					["t3ThickOutline"] = false,
+					["barInset"] = 2,
+					["inset"] = 0,
 					["t2Center"] = 0,
 					["advancedSkin"] = false,
 					["barLeft"] = 0,
-					["t3Right"] = 2,
-					["inset"] = 0,
+					["barBdBorderColor"] = {
+						1, -- [1]
+						1, -- [2]
+						1, -- [3]
+						1, -- [4]
+					},
+					["t3ThickOutline"] = false,
 					["t2Size"] = 70,
 					["t2Outline"] = true,
 					["barTop"] = 0,
@@ -244,16 +249,11 @@ clcInfoCharDB = {
 					},
 					["t1Aliasing"] = true,
 					["barEdgeSize"] = 6,
+					["t3Size"] = 70,
+					["barBd"] = true,
+					["iconBd"] = true,
 					["barBdBorder"] = "Blizzard Tooltip",
-					["iconTop"] = 0,
-					["t1Center"] = 0,
-					["barTexture"] = "Aluminium",
-					["bdColor"] = {
-						0, -- [1]
-						0, -- [2]
-						0, -- [3]
-						0, -- [4]
-					},
+					["t3Font"] = "Arial Narrow",
 					["iconInset"] = 0,
 				},
 				["icons"] = {

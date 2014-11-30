@@ -1,18 +1,22 @@
-MACRO 2 "BigBrother" Spell_unused2
+VER 3 0000000000000006 "Audio On/Off" "Ability_Druid_Berserk"
+/run Sound_ToggleSound()
+/run Sound_ToggleMusic()
+END
+VER 3 0000000000000002 "BigBrother" "Spell_unused2"
 /bigbrother quickcheck self
 END
-MACRO 1 "Montar" Ability_Mount_JungleTiger
+VER 3 0000000000000001 "Montar" "Ability_Mount_JungleTiger"
 #showtooltip
 /ei mount
 END
-MACRO 4 "Mount" ABILITY_MOUNT_DREADSTEED
+VER 3 0000000000000004 "Mount" "ABILITY_MOUNT_DREADSTEED"
 #showtooltip
 /GP am
 END
-MACRO 3 "mouseover" INV_Misc_QuestionMark
+VER 3 0000000000000003 "mouseover" "INV_Misc_QuestionMark"
 /run ChatFrame1:AddMessage(GetMouseFocus():GetName())
 END
-MACRO 5 "Quitar raid fram" Ability_Hunter_OneWithNature
+VER 3 0000000000000005 "Quitar raid fram" "Ability_Hunter_OneWithNature"
 /run CompactRaidFrameManager:UnregisterAllEvents()
 CompactRaidFrameManager:Hide() CompactRaidFrameContainer:UnregisterAllEvents() CompactRaidFrameContainer:Hide() 
 END

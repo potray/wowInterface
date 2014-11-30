@@ -4,8 +4,8 @@
 	http://localizer.norganna.org/
 
 	AddOn: Gatherer
-	Revision: $Id: GatherStrings.lua 1118 2014-10-17 04:00:08Z LocalizerAutoCommit $
-	Version: 4.4.2 (<%codename%>)
+	Revision: $Id: GatherStrings.lua 1128 2014-11-13 05:00:11Z LocalizerAutoCommit $
+	Version: 5.0.0 (<%codename%>)
 
 	License:
 		This program is free software; you can redistribute it and/or
@@ -852,6 +852,7 @@ GathererLocalizations = {
 		["MAP_NOTES_HIDE"]	= "Hide Items";
 		["MAP_NOTES_SHOW"]	= "Show Items";
 		["NOTIFICATIONS_TITLE"]	= "Gatherer: Warnings";
+		["WORLDMAP_NOTES_SHOW_MENUITEM"]	= "Gatherer: Show Items";
 
 		-- Section: Mass Sharing Messages
 		["MASS_SHARING_ABORT"]	= "Aborted upload.";
@@ -1179,6 +1180,7 @@ GathererLocalizations = {
 		["MAP_NOTES_HIDE"]	= "Ocultar objetos";
 		["MAP_NOTES_SHOW"]	= "Mostrar Objetos";
 		["NOTIFICATIONS_TITLE"]	= "Gatherer: Avisos";
+		["WORLDMAP_NOTES_SHOW_MENUITEM"]	= "Gatherer: mostrar objetos";
 
 		-- Section: Mass Sharing Messages
 		["MASS_SHARING_ABORT"]	= "Subida cancelada";
@@ -3221,6 +3223,7 @@ GathererLocalizations = {
 		["MAP_NOTES_HIDE"]	= "Скрыть предметы";
 		["MAP_NOTES_SHOW"]	= "Показать предметы";
 		["NOTIFICATIONS_TITLE"]	= "Gatherer: Предупреждения";
+		["WORLDMAP_NOTES_SHOW_MENUITEM"]	= "Gatherer: Показать предметы";
 
 		-- Section: Mass Sharing Messages
 		["MASS_SHARING_ABORT"]	= "Отправка прервана.";

@@ -22,7 +22,7 @@ end
 
 hooksecurefunc('GossipFrameUpdate', function()
 	local unit = UnitGUID('npc')
-	local id = unit and tonumber(unit:sub(22, 26))
+	local id = unit and tonumber(select(6, strsplit('-', unit)), nil)
 
 	if Addon.Tamers[id] then
 		local index = GossipFrame.buttonIndex

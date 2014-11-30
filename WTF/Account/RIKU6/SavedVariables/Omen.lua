@@ -1,6 +1,7 @@
 
 Omen3DB = {
 	["profileKeys"] = {
+		["Geddry - Dun Modr"] = "Geddry - Dun Modr",
 		["Pexuss - Dun Modr"] = "Pexuss - Dun Modr",
 		["Drublock - Los Errantes"] = "Drublock - Los Errantes",
 		["Kareitris - Los Errantes"] = "Kareitris - Los Errantes",
@@ -14,13 +15,19 @@ Omen3DB = {
 		["Pexus - Los Errantes"] = "Pexus - Los Errantes",
 	},
 	["profiles"] = {
+		["Geddry - Dun Modr"] = {
+			["Shown"] = false,
+			["PositionY"] = 614.999938964844,
+			["PositionX"] = 847.5,
+		},
 		["Pexuss - Dun Modr"] = {
 			["PositionX"] = 847.5,
 			["PositionY"] = 614.999938964844,
 		},
 		["Drublock - Los Errantes"] = {
-			["PositionX"] = 847.5,
+			["Shown"] = false,
 			["PositionY"] = 614.999938964844,
+			["PositionX"] = 847.5,
 		},
 		["Kareitris - Los Errantes"] = {
 			["PositionX"] = 847.5,
@@ -41,9 +48,9 @@ Omen3DB = {
 				},
 				["Color"] = {
 					["a"] = 0,
-					["b"] = 0,
-					["g"] = 0.00392156862745098,
 					["r"] = 0.133333333333333,
+					["g"] = 0.00392156862745098,
+					["b"] = 0,
 				},
 				["BarInset"] = 5,
 				["Texture"] = "Solid",
@@ -57,11 +64,11 @@ Omen3DB = {
 			},
 			["VGrip1"] = 80.9492242317356,
 			["ClampToScreen"] = false,
+			["PositionX"] = 1313.94873046875,
+			["Scale"] = 0.98,
 			["TitleBar"] = {
 				["ShowTitleBar"] = false,
 			},
-			["Scale"] = 0.98,
-			["PositionX"] = 1313.94873046875,
 			["Bar"] = {
 				["FontSize"] = 12,
 				["ShowHeadings"] = false,

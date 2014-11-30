@@ -1,6 +1,6 @@
+if GetLocale():sub(1, 2) ~= 'es' then return end
 local _, Addon = ...
 local L = Addon.Locals
-if GetLocale():sub(1, 2) ~= 'es' then return end
 
 L.AddWaypoint = 'Añadir Punto de Destino'
 L.AlertUpgrades = 'Aviso de Mejoras'

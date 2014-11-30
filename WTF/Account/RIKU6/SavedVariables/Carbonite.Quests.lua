@@ -5,26 +5,26 @@ NXQuest = {
 	},
 	["profiles"] = {
 		["Default"] = {
+			["Quest"] = {
+				["DetailScale"] = 1,
+				["BroadcastQChanges"] = false,
+			},
 			["QuestOpts"] = {
 				["NXWHideDist"] = 20000,
 				["NXWPriGroup"] = -100,
-				["NXWVisMax"] = 10,
-				["Version"] = 0.12,
 				["NXShowHeaders"] = true,
-				["NXWShowOnMap"] = true,
+				["NXWPriLevel"] = 20,
+				["NXWPriDist"] = 1,
+				["NXWPriComplete"] = 50,
 				["NXWHideNotInZone"] = false,
 				["NXWHideGroup"] = false,
 				["NXSortWatchMode"] = 1,
 				["NXWWatchParty"] = false,
-				["NXWPriLevel"] = 20,
-				["NXWPriComplete"] = 50,
-				["NXWHideNotInCont"] = false,
 				["NXWHideUnfinished"] = false,
-				["NXWPriDist"] = 1,
-			},
-			["Quest"] = {
-				["DetailScale"] = 1,
-				["BroadcastQChanges"] = false,
+				["NXWShowOnMap"] = true,
+				["NXWHideNotInCont"] = false,
+				["Version"] = 0.12,
+				["NXWVisMax"] = 10,
 			},
 			["QuestWatch"] = {
 				["Sync"] = false,

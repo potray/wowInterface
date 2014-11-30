@@ -8,7 +8,7 @@ GoldSave = {
 	["Potray_Dun Modr::Alliance"] = {
 		["show"] = true,
 		["name"] = "Potray",
-		["gold"] = 4383348,
+		["gold"] = 23661611,
 	},
 	["Ringeki_Dun Modr::Alliance"] = {
 		["show"] = true,
@@ -25,34 +25,39 @@ GoldSave = {
 		["name"] = "Kalarankor",
 		["gold"] = 260790544,
 	},
+	["Kareitris_Los Errantes::Alliance"] = {
+		["show"] = true,
+		["name"] = "Kareitris",
+		["gold"] = 6445370,
+	},
 	["Elrad_Los Errantes::Alliance"] = {
 		["show"] = true,
 		["name"] = "Elrad",
-		["gold"] = 762434058,
+		["gold"] = 735433998,
 	},
 	["Drublock_Los Errantes::Alliance"] = {
 		["show"] = true,
 		["name"] = "Drublock",
-		["gold"] = 1199412908,
+		["gold"] = 1199412788,
 	},
 	["Zhenya_Los Errantes::Alliance"] = {
 		["show"] = true,
 		["name"] = "Zhenya",
 		["gold"] = 1059053,
 	},
-	["Prason_Los Errantes::Alliance"] = {
-		["show"] = true,
-		["name"] = "Prason",
-		["gold"] = 1202519,
-	},
 	["Pexus_Los Errantes::Alliance"] = {
 		["show"] = true,
 		["name"] = "Pexus",
 		["gold"] = 71814133,
 	},
-	["Kareitris_Los Errantes::Alliance"] = {
+	["Prason_Los Errantes::Alliance"] = {
 		["show"] = true,
-		["name"] = "Kareitris",
-		["gold"] = 6445370,
+		["name"] = "Prason",
+		["gold"] = 1202519,
+	},
+	["Geddry_Dun Modr::Alliance"] = {
+		["show"] = true,
+		["name"] = "Geddry",
+		["gold"] = 587,
 	},
 }

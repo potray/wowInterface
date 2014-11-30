@@ -23,6 +23,12 @@ local ADDON, Addon = ...
 local Objectives = Addon:NewModule('Objectives', Addon.Tracker())
 local Parent, HeaderButton = ObjectiveTrackerBlocksFrame, ObjectiveTrackerFrame.HeaderMenu
 
+do
+	OBJECTIVE_TRACKER_ADDONS = OBJECTIVE_TRACKER_ADDONS or {}
+	tinsert(OBJECTIVE_TRACKER_ADDONS, 0)
+	Objectives.Index = #OBJECTIVE_TRACKER_ADDONS
+end
+
 
 --[[ Events ]]--
 
@@ -39,7 +45,7 @@ function Objectives:Startup()
 	self.Header = header
 
 	hooksecurefunc('ObjectiveTracker_Update', function()
-		local off = self:GetModulesHeight()
+		local off = self:GetUsedHeight()
 		local availableEntries = floor((Parent.maxHeight - off - 45) / 20)
 
 		if availableEntries ~= self.maxEntries then
@@ -59,24 +65,29 @@ end
 
 function Objectives:TrackingChanged()
 	self:Update()
-	self:SetShown(not Addon.Sets.HideTracker and self:Count() > 0)
+	self:SetShown(not Addon.Sets.HideTracker and self.Anchor:IsShown())
 
 	HeaderButton:SetShown(Parent.currentBlock or self:IsShown())
+	OBJECTIVE_TRACKER_ADDONS[self.Index] = self:IsShown() and self:GetHeight() or 0
 end
 
 
 --[[ API ]]--
 
-function Objectives:GetModulesHeight() -- can't trust blizzard value
+function Objectives:GetUsedHeight()
 	local height = 0
 
-	for i, mod in pairs(ObjectiveTrackerFrame.MODULES) do
+	for i, mod in pairs(ObjectiveTrackerFrame.MODULES) do -- can't trust blizzard value
 		if mod.lastBlock then
 			local top, bottom = mod.Header:GetTop(), mod.lastBlock:GetBottom()
 			if top and bottom then
 				height = height + top - bottom + 15
 			end
 		end
+	end
+
+	for i = 1, self.Index-1 do
+		height = height + OBJECTIVE_TRACKER_ADDONS[i]
 	end
 
 	return height

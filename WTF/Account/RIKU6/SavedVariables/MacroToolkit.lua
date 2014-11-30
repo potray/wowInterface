@@ -6,20 +6,22 @@ MacroToolkitDB = {
 			},
 		},
 	},
-	["profileKeys"] = {
-		["Potray - Dun Modr"] = "profile",
-		["Elrad - Los Errantes"] = "profile",
-	},
 	["global"] = {
-		["ebackups"] = {
-		},
 		["backups"] = {
 		},
+		["ebackups"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Drublock - Los Errantes"] = "profile",
+		["Elrad - Los Errantes"] = "profile",
+		["Geddry - Dun Modr"] = "profile",
+		["Potray - Dun Modr"] = "profile",
 	},
 	["profiles"] = {
 		["profile"] = {
-			["x"] = 840.666748046875,
-			["y"] = 333,
+			["x"] = 381.666931152344,
+			["y"] = 242.999969482422,
 		},
 	},
 }

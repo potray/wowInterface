@@ -3,6 +3,26 @@
 * Reseting bags while the bag is not opened won't reset it's scale to default.
 
 
+**15.0.6**
+* More taint fixes with the "ObjectiveTrackerFrame".
+* Fixed some leaks.
+* Added some upvalues.
+* Some other smaller fixes.
+* Fixed Frames:
+	* MiniMap
+
+**15.0.5**
+* More taint fixes with the "ObjectiveTrackerFrame".
+
+**15.0.4**
+* More taint fixes with the "ObjectiveTrackerFrame".
+* Some other minor fixes.
+* Removed frames:
+	* Loot Won Alert Frame (Addons can't access this frame anymore.)
+
+**15.0.3**
+* Fixed the protected taint issues with the "ObjectiveTrackerFrame".
+
 **15.0.2**
 * MicroButton fixes.
 

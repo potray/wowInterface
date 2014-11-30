@@ -97,7 +97,7 @@ function aObj:BankFrame()
 	if not self.db.profile.BankFrame or self.initialized.BankFrame then return end
 	self.initialized.BankFrame = true
 
-	self:skinEditBox{obj=_G.BankItemSearchBox, regs={9}, mi=true, noHeight=true, noMove=true}
+	self:skinEditBox{obj=_G.BankItemSearchBox, regs={9, 10}, mi=true, noHeight=true, noMove=true}
 	self:removeInset(_G.BankFrameMoneyFrameInset)
 	_G.BankFrameMoneyFrameBorder:DisableDrawLayer("BACKGROUND")
 	self:addSkinFrame{obj=_G.BankFrame, ft=ftype, kfs=true, x1=-3, y1=2, x2=1, y2=-4}
@@ -152,7 +152,9 @@ function aObj:BlackMarketUI() -- LoD
 	self:SecureHook("BlackMarketScrollFrame_Update", function(this)
 		for i = 1, #_G.BlackMarketScrollFrame.buttons do
 			local btn = _G.BlackMarketScrollFrame.buttons[i]
-			if btn and not self.skinned[btn] then
+			if btn and not btn.sknd then
+				aObj:add2Table(aObj.skinned, btn) -- TODO: deprecate when all skins changed
+				btn.sknd = true
 				self:keepFontStrings(btn)
 				btn:GetHighlightTexture():SetAlpha(1)
 				self:addButtonBorder{obj=btn.Item, ibt=true, relTo=btn.Item.IconTexture}
@@ -382,6 +384,8 @@ function aObj:PetStableFrame()
 end
 
 function aObj:QuestChoice() -- LoD
+	if not self.db.profile.QuestChoice or self.initialized.QuestChoice then return end
+	self.initialized.QuestChoice = true
 
 	_G.QuestChoiceFrame.DummyString:SetTextColor(self.BTr, self.BTg, self.BTb)
 	for i = 1, _G.MAX_NUM_OPTIONS do
@@ -501,7 +505,7 @@ function aObj:QuestInfo()
 	end)
 	-- update any Quest Info that may be already displayed
 	updateQIDisplay()
-	
+
 	_G.QuestInfoTimerText:SetTextColor(self.BTr, self.BTg, self.BTb)
 	_G.QuestInfoAnchor:SetTextColor(self.BTr, self.BTg, self.BTb)
 	-- QuestInfoRequiredMoneyFrame
@@ -537,7 +541,7 @@ function aObj:QuestInfo()
 	end)
 	-- skin any existing Reward button
 	skinQIRB()
-	
+
 	-- FollowerFrame
 	frame.FollowerFrame.BG:SetTexture(nil)
 	local ffpf = frame.FollowerFrame.PortraitFrame
@@ -641,7 +645,7 @@ function aObj:VoidStorageUI() -- LoD
 		frame:DisableDrawLayer("BORDER")
 	end
 	self:addSkinFrame{obj=_G.VoidStorageFrame, ft=ftype, kfs=true, y1=2, x2=1}
-	self:skinEditBox{obj=_G.VoidItemSearchBox, regs={9}, mi=true, noHeight=true, noMove=true}
+	self:skinEditBox{obj=_G.VoidItemSearchBox, regs={9, 10}, mi=true, noHeight=true, noMove=true}
 	for i = 1, 2 do
 		_G.VoidStorageFrame["Page" .. i]:DisableDrawLayer("BACKGROUND")
 		self:addButtonBorder{obj=_G.VoidStorageFrame["Page" .. i]}

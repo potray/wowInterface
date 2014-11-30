@@ -104,15 +104,6 @@ end
 --[[ Content ]]--
 
 Tutorial:Register('Main', {
-	onShow = function(self, i)
-		if i == 3 then
-			self[i].anchor = Addon.Objectives.Header or Minimap
-			self[i].shine = Addon.Objectives.Header
-		elseif i == 4 then
-			Tutorial:Split()
-		end
-	end,
-
 	{
 		text = L.Tutorial[1],
 		image = 'Interface/Addons/PetTracker/Art/Pets',
@@ -133,8 +124,6 @@ Tutorial:Register('Main', {
 		point = 'TOPRIGHT', relPoint = 'TOPLEFT',
 		shineTop = 10, shineBottom = -7,
 		shineRight = 10, shineLeft = -20,
-		shine = Addon.Objectives.Header,
-		anchor = Addon.Objectives.Header,
 		x = -30
 	},
 	{
@@ -161,7 +150,17 @@ Tutorial:Register('Main', {
 		shine = PetTrackerMapFilter,
 		anchor = PetTrackerMapFilter,
 		x = 15
-	}
+	},
+
+	onShow = function(self, i)
+		if i == 3 then
+			local header = Addon.Objectives and Addon.Objectives.Header
+			self[i].anchor = header or Minimap
+			self[i].shine = header
+		elseif i == 4 then
+			Tutorial:Split()
+		end
+	end
 })
 
 Tutorial:Register('Journal', {

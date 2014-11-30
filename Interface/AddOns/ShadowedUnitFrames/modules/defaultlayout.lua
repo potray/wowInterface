@@ -167,7 +167,8 @@ function ShadowUF:LoadDefaultLayout(useMerge)
 		AURAPOINTS = {r = 1.0, g = 0.80, b = 0.0},
 		STAGGER_GREEN = {r = 0.52, g = 1.0, b = 0.52},
 		STAGGER_YELLOW = {r = 1.0, g = 0.98, b = 0.72},
-		STAGGER_RED = {r = 1.0, g = 0.42, b = 0.42}
+		STAGGER_RED = {r = 1.0, g = 0.42, b = 0.42},
+		LIGHTWELL = {r = 0.80, g = 0.80, b = 0.80}
 	}
 	config.healthColors = {
 		tapped = {r = 0.5, g = 0.5, b = 0.5},
@@ -343,6 +344,7 @@ function ShadowUF:LoadDefaultLayout(useMerge)
 			totemBar = {enabled = true, background = false, height = 0.40, order = 70},
 			druidBar = {enabled = true, background = true, height = 0.40, order = 70},
 			eclipseBar = {enabled = true, background = true, order = 70, height = 0.75},
+			comboPoints = {enabled = true, anchorTo = "$parent", order = 60, anchorPoint = "BR", x = -3, y = 8, size = 14, spacing = -4, growth = "LEFT", isBar = true, height = 0.40},
 			auraPoints = {enabled = false, showAlways = true, anchorTo = "$parent", order = 60, anchorPoint = "BR", x = -3, y = 8, size = 14, spacing = -4, growth = "LEFT", isBar = true, height = 0.40},
 			demonicFuryBar = {enabled = true, background = false, height = 0.50, order = 70},
 			burningEmbersBar = {enabled = true, background = false, height = 0.40, order = 70},
@@ -795,7 +797,6 @@ function ShadowUF:LoadDefaultLayout(useMerge)
 			incAbsorb = {cap = 1},
 			healAbsorb = {cap = 1},
 			castBar = {order = 60},
-			comboPoints = {enabled = true, anchorTo = "$parent", order = 60, anchorPoint = "BR", x = -3, y = 8, size = 14, spacing = -4, growth = "LEFT", isBar = true, height = 0.40},
 			indicators = {
 				lfdRole = {enabled = false},
                 resurrect = {enabled = true, anchorPoint = "RC", size = 28, x = -39, y = -1, anchorTo = "$parent"},

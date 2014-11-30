@@ -1,7 +1,7 @@
 --[[
 	Gatherer Addon for World of Warcraft(tm).
-	Version: 4.4.2 (<%codename%>)
-	Revision: $Id: GatherZoneTokens.lua 1119 2014-10-21 03:51:21Z Esamynn $
+	Version: 5.0.0 (<%codename%>)
+	Revision: $Id: GatherZoneTokens.lua 1130 2014-11-13 21:02:57Z esamynn $
 
 	License:
 		This program is free software; you can redistribute it and/or
@@ -27,7 +27,7 @@
 
 	Functions for converting to and from the locale independent zone tokens
 --]]
-Gatherer_RegisterRevision("$URL: http://svn.norganna.org/gatherer/tags/REL_4.4.2/Gatherer/GatherZoneTokens.lua $", "$Rev: 1119 $")
+Gatherer_RegisterRevision("$URL: http://svn.norganna.org/gatherer/tags/REL_5.0.0/Gatherer/GatherZoneTokens.lua $", "$Rev: 1130 $")
 
 -- reference to the Astrolabe mapping library
 local Astrolabe = DongleStub(Gatherer.AstrolabeVersion)
@@ -229,6 +229,10 @@ Ver3To4TempTokens = {
 	["TheMaelstrom"] = "MAELSTROM",
 }
 
+local continentWorldMapIDs = {}
+for i, id in pairs(GetContinentMaps()) do
+	continentWorldMapIDs[i] = GetContinentMapInfo(id)
+end
 
 for continent, zones in pairs(Astrolabe.ContinentList) do
 	local continentZoneNames = stripZoneIDs(GetMapZones(continent));
@@ -252,7 +256,16 @@ for continent, zones in pairs(Astrolabe.ContinentList) do
 			
 			ZoneNames[continent][zoneToken] = continentZoneNames[index]
 			ZoneNames[zoneToken] = continentZoneNames[index]
-			ZoneNames[continentZoneNames[index]] = zoneToken
+			if not ( ZoneNames[continentZoneNames[index]] ) then
+				ZoneNames[continentZoneNames[index]] = zoneToken
+			else
+				if not ( type(ZoneNames[continentZoneNames[index]]) == "table" ) then
+					local origZoneToken = ZoneNames[continentZoneNames[index]]
+					ZoneNames[continentZoneNames[index]] = {}
+					ZoneNames[continentZoneNames[index]][""] = origZoneToken
+				end
+				ZoneNames[continentZoneNames[index]][continentWorldMapIDs[continent]] = zoneToken
+			end
 		end
 	end
 	TokensByContinent[continent] = tokenMap

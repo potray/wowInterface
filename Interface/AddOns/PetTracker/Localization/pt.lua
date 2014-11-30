@@ -1,6 +1,6 @@
+if GetLocale() ~= 'ptBR' then return end
 local _, Addon = ...
 local L = Addon.Locals
-if GetLocale() ~= 'ptBR' then return end
 
 L.AddWaypoint = 'Adicionar Ponto de Destino'
 L.AlertUpgrades = 'Aviso de Melhorias'

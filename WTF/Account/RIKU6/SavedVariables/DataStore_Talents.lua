@@ -1,6 +1,7 @@
 
 DataStore_TalentsDB = {
 	["profileKeys"] = {
+		["Geddry - Dun Modr"] = "Geddry - Dun Modr",
 		["Pexuss - Dun Modr"] = "Pexuss - Dun Modr",
 		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
 		["Kareitris - Los Errantes"] = "Kareitris - Los Errantes",
@@ -31,9 +32,6 @@ DataStore_TalentsDB = {
 					2097157, -- [11]
 					2097155, -- [12]
 				},
-				["ActiveTalents"] = 2,
-				["lastUpdate"] = 1409841722,
-				["Class"] = "MAGE",
 				["GlyphList"] = {
 					11, -- [1]
 					5018, -- [2]
@@ -75,6 +73,9 @@ DataStore_TalentsDB = {
 					14772, -- [38]
 					17268, -- [39]
 				},
+				["lastUpdate"] = 1409841722,
+				["Class"] = "MAGE",
+				["ActiveTalents"] = 2,
 			},
 			["Default.Dun Modr.Pexuss"] = {
 				["Talents2"] = 0,
@@ -150,7 +151,7 @@ DataStore_TalentsDB = {
 					2097157, -- [11]
 					2097155, -- [12]
 				},
-				["ActiveTalents"] = 2,
+				["Class"] = "DEATHKNIGHT",
 				["lastUpdate"] = 1409842229,
 				["GlyphList"] = {
 					11, -- [1]
@@ -192,13 +193,13 @@ DataStore_TalentsDB = {
 					17204, -- [37]
 					17188, -- [38]
 				},
-				["Class"] = "DEATHKNIGHT",
+				["ActiveTalents"] = 2,
 			},
 			["Default.Los Errantes.Elrad"] = {
 				["Talents2"] = 0,
 				["Talents1"] = 0,
 				["ActiveTalents"] = 2,
-				["lastUpdate"] = 1414067311,
+				["lastUpdate"] = 1417275332,
 				["GlyphList"] = {
 					11, -- [1]
 					11274, -- [2]
@@ -256,55 +257,49 @@ DataStore_TalentsDB = {
 			["Default.Los Errantes.Drublock"] = {
 				["Talents2"] = 0,
 				["Talents1"] = 0,
-				["Glyphs"] = {
-					5, -- [1]
-					3, -- [2]
-					1048580, -- [3]
-					1048578, -- [4]
-					2097156, -- [5]
-					2097154, -- [6]
-				},
+				["ActiveTalents"] = 1,
+				["lastUpdate"] = 1417273883,
 				["Class"] = "WARLOCK",
-				["lastUpdate"] = 1409841653,
 				["GlyphList"] = {
 					11, -- [1]
 					4378, -- [2]
-					4538, -- [3]
-					14586, -- [4]
-					4506, -- [5]
-					4554, -- [6]
-					12170, -- [7]
-					4394, -- [8]
-					7658, -- [9]
-					4634, -- [10]
-					4666, -- [11]
-					7682, -- [12]
-					12098, -- [13]
-					4466, -- [14]
-					12130, -- [15]
-					12082, -- [16]
-					12114, -- [17]
-					4434, -- [18]
-					17138, -- [19]
-					12146, -- [20]
-					13, -- [21]
-					4652, -- [22]
-					12188, -- [23]
-					4684, -- [24]
-					4460, -- [25]
-					4492, -- [26]
-					4588, -- [27]
-					7644, -- [28]
-					4412, -- [29]
-					7700, -- [30]
-					7668, -- [31]
-					16932, -- [32]
-					4356, -- [33]
-					4420, -- [34]
-					7716, -- [35]
-					4516, -- [36]
+					4474, -- [3]
+					12090, -- [4]
+					12122, -- [5]
+					14586, -- [6]
+					4554, -- [7]
+					12170, -- [8]
+					4394, -- [9]
+					7658, -- [10]
+					4634, -- [11]
+					4666, -- [12]
+					18770, -- [13]
+					12130, -- [14]
+					4434, -- [15]
+					17138, -- [16]
+					4498, -- [17]
+					18802, -- [18]
+					18834, -- [19]
+					18850, -- [20]
+					18882, -- [21]
+					12146, -- [22]
+					13, -- [23]
+					12188, -- [24]
+					4684, -- [25]
+					4460, -- [26]
+					4492, -- [27]
+					4588, -- [28]
+					7644, -- [29]
+					4412, -- [30]
+					7700, -- [31]
+					7668, -- [32]
+					16932, -- [33]
+					4356, -- [34]
+					18820, -- [35]
+					4420, -- [36]
+					7716, -- [37]
+					4516, -- [38]
 				},
-				["ActiveTalents"] = 1,
 			},
 			["Default.Los Errantes.Kalarankor"] = {
 				["Talents2"] = 0,
@@ -317,7 +312,7 @@ DataStore_TalentsDB = {
 					2097156, -- [5]
 					2097154, -- [6]
 				},
-				["ActiveTalents"] = 1,
+				["Class"] = "DRUID",
 				["lastUpdate"] = 1409841444,
 				["GlyphList"] = {
 					11, -- [1]
@@ -367,7 +362,7 @@ DataStore_TalentsDB = {
 					2628, -- [45]
 					14996, -- [46]
 				},
-				["Class"] = "DRUID",
+				["ActiveTalents"] = 1,
 			},
 			["Default.Los Errantes.Zhenya"] = {
 				["Talents2"] = 0,
@@ -380,8 +375,9 @@ DataStore_TalentsDB = {
 					2097156, -- [5]
 					2097154, -- [6]
 				},
-				["Class"] = "SHAMAN",
+				["ActiveTalents"] = 1,
 				["lastUpdate"] = 1409841533,
+				["Class"] = "SHAMAN",
 				["GlyphList"] = {
 					11, -- [1]
 					3450, -- [2]
@@ -432,7 +428,6 @@ DataStore_TalentsDB = {
 					17476, -- [47]
 					9796, -- [48]
 				},
-				["ActiveTalents"] = 1,
 			},
 			["Default.Los Errantes.Kobash"] = {
 				["Talents2"] = 0,
@@ -451,6 +446,8 @@ DataStore_TalentsDB = {
 					2097157, -- [11]
 					2097155, -- [12]
 				},
+				["ActiveTalents"] = 2,
+				["lastUpdate"] = 1409841976,
 				["GlyphList"] = {
 					11, -- [1]
 					5898, -- [2]
@@ -493,9 +490,7 @@ DataStore_TalentsDB = {
 					16852, -- [39]
 					16820, -- [40]
 				},
-				["lastUpdate"] = 1409841976,
 				["Class"] = "HUNTER",
-				["ActiveTalents"] = 2,
 			},
 			["Default.Dun Modr.Ringeki"] = {
 				["Talents2"] = 0,
@@ -508,8 +503,9 @@ DataStore_TalentsDB = {
 					2097156, -- [5]
 					2097154, -- [6]
 				},
-				["Class"] = "DEATHKNIGHT",
+				["ActiveTalents"] = 1,
 				["lastUpdate"] = 1410628407,
+				["Class"] = "DEATHKNIGHT",
 				["GlyphList"] = {
 					11, -- [1]
 					8194, -- [2]
@@ -550,13 +546,12 @@ DataStore_TalentsDB = {
 					17188, -- [37]
 					12372, -- [38]
 				},
-				["ActiveTalents"] = 1,
 			},
 			["Default.Dun Modr.Potray"] = {
 				["Talents2"] = 2129985,
 				["Talents1"] = 2101360,
 				["ActiveTalents"] = 1,
-				["lastUpdate"] = 1414667049,
+				["lastUpdate"] = 1417387942,
 				["GlyphList"] = {
 					11, -- [1]
 					11274, -- [2]
@@ -610,6 +605,42 @@ DataStore_TalentsDB = {
 					7252, -- [50]
 				},
 				["Class"] = "PALADIN",
+			},
+			["Default.Dun Modr.Geddry"] = {
+				["GlyphList"] = {
+					11, -- [1]
+					5010, -- [2]
+					10418, -- [3]
+					5026, -- [4]
+					5058, -- [5]
+					5170, -- [6]
+					13938, -- [7]
+					11202, -- [8]
+					18130, -- [9]
+					5090, -- [10]
+					9458, -- [11]
+					5138, -- [12]
+					5282, -- [13]
+					14850, -- [14]
+					5266, -- [15]
+					5202, -- [16]
+					18146, -- [17]
+					9778, -- [18]
+					11154, -- [19]
+					5298, -- [20]
+					5154, -- [21]
+					11138, -- [22]
+					13, -- [23]
+					7220, -- [24]
+					17300, -- [25]
+					7172, -- [26]
+					5252, -- [27]
+					17284, -- [28]
+					11172, -- [29]
+					5124, -- [30]
+					14772, -- [31]
+					17268, -- [32]
+				},
 			},
 		},
 		["Reference"] = {
@@ -764,7 +795,9 @@ DataStore_TalentsDB = {
 				[950] = "Lightning Shield",
 				[284] = "Imp Swarm",
 				[695] = "Mirrored Blades",
+				[1133] = "Dragon's Breath",
 				[476] = "Totemic Encirclement",
+				[1134] = "Regenerative Ice",
 				[696] = "Water Elemental",
 				[697] = "Slow",
 				[477] = "Unending Breath",
@@ -801,7 +834,12 @@ DataStore_TalentsDB = {
 				[179] = "Nature's Grasp",
 				[211] = "Water Shield",
 				[358] = "Disengage",
+				[1173] = "Dark Soul",
+				[1175] = "Life Pact",
+				[1176] = "Metamorphosis",
 				[359] = "Freezing Trap",
+				[1177] = "Shadowflame",
+				[1178] = "Soul Swap",
 				[180] = "Savagery",
 				[212] = "Unstable Earth",
 				[591] = "Frostfire Bolt",
@@ -842,72 +880,74 @@ DataStore_TalentsDB = {
 				[435] = "Grace",
 				[186] = "Divine Protection",
 				[218] = "Fire Nova",
-				[1203] = "Merciful Wrath",
+				[1180] = "Strengthened Resolve",
+				[530] = "Strangulate",
 				[1149] = "Judgment",
 				[871] = "Counterspell",
 				[274] = "Siphon Life",
 				[698] = "Illusion",
-				[326] = "Mana Gem",
-				[277] = "Fear",
+				[276] = "Nightmares",
+				[1102] = "Lean Pack",
 				[368] = "Aimed Shot",
-				[352] = "Camouflage",
-				[279] = "Demon Training",
+				[1104] = "Enduring Deceit",
+				[199] = "Light of Dawn",
 				[351] = "Aspects",
 				[705] = "Divine Plea",
 				[555] = "Death Gate",
 				[187] = "Templar's Verdict",
 				[219] = "Flame Shock",
-				[473] = "Far Sight",
+				[702] = "Hammer of the Righteous",
+				[189] = "Consecration",
 				[196] = "Illumination",
-				[754] = "Totemic Vigor",
-				[526] = "Pestilence",
+				[559] = "Denounce",
 				[275] = "Verdant Spheres",
 				[169] = "Innervate",
 				[316] = "Combustion",
 				[456] = "Seal of Blood",
-				[707] = "Inquisition",
-				[528] = "Army of the Dead",
+				[281] = "Healthstone",
+				[200] = "Blessed Life",
 				[369] = "Mend Pet",
 				[439] = "Revive Pet",
-				[532] = "Vampiric Blood",
-				[1023] = "Black Ice",
+				[198] = "Divinity",
+				[706] = "Holy Shock",
 				[188] = "Avenging Wrath",
 				[220] = "Wind Shear",
 				[190] = "Luminous Charger",
 				[312] = "Loose Mana",
 				[751] = "Deluge",
 				[440] = "Lesser Proportion",
-				[706] = "Holy Shock",
-				[198] = "Divinity",
+				[1023] = "Black Ice",
+				[532] = "Vampiric Blood",
 				[752] = "Shamanistic Rage",
-				[200] = "Blessed Life",
-				[281] = "Healthstone",
+				[528] = "Army of the Dead",
+				[707] = "Inquisition",
 				[313] = "Arcane Explosion",
 				[753] = "Hex",
 				[441] = "Fireworks",
 				[1009] = "Mass Exorcism",
-				[559] = "Denounce",
-				[189] = "Consecration",
+				[526] = "Pestilence",
+				[754] = "Totemic Vigor",
 				[221] = "Frost Shock",
-				[702] = "Hammer of the Righteous",
+				[473] = "Far Sight",
 				[314] = "Blink",
 				[755] = "Drain Life",
 				[442] = "Stampede",
-				[199] = "Light of Dawn",
-				[1104] = "Enduring Deceit",
+				[279] = "Demon Training",
+				[352] = "Camouflage",
 				[756] = "Demon Hunting",
-				[1102] = "Lean Pack",
-				[276] = "Nightmares",
+				[277] = "Fear",
+				[326] = "Mana Gem",
 				[315] = "Evocation",
 				[757] = "Ember Tap",
 				[443] = "Aspect of the Pack",
-				[530] = "Strangulate",
+				[1203] = "Merciful Wrath",
 			},
 		},
 	},
 }
 DataStore_TalentsRefDB = {
 	["profileKeys"] = {
+		["Geddry - Dun Modr"] = "Geddry - Dun Modr",
 		["Pexuss - Dun Modr"] = "Pexuss - Dun Modr",
 		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
 		["Kareitris - Los Errantes"] = "Kareitris - Los Errantes",
@@ -946,7 +986,7 @@ DataStore_TalentsRefDB = {
 		},
 		["WARLOCK"] = {
 			["Locale"] = "enUS",
-			["Version"] = 18414,
+			["Version"] = 19116,
 			["Talents"] = {
 				"19279|Dark Regeneration|spell_warlock_darkregeneration|1|1", -- [1]
 				"19280|Soul Leech|warlock_siphonlife|1|2", -- [2]
@@ -970,7 +1010,7 @@ DataStore_TalentsRefDB = {
 		},
 		["PALADIN"] = {
 			["Locale"] = "enUS",
-			["Version"] = 19103,
+			["Version"] = 19116,
 			["Talents"] = {
 				"17565|Speed of Light|ability_paladin_speedoflight|1|1", -- [1]
 				"17567|Long Arm of the Law|ability_paladin_longarmofthelaw|1|2", -- [2]
@@ -994,7 +1034,7 @@ DataStore_TalentsRefDB = {
 		},
 		["MAGE"] = {
 			["Locale"] = "enUS",
-			["Version"] = 18414,
+			["Version"] = 19116,
 			["Talents"] = {
 				"16011|Presence of Mind|Spell_Nature_EnchantArmor|1|1", -- [1]
 				"16012|Blazing Speed|Spell_Fire_BurningSpeed|1|2", -- [2]
@@ -1040,30 +1080,6 @@ DataStore_TalentsRefDB = {
 				"18586|Nature's Vigil|Achievement_Zone_Feralas|6|3", -- [18]
 			},
 		},
-		["SHAMAN"] = {
-			["Locale"] = "enUS",
-			["Version"] = 18414,
-			["Talents"] = {
-				"19262|Nature's Guardian|Spell_Nature_NatureGuardian|1|1", -- [1]
-				"19263|Stone Bulwark Totem|ability_shaman_stonebulwark|1|2", -- [2]
-				"19264|Astral Shift|ability_shaman_astralshift|1|3", -- [3]
-				"19259|Frozen Power|Spell_Fire_BlueCano|2|1", -- [4]
-				"19260|Earthgrab Totem|Spell_Nature_StrangleVines|2|2", -- [5]
-				"19261|Windwalk Totem|ability_shaman_windwalktotem|2|3", -- [6]
-				"19275|Call of the Elements|ability_shaman_multitotemactivation|3|1", -- [7]
-				"19274|Totemic Persistence|ability_shaman_totemcooldownrefund|3|2", -- [8]
-				"19276|Totemic Projection|ability_shaman_totemrelocation|3|3", -- [9]
-				"19271|Elemental Mastery|Spell_Nature_WispHeal|4|1", -- [10]
-				"19272|Ancestral Swiftness|Spell_Shaman_ElementalOath|4|2", -- [11]
-				"19273|Echo of the Elements|ability_shaman_echooftheelements|4|3", -- [12]
-				"19268|Rushing Streams|INV_Spear_04|5|1", -- [13]
-				"19269|Ancestral Guidance|ability_shaman_ancestralguidance|5|2", -- [14]
-				"19270|Conductivity|ability_shaman_fortifyingwaters|5|3", -- [15]
-				"19265|Unleashed Fury|shaman_talent_unleashedfury|6|1", -- [16]
-				"19266|Primal Elementalist|shaman_talent_primalelementalist|6|2", -- [17]
-				"19267|Elemental Blast|shaman_talent_elementalblast|6|3", -- [18]
-			},
-		},
 		["DEATHKNIGHT"] = {
 			["Locale"] = "enUS",
 			["Version"] = 18414,
@@ -1086,6 +1102,30 @@ DataStore_TalentsRefDB = {
 				"19230|Gorefiend's Grasp|ability_deathknight_aoedeathgrip|6|1", -- [16]
 				"19231|Remorseless Winter|ability_deathknight_remorselesswinters2|6|2", -- [17]
 				"19232|Desecrated Ground|ability_deathknight_desecratedground|6|3", -- [18]
+			},
+		},
+		["SHAMAN"] = {
+			["Locale"] = "enUS",
+			["Version"] = 18414,
+			["Talents"] = {
+				"19262|Nature's Guardian|Spell_Nature_NatureGuardian|1|1", -- [1]
+				"19263|Stone Bulwark Totem|ability_shaman_stonebulwark|1|2", -- [2]
+				"19264|Astral Shift|ability_shaman_astralshift|1|3", -- [3]
+				"19259|Frozen Power|Spell_Fire_BlueCano|2|1", -- [4]
+				"19260|Earthgrab Totem|Spell_Nature_StrangleVines|2|2", -- [5]
+				"19261|Windwalk Totem|ability_shaman_windwalktotem|2|3", -- [6]
+				"19275|Call of the Elements|ability_shaman_multitotemactivation|3|1", -- [7]
+				"19274|Totemic Persistence|ability_shaman_totemcooldownrefund|3|2", -- [8]
+				"19276|Totemic Projection|ability_shaman_totemrelocation|3|3", -- [9]
+				"19271|Elemental Mastery|Spell_Nature_WispHeal|4|1", -- [10]
+				"19272|Ancestral Swiftness|Spell_Shaman_ElementalOath|4|2", -- [11]
+				"19273|Echo of the Elements|ability_shaman_echooftheelements|4|3", -- [12]
+				"19268|Rushing Streams|INV_Spear_04|5|1", -- [13]
+				"19269|Ancestral Guidance|ability_shaman_ancestralguidance|5|2", -- [14]
+				"19270|Conductivity|ability_shaman_fortifyingwaters|5|3", -- [15]
+				"19265|Unleashed Fury|shaman_talent_unleashedfury|6|1", -- [16]
+				"19266|Primal Elementalist|shaman_talent_primalelementalist|6|2", -- [17]
+				"19267|Elemental Blast|shaman_talent_elementalblast|6|3", -- [18]
 			},
 		},
 	},

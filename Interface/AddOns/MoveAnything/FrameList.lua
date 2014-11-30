@@ -57,12 +57,8 @@ local m = {
 		API:AddElement({name = "CriteriaAlertFrame1", displayName = "Criteria Alert 1", create = "CriteriaAlertFrameTemplate"}, c)
 		API:AddElement({name = "CriteriaAlertFrame2", displayName = "Criteria Alert 2", create = "CriteriaAlertFrameTemplate"}, c)
 		local gcaf = API:AddElement({name = "GuildChallengeAlertFrame", displayName = "Guild Challenge Achievement Alert"}, c)
-		API:AddElement({name = "ObjectiveTrackerFrameMover", displayName = "Objectives Window", scaleWH = 1, run = function()
-			--[[if not MovAny:IsModified(WatchFrameMover) then
-				_G["InterfaceOptionsObjectivesPanelWatchFrameWidth"]:SetEnabled(false)
-			end]]
-		end}, c)
-		API:AddElement({name = "ObjectiveTrackerFrame", displayName = "Objectives Window Scale"}, c)
+		API:AddElement({name = "ObjectiveTrackerFrameMover", displayName = "Objectives Window", scaleWH = 1}, c)
+		API:AddElement({name = "ObjectiveTrackerFrameScaleMover", displayName = "Objectives Window Scale"}, c)
 		--[[local qldf = API:AddElement({name = "QuestLogDetailFrame", displayName = "Quest Details", runOnce = function()
 			if not QuestLogDetailFrame:IsShown() then
 				ShowUIPanel(QuestLogDetailFrame)
@@ -447,7 +443,7 @@ local m = {
 		c = API:GetCategory("Loot")
 		API:AddElement({name = "LootFrame", displayName = "Loot"}, c)
 		API:AddElement({name = "AlertFrame", displayName = "Alerts Frames"}, c)
-		API:AddElement({name = "LootWonAlertFrame1", displayName = "Loot Won Alert Frame 1"}, c)
+		--API:AddElement({name = "LootWonAlertFrame1", displayName = "Loot Won Alert Frame 1"}, c)
 		--API:AddElement({name = "GroupLootContainer", displayName = "All Loot Roll Frame", create = "GroupLootFrameTemplate", noScale = 1}, c)
 		--API:AddElement({name = "LootWonAlertMover1", displayName = "Loot Won Alert Frame1"}, c)
 		--API:AddElement({name = "LootWonAlertMover2", displayName = "Loot Won Alert Frame2"}, c)
@@ -472,7 +468,7 @@ local m = {
 		--API:AddElement({name = "WorldMapTrackQuest", displayName = "Map Track Quest"}, c)
 		--API:AddElement({name = "WorldMapPositioningGuide", displayName = "Map Coordinates"}, c)
 		c = API:GetCategory("Minimap")
-		API:AddElement({name = "Minimap", displayName = "MiniMap"}, c)
+		API:AddElement({name = "MinimapCluster", displayName = "MiniMap"}, c)
 		API:AddElement({name = "MinimapBorder", displayName = "MiniMap Border Texture"}, c)
 		API:AddElement({name = "MinimapZoneTextButton", displayName = "Zone Text"}, c)
 		API:AddElement({name = "MinimapBorderTop", displayName = "Top Border", noScale = 1}, c)

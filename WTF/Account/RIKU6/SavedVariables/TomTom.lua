@@ -1,8 +1,10 @@
 
 TomTomDB = {
 	["profileKeys"] = {
-		["Potray - Dun Modr"] = "Default",
+		["Drublock - Los Errantes"] = "Default",
 		["Elrad - Los Errantes"] = "Default",
+		["Geddry - Dun Modr"] = "Default",
+		["Potray - Dun Modr"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -12,13 +14,19 @@ TomTomDB = {
 TomTomWaypoints = nil
 TomTomWaypointsMF = {
 	["profileKeys"] = {
-		["Potray - Dun Modr"] = "Potray - Dun Modr",
+		["Drublock - Los Errantes"] = "Drublock - Los Errantes",
 		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
+		["Geddry - Dun Modr"] = "Geddry - Dun Modr",
+		["Potray - Dun Modr"] = "Potray - Dun Modr",
 	},
 	["profiles"] = {
-		["Potray - Dun Modr"] = {
+		["Drublock - Los Errantes"] = {
 		},
 		["Elrad - Los Errantes"] = {
+		},
+		["Geddry - Dun Modr"] = {
+		},
+		["Potray - Dun Modr"] = {
 		},
 	},
 }

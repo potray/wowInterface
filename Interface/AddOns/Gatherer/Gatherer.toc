@@ -13,7 +13,7 @@
 ## Notes-esES: Gatherer es un addon que te permite recordar las zonas de recolección y verlas ya sea en todo el mapa del mundo o en tu minimapa. Tambien te permite compartir tus zonas de recolección con tu hermandad, raids o amigos.
 ## Notes-trTR: Gatherer, sizin toplama bölgelerinizi hatırlayan ve bunları oyun içinde, haritanızda ve küçük haritanızda göstermeyi sağlayan bir eklentidir. Ayrıca bu bilgileri arkadaşlarınız, guild veya raid'de ki kişilerle paylaşır.
 ## 
-## Version: 4.4.2
+## Version: 5.0.0
 ## Author: Esamynn
 ## 
 # myAddOns Support Metadata

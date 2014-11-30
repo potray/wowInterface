@@ -18,7 +18,7 @@ RecountPerCharDB = {
 			},
 			["enClass"] = "PALADIN",
 			["unit"] = "Elrad",
-			["LastAbility"] = 448033.341,
+			["LastAbility"] = 748518.437,
 			["level"] = 85,
 			["LastDamageAbility"] = "Falling",
 			["LastFightIn"] = 0,
@@ -50,9 +50,7 @@ RecountPerCharDB = {
 			["LastEvents"] = {
 				"Environment Falling Elrad Hit -536 (Physical)", -- [1]
 			},
-			["LastEventIncoming"] = {
-				true, -- [1]
-			},
+			["Name"] = "Elrad",
 			["Fights"] = {
 				["CurrentFightData"] = {
 					["PartialResist"] = {
@@ -164,7 +162,9 @@ RecountPerCharDB = {
 				},
 			},
 			["LastDamageTaken"] = 536,
-			["Name"] = "Elrad",
+			["LastEventIncoming"] = {
+				true, -- [1]
+			},
 			["LastEventTimes"] = {
 				272543.388, -- [1]
 			},

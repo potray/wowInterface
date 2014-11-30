@@ -218,32 +218,36 @@ end
 --[[ Tooltip ]]--
 
 function Map:UpdateTip()
-	Tooltip:Anchor(BlipParent, 'ANCHOR_CURSOR')
+	if WorldMapTooltip:IsVisible() or GameTooltip:IsVisible() then
+		Tooltip:Hide()
+	else
+		Tooltip:Anchor(BlipParent, 'ANCHOR_CURSOR')
 
-	for i, blip in ipairs(self.blips) do
-		if blip:IsMouseOver() then
-			local title, text = blip:GetTooltip()
-			
-			Tooltip:AddHeader(title)
-			Tooltip:AddLine(text, 1,1,1)
-		end
-	end
-
-	for frame, tamer in pairs(self.tamers) do
-		if frame:IsMouseOver() then
-			Tooltip:AddHeader(frame.name)
-			Tooltip:AddLine(NORMAL_FONT_COLOR_CODE .. frame.description .. FONT_COLOR_CODE_CLOSE)
-
-			for i, pet in ipairs(tamer) do
-				local r,g,b = Addon:GetQualityColor(pet:GetQuality())
-				local icon = format('|T%s:16:16:-3:0:128:256:60:100:130:170:255:255:255|t', Journal:GetTypeIcon(pet:GetSpecie()))
-
-				Tooltip:AddLine(icon .. pet:GetName() .. ' (' .. pet:GetLevel() .. ')', r,g,b)
+		for i, blip in ipairs(self.blips) do
+			if blip:IsMouseOver() then
+				local title, text = blip:GetTooltip()
+				
+				Tooltip:AddHeader(title)
+				Tooltip:AddLine(text, 1,1,1)
 			end
 		end
-	end
 
-	Tooltip:Display()
+		for frame, tamer in pairs(self.tamers) do
+			if frame:IsMouseOver() then
+				Tooltip:AddHeader(frame.name)
+				Tooltip:AddLine(NORMAL_FONT_COLOR_CODE .. frame.description .. FONT_COLOR_CODE_CLOSE)
+
+				for i, pet in ipairs(tamer) do
+					local r,g,b = Addon:GetQualityColor(pet:GetQuality())
+					local icon = format('|T%s:16:16:-3:0:128:256:60:100:130:170:255:255:255|t', Journal:GetTypeIcon(pet:GetSpecie()))
+
+					Tooltip:AddLine(icon .. pet:GetName() .. ' (' .. pet:GetLevel() .. ')', r,g,b)
+				end
+			end
+		end
+
+		Tooltip:Display()
+	end
 end
 
 function Map:HideTip()

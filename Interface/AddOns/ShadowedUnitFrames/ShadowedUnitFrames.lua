@@ -3,10 +3,9 @@
 ]]
 
 ShadowUF = select(2, ...)
-ShadowUF.IS_WOD = select(4, GetBuildInfo()) >= 60000
 
 local L = ShadowUF.L
-ShadowUF.dbRevision = 47
+ShadowUF.dbRevision = 49
 ShadowUF.playerUnit = "player"
 ShadowUF.enabledUnits = {}
 ShadowUF.modules = {}
@@ -100,6 +99,16 @@ end
 
 function ShadowUF:CheckUpgrade()
 	local revision = self.db.profile.revision or self.dbRevision
+	if( revision <= 48 ) then
+		ShadowUF:LoadDefaultLayout(true)
+	end
+
+	if( revision <= 47 ) then
+		local config = self.db.profile.units
+		config.player.comboPoints = config.target.comboPoints
+		config.target.comboPoints = nil
+	end
+
 	if( revision <= 46 ) then
 		local config = self.db.profile.units.arena
 		config.indicators.arenaSpec = {enabled = true, anchorPoint = "LC", size = 28, x = 0, y = 0, anchorTo = "$parent"}
@@ -694,7 +703,9 @@ function ShadowUF:LoadUnitDefaults()
 		disabled = {},
 		missing = {},
 		linked = {
-			[GetSpellInfo(61316)] = GetSpellInfo(1459)
+			[GetSpellInfo(61316)] = GetSpellInfo(1459), -- Dalarn Brilliance -> AB
+			[GetSpellInfo(109773)] = GetSpellInfo(1459), -- Dark Intent -> AB
+			[GetSpellInfo(126309)] = GetSpellInfo(1459) -- Waterstrider -> AB
 		},
 		indicators = {
 			["tl"] = {name = L["Top Left"], anchorPoint = "TLI", anchorTo = "$parent", height = 8, width = 8, alpha = 1.0, x = 4, y = -4, friendly = true, hostile = true},
@@ -941,6 +952,7 @@ function ShadowUF:HideBlizzardFrames()
 		PlayerFrame:RegisterEvent("UNIT_ENTERED_VEHICLE")
 		PlayerFrame:RegisterEvent("UNIT_EXITING_VEHICLE")
 		PlayerFrame:RegisterEvent("UNIT_EXITED_VEHICLE")
+		PlayerFrame:SetMovable(true)
 		PlayerFrame:SetUserPlaced(true)
 		PlayerFrame:SetDontSavePosition(true)
 	end

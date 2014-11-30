@@ -1,0 +1,13 @@
+tag 1.2
+88a6ded9ee49687ab1ebe6873b1da2d64464ff3a
+Steffen Buehl <sb@sbuehl.com>
+2014-11-30 16:25:23 +0100
+
+tagging as 1.2
+
+
+--------------------
+
+Steffen Buehl:
+	- show if herb garden / mine was already looted (today)
+	- Add "disable notifications in instance/raid/pvp" option (default: on!)

@@ -1,6 +1,7 @@
 
 RecountDB = {
 	["profileKeys"] = {
+		["Geddry - Dun Modr"] = "Potray - Dun Modr",
 		["Pexuss - Dun Modr"] = "Pexuss - Dun Modr",
 		["Drublock - Los Errantes"] = "Drublock - Los Errantes",
 		["Kareitris - Los Errantes"] = "Kareitris - Los Errantes",
@@ -14,6 +15,28 @@ RecountDB = {
 		["Pexus - Los Errantes"] = "Pexus - Los Errantes",
 	},
 	["profiles"] = {
+		["Geddry - Dun Modr"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["w"] = 140.000015258789,
+				},
+			},
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
+			["DetailWindowX"] = 0,
+		},
 		["Pexuss - Dun Modr"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
@@ -32,10 +55,10 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["MainWindowVis"] = false,
-			["GraphWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
+			["MainWindowVis"] = false,
+			["DetailWindowX"] = 0,
 		},
 		["Drublock - Los Errantes"] = {
 			["GraphWindowY"] = 0,
@@ -44,7 +67,6 @@ RecountDB = {
 					["y"] = -30.9999694824219,
 					["x"] = 397.000061035156,
 					["w"] = 140.000122070313,
-					["h"] = 200.000015258789,
 				},
 			},
 			["Colors"] = {
@@ -58,9 +80,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["GraphWindowX"] = 0,
 			["DetailWindowX"] = 0,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
 		},
 		["Kareitris - Los Errantes"] = {
 			["GraphWindowY"] = 0,
@@ -80,40 +102,43 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["GraphWindowX"] = 0,
-			["CurDataSet"] = "OverallData",
-			["MainWindowVis"] = false,
 			["DetailWindowX"] = 0,
+			["MainWindowVis"] = false,
+			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
 		},
 		["Potray - Dun Modr"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
-				["Buttons"] = {
-					["LeftButton"] = false,
-					["RightButton"] = false,
-					["ReportButton"] = false,
-				},
 				["Position"] = {
-					["y"] = -461.498970031738,
+					["y"] = -461.498870849609,
 					["x"] = 603.001770019531,
 					["w"] = 151.99983215332,
 					["h"] = 158.999893188477,
+				},
+				["Buttons"] = {
+					["CloseButton"] = false,
+					["ResetButton"] = false,
+					["ReportButton"] = false,
+				},
+				["BarText"] = {
+					["NumFormat"] = 3,
 				},
 			},
 			["Colors"] = {
 				["Other Windows"] = {
 					["Background"] = {
-						["r"] = 0.196078431372549,
-						["g"] = 0.00392156862745098,
 						["b"] = 0,
+						["g"] = 0.00392156862745098,
+						["r"] = 0.196078431372549,
 					},
 				},
 				["Window"] = {
 					["Background"] = {
 						["a"] = 0,
-						["r"] = 0.219607843137255,
-						["g"] = 0.0117647058823529,
 						["b"] = 0,
+						["g"] = 0.0117647058823529,
+						["r"] = 0.219607843137255,
 					},
 					["Title"] = {
 						["a"] = 0,
@@ -133,7 +158,7 @@ RecountDB = {
 			["DetailWindowX"] = 0,
 			["GraphWindowX"] = 0,
 			["Locked"] = true,
-			["LastInstanceName"] = "Proving Grounds",
+			["BarTextColorSwap"] = false,
 			["RealtimeWindows"] = {
 				["Realtime_FPS_FPS"] = {
 					"FPS", -- [1]
@@ -157,9 +182,9 @@ RecountDB = {
 				},
 			},
 			["CurDataSet"] = "OverallData",
-			["BarTextColorSwap"] = false,
-			["MainWindowWidth"] = 151.999938964844,
 			["MainWindowHeight"] = 158.999877929688,
+			["MainWindowWidth"] = 151.999938964844,
+			["LastInstanceName"] = "Teron'gor's Confrontation",
 		},
 		["Zhenya - Los Errantes"] = {
 			["GraphWindowY"] = 0,
@@ -179,9 +204,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["GraphWindowX"] = 0,
 			["DetailWindowX"] = 0,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
 		},
 		["Kobash - Los Errantes"] = {
 			["GraphWindowY"] = 0,
@@ -201,9 +226,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["GraphWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
+			["DetailWindowX"] = 0,
 		},
 		["Kalarankor - Los Errantes"] = {
 			["GraphWindowY"] = 0,
@@ -223,15 +248,15 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["GraphWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
+			["DetailWindowX"] = 0,
 		},
-		["Ringeki - Dun Modr"] = {
+		["Default"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
 				["Position"] = {
-					["w"] = 140.000015258789,
+					["h"] = 199.999984741211,
 				},
 			},
 			["Colors"] = {
@@ -247,30 +272,6 @@ RecountDB = {
 			["DetailWindowY"] = 0,
 			["CurDataSet"] = "OverallData",
 			["GraphWindowX"] = 0,
-			["MainWindowVis"] = false,
-			["DetailWindowX"] = 0,
-		},
-		["Prason - Los Errantes"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["w"] = 140.000015258789,
-				},
-			},
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["GraphWindowX"] = 0,
-			["MainWindowVis"] = false,
 			["DetailWindowX"] = 0,
 		},
 		["Elrad - Los Errantes"] = {
@@ -296,7 +297,7 @@ RecountDB = {
 			["MainWindowVis"] = false,
 			["DetailWindowX"] = 0,
 		},
-		["Pexus - Los Errantes"] = {
+		["Prason - Los Errantes"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
 				["Position"] = {
@@ -315,8 +316,54 @@ RecountDB = {
 			},
 			["DetailWindowY"] = 0,
 			["DetailWindowX"] = 0,
+			["MainWindowVis"] = false,
 			["GraphWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
+		},
+		["Ringeki - Dun Modr"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["w"] = 140.000015258789,
+				},
+			},
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["DetailWindowX"] = 0,
+			["MainWindowVis"] = false,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
+		},
+		["Pexus - Los Errantes"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["w"] = 140.000015258789,
+				},
+			},
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
+			["DetailWindowX"] = 0,
 		},
 	},
 }
