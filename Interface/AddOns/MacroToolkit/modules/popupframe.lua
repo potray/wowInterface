@@ -110,7 +110,7 @@ function MT:CreateMTPopup()
 		end)
 	
 	mtpfedit:SetScript("OnEscapePressed", function() MT:CancelEdit() end)
-	mtpfedit:SetScript("OnEnterPressed", function() if MacroToolkitPopupOk:IsEnabled() then MT:PopupOkayButtonOnClick(MacroToolkitPopupOk) end end)
+	mtpfedit:SetScript("OnEnterPressed", function() if MacroToolkitPopupOk:IsEnabled() then MT:PopupOkayButtonOnClick() end end)
 
 	doicongroups()
 	local aisoptions = {
@@ -195,32 +195,7 @@ function MT:CreateMTPopup()
 	mtpfok:SetText(_G.OKAY)
 	mtpfok:SetSize(78, 22)
 	mtpfok:SetPoint("RIGHT", mtpfcancel, "LEFT", -2, 0)
-	mtpfok:SetScript("OnClick",
-		function()
-			local index = 1
-			local iconTexture = MT:GetSpellorMacroIconInfo(MacroToolkitPopup.selectedIcon)
-			local text = MacroToolkitPopupEdit:GetText()
-			text = string.gsub(text, "\"", "")
-			if MacroToolkitPopup.mode == "new" then
-				if PanelTemplates_GetSelectedTab(MacroToolkitFrame) > 2 then
-					index = MT:GetNextIndex()
-					MT.db.global.extra[index] = {name = text, texture = iconTexture, body = ""}
-				else
-					index = CreateMacro(text, iconTexture, nil, (MacroToolkitFrame.macroBase > 0))
-					MacroToolkitText.extended = nil
-				end
-			elseif MacroToolkitPopup.mode == "edit" then
-				if PanelTemplates_GetSelectedTab(MacroToolkitFrame) == 3 then
-					index = MacroToolkitFrame.selectedMacro
-					MT.db.global.extra[tostring(index)].name = text
-					MT.db.global.extra[tostring(index)].texture = iconTexture
-				else index = EditMacro(MacroToolkitFrame.selectedMacro, text, iconTexture) end
-			end
-			MacroToolkitPopup:Hide()
-			MacroToolkitFrame.selectedMacro = index
-			MT:MacroFrameUpdate()
-			PlaySound("gsTitleOptionOK")
-		end)
+	mtpfok:SetScript("OnClick", function() MT:PopupOkayButtonOnClick() end)
 
 	mtpf:SetScript("OnShow", 
 		function(this)
@@ -423,18 +398,37 @@ end
 
 function MT:PopupButtonOnClick(this) MT:SelectTexture(this:GetID() + (FauxScrollFrame_GetOffset(MacroToolkitPopupScroll) * _G.NUM_ICONS_PER_ROW)) end
 
-function MT:PopupOkayButtonOnClick(this)
-	local index = 1
-	local iconTexture = MT:GetSpellorMacroIconInfo(mtpf.selectedIcon)
-	local text = MacroToolkitPopupEdit:GetText()
-	text = string.gsub(text, "\"", "")
-	if mtpf.mode == "new" then index = CreateMacro(text, iconTexture, nil, (MacroToolkitFrame.macroBase > 0))
-	elseif mtpf.mode == "edit" then index = EditMacro(MacroToolkitFrame.selectedMacro, text, iconTexture) end
-	mtpf:Hide()
-	MacroToolkitFrame.selectedMacro = index
-	MT:MacroFrameUpdate()
+function MT:PopupOkayButtonOnClick()
+	if InCombatLockdown() then
+		MT:CombatMessage()
+		MacroToolkitPopup:Hide()
+	else
+		local index = 1
+		local iconTexture = MT:GetSpellorMacroIconInfo(MacroToolkitPopup.selectedIcon)
+		local text = MacroToolkitPopupEdit:GetText()
+		text = string.gsub(text, "\"", "")
+		if MacroToolkitPopup.mode == "new" then
+			if PanelTemplates_GetSelectedTab(MacroToolkitFrame) > 2 then
+				index = MT:GetNextIndex()
+				MT.db.global.extra[index] = {name = text, texture = iconTexture, body = ""}
+			else
+				index = CreateMacro(text, iconTexture, nil, (MacroToolkitFrame.macroBase > 0))
+				MacroToolkitText.extended = nil
+			end
+		elseif MacroToolkitPopup.mode == "edit" then
+			if PanelTemplates_GetSelectedTab(MacroToolkitFrame) == 3 then
+				index = MacroToolkitFrame.selectedMacro
+				MT.db.global.extra[tostring(index)].name = text
+				MT.db.global.extra[tostring(index)].texture = iconTexture
+			else index = EditMacro(MacroToolkitFrame.selectedMacro, text, iconTexture) end
+		end
+		MacroToolkitPopup:Hide()
+		MacroToolkitFrame.selectedMacro = tonumber(index)
+		MT:MacroFrameUpdate()
+		PlaySound("gsTitleOptionOK")
+	end
 end
-
+		
 function MT:UpdateIconCount()
 	local icframe = MacroToolkitPopupIcons
 	local dy = icframe:GetSectionVisibility("DynamicIcon")

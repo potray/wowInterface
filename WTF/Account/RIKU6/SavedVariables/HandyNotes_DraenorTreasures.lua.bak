@@ -1,0 +1,10 @@
+
+DraenorTreasuresDB = {
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

@@ -214,50 +214,49 @@ DataStore_InventoryDB = {
 			},
 			["Default.Dun Modr.Potray"] = {
 				["Inventory"] = {
-					"|cff0070dd|Hitem:112520:0:0:0:0:0:0:0:98:0:11:0|h[Sha'tari Keeper Helm]|h|r", -- [1]
-					"|cffa335ee|Hitem:112584:0:0:0:0:0:0:0:98:0:11:1:575|h[Teroclaw Feather Necklace]|h|r", -- [2]
-					"|cff1eff00|Hitem:114733:0:0:0:0:0:0:0:98:0:11:0|h[Cragplate Shoulders]|h|r", -- [3]
+					"|cffffffff|Hitem:114691:0:0:0:0:0:0:0:100:0:11:0|h[]|h|r", -- [1]
+					"|cffffffff|Hitem:114479:0:0:0:0:0:0:0:100:0:1:1:183|h[]|h|r", -- [2]
+					"|cffffffff|Hitem:109944:0:0:0:0:0:0:0:100:0:2:2:43:524|h[]|h|r", -- [3]
 					nil, -- [4]
-					"|cff1eff00|Hitem:112509:0:0:0:0:0:0:0:98:0:11:0|h[Sha'tari Keeper Chestplate]|h|r", -- [5]
-					"|cff0070dd|Hitem:112533:0:0:0:0:0:0:0:98:0:11:0|h[Sha'tari Keeper Girdle]|h|r", -- [6]
-					"|cff0070dd|Hitem:109818:0:0:0:0:0:0:0:98:0:18:1:519|h[Incarnadine Legplates]|h|r", -- [7]
-					"|cff0070dd|Hitem:109795:0:0:0:0:0:0:0:98:0:19:1:520|h[Goldsteel Sabatons]|h|r", -- [8]
-					"|cff0070dd|Hitem:109876:0:0:0:0:0:0:0:98:0:18:1:519|h[Incarnadine Bracers]|h|r", -- [9]
-					"|cff0070dd|Hitem:114325:0:0:0:0:0:0:0:98:0:1:1:38|h[Salt-Scorched Gauntlets of the Fireflash]|h|r", -- [10]
-					"|cff1eff00|Hitem:114952:0:0:0:0:0:0:0:98:0:11:0|h[Skettis Deceiver's Ring]|h|r", -- [11]
-					"|cff0070dd|Hitem:113014:0:0:0:0:0:0:0:98:0:11:0|h[Seal of the Auchenai Guardian]|h|r", -- [12]
-					"|cff0070dd|Hitem:113159:0:0:0:0:0:0:0:98:0:11:0|h[Probiscus of the Swampfly Queen]|h|r", -- [13]
-					"|cff0070dd|Hitem:114369:0:0:0:0:0:0:0:98:0:1:0|h[Tormented Fang of Gore]|h|r", -- [14]
-					"|cff0070dd|Hitem:113013:0:0:0:0:0:0:0:98:0:11:1:577|h[Kaelynara's Traveling Cloak]|h|r", -- [15]
-					"|cff0070dd|Hitem:113045:0:0:0:0:0:0:0:98:0:11:1:577|h[Restalaan's Greatsword]|h|r", -- [16]
-					[19] = "|cffffffff|Hitem:45574:0:0:0:0:0:0:0:98:0:14:0|h[Stormwind Tabard]|h|r",
+					"|cffffffff|Hitem:114499:0:5348:0:0:0:0:0:100:0:1:3:147:560:563|h[]|h|r", -- [5]
+					"|cff1eff00|Hitem:114704:0:0:0:0:0:0:0:100:0:11:0|h[Plainsthunder Girdle]|h|r", -- [6]
+					"|cffffffff|Hitem:118087:0:0:0:0:0:0:0:100:0:11:0|h[]|h|r", -- [7]
+					"|cffffffff|Hitem:114443:0:0:0:0:0:0:0:100:0:1:1:184|h[]|h|r", -- [8]
+					"|cffffffff|Hitem:114435:0:0:0:0:0:0:0:100:0:1:1:487|h[]|h|r", -- [9]
+					"|cff0070dd|Hitem:109857:0:0:0:0:0:0:0:100:0:2:1:524|h[Verdant Plate Grips]|h|r", -- [10]
+					"|cffa335ee|Hitem:115794:0:0:0:0:0:0:0:100:0:13:4:525:539:263:539|h[Glowing Taladite Ring of the Windshaper]|h|r", -- [11]
+					"|cffa335ee|Hitem:118290:0:0:0:0:0:0:0:100:0:11:0|h[Solium Band of Might]|h|r", -- [12]
+					"|cff0070dd|Hitem:110012:0:0:0:0:0:0:0:100:0:1:1:522|h[Bonemaw's Big Toe]|h|r", -- [13]
+					"|cff0070dd|Hitem:114369:0:0:0:0:0:0:0:100:0:1:0|h[Tormented Fang of Gore]|h|r", -- [14]
+					"|cffffffff|Hitem:109912:0:0:0:0:0:0:0:100:0:1:1:522|h[]|h|r", -- [15]
+					"|cffa335ee|Hitem:115328:0:0:0:0:0:0:0:100:0:1:1:49|h[Grandiose Greataxe of the Peerless]|h|r", -- [16]
 				},
-				["averageItemLvl"] = 565.266662597656,
-				["overallAIL"] = 567.599975585938,
-				["lastUpdate"] = 1417387942,
+				["averageItemLvl"] = 611.9375,
+				["overallAIL"] = 621.933349609375,
+				["lastUpdate"] = 1419063438,
 			},
 			["Default.Dun Modr.Geddry"] = {
 				["Inventory"] = {
-					"|cffffffff|Hitem:61958:0:0:0:0:0:0:0:4:0:14:0|h[]|h|r", -- [1]
+					"|cffe6cc80|Hitem:61958:0:0:0:0:0:0:0:11:0:14:0|h[Tattered Dreadmist Mask]|h|r", -- [1]
 					nil, -- [2]
-					"|cffffffff|Hitem:42985:3852:0:0:0:0:0:0:4:0:0:0|h[]|h|r", -- [3]
+					"|cffe6cc80|Hitem:42985:3852:0:0:0:0:0:0:11:0:0:0|h[Tattered Dreadmist Mantle]|h|r", -- [3]
 					nil, -- [4]
-					"|cffffffff|Hitem:48691:908:0:0:0:0:0:0:4:0:0:0|h[]|h|r", -- [5]
-					nil, -- [6]
-					1395, -- [7]
-					55, -- [8]
-					"|cffffffff|Hitem:59044:0:0:0:0:0:0:0:5:0:11:0|h[Velocity Bracers]|h|r", -- [9]
-					nil, -- [10]
+					"|cffe6cc80|Hitem:48691:908:0:0:0:0:0:0:11:0:0:0|h[Tattered Dreadmist Robe]|h|r", -- [5]
+					"|cffffffff|Hitem:59047:0:0:0:0:0:0:0:11:0:11:0|h[Free Body Belt]|h|r", -- [6]
+					"|cffffffff|Hitem:10549:0:0:0:0:0:0:0:11:0:11:0|h[Rancher's Trousers]|h|r", -- [7]
+					"|cffffffff|Hitem:57550:0:0:0:0:0:0:0:11:0:11:0|h[Grizzled Den Boots]|h|r", -- [8]
+					"|cff1eff00|Hitem:6543:0:0:0:0:0:-19:739508226:11:0:0:0|h[Willow Bracers of Intellect]|h|r", -- [9]
+					"|cff1eff00|Hitem:6541:0:0:0:0:0:-9:949026819:11:0:0:0|h[Willow Gloves of the Owl]|h|r", -- [10]
 					nil, -- [11]
 					nil, -- [12]
 					42992, -- [13]
-					nil, -- [14]
-					"|cffffffff|Hitem:62040:0:0:0:0:0:0:0:4:0:14:0|h[]|h|r", -- [15]
+					42991, -- [14]
+					"|cffe6cc80|Hitem:62040:0:0:0:0:0:0:0:11:0:14:0|h[Ancient Bloodmoon Cloak]|h|r", -- [15]
 					42947, -- [16]
 				},
-				["averageItemLvl"] = 4.33333349227905,
-				["overallAIL"] = 4.33333349227905,
-				["lastUpdate"] = 1417307568,
+				["averageItemLvl"] = 10.7333335876465,
+				["overallAIL"] = 10.7333335876465,
+				["lastUpdate"] = 1418602341,
 			},
 		},
 		["Guilds"] = {

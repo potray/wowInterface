@@ -68,7 +68,7 @@ function ace:OnInitialize()
 	mod.af:RegisterEvent("PLAYER_REGEN_DISABLED")
 	mod.af:SetScript("OnEvent", AFOnEvent)
 	-- hide if not in combat and setting on
-	if UnitAffectingCombat("player") == nil and db.showCombatOnly then
+	if (UnitAffectingCombat("player") == false) and db.showCombatOnly then
 		mod.af:Hide()
 	end
 

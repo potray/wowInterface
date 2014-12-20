@@ -1,0 +1,20 @@
+local a,t=...
+local p=t.AddPet
+t.AddFamily(129,"Goat","ability_mount_mountainram",nil)
+
+p(58448,45149,"Black Bengal Goat",129,90,937,nil)
+p(59139,45138,"Stout Shaghorn",129,90,807,nil)
+p(69523,45149,"Fatty Goat",129,90,nil,nil)
+p(66464,45163,"Zhing",129,88,879,nil)
+p(50998,40022,"Stompy",129,88,879,nil)
+p(60242,40024,"Wild Mountain Goat",129,88,873,nil)
+p(60493,40024,"Kafa-Crazed Mountain Goat",129,88,879,nil)
+p(60511,40024,"Wild Mountain Kid",129,88,879,nil)
+p(59680,45163,"Battle Goat",129,87,879,nil)
+p(60010,45163,"Battle Goat",129,87,879,nil)
+p(60668,45163,"Furious Goat",129,87,879,nil)
+p(60748,45163,"Battle Goat",129,87,879,nil)
+p(58892,45138,"Wild Shaghorn",129,86,807,nil)
+p(66208,41462,"Wild Shaghorn Calf",129,85,807,nil)
+p(63503,40024,"Kafa-Crazed Mountain Goat",129,nil,nil,nil)
+p(65238,40022,"Tamable Goat",129,nil,nil,nil)

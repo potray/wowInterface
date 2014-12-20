@@ -1,0 +1,23 @@
+local a,t=...
+local p=t.AddPet
+t.AddFamily(55,"Shale Spider","ability_hunter_pet_spider",true)
+
+p(61159,41962,"Greenstone Terror",55,90,nil,nil)
+p(67758,45571,"Shale Skitterers",55,90,920,nil)
+p(67759,46290,"Agitated Shale Spider",55,90,920,nil)
+p(68653,45571,"Shale Shards",55,90,920,nil)
+p(49822,41962,"Jadefang",55,85,640,true)
+p(56401,41962,"Greenstone Nibbler",55,85,880,nil)
+p(56404,41962,"Greenstone Gorger",55,85,880,nil)
+p(56543,41962,"Brittle Greenstone Gorger",55,85,880,nil)
+p(46580,34069,"Elementium Spinner",55,84,770,nil)
+p(44425,46290,"Crimson Shale Spider",55,83,640,nil)
+p(47071,34069,"Deep Spider",55,83,640,nil)
+p(47072,46290,"Amthea",55,83,640,nil)
+p(49815,45571,"Deep Spider",55,83,640,nil)
+p(49816,46290,"Deep Spider",55,83,640,nil)
+p(42845,46290,"Rock Borer",55,82,768,nil)
+p(43917,46290,"Rock Borer",55,82,768,nil)
+p(51066,46290,"Crystalfang",55,49,29,true)
+p(51069,46290,"Scintillex",55,39,907,true)
+p(51067,45571,"Glint",55,29,16,true)

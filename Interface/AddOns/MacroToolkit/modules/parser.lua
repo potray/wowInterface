@@ -153,6 +153,12 @@ local function validateCommandVerb(commandtext, parameters)
 			break
 		end
 	end
+	for _, s in ipairs(MT.db.global.custom) do
+		if commandtext == s.n then
+			cc = format("|c%s", MT.db.profile.scriptcolour)
+			break
+		end
+	end
 	if not msg then c = cc
 	else
 		msg = format("%s|r", msg)
@@ -422,8 +428,10 @@ function MT:ShortenMacro(macrotext)
 			s, e = string.find(l, "%[.-,-exists.-harm.-%]")
 			while s do
 				local s1, e1 = string.find(l, ",-%s-exists,+", s)
-				l = format("%s%s", string.sub(l, 1, s1 - 1), string.sub(l, e1 + 1))
-				s, e = string.find(l, "%[.-,-exists.-harm.-%]")
+				if s1 then -- ticket 68
+					l = format("%s%s", string.sub(l, 1, s1 - 1), string.sub(l, e1 + 1))
+					s, e = string.find(l, "%[.-,-exists.-harm.-%]")
+				else break end
 			end
 			s, e = string.find(l, "%[.-noexists")
 			while s do
@@ -439,7 +447,7 @@ function MT:ShortenMacro(macrotext)
 							l = format("%s%s%s", string.sub(l, 1, s1 - 1), "noharm", string.sub(l, e1 + 1))
 						end
 					end
-					s, e = string.find(l, "%[.-noexists")
+					s, e = string.find(l, "%[.-noexists", e)
 				else s = nil end
 			end
 			--end ticket
@@ -505,15 +513,16 @@ function MT:ShortenMacro(macrotext)
 				end
 			end
 			macrotext = string.gsub(macrotext, ";$", "")
+			local srun, scon = MT:FindShortest("SLASH_SCRIPT"), MT:FindShortest("SLASH_CONSOLE")
 			if MT.db.profile.replacemt then
-				local srun, scon
-				srun = MT:FindShortest("SLASH_SCRIPT")
-				scon = MT:FindShortest("SLASH_CONSOLE")
-				for _, s in ipairs(MT.scripts) do
-					if s[4] then
-						l = string.gsub(l, format("%s %s$", ((s[4] == 1) and srun or scon), s[5]), format("%s%s", MT.slash, (s[6] or s[2])))
-					end
-				end
+				l = string.gsub(l, format("%s UIErrorsFrame:Clear%%(%%)", srun), format("%smtce", MT.slash))
+				l = string.gsub(l, format("%s UIErrorsFrame:RegisterEvent%%(\"UI_ERROR_MESSAGE\"%%)", srun), format("%smteo", MT.slash))
+				l = string.gsub(l, format("%s UIErrorsFrame:RegisterEvent%%('UI_ERROR_MESSAGE'%%)", srun), format("%smteo", MT.slash))
+				l = string.gsub(l, format("%s UIErrorsFrame:UnregisterEvent%%(\"UI_ERROR_MESSAGE\"%%)", srun), format("%smtex", MT.slash))
+				l = string.gsub(l, format("%s UIErrorsFrame:UnregisterEvent%%('UI_ERROR_MESSAGE'%%)", srun), format("%smtex", MT.slash))
+				l = string.gsub(l, format("%s Sound_EnableSFX 0", scon), format("%smtsx", MT.slash))
+				l = string.gsub(l, format("%s Sound_EnableSFX 1", scon), format("%smtso", MT.slash))
+				l = string.gsub(l, format("%s VehicleExit%%(%%)", srun), format("%smtev", MT.slash))
 			end
 			table.insert(mout, l)
 		end

@@ -472,7 +472,6 @@ L["Missing HP (Short)"] = "缺失的生命值 (短格式)"
 L["Missing power (Short)"] = "缺失的能力值 (短格式)"
 L["Monk mana bar"] = "武僧法力条" -- Needs review
 L["- Monk Stagger now shows the amount of staggered damage"] = "- 武僧的醉拳现在显示化解的伤害量" -- Needs review
-L["Monochrome"] = "单色"
 L["Moonkin"] = "枭兽"
 L["MT ToT"] = "主坦 ToT" -- Needs review
 L["Mushroom bar"] = "蘑菇条"

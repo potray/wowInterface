@@ -724,7 +724,7 @@ function MT:CreateMTFrame()
 	mtopt:SetSize(80, 22)
 	mtopt:SetText(_G.MAIN_MENU)
 	mtopt:SetPoint("LEFT", mtcon, "RIGHT", 14, 0)
-	mtopt:SetScript("OnClick", function() if MT.MTPF then MT.MTPF:Hide() end;InterfaceOptionsFrame_OpenToCategory(MT.OptionsFrame) end)
+	mtopt:SetScript("OnClick", function() if MT.MTPF then MT.MTPF:Hide() end InterfaceOptionsFrame_OpenToCategory(MT.OptionsFrame) InterfaceOptionsFrame_OpenToCategory(MT.OptionsFrame) end)
 
 	local mtchannels = {[_G.CHAT] =_G.CHAT, [_G.PARTY] =_G.PARTY, [_G.RAID] = _G.RAID}
 	mtchan = AceGUI:Create("Dropdown")

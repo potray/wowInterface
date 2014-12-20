@@ -122,16 +122,22 @@ DataStore_AgendaDB = {
 				["lastUpdate"] = 1410628407,
 			},
 			["Default.Dun Modr.Potray"] = {
-				["lastUpdate"] = 1417387942,
+				["DungeonIDs"] = {
+					["Magtheridon's Lair 25 Player|132639329"] = "340924|1419063416|0|1",
+					["Gruul's Lair 25 Player|132686562"] = "340924|1419063416|0|1",
+					["Karazhan 10 Player|132632978"] = "340924|1419063416|0|1",
+					["Tempest Keep 25 Player|132687058"] = "340924|1419063416|0|1",
+				},
+				["lastUpdate"] = 1419063415,
 			},
 			["Default.Dun Modr.Geddry"] = {
-				["lastUpdate"] = 1417306931,
+				["lastUpdate"] = 1418599653,
 			},
 		},
 		["Options"] = {
 			["WeeklyResetHour"] = 6,
 			["WeeklyResetDay"] = 3,
-			["NextWeeklyReset"] = "2014-12-03",
+			["NextWeeklyReset"] = "2014-12-24",
 		},
 	},
 }

@@ -116,7 +116,7 @@ Quartz: enabled
 Recount: enabled
 ShadowedUF_Options: enabled
 ShadowedUnitFrames: enabled
-SlideBar: enabled
+SlideBar: disabled
 SpellFlashCore: enabled
 Stubby: enabled
 !Swatter: enabled

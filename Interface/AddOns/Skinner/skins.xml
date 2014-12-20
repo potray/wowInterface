@@ -35,6 +35,7 @@
 <script file="SkinMe\BetterInbox.lua"/>
 <script file="SkinMe\BindPad.lua"/>
 <script file="SkinMe\BlackList.lua"/>
+<script file="SkinMe\BonusRollPreview.lua"/>
 <script file="SkinMe\BossInfo.lua"/>
 <script file="SkinMe\BossNotes.lua"/>
 <script file="SkinMe\Bugger.lua"/>
@@ -91,7 +92,6 @@
 <script file="SkinMe\GuildBankSearch.lua"/>
 <script file="SkinMe\GuildLaunchCT_RaidTracker.lua"/>
 <script file="SkinMe\GuildMaster.lua"/>
-<script file="SkinMe\HabeebIt.lua"/>
 <script file="SkinMe\HandyNotes.lua"/>
 <script file="SkinMe\HaveWeMet.lua"/>
 <script file="SkinMe\HealBot.lua"/>
@@ -101,6 +101,7 @@
 <script file="SkinMe\LegacyQuest.lua"/>
 <script file="SkinMe\LibDialog.lua"/>
 <script file="SkinMe\LibDropdown.lua"/>
+<script file="SkinMe\LibExtraTip.lua"/>
 <script file="SkinMe\LibQTip.lua"/>
 <script file="SkinMe\LibToast.lua"/>
 <script file="SkinMe\LibTradeSkillScan.lua"/>
@@ -148,8 +149,10 @@
 <script file="SkinMe\QuestGuru_Tracker.lua"/>
 <script file="SkinMe\QuestHelper2.lua"/>
 <script file="SkinMe\QuestHistory.lua"/>
+<script file="SkinMe\QuestMapWithDetails.lua"/>
 <script file="SkinMe\QuickMark.lua"/>
 <script file="SkinMe\RaidAchievement.lua"/>
+<script file="SkinMe\RaidBuffStatus.lua"/>
 <script file="SkinMe\RaidRoll.lua"/>
 <script file="SkinMe\RAQ.lua"/>
 <script file="SkinMe\ReagentMaker.lua"/>
@@ -167,7 +170,6 @@
 <script file="SkinMe\SorhaQuestLog.lua"/>
 <script file="SkinMe\Spew.lua"/>
 <script file="SkinMe\Squeenix.lua"/>
-<script file="SkinMe\Squire2_Config.lua"/>
 <script file="SkinMe\StaggerMeter.lua"/>
 <script file="SkinMe\TargetCharms.lua"/>
 <script file="SkinMe\tekKonfig.lua"/>
@@ -261,6 +263,7 @@
 <!-- <script file="SkinMe\GuildBankAccount.lua"/> -->
 <!-- <script file="SkinMe\GuildGreet.lua"/> -->
 <!-- <script file="SkinMe\GupPet.lua"/> -->
+<!-- <script file="SkinMe\HabeebIt.lua"/> -->
 <!-- <script file="SkinMe\Hack.lua"/> -->
 <!-- <script file="SkinMe\Hadar_FocusFrame.lua"/> -->
 <!-- <script file="SkinMe\HatTrick.lua"/> -->
@@ -274,7 +277,6 @@
 <!-- <script file="SkinMe\ItemSync.lua"/> -->
 <!-- <script file="SkinMe\LauncherMenu.lua"/> -->
 <!-- <script file="SkinMe\LazyAFK.lua"/> -->
-<!-- <script file="SkinMe\LibExtraTip.lua"/> -->
 <!-- <script file="SkinMe\LibSimpleFrame.lua"/> -->
 <!-- <script file="SkinMe\LightHeaded.lua"/> -->
 <!-- <script file="SkinMe\Links.lua"/> -->
@@ -332,6 +334,7 @@
 <!-- <script file="SkinMe\ShadowDancer3.lua"/> -->
 <!-- <script file="SkinMe\sienasGemViewer.lua"/> -->
 <!-- <script file="SkinMe\SmoothQuest.lua"/> -->
+<!-- <script file="SkinMe\Squire2_Config.lua"/> -->
 <!-- <script file="SkinMe\sRaidFrames.lua"/> -->
 <!-- <script file="SkinMe\tabDB.lua"/> -->
 <!-- <script file="SkinMe\Tablet.lua"/> -->

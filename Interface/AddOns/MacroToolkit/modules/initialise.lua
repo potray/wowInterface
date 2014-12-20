@@ -30,6 +30,7 @@ MT.scripts = {
 	{L["Destroy grey items"],"mtdg"},
 	{L["No food buff"],"mtnb","buff"},
 	{L["No flask"],"mtnf","buff"},
+	{L["Summon random favourite mount"],"mtfm"},
 }
 
 MT.slots = {

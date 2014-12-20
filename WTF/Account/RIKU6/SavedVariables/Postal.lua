@@ -11,8 +11,8 @@ Postal3DB = {
 			["alts"] = {
 				"Drublock|Los Errantes|Alliance|26|WARLOCK", -- [1]
 				"Elrad|Los Errantes|Alliance|85|PALADIN", -- [2]
-				"Geddry|Dun Modr|Alliance|4|MAGE", -- [3]
-				"Potray|Dun Modr|Alliance|98|PALADIN", -- [4]
+				"Geddry|Dun Modr|Alliance|11|MAGE", -- [3]
+				"Potray|Dun Modr|Alliance|100|PALADIN", -- [4]
 			},
 		},
 	},

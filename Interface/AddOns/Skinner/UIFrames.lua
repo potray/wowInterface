@@ -35,6 +35,7 @@ do
 	end})
 	-- Set the Tooltip Border
 	aObj.ttBorder = true
+
 end
 
 function aObj:AddonList()
@@ -166,8 +167,11 @@ function aObj:AlertFrames()
 
 	local function skinWonAlertFrames(obj)
 
+		-- move Icon draw layer (Garrison Cache icon)
+		if obj.Icon:GetDrawLayer() == "BACKGROUND" then
+			obj.Icon:SetDrawLayer("BORDER")
+		end
 		if not obj.sf then
-			-- obj.Background:SetTexture(nil)
 			obj:DisableDrawLayer("BACKGROUND")
 			obj.IconBorder:SetTexture(nil)
 			if obj.SpecRing then obj.SpecRing:SetTexture(nil) end -- Loot Won Alert Frame(s)
@@ -192,10 +196,7 @@ function aObj:AlertFrames()
 		skinWonAlertFrames(frame)
 	end
 
-	local frames = {"DigsiteCompleteToastFrame", "StorePurchaseAlertFrame"}
-	self:add2Table(frames, "GarrisonBuildingAlertFrame")
-	self:add2Table(frames, "GarrisonMissionAlertFrame")
-	self:add2Table(frames, "GarrisonFollowerAlertFrame")
+	local frames = {"DigsiteCompleteToastFrame", "StorePurchaseAlertFrame", "GarrisonBuildingAlertFrame", "GarrisonMissionAlertFrame", "GarrisonFollowerAlertFrame"}
 	for _, frame in pairs(frames) do
 		self:getRegion(_G[frame], 1):SetTexture(nil) -- Background toast texture
 		_G[frame]:DisableDrawLayer("BORDER") -- icon background texture
@@ -216,8 +217,6 @@ function aObj:AlertFrames()
 	for _, frame in pairs(_G.LOOT_UPGRADE_ALERT_FRAMES) do
 		skinLootUpgradeAlertFrame(frame)
 	end
-
-	-- N.B. Epic Upgrade Alert frame acts differently, animOnFinished sometimes fires ok or fires to soon, the tfade texture remains attached to UIParent when it fades out or not as it seems fit !!!
 
 	-- GarrisonFollowerAlert Frame
 	_G.GarrisonFollowerAlertFrame:DisableDrawLayer("BORDER")
@@ -937,8 +936,15 @@ function aObj:GarrisonUI() -- LoD
 	local function skinPortrait(frame)
 		frame.PortraitRing:SetTexture(nil)
 		frame.LevelBorder:SetAlpha(0) -- texture changed
-		if frame.Empty then frame.Empty:SetTexture(nil) end
 		if frame.PortraitRingCover then frame.PortraitRingCover:SetTexture(nil) end
+		if frame.Empty then
+			frame.Empty:SetTexture(nil)
+			self:SecureHook(frame.Empty, "Show", function(this)
+				local fp = this:GetParent()
+				fp.Portrait:SetTexture(nil)
+				fp.PortraitRingQuality:SetVertexColor(1, 1, 1, 1)
+			end)
+		end
 	end
 	local function skinFollower(frame)
 		frame.BG:SetTexture(nil)
@@ -1158,6 +1164,7 @@ function aObj:GarrisonUI() -- LoD
 			local frame = mp.Enemies[i]
 			frame.PortraitFrame.PortraitRing:SetTexture(nil)
 		end
+		self:moveObject{obj=mp.FollowerModel, x=-6, y=0}
 
 		-- FollowerTab
 		_G.GarrisonMissionFrame.FollowerTab:DisableDrawLayer("BORDER")
@@ -1210,7 +1217,7 @@ function aObj:GarrisonUI() -- LoD
 		_G.GarrisonLandingPage:DisableDrawLayer("BACKGROUND")
 		_G.GarrisonLandingPage.HeaderBar:SetTexture(nil)
 		aObj:skinTabs{obj=_G.GarrisonLandingPage, regs={9, 10}, ignore=true, lod=true, x1=5, y1=-8, x2=-4, y2=-3}
-		aObj:addSkinFrame{obj=_G.GarrisonLandingPage, ft=ftype, ofs=-6}
+		aObj:addSkinFrame{obj=_G.GarrisonLandingPage, ft=ftype, ofs=-6, y1=-12, x2=-12}
 
 		-- ReportTab
 		local rp = _G.GarrisonLandingPage.Report
@@ -2230,6 +2237,7 @@ function aObj:MinimapButtons()
 			["Altoholic"] = _G.AltoholicMinimapButton,
 			["Armory"] = _G.ArmoryMinimapButton,
 			["ZygorGuidesViewer"] = _G.ZygorGuidesViewerMapIcon,
+			["RaidBuffStatus"] = _G.RBSMinimapButton,
 		}
 		local function skinMMBtn(btn, name)
 

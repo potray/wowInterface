@@ -4,7 +4,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 local BossIDs = LibStub("LibBossIDs-1.0")
 
-local revision = tonumber(string.sub("$Revision: 1281 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1284 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -520,6 +520,7 @@ end
 
 function Recount:SpellDamage(timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, spellId, spellName, spellSchool, amount, overkill, school, resisted, blocked, absorbed, critical, glancing, crushing, isOffHand, multistrike)
 
+	-- Prismatic Crystal
 	if string_match(dstGUID, "^Creature%-0%-%d+%-%d+%-%d+%-76933%-%w+$") then
 		return
 	end
@@ -618,6 +619,10 @@ function Recount:SwingMissed(timestamp, eventtype, srcGUID, srcName, srcFlags, d
 end
 
 function Recount:SpellMissed(timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, spellId, spellName, spellSchool, missType, isOffHand, multistrike, amountMissed)
+	-- Stagger absorb
+	if spellId == 124255 then
+		return
+	end
 
 	--[[if TOC > 40200 then
 		missAmount = missAmountNew
@@ -698,12 +703,12 @@ function Recount:AddAbsorbCredit(source, victim, spellName, spellId, absorbed)
 	else
 		--Recount:DPrint("Absorb goes to "..source.." having used spell "..spellName.."("..spellId..")" ..":"..absorbed)
 		local sourceData = Recount.db2.combatants[source]
-		Recount:AddAmount(sourceData,"Absorbs",absorbed)
-		Recount:AddTableDataStats(sourceData,"Absorbed",spellName, victim, absorbed)
+		Recount:AddAmount(sourceData, "Absorbs", absorbed)
+		Recount:AddTableDataStats(sourceData, "Absorbed", spellName, victim, absorbed)
 
 		if Recount.db.profile.MergeAbsorbs then -- Elsia: This cannot be unsplit, but it saves memory.
-			Recount:AddTableDataStats(sourceData,"Heals",spellName,"Absorb",absorbed)
-			Recount:AddTableDataSum(sourceData,"HealedWho",victim, spellName, absorbed)
+			Recount:AddTableDataStats(sourceData, "Heals", spellName, "Absorb", absorbed)
+			Recount:AddTableDataSum(sourceData, "HealedWho", victim, spellName, absorbed)
 		end
 	end
 end
@@ -730,7 +735,7 @@ function Recount:SpellAuraApplied(timestamp, eventtype, srcGUID, srcName, srcFla
 		end
 
 		if not Recount.db2.combatants[srcName] then
-			Recount:DPrint("No source combatant!")
+			--Recount:DPrint("No source combatant!")
 		else
 			local sourceData = Recount.db2.combatants[srcName]
 			Recount:AddTableDataSum(sourceData, "ShieldedWho", dstName, spellName, 1)
@@ -845,7 +850,7 @@ function Recount:UnitDied(timestamp, eventtype, srcGUID, srcName, srcFlags, dstG
 	Recount:AddDeathData(nil , dstName, nil, srcGUID, srcFlags, dstGUID, dstFlags, nil)
 end
 
-function Recount:SpellSummon(timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, spellId, spellName, spellSchool)
+function Recount:SpellSummon(timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags)
 	Recount:AddPetCombatant(dstGUID, dstName, dstFlags, srcGUID, srcName, srcFlags)
 end
 
@@ -853,8 +858,26 @@ function Recount:SpellCreate(timestamp, eventtype, srcGUID, srcName, srcFlags, d
 	-- Elsia: We do nothing for these yet.
 end
 
-function Recount:SpellAbsorbed(timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, spellId, absorbed, spellName)
-	-- Resike: We do nothing for these yet.
+function Recount:SpellAbsorbed(...)
+	if type((select(9, ...))) == "number" then
+		local timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, srcSpellId, srcSpellName, srcSpellSchool, casterGUID, casterName, casterFlags, casterRaidFlags, spellId, spellName, spellSchool, absorbed = ...
+		-- Stance of the Sturdy Ox, Purgatory
+		if spellId == 115069 or spellId == 114556 then
+			return
+		end
+		local sourceData = dbCombatants[casterName]
+		Recount:AddTimeEvent(sourceData, dstName, spellName, true)
+		Recount:AddAbsorbCredit(casterName, dstName, spellName, spellId, absorbed)
+	else
+		local timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, casterGUID, casterName, casterFlags, casterRaidFlags, spellId, spellName, spellSchool, absorbed = ...
+		-- Stance of the Sturdy Ox, Purgatory
+		if spellId == 115069 or spellId == 114556 then
+			return
+		end
+		local sourceData = dbCombatants[casterName]
+		Recount:AddTimeEvent(sourceData, dstName, spellName, true)
+		Recount:AddAbsorbCredit(casterName, dstName, spellName, spellId, absorbed)
+	end
 end
 
 local EventParse = {
@@ -884,7 +907,7 @@ local EventParse = {
 	--["SPELL_AURA_DISPELLED"] = Recount.SpellAuraDispelledStolen, -- Removed with 2.4.3
 	--["SPELL_AURA_STOLEN"] = Recount.SpellAuraDispelledStolen, -- Removed with 2.4.3
 	["SPELL_AURA_APPLIED"] = Recount.SpellAuraApplied, -- Elsia: Auras
-	["SPELL_AURA_REMOVED"] = Recount.SpellAuraRemoved,
+	--["SPELL_AURA_REMOVED"] = Recount.SpellAuraRemoved, -- Removed with 6.0.3
 	["SPELL_AURA_APPLIED_DOSE"] = Recount.SpellAuraAppliedRemovedDose, -- Elsia: Aura doses
 	["SPELL_AURA_REMOVED_DOSE"] = Recount.SpellAuraAppliedRemovedDose,
 	["SPELL_CAST_START"] = Recount.SpellCastStartSuccess, -- Elsia: Spell casts
@@ -898,12 +921,12 @@ local EventParse = {
 	["PARTY_KILL"] = Recount.PartyKill, -- Elsia: Party killing blow
 	["UNIT_DIED"] = Recount.UnitDied, -- Elsia: Unit died
 	["UNIT_DESTROYED"] = Recount.UnitDied,
-	["SPELL_ABSORBED"] = Recount.SpellAbsorbed,
+	["SPELL_ABSORBED"] = Recount.SpellAbsorbed, -- Resike: New with 6.0.0
 	["SPELL_SUMMON"] = Recount.SpellSummon, -- Elsia: Summons
 	["SPELL_CREATE"] = Recount.SpellCreate, -- Elsia: Creations
 	["SPELL_AURA_BROKEN"] = Recount.SpellAuraBroken, -- New with 2.4.3
 	["SPELL_AURA_BROKEN_SPELL"] = Recount.SpellAuraBroken, -- New with 2.4.3
-	["SPELL_AURA_REFRESH"] = Recount.SpellAuraRefresh, -- New with 2.4.3
+	--["SPELL_AURA_REFRESH"] = Recount.SpellAuraRefresh, -- Removed with 6.0.3
 	["SPELL_DISPEL"] = Recount.SpellAuraDispelledStolen, -- Post 2.4.3
 	["SPELL_STOLEN"] = Recount.SpellAuraDispelledStolen, -- Post 2.4.3
 	["SPELL_RESURRECT"] = Recount.SpellResurrect, -- Post WotLK
@@ -1455,7 +1478,7 @@ function Recount:AddTableDataSum(who, datatype, secondary, detailtype, amount)
 	who.Fights.OverallData[datatype] = who.Fights.OverallData[datatype] or {}
 
 	CurTable = who.Fights.OverallData[datatype][secondary]
-	if type(CurTable)~="table" then
+	if type(CurTable) ~= "table" then
 		who.Fights.OverallData[datatype][secondary] = Recount:GetTable()
 		CurTable = who.Fights.OverallData[datatype][secondary]
 		CurTable.amount = 0
@@ -1882,7 +1905,7 @@ function Recount:AddDamageData(source, victim, ability, element, hittype, damage
 				Recount:AddAmount2(victimData, "ElementTakenAbsorb", element, absorbed)
 				Recount:AddTableDataStats(victimData, "PartialAbsorb", ability, L["Absorbed"], absorbed)
 
-				Recount:AddGuessedAbsorbData(source, victim, ability, element, hittype, damage, resist, srcGUID, srcFlags, dstGUID, dstFlags, spellId, blocked, absorbed, last_timestamp)
+				--Recount:AddGuessedAbsorbData(source, victim, ability, element, hittype, damage, resist, srcGUID, srcFlags, dstGUID, dstFlags, spellId, blocked, absorbed, last_timestamp)
 			else
 				Recount:AddTableDataStats(victimData, "PartialAbsorb", ability, L["No Absorb"], 0)
 			end
@@ -2099,7 +2122,7 @@ function Recount:HandleDoubleDeath(source, victim, skill, srcGUID, srcFlags, dst
 
 		--Get the tables
 		if not dbCombatants[victim] then
-		 Recount:AddCombatant(victim, victimowner, dstGUID, dstFlags, victimownerID) -- Elsia: Bug owner missing
+			Recount:AddCombatant(victim, victimowner, dstGUID, dstFlags, victimownerID) -- Elsia: Bug owner missing
 		end
 
 		local victimData = dbCombatants[victim]

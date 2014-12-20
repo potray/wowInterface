@@ -4,13 +4,13 @@ SexyMap: enabled
 Carbonite: disabled
 CarboniteItems: enabled
 CarboniteNodes: enabled
-clcInfo: disabled
+clcInfo: enabled
 CarboniteTransfer: enabled
 TomTom: enabled
 Carbonite.Info: enabled
 Carbonite.Quests: enabled
 PetTracker_Carbonite: disabled
-MoveAnything: disabled
+MoveAnything: enabled
 AtlasLoot: enabled
 AtlasLoot_Cataclysm: enabled
 AtlasLoot_BurningCrusade: enabled
@@ -58,3 +58,9 @@ Altoholic_Search: enabled
 GarrisonMissionManager: enabled
 LibSharedMedia-3.0: enabled
 MasterPlan: enabled
+Bartender4: enabled
+ShadowedUnitFrames: enabled
+Grid: enabled
+kgPanels: enabled
+MikScrollingBattleText: enabled
+SlideBar: disabled

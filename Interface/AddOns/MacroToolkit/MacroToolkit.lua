@@ -10,6 +10,7 @@ local CreateFrame, GetBindingText = CreateFrame, GetBindingText
 local exFormat = "%s%s%s [btn:1]%s LeftButton;[btn:2]%s RightButton;[btn:3]%s MiddleButton;[btn:4]%s Button4;[btn:5]%s Button5"
 
 MT.Spells = {}
+MT.orphans = {}
 MT.defaults = {
 	profile = {
 		override = false,
@@ -64,7 +65,6 @@ local function cleanMacros()
 			dm = dm + 1
 		end
 	end
-	
 	for a = 1, dm do MT.db.char.macros[a] = nil end
 end
 
@@ -195,12 +195,33 @@ function MT:eventHandler(this, event, arg1, ...)
 		end
 		--if #MT.db.char.extended > 0 then
 		if countTables(MT.db.char.extended) > 0 then
-			for i, e in pairs(MT.db.char.extended) do _G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
+			for i, e in pairs(MT.db.char.extended) do 
+				_G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body)
+				--check for orphaned macro
+				local found = false
+				for om = _G.MAX_ACCOUNT_MACROS + 1, _G.MAX_CHARACTER_MACROS + _G.MAX_ACCOUNT_MACROS do
+					local n, t, b = GetMacroInfo(om)
+					--local index = select(3, string.find(b, "MTSB(%d+)"))
+					if n then if string.find(b, format("MTSB%d", i)) then found = true end end
+				end
+				if not found then tinsert(MT.orphans, i) end
+			end
+			if #MT.orphans > 0 then
+				local d = StaticPopupDialogs.MACROTOOLKIT_DELETEBACKUP
+				d.text = format(L["Macro Toolkit has found %d orphaned macros. Restore?"], #MT.orphans)
+				d.OnAccept = function()
+					for _, m in ipairs(MT.orphans) do 
+						DEFAULT_CHAT_FRAME:AddMessage(format("|cff99cce6%s:|r%s", L["Restoring macro"], MT.db.char.extended[tostring(m)].name))
+						MT:ExtendMacro(false, MT.db.char.extended[tostring(m)].body, tostring(m), true)
+					end
+				end
+				d.OnCancel = function() for _, m in ipairs(MT.orphans) do MT.db.char.extended[tostring(m)] = nil end end
+				StaticPopup_Show("MACROTOOLKIT_DELETEBACKUP")
+			end
 		end
 		--if #MT.db.global.extra > 0 then
 		if countTables(MT.db.global.extra) then
-			for i, e in pairs(MT.db.global.extra) do 			
-				_G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
+			for i, e in pairs(MT.db.global.extra) do _G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
 		end
 		if not MT.db.profile.usecolours then MacroToolkitFauxScrollFrame:Hide() end
 		if not MT.db.profile.viserrors then
@@ -276,6 +297,10 @@ function MT:DoMTMacroCommand(command, parameters)
 	elseif command == "mtrt" then
 		local t, m = strsplit(" ", parameters)
 		SetRaidTarget(t, m)
+	elseif command == "mtfm" then
+		if parameters then
+			if SecureCmdOptionParse(parameters) then C_MountJournal.Summon(0) end
+		else C_MountJournal.Summon(0) end
 	elseif command == "mtev" then VehicleExit()
 	elseif command == "mtmc" then
 		SetMapToCurrentZone()
@@ -441,27 +466,30 @@ local function checktooltip(showtooltip, body)
 	return showtooltip
 end
 
-function MT:ExtendMacro(save, macrobody, idx)
+function MT:ExtendMacro(save, macrobody, idx, exists)
 	local body = macrobody or MacroToolkitText:GetText()
 	local index = save and MT:GetCurrentIndex() or MT:GetNextIndex()
-	local securebutton = _G[format("MTSB%d", index)]
+	local securebutton = _G[format("MTSB%d", exists and idx or index)]
 	local showtooltip = select(3, string.find(body, "(#showtooltip.-)\n"))
 	local show = select(3, string.find(body, "(#show .-)\n"))
 	showtooltip = checktooltip(showtooltip, body)
 	if showtooltip then showtooltip = format("%s\n", showtooltip) else showtooltip = "" end
 	if show then show = format("%s\n", show) else show = "" end
-	MT:UpdateExtended(idx or MTF.selectedMacro, body, index)
-	securebutton:SetAttribute("macrotext", body)
+	if not exists then 
+		MT:UpdateExtended(idx or MTF.selectedMacro, body, index)
+		securebutton:SetAttribute("macrotext", body)
+	end
 	--modified 15/12/13 - need to ensure button info is passed to the secure frame
 	--local newbody = format("%s%s%s %s", showtooltip, show, MT.click, securebutton:GetName())
-	local n = format("MTSB%d", index)
+	local n = format("MTSB%d", exists and idx or index)
 	local newbody = format(exFormat, showtooltip, show, MT.click, n, n, n, n, n)
 	if not idx then
 		MacroToolkitText.extended = true
 		_G[format("MacroToolkitButton%d", (MTF.selectedMacro - MTF.macroBase))].extended = true
 	end
-	local tmp = EditMacro(idx or MTF.selectedMacro, nil, nil, newbody)
-	if not save and not idx then
+	if exists then CreateMacro(MT.db.char.extended[idx].name, MT.db.char.extended[idx].icon, newbody, tonumber(idx) > _G.MAX_ACCOUNT_MACROS)
+	else EditMacro(idx or MTF.selectedMacro, nil, nil, newbody) end
+	if not save and not idx and not exists then
 		MacroToolkitExtend:SetText(L["Unextend"])
 		MacroToolkitText:GetScript("OnTextChanged")(MacroToolkitText)
 		MT:UpdateCharLimit()
@@ -591,12 +619,11 @@ function MT:MacroFrameUpdate()
 	local exmacros = {}
 
 	numMacros = (MTF.macroBase == 0) and numAccountMacros or numCharacterMacros
-	tab = PanelTemplates_GetSelectedTab(MTF)
 	if MT.MTCF then if MT.MTCF:IsShown() then tab = 4 end end
 	if tab == 3 then
 		numMacros = MT:CountExtra()
 		for i, exm in pairs(MT.db.global.extra) do table.insert(exmacros, {name = exm.name, texture = exm.texture, body = exm.body, index = i}) end
-		table.sort(exmacros, function(a, b) return a.name < b.name end)
+		table.sort(exmacros, function(a, b) return (a.name or "") < (b.name or "") end)
 	elseif tab == 2 then
 		if numMacros == _G.MAX_CHARACTER_MACROS then MacroToolkitCopyButton:Disable()
 		else MacroToolkitCopyButton:Enable() end
@@ -709,7 +736,7 @@ function MT:MacroFrameUpdate()
 				if tab == 4 then macroButton.extended = exmacros[i].extended end
 			else
 				macroButton:SetChecked(false)
-				if tab == 3 then macroButton.extra = 1000 end
+				if tab == 3 then macroButton.extra = 1001 end
 				macroIcon:SetTexture("")
 				macroName:SetText("")
 				macroUnbound:Hide()
@@ -817,22 +844,33 @@ function MT:MacroButtonOnClick(this, button)
 	else name = GetMacroInfo(MTF.selectedMacro) end
 	if not name then
 		if CursorHasMacro() and tab < 3 then
+			local maxm = (tab == 1) and _G.MAX_ACCOUNT_MACROS or _G.MAX_CHARACTER_MACROS
+			local mcount = select(tab, GetNumMacros())
+			if maxm == mcount then
+				StaticPopupDialogs.MACROTOOLKIT_ALERT.text = L["You have no more room for macros!"]
+				StaticPopupDialogs.MACROTOOLKIT_ALERT.showAlert = 1
+				StaticPopup_Show("MACROTOOLKIT_ALERT")
+				MTF.selectedMacro = nil
+				MT:HideDetails()
+				MT:MacroFrameUpdate()
+				return
+			end
 			local _, mid = GetCursorInfo()
 			local name, texture, body = GetMacroInfo(mid)
-			local tab = PanelTemplates_GetSelectedTab(MTF)
 			texture = string.gsub(string.upper(texture), "INTERFACE\\ICONS\\", "")
 			local s, e, index = string.find(body, "MTSB(%d+)")
 			if s then
-				local bg, bc = MT.db.global.extended[index], MT.db.char.extended[index]
+				local bg, bc, ni = MT.db.global.extended[index], MT.db.char.extended[index]
 				if bg and tab == 2 then
-					local ni = MT:GetNextIndex()
+					ni = MT:GetNextIndex()
 					MT.db.char.extended[ni] = bg
 					MT.db.global.extended[index] = nil
 				elseif bc and tab == 1 then
-					local ni = MT:GetNextIndex()
+					ni = MT:GetNextIndex()
 					MT.db.global.extended[ni] = bc
 					MT.db.char.extended[index] = nil
 				end
+				body = string.gsub(body, "MTSB%d+", format("MTSB%d", ni)) -- ticket 67
 			end
 			CreateMacro(name, texture, body, tab == 2)
 			MT:MacroFrameUpdate()
@@ -841,6 +879,7 @@ function MT:MacroButtonOnClick(this, button)
 		else
 			MTF.selectedMacro = nil
 			MT:HideDetails()
+			MT:MacroFrameUpdate()
 		end
 	end
 	MacroToolkitText.extended = button.extended
@@ -873,11 +912,16 @@ function MT:ShowDetails()
 end
 
 function MT:SaveMacro()
+	if InCombatLockdown() then
+		MT:CombatMessage()
+		return
+	end
 	if MTF.textChanged and MTF.selectedMacro then
 		if MTF.selectedMacro > 1000 then
+			--if not MTF.extra then return end
 			if not MT.db.global.extra then MT.db.global.extra = {} end
-			if not MT.db.global.extra[tostring(MTF.extra)] then MT.db.global.extra[tostring(MTF.extra)] = {} end
-			MT.db.global.extra[tostring(MTF.extra)].body = MacroToolkitText:GetText()
+			if not MT.db.global.extra[tostring(MTF.selectedMacro)] then MT.db.global.extra[tostring(MTF.selectedMacro)] = {} end
+			MT.db.global.extra[tostring(MTF.selectedMacro)].body = MacroToolkitText:GetText()
 			_G[format("MTSB%d", MTF.selectedMacro)]:SetAttribute("macrotext", MacroToolkitText:GetText())
 		else
 			if MacroToolkitText.extended then MT:ExtendMacro(true)
@@ -1002,6 +1046,11 @@ function MT:UpgradeToWod()
 		end
 	end
 	MT.db.char.wodupgrade = true
+end
+
+function MT:CombatMessage()
+	StaticPopupDialogs.MACROTOOLKIT_ALERT.text = _G.ERR_NOT_IN_COMBAT
+	StaticPopup_Show("MACROTOOLKIT_ALERT")
 end
 
 hooksecurefunc("SpellButton_OnModifiedClick", MTSpellButton_OnModifiedClick)

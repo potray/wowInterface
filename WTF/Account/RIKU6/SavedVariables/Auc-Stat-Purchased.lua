@@ -17,14 +17,14 @@ AucAdvancedStatPurchasedData = {
 				[36917] = "0:1;8;31587.5;31587.5;31587.5",
 			},
 			["daily"] = {
-				["created"] = 1417337551,
+				["created"] = 1419063404,
 			},
 		},
 		["Los Errantes-Alliance"] = {
 			["means"] = {
 			},
 			["daily"] = {
-				["created"] = 1417337551,
+				["created"] = 1419063404,
 			},
 		},
 	},

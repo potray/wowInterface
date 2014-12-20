@@ -551,7 +551,7 @@ DataStore_TalentsDB = {
 				["Talents2"] = 2129985,
 				["Talents1"] = 2101360,
 				["ActiveTalents"] = 1,
-				["lastUpdate"] = 1417387942,
+				["lastUpdate"] = 1419063439,
 				["GlyphList"] = {
 					11, -- [1]
 					11274, -- [2]
@@ -607,6 +607,8 @@ DataStore_TalentsDB = {
 				["Class"] = "PALADIN",
 			},
 			["Default.Dun Modr.Geddry"] = {
+				["ActiveTalents"] = 1,
+				["lastUpdate"] = 1418599653,
 				["GlyphList"] = {
 					11, -- [1]
 					5010, -- [2]
@@ -641,6 +643,7 @@ DataStore_TalentsDB = {
 					14772, -- [31]
 					17268, -- [32]
 				},
+				["Class"] = "MAGE",
 			},
 		},
 		["Reference"] = {
@@ -1010,7 +1013,7 @@ DataStore_TalentsRefDB = {
 		},
 		["PALADIN"] = {
 			["Locale"] = "enUS",
-			["Version"] = 19116,
+			["Version"] = 19342,
 			["Talents"] = {
 				"17565|Speed of Light|ability_paladin_speedoflight|1|1", -- [1]
 				"17567|Long Arm of the Law|ability_paladin_longarmofthelaw|1|2", -- [2]
@@ -1034,7 +1037,7 @@ DataStore_TalentsRefDB = {
 		},
 		["MAGE"] = {
 			["Locale"] = "enUS",
-			["Version"] = 19116,
+			["Version"] = 19243,
 			["Talents"] = {
 				"16011|Presence of Mind|Spell_Nature_EnchantArmor|1|1", -- [1]
 				"16012|Blazing Speed|Spell_Fire_BurningSpeed|1|2", -- [2]

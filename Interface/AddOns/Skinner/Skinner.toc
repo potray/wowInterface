@@ -5,14 +5,14 @@
 ## Notes-zhCN: 更改默认用户界面的视觉样式。
 ## Notes-zhTW: 更改預設用戶介面的視覺樣式。
 ## Author: Jncl
-## Version: b6.19116.10
+## Version: b6.19243.2
 ## OptionalDeps: Ace3, LibSharedMedia-3.0, AceGUI-3.0-SharedMediaWidgets, LibBetterBlizzOptions-1.0
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 ## SavedVariables: SkinnerDB
 #
 # LibStub & Callback Handler
-## X-Curse-Packaged-Version: b6.19116.10
+## X-Curse-Packaged-Version: b6.19243.2
 ## X-Curse-Project-Name: Skinner
 ## X-Curse-Project-ID: skinner
 ## X-Curse-Repository-ID: wow/skinner/mainline

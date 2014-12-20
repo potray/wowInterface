@@ -1,0 +1,47 @@
+
+MogItDB = {
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Default",
+	},
+	["global"] = {
+		["version"] = "v3.3.4",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["minimap"] = {
+				["hide"] = true,
+			},
+			["x"] = -122.999740600586,
+			["y"] = -15.4999523162842,
+			["gridHeight"] = 831.000183105469,
+			["url"] = "Wowhead",
+			["gridWidth"] = 1206.00061035156,
+		},
+	},
+}
+MogItWishlist = {
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Potray - Dun Modr",
+	},
+	["profiles"] = {
+		["Potray - Dun Modr"] = {
+			["sets"] = {
+				{
+					["items"] = {
+						["ChestSlot"] = 90098,
+						["WristSlot"] = 90103,
+						["FeetSlot"] = 90097,
+						["ShoulderSlot"] = 90102,
+						["HeadSlot"] = 90100,
+						["HandsSlot"] = 90099,
+						["LegsSlot"] = 90101,
+						["WaistSlot"] = 90096,
+					},
+					["name"] = "Holy Warrior Plate",
+					["alternateItems"] = {
+					},
+				}, -- [1]
+			},
+		},
+	},
+}

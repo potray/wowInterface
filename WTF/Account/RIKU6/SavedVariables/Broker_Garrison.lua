@@ -4,6 +4,8 @@ Broker_GarrisonDB = {
 		["data"] = {
 			["Los Errantes"] = {
 				["Elrad"] = {
+					["lootedToday"] = {
+					},
 					["configVersion"] = 2,
 					["missions"] = {
 					},
@@ -16,30 +18,34 @@ Broker_GarrisonDB = {
 						["playerClass"] = "PALADIN",
 						["realmName"] = "Los Errantes",
 					},
-					["notificationEnabled"] = true,
+					["currencyApexisAmount"] = 0,
 					["buildings"] = {
 					},
+					["notificationEnabled"] = true,
 					["currencyAmount"] = 0,
-					["currencyApexisAmount"] = 0,
+					["lootedNextReset"] = 1419127141,
 				},
 				["Drublock"] = {
+					["lootedToday"] = {
+					},
 					["configVersion"] = 2,
 					["missions"] = {
 					},
 					["tooltipEnabled"] = true,
 					["buildingsExpanded"] = true,
-					["missionsExpanded"] = true,
 					["currencyApexisAmount"] = 0,
-					["notificationEnabled"] = true,
-					["buildings"] = {
-					},
-					["currencyAmount"] = 0,
+					["missionsExpanded"] = true,
 					["info"] = {
 						["playerName"] = "Drublock",
 						["playerFaction"] = "Alliance",
 						["realmName"] = "Los Errantes",
 						["playerClass"] = "WARLOCK",
 					},
+					["buildings"] = {
+					},
+					["notificationEnabled"] = true,
+					["currencyAmount"] = 0,
+					["lootedNextReset"] = 1419127141,
 				},
 			},
 			["Dun Modr"] = {
@@ -48,59 +54,26 @@ Broker_GarrisonDB = {
 					},
 					["configVersion"] = 2,
 					["missions"] = {
-						[189] = {
+						[179] = {
 							["type"] = "Combat",
-							["id"] = 189,
-							["duration"] = 2700,
-							["missionState"] = 1,
-							["timeLeftCalc"] = 412,
-							["notification"] = 0,
-							["name"] = "The Needs of the Many",
-							["followers"] = {
-								{
-									["name"] = "Daleera Moonfang",
-									["id"] = "0x0000000000239163",
-									["abilities"] = {
-										{
-											["id"] = 148,
-											["name"] = "Dispel Magic",
-											["icon"] = "Interface\\ICONS\\SPELL_HOLY_DISPELMAGIC.BLP",
-										}, -- [1]
-										{
-											["id"] = 65,
-											["name"] = "Dwarvenborn",
-											["icon"] = "Interface\\ICONS\\Achievement_Character_Dwarf_Female.blp",
-										}, -- [2]
-										{
-											["id"] = 69,
-											["name"] = "Brew Aficionado",
-											["icon"] = "Interface\\ICONS\\Achievement_Character_Pandaren_Female.blp",
-										}, -- [3]
-									},
-									["classIcon"] = "GarrMission_ClassIcon-Priest",
-									["iconId"] = 1066123,
-								}, -- [1]
+							["id"] = 179,
+							["duration"] = 3600,
+							["rewards"] = {
+								[509] = {
+									["title"] = "Money Reward",
+									["quantity"] = 400000,
+									["icon"] = "Interface\\Icons\\inv_misc_coin_01",
+									["currencyID"] = 0,
+								},
 							},
-							["start"] = 1417385947,
-							["level"] = 94,
-							["timeLeft"] = "45 min",
-							["typeAtlas"] = "GarrMission_MissionIcon-Combat",
-						},
-						[375] = {
-							["type"] = "Combat",
-							["id"] = 375,
-							["duration"] = 36000,
-							["level"] = 97,
-							["timeLeftCalc"] = 7226,
-							["notification"] = 0,
-							["name"] = "Ancient of Corruption",
 							["missionState"] = 1,
-							["start"] = 1417359461,
+							["timeLeftCalc"] = 3280,
+							["notification"] = 0,
+							["name"] = "Worth Its Weight",
 							["followers"] = {
 								{
 									["name"] = "Rulkan",
 									["id"] = "0x00000000002B8A25",
-									["classIcon"] = "GarrMission_ClassIcon-Shaman",
 									["abilities"] = {
 										{
 											["id"] = 157,
@@ -118,63 +91,125 @@ Broker_GarrisonDB = {
 											["icon"] = "Interface\\ICONS\\Achievement_Boss_Ragnaros.blp",
 										}, -- [3]
 									},
+									["classIcon"] = "GarrMission_ClassIcon-Shaman",
 									["iconId"] = 1066100,
 								}, -- [1]
-								{
-									["name"] = "Ahm",
-									["id"] = "0x00000000003B33CA",
-									["classIcon"] = "GarrMission_ClassIcon-Warrior",
-									["abilities"] = {
-										{
-											["id"] = 102,
-											["name"] = "Heroic Leap",
-											["icon"] = "Interface\\ICONS\\Ability_HeroicLeap.blp",
-										}, -- [1]
-										{
-											["id"] = 56,
-											["name"] = "Enchanting",
-											["icon"] = "Interface\\ICONS\\Trade_Engraving.blp",
-										}, -- [2]
-									},
-									["iconId"] = 1066532,
-								}, -- [2]
-								{
-									["name"] = "Soulbinder Tuulani",
-									["id"] = "0x00000000003E3124",
-									["classIcon"] = "GarrMission_ClassIcon-Priest",
-									["abilities"] = {
-										{
-											["id"] = 11,
-											["name"] = "Prayer of Healing",
-											["icon"] = "Interface\\ICONS\\Spell_Holy_PrayerOfHealing02.blp",
-										}, -- [1]
-										{
-											["id"] = 62,
-											["name"] = "Skinning",
-											["icon"] = "Interface\\ICONS\\INV_Misc_Pelt_Wolf_01.blp",
-										}, -- [2]
-									},
-									["iconId"] = 1066103,
-								}, -- [3]
 							},
+							["start"] = 1419063513,
+							["level"] = 96,
+							["timeLeft"] = "1 hr",
 							["typeAtlas"] = "GarrMission_MissionIcon-Combat",
-							["timeLeft"] = "10 hr",
 						},
-						[376] = {
-							["type"] = "Combat",
-							["id"] = 376,
-							["duration"] = 36000,
-							["level"] = 98,
-							["timeLeftCalc"] = 7218,
-							["notification"] = 0,
-							["name"] = "The Gorian Warmaster",
+						[362] = {
+							["type"] = "Training",
+							["rewards"] = {
+								[749] = {
+									["itemID"] = 118475,
+									["quantity"] = 1,
+								},
+								[741] = {
+									["itemID"] = 118427,
+									["quantity"] = 1,
+								},
+							},
+							["id"] = 362,
+							["duration"] = 5400,
 							["missionState"] = 1,
-							["start"] = 1417359453,
+							["durationOriginal"] = 10800,
+							["timeLeftCalc"] = 5036,
+							["notification"] = 0,
+							["name"] = "Hearthstone Tournament",
+							["followers"] = {
+								{
+									["name"] = "Admiral Taylor",
+									["id"] = "0x0000000000486985",
+									["abilities"] = {
+										{
+											["id"] = 122,
+											["name"] = "Recklessness",
+											["icon"] = "Interface\\ICONS\\warrior_skullbanner.blp",
+										}, -- [1]
+										{
+											["id"] = 58,
+											["name"] = "Inscription",
+											["icon"] = "Interface\\ICONS\\INV_Inscription_Tradeskill01.blp",
+										}, -- [2]
+										{
+											["id"] = 221,
+											["name"] = "Epic Mount",
+											["icon"] = "Interface\\ICONS\\MountJournalPortrait.blp",
+										}, -- [3]
+									},
+									["classIcon"] = "GarrMission_ClassIcon-Warrior",
+									["iconId"] = 1066531,
+								}, -- [1]
+							},
+							["start"] = 1419063469,
+							["level"] = 90,
+							["timeLeft"] = "1 hr 30 min",
+							["typeAtlas"] = "GarrMission_MissionIcon-Training",
+						},
+						[191] = {
+							["type"] = "Combat",
+							["id"] = 191,
+							["duration"] = 3600,
+							["rewards"] = {
+								[506] = {
+									["title"] = "Currency Reward",
+									["quantity"] = 42,
+									["icon"] = "Interface\\Icons\\inv_garrison_resource",
+									["currencyID"] = 824,
+								},
+							},
+							["missionState"] = 1,
+							["timeLeftCalc"] = 3252,
+							["notification"] = 0,
+							["name"] = "Knotty by Nature",
+							["followers"] = {
+								{
+									["name"] = "Miall",
+									["id"] = "0x00000000003B0ED5",
+									["abilities"] = {
+										{
+											["id"] = 6,
+											["name"] = "Shield Wall",
+											["icon"] = "Interface\\ICONS\\Ability_Warrior_ShieldWall.blp",
+										}, -- [1]
+										{
+											["id"] = 36,
+											["name"] = "Demonslayer",
+											["icon"] = "Interface\\ICONS\\Achievement_Boss_PrinceMalchezaar_02.blp",
+										}, -- [2]
+									},
+									["classIcon"] = "GarrMission_ClassIcon-Warrior",
+									["iconId"] = 1066108,
+								}, -- [1]
+							},
+							["start"] = 1419063485,
+							["level"] = 96,
+							["timeLeft"] = "1 hr",
+							["typeAtlas"] = "GarrMission_MissionIcon-Combat",
+						},
+						[268] = {
+							["type"] = "Combat",
+							["id"] = 268,
+							["duration"] = 14400,
+							["rewards"] = {
+								[648] = {
+									["title"] = "Currency Reward",
+									["quantity"] = 130,
+									["icon"] = "Interface\\Icons\\inv_garrison_resource",
+									["currencyID"] = 824,
+								},
+							},
+							["missionState"] = 1,
+							["timeLeftCalc"] = 14048,
+							["notification"] = 0,
+							["name"] = "Who's the Boss?",
 							["followers"] = {
 								{
 									["name"] = "Delvar Ironfist",
 									["id"] = "0x00000000001F049B",
-									["classIcon"] = "GarrMission_ClassIcon-DeathKnight",
 									["abilities"] = {
 										{
 											["id"] = 231,
@@ -192,12 +227,12 @@ Broker_GarrisonDB = {
 											["icon"] = "Interface\\ICONS\\Achievement_Zone_ThousandNeedles_01.blp",
 										}, -- [3]
 									},
+									["classIcon"] = "GarrMission_ClassIcon-DeathKnight",
 									["iconId"] = 1066337,
 								}, -- [1]
 								{
 									["name"] = "Bruma Swiftstone",
 									["id"] = "0x00000000001F1DC6",
-									["classIcon"] = "GarrMission_ClassIcon-Rogue",
 									["abilities"] = {
 										{
 											["id"] = 161,
@@ -209,39 +244,61 @@ Broker_GarrisonDB = {
 											["name"] = "Alchemy",
 											["icon"] = "Interface\\ICONS\\Trade_Alchemy.blp",
 										}, -- [2]
+										{
+											["id"] = 64,
+											["name"] = "Humanist",
+											["icon"] = "Interface\\ICONS\\Achievement_Character_Human_Female.blp",
+										}, -- [3]
 									},
+									["classIcon"] = "GarrMission_ClassIcon-Rogue",
 									["iconId"] = 1066199,
 								}, -- [2]
 								{
-									["name"] = "Rangari Chel",
-									["id"] = "0x0000000000226231",
-									["classIcon"] = "GarrMission_ClassIcon-Hunter",
+									["name"] = "Soulbinder Tuulani",
+									["id"] = "0x00000000003E3124",
 									["abilities"] = {
 										{
-											["id"] = 101,
-											["name"] = "Multi-Shot",
-											["icon"] = "Interface\\ICONS\\Ability_UpgradeMoonGlaive.blp",
+											["id"] = 11,
+											["name"] = "Prayer of Healing",
+											["icon"] = "Interface\\ICONS\\Spell_Holy_PrayerOfHealing02.blp",
 										}, -- [1]
 										{
-											["id"] = 60,
-											["name"] = "Leatherworking",
-											["icon"] = "Interface\\ICONS\\Trade_LeatherWorking.blp",
+											["id"] = 62,
+											["name"] = "Skinning",
+											["icon"] = "Interface\\ICONS\\INV_Misc_Pelt_Wolf_01.blp",
 										}, -- [2]
+										{
+											["id"] = 68,
+											["name"] = "Canine Companion",
+											["icon"] = "Interface\\ICONS\\Ability_Worgen_DarkFlight.blp",
+										}, -- [3]
 									},
-									["iconId"] = 1066129,
+									["classIcon"] = "GarrMission_ClassIcon-Priest",
+									["iconId"] = 1066103,
 								}, -- [3]
 							},
+							["start"] = 1419063481,
+							["level"] = 100,
+							["timeLeft"] = "4 hr",
 							["typeAtlas"] = "GarrMission_MissionIcon-Combat",
-							["timeLeft"] = "9 hr 59 min",
 						},
-						[267] = {
+						[169] = {
 							["type"] = "Combat",
-							["id"] = 267,
-							["duration"] = 14400,
+							["id"] = 169,
+							["duration"] = 5400,
+							["rewards"] = {
+								[545] = {
+									["title"] = "Bonus Follower XP",
+									["followerXP"] = 1000,
+									["tooltip"] = "+1,000 XP",
+									["icon"] = "Interface\\Icons\\XPBonus_Icon",
+									["name"] = "+1,000 XP",
+								},
+							},
 							["missionState"] = 1,
-							["timeLeftCalc"] = 12107,
+							["timeLeftCalc"] = 5084,
 							["notification"] = 0,
-							["name"] = "Waylay the Warlord",
+							["name"] = "Burning Desire",
 							["followers"] = {
 								{
 									["name"] = "Artificer Romuul",
@@ -257,58 +314,15 @@ Broker_GarrisonDB = {
 											["name"] = "Rebuke",
 											["icon"] = "Interface\\ICONS\\Spell_Holy_Rebuke.blp",
 										}, -- [2]
+										{
+											["id"] = 37,
+											["name"] = "Beastslayer",
+											["icon"] = "Interface\\ICONS\\Achievement_Boss_kingdred.blp",
+										}, -- [3]
 									},
 									["classIcon"] = "GarrMission_ClassIcon-Paladin",
 									["iconId"] = 1066098,
 								}, -- [1]
-								{
-									["name"] = "Fiona",
-									["id"] = "0x00000000002BA054",
-									["abilities"] = {
-										{
-											["id"] = 11,
-											["name"] = "Prayer of Healing",
-											["icon"] = "Interface\\ICONS\\Spell_Holy_PrayerOfHealing02.blp",
-										}, -- [1]
-										{
-											["id"] = 53,
-											["name"] = "Herbalism",
-											["icon"] = "Interface\\ICONS\\Trade_Herbalism.blp",
-										}, -- [2]
-										{
-											["id"] = 148,
-											["name"] = "Dispel Magic",
-											["icon"] = "Interface\\ICONS\\SPELL_HOLY_DISPELMAGIC.BLP",
-										}, -- [3]
-										{
-											["id"] = 9,
-											["name"] = "Wastelander",
-											["icon"] = "Interface\\ICONS\\Achievement_Zone_Tanaris_01.blp",
-										}, -- [4]
-										{
-											["id"] = 80,
-											["name"] = "Extra Training",
-											["icon"] = "Interface\\ICONS\\Garrison_Building_SparringArena.blp",
-										}, -- [5]
-									},
-									["classIcon"] = "GarrMission_ClassIcon-Priest",
-									["iconId"] = 1066059,
-								}, -- [2]
-							},
-							["start"] = 1417385942,
-							["level"] = 100,
-							["timeLeft"] = "4 hr",
-							["typeAtlas"] = "GarrMission_MissionIcon-Combat",
-						},
-						[373] = {
-							["type"] = "Combat",
-							["id"] = 373,
-							["duration"] = 36000,
-							["missionState"] = 1,
-							["timeLeftCalc"] = 33720,
-							["notification"] = 0,
-							["name"] = "Steeltusk Lives",
-							["followers"] = {
 								{
 									["name"] = "Qiana Moonshadow",
 									["id"] = "0x00000000001EF745",
@@ -331,52 +345,16 @@ Broker_GarrisonDB = {
 									},
 									["classIcon"] = "GarrMission_ClassIcon-Druid",
 									["iconId"] = 1066112,
-								}, -- [1]
-								{
-									["name"] = "Miall",
-									["id"] = "0x00000000003B0ED5",
-									["abilities"] = {
-										{
-											["id"] = 6,
-											["name"] = "Shield Wall",
-											["icon"] = "Interface\\ICONS\\Ability_Warrior_ShieldWall.blp",
-										}, -- [1]
-										{
-											["id"] = 36,
-											["name"] = "Demonslayer",
-											["icon"] = "Interface\\ICONS\\Achievement_Boss_PrinceMalchezaar_02.blp",
-										}, -- [2]
-									},
-									["classIcon"] = "GarrMission_ClassIcon-Warrior",
-									["iconId"] = 1066108,
 								}, -- [2]
-								{
-									["name"] = "Shelly Hamby",
-									["id"] = "0x00000000002B9134",
-									["abilities"] = {
-										{
-											["id"] = 160,
-											["name"] = "Sprint",
-											["icon"] = "Interface\\ICONS\\Ability_Rogue_Sprint.blp",
-										}, -- [1]
-										{
-											["id"] = 60,
-											["name"] = "Leatherworking",
-											["icon"] = "Interface\\ICONS\\Trade_LeatherWorking.blp",
-										}, -- [2]
-									},
-									["classIcon"] = "GarrMission_ClassIcon-Rogue",
-									["iconId"] = 1066399,
-								}, -- [3]
 							},
-							["start"] = 1417385955,
-							["level"] = 95,
-							["timeLeft"] = "10 hr",
+							["start"] = 1419063517,
+							["level"] = 99,
+							["timeLeft"] = "1 hr 30 min",
 							["typeAtlas"] = "GarrMission_MissionIcon-Combat",
 						},
 					},
 					["tooltipEnabled"] = true,
-					["garrisonCacheLastLooted"] = 1417345896,
+					["garrisonCacheLastLooted"] = 1419063547,
 					["buildingsExpanded"] = true,
 					["missionsExpanded"] = true,
 					["info"] = {
@@ -386,6 +364,24 @@ Broker_GarrisonDB = {
 						["realmName"] = "Dun Modr",
 					},
 					["buildings"] = {
+						[24] = {
+							["hasFollowerSlot"] = false,
+							["buildingState"] = 0,
+							["shipment"] = {
+							},
+							["id"] = 26,
+							["plotID"] = 24,
+							["plotSize"] = 3,
+							["buildTime"] = 3600,
+							["canActivate"] = false,
+							["notification"] = 1,
+							["name"] = "Barracks",
+							["timeStart"] = 1418545026,
+							["texPrefix"] = "GarrBuilding_Barracks_1_A",
+							["isBuilding"] = false,
+							["icon"] = "Interface\\ICONS\\Garrison_Building_Barracks.blp",
+							["rank"] = 1,
+						},
 						[63] = {
 							["hasFollowerSlot"] = true,
 							["buildingState"] = 0,
@@ -409,75 +405,132 @@ Broker_GarrisonDB = {
 							["icon"] = "Interface\\ICONS\\INV_Misc_Herb_SansamRoot.blp",
 							["rank"] = 2,
 						},
-						[59] = {
+						[67] = {
 							["hasFollowerSlot"] = true,
 							["buildingState"] = 0,
 							["follower"] = {
 							},
 							["shipment"] = {
-								["shipmentsAvailable"] = 0,
-								["itemName"] = "Mine",
-								["shipmentsInProgress"] = 14,
-								["shipmentsTotal"] = 14,
-								["notificationValue"] = 0,
-								["duration"] = 14400,
-								["shipmentsReadyEstimate"] = 0,
-								["itemID"] = 116055,
-								["itemQuality"] = 1,
-								["notificationDismissed"] = false,
-								["timeleftString"] = "2 hr 24 min",
-								["name"] = "Lunarfall Excavation",
-								["shipmentCapacity"] = 14,
-								["creationTime"] = 1417382545,
-								["shipmentsReady"] = 0,
-								["texture"] = "Interface\\ICONS\\Trade_Mining.blp",
 							},
-							["id"] = 62,
-							["plotID"] = 59,
+							["id"] = 134,
+							["plotID"] = 67,
 							["plotSize"] = 2,
 							["buildTime"] = 3600,
 							["canActivate"] = false,
-							["name"] = "Lunarfall Excavation",
-							["timeStart"] = 1416648358,
-							["texPrefix"] = "GarrBuilding_Mine_1_A",
+							["notification"] = 1,
+							["name"] = "Fishing Shack",
+							["timeStart"] = 1416915768,
+							["texPrefix"] = "GarrBuilding_Fishing_2_A",
 							["isBuilding"] = false,
-							["icon"] = "Interface\\ICONS\\Trade_Mining.blp",
+							["icon"] = "Interface\\ICONS\\Trade_Fishing.blp",
 							["rank"] = 2,
 						},
 						[18] = {
-							["hasFollowerSlot"] = true,
+							["hasFollowerSlot"] = false,
 							["buildingState"] = 0,
-							["follower"] = {
-							},
 							["shipment"] = {
-								["shipmentsAvailable"] = 0,
-								["itemName"] = "Truesteel Ingot",
-								["shipmentsInProgress"] = 14,
-								["shipmentsTotal"] = 14,
-								["notificationValue"] = 0,
-								["duration"] = 14400,
-								["shipmentsReadyEstimate"] = 0,
-								["itemID"] = 108257,
-								["itemQuality"] = 2,
-								["notificationDismissed"] = false,
-								["timeleftString"] = "33 min",
-								["name"] = "The Forge",
-								["shipmentCapacity"] = 14,
-								["creationTime"] = 1417375854,
-								["shipmentsReady"] = 0,
-								["texture"] = "Interface\\ICONS\\Trade_BlackSmithing.blp",
 							},
-							["id"] = 117,
+							["id"] = 140,
 							["plotID"] = 18,
 							["plotSize"] = 1,
 							["buildTime"] = 3600,
 							["canActivate"] = false,
 							["notification"] = 1,
+							["name"] = "Salvage Yard",
+							["timeStart"] = 1417869964,
+							["texPrefix"] = "GarrBuilding_SalvageYard_1_A",
+							["isBuilding"] = false,
+							["icon"] = "Interface\\ICONS\\Garrison_Building_SalvageYard.blp",
+							["rank"] = 2,
+						},
+						[19] = {
+							["hasFollowerSlot"] = true,
+							["buildingState"] = 0,
+							["follower"] = {
+							},
+							["shipment"] = {
+								["shipmentsAvailable"] = 0,
+								["itemName"] = "Taladite Crystal",
+								["duration"] = 14400,
+								["shipmentsReadyEstimate"] = 4,
+								["notification"] = 1,
+								["creationTime"] = 1419060437,
+								["shipmentsReady"] = 4,
+								["texture"] = "Interface\\ICONS\\INV_Misc_Gem_01.blp",
+								["notificationValue"] = 4,
+								["shipmentsInProgress"] = 10,
+								["notificationDismissed"] = false,
+								["timeleftString"] = "3 hr 2 min",
+								["shipmentsTotal"] = 14,
+								["itemID"] = 115524,
+								["itemQuality"] = 2,
+								["name"] = "Gem Boutique",
+								["shipmentCapacity"] = 14,
+							},
+							["id"] = 131,
+							["plotID"] = 19,
+							["plotSize"] = 1,
+							["buildTime"] = 3600,
+							["canActivate"] = false,
+							["notification"] = 1,
+							["name"] = "Gem Boutique",
+							["timeStart"] = 1417216563,
+							["texPrefix"] = "GarrBuilding_Jewelcrafting_2_A",
+							["isBuilding"] = false,
+							["icon"] = "Interface\\ICONS\\INV_Misc_Gem_01.blp",
+							["rank"] = 2,
+						},
+						[20] = {
+							["hasFollowerSlot"] = false,
+							["buildingState"] = 0,
+							["shipment"] = {
+								["shipmentsAvailable"] = 0,
+								["itemName"] = "Truesteel Ingot",
+								["duration"] = 14400,
+								["shipmentsReadyEstimate"] = 4,
+								["notification"] = 1,
+								["creationTime"] = 1419056755,
+								["shipmentsReady"] = 4,
+								["texture"] = "Interface\\ICONS\\Trade_BlackSmithing.blp",
+								["notificationValue"] = 4,
+								["shipmentsInProgress"] = 3,
+								["notificationDismissed"] = false,
+								["timeleftString"] = "2 hr 1 min",
+								["shipmentsTotal"] = 7,
+								["itemID"] = 108257,
+								["itemQuality"] = 2,
+								["name"] = "The Forge",
+								["shipmentCapacity"] = 7,
+							},
+							["id"] = 60,
+							["plotID"] = 20,
+							["plotSize"] = 1,
+							["buildTime"] = 3600,
+							["canActivate"] = false,
+							["notification"] = 1,
 							["name"] = "The Forge",
-							["timeStart"] = 1417216556,
-							["texPrefix"] = "GarrBuilding_Blacksmith_2_A",
+							["timeStart"] = 1418595983,
+							["texPrefix"] = "GarrBuilding_Blacksmith_1_A",
 							["isBuilding"] = false,
 							["icon"] = "Interface\\ICONS\\Trade_BlackSmithing.blp",
+							["rank"] = 1,
+						},
+						[25] = {
+							["hasFollowerSlot"] = false,
+							["buildingState"] = 0,
+							["shipment"] = {
+							},
+							["id"] = 35,
+							["plotID"] = 25,
+							["plotSize"] = 2,
+							["buildTime"] = 3600,
+							["canActivate"] = false,
+							["notification"] = 1,
+							["name"] = "Lunarfall Inn",
+							["timeStart"] = 1419005441,
+							["texPrefix"] = "GarrBuilding_Inn_2_A",
+							["isBuilding"] = false,
+							["icon"] = "Interface\\ICONS\\INV_MISC_RUNE_01.BLP",
 							["rank"] = 2,
 						},
 						[22] = {
@@ -500,61 +553,12 @@ Broker_GarrisonDB = {
 							["icon"] = "Interface\\ICONS\\Garrison_Building_Barn.blp",
 							["rank"] = 1,
 						},
-						[19] = {
-							["hasFollowerSlot"] = true,
-							["buildingState"] = 0,
-							["follower"] = {
-							},
-							["shipment"] = {
-								["shipmentsAvailable"] = 0,
-								["itemName"] = "Taladite Crystal",
-								["shipmentsInProgress"] = 14,
-								["shipmentsTotal"] = 14,
-								["notificationValue"] = 0,
-								["duration"] = 14400,
-								["shipmentsReadyEstimate"] = 0,
-								["itemID"] = 115524,
-								["itemQuality"] = 2,
-								["notificationDismissed"] = false,
-								["timeleftString"] = "29 min",
-								["name"] = "Gem Boutique",
-								["shipmentCapacity"] = 14,
-								["creationTime"] = 1417375637,
-								["shipmentsReady"] = 0,
-								["texture"] = "Interface\\ICONS\\INV_Misc_Gem_01.blp",
-							},
-							["id"] = 131,
-							["plotID"] = 19,
-							["plotSize"] = 1,
-							["buildTime"] = 3600,
-							["canActivate"] = false,
-							["notification"] = 1,
-							["name"] = "Gem Boutique",
-							["timeStart"] = 1417216563,
-							["texPrefix"] = "GarrBuilding_Jewelcrafting_2_A",
-							["isBuilding"] = false,
-							["icon"] = "Interface\\ICONS\\INV_Misc_Gem_01.blp",
-							["rank"] = 2,
-						},
 						[23] = {
 							["hasFollowerSlot"] = false,
 							["buildingState"] = 0,
 							["shipment"] = {
-								["shipmentsAvailable"] = 1,
-								["itemName"] = "Forged Weapons and Armor",
-								["shipmentsInProgress"] = 13,
-								["shipmentsTotal"] = 13,
-								["notificationValue"] = 0,
-								["duration"] = 14400,
-								["shipmentsReadyEstimate"] = 0,
-								["itemID"] = 120204,
-								["itemQuality"] = 1,
-								["notificationDismissed"] = false,
-								["timeleftString"] = "1 hr 41 min",
 								["name"] = "Dwarven Bunker",
 								["shipmentCapacity"] = 14,
-								["creationTime"] = 1417379930,
-								["shipmentsReady"] = 0,
 								["texture"] = "Interface\\ICONS\\Garrison_Building_Armory.blp",
 							},
 							["id"] = 9,
@@ -570,33 +574,51 @@ Broker_GarrisonDB = {
 							["icon"] = "Interface\\ICONS\\Garrison_Building_Armory.blp",
 							["rank"] = 2,
 						},
-						[67] = {
+						[59] = {
 							["hasFollowerSlot"] = true,
 							["buildingState"] = 0,
 							["follower"] = {
 							},
 							["shipment"] = {
+								["shipmentsAvailable"] = 2,
+								["itemName"] = "Mine",
+								["duration"] = 14400,
+								["shipmentsReadyEstimate"] = 4,
+								["notification"] = 1,
+								["creationTime"] = 1419052945,
+								["shipmentsReady"] = 4,
+								["texture"] = "Interface\\ICONS\\Trade_Mining.blp",
+								["notificationValue"] = 4,
+								["shipmentsInProgress"] = 8,
+								["notificationDismissed"] = false,
+								["timeleftString"] = "57 min",
+								["shipmentsTotal"] = 12,
+								["itemID"] = 116055,
+								["itemQuality"] = 1,
+								["name"] = "Lunarfall Excavation",
+								["shipmentCapacity"] = 14,
 							},
-							["id"] = 134,
-							["plotID"] = 67,
+							["id"] = 62,
+							["plotID"] = 59,
 							["plotSize"] = 2,
 							["buildTime"] = 3600,
 							["canActivate"] = false,
-							["notification"] = 1,
-							["name"] = "Fishing Shack",
-							["timeStart"] = 1416915768,
-							["texPrefix"] = "GarrBuilding_Fishing_2_A",
+							["name"] = "Lunarfall Excavation",
+							["timeStart"] = 1416648358,
+							["texPrefix"] = "GarrBuilding_Mine_1_A",
 							["isBuilding"] = false,
-							["icon"] = "Interface\\ICONS\\Trade_Fishing.blp",
+							["icon"] = "Interface\\ICONS\\Trade_Mining.blp",
 							["rank"] = 2,
 						},
 					},
 					["notificationEnabled"] = true,
-					["currencyApexisAmount"] = 166,
-					["currencyAmount"] = 596,
-					["lootedNextReset"] = 1417399170,
+					["currencyApexisAmount"] = 2382,
+					["currencyAmount"] = 297,
+					["lootedNextReset"] = 1419127141,
 				},
 				["Geddry"] = {
+					["lootedToday"] = {
+					},
 					["configVersion"] = 2,
 					["missions"] = {
 					},
@@ -609,11 +631,12 @@ Broker_GarrisonDB = {
 						["playerClass"] = "MAGE",
 						["realmName"] = "Dun Modr",
 					},
-					["notificationEnabled"] = true,
+					["currencyApexisAmount"] = 0,
 					["buildings"] = {
 					},
+					["notificationEnabled"] = true,
 					["currencyAmount"] = 0,
-					["currencyApexisAmount"] = 0,
+					["lootedNextReset"] = 1419127141,
 				},
 			},
 		},

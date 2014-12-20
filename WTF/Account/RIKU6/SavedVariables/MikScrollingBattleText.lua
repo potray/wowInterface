@@ -3,9 +3,6 @@ MSBTProfiles_SavedVars = {
 	["profiles"] = {
 		["Default"] = {
 			["scrollAreas"] = {
-				["Outgoing"] = {
-					["offsetY"] = -159,
-				},
 				["Static"] = {
 					["direction"] = "Up",
 					["offsetX"] = -17,
@@ -13,7 +10,11 @@ MSBTProfiles_SavedVars = {
 					["animationStyle"] = "Straight",
 					["scrollHeight"] = 83.6113739013672,
 				},
+				["Outgoing"] = {
+					["offsetY"] = -159,
+				},
 			},
+			["groupNumbers"] = true,
 			["events"] = {
 				["NOTIFICATION_EXPERIENCE_GAIN"] = {
 					["disabled"] = false,
@@ -28,7 +29,6 @@ MSBTProfiles_SavedVars = {
 					["disabled"] = true,
 				},
 			},
-			["groupNumbers"] = true,
 			["creationVersion"] = "5.7.132",
 		},
 	},

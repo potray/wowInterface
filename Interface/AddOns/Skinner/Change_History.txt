@@ -1,3 +1,35 @@
+b6.19243.1
+Jncl:
+	ToDo.txt
+	Updated Change_History.txt
+	Updated BuildNo check value
+	Updated GarrisonMissionUI skin
+	Bugfix for Garrison Cache alert frame skin
+	Updated Baggins skin
+	Unobsoleted LibExtraTip
+	Skinned RaidBuffStatus
+
+b6.19116.11
+Jncl:
+	ToDo.txt
+	Updated Change_History.txt
+	Code Tidyup
+	Bugfix for GarrisonCache Alert
+	Bugfix for GarrisonMissionUI
+	Updated ArchaeologyUI & PetJournal skins
+	Updated Dominos skin
+	Skinned BonusRollPreview & QuestMapWithDetails
+	Obsoleted Habeebit & Squire2_Config
+
+b6.19116.10
+Jncl:
+	ToDo.txt
+	Updated Change_History.txt
+	Changed function hooked for Tab updates
+	Updated AddonList skin
+	Updated Armory, Notes & ZygorGuidesViewer
+	Slinned GarrisonMissionManager & MasterPlan
+
 b6.19116.9
 Jncl:
 	ToDo.txt

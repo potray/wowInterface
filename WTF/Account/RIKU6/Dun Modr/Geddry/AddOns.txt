@@ -9,7 +9,7 @@ SexyMap: enabled
 Carbonite: disabled
 CarboniteItems: enabled
 CarboniteNodes: enabled
-clcInfo: disabled
+clcInfo: enabled
 CarboniteTransfer: enabled
 TomTom: enabled
 Carbonite.Info: enabled
@@ -116,7 +116,7 @@ Quartz: enabled
 Recount: enabled
 ShadowedUF_Options: enabled
 ShadowedUnitFrames: enabled
-SlideBar: enabled
+SlideBar: disabled
 SpellFlashCore: disabled
 Stubby: enabled
 !Swatter: enabled

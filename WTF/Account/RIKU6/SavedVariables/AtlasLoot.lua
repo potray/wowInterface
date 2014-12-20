@@ -4,13 +4,15 @@ AtlasLootDB = {
 		["DefaultFrame"] = {
 			["profiles"] = {
 				["Potray - Dun Modr"] = {
+					["module"] = "AtlasLootClassicWoW",
 					["NEWpoint"] = {
-						nil, -- [1]
+						"RIGHT", -- [1]
 						nil, -- [2]
-						"CENTER", -- [3]
-						203.999755859375, -- [4]
-						85.99996185302734, -- [5]
+						"RIGHT", -- [3]
+						-164.500045776367, -- [4]
+						-39.0000648498535, -- [5]
 					},
+					["instance"] = "BlackfathomDeeps",
 				},
 			},
 		},

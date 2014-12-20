@@ -20,3 +20,6 @@ VER 3 0000000000000005 "Quitar raid fram" "Ability_Hunter_OneWithNature"
 /run CompactRaidFrameManager:UnregisterAllEvents()
 CompactRaidFrameManager:Hide() CompactRaidFrameContainer:UnregisterAllEvents() CompactRaidFrameContainer:Hide() 
 END
+VER 3 0000000000000007 "Talbuk" "SPELL_NATURE_SWIFTNESS"
+/rw talbuk encontrado!!!! Enfrente del templo de karabor!!!
+END

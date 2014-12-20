@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+<Script file="Basilisk.lua"/>
+<Script file="Bat.lua"/>
+<Script file="Bear.lua"/>
+<Script file="Beetle.lua"/>
+<Script file="BirdofPrey.lua"/>
+<Script file="Boar.lua"/>
+<Script file="CarrionBird.lua"/>
+<Script file="Cat.lua"/>
+<Script file="Chimaera.lua"/>
+<Script file="CoreHound.lua"/>
+<Script file="Crab.lua"/>
+<Script file="Crane.lua"/>
+<Script file="Crocolisk.lua"/>
+<Script file="Devilsaur.lua"/>
+<Script file="Direhorn.lua"/>
+<Script file="Dog.lua"/>
+<Script file="Dragonhawk.lua"/>
+<Script file="Fox.lua"/>
+<Script file="Goat.lua"/>
+<Script file="Gorilla.lua"/>
+<Script file="Hyena.lua"/>
+<Script file="Monkey.lua"/>
+<Script file="Moth.lua"/>
+<Script file="NetherRay.lua"/>
+<Script file="Porcupine.lua"/>
+<Script file="Quilen.lua"/>
+<Script file="Raptor.lua"/>
+<Script file="Ravager.lua"/>
+<Script file="Rhino.lua"/>
+<Script file="Scorpid.lua"/>
+<Script file="Serpent.lua"/>
+<Script file="ShaleSpider.lua"/>
+<Script file="Silithid.lua"/>
+<Script file="Spider.lua"/>
+<Script file="SpiritBeast.lua"/>
+<Script file="Sporebat.lua"/>
+<Script file="Tallstrider.lua"/>
+<Script file="Turtle.lua"/>
+<Script file="WarpStalker.lua"/>
+<Script file="Wasp.lua"/>
+<Script file="WaterStrider.lua"/>
+<Script file="WindSerpent.lua"/>
+<Script file="Wolf.lua"/>
+<Script file="Worm.lua"/>
+</Ui>

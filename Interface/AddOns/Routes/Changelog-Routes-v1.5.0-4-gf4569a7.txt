@@ -1,6 +1,0 @@
-Ethan Centaurai:
-	- Removed duplicate binding headers.
-Hendrik Leppkes:
-	- Fix mapFile lookup in HandyNotes plugin for Draenor zones
-	- Remove bindings to the Waypoints module, which doesn't exist anymore
-	- Fixes for changed Gatherer API

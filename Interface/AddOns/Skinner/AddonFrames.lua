@@ -174,21 +174,21 @@ end
 local addonSkins = {
 	"_NPCScan",
 	"Accountant", "Acheron", "AckisRecipeList", "ACP", "AdiBags", "Altoholic", "AphesLootBrowser", "Archy", "ArkInventory", "ArkInventoryRules", "Armory", "ArmoryGuildBank", "Atlas", "AtlasLoot", "Auctionator", "AuctionMaster", "Auctionsnatch", "AutoDecline",
-	"Baggins", "Bagnon_Forever", "Bagnon", "BankItems", "Bartender4", "BattlePetCount", "BaudBag", "BaudManifest", "BetterInbox", "BindPad", "BlackList", "BossInfo", "BossNotes", "BossNotes_PersonalNotes", "Bugger", "BugSack", "BulkMail2", "BulkMail2Inbox", "BuyEmAll",
+	"Baggins", "Bagnon_Forever", "Bagnon", "BankItems", "Bartender4", "BattlePetCount", "BaudBag", "BaudManifest", "BetterInbox", "BindPad", "BlackList", "BonusRollPreview", "BossInfo", "BossNotes", "BossNotes_PersonalNotes", "Bugger", "BugSack", "BulkMail2", "BulkMail2Inbox", "BuyEmAll",
 	"Carbonite", "CensusPlus", "CFM", "Chatter", "Clique", "Collectinator", "CollectMe", "Combuctor", "CombustionHelper", "CompactMissions", "CoolLine", "Cork", "Cosplay",
 	"DeathNote", "DockingStation", "Dominos",
 	"ElvUI", "EnergyWatch", "EnhancedColourPicker", "EnhancedFlightMap", "EnhancedStackSplit", "epgp_lootmaster", "epgp_lootmaster_ml", "epgp", "Examiner", "ExtVendor",
 	"FarmIt2", "FeedMachine", "FishingBuddy", "Fizzle", "FlaresThatWork", "FlightMapEnhanced", "FlyoutButtonCustom", "Fortress", "FramesResized", "FreierGeist_InstanceTime",
 	"G15Buttons", "Glamour", "GnomeWorks", "GnomishVendorShrinker", "GroupCalendar5", "GuildLaunchCT_RaidTracker", "GuildMaster",
-	"HabeebIt", "HandyNotes", "HaveWeMet", "HealBot", "HoloFriends",
+	"HandyNotes", "HaveWeMet", "HealBot", "HoloFriends",
 	"InboxMailBag", "ItemDB",
 	"LegacyQuest", "Livestock", "LUI",
 	"Mapster", "MapsterEnhanced", "MarkingBar", "Megaphone", "MinimalArchaeology", "MinimapButtonFrame", "MogIt", "MrTrader_SkillWindow", "MyGarrisons",
 	"Notes",
 	"oGlow", "oQueue", "oRA3", "Omen", "OneBag3", "OneBank3", "Outfitter", "Overachiever",
 	"Panda", "Pawn", "Perl_CombatDisplay", "Perl_Focus", "Perl_Party", "Perl_Party_Pet", "Perl_Party_Target", "Perl_Player", "Perl_Player_Pet", "Perl_Target", "Perl_Target_Target", "PetBattleHUD", "PetBattleMaster", "PetTracker", "PetTracker_Switcher", "PetTracker_Journal", "PhoenixStyle", "Possessions", "PowerAuras", "PowerAurasButtons", "PreformAVEnabler", "ProfessionsVault", "ProspectBar",
-	"Quartz", "QuestCompletist", "QuestGuru", "QuestGuru_Tracker", "QuestHelper2", "QuestHistory", "QuickMark",
-	"RaidAchievement", "RaidRoll", "RaidRoll_LootTracker", "RAQ", "ReagentRestocker", "Recount", "REFlex", "RicoMiniMap",
+	"Quartz", "QuestCompletist", "QuestGuru", "QuestGuru_Tracker", "QuestHelper2", "QuestHistory", "QuestMapWithDetails", "QuickMark",
+	"RaidAchievement", "RaidBuffStatus", "RaidRoll", "RaidRoll_LootTracker", "RAQ", "ReagentRestocker", "Recount", "REFlex", "RicoMiniMap",
 	"ScrollMaster", "SilverDragon", "Skada", "Skillet", "Smoker", "SnapShot", "SorhaQuestLog", "Spew", "Squeenix", "StaggerMeter",
 	"TargetCharms", "TooManyAddons", "TradeSkillMaster", "TrinketBar", "Tukui",
 	"UrbanAchiever",
@@ -205,7 +205,7 @@ local addonSkins = {
 	"EasyUnlock", "EavesDrop", "EditingUI", "EggTimer", "EnchantMe", "EngBags", "EnhancedTradeSkills", "EquipCompare", "EventEquip",
 	"Factionizer", "FBagOfHolding", "FB_OutfitDisplayFrame", "FB_TrackingFrame", "FlightMap", "FPSideBar",
 	"Gatherer", "GemMe", "Gobling", "Gossipmonger", "Grid", "GrimReaper", "GuildBankAccount", "GuildGreet", "GupPet",
-	"Hack", "Hadar_FocusFrame", "HatTrick", "HeadCount", "Highlight", "HitsMode",
+	"HabeebIt", "Hack", "Hadar_FocusFrame", "HatTrick", "HeadCount", "Highlight", "HitsMode",
 	"InspectEquip", "IntricateChatMods", "IPopBar", "ItemRack", "ItemSync",
 	"LauncherMenu", "LazyAFK", "LightHeaded", "Links", "LinkWrangler",
 	"MacroBank", "MacroBrokerGUI", "MailTo", "MakeRocketGoNow", "MobMap", "MonkeyQuest", "MonkeyQuestLog", "Mountiful", "MoveAnything", "MTLove", "MuffinMOTD", "MyBags", "myClock",
@@ -248,6 +248,7 @@ aObj.libsToSkin = {
 	["LibDropdown-1.0"] = "LibDropdown",
 	["LibToast-1.0"] = "LibToast",
 	["LibDialog-1.0"] = "LibDialog",
+	["LibExtraTip-1"] = "LibExtraTip",
 }
 --[[
 -- aObj.addonsToSkin["!Swatter"] = "Swatter"
@@ -256,7 +257,6 @@ aObj.libsToSkin = {
 	-- ["AceAddon-2.0"] = "Ace2",
 	-- ["Tablet-2.0"] = "Tablet",
 	-- ["Waterfall-1.0"] = "Waterfall",
-	-- ["LibExtraTip-1"] = "LibExtraTip",
 	-- ["LibSimpleFrame-Mod-1.0"] = "LibSimpleFrame",
 ]]
 function aObj:AddonFrames()
@@ -377,7 +377,7 @@ local lodFrames = {
 	"MasterPlan",
 	"Overachiever_Tabs",
 	"PetJournalEnhanced", "Perl_Config_Options",
-	"Scrap_Merchant", "Scrap_Options", "Scrap_Visualizer", "Squire2_Config",
+	"Scrap_Merchant", "Scrap_Options", "Scrap_Visualizer",
 	"WeakAurasOptions",
 	"XPerl_Options",
 }
@@ -389,6 +389,7 @@ local lodFrames = {
 	--"ItemRackOptions",
 	--"MSBTOptions",
 	--"oRA2_Leader", "oRA2_Participant",
+	--"Squire2_Config",
 	--"Talented_GlyphFrame", "TradeTabs", "TipTacOptions",
 	--"ZOMGBuffs_BlessingsManager",
 ]]

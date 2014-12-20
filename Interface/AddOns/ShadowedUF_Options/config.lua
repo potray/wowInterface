@@ -885,7 +885,7 @@ local function loadGeneralOptions()
 								order = 3,
 								type = "select",
 								name = L["Outline"],
-								values = {["OUTLINE"] = L["Thin outline"], ["THICKOUTLINE"] = L["Thick outline"], ["MONOCHROME"] = L["Monochrome"], [""] = L["None"]},
+								values = {["OUTLINE"] = L["Thin outline"], ["THICKOUTLINE"] = L["Thick outline"], ["MONOCHROMEOUTLINE"] = L["Monochrome Outline"], [""] = L["None"]},
 								arg = "font.extra",
 								hidden = hideAdvancedOption,
 							},
@@ -4286,11 +4286,14 @@ local function loadUnitOptions()
 								order = 3,
 								type = "toggle",
 								name = L["Dismissable Totem bars"],
+								hidden = function()
+									return not ShadowUF.modules.totemBar:SecureLockable()
+								end,
 								desc = function(info)
 									return L["Allows you to disable the totem by right clicking it.|n|nWarning: Inner bars for this unit will not resize in combat if you enable this."]
 								end,
 								arg = "totemBar.secure",
-							},
+							}
 						},
 					},
 					emptyBar = {

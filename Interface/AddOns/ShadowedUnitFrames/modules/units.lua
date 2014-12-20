@@ -7,7 +7,7 @@ Units.headerUnits = {["raid"] = true, ["party"] = true, ["maintank"] = true, ["m
 local stateMonitor = CreateFrame("Frame", nil, nil, "SecureHandlerBaseTemplate")
 stateMonitor.raids = {}
 local playerClass = select(2, UnitClass("player"))
-local unitFrames, headerFrames, frameList, unitEvents, childUnits, headerUnits, queuedCombat = Units.unitFrames, Units.headerFrames, Units.frameList, Units.unitEvents, Units.childUnits, Units.headerUnits, {}
+local unitFrames, headerFrames, frameList, unitEvents, childUnits, headerUnits, queuedCombat, zoneUnits = Units.unitFrames, Units.headerFrames, Units.frameList, Units.unitEvents, Units.childUnits, Units.headerUnits, {}, Units.zoneUnits
 local remappedUnits = Units.remappedUnits
 local _G = getfenv(0)
 
@@ -16,6 +16,7 @@ ShadowUF:RegisterModule(Units, "units")
 
 -- This is the wrapper frame that everything parents to so we can just hide it when we need to deal with pet battles
 local petBattleFrame = CreateFrame("Frame", "SUFWrapperFrame", UIParent, "SecureHandlerBaseTemplate")
+petBattleFrame:SetFrameStrata("BACKGROUND")
 petBattleFrame:SetAllPoints(UIParent)
 petBattleFrame:WrapScript(petBattleFrame, "OnAttributeChanged", [[
 	if( name ~= "state-petbattle" ) then return end
@@ -991,7 +992,26 @@ local function setupRaidStateMonitor(id, headerFrame)
 	stateMonitor.raids[id]:SetFrameRef("raidHeader", headerFrame)
 	stateMonitor.raids[id]:SetAttribute("hideSemiRaid", ShadowUF.db.profile.units.raid.hideSemiRaid)
 	stateMonitor.raids[id]:WrapScript(stateMonitor.raids[id], "OnAttributeChanged", [[
-		if( name ~= "state-raidmonitor" and name ~= "raiddisabled" and name ~= "hidesemiraid" ) then return end
+		if( name == "hasraid" or name == "hasparty" or name == "recheck" ) then
+			local header = self:GetFrameRef("raidHeader")
+			local raid = self:GetAttribute("hasraid")
+			local party = self:GetAttribute("hasparty")
+
+			if( header:GetAttribute("showParty") ) then
+				if( not party and not raid ) then
+					header:Hide()
+				elseif( party or raid ) then
+					header:Show()
+				end
+			elseif( not raid ) then
+				header:Hide()
+			elseif( raid ) then
+				header:Show()
+			end
+
+		elseif( name ~= "state-raidmonitor" and name ~= "raiddisabled" and name ~= "hidesemiraid" ) then
+			return
+		end
 
 		local header = self:GetFrameRef("raidHeader")
 		if( self:GetAttribute("raidDisabled") ) then
@@ -1007,6 +1027,8 @@ local function setupRaidStateMonitor(id, headerFrame)
 	]])
 	
 	RegisterStateDriver(stateMonitor.raids[id], "raidmonitor", "[target=raid6, exists] raid6; none")
+	RegisterStateDriver(stateMonitor.raids[id], "hasraid", "[target=raid1, exists] raid; none")
+	RegisterStateDriver(stateMonitor.raids[id], "hasparty", "[target=party1, exists] party; none")
 end
 
 function Units:LoadSplitGroupHeader(type)
@@ -1016,6 +1038,7 @@ function Units:LoadSplitGroupHeader(type)
 	for id, monitor in pairs(stateMonitor.raids) do
 		monitor:SetAttribute("hideSemiRaid", ShadowUF.db.profile.units.raid.hideSemiRaid)
 		monitor:SetAttribute("raidDisabled", id == -1 and true or nil)
+		monitor:SetAttribute("recheck", time())
 	end
 
 	local config = ShadowUF.db.profile.units[type]
@@ -1169,6 +1192,13 @@ end
 function Units:LoadZoneHeader(type)
 	if( headerFrames[type] ) then
 		headerFrames[type]:Show()
+		for _, child in pairs(headerFrames[type].children) do
+			RegisterUnitWatch(child, child.hasStateWatch)
+		end
+
+		if( type == "arena" ) then
+			self:InitializeArena()
+		end
 		return
 	end
 	
@@ -1273,6 +1303,10 @@ function Units:LoadZoneHeader(type)
 
 	self:SetHeaderAttributes(headerFrame, type)
 	ShadowUF.Layout:AnchorFrame(UIParent, headerFrame, ShadowUF.db.profile.positions[type])	
+
+	if( type == "arena" ) then
+		self:InitializeArena()
+	end
 end
 
 -- Load a unit that is a child of another unit (party pet/party target)
@@ -1367,6 +1401,11 @@ function Units:UninitializeFrame(type)
 		
 		if( headerFrames[type].children ) then
 			for _, frame in pairs(headerFrames[type].children) do
+				if( self.zoneUnits[type] ) then
+					UnregisterUnitWatch(frame)
+					frame:SetAttribute("state-unitexists", false)
+				end
+
 				frame:Hide()
 			end
 		end
@@ -1375,6 +1414,7 @@ function Units:UninitializeFrame(type)
 		for frame in pairs(frameList) do
 			if( frame.unitType == type ) then
 				UnregisterUnitWatch(frame)
+				frame:SetAttribute("state-unitexits", false)
 				frame:Hide()
 			end
 		end

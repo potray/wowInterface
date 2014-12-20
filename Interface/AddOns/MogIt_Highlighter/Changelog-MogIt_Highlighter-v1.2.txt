@@ -1,0 +1,13 @@
+tag v1.2
+a0a8338ed2e72dfd02903626fd0f313f07ae5cc7
+Ethan Centaurai <ethancentaurai@outlook.com>
+2014-10-15 16:42:24 +0100
+
+Tagging as v1.2.
+
+
+--------------------
+
+Ethan Centaurai:
+	- Updated quest reward highlighting for Patch 6.0. Will not work on 5.x realms.
+	- Bump Interface number to 60000.

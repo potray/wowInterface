@@ -1,0 +1,17 @@
+﻿## Interface: 50400
+## Title: MogIt_Armory
+## Notes: Displays the transmog sets of randomly selected players
+## Author: Aelobin (The Maelstrom EU)
+## Version: 2.0
+## LoadOnDemand: 1
+## RequiredDeps: MogIt
+## X-MogItModuleVersion: 2
+## X-Curse-Packaged-Version: v2.0
+## X-Curse-Project-Name: MogIt_Armory
+## X-Curse-Project-ID: mogit_armory
+## X-Curse-Repository-ID: wow/mogit_armory/mainline
+
+MogIt_Armory.lua
+Filters\Filters.xml
+
+Realms.lua

@@ -116,9 +116,9 @@ RecountDB = {
 					["w"] = 151.99983215332,
 					["h"] = 158.999893188477,
 				},
+				["ShowScrollbar"] = false,
 				["Buttons"] = {
 					["CloseButton"] = false,
-					["ResetButton"] = false,
 					["ReportButton"] = false,
 				},
 				["BarText"] = {
@@ -184,7 +184,7 @@ RecountDB = {
 			["CurDataSet"] = "OverallData",
 			["MainWindowHeight"] = 158.999877929688,
 			["MainWindowWidth"] = 151.999938964844,
-			["LastInstanceName"] = "Teron'gor's Confrontation",
+			["LastInstanceName"] = "Proving Grounds",
 		},
 		["Zhenya - Los Errantes"] = {
 			["GraphWindowY"] = 0,

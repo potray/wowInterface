@@ -1,0 +1,8 @@
+2014-12-17  ovolkov  <ovolkov>
+
+[5369281ce0e6] [v14]
+* GarrisonMissionManager.toc, GarrisonMissionManager.txt:
+
+v14 docs + toc
+
+

@@ -1,0 +1,13 @@
+tag 1.3.3
+ce32db4a30896893a3bb9fa7e7492e985e23544e
+Steffen Buehl <sb@sbuehl.com>
+2014-12-15 20:43:55 +0100
+
+tagging as 1.3.3
+
+
+--------------------
+
+Steffen Buehl:
+	- fixing green squares by actually using the returnvalue of GetItemInfo
+	- handle nil results from getiteminfo (item not cached yet) - next step (todo): remember textures in SVs

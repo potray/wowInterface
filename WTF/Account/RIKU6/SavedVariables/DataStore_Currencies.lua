@@ -34,6 +34,7 @@ DataStore_CurrenciesDB = {
 				"Warlords of Draenor|", -- [16]
 				"Garrison Resources|Interface\\Icons\\inv_garrison_resource", -- [17]
 				"Apexis Crystal|Interface\\Icons\\inv_apexis_draenor", -- [18]
+				"Seal of Tempered Fate|Interface\\Icons\\ability_animusorbs", -- [19]
 			},
 			["CurrencyTextRev"] = {
 				["Ironpaw Token"] = 13,
@@ -42,18 +43,19 @@ DataStore_CurrenciesDB = {
 				["Valor Points"] = 10,
 				["Mists of Pandaria"] = 14,
 				["Player vs. Player"] = 5,
+				["Dungeon and Raid"] = 1,
 				["Epicurean's Award"] = 12,
 				["Honor Points"] = 7,
-				["Warlords of Draenor"] = 16,
 				["Miscellaneous"] = 3,
-				["Garrison Resources"] = 17,
+				["Warlords of Draenor"] = 16,
+				["Lesser Charm of Good Fortune"] = 15,
 				["Apexis Crystal"] = 18,
 				["Justice Points"] = 2,
 				["Cataclysm"] = 8,
-				["Lesser Charm of Good Fortune"] = 15,
 				["Conquest Points"] = 6,
+				["Garrison Resources"] = 17,
 				["Champion's Seal"] = 4,
-				["Dungeon and Raid"] = 1,
+				["Seal of Tempered Fate"] = 19,
 			},
 		},
 		["Characters"] = {
@@ -239,15 +241,16 @@ DataStore_CurrenciesDB = {
 					274, -- [2]
 					7, -- [3]
 					150, -- [4]
-					152, -- [5]
+					1688, -- [5]
 					29, -- [6]
 					542, -- [7]
 					11, -- [8]
 					12, -- [9]
-					1678, -- [10]
+					2190, -- [10]
 					33, -- [11]
-					21284, -- [12]
-					76322, -- [13]
+					304932, -- [12]
+					38050, -- [13]
+					422, -- [14]
 				},
 				["Archeology"] = {
 					35, -- [1]
@@ -262,14 +265,14 @@ DataStore_CurrenciesDB = {
 					0, -- [10]
 					0, -- [11]
 					0, -- [12]
-					38, -- [13]
-					24, -- [14]
-					38, -- [15]
+					18, -- [13]
+					47, -- [14]
+					19, -- [15]
 				},
-				["lastUpdate"] = 1417387942,
+				["lastUpdate"] = 1419063547,
 				["CurrencyInfo"] = {
-					[392] = "13-0-0-4000",
-					[390] = "0-0-1700-0",
+					[392] = "17-0-0-4000",
+					[390] = "0-0-3700-0",
 					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
 				},
@@ -279,10 +282,10 @@ DataStore_CurrenciesDB = {
 					11, -- [1]
 					12, -- [2]
 				},
-				["lastUpdate"] = 1417306931,
+				["lastUpdate"] = 1418599653,
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
-					[390] = "0-0-1700-0",
+					[390] = "0-0-2700-0",
 					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
 				},

@@ -1,0 +1,19 @@
+
+HandyNotesDB = {
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Potray - Dun Modr",
+	},
+	["profiles"] = {
+		["Potray - Dun Modr"] = {
+		},
+	},
+}
+HandyNotes_HandyNotesDB = {
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Potray - Dun Modr",
+	},
+	["profiles"] = {
+		["Potray - Dun Modr"] = {
+		},
+	},
+}

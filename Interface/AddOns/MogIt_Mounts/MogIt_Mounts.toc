@@ -1,0 +1,17 @@
+﻿## Interface: 50300
+## Title: MogIt_Mounts
+## Notes: Mounts module for MogIt
+## Author: Aelobin (The Maelstrom EU)
+## Version: 3.0
+## LoadOnDemand: 1
+## RequiredDeps: MogIt
+## X-MogItModuleVersion: 1
+## X-Curse-Packaged-Version: v3.0
+## X-Curse-Project-Name: MogIt_Mounts
+## X-Curse-Project-ID: mogit_mounts
+## X-Curse-Repository-ID: wow/mogit_mounts/mainline
+
+MogIt_Mounts.lua
+Ground.lua
+Flying.lua
+Aquatic.lua

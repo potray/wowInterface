@@ -55,21 +55,25 @@ SkinnerDB = {
 			["TabDDTexture"] = "Blizzard Low Health",
 			["BodyText"] = {
 				["a"] = 1,
-				["r"] = 0.976470588235294,
-				["g"] = 1,
 				["b"] = 1,
+				["g"] = 1,
+				["r"] = 0.976470588235294,
 			},
 			["BackdropBorder"] = {
+				["b"] = 0.0745098039215686,
+				["g"] = 0,
+				["r"] = 1,
+			},
+			["TooltipBorder"] = {
 				["r"] = 1,
 				["g"] = 0,
-				["b"] = 0.0745098039215686,
+				["b"] = 0.0941176470588235,
 			},
-			["BdDefault"] = false,
 			["HeadText"] = {
 				["a"] = 1,
-				["r"] = 1,
-				["g"] = 0.976470588235294,
 				["b"] = 0.976470588235294,
+				["g"] = 0.976470588235294,
+				["r"] = 1,
 			},
 			["DraenorZoneAbility"] = false,
 			["DisabledSkins"] = {
@@ -82,10 +86,10 @@ SkinnerDB = {
 				["Bagnon_GuildBank"] = true,
 				["Carbonite"] = true,
 				["Bagnon_Forever"] = true,
-				["PetTracker"] = true,
+				["PetTracker_Journal"] = true,
 				["PetTracker_Switcher"] = true,
 				["Omen"] = true,
-				["PetTracker_Journal"] = true,
+				["PetTracker"] = true,
 			},
 			["MainMenuBar"] = {
 				["skin"] = false,
@@ -95,11 +99,7 @@ SkinnerDB = {
 			["Tooltips"] = {
 				["style"] = 3,
 			},
-			["TooltipBorder"] = {
-				["b"] = 0.0941176470588235,
-				["g"] = 0,
-				["r"] = 1,
-			},
+			["BdDefault"] = false,
 			["OverrideActionBar"] = false,
 			["Backdrop"] = {
 				["a"] = 1,

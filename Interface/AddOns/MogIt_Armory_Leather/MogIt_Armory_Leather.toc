@@ -1,0 +1,14 @@
+## Interface: 50400
+## Title: MogIt_Armory_Leather
+## Notes: Leather profiles for MogIt_Armory
+## Author: Aelobin (The Maelstrom EU)
+## Version: 2
+## LoadOnDemand: 1
+## RequiredDeps: MogIt_Armory
+## X-Curse-Packaged-Version: v2.0
+## X-Curse-Project-Name: MogIt_Armory
+## X-Curse-Project-ID: mogit_armory
+## X-Curse-Repository-ID: wow/mogit_armory/mainline
+
+eu.lua
+us.lua

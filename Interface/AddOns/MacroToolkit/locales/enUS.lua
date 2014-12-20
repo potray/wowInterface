@@ -128,6 +128,7 @@ L["Make all character specific macros available to all characters"] = true
 L["This may impact performance and loading time on low end machines"] = true
 L["You will need to log into each of your characters with Macro Toolkit enabled to update Macro Toolkit's copy of that character's macros"] = true
 L["This will remove Macro Toolkit's copy of all your character specific Macros. The macros themselves will not be affected."] = true
+L["Summon random favourite mount"] = true
 
 --conditions
 L["Condition Builder"] = true
@@ -200,6 +201,8 @@ L["novehicleui"] = "player has no vehicle UI"
 L["worn"] = "equipped"
 L["Upgrade Mists of Pandria macros? Only answer yes if you used Macro Toolkit in Mists of Pandaria. This only needs to be done once per character."] = true
 L["talent"] = true
+L["Macro Toolkit has found %d orphaned macros. Restore?"] = true
+L["Restoring macro"] = true
 
 --parameters
 L["ctrl"] = true

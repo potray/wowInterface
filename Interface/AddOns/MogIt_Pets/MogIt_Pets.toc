@@ -1,0 +1,17 @@
+﻿## Interface: 50300
+## Title: MogIt_Pets
+## Notes: Hunter pets module for MogIt
+## Author: Aelobin (The Maelstrom EU)
+## Version: 3.0
+## LoadOnDemand: 1
+## RequiredDeps: MogIt
+## X-MogItModuleVersion: 1
+## X-Curse-Packaged-Version: v3.0
+## X-Curse-Project-Name: MogIt_Pets
+## X-Curse-Project-ID: mogit_pets
+## X-Curse-Repository-ID: wow/mogit_pets/mainline
+
+MogIt_Pets.lua
+Pets\Pets.xml
+
+Filters.lua

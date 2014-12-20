@@ -163,7 +163,8 @@ end
 
 function MT:UnbindKey(keyPressed)
 	local oldAction = GetBindingAction(keyPressed)
-	if oldAction ~= "" and oldAction ~= MTB.selected then
+	local sel = MTB and MTB.selected or ""
+	if oldAction ~= "" and oldAction ~= sel then
 		local key1, key2 = GetBindingKey(oldAction)
 		if (not key1 or key1 == keyPressed) and (not key2 or key2 == keyPressed) then
 			local bname = GetBindingText(oldAction, "BINDING_NAME_")
@@ -179,7 +180,7 @@ function MT:UnbindKey(keyPressed)
 				if s then ubtext = GetMacroInfo(tonumber(n))
 				else ubtext = bname end
 			end
-			MTB.outputtext:SetFormattedText(_G.KEY_UNBOUND_ERROR, ubtext)
+			if MTB then MTB.outputtext:SetFormattedText(_G.KEY_UNBOUND_ERROR, ubtext) end
 		end
 	end
 	SetBinding(keyPressed)
