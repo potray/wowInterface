@@ -1,0 +1,19 @@
+tag b6.19342.1
+b2b0c28bd25901fa5adb778c2ccf12e180c19be4
+Jncl <jncl@mac.com>
+2014-12-21 17:37:55 +0000
+
+Tagging as b6.19342.1
+
+
+--------------------
+
+Jncl:
+	- ToDo.txt
+	- Updated Change_History.txt
+	- Updated build number check
+	- Cosmetic changes
+	- Skin extra reward buttons in GarrisonMissionUI
+	- Bugfix for options
+	- Bugfix for Nameplate skin
+	- Updated AuctionMaster & MasterPlan skins

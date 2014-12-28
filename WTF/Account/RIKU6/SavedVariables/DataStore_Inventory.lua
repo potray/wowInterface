@@ -219,21 +219,21 @@ DataStore_InventoryDB = {
 					"|cffffffff|Hitem:109944:0:0:0:0:0:0:0:100:0:2:2:43:524|h[]|h|r", -- [3]
 					nil, -- [4]
 					"|cffffffff|Hitem:114499:0:5348:0:0:0:0:0:100:0:1:3:147:560:563|h[]|h|r", -- [5]
-					"|cff1eff00|Hitem:114704:0:0:0:0:0:0:0:100:0:11:0|h[Plainsthunder Girdle]|h|r", -- [6]
+					"|cffffffff|Hitem:114704:0:0:0:0:0:0:0:100:0:11:0|h[]|h|r", -- [6]
 					"|cffffffff|Hitem:118087:0:0:0:0:0:0:0:100:0:11:0|h[]|h|r", -- [7]
 					"|cffffffff|Hitem:114443:0:0:0:0:0:0:0:100:0:1:1:184|h[]|h|r", -- [8]
 					"|cffffffff|Hitem:114435:0:0:0:0:0:0:0:100:0:1:1:487|h[]|h|r", -- [9]
-					"|cff0070dd|Hitem:109857:0:0:0:0:0:0:0:100:0:2:1:524|h[Verdant Plate Grips]|h|r", -- [10]
-					"|cffa335ee|Hitem:115794:0:0:0:0:0:0:0:100:0:13:4:525:539:263:539|h[Glowing Taladite Ring of the Windshaper]|h|r", -- [11]
+					"|cffffffff|Hitem:109857:0:0:0:0:0:0:0:100:0:2:1:524|h[]|h|r", -- [10]
+					"|cffffffff|Hitem:115794:0:0:0:0:0:0:0:100:0:13:4:525:539:263:539|h[]|h|r", -- [11]
 					"|cffa335ee|Hitem:118290:0:0:0:0:0:0:0:100:0:11:0|h[Solium Band of Might]|h|r", -- [12]
 					"|cff0070dd|Hitem:110012:0:0:0:0:0:0:0:100:0:1:1:522|h[Bonemaw's Big Toe]|h|r", -- [13]
 					"|cff0070dd|Hitem:114369:0:0:0:0:0:0:0:100:0:1:0|h[Tormented Fang of Gore]|h|r", -- [14]
 					"|cffffffff|Hitem:109912:0:0:0:0:0:0:0:100:0:1:1:522|h[]|h|r", -- [15]
-					"|cffa335ee|Hitem:115328:0:0:0:0:0:0:0:100:0:1:1:49|h[Grandiose Greataxe of the Peerless]|h|r", -- [16]
+					"|cffffffff|Hitem:115328:0:0:0:0:0:0:0:100:0:1:1:49|h[]|h|r", -- [16]
 				},
-				["averageItemLvl"] = 611.9375,
+				["averageItemLvl"] = 621.933349609375,
 				["overallAIL"] = 621.933349609375,
-				["lastUpdate"] = 1419063438,
+				["lastUpdate"] = 1419768166,
 			},
 			["Default.Dun Modr.Geddry"] = {
 				["Inventory"] = {

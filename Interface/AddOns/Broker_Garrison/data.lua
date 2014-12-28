@@ -22,8 +22,20 @@ Garrison.colors = {
 	--lightGray = {r=(82/255), g=(91/255), b=(97/255), a=1},
 }
 
+local resets = {
+	[1] = 3, -- US, Tuesday
+	[2] = 5, -- Korea, Thursday
+	[3] = 4, -- Europe(Russia), Wednesday
+	[4] = 5, -- Taiwan, Thursday
+	[5] = 5, -- China, Thursday
+}
+
+Garrison.REGION = _G.GetCurrentRegion()
+Garrison.WeeklyResetDay = resets[Garrison.REGION]
+
 Garrison.GARRISON_CURRENCY = 824
 Garrison.GARRISON_CURRENCY_APEXIS = 823
+Garrison.GARRISON_CURRENTY_SEAL_OF_TEMPERED_FATE = 994
 
 Garrison.GARRISON_TRACK_LOOT_ITEM = {
 	{
@@ -51,6 +63,53 @@ Garrison.LOOT_PATTERN = {
 	},
 }
 
+Garrison.DURATION_PATTERN = {
+	{
+		format = GARRISON_DURATION_DAYS_HOURS,
+		numMatch = 2,
+		factor = {
+			[0] = 86400,
+			[1] = 3600,
+		},
+	},	
+	{
+		format = GARRISON_DURATION_DAYS,
+		numMatch = 1,
+		factor =  {
+			[0] = 86400,
+		},
+	},
+	{
+		format = GARRISON_DURATION_HOURS_MINUTES,
+		numMatch = 2,
+		factor = {
+			[0] = 3600,
+			[1] = 60,
+		},
+	},
+	{
+		format = GARRISON_DURATION_HOURS,
+		numMatch = 1,
+		factor = {
+			[0] = 3600,
+		},
+	},
+	{
+		format = GARRISON_DURATION_MINUTES,
+		numMatch = 1,
+		factor = {
+			[0] = 60,
+		},
+	},
+	{
+		format = GARRISON_DURATION_SECONDS,
+		numMatch = 1,
+		factor = {
+			[0] = 1,
+		},
+	}
+}
+
 Garrison.buildingInfo = {
 	["Mine"] = {
 		trackLootItemId = 115508,
@@ -69,7 +128,28 @@ Garrison.buildingInfo = {
 			[136] = 2,
 			[137] = 3,
 		},
-	}	
+	},
+	["War Mill"] = {
+		--trackQuestId = 36058,
+		trackCustom = function() return _G.IsQuestFlaggedCompleted(36058) end,
+		trackCustomId = "WARMILL",
+		minLevel = 3,
+		weekly = true,
+		["level"] = {
+			[8] = 1,
+			[9] = 2,
+			[10] = 3,
+		},
+	},
+	["Inn"] = {
+		trackCustomId = "INN",
+		minLevel = 2,
+		["level"] = {
+			[34] = 1,
+			[35] = 2,
+			[36] = 3,
+		},
+	},
 }
 
 Garrison.instanceId = {
@@ -123,7 +203,6 @@ Garrison.STATE_MISSION_INPROGRESS = 1
 
 Garrison.COLOR_TABLE = _G.CUSTOM_CLASS_COLORS or _G.RAID_CLASS_COLORS
 
-
 local mediaPath = "Interface\\AddOns\\Broker_Garrison\\Media\\"
 
 Garrison.ICON_REPLACEMENT = {
@@ -152,16 +231,15 @@ Garrison.ICON_REPLACEMENT = {
 	["Interface\\ICONS\\INV_Misc_Gem_01.blp"] = mediaPath.."inv_misc_gem_01",
 	["Interface\\ICONS\\INV_Misc_Armorkit_17.blp"] = mediaPath.."inv_misc_armorkit_17",
 	["Interface\\ICONS\\INV_Inscription_Tradeskill01.blp"] = mediaPath.."inv_inscription_tradeskill01",
-
-
-
 }
 
 Garrison.ICON_PATH_CURRENCY = mediaPath.."Inv_Garrison_Resource"
 Garrison.ICON_PATH_CURRENCY_APEXIS = mediaPath.."Inv_Apexis_Draenor"
 
+
 Garrison.ICON_PATH_CURRENCY_TOOLTIP = mediaPath.."bg_garrison_resource_tooltip"
 Garrison.ICON_PATH_CURRENCY_APEXIS_TOOLTIP = mediaPath.."bg_apexis_draenor_tooltip"
+Garrison.ICON_PATH_CURRENCY_TEMPERED_FATE_TOOLTIP = mediaPath.."bg_garrison_sealoftemperedfate_tooltip"
 
 Garrison.ICON_PATH_MISSION = mediaPath.."bg_missions"
 Garrison.ICON_PATH_BUILDING = mediaPath.."bg_buildings"
@@ -178,6 +256,7 @@ Garrison.ICON_PATH_CHECK = mediaPath.."check"
 Garrison.ICON_PATH_CHECK_WAITING = mediaPath.."check_waiting"
 Garrison.ICON_PATH_WARNING = mediaPath.."warning"
 
+Garrison.ICON_PATH_INVASION = mediaPath.."invasion"
 
 Garrison.COMPLETED_PATTERN = "^[^%d]*(0)[^%d]*$"
 --Garrison.ICON_CURRENCY = string.format("\124T%s\\%s:%d:%d:1:0\124t", mediaPath, name, 16, 16)
@@ -186,6 +265,7 @@ Garrison.ICON_CURRENCY = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY, 16,
 Garrison.ICON_CURRENCY_APEXIS = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_APEXIS, 16, false)
 Garrison.ICON_CURRENCY_TOOLTIP = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_TOOLTIP, 16, false)
 Garrison.ICON_CURRENCY_APEXIS_TOOLTIP = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_APEXIS_TOOLTIP, 16, false)
+Garrison.ICON_CURRENCY_TEMPERED_FATE_TOOLTIP = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_TEMPERED_FATE_TOOLTIP, 16, false)
 
 
 Garrison.ICON_MISSION = Garrison.getIconString(Garrison.ICON_PATH_MISSION, 16, false)
@@ -197,6 +277,7 @@ Garrison.ICON_ARROW_UP_WAITING = Garrison.getIconString(Garrison.ICON_PATH_ARROW
 Garrison.ICON_CHECK = Garrison.getIconString(Garrison.ICON_PATH_CHECK, 16, false)
 Garrison.ICON_CHECK_WAITING = Garrison.getIconString(Garrison.ICON_PATH_CHECK_WAITING, 16, false)
 Garrison.ICON_WARNING = Garrison.getIconString(Garrison.ICON_PATH_WARNING, 16, false)
+Garrison.ICON_INVASION = Garrison.getIconString(Garrison.ICON_PATH_INVASION, 16, false)
 
 
 --Garrison.ICON_CURRENCY_APEXIS = string.format("\124TInterface\\Icons\\Inv_Apexis_Draenor:%d:%d:1:0\124t", 16, 16)
@@ -209,6 +290,19 @@ Garrison.ICON_CLOSE = Garrison.getIconString(Garrison.ICON_PATH_CLOSE, 16, false
 
 Garrison.ICON_OPEN_DOWN = Garrison.ICON_OPEN
 Garrison.ICON_CLOSE_DOWN = Garrison.ICON_CLOSE
+
+Garrison.Icon = {
+	[Garrison.TYPE_MISSION] = Garrison.ICON_PATH_MISSION,
+	[Garrison.TYPE_SHIPMENT] = Garrison.ICON_PATH_BUILDING,
+	[Garrison.TYPE_BUILDING] = Garrison.ICON_PATH_BUILDING,
+}
+
+Garrison.NotificationTitle = {
+	[Garrison.TYPE_BUILDING] = L["Building"],
+	[Garrison.TYPE_MISSION] = L["Mission"],
+	[Garrison.TYPE_SHIPMENT] = L["Shipment"],	
+}
+
 
 Garrison.tooltipConfig = {
 	["-"] = {
@@ -317,7 +411,7 @@ Garrison.ldbTemplate = {
 	},	
 	["B1"] = {
 		name = L["Shipments Ready (All characters)"],
-		text = L["Shipments Ready: %sr%%cachewarning%"],
+		text = L["Shipments Ready: %sr%%cachewarning%"].."%cinvasion%",
 		type = Garrison.TYPE_BUILDING,
 	},
 	["B2"] = {
@@ -542,6 +636,14 @@ Garrison.ldbVars = {
 		name = L["Apexis Crystals"],
 		data = function(data) return Garrison.getTableValue(data, "currencyApexisAmount") or 0 end,
 	},
+	["sotf"] = {
+		name = L["Seal of Tempered Fate"],
+		data = function(data) return Garrison.getTableValue(data, "currencySealOfTemperedFateAmount") or 0 end,
+	},	
+	["sotficon"] = {
+		name = L["Icon: Seal of Tempered Fate"],
+		data = function(data) return Garrison.ICON_CURRENCY_TEMPERED_FATE_TOOLTIP end,
+	},	
 	["tapexis"] = {
 		name = L["Apexis Crystals (Total)"],
 		data = function(data) return Garrison.getTableValue(data, "currencyApexisTotal") or 0 end,
@@ -567,5 +669,14 @@ Garrison.ldbVars = {
 		data = function(data) 
 			return Garrison.getTableValue(data, "resourceCacheAmountMaxChar", "playerName")
 		end,
-	},		
+	},
+	["cinvasion"] = {
+		name = L["Current Player Invasion Available"],
+		data = function(data) return (Garrison.getTableValue(data, "invasionAvailableCurrent") and Garrison.ICON_INVASION or "") end,
+	},
+	["invasion"] = {
+		name = L["Invasion Available"],
+		data = function(data) return (Garrison.getTableValue(data, "invasionAvailable") and Garrison.ICON_INVASION or "") end,
+	},	
 }
+

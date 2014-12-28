@@ -344,7 +344,17 @@ end
 function Garrison.replaceVariables(text, data)
 	local returnText = ""
 	if text then
-		returnText = text:gsub("%%(%w+)|?([^%%]*)%%", function (s, default)
+		returnText = text:gsub("=(%x%x)(%x%x)(%x%x)=", 
+		   function (r, g, b)
+		      return ("|cff%s%s%s"):format(r, g, b)
+		end)
+
+		returnText = returnText:gsub("==", 
+		   function (r, g, b)
+		      return "|r"
+		end)
+
+		returnText = returnText:gsub("%%(%w+)|?([^%%]*)%%", function (s, default)
 			local key = tostring(s)
 			local textFun = Garrison.ldbVars[key]
 
@@ -420,6 +430,20 @@ function Garrison.itemIdFromLink(itemLink)
 		return tonumber(itemId)
 	end
 	return nil
+end
+
+
+function Garrison.GetNextWeeklyResetTime()
+	local nextDailyReset = Garrison.GetNextDailyResetTime()
+	if (nextDailyReset == nil) then
+		return nil
+	end
+
+	local dayOfNextReset = date("*t", nextDailyReset).wday
+	local daysToWeeklyReset = math.fmod(7 + Garrison.WeeklyResetDay - dayOfNextReset, 7)
+	local nextWeeklyReset = nextDailyReset + (daysToWeeklyReset * 86400) -- 86400 is number of seconds in a day (24 * 60 * 60)
+ 
+	return nextWeeklyReset
 end
 
 function Garrison.GetNextDailyResetTime()

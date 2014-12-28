@@ -77,19 +77,12 @@ MADB = {
 						624, -- [5]
 					},
 				},
-				["StreamingIcon"] = {
-					["orgPos"] = {
-						"LEFT", -- [1]
-						"GhostFrame", -- [2]
-						"RIGHT", -- [3]
-						0, -- [4]
-						0, -- [5]
-					},
-					["name"] = "StreamingIcon",
+				["WatchFrame"] = {
+					["name"] = "WatchFrame",
 					["pos"] = {
-						"LEFT", -- [1]
-						"GhostFrame", -- [2]
-						"RIGHT", -- [3]
+						"TOPRIGHT", -- [1]
+						"WatchFrameMover", -- [2]
+						"TOPRIGHT", -- [3]
 						0, -- [4]
 						0, -- [5]
 					},
@@ -184,14 +177,27 @@ MADB = {
 						0, -- [5]
 					},
 				},
-				["WatchFrame"] = {
-					["name"] = "WatchFrame",
-					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"WatchFrameMover", -- [2]
-						"TOPRIGHT", -- [3]
+				["AchievementFrame"] = {
+					["UIPanelWindows"] = {
+						["xoffset"] = 80,
+						["whileDead"] = 1,
+						["pushable"] = 0,
+						["area"] = "doublewide",
+					},
+					["orgPos"] = {
+						"TOPLEFT", -- [1]
+						"UIParent", -- [2]
+						"TOPLEFT", -- [3]
 						0, -- [4]
-						0, -- [5]
+						-104.000007629395, -- [5]
+					},
+					["name"] = "AchievementFrame",
+					["pos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						0, -- [4]
+						475.999969482422, -- [5]
 					},
 				},
 				["CriteriaAlertFrame1"] = {
@@ -221,27 +227,21 @@ MADB = {
 						788, -- [5]
 					},
 				},
-				["AchievementFrame"] = {
-					["UIPanelWindows"] = {
-						["xoffset"] = 80,
-						["whileDead"] = 1,
-						["pushable"] = 0,
-						["area"] = "doublewide",
-					},
+				["StreamingIcon"] = {
 					["orgPos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
+						"LEFT", -- [1]
+						"GhostFrame", -- [2]
+						"RIGHT", -- [3]
 						0, -- [4]
-						-104.000007629395, -- [5]
+						0, -- [5]
 					},
-					["name"] = "AchievementFrame",
+					["name"] = "StreamingIcon",
 					["pos"] = {
-						"BOTTOMLEFT", -- [1]
-						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
+						"LEFT", -- [1]
+						"GhostFrame", -- [2]
+						"RIGHT", -- [3]
 						0, -- [4]
-						475.999969482422, -- [5]
+						0, -- [5]
 					},
 				},
 				["MissingLootFrame"] = {
@@ -279,24 +279,23 @@ MADB = {
 						-25, -- [5]
 					},
 				},
-				["QuestNPCModel"] = {
+				["MiniMapMailFrame"] = {
 					["orgPos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"TOP", -- [3]
-						0, -- [4]
-						-135, -- [5]
-					},
-					["name"] = "QuestNPCModel",
-					["scale"] = 1,
-					["pos"] = {
-						"TOPLEFT", -- [1]
-						"QuestLogDetailFrame", -- [2]
+						"TOPRIGHT", -- [1]
+						"Minimap", -- [2]
 						"TOPRIGHT", -- [3]
-						-336.99905204773, -- [4]
-						-496.838500976563, -- [5]
+						24, -- [4]
+						-37, -- [5]
 					},
-					["orgScale"] = 1,
+					["name"] = "MiniMapMailFrame",
+					["hidden"] = true,
+					["pos"] = {
+						"TOPRIGHT", -- [1]
+						"Minimap", -- [2]
+						"TOPRIGHT", -- [3]
+						23.9998779296875, -- [4]
+						-37.0000610351563, -- [5]
+					},
 				},
 				["GroupLootFrame3"] = {
 					["orgPos"] = {
@@ -814,6 +813,13 @@ MADB = {
 					},
 				},
 				["AchievementAlertFrame1"] = {
+					["orgPos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						0, -- [4]
+						128, -- [5]
+					},
 					["name"] = "AchievementAlertFrame1",
 					["pos"] = {
 						"BOTTOM", -- [1]
@@ -855,6 +861,13 @@ MADB = {
 					},
 				},
 				["ArcheologyDigsiteProgressBar"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						0, -- [4]
+						-135, -- [5]
+					},
 					["name"] = "ArcheologyDigsiteProgressBar",
 					["pos"] = {
 						"BOTTOM", -- [1]
@@ -998,22 +1011,24 @@ MADB = {
 						-17.9998779296875, -- [5]
 					},
 				},
-				["DurabilityFrame"] = {
+				["QuestNPCModel"] = {
 					["orgPos"] = {
-						"TOPRIGHT", -- [1]
-						"MinimapCluster", -- [2]
-						"BOTTOMRIGHT", -- [3]
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
 						0, -- [4]
-						0, -- [5]
+						-135, -- [5]
 					},
-					["name"] = "DurabilityFrame",
+					["name"] = "QuestNPCModel",
+					["scale"] = 1,
 					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"MinimapCluster", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						-1829.00021362305, -- [4]
-						172.999877929688, -- [5]
+						"TOPLEFT", -- [1]
+						"QuestLogDetailFrame", -- [2]
+						"TOPRIGHT", -- [3]
+						-336.99905204773, -- [4]
+						-496.838500976563, -- [5]
 					},
+					["orgScale"] = 1,
 				},
 				["PlayerBuffsMover"] = {
 					["orgPos"] = {
@@ -1049,22 +1064,21 @@ MADB = {
 						128, -- [5]
 					},
 				},
-				["MiniMapMailFrame"] = {
+				["DurabilityFrame"] = {
 					["orgPos"] = {
 						"TOPRIGHT", -- [1]
-						"Minimap", -- [2]
-						"TOPRIGHT", -- [3]
-						24, -- [4]
-						-37, -- [5]
+						"MinimapCluster", -- [2]
+						"BOTTOMRIGHT", -- [3]
+						0, -- [4]
+						0, -- [5]
 					},
-					["name"] = "MiniMapMailFrame",
-					["hidden"] = true,
+					["name"] = "DurabilityFrame",
 					["pos"] = {
 						"TOPRIGHT", -- [1]
-						"Minimap", -- [2]
-						"TOPRIGHT", -- [3]
-						23.9998779296875, -- [4]
-						-37.0000610351563, -- [5]
+						"MinimapCluster", -- [2]
+						"BOTTOMRIGHT", -- [3]
+						-1829.00021362305, -- [4]
+						172.999877929688, -- [5]
 					},
 				},
 			},

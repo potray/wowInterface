@@ -20,885 +20,68 @@
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ---------------------------------------------------------------------------------------
 
---[[
-
-4 = Durotar
-9 = Mulgore
-11 = Barrens (Northern Barrens)
-13 = Kalimdor (continent 1)
-14 = Azeroth (continent 2)
-15 = Alterac
-16 = Arathi
-17 = Badlands
-19 = BlastedLands
-20 = Tirisfal
-21 = Silverpine
-22 = WesternPlaguelands
-23 = EasternPlaguelands
-24 = Hilsbrad
-26 = Hinterlands
-27 = DunMorogh
-28 = SearingGorge
-29 = BurningSteppes
-30 = Elwynn
-32 = DeadwindPass
-34 = Duskwood
-35 = LochModan
-36 = Redridge
-37 = Stranglethorn (Northern Stranglethorn)
-38 = SwampOfSorrows
-39 = Westfall
-40 = Wetlands
-41 = Teldrassil
-42 = Darkshore
-43 = Ashenvale
-61 = ThousandNeedles
-81 = StonetalonMountains
-101 = Desolace
-121 = Feralas
-141 = Dustwallow
-161 = Tanaris
-181 = Aszhara
-182 = Felwood
-201 = UngoroCrater
-241 = Moonglade
-261 = Silithus
-281 = Winterspring
-301 = Stormwind
-321 = Ogrimmar
-341 = Ironforge
-362 = ThunderBluff
-381 = Darnassis
-382 = Undercity
-401 = AlteracValley
-443 = WarsongGulch
-461 = ArathiBasin
-462 = EversongWoods
-463 = Ghostlands
-464 = AzuremystIsle
-465 = Hellfire
-466 = Expansion01 (continent 3 Outland)
-467 = Zangarmarsh
-471 = TheExodar
-473 = ShadowmoonValley
-475 = BladesEdgeMountains
-476 = BloodmystIsle
-477 = Nagrand
-478 = TerokkarForest
-479 = Netherstorm
-480 = SilvermoonCity
-481 = ShattrathCity
-482 = NetherstormArena
-485 = Northrend (continent 4)
-486 = BoreanTundra
-488 = Dragonblight
-490 = GrizzlyHills
-491 = HowlingFjord
-492 = IcecrownGlacier
-493 = SholazarBasin
-495 = TheStormPeaks
-496 = ZulDrak
-499 = Sunwell
-501 = LakeWintergrasp
-502 = ScarletEnclave
-504 = Dalaran
-510 = CrystalsongForest
-512 = StrandoftheAncients
-520 = TheNexus
-521 = CoTStratholme
-522 = Ahnkahet
-523 = UtgardeKeep
-524 = UtgardePinnacle
-525 = HallsofLightning
-526 = Ulduar77
-527 = TheEyeofEternity
-528 = Nexus80
-529 = Ulduar
-530 = Gundrak
-531 = TheObsidianSanctum
-532 = VaultofArchavon
-533 = AzjolNerub
-534 = DrakTharonKeep
-535 = Naxxramas
-536 = VioletHold
-540 = IsleofConquest
-541 = HrothgarsLanding
-542 = TheArgentColiseum
-609 = RubySanctum
-
-Cataclysm
-
--- Continent 1
-606 = Mount Hyjal
-607 = Southern Barrens
-720 = Uldum
-772 = Ahn'Qiraj: The Fallen Kingdom
-
--- Continent 2
-689 = Stranglethorn Vale (full map)
-673 = The Cape of Stranglethorn (south part)
-
--- Continent 2 (Vashj'ir sub continent of EK)
-613 = Vashj'ir (full map)
-610 = Kelp'thar Forest
-614 = Abyssal Depths
-615 = Shimmering Expanse
-
--- Continent 5 (The Maelstrom)
-751 = The Maelstrom (continent)
-544 = The Lost Isles (goblin starting)
-605 = Kezan (goblin city)
-640 = Deepholm
-737 = The Maelstrom
-
-545 = Gilneas (starting phase)
-611 = GilneasCity (starting city phase)
-626 = TwinPeaks (battle ground)
-680 = RagefireChasm
-685 = Ruins of Gilneas City (Worgen city)
-686 = ZulFarrak
-687 = TheTempleOfAtalHakkar
-688 = BlackfathomDeeps
-690 = TheStockade
-691 = Gnomeregan
-692 = Uldaman
-696 = MoltenCore
-699 = DireMaul (multiple layers for each wing)
-700 = Twilight Highlands
-704 = BlackrockDepths
-708 = Tol Barad (battle ground)
-709 = Tol Barad Peninsula
-717 = RuinsofAhnQiraj
-718 = OnyxiasLair
-721 = BlackrockSpire
-736 = BattleForGilneas (battle ground)
-747 = LostCityOfTheTolvir
-749 = WailingCaverns
-750 = Maraudon
-752 = BardinHold
-753 = BlackrockCaverns
-754 = BlackwingDescent
-755 = BlackwingLair
-756 = TheDeadmines
-757 = GrimBatol
-758 = BastionOfTwilight
-759 = HallsOfOrigination
-760 = RazorfenDowns
-761 = RazorfenKraul
-762 = ScarletMonastery (multiple layers for each wing)
-763 = Scholomance
-764 = ShadowfangKeep
-765 = Stratholme
-766 = AhnQiraj
-767 = ThroneOfTheTides
-768 = TheStonecore
-769 = TheVortexPinnacle
-773 = ThroneOfTheFourWinds
---]]
-
--- Local
-
 local Map = Nx.Map
+local L = LibStub("AceLocale-3.0"):GetLocale("Carbonite")
 
---------
--- Map tables
-
-Map.MapGenAreas = {	-- Auto gen by ConvertMapData()
-	[486] = {
-		11.52916601562, -- [1]
-		-1714.166601562, -- [2]
-		-979.5833007819999, -- [3]
-		"boreantundra", -- [4]
-	},
-	[42] = {
-		12.92916601564, -- [1]
-		-603.3333007819999, -- [2]
-		-1644.583203126, -- [3]
-		"darkshore", -- [4]
-	},
-	[488] = {
-		11.21666625976, -- [1]
-		-725.41665039, -- [2]
-		-1115, -- [3]
-		"dragonblight", -- [4]
-	},
-	[490] = {
-		10.49999975586, -- [1]
-		222.083325196, -- [2]
-		-1103.333300782, -- [3]
-		"grizzlyhills", -- [4]
-	},
-	[381] = {
-		3.07916674804, -- [1]
-		-637.5, -- [2]
-		-2092.91660156, -- [3]
-		"darnassus", -- [4]
-	},
-	[492] = {
-		12.541666625976, -- [1]
-		-1088.75, -- [2]
-		-1885.416601562, -- [3]
-		"icecrownglacier", -- [4]
-	},
-	[32] = {
-		4.999999877923999, -- [1]
-		166.6666625976, -- [2]
-		1973.333203126, -- [3]
-		"deadwindpass", -- [4]
-	},
-	[496] = {
-		9.987500000000001, -- [1]
-		120, -- [2]
-		-1533.749902344, -- [3]
-		"zuldrak", -- [4]
-	},
-	[101] = {
-		8.99166601562, -- [1]
-		-846.666601562, -- [2]
-		-90.4166625976, -- [3]
-		"desolace", -- [4]
-	},
-	[27] = {
-		9.795833007819999, -- [1]
-		-427.5, -- [2]
-		788.3333007819999, -- [3]
-		"dunmorogh", -- [4]
-	},
-	[4] = {
-		10.57499926758, -- [1]
-		392.499975586, -- [2]
-		-361.66665039, -- [3]
-		"durotar", -- [4]
-	},
-	[34] = {
-		5.399999877936, -- [1]
-		-166.6666625976, -- [2]
-		1943.333203126, -- [3]
-		"duskwood", -- [4]
-	},
-	[181] = {
-		11.02916699218, -- [1]
-		674.5833007819999, -- [2]
-		-1076.25, -- [3]
-		"aszhara", -- [4]
-	},
-	[141] = {
-		10.5, -- [1]
-		195, -- [2]
-		406.666796876, -- [3]
-		"dustwallow", -- [4]
-	},
-	[23] = {
-		8.0625, -- [1]
-		457.5, -- [2]
-		-740.8333007819999, -- [3]
-		"easternplaguelands", -- [4]
-	},
-	[605] = {
-		2.704166381844, -- [1]
-		-425.833300782, -- [2]
-		1546.249902344, -- [3]
-		"kezan", -- [4]
-	},
-	[30] = {
-		6.94166650392, -- [1]
-		-307.083325196, -- [2]
-		1587.916601562, -- [3]
-		"elwynn", -- [4]
-	},
-	[610] = {
-		5.60416601562, -- [1]
-		-1014.166601562, -- [2]
-		803.749951172, -- [3]
-		"vashjirkelpforest", -- [4]
-	},
-	[462] = {
-		9.85, -- [1]
-		897.5, -- [2]
-		-2208.33320312, -- [3]
-		"eversongwoods", -- [4]
-	},
-	[464] = {
-		8.1416660156, -- [1]
-		2100, -- [2]
-		558.75, -- [3]
-		"azuremystisle", -- [4]
-	},
-	[640] = {
-		10.19999975586, -- [1]
-		-610.41665039, -- [2]
-		-559.16665039, -- [3]
-		"deepholm", -- [4]
-	},
-	[182] = {
-		12.12499926758, -- [1]
-		-359.583325196, -- [2]
-		-1447.499902344, -- [3]
-		"felwood", -- [4]
-	},
-	[700] = {
-		10.54166601562, -- [1]
-		487.5, -- [2]
-		431.25, -- [3]
-		"twilighthighlands_terrain1", -- [4]
-	},
-	[121] = {
-		13.89999951172, -- [1]
-		-1088.333300782, -- [2]
-		473.333300782, -- [3]
-		"feralas", -- [4]
-	},
-	[463] = {
-		6.600000000000001, -- [1]
-		1056.666601562, -- [2]
-		-1653.333203126, -- [3]
-		"ghostlands", -- [4]
-	},
-	[17] = {
-		6.14166650392, -- [1]
-		380.41665039, -- [2]
-		1170.833300782, -- [3]
-		"badlands", -- [4]
-	},
-	[894] = {
-		3.6375, -- [1]
-		2562.91640626, -- [2]
-		720.833203124, -- [3]
-		"ammenvalestart", -- [4]
-	},
-	[891] = {
-		3.6125, -- [1]
-		898.3332031260001, -- [2]
-		105, -- [3]
-		"echoislesstart", -- [4]
-	},
-	[889] = {
-		2.700000000000001, -- [1]
-		728.3332031259999, -- [2]
-		-0, -- [3]
-		"valleyoftrialsstart", -- [4]
-	},
-	[892] = {
-		2.17916796876, -- [1]
-		-429.583398438, -- [2]
-		-454.166601562, -- [3]
-		"deathknellstart", -- [4]
-	},
-	[864] = {
-		1.9375, -- [1]
-		-37.5, -- [2]
-		1714.16640625, -- [3]
-		"northshire", -- [4]
-	},
-	[465] = {
-		10.32916601562, -- [1]
-		-1107.916601562, -- [2]
-		-296.25, -- [3]
-		"hellfire", -- [4]
-	},
-	[24] = {
-		9.724999755860001, -- [1]
-		-369.999975586, -- [2]
-		-296.25, -- [3]
-		"hillsbradfoothills", -- [4]
-	},
-	[341] = {
-		1.581250122062, -- [1]
-		142.7182739258, -- [2]
-		913.8482421880001, -- [3]
-		"ironforge", -- [4]
-	},
-	[866] = {
-		1.929166015626,
-		-195.8333984376,
-		1192.5,
-		"coldridgevalley",
-	},	
-	[895] = {
-		3.7, -- [1]
-		-241.25, -- [2]
-		945.416796876, -- [3]
-		"newtinkertownstart", -- [4]
-	},
-	[893] = {
-		3.2, -- [1]
-		1076.666796876, -- [2]
-		-2166.66660156, -- [3]
-		"sunstriderislestart", -- [4]
-	},
-	[35] = {
-		5.51666625976, -- [1]
-		398.749975586, -- [2]
-		897.5, -- [3]
-		"lochmodan", -- [4]
-	},
-	[890] = {
-		3.53333593751, -- [1]
-		-46.666796875, -- [2]
-		515.416796876, -- [3]
-		"campnarachestart", -- [4]
-	},
-	[888] = {
-		2.90000195313, -- [1]
-		-298.333398438, -- [2]
-		-2206.66660156, -- [3]
-		"shadowglenstart", -- [4]
-	},
-	[502] = {
-		6.325, -- [1]
-		809.5833007819999, -- [2]
-		-617.5, -- [3]
-		"scarletenclave", -- [4]
-	},
-	[795] = {
-		2.379166625976, -- [1]
-		-186.6666625976, -- [2]
-		-340.41665039, -- [3]
-		"moltenfront", -- [4]
-	},
-	[772] = {
-		8.099999664314, -- [1]
-		-778.3333007819999, -- [2]
-		1606.666601562, -- [3]
-		"ahnqirajthefallenkingdom", -- [4]
-	},
-	[241] = {
-		4.6166665039, -- [1]
-		276.25, -- [2]
-		-1698.333203126, -- [3]
-		"moonglade", -- [4]
-	},
-	[607] = {
-		14.825, -- [1]
-		-271.25, -- [2]
-		-40.8333312988, -- [3]
-		"southernbarrens", -- [4]
-	},
-	[9] = {
-		10.89999951172, -- [1]
-		-440.833300782, -- [2]
-		33.75, -- [3]
-		"mulgore", -- [4]
-	},
-	[611] = {
-		1.7791665039, -- [1]
-		-386.66665039, -- [2]
-		261.25, -- [3]
-		"gilneascity", -- [4]
-	},
-	[477] = {
-		11.04999999998, -- [1]
-		-2059.16660156, -- [2]
-		-8.333332824699999, -- [3]
-		"nagrand", -- [4]
-	},
-	[493] = {
-		8.7125, -- [1]
-		-1385.833300782, -- [2]
-		-1457.499902344, -- [3]
-		"sholazarbasin", -- [4]
-	},
-	[479] = {
-		11.149999343867, -- [1]
-		-1096.666601562, -- [2]
-		-1091.25, -- [3]
-		"netherstorm", -- [4]
-	},
-	[709] = {
-		3.675, -- [1]
-		-482.5, -- [2]
-		-75.4166625976, -- [3]
-		"tolbaraddailyarea", -- [4]
-	},
-	[321] = {
-		3.47875, -- [1]
-		701.2708007819999, -- [2]
-		-497.33334961, -- [3]
-		"orgrimmar", -- [4]
-	},
-	[613] = {
-		13.89166552736, -- [1]
-		-1750.833203126, -- [2]
-		744.16665039, -- [3]
-		"vashjir", -- [4]
-	},
-	[689] = {
-		13.10416601562, -- [1]
-		-595.41665039, -- [2]
-		2192.91660156, -- [3]
-		"stranglethornvale", -- [4]
-	},
-	[685] = {
-		1.7791665039, -- [1]
-		-386.66665039, -- [2]
-		261.25, -- [3]
-		"ruinsofgilneascity", -- [4]
-	},
-	[36] = {
-		5.13749975586, -- [1]
-		295.833325196, -- [2]
-		1702.916601562, -- [3]
-		"redridge", -- [4]
-	},
-	[684] = {
-		6.2916665039, -- [1]
-		-687.91665039, -- [2]
-		106.6666625976, -- [3]
-		"ruinsofgilneas", -- [4]
-	},
-	[673] = {
-		7.89166625976, -- [1]
-		-421.66665039, -- [2]
-		2503.33320312, -- [3]
-		"thecapeofstranglethorn", -- [4]
-	},
-	[475] = {
-		10.84999951172, -- [1]
-		-1769.166601562, -- [2]
-		-881.666601562, -- [3]
-		"bladesedgemountains", -- [4]
-	},
-	[28] = {
-		4.462499694831999, -- [1]
-		64.58333129880001, -- [2]
-		1220, -- [3]
-		"searinggorge", -- [4]
-	},
-	[615] = {
-		9.699999267579999, -- [1]
-		-1336.249902344, -- [2]
-		951.25, -- [3]
-		"vashjirruins", -- [4]
-	},
-	[473] = {
-		11, -- [1]
-		-845, -- [2]
-		389.583325196, -- [3]
-		"shadowmoonvalley", -- [4]
-	},
-	[481] = {
-		2.6125, -- [1]
-		-1227.051757812, -- [2]
-		294.790893554, -- [3]
-		"shattrathcity", -- [4]
-	},
-	[261] = {
-		8.116666503899999, -- [1]
-		-596.66665039, -- [2]
-		1174.583300782, -- [3]
-		"silithus", -- [4]
-	},
-	[480] = {
-		2.42291699218, -- [1]
-		1280.15, -- [2]
-		-2030.74179688, -- [3]
-		"silvermooncity", -- [4]
-	},
-	[21] = {
-		8.399999511719999, -- [1]
-		-689.999951172, -- [2]
-		-333.333325196, -- [3]
-		"silverpine", -- [4]
-	},
-	[81] = {
-		11.79999975586, -- [1]
-		-780.41665039, -- [2]
-		-680.8333007819999, -- [3]
-		"stonetalonmountains", -- [4]
-	},
-	[301] = {
-		3.4749999179908, -- [1]
-		-344.583325196, -- [2]
-		1599.166601562, -- [3]
-		"stormwindcity", -- [4]
-	},
-	[37] = {
-		8.19999975586, -- [1]
-		-348.749975586, -- [2]
-		2203.33320312, -- [3]
-		"stranglethornjungle", -- [4]
-	},
-	[614] = {
-		8.150000000000002, -- [1]
-		-1646.666601562, -- [2]
-		981.25, -- [3]
-		"vashjirdepths", -- [4]
-	},
-	[29] = {
-		6.304166381844, -- [1]
-		92.9166625976, -- [2]
-		1397.083300782, -- [3]
-		"burningsteppes", -- [4]
-	},
-	[38] = {
-		5.016666015619999, -- [1]
-		416.25, -- [2]
-		1907.083203126, -- [3]
-		"swampofsorrows", -- [4]
-	},
-	[161] = {
-		14.4249990310694, -- [1]
-		12.49999923706, -- [2]
-		1154.166601562, -- [3]
-		"tanaris", -- [4]
-	},
-	[41] = {
-		11.74999951172, -- [1]
-		-847.0833007819999, -- [2]
-		-2369.58320312, -- [3]
-		"teldrassil", -- [4]
-	},
-	[708] = {
-		4.02916658497544, -- [1]
-		-402.083325196, -- [2]
-		112.0833251954, -- [3]
-		"tolbarad", -- [4]
-	},
-	[720] = {
-		12.38749951172, -- [1]
-		-488.333300782, -- [2]
-		1605.833300782, -- [3]
-		"uldum_terrain1", -- [4]
-	},
-	[751] = {
-		3.1, -- [1]
-		-311.25, -- [2]
-		-274.16665039, -- [3]
-		"themaelstrom", -- [4]
-	},
-	[606] = {
-		8.491666748046001, -- [1]
-		185.8333251954, -- [2]
-		-1239.166601562, -- [3]
-		"hyjal_terrain1", -- [4]
-	},
-	[544] = {
-		9.02916601562, -- [1]
-		-876.666601562, -- [2]
-		-576.25, -- [3]
-		"thelostisles_terrain2", -- [4]
-	},
-	[478] = {
-		10.79999951172, -- [1]
-		-1416.666601562, -- [2]
-		199.999987793, -- [3]
-		"terokkarforest", -- [4]
-	},
-	[11] = {
-		11.491666656494, -- [1]
-		-40.4166656494, -- [2]
-		-362.083325196, -- [3]
-		"barrens", -- [4]
-	},
-	[541] = {
-		7.354166259774, -- [1]
-		-559.5833007819999, -- [2]
-		-2156.25, -- [3]
-		"hrothgarslanding", -- [4]
-	},
-	[471] = {
-		2.1135410156, -- [1]
-		2213.2734375, -- [2]
-		721.936669922, -- [3]
-		"theexodar", -- [4]
-	},
-	[26] = {
-		7.7, -- [1]
-		315, -- [2]
-		-293.333325196, -- [3]
-		"hinterlands", -- [4]
-	},
-	[545] = {
-		6.2916665039, -- [1]
-		-687.91665039, -- [2]
-		106.6666625976, -- [3]
-		"gilneas_terrain2", -- [4]
-	},
-	[510] = {
-		5.44583325196, -- [1]
-		-288.75, -- [2]
-		-1300.416601562, -- [3]
-		"crystalsongforest", -- [4]
-	},
-	[61] = {
-		8.799999389643999, -- [1]
-		86.6666625976, -- [2]
-		793.3333007819999, -- [3]
-		"thousandneedles", -- [4]
-	},
-	[362] = {
-		2.08749987793, -- [1]
-		-103.3333251954, -- [2]
-		169.999987793, -- [3]
-		"thunderbluff", -- [4]
-	},
-	[20] = {
-		9.037499755860001, -- [1]
-		-606.66665039, -- [2]
-		-767.499951172, -- [3]
-		"tirisfal", -- [4]
-	},
-	[866] = {
-		1.929166015626, -- [1]
-		-195.8333984376, -- [2]
-		1192.5, -- [3]
-		"coldridgevalley", -- [4]
-	},
-	[201] = {
-		7.399999633796, -- [1]
-		-106.6666625976, -- [2]
-		1193.333300782, -- [3]
-		"ungorocrater", -- [4]
-	},
-	[382] = {
-		1.918750061035, -- [1]
-		-174.6385253906, -- [2]
-		-375.5890625, -- [3]
-		"undercity", -- [4]
-	},
-	[501] = {
-		5.94999975586, -- [1]
-		-865.8333007819999, -- [2]
-		-1143.333300782, -- [3]
-		"lakewintergrasp", -- [4]
-	},
-	[491] = {
-		12.09166577148, -- [1]
-		279.583325196, -- [2]
-		-623.3333007819999, -- [3]
-		"howlingfjord", -- [4]
-	},
-	[22] = {
-		8.599999816887999, -- [1]
-		-83.33333129880001, -- [2]
-		-673.3333007819999, -- [3]
-		"westernplaguelands", -- [4]
-	},
-	[39] = {
-		6.999999633796, -- [1]
-		-603.3333007819999, -- [2]
-		1880, -- [3]
-		"westfall", -- [4]
-	},
-	[40] = {
-		8.270833374023999, -- [1]
-		77.9166625976, -- [2]
-		429.583300782, -- [3]
-		"wetlands", -- [4]
-	},
-	[281] = {
-		12.299999755866, -- [1]
-		198.3333251954, -- [2]
-		-1758.75, -- [3]
-		"winterspring", -- [4]
-	},
-	[467] = {
-		10.05416699218, -- [1]
-		-1895, -- [2]
-		-387.083325196, -- [3]
-		"zangarmarsh", -- [4]
-	},
-	[495] = {
-		14.22499926758, -- [1]
-		-368.333325196, -- [2]
-		-2039.58320312, -- [3]
-		"thestormpeaks", -- [4]
-	},
-	[16] = {
-		6.95416650392, -- [1]
-		225.41665039, -- [2]
-		28.3333312988, -- [3]
-		"arathi", -- [4]
-	},
-	[43] = {
-		11.53333276368, -- [1]
-		-339.999975586, -- [2]
-		-934.5833007819999, -- [3]
-		"ashenvale", -- [4]
-	},
-	[499] = {
-		6.654166015640001, -- [1]
-		1060.416601562, -- [2]
-		-2713.74980468, -- [3]
-		"sunwell", -- [4]
-	},
-	[19] = {
-		7.325, -- [1]
-		238.75, -- [2]
-		2116.66660156, -- [3]
-		"blastedlands", -- [4]
-	},
-	[476] = {
-		6.5249980468, -- [1]
-		2015, -- [2]
-		151.6666625976, -- [3]
-		"bloodmystisle", -- [4]
-	},
-}
-
+-- X and Y are the absolute position (lower-left corner) on the overall
+-- super-zoomed-out continent image (https://github.com/dratr/Carbonite/commits/map-zonesdocs)
 Map.MapInfo = {
-	[0] = {	-- Dummy
+	[0] = {		-- Dummy
 		Name = "Instance",
 		X = 0,
 		Y = 0,
 	},
-	{
+	[1] = {
 		Name = "Kalimdor",
 		FileName = "Kalimdor",
-		X = -1800,	-- Was 0
+		X = -1800,
 		Y = 200,
-		Min = 1001,
-		Max = 1033,
 	},
-	{
+	[2] = {
 		Name = "Eastern Kingdoms",
 		FileName = "Azeroth",
-		X = 5884,	-- Was 3784
+		X = 5884,
 		Y = -200,
-		Min = 2001,
-		Max = 2048,
 	},
-	{
+	[3] = {
 		Name = "Outland",
 		FileName = "Expansion01",
 		X = 7000,
 		Y = -4000,
-		Min = 3001,
-		Max = 3008,
 	},
-	{
+	[4] = {
 		Name = "Northrend",
 		FileName = "Northrend",
-		X = 600,
-		Y = -4500,
-		Min = 4001,
-		Max = 4014,
+		X = 2500,
+		Y = -3000,
 	},
-	{
+	[5] = {
 		Name = "The Maelstrom",
 		FileName = "TheMaelstromContinent",
-		X = 1100,
-		Y = -1800, 
-		Min = 5001,
-		Max = 5005,
+		X = 1700,
+		Y = -1500,
 	},
 	[6] = {
 	    Name = "Pandaria",
 		FileName = "Pandaria",
-		X = 2350,
-		Y = 300,
-		Min = 6001,
-		Max = 6016,
+		X = 2500,
+		Y = 2500,
 	},
-	[8] = {
-		Name = "Instance",
-		X = 2000,
-		Y = 100,
+	[7] = {
+		Name = "Draenor",
+		FileName = "Draenor",
+		X = -1500,
+		Y = -3300,
 	},
-	[9] = {
+	[90] = {
 		Name = "BG",
 		X = 2000,
 		Y = 200,
+	},
+	[100] = {
+		Name = "Instance",
+		X = 2000,
+		Y = 100,
 	},
 }
 
@@ -910,1246 +93,1308 @@ Map.DraeneiYO = -2010
 Map.MapWorldInfo = {
 
 	-- Dummy if we get a zero on startup
+	[-1] = {
+		1.0,
+		0,0,
+	},
 	[0] = {
 		10,
 		0, 0,
-		0, 0,  -- Index 4,5 XY world position created for zones in continents 1-5, 9
+		0, 0,		-- Index 4,5 XY world position created for zones in continents 1-5, 9
 		Overlay = "barrens",
 	},
-
-	[1000] = {
-		73.3282, -- Scale
-		-3398.85, -2552.91, -- Origin
+	[4] = {
+		Scale = 10.574999267578,
+		X = 392.49997558594,
+		Y = -361.66665039063,
+		Overlay = "durotar",
+		Name = L["Durotar"],
 	},
-	[1001] = {
-		Name = "Ashenvale",
-		Fish = 150,
+	[9] = {
+		Scale = 10.899999511719,
+		X = -440.83330078125,
+		Y = 33.75,
+		Overlay = "mulgore",
+		Name = L["Mulgore"],
+	},
+	[11] = {
+		Scale = 11.491666656494,
+		X = -40.416665649414,
+		Y = -362.08332519531,
+		Overlay = "barrens",
+		Name = L["Northern Barrens"],
+		QAchievementIdH = 4933,
+	},
+	[13] = {
+		Scale = 73.59962109375,
+		X = -3413.319921875,
+		Y = -2559.980078125,
+	},
+	[14] = {
+		Scale = 81.48236328125,
+		X = -3634.394140625,
+		Y = -2235.26875,
+	},
+	[16] = {
+		Scale = 6.9541665039062,
+		X = 225.41665039063,
+		Y = 28.333331298828,
+		Overlay = "arathi",
+		Name = L["Arathi Highlands"],
+		QAchievementId = 4896,
+	},
+	[17] = {
+		Scale = 6.1416665039062,
+		X = 380.41665039063,
+		Y = 1170.8333007813,
+		Overlay = "badlands",
+		Name = L["Badlands"],
+		QAchievementId = 4900,
+	},
+	[19] = {
+		Scale = 7.325,
+		X = 238.75,
+		Y = 2116.6666015625,
+		Overlay = "blastedlands",
+		Name = L["Blasted Lands"],
+		QAchievementId = 4909,
+	},
+	[20] = {
+		Scale = 9.0374997558594,
+		X = -606.66665039063,
+		Y = -767.49995117188,
+		Overlay = "tirisfal",
+		Name = L["Tirisfal Glades"],
+	},
+	[21] = {
+		Scale = 8.3999995117188,
+		X = -689.99995117188,
+		Y = -333.33332519531,
+		Overlay = "silverpine",
+		Name = L["Silverpine Forest"],
+		QAchievementIdH = 4894,
+	},
+	[22] = {
+		Scale = 8.5999998168945,
+		X = -83.333331298828,
+		Y = -673.33330078125,
+		Overlay = "westernplaguelands",
+		Name = L["Western Plaguelands"],
+		QAchievementId = 4893,
+	},
+	[23] = {
+		Scale = 8.0625,
+		X = 457.5,
+		Y = -740.83330078125,
+		Overlay = "easternplaguelands",
+		Name = L["Eastern Plaguelands"],
+		QAchievementId = 4892,
+	},
+	[24] = {
+		Scale = 9.7249997558594,
+		X = -369.99997558594,
+		Y = -296.25,
+		Overlay = "hillsbradfoothills",
+		Name = L["Hillsbrad Foothills"],
+		QAchievementIdH = 4895,
+	},
+	[26] = {
+		Scale = 7.7,
+		X = 315,
+		Y = -293.33332519531,
+		Overlay = "hinterlands",
+		Name = L["The Hinterlands"],
+		QAchievementId = 4897,
+	},
+	[27] = {
+		Scale = 9.7958330078125,
+		X = -427.5,
+		Y = 788.33330078125,
+		Overlay = "dunmorogh",
+		Name = L["Dun Morogh"],
+	},
+	[28] = {
+		Scale = 4.4624996948242,
+		X = 64.583331298828,
+		Y = 1220,
+		Overlay = "searinggorge",
+		Name = L["Searing Gorge"],
+		QAchievementId = 4910,
+	},
+	[29] = {
+		Scale = 6.3041663818359,
+		X = 92.916662597656,
+		Y = 1397.0833007813,
+		Overlay = "burningsteppes",
+		Name = L["Burning Steppes"],
+		QAchievementId = 4901,
+	},
+	[30] = {
+		Scale = 6.9416665039062,
+		X = -307.08332519531,
+		Y = 1587.9166015625,
+		Overlay = "elwynn",
+		Name = L["Elwynn Forest"],
+	},
+	[32] = {
+		Scale = 4.9999998779297,
+		X = 166.66666259766,
+		Y = 1973.333203125,
+		Overlay = "deadwindpass",
+		Name = L["Deadwind Pass"],
+	},
+	[34] = {
+		Scale = 5.3999998779297,
+		X = -166.66666259766,
+		Y = 1943.333203125,
+		Overlay = "duskwood",
+		Name = L["Duskwood"],
+		QAchievementIdA = 4907,
+	},
+	[35] = {
+		Scale = 5.5166662597656,
+		X = 398.74997558594,
+		Y = 897.5,
+		Overlay = "lochmodan",
+		Name = L["Loch Modan"],
+		QAchievementIdA = 4899,
+	},
+	[36] = {
+		Scale = 5.1374997558594,
+		X = 295.83332519531,
+		Y = 1702.9166015625,
+		Overlay = "redridge",
+		Name = L["Redridge Mountains"],
+		QAchievementIdA = 4902,
+	},
+	[37] = {
+		Scale = 8.1999997558594,
+		X = -348.74997558594,
+		Y = 2203.333203125,
+		Overlay = "stranglethornjungle",
+		Name = L["Northern Stranglethorn"],
+		QAchievementId = 4906,
+	},
+	[38] = {
+		Scale = 5.016666015625,
+		X = 416.25,
+		Y = 1907.083203125,
+		Overlay = "swampofsorrows",
+		Name = L["Swamp of Sorrows"],
+		QAchievementId = 4904,
+	},
+	[39] = {
+		Scale = 6.9999996337891,
+		X = -603.33330078125,
+		Y = 1880,
+		Overlay = "westfall",
+		Name = L["Westfall"],
+		QAchievementIdA = 4903,
+	},
+	[40] = {
+		Scale = 8.2708333740234,
+		X = 77.916662597656,
+		Y = 429.58330078125,
+		Overlay = "wetlands",
+		Name = L["Wetlands"],
+		QAchievementIdA = 4898,
+	},
+	[41] = {
+		Scale = 11.749999511719,
+		X = -847.08330078125,
+		Y = -2369.583203125,
+		Overlay = "teldrassil",
+		Name = L["Teldrassil"],
+	},
+	[42] = {
+		Scale = 12.929166015625,
+		X = -603.33330078125,
+		Y = -1644.583203125,
+		Overlay = "darkshore",
+		Name = L["Darkshore"],
+		QAchievementIdA = 4928,
+	},
+	[43] = {
+		Scale = 11.533332763672,
+		X = -339.99997558594,
+		Y = -934.58330078125,
+		Overlay = "ashenvale",
+		Name = L["Ashenvale"],
 		QAchievementId = 4925,
 		QAchievementIdH = 4976,
 	},
-	[1002] = {
-		Name = "Azshara",
-		Fish = 300,
-		QAchievementIdH = 4927,
+	[61] = {
+		Scale = 8.7999993896484,
+		X = 86.666662597656,
+		Y = 793.33330078125,
+		Overlay = "thousandneedles",
+		Name = L["Thousand Needles"],
+		QAchievementId = 4938,
 	},
-	[1003] = {
-		Name = "Azuremyst Isle",
-		XOff = Map.DraeneiXO,
-		YOff = Map.DraeneiYO,
-		MId = 1003,
-		Fish = 25,
-	},
-	[1004] = {
-		Name = "Bloodmyst Isle",
-		XOff = Map.DraeneiXO,
-		YOff = Map.DraeneiYO,
-		MId = 1003,
-		Fish = 75,
-		QAchievementIdA = 4926,
-	},
-	[1005] = {
-		Name = "Darkshore",
-		Fish = 75,
-		QAchievementIdA = 4928,
-	},
-	[1006] = {
-		Name = "Darnassus",
-		2.116669, -- Scale (0.6668302)
-		-587.6726, -2047.663, -- Origin (WH 211.6669, 141.1459)
-		 -- -2012.279 -9985.129, 87.5039 35.8759
-		 -- -2400.08 -9702.901, 50.8613 75.8668
-		Overlay = "darnassis",
-		City = true,
-		MMOutside = true,
-		Fish = 75,
-	},
-	[1007] = {
-		Name = "Desolace",
-		Fish = 225,
-		QAchievementId = 4930,
-	},
-	[1008] = {
-		Name = "Durotar",
-		Fish = 25,
-	},
-	[1009] = {
-		Name = "Dustwallow Marsh",
-		Fish = 225,
-		QAchievementId = 4929,
-		QAchievementIdH = 4978,
-	},
-	[1010] = {
-		Name = "Felwood",
-		Fish = 300,
-		QAchievementId = 4931,
-	},
-	[1011] = {
-		Name = "Feralas",
-		Fish = 300,
-		QAchievementId = 4932,
-		QAchievementIdH = 4979,
-	},
-	[1012] = {
-		Name = "Moonglade",
-		Fish = 300,
-	},
-	[1013] = {
-		Name = "Mulgore",
-		Fish = 25,
-	},
-	[1014] = {
-		Name = "Orgrimmar",
-		2.805208, -- Scale (0.6669141)
-		736.1202, -454.7754, -- Origin (WH 280.5208, 187.0833)
-		 -- 4362.793 -1397.708, 48.63751 93.66625
-		 -- 4452.566 -1601.87, 55.03796 71.84045
-		Overlay = "ogrimmar",
-		City = true,
-		MMOutside = true,
---		MId = 1014,
-		Fish = 75,
-	},
-	[1015] = {
-		Name = "Silithus",
-		Fish = 425,
-		QAchievementIdA = 4934,
-	},
-	[1016] = {
-		Name = "Stonetalon Mountains",
-		Fish = 150,
+	[81] = {
+		Scale = 11.799999755859,
+		X = -780.41665039063,
+		Y = -680.83330078125,
+		Overlay = "stonetalonmountains",
+		Name = L["Stonetalon Mountains"],
 		QAchievementId = 4936,
 		QAchievementIdH = 4980,
 	},
-	[1017] = {
-		Name = "Tanaris",
-		Fish = 300,
+	[101] = {
+		Scale = 8.991666015625,
+		X = -846.6666015625,
+		Y = -90.416662597656,
+		Overlay = "desolace",
+		Name = L["Desolace"],
+		QAchievementId = 4930,
+	},
+	[121] = {
+		Scale = 13.899999511719,
+		X = -1088.3333007813,
+		Y = 473.33330078125,
+		Overlay = "feralas",
+		Name = L["Feralas"],
+		QAchievementId = 4932,
+		QAchievementIdH = 4979,
+	},
+	[141] = {
+		Scale = 10.5,
+		X = 195,
+		Y = 406.666796875,
+		Overlay = "dustwallow",
+		Name = L["Dustwallow Marsh"],
+		QAchievementId = 4929,
+		QAchievementIdH = 4978,
+	},
+	[161] = {
+		Scale = 14.424999031067,
+		X = 12.499999237061,
+		Y = 1154.1666015625,
+		Overlay = "tanaris",
+		Name = L["Tanaris"],
 		QAchievementId = 4935,
 	},
-	[1018] = {
-		Name = "Teldrassil",
-		Fish = 25,
+	[181] = {
+		Scale = 11.029166992188,
+		X = 674.58330078125,
+		Y = -1076.25,
+		Overlay = "aszhara",
+		Name = L["Azshara"],
+		QAchievementIdH = 4927,
 	},
-	[1019] = {
-		Name = "Northern Barrens",
-		Fish = 75,
-		QAchievementIdH = 4933,
+	[182] = {
+		Scale = 12.124999267578,
+		X = -359.58332519531,
+		Y = -1447.4999023437,
+		Overlay = "felwood",
+		Name = L["Felwood"],
+		QAchievementId = 4931,
 	},
-	[1020] = {
-		Name = "The Exodar",
-		XOff = Map.DraeneiXO,
-		YOff = Map.DraeneiYO,
-		City = true,
-		MId = 1003,
-	},
-	[1021] = {
-		Name = "Thousand Needles",
-		Fish = 225,
-		QAchievementId = 4938,
-	},
-	[1022] = {
-		Name = "Thunder Bluff",
-		2.087504, -- Scale (0.666666)
-		-103.3333, 170, -- Origin (WH 208.7504, 139.1668)
-		 -- -288.8936 975.1409, 21.8225 17.9843
-		 -- -134.5071 1215.782, 36.614 52.5675
-		 -- -180.5793 1321.172, 32.1999 67.7133
-		Overlay = "thunderbluff",
-		City = true,
-		MMOutside = true,
-		Fish = 75,
-	},
-	[1023] = {
-		Name = "Un'Goro Crater",
-		Fish = 300,
+	[201] = {
+		Scale = 7.3999996337891,
+		X = -106.66666259766,
+		Y = 1193.3333007813,
+		Overlay = "ungorocrater",
+		Name = L["Un'Goro Crater"],
 		QAchievementId = 4939,
 	},
-	[1024] = {
-		Name = "Winterspring",
-		Fish = 425,
+	[241] = {
+		Scale = 4.6166665039063,
+		X = 276.25,
+		Y = -1698.333203125,
+		Overlay = "moonglade",
+		Name = L["Moonglade"],
+	},
+	[261] = {
+		Scale = 8.1166665039063,
+		X = -596.66665039063,
+		Y = 1174.5833007813,
+		Overlay = "silithus",
+		Name = L["Silithus"],
+		QAchievementIdA = 4934,
+	},
+	[281] = {
+		Scale = 12.299999755859,
+		X = 198.33332519531,
+		Y = -1758.75,
+		Overlay = "winterspring",
+		Name = L["Winterspring"],
 		QAchievementId = 4940,
 	},
-
-	-- Cataclysm
-
-	[1025] = {
-		Name = "Ahn'Qiraj: The Fallen Kingdom",
-		Fish = 1,
+	[301] = {
+		Scale = 3.474999917984,
+		X = -344.58332519531,
+		Y = 1599.1666015625,
+		Overlay = "stormwindcity",
+		Name = L["Stormwind City"],
+		City = true,
+		MMOutside = true,
 	},
-	[1026] = {
-		Name = "Mount Hyjal",
-		Fish = 1,
-		QAchievementId = 4870,
+	[321] = {
+		Scale = 3.47875,
+		X = 701.27080078125,
+		Y = -497.33334960938,
+		Overlay = "orgrimmar",
+		Name = L["Orgrimmar"],
+		City = true,
+		MMOutside = true,
 	},
-	[1027] = {
-		Name = "Southern Barrens",
-		Fish = 75,
-		QAchievementId = 4937,
-		QAchievementIdH = 4981,
+	[341] = {
+		Scale = 1.5812501220703,
+		X = 142.71827392578,
+		Y = 913.8482421875,
+		Overlay = "ironforge",
+		Name = L["Ironforge"],
+		City = true,
 	},
-	[1028] = {
-		Name = "Uldum",
-		Fish = 75,
-		QAchievementId = 4872,
+	[362] = {
+		Scale = 2.0874998779297,
+		X = -103.33332519531,
+		Y = 169.99998779297,
+		Overlay = "thunderbluff",
+		Name = L["Thunder Bluff"],
+		City = true,
+		MMOutside = true,
 	},
-
-	-- Mists
-
-	[1029] = {
-		Name = "Ammen Vale",
-		XOff = Map.DraeneiXO,
-		YOff = Map.DraeneiYO,
-		MId = 1003,
-		StartZone = true,
+	[381] = {
+		Scale = 3.0791667480469,
+		X = -637.5,
+		Y = -2092.9166015625,
+		Overlay = "darnassus",
+		Name = L["Darnassus"],
+		City = true,
+		MMOutside = true,
 	},
-	[1030] = {
-		Name = "Camp Narache",
-		StartZone = true,
+	[382] = {
+		Scale = 1.9187500610352,
+		X = -174.63852539063,
+		Y = -375.5890625,
+		Overlay = "undercity",
+		Name = L["Undercity"],
+		City = true,
 	},
-	[1031] = {
-		Name = "Echo Isles",
-		StartZone = true,
+	[401] = {
+		Name = L["Alterac Valley"],
+		Scale = 8.4749997558594,
+		X = 16000,
+		Y = 2000,
+		Short = "AV",
 	},
-	[1032] = {
-		Name = "Shadowglen",
-		StartZone = true,
+	[443] = {
+		Name = L["Warsong Gulch"],
+		Scale = 2.2916666259766,
+		X = -16000,
+		Y = 1000,
+		Short = "WG",
 	},
-	[1033] = {
-		Name = "Valley of Trials",
-		StartZone = true,
+	[461] = {
+		Name = L["Arathi Basin"],
+		Scale = 3.5124998474121,
+		X = -16000,
+		Y = 0,
+		Short = "AB",
 	},
-
-	[2000] = {
-		81.53, -- Scale
-		-3645.96, -2249.31, -- Origin
-	},
-	[2001] = {	-- Merged into Hillsbrad Foothills for Cataclysm
-		Name = "Alterac Mountains",
-		5.599993, -- Scale (0.6666676)
-		-156.6661, -299.9998, -- Origin (WH 559.9993, 373.3334)
-		 -- 599.2264 -222.7941, 49.3771 68.4217
-		 -- 830.212 -798.6328, 57.6266 37.5732
-		Overlay = "alterac",
-		Fish = 225,
-	},
-	[2002] = {
-		Name = "Arathi Highlands",
-		Fish = 225,
-		QAchievementId = 4896,
-	},
-	[2003] = {
-		Name = "Badlands",
-		QAchievementId = 4900,
-	},
-	[2004] = {
-		Name = "Blasted Lands",
-		QAchievementId = 4909,
-	},
-	[2005] = {
-		Name = "Burning Steppes",
-		Fish = 425,
-		QAchievementId = 4901,
-	},
-	[2006] = {
-		Name = "Deadwind Pass",
-		Fish = 425,
-	},
-	[2007] = {
-		Name = "Dun Morogh",
-		Fish = 25,
-	},
-	[2008] = {
-		Name = "Duskwood",
-		Fish = 150,
-		QAchievementIdA = 4907,
-	},
-	[2009] = {
-		Name = "Eastern Plaguelands",
-		Fish = 425,
-		QAchievementId = 4892,
-	},
-	[2010] = {
-		Name = "Elwynn Forest",
-		Fish = 25,
-	},
-	[2011] = {
-		Name = "Eversong Woods",
+	[462] = {
+		Scale = 9.85,
+		X = 897.5,
+		Y = -2208.333203125,
+		Overlay = "eversongwoods",
+		Name = L["Eversong Woods"],
 		XOff = Map.BloodelfXO,
 		YOff = Map.BloodelfYO,
-		MId = 2011,
-		Fish = 25,
+		MId = 462,
 	},
-	[2012] = {
-		Name = "Ghostlands",
+	[463] = {
+		Scale = 6.6,
+		X = 1056.6666015625,
+		Y = -1653.333203125,
+		Overlay = "ghostlands",
+		Name = L["Ghostlands"],
 		XOff = Map.BloodelfXO,
 		YOff = Map.BloodelfYO,
-		MId = 2011,
-		Fish = 75,
+		MId = 462,
 		QAchievementIdH = 4908,
 	},
-	[2013] = {
-		Name = "Hillsbrad Foothills",
-		Fish = 150,
-		QAchievementIdH = 4895,
+	[464] = {
+		Scale = 8.141666015625,
+		X = 2100,
+		Y = 558.75,
+		Overlay = "azuremystisle",
+		Name = L["Azuremyst Isle"],
+		XOff = Map.DraeneiXO,
+		YOff = Map.DraeneiYO,
+		MId = 464,
 	},
-	[2014] = {
-		Name = "Ironforge",
-		1.581249, -- Scale (0.6673273)
-		142.7185, 913.8483, -- Origin (WH 158.1249, 105.521)
-		 -- 1168.239 4834.522, 57.5047 50.2803
-		 -- 1002.861 4949.052, 36.5874 71.9877
-		 -- 953.4069 4990.946, 30.3323 79.9281
-		Overlay = "ironforge",
-		City = true,
-		Fish = 75,
-	},
-	[2015] = {
-		Name = "Loch Modan",
-		Fish = 75,
-		QAchievementIdA = 4899,
-	},
-	[2016] = {
-		Name = "Redridge Mountains",
-		Fish = 150,
-		QAchievementIdA = 4902,
-	},
-	[2017] = {
-		Name = "Searing Gorge",
-		QAchievementId = 4910,
-	},
-	[2018] = {
-		Name = "Silvermoon City",
-		XOff = Map.BloodelfXO,
-		YOff = Map.BloodelfYO,
-		City = true,
-		MId = 2011,
-	},
-	[2019] = {
-		Name = "Silverpine Forest",
-		Fish = 75,
-		QAchievementIdH = 4894,
-	},
-	[2020] = {
-		Name = "Stormwind City",
-		City = true,
-		MMOutside = true,
-		Fish = 75,
-	},
-	[2021] = {
-		Name = "Northern Stranglethorn",
---		Name = "Stranglethorn Vale",
-		Fish = 225,
-		QAchievementId = 4906,
-	},
-	[2022] = {
-		Name = "Swamp of Sorrows",
-		Fish = 225,
-		QAchievementId = 4904,
-	},
-	[2023] = {
-		Name = "The Hinterlands",
-		Fish = 300,
-		QAchievementId = 4897,
-	},
-	-- Tirisfal Glades
-	[2024] = {
-		Name = "Tirisfal Glades",
-		Fish = 25,
-	},
-	-- Undercity
-	[2025] = {
-		Name = "Undercity", -- [26]
-		1.9187478, -- Scale (0.6672102)
-		-174.6383, -375.589, -- Origin (WH 191.8748, 128.0208)
-		 -- -246.8386 -1631.841, 65.2877 38.4475
-		 -- -241.8082 -1783.917, 65.812 14.6895
-		 -- -343.3792 -1804.086, 55.2248 11.5385
-		 -- -239.2218 -1836.685, 66.0816 6.4458
-		Overlay = "undercity",
-		City = true,
-		Fish = 75,
-	},
-	[2026] = {
-		Name = "Western Plaguelands",
-		Fish = 300,
-		QAchievementId = 4893,
-	},
-	[2027] = {
-		Name = "Westfall",
-		Fish = 75,
-		QAchievementIdA = 4903,
-	},
-	[2028] = {
-		Name = "Wetlands",
-		Fish = 150,
-		QAchievementIdA = 4898,
-	},
-	[2029] = {
-		Name = "Isle of Quel'Danas",
-		XOff = Map.BloodelfXO,
-		YOff = Map.BloodelfYO,
-		MId = 2011,
-		Fish = 450,
-	},
-	[2030] = {
-		Name = "Plaguelands: The Scarlet Enclave",
-		XOff = 400,
-		YOff = -33,
-		City = true,	-- No explored areas
-	},
-
--- Cataclysm
-
-	[2031] = {
-		Name = "Abyssal Depths",
-		Fish = 75,
-		QAchievementId = 4869,
-		QAchievementIdH = 4982,
-	},
-	[2032] = {
-		Name = "Kelp'thar Forest",
-		Fish = 75,
-		QAchievementId = 4869,
-		QAchievementIdH = 4982,
-	},
-	[2033] = {
-		Name = "Ruins of Gilneas",
-		Fish = 75,
-		Explored = true,
-	},
-	[2034] = {
-		Name = "Ruins of Gilneas City",
-		Fish = 75,
-		City = true,	-- No explored areas
-	},
-	[2035] = {
-		Name = "Shimmering Expanse",
-		Fish = 75,
-		QAchievementId = 4869,
-		QAchievementIdH = 4982,
-	},
-	[2036] = {
-		Name = "Stranglethorn Vale",	-- Fake parent map?
-		Fish = 75,
-	},
-	[2037] = {
-		Name = "The Cape of Stranglethorn",
-		Fish = 75,
-		QAchievementId = 4905,
-	},
-	[2038] = {
-		Name = "Tol Barad",
-		XOff = -600,
-		YOff = 320,
-		MId = 2038,
-		Fish = 75,
-		Explored = true,
-	},
-	[2039] = {
-		Name = "Tol Barad Peninsula",
-		XOff = -600,
-		YOff = 320,
-		MId = 2038,
-		Fish = 75,
-		Explored = true,
-	},
-	[2040] = {
-		Name = "Twilight Highlands",
-		Fish = 75,
-		QAchievementId = 4873,
-		QAchievementIdH = 5501,
-	},
-	[2041] = {	-- Need??? Sub continent
-		Name = "Vashj'ir",
-		Fish = 75,
-	},
-	[2042] = {
-		Name = "Gilneas",
-	},
-	[2043] = {
-		Name = "Gilneas City",
-		City = true,			-- No explored areas
-		MMOutside = true,
-	},
-
-	-- Mists
-
-	[2044] = {
-		Name = "Coldridge Valley",
-		StartZone = true,
-	},
-	[2045] = {
-		Name = "Deathknell",
-		StartZone = true,
-	},
-	[2046] = {
-		Name = "New Tinkertown",
-		StartZone = true,
-	},
-	[2047] = {
-		Name = "Northshire",
-		StartZone = true,
-	},
-	[2048] = {
-		Name = "Sunstrider Isle",
-		XOff = Map.BloodelfXO,
-		YOff = Map.BloodelfYO,
-		MId = 2011,
-		StartZone = true,
-	},
-
-
-	[3000] = {
-		34.606,				-- Scale
-		-2587.3, -1151.7,	-- Origin
-	},
-	[3001] = {
-		Name = "Blade's Edge Mountains", -- [1]
-		10.85003, -- Scale (0.666667)
-		-1769.168, -881.6678, -- Origin (WH 1085.003, 723.3356)
-		 -- -5982.262 -2399.672, 52.7847 55.539
-		 -- -4709.442 -2041.002, 76.2468 65.4561
-		 -- -4603.104 -2096.445, 78.2069 63.9231
-		Overlay = "bladesedgemountains",
-		QAchievementId = 1193,
-	},
-	[3002] = {
-		Name = "Hellfire Peninsula", -- [2]
-		10.32915, -- Scale (0.6668043)
-		-1107.916, -296.2509, -- Origin (WH 1032.916, 688.7525)
-		 -- -4976.093 697.7343, 10.9106 63.2735
-		 -- -4605.781 414.6589, 18.0808 55.0536
-		 -- -5056.561 188.3606, 9.3525 48.4823
+	[465] = {
+		Scale = 10.329166015625,
+		X = -1107.9166015625,
+		Y = -296.25,
 		Overlay = "hellfire",
-		Fish = 375,
+		Name = L["Hellfire Peninsula"],
 		QAchievementId = 1189,
 		QAchievementIdH = 1271,
 	},
-	[3003] = {
-		Name = "Nagrand", -- [3]
-		11.05005, -- Scale (0.6666639)
-		-2059.17, -8.333105, -- Origin (WH 1105.005, 736.6674)
-		 -- -6137.744 1568.903, 75.2595 43.7258
-		 -- -6389.304 1749.084, 70.7064 48.6176
-		 -- -6336.4 1318.156, 71.6639 36.9182
-		 -- -6297.564 1158.649, 72.3668 32.5877
+	[466] = {
+		Scale = 34.92815625,
+		X = -2599.2078125,
+		Y = -1164.271875,
+	},
+	[467] = {
+		Scale = 10.054166992188,
+		X = -1895,
+		Y = -387.08332519531,
+		Overlay = "zangarmarsh",
+		Name = L["Zangarmarsh"],
+		QAchievementId = 1190,
+	},
+	[471] = {
+		Scale = 2.113541015625,
+		X = 2213.2734375,
+		Y = 721.93666992188,
+		Overlay = "theexodar",
+		Name = L["The Exodar"],
+		XOff = Map.DraeneiXO,
+		YOff = Map.DraeneiYO,
+		City = true,
+		MId = 464,
+	},
+	[473] = {
+		Scale = 11,
+		X = -845,
+		Y = 389.58332519531,
+		Overlay = "shadowmoonvalley",
+		Name = L["Shadowmoon Valley"],
+		QAchievementId = 1195,
+	},
+	[475] = {
+		Scale = 10.849999511719,
+		X = -1769.1666015625,
+		Y = -881.6666015625,
+		Overlay = "bladesedgemountains",
+		Name = L["Blade's Edge Mountains"],
+		QAchievementId = 1193,
+	},
+	[476] = {
+		Scale = 6.524998046875,
+		X = 2015,
+		Y = 151.66666259766,
+		Overlay = "bloodmystisle",
+		Name = L["Bloodmyst Isle"],
+		XOff = Map.DraeneiXO,
+		YOff = Map.DraeneiYO,
+		MId = 464,
+		QAchievementIdA = 4926,
+	},
+	[477] = {
+		Scale = 11.05,
+		X = -2059.1666015625,
+		Y = -8.333332824707,
 		Overlay = "nagrand",
-		Fish = 475,
+		Name = L["Nagrand"],
 		QAchievementId = 1192,
 		QAchievementIdH = 1273,
 	},
-	[3004] = {
-		Name = "Netherstorm", -- [4]
-		11.14996, -- Scale (0.6666698)
-		-1096.665, -1091.25, -- Origin (WH 1114.996, 743.3344)
-		 -- -4413.899 -2483.77, 19.1826 79.977
-		 -- -3666.211 -3010.165, 32.5941 65.8139
-		Overlay = "netherstorm",
-		Fish = 475,
-		QAchievementId = 1194,
-	},
-	--!
-	[3005] = {
-		Name = "Shadowmoon Valley", -- [5]
-		11, -- Scale (0.6666666)
-		-845.0001, 389.5833, -- Origin (WH 1100, 733.3334)
-		 -- -3265.336 3224.464, 17.44844 34.81494
-		 -- -2685.753 2841.652, 27.9863 24.3746
-		Overlay = "shadowmoonvalley",
-		Fish = 375,
-		QAchievementId = 1195,
-	},
-	-- Shattrath City
-	--!
-	[3006] = {
-		Name = "Shattrath City", -- [6]
-		2.6125, -- Scale (0.6666668)
-		-1227.052, 294.7909, -- Origin (WH 261.25, 174.1667)
-		 -- -5785.705 1864.776, 26.76009 44.87901
-		 -- -5098.179 1620.727, 79.39369 16.85428
-		Overlay = "shattrathcity",
-		City = true,
-		MMOutside = true,
-	},
-	--!
-	[3007] = {
-		Name = "Terokkar Forest", -- [7]
-		10.8, -- Scale (0.6666667)
-		-1416.667, 200, -- Origin (WH 1080, 720)
-		 -- -3295.501 3248.513, 70.14504 62.45869
-		 -- -5076.772 1600.578, 37.15854 16.68273
+	[478] = {
+		Scale = 10.799999511719,
+		X = -1416.6666015625,
+		Y = 199.99998779297,
 		Overlay = "terokkarforest",
-		Fish = 450,
+		Name = L["Terokkar Forest"],
 		QAchievementId = 1191,
 		QAchievementIdH = 1272,
 	},
-	[3008] = {
-		Name = "Zangarmarsh", -- [8]
-		10.05418, -- Scale (0.6668039)
-		-1895, -387.0831, -- Origin (WH 1005.418, 670.4165)
-		 -- -6286.6 1113.615, 63.4244 90.9593
-		 -- -5236.717 810.7363, 84.3089 81.9237
-		 -- -5265.634 100.2874, 83.7337 60.7295
-		Overlay = "zangarmarsh",
-		Fish = 400,
-		QAchievementId = 1190,
+	[479] = {
+		Scale = 11.149999343872,
+		X = -1096.6666015625,
+		Y = -1091.25,
+		Overlay = "netherstorm",
+		Name = L["Netherstorm"],
+		QAchievementId = 1194,
 	},
-
-	[4000] = {
-		35.5,		-- Scale
-		0, 0,		-- Origin
+	[480] = {
+		Scale = 2.4229169921875,
+		X = 1280.15,
+		Y = -2030.741796875,
+		Overlay = "silvermooncity",
+		Name = L["Silvermoon City"],
+		XOff = Map.BloodelfXO,
+		YOff = Map.BloodelfYO,
+		City = true,
+		MId = 462,
 	},
-	[4001] = {
-		Name = "Borean Tundra", -- [1]
-		11.521,
-		125.764810, 1139.054323, -- Origin (WH 1085.003, 723.3356)
+	[481] = {
+		Scale = 2.6125,
+		X = -1227.0517578125,
+		Y = 294.79089355469,
+		Overlay = "shattrathcity",
+		Name = L["Shattrath City"],
+		MMOutside = true,
+	},
+	[482] = {
+		Name = L["Eye of the Storm"],
+		Scale = 4.5416663818359,
+		X = -16000,
+		Y = 3000,
+		Short = "EOS",
+	},
+	[485] = {
+		Scale = 35.502796875,
+		X = -1843.43046875,
+		Y = -2118.675,
+	},
+	[486] = {
+		Scale = 11.529166015625,
+		X = -1714.1666015625,
+		Y = -979.58330078125,
 		Overlay = "boreantundra",
-		Fish = 475,
+		Name = L["Borean Tundra"],
 		QAchievementId = 33,
 		QAchievementIdH = 1358,
 	},
-	[4002] = {
-		Name = "Crystalsong Forest", -- [2]
-		5.4416,
-		1550.386409, 817.907816,
-		Overlay = "crystalsongforest",
-		Fish = 500,
-	},
-	[4003] = {	-- Main level
-		Name = "Dalaran", -- [3]
-		1.6589 / 1.3,
-		1629, 861,		--		1580, 1739,
-		Overlay = "dalaran",
-		MapBaseName = "dalaran1_",
---		NoBackground = true,
-		City = true,
-		Alpha = .85,
-		ScaleAdjust = 1.3,
-		Fish = 525,
-		MapLevel = 1,
-		Level2Id = 4014,
-	},
-	[4014] = {	-- Level 2 (was id 4012)
-		Name = "Dalaran Underbelly", -- [3]
-		1.6589 / 1.3,
-		1629, 861,		--		1580, 1739,
-		Overlay = "dalaran",
-		MapBaseName = "dalaran2_",
-		City = true,
-		Alpha = .85,
-		ScaleAdjust = 1.3,
-		Fish = 525,
-		MapLevel = 2,
-		Level1Id = 4003,
-	},
-	[4004] = {
-		Name = "Dragonblight", -- [4]
-		11.21,
-		1113.94, 1003.78, -- Origin (WH 1085.003, 723.3356)
+	[488] = {
+		Scale = 11.216666259766,
+		X = -725.41665039063,
+		Y = -1115,
 		Overlay = "dragonblight",
-		Fish = 475,
+		Name = L["Dragonblight"],
 		QAchievementId = 35,
 		QAchievementIdH = 1359,
 	},
-	[4005] = {
-		Name = "Grizzly Hills", -- [5]
-		10.5,
-		2061.032452, 1015.273026, -- Origin (WH 1085.003, 723.3356)
+	[490] = {
+		Scale = 10.499999755859,
+		X = 222.08332519531,
+		Y = -1103.3333007813,
 		Overlay = "grizzlyhills",
-		Fish = 475,
+		Name = L["Grizzly Hills"],
 		QAchievementId = 37,
 		QAchievementIdH = 1357,
 	},
-	[4006] = {
-		Name = "Howling Fjord", -- [6]
-		12.085,
-		2119.306683, 1495.527721, -- Origin (WH 1085.003, 723.3356)
+	[491] = {
+		Scale = 12.091665771484,
+		X = 279.58332519531,
+		Y = -623.33330078125,
 		Overlay = "howlingfjord",
-		Fish = 475,
+		Name = L["Howling Fjord"],
 		QAchievementId = 34,
 		QAchievementIdH = 1356,
 	},
-	[4007] = {
-		Name = "Icecrown", -- [7]
-		12.533,
-		750.941881, 233.475172, -- Origin (WH 1085.003, 723.3356)
+	[492] = {
+		Scale = 12.541666625977,
+		X = -1088.75,
+		Y = -1885.4166015625,
 		Overlay = "icecrownglacier",
+		Name = L["Icecrown"],
 		QAchievementId = 40,
 	},
-	[4008] = {
-		Name = "Sholazar Basin", -- [8]
-		8.7057,
-		453.792401, 661.305837,
+	[493] = {
+		Scale = 8.7125,
+		X = -1385.8333007813,
+		Y = -1457.4999023437,
 		Overlay = "sholazarbasin",
-		Fish = 525,
+		Name = L["Sholazar Basin"],
 		QAchievementId = 39,
 	},
-	[4009] = {
-		Name = "The Storm Peaks", -- [9]
-		14.214,
-		1471.175866, 79.244441, -- Origin (WH 1085.003, 723.3356)
+	[495] = {
+		Scale = 14.224999267578,
+		X = -368.33332519531,
+		Y = -2039.583203125,
 		Overlay = "thestormpeaks",
+		Name = L["The Storm Peaks"],
 		QAchievementId = 38,
 	},
-	[4010] = {
-		Name = "Wintergrasp", -- [10]
-		5.9455,
-		973.388866, 975.227557,
-		Overlay = "lakewintergrasp",
-		Explored = true,
-	},
-	[4011] = {
-		Name = "Zul'Drak", -- [11]
-		9.98,
-		1959.324066, 584.635173, -- Origin (WH 1085.003, 723.3356)
+	[496] = {
+		Scale = 9.9875,
+		X = 120,
+		Y = -1533.7499023437,
 		Overlay = "zuldrak",
+		Name = L["Zul'Drak"],	-- [11]
 		QAchievementId = 36,
 	},
-	[4012] = {	-- Patch 4.2 (AID 795)
-		Name = "Molten Front",
-		2.38,
-		1000, 2500,
-		MId = 4012,
-		UseAId = true,
---		City = true,
-		Overlay = "moltenfront",
+	[499] = {
+		Scale = 6.654166015625,
+		X = 1060.4166015625,
+		Y = -2713.7498046875,
+		Overlay = "sunwell",
+		Name = L["Isle of Quel'Danas"],
+		XOff = Map.BloodelfXO,
+		YOff = Map.BloodelfYO,
+		MId = 462,
+	},
+	[501] = {
+		Scale = 5.9499997558594,
+		X = -865.83330078125,
+		Y = -1143.3333007813,
+		Overlay = "lakewintergrasp",
+		Name = L["Wintergrasp"],
 		Explored = true,
 	},
-	[4013] = {
-		Name = "Hrothgar's Landing",
-		7.35,
-		1280, -37.5,
+	[502] = {
+		Scale = 6.325,
+		X = 809.58330078125,
+		Y = -617.5,
+		Overlay = "scarletenclave",
+		Name = L["Plaguelands: The Scarlet Enclave"],
+		XOff = 400,
+		YOff = -33,
+		City = true,
+	},
+	[504] = {
+		Name = L["Dalaran"],
+		Scale = 1.6589 / 1.3,
+		X = 1629,
+		Y = 861,
+		Overlay = "dalaran",
+		MapBaseName = "dalaran1_",
+		City = true,
+		Alpha = .85,
+		ScaleAdjust = 1.3,
+		MapLevel = 1,
+	},
+	[510] = {
+		Scale = 5.4458332519531,
+		X = -288.75,
+		Y = -1300.4166015625,
+		Overlay = "crystalsongforest",
+		Name = L["Crystalsong Forest"],
+	},
+	[512] = {
+		Name = L["Strand of the Ancients"],
+		Scale = 3.4874998779297,
+		X = -14500,
+		Y = 0,
+		Short = "SoA",
+	},
+	[540] = {
+		Name = L["Isle of Conquest"],
+		Scale = 5.3,
+		X = -14500,
+		Y = 1000,
+		Short = "IC",
+	},
+	[541] = {
+		Scale = 7.3541662597656,
+		X = -559.58330078125,
+		Y = -2156.25,
 		Overlay = "hrothgarslanding",
+		Name = L["Hrothgar's Landing"],
 		Explored = true,
 	},
---	[4014]	Used by Dalaran sewers!
-
-	-- Lost Isles (Cataclysm)
-	[5000] = {
-		26,		-- Scale
-		0, 0,		-- Origin
+	[544] = {
+		Scale = 9.029166015625,
+		X = -876.6666015625,
+		Y = -576.25,
+		Overlay = "thelostisles_terrain2",
+		Name = L["The Lost Isles"],
+		XOff = 470,
+		YOff = 980,
 	},
-	[5001] = {
-		Name = "Deepholm",
+	[545] = {
+		Scale = 6.2916665039063,
+		X = -687.91665039063,
+		Y = 106.66666259766,
+		Overlay = "gilneas",
+		Name = L["Gilneas"],
+	},
+	[605] = {
+		Scale = 2.7041663818359,
+		X = -425.83330078125,
+		Y = 1546.2499023437,
+		Overlay = "kezan",
+		Name = L["Kezan"],
+		XOff = 946,
+		YOff = -832,
+		MId = 605,
+	},
+	[606] = {
+		Scale = 8.4916667480469,
+		X = 185.83332519531,
+		Y = -1239.1666015625,
+		Overlay = "hyjal",
+		Name = L["Mount Hyjal"],
+		QAchievementId = 4870,
+	},
+	[607] = {
+		Scale = 14.825,
+		X = -271.25,
+		Y = -40.833331298828,
+		Overlay = "southernbarrens",
+		Name = L["Southern Barrens"],
+		QAchievementId = 4937,
+		QAchievementIdH = 4981,
+	},
+	[610] = {
+		Scale = 5.604166015625,
+		X = -1014.1666015625,
+		Y = 803.74995117188,
+		Overlay = "vashjirkelpforest",
+		Name = L["Kelp'thar Forest"],
+		QAchievementId = 4869,
+		QAchievementIdH = 4982,
+	},
+	[611] = {
+		Scale = 1.7791665039063,
+		X = -386.66665039063,
+		Y = 261.25,
+		Overlay = "gilneascity",
+		Name = L["Gilneas City"],
+	},
+	[613] = {
+		Scale = 13.891665527344,
+		X = -1750.833203125,
+		Y = 744.16665039063,
+		Overlay = "vashjir",
+		Name = L["Vashj'ir"],
+	},
+	[614] = {
+		Scale = 8.15,
+		X = -1646.6666015625,
+		Y = 981.25,
+		Overlay = "vashjirdepths",
+		Name = L["Abyssal Depths"],
+		QAchievementId = 4869,
+		QAchievementIdH = 4982,
+	},
+	[615] = {
+		Scale = 9.6999992675781,
+		X = -1336.2499023437,
+		Y = 951.25,
+		Overlay = "vashjirruins",
+		Name = L["Shimmering Expanse"],
+		QAchievementId = 4869,
+		QAchievementIdH = 4982,
+	},
+	[626] = {
+		Name = L["Twin Peaks"],
+		Scale = 2.4291665039062,
+		X = -14500,
+		Y = 3000,
+		Short = "TP",
+	},
+	[640] = {
+		Scale = 10.199999755859,
+		X = -610.41665039063,
+		Y = -559.16665039063,
+		Overlay = "deepholm",
+		Name = L["Deepholm"],
 		XOff = 1580,
 		YOff = 700,
 		QAchievementId = 4871,
-		MId = 5001,
+		MId = 640,
 	},
-	[5002] = {
-		Name = "Kezan",
-		XOff = 1256,
-		YOff = -542,
-		MId = 5002,
+	[673] = {
+		Scale = 7.8916662597656,
+		X = -421.66665039063,
+		Y = 2503.333203125,
+		Overlay = "thecapeofstranglethorn",
+		Name = L["The Cape of Stranglethorn"],
+		QAchievementId = 4905,
 	},
-	[5003] = {
-		Name = "The Lost Isles",
-		XOff = 750,
-		YOff = 1150,
+	[678] = {
+		BaseMap = 545,
 	},
-	[5004] = {
-		Name = "The Maelstrom",
+	[679] = {
+		BaseMap = 545,
+	},
+	[681] = {
+		BaseMap = 544,
+	},
+	[682] = {
+		BaseMap = 544,
+	},
+	[683] = {
+		BaseMap = 606,
+	},
+	[684] = {
+		Scale = 6.2916665039063,
+		X = -687.91665039063,
+		Y = 106.66666259766,
+		Overlay = "ruinsofgilneas",
+		Name = L["Ruins of Gilneas"],
+		Explored = true,
+	},
+	[685] = {
+		Scale = 1.7791665039063,
+		X = -386.66665039063,
+		Y = 261.25,
+		Overlay = "ruinsofgilneascity",
+		Name = L["Ruins of Gilneas City"],
+		City = true,
+		StartZone = true,
+	},
+	[689] = {
+		Scale = 13.104166015625,
+		X = -595.41665039063,
+		Y = 2192.9166015625,
+		Overlay = "stranglethornvale",
+		Name = L["Stranglethorn Vale"],
+	},
+	[700] = {
+		Scale = 10.541666015625,
+		X = 487.5,
+		Y = 431.25,
+		Overlay = "twilighthighlands",
+		Name = L["Twilight Highlands"],
+		QAchievementId = 4873,
+		QAchievementIdH = 5501,
+	},
+	[708] = {
+		Scale = 4.0291665849686,
+		X = -402.08332519531,
+		Y = 112.08332519531,
+		Overlay = "tolbarad",
+		Name = L["Tol Barad"],
+		XOff = -600,
+		YOff = 320,
+		MId = 708,
+		Explored = true,
+	},
+	[709] = {
+		Scale = 3.675,
+		X = -482.5,
+		Y = -75.416662597656,
+		Overlay = "tolbaraddailyarea",
+		Name = L["Tol Barad Peninsula"],
+		XOff = -600,
+		YOff = 320,
+		MId = 708,
+		Explored = true,
+	},
+	[720] = {
+		Scale = 12.387499511719,
+		X = -488.33330078125,
+		Y = 1605.8333007813,
+		Overlay = "uldum",
+		Name = L["Uldum"],
+		QAchievementId = 4872,
+	},
+	[736] = {
+		Name = L["The Battle for Gilneas"],
+		Scale = 2.6041665649414,
+		X = -14500,
+		X = 2000,
+		Short = "TBG",
+	},
+	[737] = {
+		Scale = 3.1,
+		X = -311.25,
+		Y = -274.16665039063,
+		Overlay = "themaelstrom",
+		Name = L["The Maelstrom"],
 		XOff = 1000,
 		YOff = 600,
 		City = true,
 		Explored = true,
-	},	
-    [5005] = { 
-	    Name = "Darkmoon Island",
-		3.8,
-		-300, -2750+2400,
+	},
+	[748] = {
+		BaseMap = 720,
+	},
+	[751] = {
+		Scale = 26,
+		X = -311.25,
+		Y = -274.16665039063,
+	},
+	[770] = {
+	  BaseMap = 770,
+	},
+	[772] = {
+		Scale = 8.0999996643066,
+		X = -778.33330078125,
+		Y = 1606.6666015625,
+		Overlay = "ahnqirajthefallenkingdom",
+		Name = L["Ahn'Qiraj: The Fallen Kingdom"],
+	},
+	[795] = {
+		Scale = 2.3791666259766,
+		X = -186.66666259766,
+		Y = -340.41665039063,
+		Overlay = "moltenfront",
+		Name = L["Molten Front"],
+		MId = 795,
+		UseAId = true,
+		Explored = true,
+	},
+    [806] = {
+		Scale = 13.966666015625,
+		X = -290.4166015625,
+		Y = -730.4166015625,
+		Overlay = "thejadeforest",
+		Name=L["The Jade Forest"],
+	},
+	[807] = {
+		Scale = 7.850001953125,
+		X = -535.8333984375,
+		Y = -219.1666015625,
+		Overlay = "valleyofthefourwinds",
+		Name=L["Valley of the Four Winds"],
+	},
+	[808] = {
+		Scale = 5.341666015625,
+		X = -995.833203125,
+		Y = -357.0833984375,
+		Overlay = "thewanderingisle",
+		Name=L["The Wandering Isle"],
+		StartZone = true,
+		XOff = 500,
+		YOff = -1500,
+		MId = 808,
+		MMOutside = true,
+	},
+	[809] = {
+		Scale = 12.516666015625,
+		X = -967.9166015625,
+		Y = -1123.75,
+		Overlay = "kunlaisummit",
+		Name=L["Kun-Lai Summit"],
+	},
+	[810] = {
+		Scale = 11.487498046875,
+		X = -1415.833203125,
+		Y = -911.6666015625,
+		Overlay = "townlongwastes",
+		Name=L["Townlong Steppes"],
+	},
+	[811] = {
+		Scale = 5.06666796875,
+		X = -496.25,
+		Y = -389.5833984375,
+		Overlay = "valeofeternalblossoms",
+		Name=L["Vale of Eternal Blossoms"],
+	},
+	[813] = {
+		BaseMap = 482,
+		Short = "EOS",
+	},
+    [823] = {
+		Scale = 3.716666015625,
+		X = -1453.7499023437,
+		Y = 664.58330078125,
+		Overlay = "darkmoonfaireisland",
+	    Name = L["Darkmoon Island"],
 		Explored = true,
 		City = true,
-		MMOutside = true,		
+		MMOutside = true,
 		UseAId=true,
-		MId=5005,
-		Overlay = "darkmoonfaireisland",
+		MId=823,
 	},
-	-- BGs/Arenas (note: add map win InitLayoutData when adding BGs)
-    [6000] = {
-		31.030601,
-		-1756.42, 595.44,
+    [856] = {
+		Name = L["Temple of Kotmogu"],
+		Scale = 1.679166015625,
+		X = -14500,
+		Y = 4000,
+		Short = "TK",
 	},
-	[6001] = {
-		Name="Dread Wastes",
-		10.704166,
-		-1234.27, 1648.84,
-		Overlay = "dreadwastes",
-		Fish = 525,
-	},
-	[6002] = {
-		Name="Krasarang Wilds",
-		9.375002,
-		-595.94, 1954.25,
+	[857] = {
+		Scale = 9.375001953125,
+		X = -589.5833984375,
+		Y = 22.083204650879,
 		Overlay = "krasarang",
-		Fish = 525,
+		Name=L["Krasarang Wilds"],
 	},
-	[6003] = {
-		Name="Kun-Lai Summit",
-		12.516666,
-		-974.27, 808.42,
-		Overlay = "kunlaisummit",
-		Fish = 525,
+	[858] = {
+		Name=L["Dread Wastes"],
+		Scale = 10.704166015625,
+		X = -1227.9166015625,
+		Y = -283.3333984375,
+		Overlay = "dreadwastes",
 	},
-	[6004] = { 
-		Name = "Shrine of Seven Stars",	
-		0.55, 
-		-82, 1751, 
-		ScaleAdjust=0.9469, 
-		City = true, 
-		Level2Id = 6005,
-	}, 
-    [6005] = {
-		Name = "Shrine of Seven Stars L2", 
-		0.55,
-		-82, 1751, 
-		ScaleAdjust=1.14356, 
-		City = true, 
-		Level1Id = 6004,
+	[860] = {
+		Name = L["Silvershard Mines"],
+		Scale = 4.499998046875,
+		X = -14500,
+		Y = 5000,
+		Short = "SSM",
+		MapBaseName = "STVDiamondMineBG1_",
 	},
-    [6006] = {
-		Name="The Jade Forest",
-		13.966666,
-		-296.77,1201.75,
-		Overlay = "thejadeforest",
-		Fish = 525,
+    [862] = {
+		Scale = 31.030600585937,
+		X = -1750.5720703125,
+		Y = -1335.83203125,
 	},
-	[6007] = {
-		Name="The Veiled Stair",
-		3.587500,
-		-168.85,1594.25,
-		Overlay = "thehiddenpass",
-		Fish = 525,
-	},
-	[6008] = {
-		Name="Townlong Steppes",
-		11.487498,
-		-1422.19,1020.50,
-		Overlay = "townlongwastes",
-		Fish = 525,
-	},
-	[6009] = {
-		Name="Vale of Eternal Blossoms",
-		5.066668,
-		-502.60,1542.59,
-		Overlay = "valeofeternalblossoms",
-		Fish = 525,
-	},
-	[6010] = {
-		Name="Valley of the Four Winds",
-		7.850002,
-		-542.19,1713.00,
-		Overlay = "valleyofthefourwinds",
-		Fish = 525,
-	},
-	[6011] = {
-		Name="The Wandering Isle",
-		5.341666015625,
-		-500,-200,
-		Overlay = "thewanderingisle",
+	[864] = {
+		Scale = 1.9375,
+		X = -37.5,
+		Y = 1714.16640625,
+		Overlay = "northshire",
+		Name = L["Northshire"],
 		StartZone = true,
---		City = true,
-		MMOutside = true,		
-	},    
-    [6012] = { 
-		Name = "Shrine of Two Moons",	
-		0.5,
-		-217.8, 1573.5,
+	},
+	[866] = {
+		Scale = 1.929166015625,
+		X = -195.8333984375,
+		Y = 1192.5,
+		Overlay = "coldridgevalley",
+		Name = L["Coldridge Valley"],
+		StartZone = true,
+	},
+	[873] = {
+		Scale = 3.5875,
+		X = -162.5,
+		Y = -337.9166015625,
+		Overlay = "thehiddenpass",
+		Name=L["The Veiled Stair"],
+	},
+	[888] = {
+		Scale = 2.900001953125,
+		X = -298.3333984375,
+		Y = -2206.6666015625,
+		Overlay = "shadowglenstart",
+		Name = L["Shadowglen"],
+		StartZone = true,
+	},
+	[889] = {
+		Scale = 2.7,
+		X = 728.333203125,
+		Y = 0,
+		Overlay = "valleyoftrialsstart",
+		Name = L["Valley of Trials"],
+		StartZone = true,
+	},
+	[890] = {
+		Scale = 3.5333359375,
+		X = -46.666796875,
+		Y = 515.416796875,
+		Overlay = "campnarachestart",
+		Name = L["Camp Narache"],
+		StartZone = true,
+	},
+	[891] = {
+		Scale = 3.6125,
+		X = 898.333203125,
+		Y = 105,
+		Overlay = "echoislesstart",
+		Name = L["Echo Isles"],
+		StartZone = true,
+	},
+	[892] = {
+		Scale = 2.17916796875,
+		X = -429.5833984375,
+		Y = -454.1666015625,
+		Overlay = "deathknellstart",
+		Name = L["Deathknell"],
+		StartZone = true,
+	},
+	[893] = {
+		Scale = 3.2,
+		X = 1076.666796875,
+		Y = -2166.6666015625,
+		Overlay = "sunstriderislestart",
+		Name = L["Sunstrider Isle"],
+		XOff = Map.BloodelfXO,
+		YOff = Map.BloodelfYO,
+		MId = 462,
+		StartZone = true,
+	},
+	[894] = {
+		Scale = 3.6375,
+		X = 2562.91640625,
+		Y = 720.833203125,
+		Overlay = "ammenvalestart",
+		Name = L["Ammen Vale"],
+		XOff = Map.DraeneiXO,
+		YOff = Map.DraeneiYO,
+		MId = 464,
+		StartZone = true,
+	},
+	[895] = {
+		Scale = 3.7,
+		X = -241.25,
+		Y = 945.416796875,
+		Overlay = "newtinkertownstart",
+		Name = L["New Tinkertown"],
+		StartZone = true,
+	},
+    [903] = {
+		Name = L["Shrine of Two Moons"],
+		Scale = 0.5,
+		X = -217.8,
+		Y = 1573.5,
 		Alpha=2,
 		ScaleAdjust=0.87584,
 		City = true,
-		Level2Id = 6013,
 	},
-    [6013] = { 
-		Name = "Shrine of Seven Stars",	
-		0.5,
-		-217.8, 1573.5,
-		Alpha=2,	
-		ScaleAdjust=1.03448,
-		City = true, 
-		Level1Id = 6012,
-	},	
-	[6014] = {
-		Name = "Isle of Giants",
-		3.575001968,
-		-400.8334, 600.5832,
-		Explored = true,
-		Overlay = "isleofgiants",
+	[905] = {
+		Name = L["Shrine of Seven Stars"],
+		Scale = 0.55,
+		X = -82,
+		Y = 1751,
+		ScaleAdjust=0.9469,
+		City = true,
 	},
-	[6015] = {
-		Name = "Isle of Thunder",
-		8.270832,
-		-1535.8332, 514.5832,
-		Explored = true,
+	[928] = {
+		Scale = 8.27083203125,
+		X = -1530.833203125,
+		Y = -1629.583203125,
 		Overlay = "isleofthethunderking",
-	},	
-	[6016] = {
-		Name = "Timeless Isle",
-		4.8,
-		810.2668,1885.6667968,
+		Name = L["Isle of Thunder"],
 		Explored = true,
+	},
+	[929] = {
+		Scale = 3.575001953125,
+		X = -400.8333984375,
+		Y = -1339.583203125,
+		Overlay = "isleofgiants",
+		Name = L["Isle of Giants"],
+		Explored = true,
+	},
+	[935] = {
+		Name = L["Deepwind Gorge"],
+		Scale = 2.16666796875,
+		X = -13000,
+		Y = 0,
+		MapBaseName = "GoldRush",
+		Short = "DG",
+	},
+	[941] = {
+		Scale = 12.229159912109,
+		X = -1501.25,
+		Y = -1655,
+		Overlay = "frostfireridge",
+	},
+	[945] = {
+		 Scale = 9.975,
+		 X = -301.25,
+		 Y = -1152.083984375,
+		 Overlay = "tanaanjungle",
+	},
+	[946] = {
+		Scale = 11.924992156982,
+		X = -1166.666015625,
+		Y = -885.833984375,
+		Overlay = "talador",
+	},
+	[947] = {
+		Scale = 13.4,
+		X = -453.75,
+		Y = -532.083984375,
+		Overlay = "shadowmoonvalleydr",
+	},
+	[948] = {
+		Scale = 12.120840087891,
+		X = -936.25,
+		Y = -276.66599121094,
+		Overlay = "spiresofarak",
+	},
+	[949] = {
+		Scale = 16.3541796875,
+		X = -1013.333984375,
+		Y = -1917.916015625,
+		Overlay = "gorgrond",
+	},
+	[950] = {
+		Scale = 11.35,
+		X = -1861.666015625,
+		Y = -984.583984375,
+		Overlay = "nagranddraenor",
+	},
+	[951] = {
+		Scale = 4.8,
+		X = 816.666796875,
+		Y = -46.666796875,
 		Overlay = "timelessisle",
+		Name = L["Timeless Isle"],
+		Explored = true,
 	},
-	[9000] = {
-		1,				-- Scale
-		0, 0,			-- Origin
+	[962] = {
+		Scale = 45.471564453125,
+		X = -2448.46875,
+		Y = -2238.6,
 	},
-	[9001] = {		-- AB
-		Name = "Arathi Basin",
-		3.508,		-- Scale
-		-16000, 0,		-- Origin
-		Short = "AB",
+	[970] = {
+		Scale = 4.8166599121094,
+		X = 210.83400878906,
+		Y = -968.333984375,
+		Overlay = "tanaanjungleintro",
 	},
-	[9002] = {		-- WG
-		Name = "Warsong Gulch",
-		2.29,			-- Scale
-		-16000,1000,	-- Origin
-		Short = "WG",
+	[971] = {
+		Scale = 1.36666796875,
+		X = -109.166796875,
+		Y = -418.3333984375,
+		Garrison = true,
+		City = true,
+		MMOutside = true,
+		Explored = true,
+		MapBaseName = "garrisonsmvalliance_tier",
+		Overlay = "garrisonsmvalliance_tier1",
 	},
-	[9003] = {		-- AV
-		Name = "Alterac Valley",
-		8.471,		-- Scale
-		16000,2000,		-- Origin
-		Short = "AV",
+	[976] = {
+		Scale = 1.404166015625,
+		X = -977.083203125,
+		Y = -1162.9166015625,
+		Garrison = true,
+		MMOutside = true,
+		Explored = true,
+		City = true,
+		MapBaseName = "garrisonffhorde_tier",
+		Overlay = "garrisonffhorde_tier1",
 	},
-	[9004] = {		-- EOS
-		Name = "Eye of the Storm",
-		4.538,		-- Scale
-		-16000,3000,		-- Origin
-		Short = "EOS",
+	[978] = {
+		Scale = 6.2458203125,
+		X = 534.583984375,
+		Y = -1115.416015625,
+		Overlay = "ashran",
+	},
+	[1009] = {
+		Scale = 1.375,
+		X = 725,
+		Y = -781.6666015625,
+		Overlay = "ashranalliancefactionhub",
+	},
+	[1010] = {
+		Name = L["Deepwind Gorge"],
+		Scale = 4.337498046875,
+		X = -13000,
+		Y = 1000,
+		MapBaseName = "HillsbradFoothillsBG",
+		Short = "TvS",
+	},
+	[1011] = {
+		 Scale = 1.6,
+		 X = 717.916796875,
+		 Y = -1108.333203125,
+		 Overlay = "ashranhordefactionhub",
 	},
 	[9005] = {		-- Blade's Edge Arena
-		Name = "Blade's Edge Arena",
+		Name = L["Blade's Edge Arena"],
 		1,
 		-16000,4000,
 		Short = "BEA",
 		Arena = true
 	},
 	[9006] = {		-- Nagrand Arena
-		Name = "Nagrand Arena",
+		Name = L["Nagrand Arena"],
 		1,
 		-16000,5000,
 		Short = "NA",
 		Arena = true
 	},
 	[9007] = {		-- Ruins of Lordaeron
-		Name = "Ruins of Lordaeron",
+		Name = L["Ruins of Lordaeron"],
 		1,
 		-16000,6000,
 		Short = "RL",
 		Arena = true
 	},
-	[9008] = {		-- SoA
-		Name = "Strand of the Ancients",
-		3.486,
-		-14500,0,
-		Short = "SoA",
-	},
-	[9009] = {		-- IC
-		Name = "Isle of Conquest",
-		5.295,
-		-14500,1000,
-		Short = "IC",
-	},
-	[9010] = {
-		Name = "The Battle for Gilneas",
-		3.0,
-		-14500,2000,
-		Short = "TBG",
-	},
-	[9011] = {
-		Name = "Twin Peaks",
-		3.0,
-		-14500,3000,
-		Short = "TP",
-	},
-    [9012] = {
-		Name = "Temple of Kotmogu",
-		3.0,
-		-14500,4000,
-		Short = "TK",
-	},
-	[9013] = {
-		Name = "Silvershard Mines",
-		8.0,
-		-14500,5000,
-		Short = "SSM",
-		MapBaseName = "STVDiamondMineBG1_",
-	},	
 	[9014] = {
-		Name = "Tol'vir Proving Grounds",
+		Name = L["Tol'vir Proving Grounds"],
 		3.0,
 		-14500,6000,
 		Short = "TPG",
 		Arena = true
 	},
-	[9015] = {
-		Name = "Deepwind Gorge",
-		8.0,
-		-13000,0,
-		MapBaseName = "GoldRush",
-		Short = "DG",
-	},
+
 	[9016] = {
-		Name = "Tigers Peak Arena",
+		Name = L["Tigers Peak Arena"],
 		1,
 		-13000,1000,
 		Short = "TPA",
 		Arena = true,
 	},
-	-- Instances are created at 11000-14999 (cont * 1000 + 10000 + nxid)
-	-- Manual adjustments are added here
-
-	[11024] = {
-		0,
-		0, .02
-	},
-	[11025] = {
-		0,
-		0, .04
-	},
-	[11147] = {
-		0,
-		0, .06
-	},
-	[11201] = {
-		0,
-		.03, 0
-	},
-	[11202] = {
-		0,
-		.03, .02
-	},
-	[11203] = {
-		0,
-		.03, .04
-	},
-	[11204] = {
-		0,
-		.03, .06
-	},
-	[12017] = {
-		0,
-		0, .02
-	},
-	[12061] = {
-		0,
-		0, .04
-	},
-	[12189] = {
-		0,
-		.01, .07		-- Base coords off a little
-	},
-	[12190] = {
-		0,
-		.01, .09		-- Base coords off a little
-	},
-	[13027] = {
-		0,
-		.0, -.0
-	},
-	[13028] = {
-		0,
-		-.04, .0
-	},
-	[13029] = {
-		0,
-		-.02, .0
-	},
-	[13030] = {
-		0,
-		.02, .00
-	},
 }
 
 --------
 
---Map.HotspotInfo = {
---}
-
---------
--- "Atlas\Images\Maps"
-
-Map.AtlasInstanceInfo = {
---[[
-	Atlas = 1,					-- Flag table as Atlas maps
-	[13006] = {
-		129 / 512, 386 / 512,		"AuchAuchenaiCrypts"
-	},
-	[13007] = {
-		109 / 512, 44 / 512,		"AuchManaTombs",
-	},
-	[13008] = {
-		458 / 512, 236 / 512,		"AuchSethekkHalls",
-	},
-	[13009] = {
-		61 / 512, 77 / 512,		"AuchShadowLabyrinth", },
-	[13013] = {
-		104 / 512, 458 / 512,		"BlackTempleStart",
-		104 / 512 - 1, 458 / 512,		"BlackTempleBasement",
-		104 / 512, 458 / 512 + 1,		"BlackTempleTop",
-	},
-	[11014] = {
-		171 / 512, 59 / 512,		"BlackfathomDeeps",
-	},
-	[12015] = {
-		126 / 512, 420 / 512,		"BlackrockDepths",	},
-	[12017] = {
-		16 / 512, 71 / 512,		"BlackrockSpireLower",
-		16 / 512, 71 / 512 + 1,		"BlackrockSpireUpper",
-	},
-	[12018] = {
-		342 / 512, 361 / 512,		"BlackwingLair",
-	},
-	[11023] = {
-		108 / 512, 252 / 512,		"CoTHyjal",
-	},
-	[11024] = {
-		71 / 512, 206 / 512,		"CoTOldHillsbrad",
-	},
-	[11025] = {
-		267 / 512, 135 / 512,		"CoTBlackMorass",
-	},
-	[13027] = {
-		12 / 512, 339 / 512,		"CFRSerpentshrineCavern",
-	},
-	[13028] = {
-		126 / 512, 119 / 512,		"CFRTheSlavePens",
-	},
-	[13029] = {
-		14 / 512, 181 / 512,		"CFRTheSteamvault",
-	},
-	[13030] = {
-		124 / 512, 341 / 512,		"CFRTheUnderbog",
-	},
-	[11036] = {
-		385 / 512, 405 / 512,		"DireMaulNorth",
-		385 / 512 + 1, 405 / 512,		"DireMaulWest",
-		385 / 512 - 1, 405 / 512,		"DireMaulEast",
-	},
-	[12048] = {
-		405 / 512, 73 / 512,		"Gnomeregan",
-	},
-	[13049] = {
-		447 / 512, 364 / 512,	"GruulsLair",
-	},
-	[13051] = {
-		213 / 512, 330 / 512,	"HCHellfireRamparts",
-	},
-	[13052] = {
-		101 / 512, 81 / 512,		"HCMagtheridonsLair",
-	},
-	[13053] = {
-		242 / 512, 473 / 512,	"HCBloodFurnace",
-	},
-	[13054] = {
-		341 / 512, 497 / 512,	"HCTheShatteredHalls",
-	},
-	[12058] = {
-		144 / 512, 217 / 512,		"KarazhanStart",
-		144 / 512 - 1, 217 / 512,	"KarazhanEnd",
-	},
-	[11060] = {
-		378 / 512, 63 / 512,		"Maraudon",
-	},
-	[12061] = {
-		19 / 512, 114 / 512,		"MoltenCore",
-	},
-	[14065] = {
-		210 / 512, 211 / 512,	"Naxxramas",
-	},
-	[11067] = {
-		50 / 512, 66 / 512,		"OnyxiasLair",
-	},
-	[11069] = {
-		379 / 512, 14 / 512,		"RagefireChasm",
-	},
-	[11070] = {
-		26 / 512, 123 / 512,		"RazorfenDowns",
-	},
-	[11071] = {
-		359 / 512, 361 / 512,	"RazorfenKraul",
-	},
-	[11073] = {
-		320 / 512, 36 / 512,		"TheRuinsofAhnQiraj",
-	},
-	[12074] = {
-		512 / 512, 512 / 512,	"SMArmory",
-		0 / 512, 512 / 512,		"SMCathedral",
-		512 / 512, 0 / 512,		"SMGraveyard",
-		0 / 512, 0 / 512,			"SMLibrary",
-	},
-	[12075] = {
-		124 / 512, 174 / 512,	"Scholomance",
-	},
-	[12077] = {
-		373 / 512, 325 / 512,	"ShadowfangKeep",
-	},
-	[12086] = {
-		266 / 512, 460 / 512,	"Stratholme",
-	},
-	[12087] = {
-		307 / 512, 11 / 512,		"TheSunkenTemple",
-	},
-	[13091] = {
-		193 / 512, 485 / 512,		"TempestKeepArcatraz",
-	},
-	[13092] = {
-		494 / 512, 218 / 512,		"TempestKeepBotanica",
-	},
-	[13093] = {
-		230 / 512, 482 / 512,		"TempestKeepTheEye",
-	},
-	[13094] = {
-		219 / 512, 475 / 512,		"TempestKeepMechanar",
-	},
-	[11095] = {
-		127 / 512, 193 / 512,		"TheTempleofAhnQiraj",
-	},
-	[12098] = {
-		62 / 512, 100 / 512,		"TheDeadmines",
-	},
-	[12101] = {
-		257 / 512, 347 / 512,		"TheStockade",
-	},
-	[12106] = {
-		458 / 512, 379 / 512,		"Uldaman",
-	},
-	[11109] = {
-		220 / 512, 298 / 512,		"WailingCaverns",
-	},
-	[12116] = {
-		399 / 512, 453 / 512,		"ZulFarrak",
-	},
-	[12117] = {
-		39 / 512, 259 / 512,		"ZulGurub",
-	},
-	[12118] = {
-		39 / 512, 271 / 512,		"ZulAman",
-	},
-	[12120] = {
-		209 / 512, 401 / 512,	"MagistersTerrace",
-	},
-	[12121] = {
-		164 / 512, 69 / 512,		"SunwellPlateau",
-	},
-	[14133] = { 438 / 512, 349 / 512, "AhnKahet", },
-	[14134] = { 108 / 512, 214 / 512, "AzjolNerub",	},
-	[14135] = {  17 / 512, 279 / 512, "DrakTharonKeep", },
-	[14136] = { 375 / 512, 172 / 512, "Gundrak", },
-	[14137] = { 186 / 512, 459 / 512, "TheNexus", },
-	[14138] = { 250 / 512, 244 / 512, "TheOculus", },
-	[14139] = { 236 / 512, 481 / 512, "VioletHold", },
-	[14140] = {   9 / 512, 154 / 512, "UlduarHallsofLightning", },
-	[14141] = {  62 / 512, 209 / 512, "UlduarHallsofStone", },
-	[14142] = { 334 / 512, 271 / 512, "UtgardeKeep", },
-	[14144] = { 265 / 512, 257 / 512, "ObsidianSanctum", },
-	[14145] = { 185 / 512,   9 / 512, "UtgardePinnacle", },
-	[11147] = { 398 / 512, 489 / 512, "CoTOldStratholme", },
-]]--
+Map.InstanceInfo = {		-- Blizzard instance maps (SetInstanceMap uses size of 3 for table entries)
 }
-
-Map.InstanceInfo = {			-- Blizzard instance maps (SetInstanceMap uses size of 3 for table entries)
-}	
 
 Map.ZoneOverlays = {
 
@@ -2736,6 +1981,7 @@ Map.ZoneOverlays = {
 		["ruinsofgilneas"] = {
 			["gilneaspuzzle"] = "0,0,1002,668",
 		},
+
 		["gilneas_terrain2"] = {
 			["greymanemanor"] = "141,202,244,241",
 			["theblackwald"] = "504,394,280,224",
@@ -2953,7 +2199,7 @@ Map.ZoneOverlays = {
 
 	-- Jamie exports
 
-	["azuremystisle"] = 
+	["azuremystisle"] =
 	{
 		["ammenford"] = "515,279,256,256",
 		["ammenvale"] = "527,104,475,512",
@@ -2973,7 +2219,7 @@ Map.ZoneOverlays = {
 		["valaarsberth"] = "176,303,256,256",
 		["wrathscalepoint"] = "220,421,256,247",
 	},
-	["bladesedgemountains"] = 
+	["bladesedgemountains"] =
 	{
 		["bashirlanding"] = "422,0,256,256",
 		["bladedgulch"] = "623,147,256,256",
@@ -3003,7 +2249,7 @@ Map.ZoneOverlays = {
 		["vekhaarstand"] = "629,406,256,256",
 		["vortexpinnacle"] = "166,206,256,462",
 	},
-	["bloodmystisle"] = 
+	["bloodmystisle"] =
 	{
 		["amberwebpass"] = "44,62,256,512",
 		["axxarien"] = "297,136,256,256",
@@ -3034,7 +2280,7 @@ Map.ZoneOverlays = {
 		["wrathscalelair"] = "598,338,256,256",
 		["wyrmscarisland"] = "613,82,256,256",
 	},
-	["eversongwoods"] = 
+	["eversongwoods"] =
 	{
 		["azurebreezecoast"] = "669,228,256,256",
 		["duskwithergrounds"] = "605,253,256,256",
@@ -3062,7 +2308,7 @@ Map.ZoneOverlays = {
 		["westsanctum"] = "292,319,128,256",
 		["zebwatha"] = "554,475,128,193",
 	},
-	["ghostlands"] = 
+	["ghostlands"] =
 	{
 		["amanipass"] = "598,232,404,436",
 		["bleedingziggurat"] = "184,238,256,256",
@@ -3082,7 +2328,7 @@ Map.ZoneOverlays = {
 		["windrunnervillage"] = "60,117,256,512",
 		["zebnowa"] = "466,237,512,431",
 	},
-	["hellfire"] = 
+	["hellfire"] =
 	{
 		["denofhaalesh"] = "182,412,256,256",
 		["expeditionarmory"] = "261,413,512,255",
@@ -3103,7 +2349,7 @@ Map.ZoneOverlays = {
 		["warpfields"] = "308,408,256,260",
 		["zethgor"] = "580,430,422,238",
 	},
-	["nagrand"] = 
+	["nagrand"] =
 	{
 		["burningbladeruins"] = "660,334,256,334",
 		["clanwatch"] = "532,363,256,256",
@@ -3125,7 +2371,7 @@ Map.ZoneOverlays = {
 		["windyreedvillage"] = "666,233,256,256",
 		["zangarridge"] = "277,54,256,256",
 	},
-	["netherstorm"] = 
+	["netherstorm"] =
 	{
 		["area52"] = "241,388,256,128",
 		["arklonruins"] = "328,397,256,256",
@@ -3150,7 +2396,7 @@ Map.ZoneOverlays = {
 		["thescrapfield"] = "356,261,256,256",
 		["thestormspire"] = "298,134,256,256",
 	},
-	["shadowmoonvalley"] = 
+	["shadowmoonvalley"] =
 	{
 		["altarofshatar"] = "520,93,256,256",
 		["coilskarpoint"] = "348,8,512,512",
@@ -3166,7 +2412,7 @@ Map.ZoneOverlays = {
 		["thewardenscage"] = "469,258,512,410",
 		["wildhammerstronghold"] = "168,229,512,439",
 	},
-	["terokkarforest"] = 
+	["terokkarforest"] =
 	{
 		["allerianstronghold"] = "480,277,256,256",
 		["auchenaigrounds"] = "247,434,256,234",
@@ -3190,7 +2436,7 @@ Map.ZoneOverlays = {
 		["veilrhaze"] = "222,362,256,256",
 		["writhingmound"] = "417,327,256,256",
 	},
-	["zangarmarsh"] = 
+	["zangarmarsh"] =
 	{
 		["angoroshgrounds"] = "88,50,256,256",
 		["angoroshstronghold"] = "124,0,256,128",
@@ -3225,11 +2471,11 @@ Map.ZoneOverlays = {
 	{
 		["scarletenclave"] = "0,0,1024,768",	-- FIX!!
 	},
-	["lakewintergrasp"] = {							
-		["lakewintergrasp"] = "0,0,1024,768",		
+	["lakewintergrasp"] = {
+		["lakewintergrasp"] = "0,0,1024,768",
 	},
 	["dalaran"] = {
-		["dalaran1_"] = "0,0,1024,768",	-- FIX!!
+		["dalaran1_"] = "0,0,1024,768",		-- FIX!!
 	},
 
 	["boreantundra"] = {
@@ -3398,14 +2644,14 @@ Map.ZoneOverlays = {
 
 	-- Cataclysm
 	["tolbarad"] = {
-		["tolbarad"] = "0,0,1024,768",	-- Manual
+		["tolbarad"] = "0,0,1024,768",			-- Manual
 	},
 	["tolbaraddailyarea"] = {
-		["tolbaraddailyarea"] = "0,0,1024,768",	-- Manual
+		["tolbaraddailyarea"] = "0,0,1024,768",		-- Manual
 	},
 
 	["themaelstrom"] = {
-		["themaelstrom"] = "0,0,1024,768",	-- Manual
+		["themaelstrom"] = "0,0,1024,768",		-- Manual
 	},
 	["thelostisles_terrain2"] = {
 		["gallywixdocks"] = "351,21,173,180",
@@ -3453,31 +2699,30 @@ Map.ZoneOverlays = {
 		["templeofearth"] = "287,177,355,345",
 	},
 
-	-- Patch 4.2
 	["moltenfront"] = {
-		["moltenfront"] = "0,0,1024,768",	-- Manual
+		["moltenfront"] = "0,0,1024,768",		-- Manual
 	},
 	-- Pandaria
- ["thejadeforest"] = {
-    ["chuntianmonastery"] = "300,56,227,198",
-    ["dawnsblossom"] = "325,178,234,210",
-    ["dreamerspavillion"] = "474,520,218,148",
-    ["emperorsomen"] = "430,21,202,204",
-    ["glassfinvillage"] = "525,358,278,310",
-    ["grookinmound"] = "182,214,253,229",
-    ["hellscreamshope"] = "181,75,196,166",
-    ["jademines"] = "400,146,236,142",
-    ["nectarbreezeorchard"] = "290,330,219,256",
-    ["nookanooka"] = "189,151,219,205",
-    ["ruinsofganshi"] = "316,0,196,158",
-    ["serpentsspine"] = "388,299,191,216",
-    ["slingtailpits"] = "428,416,179,180",
-    ["templeofthejadeserpent"] = "468,295,264,211",
-    ["thearboretum"] = "481,215,242,210",
-    ["waywardlanding"] = "346,482,219,186",
-    ["windlessisle"] = "539,43,251,348",
-    ["wreckoftheskyshark"] = "202,0,210,158",
-  },
+	["thejadeforest"] = {
+		["chuntianmonastery"] = "300,56,227,198",
+		["dawnsblossom"] = "325,178,234,210",
+		["dreamerspavillion"] = "474,520,218,148",
+		["emperorsomen"] = "430,21,202,204",
+		["glassfinvillage"] = "525,358,278,310",
+		["grookinmound"] = "182,214,253,229",
+		["hellscreamshope"] = "181,75,196,166",
+		["jademines"] = "400,146,236,142",
+		["nectarbreezeorchard"] = "290,330,219,256",
+		["nookanooka"] = "189,151,219,205",
+		["ruinsofganshi"] = "316,0,196,158",
+		["serpentsspine"] = "388,299,191,216",
+		["slingtailpits"] = "428,416,179,180",
+		["templeofthejadeserpent"] = "468,295,264,211",
+		["thearboretum"] = "481,215,242,210",
+		["waywardlanding"] = "346,482,219,186",
+		["windlessisle"] = "539,43,251,348",
+		["wreckoftheskyshark"] = "202,0,210,158",
+	},
 	["dreadwastes"] = {
 		["klaxxivess"] = "458,110,236,204",
 		["zanvess"] = "162,385,290,283",
@@ -3527,7 +2772,7 @@ Map.ZoneOverlays = {
 		["cradleofchiji"] = "176,376,272,250",
 		["ungaingoo"] = "330,498,258,170",
 		["nayelilagoon"] = "343,373,246,240",
-	},	
+	},
 	["kunlaisummit"] = {
 		["binanvillage"] = "607,470,240,198",
 		["mogujia"] = "462,411,253,208",
@@ -3543,7 +2788,7 @@ Map.ZoneOverlays = {
 		["kotapeak"] = "233,360,252,257",
 		["iseoflostsouls"] = "602,4,259,233",
 		["fireboughnook"] = "322,496,224,172",
-	},	
+	},
 	["valeofeternalblossoms"] = {
 		["guolairuins"] = "87,3,337,349",
 		["whitemoonshrine"] = "482,10,298,262",
@@ -3614,15 +2859,143 @@ Map.ZoneOverlays = {
 	},
 
 	["isleofgiants"] = {
-		["isleofgiants"] = "0,0,1024,768",	-- Manual
+		["isleofgiants"] = "0,0,1024,768",		-- Manual
 	},
 	["timelessisle"] = {
 		["timelessisle"] = "0,0,1024,768",
 	},
 	["isleofthethunderking"] = {
-		["isleofthethunderking"] = "0,0,1024,768",	-- Manual		
+		["isleofthethunderking"] = "0,0,1024,768",	-- Manual
 		["dynamic"] = "0,0,0,0",
-	},	
+	},
+
+	-- Draenor
+
+	["ashranhordefactionhub"] = {		-- 1011
+		["ashranhordefactionhub"] = "0,0,1024,768",
+	},
+	["ashranalliancefactionhub"] = {	-- 1009
+		["ashranalliancefactionhub"] = "0,0,1024,768",
+	},
+	["ashran"] = {				-- 978
+		["ashran"] = "0,0,1024,768",
+	},
+	["frostfireridge"] = {			-- 941
+		["bladespirefortress"] = "38,117,356,303",
+		["bloodmaulstronghold"] = "311,4,258,217",
+		["bonesofagurak"] = "729,319,273,349",
+		["daggermawravine"] = "284,91,255,191",
+		["frostwinddunes"] = "121,0,274,214",
+		["grimfrosthill"] = "597,210,178,203",
+		["grombolash"] = "483,33,217,239",
+		["gromgar"] = "505,323,282,341",
+		["hordegarrison"] = "336,327,267,257",
+		["ironsiegeworks"] = "673,156,329,294",
+		["ironwaystation"] = "641,304,199,335",
+		["magnarok"] = "609,33,213,278",
+		["nogarrison"] = "336,327,267,257",
+		["stonefangoutpost"] = "306,281,251,191",
+		["theboneslag"] = "290,192,256,210",
+		["thecracklingplains"] = "439,137,266,293",
+		["worgol"] = "72,292,317,233",
+	},
+	["garrisonffhorde_tier1"] = {		-- 976
+		["garrisonffhorde_tier1"] = "0,0,1024,768",
+	},
+	["garrisonsmvalliance_tier1"] = {	-- 971
+		["garrisonsmvalliance_tier1"] = "0,0,1024,768",
+	},
+	["gorgrond"] = {			-- 949
+		["bastionrise"] = "283,507,324,161",
+		["beastwatch"] = "383,371,166,161",
+		["easternruin"] = "525,260,210,193",
+		["evermorn"] = "281,444,297,181",
+		["foundry"] = "455,74,211,221",
+		["foundrysouth"] = "454,183,217,180",
+		["gronncanyon"] = "258,213,279,241",
+		["highlandpass"] = "547,73,285,323",
+		["highpass"] = "411,250,209,225",
+		["irondocks"] = "350,0,315,180",
+		["mushrooms"] = "444,323,253,198",
+		["stonemaularena"] = "259,335,217,178",
+		["stonemaulsouth"] = "275,416,208,142",
+		["stripmine"] = "312,77,250,232",
+		["tangleheart"] = "451,372,262,221",
+	},
+	["nagranddraenor"] = {			-- 950
+		["ancestral"] = "239,259,234,191",
+		["brokenprecipice"] = "256,12,305,227",
+		["elementals"] = "588,0,286,274",
+		["grommashar"] = "600,367,256,301",
+		["hallvalor"] = "766,118,236,372",
+		["highmaul"] = "0,0,471,437",
+		["ironfistharbor"] = "283,354,236,242",
+		["lokrath"] = "382,187,316,221",
+		["margoks"] = "753,380,249,288",
+		["mushrooms"] = "746,25,250,287",
+		["oshugun"] = "366,323,262,266",
+		["ringofblood"] = "430,0,263,287",
+		["ringoftrials"] = "523,159,354,315",
+		["sunspringwatch"] = "312,98,274,254",
+		["telaar"] = "461,353,296,272",
+	},
+	["spiresofarak"] = {			-- 948
+		["bloodbladeredoubt"] = "334,210,209,154",
+		["bloodmanevalley"] = "410,350,229,246",
+		["centerravennest"] = "444,255,188,190",
+		["clutchpop"] = "533,382,217,224",
+		["eastmushrooms"] = "649,155,182,244",
+		["emptygarrison"] = "282,261,190,187",
+		["howlingcrag"] = "459,0,382,274",
+		["nwcorner"] = "102,0,314,304",
+		["sethekkhollow"] = "520,127,238,295",
+		["skettis"] = "289,0,371,174",
+		["solospirenorth"] = "429,84,196,284",
+		["solospiresouth"] = "374,276,169,178",
+		["southport"] = "310,328,197,179",
+		["veilakraz"] = "281,83,252,230",
+		["veilzekk"] = "521,268,198,232",
+		["venturecove"] = "465,475,226,193",
+		["writhingmire"] = "197,198,229,213",
+	},
+	["shadowmoonvalleydr"] = {		-- 947
+		["anguishfortress"] = "140,160,309,264",
+		["darktideroost"] = "468,467,282,201",
+		["elodor"] = "426,0,291,266",
+		["embaari"] = "270,158,346,252",
+		["garrison"] = "194,0,223,279",
+		["gloomshade"] = "319,5,229,240",
+		["gulvar"] = "26,0,260,309",
+		["karabor"] = "537,150,393,318",
+		["nogarrison"] = "194,0,223,279",
+		["shazgul"] = "259,315,282,225",
+		["shimmeringmoor"] = "453,306,288,261",
+		["socrethar"] = "383,411,202,201",
+		["swisland"] = "309,460,173,160",
+	},
+	["talador"] = {				-- 946
+		["aruuna"] = "597,178,389,234",
+		["auchindoun"] = "338,356,309,262",
+		["centerisles"] = "546,228,252,280",
+		["courtofsouls"] = "150,264,307,229",
+		["fortwrynn"] = "567,42,292,235",
+		["gordalfortress"] = "548,378,423,290",
+		["gulrok"] = "165,364,278,270",
+		["northgate"] = "571,0,398,149",
+		["orunaicoast"] = "427,0,279,267",
+		["seentrance"] = "685,298,308,276",
+		["shattrath"] = "173,22,406,367",
+		["telmor"] = "207,511,497,157",
+		["tomboflights"] = "352,271,326,212",
+		["tuurem"] = "472,148,225,224",
+		["zangarra"] = "713,35,287,277",
+	},
+	["tanaanjungle"] = {			-- 945
+		["tanaanjungle"] = "0,0,1024,768",
+	},
+	["tanaanjungleintro"] = {		-- 970
+		["tanaanjungleintro"] = "0,0,1024,768",
+	},
 }
 
 --------
@@ -6553,7 +5926,7 @@ Map.PandariaMapBlks = {
 	[1838] = "",
 	[1839] = "",
 	[1840] = "",
-	[1841] = "",	
+	[1841] = "",
 	[1918] = "",
 	[1919] = "",
 	[1920] = "",
@@ -7081,7 +6454,7 @@ Map.PandariaMapBlks = {
 	[4038] = "",
 	[4039] = "",
 	[4040] = "",
-	[4041] = "",	
+	[4041] = "",
 	[4118] = "",
 	[4119] = "",
 	[4120] = "",
@@ -7105,7 +6478,7 @@ Map.PandariaMapBlks = {
 	[4138] = "",
 	[4139] = "",
 	[4140] = "",
-	[4141] = "",		
+	[4141] = "",
 	[4218] = "",
 	[4219] = "",
 	[4220] = "",
@@ -7129,7 +6502,7 @@ Map.PandariaMapBlks = {
 	[4238] = "",
 	[4239] = "",
 	[4240] = "",
-	[4241] = "",		
+	[4241] = "",
 	[4318] = "",
 	[4319] = "",
 	[4320] = "",
@@ -7153,7 +6526,7 @@ Map.PandariaMapBlks = {
 	[4338] = "",
 	[4339] = "",
 	[4340] = "",
-	[4341] = "",		
+	[4341] = "",
 }
 
 Map.TheWanderingIsleMapBlks={
@@ -7179,6 +6552,871 @@ Map.TheWanderingIsleMapBlks={
 	[2731]="",
 }
 
+Map.DraenorMapBlks = {
+	[1220]="",
+	[1221]="",
+	[1222]="",
+	[1223]="",
+	[1224]="",
+	[1225]="",
+	[1226]="",
+	[1227]="",
+	[1228]="",
+	[1229]="",
+	[1320]="",
+	[1321]="",
+	[1322]="",
+	[1323]="",
+	[1324]="",
+	[1325]="",
+	[1326]="",
+	[1327]="",
+	[1328]="",
+	[1329]="",
+	[1420]="",
+	[1421]="",
+	[1422]="",
+	[1423]="",
+	[1424]="",
+	[1425]="",
+	[1426]="",
+	[1427]="",
+	[1428]="",
+	[1429]="",
+	[1520]="",
+	[1521]="",
+	[1522]="",
+	[1523]="",
+	[1524]="",
+	[1525]="",
+	[1526]="",
+	[1527]="",
+	[1528]="",
+	[1529]="",
+	[1620]="",
+	[1621]="",
+	[1622]="",
+	[1623]="",
+	[1624]="",
+	[1625]="",
+	[1626]="",
+	[1627]="",
+	[1628]="",
+	[1629]="",
+	[1711]="",
+	[1712]="",
+	[1713]="",
+	[1714]="",
+	[1715]="",
+	[1716]="",
+	[1717]="",
+	[1718]="",
+	[1719]="",
+	[1720]="",
+	[1721]="",
+	[1722]="",
+	[1723]="",
+	[1724]="",
+	[1725]="",
+	[1726]="",
+	[1727]="",
+	[1728]="",
+	[1729]="",
+	[1730]="",
+	[1731]="",
+	[1732]="",
+	[1733]="",
+	[1734]="",
+	[1735]="",
+	[1736]="",
+	[1737]="",
+	[1738]="",
+	[1739]="",
+	[1811]="",
+	[1812]="",
+	[1813]="",
+	[1814]="",
+	[1815]="",
+	[1816]="",
+	[1817]="",
+	[1818]="",
+	[1819]="",
+	[1820]="",
+	[1821]="",
+	[1822]="",
+	[1823]="",
+	[1824]="",
+	[1825]="",
+	[1826]="",
+	[1827]="",
+	[1828]="",
+	[1829]="",
+	[1830]="",
+	[1831]="",
+	[1832]="",
+	[1833]="",
+	[1834]="",
+	[1835]="",
+	[1836]="",
+	[1837]="",
+	[1838]="",
+	[1839]="",
+	[1911]="",
+	[1912]="",
+	[1913]="",
+	[1914]="",
+	[1915]="",
+	[1916]="",
+	[1917]="",
+	[1918]="",
+	[1919]="",
+	[1920]="",
+	[1921]="",
+	[1922]="",
+	[1923]="",
+	[1924]="",
+	[1925]="",
+	[1926]="",
+	[1927]="",
+	[1928]="",
+	[1929]="",
+	[1930]="",
+	[1931]="",
+	[1932]="",
+	[1933]="",
+	[1934]="",
+	[1935]="",
+	[1936]="",
+	[1937]="",
+	[1938]="",
+	[1939]="",
+	[2011]="",
+	[2012]="",
+	[2013]="",
+	[2014]="",
+	[2015]="",
+	[2016]="",
+	[2017]="",
+	[2018]="",
+	[2019]="",
+	[2020]="",
+	[2021]="",
+	[2022]="",
+	[2023]="",
+	[2024]="",
+	[2025]="",
+	[2026]="",
+	[2027]="",
+	[2028]="",
+	[2029]="",
+	[2030]="",
+	[2031]="",
+	[2032]="",
+	[2033]="",
+	[2034]="",
+	[2035]="",
+	[2036]="",
+	[2037]="",
+	[2038]="",
+	[2039]="",
+	[2111]="",
+	[2112]="",
+	[2113]="",
+	[2114]="",
+	[2115]="",
+	[2116]="",
+	[2117]="",
+	[2118]="",
+	[2119]="",
+	[2120]="",
+	[2121]="",
+	[2122]="",
+	[2123]="",
+	[2124]="",
+	[2125]="",
+	[2126]="",
+	[2127]="",
+	[2128]="",
+	[2129]="",
+	[2130]="",
+	[2131]="",
+	[2132]="",
+	[2133]="",
+	[2134]="",
+	[2135]="",
+	[2136]="",
+	[2137]="",
+	[2138]="",
+	[2139]="",
+	[2211]="",
+	[2212]="",
+	[2213]="",
+	[2214]="",
+	[2215]="",
+	[2216]="",
+	[2217]="",
+	[2218]="",
+	[2219]="",
+	[2220]="",
+	[2221]="",
+	[2222]="",
+	[2223]="",
+	[2224]="",
+	[2225]="",
+	[2226]="",
+	[2227]="",
+	[2228]="",
+	[2229]="",
+	[2230]="",
+	[2231]="",
+	[2232]="",
+	[2233]="",
+	[2234]="",
+	[2235]="",
+	[2236]="",
+	[2237]="",
+	[2238]="",
+	[2239]="",
+	[2311]="",
+	[2312]="",
+	[2313]="",
+	[2314]="",
+	[2315]="",
+	[2316]="",
+	[2317]="",
+	[2318]="",
+	[2319]="",
+	[2320]="",
+	[2321]="",
+	[2322]="",
+	[2323]="",
+	[2324]="",
+	[2325]="",
+	[2326]="",
+	[2327]="",
+	[2328]="",
+	[2329]="",
+	[2330]="",
+	[2331]="",
+	[2332]="",
+	[2333]="",
+	[2334]="",
+	[2335]="",
+	[2336]="",
+	[2337]="",
+	[2338]="",
+	[2339]="",
+	[2411]="",
+	[2412]="",
+	[2413]="",
+	[2414]="",
+	[2415]="",
+	[2416]="",
+	[2417]="",
+	[2418]="",
+	[2419]="",
+	[2420]="",
+	[2421]="",
+	[2422]="",
+	[2423]="",
+	[2424]="",
+	[2425]="",
+	[2426]="",
+	[2427]="",
+	[2428]="",
+	[2429]="",
+	[2430]="",
+	[2431]="",
+	[2432]="",
+	[2433]="",
+	[2434]="",
+	[2435]="",
+	[2436]="",
+	[2437]="",
+	[2438]="",
+	[2439]="",
+	[2511]="",
+	[2512]="",
+	[2513]="",
+	[2514]="",
+	[2515]="",
+	[2516]="",
+	[2517]="",
+	[2518]="",
+	[2519]="",
+	[2520]="",
+	[2521]="",
+	[2522]="",
+	[2523]="",
+	[2524]="",
+	[2525]="",
+	[2526]="",
+	[2527]="",
+	[2528]="",
+	[2529]="",
+	[2530]="",
+	[2531]="",
+	[2532]="",
+	[2533]="",
+	[2534]="",
+	[2535]="",
+	[2536]="",
+	[2537]="",
+	[2538]="",
+	[2539]="",
+	[2611]="",
+	[2612]="",
+	[2613]="",
+	[2614]="",
+	[2615]="",
+	[2616]="",
+	[2617]="",
+	[2618]="",
+	[2619]="",
+	[2620]="",
+	[2621]="",
+	[2622]="",
+	[2623]="",
+	[2624]="",
+	[2625]="",
+	[2626]="",
+	[2627]="",
+	[2628]="",
+	[2629]="",
+	[2630]="",
+	[2631]="",
+	[2632]="",
+	[2633]="",
+	[2634]="",
+	[2635]="",
+	[2636]="",
+	[2637]="",
+	[2638]="",
+	[2639]="",
+	[2711]="",
+	[2712]="",
+	[2713]="",
+	[2714]="",
+	[2715]="",
+	[2716]="",
+	[2717]="",
+	[2718]="",
+	[2719]="",
+	[2720]="",
+	[2721]="",
+	[2722]="",
+	[2723]="",
+	[2724]="",
+	[2725]="",
+	[2726]="",
+	[2727]="",
+	[2728]="",
+	[2729]="",
+	[2730]="",
+	[2731]="",
+	[2732]="",
+	[2733]="",
+	[2734]="",
+	[2735]="",
+	[2736]="",
+	[2737]="",
+	[2738]="",
+	[2739]="",
+	[2811]="",
+	[2812]="",
+	[2813]="",
+	[2814]="",
+	[2815]="",
+	[2816]="",
+	[2817]="",
+	[2818]="",
+	[2819]="",
+	[2820]="",
+	[2821]="",
+	[2822]="",
+	[2823]="",
+	[2824]="",
+	[2825]="",
+	[2826]="",
+	[2827]="",
+	[2828]="",
+	[2829]="",
+	[2830]="",
+	[2831]="",
+	[2832]="",
+	[2833]="",
+	[2834]="",
+	[2835]="",
+	[2836]="",
+	[2837]="",
+	[2838]="",
+	[2839]="",
+	[2911]="",
+	[2912]="",
+	[2913]="",
+	[2914]="",
+	[2915]="",
+	[2916]="",
+	[2917]="",
+	[2918]="",
+	[2919]="",
+	[2920]="",
+	[2921]="",
+	[2922]="",
+	[2923]="",
+	[2924]="",
+	[2925]="",
+	[2926]="",
+	[2927]="",
+	[2928]="",
+	[2929]="",
+	[2930]="",
+	[2931]="",
+	[2932]="",
+	[2933]="",
+	[2934]="",
+	[2935]="",
+	[2936]="",
+	[2937]="",
+	[2938]="",
+	[2939]="",
+	[3011]="",
+	[3012]="",
+	[3013]="",
+	[3014]="",
+	[3015]="",
+	[3016]="",
+	[3017]="",
+	[3018]="",
+	[3019]="",
+	[3020]="",
+	[3021]="",
+	[3022]="",
+	[3023]="",
+	[3024]="",
+	[3025]="",
+	[3026]="",
+	[3027]="",
+	[3028]="",
+	[3029]="",
+	[3030]="",
+	[3031]="",
+	[3032]="",
+	[3033]="",
+	[3034]="",
+	[3035]="",
+	[3036]="",
+	[3037]="",
+	[3038]="",
+	[3039]="",
+	[3111]="",
+	[3112]="",
+	[3113]="",
+	[3114]="",
+	[3115]="",
+	[3116]="",
+	[3117]="",
+	[3118]="",
+	[3119]="",
+	[3120]="",
+	[3121]="",
+	[3122]="",
+	[3123]="",
+	[3124]="",
+	[3125]="",
+	[3126]="",
+	[3127]="",
+	[3128]="",
+	[3129]="",
+	[3130]="",
+	[3131]="",
+	[3132]="",
+	[3133]="",
+	[3134]="",
+	[3135]="",
+	[3136]="",
+	[3137]="",
+	[3138]="",
+	[3139]="",
+	[3211]="",
+	[3212]="",
+	[3213]="",
+	[3214]="",
+	[3215]="",
+	[3216]="",
+	[3217]="",
+	[3218]="",
+	[3219]="",
+	[3220]="",
+	[3221]="",
+	[3222]="",
+	[3223]="",
+	[3224]="",
+	[3225]="",
+	[3226]="",
+	[3227]="",
+	[3228]="",
+	[3229]="",
+	[3230]="",
+	[3231]="",
+	[3232]="",
+	[3233]="",
+	[3234]="",
+	[3235]="",
+	[3236]="",
+	[3237]="",
+	[3238]="",
+	[3239]="",
+	[3311]="",
+	[3312]="",
+	[3313]="",
+	[3314]="",
+	[3315]="",
+	[3316]="",
+	[3317]="",
+	[3318]="",
+	[3319]="",
+	[3320]="",
+	[3321]="",
+	[3322]="",
+	[3323]="",
+	[3324]="",
+	[3325]="",
+	[3326]="",
+	[3327]="",
+	[3328]="",
+	[3329]="",
+	[3330]="",
+	[3331]="",
+	[3332]="",
+	[3333]="",
+	[3334]="",
+	[3335]="",
+	[3336]="",
+	[3337]="",
+	[3338]="",
+	[3339]="",
+	[3411]="",
+	[3412]="",
+	[3413]="",
+	[3414]="",
+	[3415]="",
+	[3416]="",
+	[3417]="",
+	[3418]="",
+	[3419]="",
+	[3420]="",
+	[3421]="",
+	[3422]="",
+	[3423]="",
+	[3424]="",
+	[3425]="",
+	[3426]="",
+	[3427]="",
+	[3428]="",
+	[3429]="",
+	[3430]="",
+	[3431]="",
+	[3432]="",
+	[3433]="",
+	[3434]="",
+	[3435]="",
+	[3436]="",
+	[3437]="",
+	[3438]="",
+	[3439]="",
+	[3511]="",
+	[3512]="",
+	[3513]="",
+	[3514]="",
+	[3515]="",
+	[3516]="",
+	[3517]="",
+	[3518]="",
+	[3519]="",
+	[3520]="",
+	[3521]="",
+	[3522]="",
+	[3523]="",
+	[3524]="",
+	[3525]="",
+	[3526]="",
+	[3527]="",
+	[3528]="",
+	[3529]="",
+	[3530]="",
+	[3531]="",
+	[3532]="",
+	[3533]="",
+	[3534]="",
+	[3535]="",
+	[3536]="",
+	[3537]="",
+	[3538]="",
+	[3539]="",
+	[3611]="",
+	[3612]="",
+	[3613]="",
+	[3614]="",
+	[3615]="",
+	[3616]="",
+	[3617]="",
+	[3618]="",
+	[3619]="",
+	[3620]="",
+	[3621]="",
+	[3622]="",
+	[3623]="",
+	[3624]="",
+	[3625]="",
+	[3626]="",
+	[3627]="",
+	[3628]="",
+	[3629]="",
+	[3630]="",
+	[3631]="",
+	[3632]="",
+	[3633]="",
+	[3634]="",
+	[3635]="",
+	[3636]="",
+	[3637]="",
+	[3638]="",
+	[3639]="",
+	[3711]="",
+	[3712]="",
+	[3713]="",
+	[3714]="",
+	[3715]="",
+	[3716]="",
+	[3717]="",
+	[3718]="",
+	[3719]="",
+	[3720]="",
+	[3721]="",
+	[3722]="",
+	[3723]="",
+	[3724]="",
+	[3725]="",
+	[3726]="",
+	[3727]="",
+	[3728]="",
+	[3729]="",
+	[3730]="",
+	[3731]="",
+	[3732]="",
+	[3733]="",
+	[3734]="",
+	[3735]="",
+	[3736]="",
+	[3737]="",
+	[3738]="",
+	[3739]="",
+	[3811]="",
+	[3812]="",
+	[3813]="",
+	[3814]="",
+	[3815]="",
+	[3816]="",
+	[3817]="",
+	[3818]="",
+	[3819]="",
+	[3820]="",
+	[3821]="",
+	[3822]="",
+	[3823]="",
+	[3824]="",
+	[3825]="",
+	[3826]="",
+	[3827]="",
+	[3828]="",
+	[3829]="",
+	[3830]="",
+	[3831]="",
+	[3832]="",
+	[3833]="",
+	[3834]="",
+	[3835]="",
+	[3836]="",
+	[3837]="",
+	[3838]="",
+	[3839]="",
+	[3911]="",
+	[3912]="",
+	[3913]="",
+	[3914]="",
+	[3915]="",
+	[3916]="",
+	[3917]="",
+	[3918]="",
+	[3919]="",
+	[3920]="",
+	[3921]="",
+	[3922]="",
+	[3923]="",
+	[3924]="",
+	[3925]="",
+	[3926]="",
+	[3927]="",
+	[3928]="",
+	[3929]="",
+	[3930]="",
+	[3931]="",
+	[3932]="",
+	[3933]="",
+	[3934]="",
+	[3935]="",
+	[3936]="",
+	[3937]="",
+	[3938]="",
+	[3939]="",
+	[4011]="",
+	[4012]="",
+	[4013]="",
+	[4014]="",
+	[4015]="",
+	[4016]="",
+	[4017]="",
+	[4018]="",
+	[4019]="",
+	[4020]="",
+	[4021]="",
+	[4022]="",
+	[4023]="",
+	[4024]="",
+	[4025]="",
+	[4026]="",
+	[4027]="",
+	[4028]="",
+	[4029]="",
+	[4030]="",
+	[4031]="",
+	[4032]="",
+	[4033]="",
+	[4034]="",
+	[4035]="",
+	[4036]="",
+	[4037]="",
+	[4038]="",
+	[4039]="",
+	[4111]="",
+	[4112]="",
+	[4113]="",
+	[4114]="",
+	[4115]="",
+	[4116]="",
+	[4117]="",
+	[4118]="",
+	[4119]="",
+	[4120]="",
+	[4121]="",
+	[4122]="",
+	[4123]="",
+	[4124]="",
+	[4125]="",
+	[4126]="",
+	[4127]="",
+	[4128]="",
+	[4129]="",
+	[4130]="",
+	[4131]="",
+	[4132]="",
+	[4133]="",
+	[4134]="",
+	[4135]="",
+	[4136]="",
+	[4137]="",
+	[4138]="",
+	[4139]="",
+	[4211]="",
+	[4212]="",
+	[4213]="",
+	[4214]="",
+	[4215]="",
+	[4216]="",
+	[4217]="",
+	[4218]="",
+	[4219]="",
+	[4220]="",
+	[4221]="",
+	[4222]="",
+	[4223]="",
+	[4224]="",
+	[4225]="",
+	[4226]="",
+	[4227]="",
+	[4228]="",
+	[4229]="",
+	[4230]="",
+	[4231]="",
+	[4232]="",
+	[4233]="",
+	[4234]="",
+	[4235]="",
+	[4236]="",
+	[4237]="",
+	[4238]="",
+	[4239]="",
+	[4311]="",
+	[4312]="",
+	[4313]="",
+	[4314]="",
+	[4315]="",
+	[4316]="",
+	[4317]="",
+	[4318]="",
+	[4319]="",
+	[4320]="",
+	[4321]="",
+	[4322]="",
+	[4323]="",
+	[4324]="",
+	[4325]="",
+	[4326]="",
+	[4327]="",
+	[4328]="",
+	[4329]="",
+	[4330]="",
+	[4331]="",
+	[4332]="",
+	[4333]="",
+	[4334]="",
+	[4335]="",
+	[4336]="",
+	[4337]="",
+	[4338]="",
+	[4339]="",
+	[4411]="",
+	[4412]="",
+	[4413]="",
+	[4414]="",
+	[4415]="",
+	[4416]="",
+	[4417]="",
+	[4418]="",
+	[4419]="",
+	[4420]="",
+	[4421]="",
+	[4422]="",
+	[4423]="",
+	[4424]="",
+	[4425]="",
+	[4426]="",
+	[4427]="",
+	[4428]="",
+	[4429]="",
+	[4430]="",
+	[4431]="",
+	[4432]="",
+	[4433]="",
+	[4434]="",
+	[4435]="",
+	[4436]="",
+	[4437]="",
+	[4438]="",
+	[4439]="",
+}
+
 --[[
 Map.OrgMapBlks = {
 	[0000000] = "2874c241d5d9f4b84eba58c91d42943d",
@@ -7188,106 +7426,115 @@ Map.OrgMapBlks = {
 Map.ExodarMapBlks = {
 }
 --]]
-
+-- -1639.43046875, -6951.362984
+Nx.prt(Map.MapWorldInfo[862].X + 2604.5720703125)
+Nx.prt(Map.MapWorldInfo[862].Y + -69.16796875)
 Map.MiniMapBlks = {
 	[1] = {
 		Map.KalMapBlks,
 		1908,
 		19, 8,
-		-3187.5660,-2360.4561,
+		 Map.MapWorldInfo[13].X + Map.MapInfo[1].X + 2025.753921875, Map.MapWorldInfo[13].Y + Map.MapInfo[1].Y + -0.476021875,
 		"World\\Minimaps\\Kalimdor"
 	},
 	[2] = {
 		Map.EkMapBlks,
 		2420,
 		24, 20,
-		5030.591080,-1480.711746,				
+		Map.MapWorldInfo[14].X + Map.MapInfo[2].X + 2780.985220625, Map.MapWorldInfo[14].Y + Map.MapInfo[2].Y + 954.557004,
 		"World\\Minimaps\\Azeroth"
 	},
 	[3] = {
 		Map.OLMapBlks,
 		1221,
 		12, 21,
-		4866.173367,-5174.403157,
+		Map.MapWorldInfo[466].X + Map.MapInfo[3].X + 465.3811795, Map.MapWorldInfo[466].Y + Map.MapInfo[3].Y + -10.131282,
 		"World\\Minimaps\\Expansion01"
 	},
 	[4] = {
 		Map.NRMapBlks,
 		1109,
 		11, 09,
-		198.700859,-4835.362984,
+		Map.MapWorldInfo[485].X + Map.MapInfo[4].X + -396, Map.MapWorldInfo[485].Y + Map.MapInfo[4].Y + -332.687984,
 		"World\\Minimaps\\Northrend"
 	},
 	[5] = {
 		Map.LIMapBlks,
 		2324,
 		23, 24,
-		1164.91-1375+1100,397.60-100-1800,
+		Map.MapWorldInfo[751].X + Map.MapInfo[5].X + -178.84, Map.MapWorldInfo[751].Y + Map.MapInfo[5].Y + 401.76665039063,
 		"World\\Minimaps\\LostIsles"
 	},
 	[6] = {
 		Map.PandariaMapBlks,
 		1816,
 		18, 16,
-		850, 2225-2500+800,
+		Map.MapWorldInfo[862].X + Map.MapInfo[6].X + 254.5720703125, Map.MapWorldInfo[862].Y + Map.MapInfo[6].Y + -369.16796875,
 		"World\\Minimaps\\HawaiiMainLand"
 	},
-	[1003] = {
+	[7] = {
+		Map.DraenorMapBlks,
+		1220,
+		12, 20,
+		Map.MapWorldInfo[962].X + Map.MapInfo[7].X + 314, Map.MapWorldInfo[962].Y + Map.MapInfo[7].Y + 961,
+		"World\\Minimaps\\Draenor"
+	},
+	[464] = {
 		Map.DraeneiMapBlks,
 		5033,
 		50, 33,
-		-3380.243817,-1703.381588,
+		Map.MapWorldInfo[13].X + Map.MapInfo[1].X + 1833.076104875, Map.MapWorldInfo[13].Y + Map.MapInfo[1].Y + 656.598490125,
 		"World\\Minimaps\\Expansion01"
 	},
-	[2011] = {
+	[462] = {
 		Map.BloodelfMapBlks,
 		4111,
 		41, 11,
-		6341.011121,-1924.128369,
+		Map.MapWorldInfo[14].X + Map.MapInfo[2].X + 4091.405261625, Map.MapWorldInfo[14].Y + Map.MapInfo[2].Y + 511.140381,
 		"World\\Minimaps\\Expansion01"
 	},
-	[2038] = {
+	[708] = {
 		Map.TolBaradMapBlks,
 		2731,
 		27, 31,
-		4750.5466,13.3466,
+		Map.MapWorldInfo[14].X + Map.MapInfo[2].X + 2500.940740625, Map.MapWorldInfo[14].Y + Map.MapInfo[2].Y + 2448.61535,
 		"World\\Minimaps\\TolBarad"
 	},
-	[4012] = {
+	[795] = {
 		Map.MoltenFrontMapBlks,
 		2725,		-- 2725 to 3531
 		27, 25,
-		1253.256,-2406.387,
+		Map.MapWorldInfo[795].X + Map.MapInfo[1].X + 3152.92266259766, Map.MapWorldInfo[795].Y + Map.MapInfo[1].Y + -2105.97034960937,
 		"World\\Minimaps\\FirelandsDailies"
 	},
-	[5001] = {	-- 2625 to 3534
+	[640] = {		-- 2625 to 3534
 		Map.DeepholmMapBlks,
 		2625,
 		26, 25,
-		2314.91-1375+1100,54.81-100-1800,
+		Map.MapWorldInfo[751].X + Map.MapInfo[5].X + 1251.16, Map.MapWorldInfo[751].Y + Map.MapInfo[5].Y + 228.97665039063,
 		"World\\Minimaps\\Deephome"
 	},
-	[5002] = {
+	[605] = {
 		Map.KezanMapBlks,
 		2324,
 		23, 24,
-		1670.80-1375+1100,-1295.70-100-1800,
+		Map.MapWorldInfo[751].X + Map.MapInfo[5].X + 297.05, Map.MapWorldInfo[751].Y + Map.MapInfo[5].Y + -1411.53334960937,
 		"World\\Minimaps\\LostIsles"
 	},
-	[5005] = {
+    [808] = {
+	     Map.TheWanderingIsleMapBlks,
+		 2328,
+		 23,28,
+		 Map.MapWorldInfo[808].X + Map.MapWorldInfo[808].XOff + Map.MapInfo[6].X  + 35.7, Map.MapWorldInfo[808].Y + Map.MapWorldInfo[808].YOff + Map.MapInfo[6].Y-69.55,
+		 "World\\Minimaps\\NewRaceStartZone"
+	},
+	[823] = {
 		Map.DarkMoonFaireBlks,
 		1636,
 		16, 36,
 		-1871.26-1375+1100+3000-300,-3133.00-100-1800+3000-2750+2400,
 		"World\\Minimaps\\DarkmoonFaire"
 	},
-    [6009] = {
-	     Map.TheWanderingIsleMapBlks,
-		 2328,
-		 23,28,
-		 Map.MapWorldInfo[6009][2]+Map.MapInfo[6].X+35.7, Map.MapWorldInfo[6009][3]+Map.MapInfo[6].Y-69.55,
-		 "World\\Minimaps\\NewRaceStartZone"
-	},	
 }
 
 --------
@@ -7298,12 +7545,17 @@ Map.MiniMapBlks = {
 function Nx.Map:GetMiniInfo (mapId)
 
 	local winfo = self.MapWorldInfo[mapId]
+	if not winfo then return end
 	local id = winfo.MId
 
 	if not id then
-		id = floor (mapId / 1000)
+		id = winfo.Cont
 
-		if id == 9 then	-- BGs?
+		if not id then
+			return
+		end
+
+		if id == 9 then		-- BGs?
 			return
 		end
 
@@ -7315,7 +7567,7 @@ function Nx.Map:GetMiniInfo (mapId)
 
 	local t = self.MiniMapBlks[id]
 
-	if not t then		-- "Isle of Quel'Danas"??
+	if not t then			-- "Isle of Quel'Danas"??
 
 --		if NxData.DebugMap then
 --			Nx.prt ("GetMiniInfo: missing %s", id)
@@ -7343,11 +7595,11 @@ function Nx.Map:GetMiniBlkName (miniT, x, y)
 
 		if #v > 0 then
 			return format ("%s\\noLiquid_map%02d_%02d", miniT[7], x + miniT[3], y + miniT[4])
-		end		
-		if (strfind(miniT[7],"HawaiiMainLand")) then			
+		end
+		if (strfind(miniT[7],"HawaiiMainLand")) then
 			local hasFac = false
 			for factionIndex = 1, GetNumFactions() do
-				local name, description, standingId, bottomValue, topValue, earnedValue, atWarWith,canToggleAtWar, isHeader, isCollapsed, hasRep, isWatched, isChild = GetFactionInfo(factionIndex)				
+				local name, description, standingId, bottomValue, topValue, earnedValue, atWarWith,canToggleAtWar, isHeader, isCollapsed, hasRep, isWatched, isChild = GetFactionInfo(factionIndex)
 				if (name == "Operation: Shieldwall") or (name == "Dominance Offensive") then
 					hasFac = true
 				end
@@ -7367,35 +7619,17 @@ function Nx.Map:GetMiniBlkName (miniT, x, y)
 		else
 			return format ("%s\\map%02d_%02d", miniT[7], x + miniT[3], y + miniT[4])
 		end
-		
+
 	end
 end
 
 Map.MapLevels={
     [811] = { [3] = 6010, [4] = 6011, },
     [903] = { [1] = 6012, [2] = 6013, },
-    [905] = { [3] = 6010, [4] = 6011, }, 
-    [504] = { [2] = 4014, },    
-    [321] = { [2] = 1034, },   
+    [905] = { [3] = 6010, [4] = 6011, },
+    [504] = { [2] = 4014, },
+    [321] = { [2] = 1034, },
 }
-
--------------------------------------------------------------------------------
-
-
-
--- WorldMapArea.dbc
--- bounds y1, y2, x1, x2
--- 4.0.1 11,1,17,"Barrens",2622.91650391,-7510.41650391,1612.49987793,-5143.75,-1,0,0,0x0,
--- 4.0.3 11,1,17,"Barrens",202.083328247,-5543.75,1810.41662598,-2020.83325195,-1,0,0,0x0,
--- 5.0.4 11,1,17,"Barrens",202.083328247,-5543.75,1810.41662598,-2020.83325195,-1,0,0,0x0,10,20,
-
--- x = (x-maEntry->x1)/((maEntry->x2-maEntry->x1)/100);
--- y = (y-maEntry->y1)/((maEntry->y2-maEntry->y1)/100);    // client y coord from top to down
---
--- MapWorldInfo table calc:
--- Scale = -y2 + y1 / 500
--- X = -y1 / 5
--- Y = -x1 / 5
 --[[
 function Nx.Map:ConvertMapData()
 
@@ -7417,12 +7651,12 @@ function Nx.Map:ConvertMapData()
 		aname = gsub (aname, '"', "")
 		aname = strlower (aname)
 		Nx.prt(aid)
-		local nxid = Nx.ID2Zone[aid]
+		local nxid = aid
 		if nxid and nxid > 0 then
 
-			local name, minLvl, maxLvl, faction, cont = strsplit ("|", Nx.Zones[nxid])
+--			local name, minLvl, maxLvl, faction, cont = strsplit ("|", Nx.Zones[nxid])
 
-			if faction ~= "3" then	-- Not instance
+--			if faction ~= "3" then		-- Not instance
 
 				ay1 = tonumber (ay1)
 				ay2 = tonumber (ay2)
@@ -7435,17 +7669,17 @@ function Nx.Map:ConvertMapData()
 					local t = {}
 					areas[nxid] = t
 					t[1] = scale
-					t[2] = -ay1 / 5						-- X
-					t[3] = -ax1 / 5						-- Y
+					t[2] = -ay1 / 5		-- X
+					t[3] = -ax1 / 5		-- Y
 					t[4] = aname
 					Nx.prt("%s %s %s %s",t[4],t[2],t[3],t[1])
 				end
-			end			
+--			end
 		end
 
 --		if map == 0 or map == 1 then
---		if map == 648 or map == 646 or map == 730 then			-- Maelstrom
---		if map == 654 then	-- Gilneas
+--		if map == 648 or map == 646 or map == 730 then		-- Maelstrom
+--		if map == 654 then					-- Gilneas
 --		if map == 571 or map == 609 then			-- Northrend, DK start
 		if map == 1064 or map == 870 then
 --			Nx.prt ("%s %s %s", aid, map, aname)
@@ -7466,36 +7700,11 @@ function Nx.Map:ConvertMapData()
 				end
 			end
 
-			if next (area) then	-- Not empty?
+			if next (area) then				-- Not empty?
 				data[aname] = area
 			end
 		end
 	end
 end
 ]]--
---Nx.Map.WorldMapArea = [[951,870,6757,"TimelessIsle",-4083.334,-6483.334,233.333984,-1366.666,-1,0,0,0x0,0,0,]]
-
---Nx.Map.WorldMapOverlay = [[3564,928,0,0,0,0,"",0,0,0,0,490,290,256,378,0x0,]]
-
-
---Nx.Map:ConvertMapData()
-
--------------------------------------------------------------------------------
---EOF
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---------------------------------------------------------------------------------EOF

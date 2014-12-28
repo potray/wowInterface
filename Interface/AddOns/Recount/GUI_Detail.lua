@@ -4,7 +4,7 @@ local Graph = LibStub:GetLibrary("LibGraph-2.0")
 local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 
-local revision = tonumber(string.sub("$Revision: 1283 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1286 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -173,9 +173,6 @@ function Recount:FillUpperDetailTable(Data)
 				UpperTable[#UpperTable + 1] = FreeTables[#FreeTables]
 				FreeTables[#FreeTables] = nil
 
-				if not Recount.db.profile.MainWindow.BarText.ServerName then
-					k = string.gsub(k, "%-[^|]+", "")
-				end
 				UpperTable[#UpperTable][1] = k
 				UpperTable[#UpperTable][2] = v.amount
 				UpperTable[#UpperTable][3] = v.Details
@@ -299,9 +296,6 @@ function Recount:FillLowerDetailTable(Data)
 				dispTable[#dispTable + 1] = FreeTables[#FreeTables]
 				FreeTables[#FreeTables] = nil
 
-				if not Recount.db.profile.MainWindow.BarText.ServerName then
-					k = string.gsub(k, "%-[^|]+", "")
-				end
 				dispTable[#dispTable][1] = k
 				dispTable[#dispTable][2] = v.count
 				dispTable[#dispTable][3] = v.min
@@ -386,9 +380,6 @@ end
 --.BotMax = The minimum label for bottom
 --.BotAmount = Label for what the amount is on the bottom
 function Recount:SetupDetailTitles(ForWho, MainTitle, Titles)
-	if not Recount.db.profile.MainWindow.BarText.ServerName then
-		ForWho = string.gsub(ForWho, "%-[^|]+", "")
-	end
 	Recount.DetailWindow.TitleText = ForWho..MainTitle
 	Recount.DetailWindow.ForWho = ForWho
 	Recount.DetailWindow.CurTitle = L["Detail Window"].." - "..ForWho..MainTitle
@@ -1666,7 +1657,7 @@ function Recount:CreateDetailWindow()
 	PieMode:SetWidth(450 + 50)
 
 	PieMode.TopPieChart = Graph:CreateGraphPieChart("Recount_DetailWindow_TopPieChart", PieMode, "LEFT", "LEFT", 0, 72.5, 150, 150)--56.5, 150, 150)
-	PieMode.BotPieChart = Graph:CreateGraphPieChart("Recount_DetailWindow_BotPieChart", PieMode, "LEFT", "LEFT", 0, -72.5, 150, 150)---88, 150, 150)
+	PieMode.BotPieChart = Graph:CreateGraphPieChart("Recount_DetailWindow_BotPieChart", PieMode, "LEFT", "LEFT", 0, -72.5, 150, 150)--88, 150, 150)
 
 	PieMode.TopPieChart:SetSelectionFunc(Recount.SelectUpperDetailTablePie)
 	PieMode.BotPieChart:SetSelectionFunc(me.SelectLowerDetailTable)

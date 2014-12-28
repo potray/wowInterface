@@ -5,7 +5,7 @@ MogItDB = {
 		["Geddry - Dun Modr"] = "Default",
 	},
 	["global"] = {
-		["version"] = "v3.3.4",
+		["version"] = "3.4.0",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -38,14 +38,14 @@ MogItWishlist = {
 			["sets"] = {
 				{
 					["items"] = {
-						["ChestSlot"] = 90098,
-						["FeetSlot"] = 90097,
-						["WristSlot"] = 90103,
-						["HeadSlot"] = 90100,
-						["ShoulderSlot"] = 90102,
-						["LegsSlot"] = 90101,
-						["WaistSlot"] = 90096,
-						["HandsSlot"] = 90099,
+						["ChestSlot"] = "item:90098:0",
+						["FeetSlot"] = "item:90097:0",
+						["WristSlot"] = "item:90103:0",
+						["HeadSlot"] = "item:90100:0",
+						["ShoulderSlot"] = "item:90102:0",
+						["HandsSlot"] = "item:90099:0",
+						["LegsSlot"] = "item:90101:0",
+						["WaistSlot"] = "item:90096:0",
 					},
 					["name"] = "Holy Warrior Plate",
 					["alternateItems"] = {
@@ -53,13 +53,13 @@ MogItWishlist = {
 				}, -- [1]
 				{
 					["items"] = {
-						["ChestSlot"] = 90577,
-						["FeetSlot"] = 59328,
-						["ShoulderSlot"] = 59901,
-						["HeadSlot"] = 59487,
-						["LegsSlot"] = 59317,
-						["WaistSlot"] = 59342,
-						["WristSlot"] = 59118,
+						["ChestSlot"] = "item:90577:0",
+						["FeetSlot"] = "item:59328:0",
+						["ShoulderSlot"] = "item:59901:0",
+						["HeadSlot"] = "item:59487:0",
+						["LegsSlot"] = "item:59317:0",
+						["WaistSlot"] = "item:59342:0",
+						["WristSlot"] = "item:59118:0",
 					},
 					["name"] = "Magma Plated Battlearmor (Lookalike)",
 					["alternateItems"] = {
@@ -67,14 +67,14 @@ MogItWishlist = {
 				}, -- [2]
 				{
 					["items"] = {
-						["ChestSlot"] = 10203,
-						["LegsSlot"] = 10208,
-						["WristSlot"] = 10202,
-						["HandsSlot"] = 25788,
-						["ShoulderSlot"] = 10209,
-						["WaistSlot"] = 10206,
-						["HeadSlot"] = 10207,
-						["FeetSlot"] = 22270,
+						["ChestSlot"] = "item:10203:0",
+						["HandsSlot"] = "item:25788:0",
+						["WristSlot"] = "item:10202:0",
+						["WaistSlot"] = "item:10206:0",
+						["ShoulderSlot"] = "item:10209:0",
+						["LegsSlot"] = "item:10208:0",
+						["HeadSlot"] = "item:10207:0",
+						["FeetSlot"] = "item:22270:0",
 					},
 					["name"] = "Overlord's Plate",
 					["alternateItems"] = {

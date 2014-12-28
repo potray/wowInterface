@@ -1,6 +1,6 @@
 --[[
 Name: LibBabble-Race-3.0
-Revision: $Rev: 74 $
+Revision: $Rev: 82 $
 Maintainers: ckknight, nevcairiel, Ackis
 Website: http://www.wowace.com/projects/libbabble-race-3-0/
 Dependencies: None
@@ -8,7 +8,7 @@ License: MIT
 ]]
 
 local MAJOR_VERSION = "LibBabble-Race-3.0"
-local MINOR_VERSION = 90000 + tonumber(("$Rev: 74 $"):match("%d+"))
+local MINOR_VERSION = 90000 + tonumber(("$Rev: 82 $"):match("%d+"))
 
 if not LibStub then error(MAJOR_VERSION .. " requires LibStub.") end
 local lib = LibStub("LibBabble-3.0"):New(MAJOR_VERSION, MINOR_VERSION)
@@ -142,8 +142,8 @@ elseif GAME_LOCALE == "koKR" then
 	["Night elves"] = "나이트 엘프",
 	Orc = "오크",
 	Orcs = "오크",
-	-- Pandaren = "",
-	-- Pandaren_PL = "",
+	Pandaren = "판다렌", -- Needs review
+	Pandaren_PL = "판다렌", -- Needs review
 	Succubus = "서큐버스",
 	Tauren = "타우렌",
 	Tauren_PL = "타우렌",
@@ -176,8 +176,8 @@ elseif GAME_LOCALE == "esES" then
 	["Night elves"] = "Elfos de la noche",
 	Orc = "Orco",
 	Orcs = "Orcos",
-	-- Pandaren = "",
-	-- Pandaren_PL = "",
+	Pandaren = "Pandaren",
+	Pandaren_PL = "Pandaren",
 	Succubus = "Súcubo",
 	Tauren = "Tauren",
 	Tauren_PL = "Tauren",
@@ -194,13 +194,13 @@ elseif GAME_LOCALE == "esMX" then
 	["Blood Elf"] = "Elfo de Sangre",
 	["Blood elves"] = "Elfos de sangre",
 	Draenei = "Draenei",
-	Draenei_PL = "draenei",
+	Draenei_PL = "Draenei", -- Needs review
 	Dwarf = "Enano",
 	Dwarves = "Enanos",
 	Felguard = "Guardia vil",
 	Felhunter = "Manáfago",
-	Gnome = "gnomo",
-	Gnomes = "gnomos",
+	Gnome = "Gnomo", -- Needs review
+	Gnomes = "Gnomos", -- Needs review
 	Goblin = "Goblin", -- Needs review
 	Goblins = "Goblins", -- Needs review
 	Human = "Humano",
@@ -210,18 +210,18 @@ elseif GAME_LOCALE == "esMX" then
 	["Night elves"] = "Elfos de la noche",
 	Orc = "Orco",
 	Orcs = "Orcos",
-	-- Pandaren = "",
-	-- Pandaren_PL = "",
+	Pandaren = "Pandaren", -- Needs review
+	Pandaren_PL = "Pandaren", -- Needs review
 	Succubus = "Súcubo",
 	Tauren = "Tauren",
 	Tauren_PL = "Tauren",
-	Troll = "trol",
-	Trolls = "trols",
-	Undead = "no-muerto",
-	Undead_PL = "no-muertos",
+	Troll = "Trol", -- Needs review
+	Trolls = "Trols", -- Needs review
+	Undead = "No-muerto", -- Needs review
+	Undead_PL = "No-muertos", -- Needs review
 	Voidwalker = "Abisario",
-	Worgen = "Worgen", -- Needs review
-	Worgen_PL = "Worgen", -- Needs review
+	Worgen = "Huargen", -- Needs review
+	Worgen_PL = "Huargen", -- Needs review
 }
 elseif GAME_LOCALE == "ptBR" then
 	lib:SetCurrentTranslations {

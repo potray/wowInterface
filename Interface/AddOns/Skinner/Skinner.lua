@@ -30,7 +30,7 @@ do
 	aObj.uCls = select(2, _G.UnitClass("player"))
 
 	local liveBuildVer = "6.0.3"
-	local liveBuildNo = 19243
+	local liveBuildNo = 19342
 	local buildInfo, portal = {_G.GetBuildInfo()}, _G.GetCVar("portal") or nil
 --[===[@alpha@
 	aObj:Debug(liveBuildVer, liveBuildNo, buildInfo[1], buildInfo[2], buildInfo[3], buildInfo[4], portal)
@@ -642,7 +642,9 @@ local function __addSkinFrame(opts)
 	if opts.ri then aObj:removeInset(opts.obj.Inset) end
 
 	-- reverse parent child relationship
-	if opts.rp then
+	if opts.rp
+	and not opts.obj.SetParent_orig
+	then
 		skinFrame:SetParent(opts.obj:GetParent())
 		opts.obj:SetParent(skinFrame)
 		opts.obj.SetParent_orig = opts.obj.SetParent

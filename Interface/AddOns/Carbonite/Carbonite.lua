@@ -7,7 +7,7 @@
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
 --
--- This program is distributed in the hope that it will be useful,f
+-- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
@@ -19,23 +19,23 @@
 ---------------------------------------------------------------------------------------
 local _G = getfenv(0)
 
-Nx = LibStub("AceAddon-3.0"):NewAddon("Carbonite","AceConsole-3.0", "AceEvent-3.0", "AceTimer-3.0", "AceComm-3.0")	
+Nx = LibStub("AceAddon-3.0"):NewAddon("Carbonite","AceConsole-3.0", "AceEvent-3.0", "AceTimer-3.0", "AceComm-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Carbonite")
 
 Nx.WebSite = "wowinterface.com"
-NXTITLEFULL = NXTITLE
+NXTITLEFULL = L["Carbonite"]
 
-Nx.VERMAJOR			= 5.1
-Nx.VERMINOR			= .6			-- Not 0 is a test version
-Nx.BUILD				= 292
+Nx.VERMAJOR			= 6.0
+Nx.VERMINOR			= .0				-- Not 0 is a test version
+Nx.BUILD			= 118
 
 Nx.VERSION			= Nx.VERMAJOR + Nx.VERMINOR / 100
 
 Nx.VERSIONDATA			= .02				-- Main data
 Nx.VERSIONCHAR			= .02				-- Character data
-Nx.VERSIONCharData	= .4				-- Character specific saved data
+Nx.VERSIONCharData		= .4				-- Character specific saved data
 Nx.VERSIONGATHER		= .8				-- Gathered data
-Nx.VERSIONGOPTS		= .102			-- Global options
+Nx.VERSIONGOPTS			= .102				-- Global options
 Nx.VERSIONHUDOPTS		= .03				-- HUD options
 Nx.VERSIONList			= .1				-- List header data
 Nx.VERSIONTaxiCap		= .5				-- Taxi capture data
@@ -43,8 +43,8 @@ Nx.VERSIONTRAVEL		= .5				-- Travel data
 Nx.VERSIONWin			= .31				-- Window layouts
 Nx.VERSIONTOOLBAR		= .1				-- Tool Bar data
 Nx.VERSIONCAP			= .75				-- Captured data (quest recording)
-Nx.VERSIONVENDORV		= .55				-- Visited vendor data
-Nx.VERSIONTransferData = .1			-- Transfer data
+Nx.VERSIONVENDORV		= .56				-- Visited vendor data
+Nx.VERSIONTransferData		= .1				-- Transfer data
 Nx.TXTBLUE			= "|cffc0c0ff"
 
 Nx.Tick = 0
@@ -63,13 +63,10 @@ Nx.Slider = {}
 Nx.TabBar = {}
 Nx.ToolBar = {}
 
-Nx.Help = {}	
-Nx.Help.Ad = {}
-
 Nx.Proc = {}
 Nx.Script = {}
 
-Nx.Help.Logo = "Interface\\AddOns\\Carbonite\\Gfx\\Carbonite"
+Nx.Logo = "Interface\\AddOns\\Carbonite\\Gfx\\Carbonite"
 
 Nx.Opts = {}
 
@@ -114,17 +111,17 @@ Nx.PlayerFnd = false
 Nx.ModQAction = ""
 Nx.ModPAction = ""
 
-if _G.TomTom then 
+if _G.TomTom then
   Nx.RealTom = true
 end
 
-function Nx.EmulateTomTom() 
-	if _G.TomTom and Nx.RealTom then		
+function Nx.EmulateTomTom()
+	if _G.TomTom and Nx.RealTom then
 		return
-	end	
-	local tom = {}	
+	end
+	local tom = {}
 	_G.TomTom = tom
-	tom["version"] = "v40200"	
+	tom["version"] = "v40200"
 	tom["AddWaypoint"] = Nx.TTAddWaypoint
 	tom["AddZWaypoint"] = Nx.TTAddZWaypoint
 	tom["SetCustomWaypoint"] = Nx.TTSetCustomWaypoint
@@ -154,11 +151,11 @@ local defaults = {
 			ShowCExtra = true,
 			ShowCTown = false,
 			ShowArchBlobs = true,
-			ShowQuestBlobs = true,			
+			ShowQuestBlobs = true,
 		},
 	},
 	global = {
-	   Characters = {},	   
+	   Characters = {},
 	},
 	profile = {
 		Battleground = {
@@ -173,7 +170,7 @@ local defaults = {
 			LoginHideVer = true,
 			TitleOff = true,
 			TitleSoundOn = false,
-		},		
+		},
 		Guide = {
 			VendorVMax = 60,
 			GatherEnabled = true,
@@ -216,6 +213,11 @@ local defaults = {
 				[36] = true,
 				[37] = true,
 				[38] = true,
+				[39] = true,
+				[40] = true,
+				[41] = true,
+				[42] = true,
+				[43] = true,
 			},
 			ShowHerbs = {
 				[1] = true,
@@ -265,7 +267,7 @@ local defaults = {
 				[45] = true,
 				[46] = true,
 				[47] = true,
-				[48] = true,				
+				[48] = true,
 				[49] = true,
 				[50] = true,
 				[51] = true,
@@ -275,13 +277,20 @@ local defaults = {
 				[55] = true,
 				[56] = true,
 				[57] = true,
-				[58] = true,				
+				[58] = true,
 				[59] = true,
 				[60] = true,
 				[61] = true,
 				[62] = true,
+				[63] = true,
+				[64] = true,
+				[65] = true,
+				[66] = true,
+				[67] = true,
+				[68] = true,
+				[69] = true,
 			},
-			
+
 		},
 		Comm = {
 			Global = true,
@@ -319,7 +328,7 @@ local defaults = {
 			MenuSpacing = 0,
 		},
 		Skin = {
-		  Name = "",		  
+		  Name = "",
 		  WinBdColor = ".8|.8|1|1",
 		  WinFixedBgColor = ".5|.5|.5|.5",
 		  WinSizedBgColor = ".121|.121|.121|.88",
@@ -342,8 +351,8 @@ local defaults = {
 			IconGatherA = 0.7,
 			IconGatherAtScale = 0.5,
 			LineThick = 1.0,
-			LocTipAnchor = L["TopRight"],
-			LocTipAnchorRel = L["None"],
+			LocTipAnchor = "TopRight",
+			LocTipAnchorRel = "None",
 			MaxCenter = true,
 			MaxMouseIgnore = false,
 			MaxOverride = true,
@@ -368,12 +377,12 @@ local defaults = {
 			TrailDist = 2,
 			TrailTime = 90,
 			WOwn = false,
-			ZoneDrawCnt = 3,   
+			ZoneDrawCnt = 3,
 		},
 		MiniMap = {
 			AboveIcons = false,
 			ButColumns = 1,
-			ButCorner = L["TopRight"],
+			ButCorner = "TopRight",
 			ButOwn = false,
 			ButShowCarb = true,
 			ButHide = false,
@@ -406,7 +415,7 @@ local defaults = {
 			ShowOldNameplate = true,
 			Square = false,
 		},
-		Menu = {   
+		Menu = {
 			CenterH = false,
 			CenterV = false,
 		},
@@ -433,7 +442,7 @@ local defaults = {
 			ATCorpse = true,
 			ATTaxi = true,
 		},
-		Version = {		
+		Version = {
 			OptionsVersion = 0,
 		},
 		WinSettings = {
@@ -443,11 +452,10 @@ local defaults = {
 
 Nx.BrokerMenuTemplate = {
 	{ text = "Carbonite", icon = icon, isTitle = true },
-	{ text = L["Help"], func = function() Nx.Help:Open() end },
 	{ text = L["Options"], func = function() Nx.Opts:Open() end },
 	{ text = L["Toggle Map"], func = function() Nx.Map:ToggleSize(0) end },
-	{ text = L["Toggle Combat Graph"], func = function() Nx.Combat:Open() end },	
-	{ text = L["Toggle Events"], func = function() Nx.UEvents.List:Open() end },	
+	{ text = L["Toggle Combat Graph"], func = function() Nx.Combat:Open() end },
+	{ text = L["Toggle Events"], func = function() Nx.UEvents.List:Open() end },
 }
 
 local menuFrame = CreateFrame("Frame", "CarboniteMenuFrame", UIParent, "UIDropDownMenuTemplate")
@@ -502,14 +510,14 @@ function Nx:OnInitialize()
 		UIErrorsFrame:AddMessage (s)
 		Nx.NXVerOld = true
 	end
-	Nx.TooltipLastDiffNumLines = 0	
-	Nx.db = LibStub("AceDB-3.0"):New("CarbData",defaults,true)		
+	Nx.TooltipLastDiffNumLines = 0
+	Nx.db = LibStub("AceDB-3.0"):New("CarbData",defaults,true)
 	tinsert(Nx.dbs,Nx.db)
     Nx.db.RegisterCallback(self, "OnProfileChanged", "OnProfileChanged")
     Nx.db.RegisterCallback(self, "OnProfileCopied", "OnProfileChanged")
-    Nx.db.RegisterCallback(self, "OnProfileReset", "OnProfileChanged")	
-	Nx.SetupConfig()	
-	Nx:RegisterComm("carbmodule",Nx.ModChatReceive)	
+    Nx.db.RegisterCallback(self, "OnProfileReset", "OnProfileChanged")
+	Nx.SetupConfig()
+	Nx:RegisterComm("carbmodule",Nx.ModChatReceive)
 end
 
 function Nx:OnProfileChanged(event, database, newProfileKey)
@@ -534,7 +542,7 @@ end
 
 function Nx.slashCommand (txt)
 
-	local UEvents = Nx.UEvents	
+	local UEvents = Nx.UEvents
 	local cmd, a1, a2 = Nx.Split (" ", txt)
 	cmd = strlower (cmd)
 
@@ -591,7 +599,7 @@ function Nx.slashCommand (txt)
 		Nx.Window:ConsoleShow (gsub (txt, "winshow %s*", ""))
 
 	elseif cmd == "winsize" then
-		Nx.Window:ConsoleSize (gsub (txt, "winsize %s*", ""))	
+		Nx.Window:ConsoleSize (gsub (txt, "winsize %s*", ""))
 
 	elseif cmd == "gatherd" then
 		Nx.db.profile.Debug.DBGather = not Nx.db.profile.Debug.DBGather
@@ -606,7 +614,7 @@ function Nx.slashCommand (txt)
 		UEvents:AddMine (strtrim (a1 .. " " .. a2))
 
 	elseif cmd == "addopen" then
-		UEvents:AddOpen (a1, a2)	
+		UEvents:AddOpen (a1, a2)
 
 	elseif cmd == "c" then
 		Nx.Combat:Open()
@@ -628,7 +636,7 @@ function Nx.slashCommand (txt)
 		Nx.Com:Test (a1, a2)
 
 	elseif cmd == "comver" then
-		if Nx.db.profile.Debug.VerDebug then			-- Stop casual use
+		if Nx.db.profile.Debug.VerDebug then		-- Stop casual use
 			Nx.Com:GetUserVer()
 		end
 
@@ -690,7 +698,7 @@ end
 function Nx:NXOnLoad (frm)
 
 	SlashCmdList["Carbonite"] = Nx.slashCommand
-	SLASH_Carbonite1 = "/Carb"	
+	SLASH_Carbonite1 = "/Carb"
 
 	self.Frm = frm		--V4 this
 	self.TimeLast = 0
@@ -704,7 +712,7 @@ end
 
 --------
 --
-function Nx:SetupEverything()	
+function Nx:SetupEverything()
 	if not Nx.FirstTry then
 		return
 	end
@@ -713,37 +721,33 @@ function Nx:SetupEverything()
 	Nx.PlFactionNum = strsub (fact, 1, 1) == "A" and 0 or 1
 
 	Nx.AirshipType = Nx.PlFactionNum == 0 and "Airship Alliance" or "Airship Horde"
-	
-	Nx:InitGlobal()	
-	
+
+	Nx:InitGlobal()
+
 	Nx:prtSetChatFrame()
 
-	if Nx.db.profile.General.LoginHideVer then			
-		Nx.prt (NXTITLE.." |cffffffff"..Nx.VERMAJOR.."."..(Nx.VERMINOR*10).." B"..Nx.BUILD.." "..NXLOADING)
+	if Nx.db.profile.General.LoginHideVer then
+		Nx.prt (L["Carbonite"].." |cffffffff"..Nx.VERMAJOR.."."..(Nx.VERMINOR*10).." B"..Nx.BUILD.." ".. L["Loading"])
 	end
 
 	Nx:LocaleInit()
-	
+
 	Nx:InitEvents()
 
-	Nx.Proc:Init()
-
 	Nx.Opts:Init()
-	
+
 	Nx:UIInit()
 	Nx.Item:Init()
-
-	Nx.Help:Init()
-
+	Nx.Proc:Init()
 	Nx.Title:Init()
 	Nx.NXMiniMapBut:Init()
-	
+
 	Nx.Com:Init()
 	Nx.HUD:Init()
 	Nx.Map:Init()
-	
-	Nx:GatherInit()	-- Needs map init. May need to do before map open
-	Nx.Map:Open()		
+
+	Nx:GatherInit()		-- Needs map init. May need to do before map open
+	Nx.Map:Open()
 	Nx.Travel:Init()
 
 	Nx.Combat:Init()
@@ -754,13 +758,13 @@ function Nx:SetupEverything()
 	Nx.UEvents.List:Open()
 
 	if Nx.db.profile.General.LoginHideVer then
-		Nx.prt (NXLOAD_DONE)
-	end		
+		Nx.prt (L["Loading Done"])
+	end
 	if Nx.Font.AddonLoaded then
 		Nx.Font:AddonLoaded()
 	end
 	Nx.Initialized = true
-	Nx:OnPlayer_login("PLAYER_LOGIN")	
+	Nx:OnPlayer_login("PLAYER_LOGIN")
 end
 
 function Nx:ADDON_LOADED (event, arg1, ...)
@@ -768,7 +772,7 @@ function Nx:ADDON_LOADED (event, arg1, ...)
 end
 
 function Nx:UNIT_NAME_UPDATE (event, arg1, ...)
-	Nx.PlayerFnd = true	
+	Nx.PlayerFnd = true
 end
 
 function Nx:LocaleInit()
@@ -777,7 +781,7 @@ function Nx:LocaleInit()
 	if Nx.db.profile.General.LoginHideVer then
 		Nx.prt (" %s", loc)
 	end
-	
+
 	Nx.Locale = loc
 end
 
@@ -790,7 +794,7 @@ function Nx:InitEvents()
 	local Guide = Nx.Map.Guide
 	local events = {
 
-		"PLAYER_LOGIN", Nx.OnPlayer_login,		
+		"PLAYER_LOGIN", Nx.OnPlayer_login,
 
 		"UPDATE_MOUSEOVER_UNIT", Nx.OnUpdate_mouseover_unit,
 
@@ -806,16 +810,16 @@ function Nx:InitEvents()
 		"UPDATE_BATTLEFIELD_SCORE", Nx.OnUpdate_battlefield_score,
 		"UPDATE_WORLD_STATES", Nx.OnUpdate_battlefield_score,
 
-		"PLAYER_LEAVING_WORLD", Com.OnEvent,		
+		"PLAYER_LEAVING_WORLD", Com.OnEvent,
 		"FRIENDLIST_UPDATE", Com.OnFriendguild_update,
 		"GUILD_ROSTER_UPDATE", Com.OnFriendguild_update,
 		"CHAT_MSG_CHANNEL_JOIN", Com.OnChatEvent,
 		"CHAT_MSG_CHANNEL_NOTICE", Com.OnChatEvent,
 		"CHAT_MSG_CHANNEL_LEAVE", Com.OnChatEvent,
 		"CHAT_MSG_CHANNEL", Com.OnChat_msg_channel,
-		
+
 		"CHANNEL_ROSTER_UPDATE", Com.OnChannel_roster_update,
-	
+
 		"CHAT_MSG_BG_SYSTEM_NEUTRAL", Nx.OnChat_msg_bg_system_neutral,
 
 		"AUCTION_HOUSE_SHOW", Nx.AuctionAssist.OnAuction_house_show,
@@ -868,16 +872,16 @@ end
 --------
 -- Login message
 
-function Nx:OnPlayer_login (event, ...)	
-	Nx:OnParty_members_changed()	
-	Nx:RecordCharacterLogin()	
+function Nx:OnPlayer_login (event, ...)
+	Nx:OnParty_members_changed()
+	Nx:RecordCharacterLogin()
 	Nx.Com:OnEvent (event)
 	Nx.InitWins()
 
 	Nx.BlizzChatFrame_DisplayTimePlayed = ChatFrame_DisplayTimePlayed		-- Save func
 	ChatFrame_DisplayTimePlayed = function() end
 
---	RequestTimePlayed()	-- Blizz does not do anymore on login???
+--	RequestTimePlayed()		-- Blizz does not do anymore on login???
 	Nx.RequestTime = true;
 end
 
@@ -989,10 +993,10 @@ function Nx:UnitDTip()
 			dist = tonumber (dist)
 
 			local dcur = 9
-			if CheckInteractDistance ("mouseover", 1) then	-- 28 yards
+			if CheckInteractDistance ("mouseover", 1) then		-- 28 yards
 				dcur = 2
 			end
-			if CheckInteractDistance ("mouseover", 3) then	-- 9.9 yards
+			if CheckInteractDistance ("mouseover", 3) then		-- 9.9 yards
 				dcur = 1
 			end
 
@@ -1050,7 +1054,7 @@ function Nx:OnUnit_spellcast_sent (event, arg1, arg2, arg3, arg4)
 	if arg1 == "player" then
 
 		local Nx = Nx
-		if arg2 == NXlHERBGATHERING then
+		if arg2 == "Herb Gathering" then
 			Nx.GatherTarget = Nx.TooltipLastText
 
 			if Nx.db.profile.Debug.DBGather then
@@ -1062,7 +1066,7 @@ function Nx:OnUnit_spellcast_sent (event, arg1, arg2, arg3, arg4)
 				Nx.GatherTarget = nil
 			end
 
-		elseif arg2 == NXlMINING then
+		elseif arg2 == L["Mining"] then
 			Nx.GatherTarget = Nx.TooltipLastText
 
 			if Nx.db.profile.Debug.DBGather then
@@ -1074,21 +1078,21 @@ function Nx:OnUnit_spellcast_sent (event, arg1, arg2, arg3, arg4)
 				Nx.GatherTarget = nil
 			end
 
-		elseif arg2 == NXlARTIFACTS then
+		elseif arg2 == L["Searching for Artifacts"] then
 
 			Nx.UEvents:AddOpen ("Art", arg4)
 
-		elseif arg2 == NXlEXTRACTGAS then
+		elseif arg2 == L["Extract Gas"] then
 
-			Nx.UEvents:AddOpen ("Gas", NXlEXTRACTGAS)
+			Nx.UEvents:AddOpen ("Gas", L["Extract Gas"])
 
-		elseif arg2 == NXlOpening or arg2 == NXlOpeningNoText then
+		elseif arg2 == L["Opening"] or arg2 == L["Opening - No Text"] then
 			Nx.GatherTarget = Nx.TooltipLastText
 
-			if arg4 == NXlGLOWCAP then
+			if arg4 == L["Glowcap"] then
 				Nx.UEvents:AddHerb (arg4)
 
-			elseif arg4 == NXlEverfrost then
+			elseif arg4 == L["Everfrost Chip"] then
 				Nx.UEvents:AddOpen ("Everfrost", arg4)
 
 			end
@@ -1198,10 +1202,10 @@ function Nx:NXOnUpdate (elapsed)
 
 	local Nx = Nx
 
-	if Nx.Loaded and Nx.PlayerFnd and not Nx.Initialized and not InCombatLockdown() then	-- Safety check		
-		Nx:SetupEverything()		
+	if Nx.Loaded and Nx.PlayerFnd and not Nx.Initialized and not InCombatLockdown() then	-- Safety check
+		Nx:SetupEverything()
 		return
-	end	
+	end
 	if not Nx.Loaded or not Nx.PlayerFnd or not Nx.Initialized then
 		return
 	end
@@ -1275,7 +1279,7 @@ function Nx:NXOnUpdate (elapsed)
 
 	if Nx.Tick % 11 == 0 then
 		Nx:RecordCharacter()
-	end	
+	end
 end
 
 --------
@@ -1424,7 +1428,7 @@ end
 --  Herb [map id] = { [#] = { Id = #, Cnt = times gathered, X, Y } }
 --  Mine ^
 
-function Nx:InitGlobal()    
+function Nx:InitGlobal()
 	if Nx.db.profile.Version.OptionsVersion < Nx.VERSIONDATA then
 
 		if Nx.db.profile.Version.OptionsVersion > 0 then
@@ -1433,7 +1437,7 @@ function Nx:InitGlobal()
 
 		Nx.db:ResetDB("Default")
 		Nx.db.profile.Version.OptionsVersion = Nx.VERSIONDATA
-		Nx.db.global.Characters = {}  -- Indexed by "Server.Name"
+		Nx.db.global.Characters = {}		-- Indexed by "Server.Name"
 	end
 
 	if not Nx.db.profile.Version.NXVer1 then
@@ -1441,7 +1445,7 @@ function Nx:InitGlobal()
 	end
 	Nx:InitCharacter()
 
-	-- 
+	--
 
 --	local unitName = Nx.DemungeStr ("TnjrManc")	-- UnitName
 --	Nx.PlayerName = _G[unitName] (Nx.DemungeStr ("olbwdr"))		-- player
@@ -1496,7 +1500,7 @@ function Nx:InitGlobal()
 			Nx.prt (L["Cleaned"] .. " %d " .. L["items"], cnt)
 		end
 	end
-	
+
 	-- HUD options
 
 	local opts = Nx.db.profile.HUDOpts
@@ -1530,7 +1534,7 @@ function Nx:InitGlobal()
 	end
 
 	tr["TaxiTime"] = tr["TaxiTime"] or {}
-	
+
 	local cd = Nx.db.char.Travel.Taxi
 
 	if not cd or cd.Version < Nx.VERSIONCharData then
@@ -1748,21 +1752,21 @@ function Nx:InitCharacter()
 		ch.Version = Nx.VERSIONCHAR
 
 		ch.E = {}	-- Events
-		ch.Q = {}	-- Quests		
+		ch.Q = {}	-- Quests
 	end
 
 	Nx.CurCharacter = ch
 
-	ch["Opts"] = ch["Opts"] or {}		-- Character options	
+	ch["Opts"] = ch["Opts"] or {}		-- Character options
 
-	ch["L"] = ch["L"] or {}	-- List
+	ch["L"] = ch["L"] or {}			-- List
 
 	if not ch["TBar"] then
-		ch["TBar"] = {}	-- Tool Bar layouts
+		ch["TBar"] = {}			-- Tool Bar layouts
 	end
 
-	ch["Profs"] = ch["Profs"] or {}	-- Professions
-	ch["Professions"] = nil				-- Old
+	ch["Profs"] = ch["Profs"] or {}		-- Professions
+	ch["Professions"] = nil			-- Old
 
 	self:DeleteOldEvents()
 
@@ -1773,47 +1777,48 @@ end
 
 
 --------
--- 
+--
 
 function Nx:GetRealmCharName()
 	return GetRealmName() .. "." .. UnitName ("player")
 end
 
 --------
--- 
+--
 
 function Nx:CalcRealmChars()
-
 	local chars = Nx.db.global.Characters
-
 	local realmName = GetRealmName()
 	local fullName = realmName .. "." .. UnitName ("player")
-
 	local t = {}
-
 	for rc, v in pairs (chars) do
 		if v ~= Nx.CurCharacter then
-
 			local rname = Nx.Split (".", rc)
 			if rname == realmName then
 				tinsert (t, rc)
 			end
 		end
 	end
-
-	sort (t)		-- Alphabetical
-
+	local connectedrealms = GetAutoCompleteRealms()
+	if connectedrealms then
+		for i=1,#connectedrealms do
+			for rc, v in pairs (chars) do
+				if v ~= Nx.CurCharacter then
+					local rname = Nx.Split (".", rc)
+					if rname == connectedrealms[i] then
+						tinsert (t, rc)
+					end
+				end
+			end
+		end
+	end
+	sort (t)			-- Alphabetical
 	tinsert (t, 1, fullName)	-- Put me at top
-
 	self.RealmChars = t
-
 	-- Fix char data
-
 	for cnum, rc in ipairs (self.RealmChars) do
-
 		local ch = chars[rc]
 		if ch then
-
 			if ch["XP"] then
 				ch["XPMax"] = ch["XPMax"] or 1
 				ch["XPRest"] = ch["XPRest"] or 0
@@ -1821,7 +1826,6 @@ function Nx:CalcRealmChars()
 				ch["LXPMax"] = ch["LXPMax"] or 1
 				ch["LXPRest"] = ch["LXPRest"] or 0
 			end
-
 			ch["TimePlayed"] = ch["TimePlayed"] or 0
 		end
 	end
@@ -1900,8 +1904,8 @@ function Nx:RecordCharacterLogin()
 	local _, arena = GetCurrencyInfo (390)
 	local _, honor = GetCurrencyInfo (392)
 
-	ch["LArenaPts"] = arena		--V4 gone GetArenaCurrency()
-	ch["LHonor"] = honor			--V4 gone GetHonorCurrency()	
+	ch["LArenaPts"] = arena			--V4 gone GetArenaCurrency()
+	ch["LHonor"] = honor			--V4 gone GetHonorCurrency()
 	Nx:RecordCharacter()
 end
 
@@ -1912,8 +1916,8 @@ function Nx:RecordCharacter()
 	local ch = self.CurCharacter
 
 	local map = self.Map:GetMap (1)
-	if map.RMapId then
-		ch["Pos"] = format ("%d^%f^%f", map.RMapId, map.PlyrRZX, map.PlyrRZY)
+	if map.UpdateMapID then
+		ch["Pos"] = format ("%d^%f^%f", map.UpdateMapID, map.PlyrRZX, map.PlyrRZY)
 	end
 
 	ch["Time"] = time()
@@ -2123,7 +2127,7 @@ function Nx.Title:Init()
 	lf:SetPoint ("CENTER", 0, 0)
 
 	local t = lf:CreateTexture()
-	t:SetTexture (Nx.Help.Logo)
+	t:SetTexture (Nx.Logo)
 --	t:SetVertexColor (1, 1, 1, 1)
 	t:SetAllPoints (lf)
 	lf.texture = t
@@ -2174,7 +2178,7 @@ function Nx.Title:TickWait2 (proc)
 	self.AlphaTarget = 1
 
 --	Nx.prt ("Y %s", self.Y)
-	
+
 	if Nx.db.profile.General.TitleSoundOn then
 		PlaySound ("ReadyCheck")
 	end
@@ -2186,7 +2190,7 @@ function Nx.Title:Tick()
 
 	local this = self.Frm
 
---PAIDS!	
+--PAIDS!
 	if not Nx.db.profile.General.TitleOff then
 		this:Hide()
 	end
@@ -2220,7 +2224,7 @@ function Nx.Title:Tick()
 
 	if self.Alpha == 0 then
 
-		this:Hide()		
+		this:Hide()
 		return -1	-- Die
 	end
 end
@@ -2417,7 +2421,7 @@ function Nx.Combat:Open()
 
 
 	self.EventTable = {
-	}	
+	}
 
 	local win = Nx.Window:Create ("NxCombat", nil, nil, nil, nil, nil, true)
 	self.Win = win
@@ -2745,9 +2749,9 @@ function Nx.UEvents:AddHerb (name)
 		if id then
 			Nx:AddHerbEvent (name, Nx:Time(), mapId, x, y)
 			Nx:GatherHerb (id, mapId, x, y)
-		end	
+		end
 		self:UpdateAll (true)
-	end		
+	end
 end
 
 ------
@@ -2911,10 +2915,10 @@ function Nx.UEvents.List:Update()
 			eStr = "|cffc0c0c0" .. L["Mined"] .. " " .. text
 
 		elseif typ == "F" then
-		
+
 			eStr = "|cffc0c0c0" .. L["Fished"] .. " " .. text
-			
-		end		
+
+		end
 		list:ItemSet (2, eStr)
 
 		local mapName = Nx.Map:IdToName (mapId)
@@ -3017,7 +3021,7 @@ Nx.GatherInfo = {
 		{ 1,   "INV_Misc_Herb_10", L["Silverleaf"]},
 		{ 85,  "INV_Misc_Herb_11", L["Stranglekelp"]},
 		{ 230, "INV_Misc_Herb_18", L["Sungrass"]},
-		{ 325, "INV_Misc_Herb_Terrocone", L["Terrocone"]},
+		{ 325, "INV_Misc_Herb_Terrocone", L["Terocone"]},	-- Someone should check if INV_Misc_Herb_Terrocone needs to be changed to Terocone (http://www.wowhead.com/item=22789)
 		{ 115, "INV_Misc_Flower_01", L["Wild Steelbloom"]},
 		{ 195, "inv_misc_flower_03", L["Dragon's Teeth"]},
 		{ 1,   "INV_Mushroom_02", L["Glowcap"]},
@@ -3042,7 +3046,14 @@ Nx.GatherInfo = {
 		{ 525, "inv_misc_herb_rainpoppy", L["Rain Poppy"]},
 		{ 575, "inv_misc_herb_shaherb",L["Sha-Touched Herb"]},
 		{ 545, "inv_misc_herb_silkweed",L["Silkweed"]},
-		{ 575, "inv_misc_herb_snowlily",L["Snow Lily"]},		
+		{ 575, "inv_misc_herb_snowlily",L["Snow Lily"]},
+		{ 600, "inv_misc_herb_chamlotus",L["Chameleon Lotus"]},
+		{ 600, "inv_misc_herb_frostweed",L["Frostweed"]},
+		{ 600, "inv_misc_herb_flytrap",L["Gorgrond Flytrap"]},
+		{ 600, "inv_misc_herb_starflower",L["Starflower"]},
+		{ 600, "inv_misc_herb_arrowbloom",L["Nagrand Arrowbloom"]},
+		{ 600, "inv_misc_herb_taladororchid",L["Talador Orchid"]},
+		{ 600, "inv_misc_herb_fireweed",L["Fireweed"]},
 	},
 	["M"] = {	-- Mine node
 		{ 325,	"INV_Ore_Adamantium", L["Adamantite Deposit"]},
@@ -3068,7 +3079,7 @@ Nx.GatherInfo = {
 		{ 230,	"INV_Ore_TrueSilver_01", L["Truesilver Deposit"]},
 		{ 350,	"inv_ore_cobalt", L["Cobalt Deposit"]},
 		{ 375,	"inv_ore_cobalt", L["Rich Cobalt Deposit"]},
-		{ 400,	"inv_ore_saronite_01", L["Saronite Deposit"]},
+		{ 425,	"inv_ore_saronite_01", L["Saronite Deposit"]},
 		{ 425,	"inv_ore_saronite_01", L["Rich Saronite Deposit"]},
 		{ 450,	"inv_ore_platinum_01", L["Titanium Vein"]},
 		{ 425,	"item_elementiumore", L["Obsidium Deposit"]},
@@ -3083,7 +3094,12 @@ Nx.GatherInfo = {
 		{ 575, "inv_ore_manticyte", L["Rich Kyparite Deposit"]},
 		{ 600, "inv_ore_trilliumwhite", L["Trillium Vein"]},
 		{ 600, "INV_Ore_TrilliumWhite", L["Rich Trillium Vein"]},
-	}	
+		{ 600, "inv_ore_trueironore", L["Rich True Iron Deposit"]},
+		{ 600, "inv_ore_trueironore", L["Smoldering True Iron Deposit"]},
+		{ 600, "inv_ore_trueironore", L["True Iron Deposit"]},
+		{ 600, "inv_ore_blackrock_ore", L["Blackrock Deposit"]},
+		{ 600, "inv_ore_blackrock_ore", L["Rich Blackrock Deposit"]},
+	}
 }
 
 Nx.GatherRemap = {
@@ -3092,10 +3108,10 @@ Nx.GatherRemap = {
 	},
 	["NXMine"] = {
 		[6] = 9,		-- Gold
-		[17] = 20,	-- Silver
-		[23] = 22,	-- Rich Cobalt Deposit
-		[25] = 24,	-- Rich Saronite Deposit
-		[26] = 24,	-- Titanium
+		[17] = 20,		-- Silver
+		[23] = 22,		-- Rich Cobalt Deposit
+		[25] = 24,		-- Rich Saronite Deposit
+		[26] = 24,		-- Titanium
 	}
 }
 
@@ -3103,33 +3119,24 @@ Nx.GatherRemap = {
 -- Init. Call after map init
 
 function Nx:GatherInit()
-
-	self.GatherLocaleI = 3
-
 	if self.DoGatherUpgrade then
 		self.DoGatherUpgrade = nil
 		Nx:GatherVerUpgrade()
 	end
-
-	Nx.GatherVerUpgrade = nil			-- Kill it
+	Nx.GatherVerUpgrade = nil		-- Kill it
 	Nx.GatherVerUpgradeType = nil		-- Kill it
 end
 
 function Nx:GetGather (typ, id)
-
 	local v = Nx.GatherInfo[typ][id]
-
 	if v then
-		return v[self.GatherLocaleI], v[2], v[1]
+		return v[3], v[2], v[1]
 	end
 end
 
 function Nx:HerbNameToId (name)
-
-	local i = self.GatherLocaleI
-
-	for k, v in ipairs (Nx.GatherInfo["H"]) do
-		if v[i] == name then
+		for k, v in ipairs (Nx.GatherInfo["H"]) do
+		if v[3] == name then
 			return k
 		end
 	end
@@ -3145,11 +3152,8 @@ function Nx:MineNameToId (name)
 	if name == L["Thorium Vein"] then				-- Created when Ooze Covered removed
 		name = L["Small Thorium Vein"]
 	end
-
-	local i = self.GatherLocaleI
-
 	for k, v in ipairs (Nx.GatherInfo["M"]) do
-		if v[i] == name then
+		if v[3] == name then
 			return k
 		end
 	end
@@ -3198,28 +3202,22 @@ function Nx:Gather (nodeType, id, mapId, x, y)
 	end
 
 	local data = Nx.db.profile.GatherData[nodeType]
-	
 	local zoneT = data[mapId]
-	local carbMapId = Nx.AIdToId[mapId]	
-	if not carbMapId then		
-		return
-	end
-	if not zoneT then
 
+	if not zoneT or not Nx.Map.MapWorldInfo[mapId] then
 --		Nx.prt ("Gather new %d", mapId)
-
 		zoneT = {}
 		data[mapId] = zoneT
 	end
 
-	local maxDist = (5 / Nx.Map:GetWorldZoneScale (carbMapId)) ^ 2
+	local maxDist = (5 / Nx.Map:GetWorldZoneScale (mapId)) ^ 2
 
-	local index	
+	local index
 	local nodeT = zoneT[id] or {}
 	zoneT[id] = nodeT
 
-	for n, node in ipairs (nodeT) do		
-		local nx, ny = Nx.Split("|",node)		
+	for n, node in ipairs (nodeT) do
+		local nx, ny = Nx.Split("|",node)
 		local dist = (nx - x) ^ 2 + (ny - y) ^ 2
 
 --		Nx.prt ("Gather %f %f %f (%.2f %.2f) (%.2f %.2f)", dist, maxDist, id, nx, ny, x, y)
@@ -3227,7 +3225,7 @@ function Nx:Gather (nodeType, id, mapId, x, y)
 		if dist < maxDist then		-- Squared compare
 			index = n
 			break
-		end		
+		end
 	end
 
 	local cnt = 1
@@ -3284,9 +3282,9 @@ function Nx:GatherConvert (id)
 end
 
 function Nx:GatherNodeToCarb (id)
-	
+
 	local gatherIDs = {
-		-- Mining Node Conversions
+	-- Mining Node Conversions
 		[201] = 3,
 		[202] = 20,
 		[203] = 9,
@@ -3334,8 +3332,8 @@ function Nx:GatherNodeToCarb (id)
 		[245] = 35,
 		[246] = 36,
 		[247] = 37,
-		[248] = 38,		
--- Herbalism Nodes		
+		[248] = 38,
+	-- Herbalism Nodes
 		[401] = 30,
 		[402] = 34,
 		[403] = 10,
@@ -3355,7 +3353,7 @@ function Nx:GatherNodeToCarb (id)
 		[417] = 13,
 		[418] = 32,
 		[419] = 32,
-		[420] = 2,		
+		[420] = 2,
 		[421] = 36,
 		[422] = 4,
 		[423] = 15,
@@ -3365,7 +3363,7 @@ function Nx:GatherNodeToCarb (id)
 		[427] = 26,
 		[428] = 0,
 		[429] = 20,
-		[430] = 0,		
+		[430] = 0,
 		[431] = 3,
 		[432] = 12,
 		[433] = 9,
@@ -3375,7 +3373,7 @@ function Nx:GatherNodeToCarb (id)
 		[437] = 25,
 		[438] = 27,
 		[439] = 29,
-		[440] = 33,		
+		[440] = 33,
 		[441] = 14,
 		[442] = 28,
 		[443] = 43,
@@ -3385,7 +3383,7 @@ function Nx:GatherNodeToCarb (id)
 		[447] = 47,
 		[448] = 46,
 		[449] = 42,
-		[450] = 45,		
+		[450] = 45,
 		[451] = 49,
 		[452] = 44,
 		[453] = 48,
@@ -3395,7 +3393,7 @@ function Nx:GatherNodeToCarb (id)
 		[457] = 51,
 		[458] = 52,
 		[459] = 53,
-		[460] = 55,		
+		[460] = 55,
 		[461] = 54,
 		[462] = 57,
 		[463] = 56,
@@ -3423,30 +3421,30 @@ function Nx:GatherImportCarb (nodeType)
 			return
 		end
 	end
-	
+
 	local srcT = nil
-	
+
 	if nodeType == "NXMine" then
 		srcT = GatherMateData2MineDB
 	elseif nodeType == "NXHerb" then
 		srcT = GatherMateData2HerbDB
-	end	
-	
+	end
+
 	local cnt = 0
-	if srcT then		
+	if srcT then
 		for mapId, zoneT in pairs (srcT) do
-			for coords, nodetype in pairs(zoneT) do				
-				local nx, ny = Nx:GatherConvert(coords)				
-				local nodeId = Nx:GatherNodeToCarb (nodetype)								
+			for coords, nodetype in pairs(zoneT) do
+				local nx, ny = Nx:GatherConvert(coords)
+				local nodeId = Nx:GatherNodeToCarb (nodetype)
 				if nx and ny and nodeId then
-					Nx:Gather (nodeType, nodeId, mapId, nx * 100, ny * 100)				
+					Nx:Gather (nodeType, nodeId, mapId, nx * 100, ny * 100)
 					cnt = cnt + 1
 				end
 			end
 		end
 
 		Nx.prt (L["Imported"] .. " %s " .. L["nodes from GatherMate2_Data"], cnt, nodeType)
-	end	
+	end
 end
 
 -------------------------------------------------------------------------------
@@ -3460,7 +3458,7 @@ end
 
 function Nx.Item:Load (id)
 
-	if self.Asked[id] then	-- Ask once
+	if self.Asked[id] then			-- Ask once
 
 --		Nx.prt ("Asked %s", id)
 
@@ -3608,10 +3606,7 @@ function Nx.NXMiniMapBut:Init()
 
 	local menu = Nx.Menu:Create (f)
 	self.Menu = menu
-
-	menu:AddItem (0, L["Help"], self.Menu_OnShowHelp, self)
 	menu:AddItem (0, L["Options"], self.Menu_OnOptions, self)
-
 	menu:AddItem (0, L["Show Map"], self.Menu_OnShowMap, self)
 
 --PAIDS!
@@ -3650,16 +3645,8 @@ function Nx.NXMiniMapBut:Init()
 	end
 end
 
-function Nx.NXMiniMapBut:Menu_OnShowHelp()
-	Nx.Help:Open()
-end
-
 function Nx.NXMiniMapBut:Menu_OnOptions()
 	Nx.Opts:Open()
-end
-
-function Nx.NXMiniMapBut:Menu_OnStartDemo()
-	Nx.Help.Demo:Start()
 end
 
 function Nx.NXMiniMapBut:Menu_OnShowMap()
@@ -3709,25 +3696,25 @@ function Nx.NXMiniMapBut:ToggleProfiling()
 end
 
 function Nx.NXMiniMapBut:NXOnEnter (frm)
-	
+
 	local mmown = Nx.db.profile.MiniMap.ButOwn
 	local tip = GameTooltip
 
 	--V4 this
 	tip:SetOwner (frm, "ANCHOR_LEFT")
-	tip:SetText (NXTITLEFULL .. " " .. Nx.VERMAJOR .. "." .. Nx.VERMINOR*10)	
-	tip:AddLine (L["Left click toggle Map"], 1, 1, 1, 1)
+	tip:SetText (NXTITLEFULL .. " " .. Nx.VERMAJOR .. "." .. Nx.VERMINOR*10)
+	tip:AddLine (L["Left click toggle Map"], 1, 1, 1, true)
 
 	if mmown then
-		tip:AddLine (L["Shift left click toggle minimize"], 1, 1, 1, 1)
+		tip:AddLine (L["Shift left click toggle minimize"], 1, 1, 1, true)
 	end
 
-	tip:AddLine (L["Alt left click toggle Watch List"], 1, 1, 1, 1)
-	tip:AddLine (L["Middle click toggle Guide"], 1, 1, 1, 1)
-	tip:AddLine (L["Right click for Menu"], 1, 1, 1, 1)
+	tip:AddLine (L["Alt left click toggle Watch List"], 1, 1, 1, true)
+	tip:AddLine (L["Middle click toggle Guide"], 1, 1, 1, true)
+	tip:AddLine (L["Right click for Menu"], 1, 1, 1, true)
 
 	if not mmown then
-		tip:AddLine (L["Shift drag to move"], 1, 1, 1, 1)
+		tip:AddLine (L["Shift drag to move"], 1, 1, 1, true)
 	end
 	tip:AppendText ("")
 end
@@ -3738,7 +3725,7 @@ function Nx.NXMiniMapBut:NXOnClick (button, down)
 
 	if button == "LeftButton" then
 
-		if IsShiftKeyDown() then			
+		if IsShiftKeyDown() then
 			Nx.db.profile.MiniMap.ButWinMinimize = not Nx.db.profile.MiniMap.ButWinMinimize
 			Nx.Map.Dock:UpdateOptions()
 
@@ -3791,7 +3778,7 @@ function Nx.NXMiniMapBut:Move (x, y)
 
 	local mm = _G["Minimap"]
 
-	local l = mm:GetLeft() + 70				-- Minimap is 140x140
+	local l = mm:GetLeft() + 70		-- Minimap is 140x140
 	local b = mm:GetBottom() + 70
 --[[
 	if not x then
@@ -3809,7 +3796,7 @@ function Nx.NXMiniMapBut:Move (x, y)
 	r = min (r, 110)
 
 	x = r * cos (ang)
-	y = r * sin (ang)	
+	y = r * sin (ang)
 	but:SetPoint ("TOPLEFT", mm, "TOPLEFT", x + 54, y - 54)
 	but:SetUserPlaced (true)
 end
@@ -3821,39 +3808,88 @@ local TempTable = {}
 setmetatable(TempTable, {__mode = "v"})
 
 function Nx.Split(d, p)
-  if p and not string.find(p,d) then		
+  if p and not string.find(p,d) then
 	return p
-  end    
+  end
   if p and #p <= 1 then return p end
-  if TempTable[p] then 
+  if TempTable[p] then
 	return unpack(TempTable[p],1,table.maxn(TempTable[p]))
   else
 	local TempNum = 0
-	local Tossaway = {}	
+	local Tossaway = {}
     while true do
-      l=string.find(p,d,TempNum,true) 
-      if l~=nil then 
-        table.insert(Tossaway, string.sub(p,TempNum,l-1)) 
-        TempNum=l+1 
+      l=string.find(p,d,TempNum,true)
+      if l~=nil then
+        table.insert(Tossaway, string.sub(p,TempNum,l-1))
+        TempNum=l+1
       else
-        table.insert(Tossaway, string.sub(p,TempNum)) 
-        break 
+        table.insert(Tossaway, string.sub(p,TempNum))
+        break
       end
-    end	
+    end
    TempTable[p] = Tossaway
    return unpack(Tossaway)
    end
 end
 
--------------------------------------------------------------------------------
---EOF
+function Nx.Proc:Init()
 
+	self.Procs = {}
+	self.TimeLeft = 0
+end
 
+function Nx.Proc:New (user, func, delay)
 
+	local p = {}
+	tinsert (self.Procs, p)
+	p.User = user
+	p.Func = func
+	p.Delay = delay or 1
+end
 
+function Nx.Proc:SetFunc (proc, func)
+	proc.Func = func
+end
 
+function Nx.Proc:OnUpdate (elapsed)
 
+--	Nx.prt ("Proc Elapsed raw %s", elapsed)
 
+	elapsed = min (elapsed, .2) * 60
 
+--	Nx.prt ("Proc Elapsed %s", elapsed)
 
+	elapsed = elapsed + self.TimeLeft
 
+	while elapsed >= 1 do
+
+		elapsed = elapsed - 1
+
+		local n = 1
+
+		while 1 do
+			local p = self.Procs[n]
+			if not p then
+				break
+			end
+
+			local d = p.Delay - 1
+			if d <= 0 then
+				d = p.Func (p.User, p) or 1
+
+				if d < 0 then				-- No time?
+					tremove (self.Procs, n)		-- Kill proc
+					n = n - 1			-- Same index again
+				end
+			end
+			p.Delay = d
+
+			n = n + 1
+		end
+
+	end
+
+	self.TimeLeft = elapsed
+end
+
+---------------------------------------------------------------------------------EOF

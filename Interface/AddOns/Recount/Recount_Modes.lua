@@ -4,7 +4,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale( "Recount" )
 local Epsilon = 0.000000000000000001
 
-local revision = tonumber(string.sub("$Revision: 1284 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1286 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -339,7 +339,7 @@ function Recount:MergedPetHealingDPS(data, fight)
 		Time = Epsilon
 	end
 	
-	return (healing + PetAmount), (healing + PetAmount)/Time
+	return (healing + PetAmount), (healing + PetAmount) / Time
 end
 
 function DataModes:HealingReturner(data, num)
@@ -349,7 +349,7 @@ function DataModes:HealingReturner(data, num)
 	local healing, hps = Recount:MergedPetHealingDPS(data, Recount.db.profile.CurDataSet)
 	if num == 1 then
 		return healing, hps
---		return (data.Fights[Recount.db.profile.CurDataSet].Healing or 0), (data.Fights[Recount.db.profile.CurDataSet].Healing or 0)/((data.Fights[Recount.db.profile.CurDataSet].ActiveTime or 0) + Epsilon)
+		--return (data.Fights[Recount.db.profile.CurDataSet].Healing or 0), (data.Fights[Recount.db.profile.CurDataSet].Healing or 0)/((data.Fights[Recount.db.profile.CurDataSet].ActiveTime or 0) + Epsilon)
 	end
 
 	return healing, {{data.Fights[Recount.db.profile.CurDataSet].Heals, L["'s Effective Healing"], DetailTitles.Heals},{data.Fights[Recount.db.profile.CurDataSet].HealedWho, " "..L["Healed Who"], DetailTitles.HealedWho}, {data.Fights[Recount.db.profile.CurDataSet].OverHeals, L["'s Overhealing"],DetailTitles.OverHeals}, {data.Fights[Recount.db.profile.CurDataSet].TimeHealing, L["'s Time Spent Healing"], DetailTitles.HealTime}}
@@ -502,9 +502,6 @@ function Recount:AddSortedTooltipData(title, data, num)
 				percent = 100
 			end
 			local name = SortedData[i][1]
-			if not Recount.db.profile.MainWindow.BarText.ServerName then
-				name = string.gsub(name, "%-[^|]+", "")
-			end
 			GameTooltip:AddDoubleLine(i..". "..name, SortedData[i][2].." ("..percent.."%)", 1, 1, 1, 1, 1, 1)
 		end
 	end
@@ -518,9 +515,6 @@ function TooltipFuncs:Damage(name, data)
 	if data then
 		local SortedData, total
 		GameTooltip:ClearLines()
-		if not Recount.db.profile.MainWindow.BarText.ServerName then
-			name = string.gsub(name, "%-[^|]+", "")
-		end
 		GameTooltip:AddLine(name)
 		Recount:AddSortedTooltipData(L["Top 3"].." "..L["Damage Abilities"], data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].Attacks, 3)
 		GameTooltip:AddLine("")
@@ -552,9 +546,6 @@ end
 function TooltipFuncs:FDamage(name, data)
 	local SortedData, total
 	GameTooltip:ClearLines()
-	if not Recount.db.profile.MainWindow.BarText.ServerName then
-		name = string.gsub(name, "%-[^|]+", "")
-	end
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["Friendly Attacks"],data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].FAttacks, 3)
 	GameTooltip:AddLine("")
@@ -574,9 +565,6 @@ function TooltipFuncs:Healing(name, data)
 	if data then
 		local SortedData, total
 		GameTooltip:ClearLines()
-		if not Recount.db.profile.MainWindow.BarText.ServerName then
-			name = string.gsub(name, "%-[^|]+", "")
-		end
 		GameTooltip:AddLine(name)
 		Recount:AddSortedTooltipData(L["Top 3"].." "..L["Heals"],data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].Heals, 3)
 		GameTooltip:AddLine("")
@@ -607,9 +595,6 @@ end
 function TooltipFuncs:HealingTaken(name, data)
 	local SortedData, total
 	GameTooltip:ClearLines()
-	if not Recount.db.profile.MainWindow.BarText.ServerName then
-		name = string.gsub(name, "%-[^|]+", "")
-	end
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["Healed By"],data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].WhoHealed, 3)
 	GameTooltip:AddLine("<"..L["Click for more Details"]..">", 0, 0.9, 0)
@@ -618,9 +603,6 @@ end
 function TooltipFuncs:Overhealing(name, data)
 	local SortedData, total
 	GameTooltip:ClearLines()
-	if not Recount.db.profile.MainWindow.BarText.ServerName then
-		name = string.gsub(name, "%-[^|]+", "")
-	end
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["Over Heals"],data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].OverHeals, 3)
 	GameTooltip:AddLine("<"..L["Click for more Details"]..">", 0, 0.9, 0)
@@ -629,9 +611,6 @@ end
 function TooltipFuncs:DOTs(name, data)
 	local SortedData, total
 	GameTooltip:ClearLines()
-	if not Recount.db.profile.MainWindow.BarText.ServerName then
-		name = string.gsub(name, "%-[^|]+", "")
-	end
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["DOTs"],data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].DOTs, 3)
 	GameTooltip:AddLine("<"..L["Click for more Details"]..">", 0, 0.9, 0)
@@ -640,9 +619,6 @@ end
 function TooltipFuncs:HOTs(name, data)
 	local SortedData, total
 	GameTooltip:ClearLines()
-	if not Recount.db.profile.MainWindow.BarText.ServerName then
-		name = string.gsub(name, "%-[^|]+", "")
-	end
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["HOTs"],data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].HOTs, 3)
 	GameTooltip:AddLine("<"..L["Click for more Details"]..">", 0, 0.9, 0)
@@ -651,9 +627,6 @@ end
 function TooltipFuncs:ActiveTime(name, data)
 	local SortedData, total
 	GameTooltip:ClearLines()
-	if not Recount.db.profile.MainWindow.BarText.ServerName then
-		name = string.gsub(name, "%-[^|]+", "")
-	end
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["Attacked/Healed"],data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].TimeSpent, 3)
 	local Heal, Damage
@@ -670,9 +643,6 @@ end
 function TooltipFuncs:DeathCounts(name, data)
 	local SortedData, total
 	GameTooltip:ClearLines()
-	if not Recount.db.profile.MainWindow.BarText.ServerName then
-		name = string.gsub(name, "%-[^|]+", "")
-	end
 	GameTooltip:AddLine(name)
 	--GameTooltip:Hide()
 end
@@ -680,9 +650,6 @@ end
 function TooltipFuncs:Absorbs(name, data)
 	local SortedData, total
 	GameTooltip:ClearLines()
-	if not Recount.db.profile.MainWindow.BarText.ServerName then
-		name = string.gsub(name, "%-[^|]+", "")
-	end
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["Absorbs"], data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].Absorbed, 3)
 	GameTooltip:AddLine("")

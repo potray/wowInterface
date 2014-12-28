@@ -1,10 +1,9 @@
-local MAJOR, MINOR = "LibItemInfo-1.0", 3
+local MAJOR, MINOR = "LibItemInfo-1.0", 4
 local lib = LibStub:NewLibrary(MAJOR, MINOR)
 
 if not lib then return end
 
 local GetItemInfo = GetItemInfo
-local rawget = rawget
 local type = type
 local tonumber = tonumber
 local strmatch = strmatch
@@ -42,16 +41,20 @@ setmetatable(lib.cache, {
 			itemID = strmatch(item, "item:(%d+)")
 			if not itemID then return end
 			itemID = tonumber(itemID)
-			if rawget(self, itemID) then
-				self[item] = self[itemID]
-				return self[itemID]
-			end
 		end
-		local name, link, quality, itemLevel, reqLevel, class, subClass, maxStack, equipSlot, texture, vendorPrice = GetItemInfo(itemID)
+		local name, link, quality, itemLevel, reqLevel, class, subClass, maxStack, equipSlot = GetItemInfo(item)
 		if not name then
 			lib.queue[itemID] = true
 			lib.frame:RegisterEvent("GET_ITEM_INFO_RECEIVED")
 			return
+		end
+		if type(item) == "string" then
+			local baseItem = self[itemID]
+			-- if the properties are equal to that of the base item, just point this entry at that
+			if quality == baseItem.quality and itemLevel == baseItem.itemLevel then
+				self[item] = baseItem
+				return baseItem
+			end
 		end
 		local itemInfo = {
 			name = name,
@@ -64,7 +67,6 @@ setmetatable(lib.cache, {
 			stackSize = maxStack,
 		}
 		self[item] = itemInfo
-		self[itemID] = itemInfo
 		return itemInfo
 	end,
 })

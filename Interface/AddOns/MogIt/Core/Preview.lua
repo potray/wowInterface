@@ -73,14 +73,14 @@ local function resizeOnMouseUp(self)
 	end
 end
 
-local function modelOnMouseWheel(self,v)
+local function modelOnMouseWheel(self, v)
 	local delta = ((v > 0 and 0.6) or -0.6);
 	if mog.db.profile.sync then
 		mog.posZ = mog.posZ + delta;
-		for id,model in ipairs(mog.models) do
+		for id, model in ipairs(mog.models) do
 			model:PositionModel();
 		end
-		for id,preview in ipairs(mog.previews) do
+		for id, preview in ipairs(mog.previews) do
 			preview.model:PositionModel();
 		end
 	else
@@ -89,8 +89,8 @@ local function modelOnMouseWheel(self,v)
 	end
 end
 
-local function slotTexture(f,slot,texture)
-	f.slots[slot].icon:SetTexture(texture or select(2,GetInventorySlotInfo(slot)));
+local function slotTexture(f, slot, texture)
+	f.slots[slot].icon:SetTexture(texture or select(2, GetInventorySlotInfo(slot)));
 end
 
 local function slotOnEnter(self)
@@ -105,13 +105,13 @@ end
 local function slotOnClick(self,btn)
 	if btn == "RightButton" and IsControlKeyDown() then
 		local preview = self:GetParent();
-		mog.view.DelItem(self.slot,preview);
+		mog.view.DelItem(self.slot, preview);
 		if mog.db.profile.gridDress == "preview" and mog.activePreview == preview then
 			mog.scroll:update();
 		end
 		self:OnEnter();
 	else
-		mog.Item_OnClick(self,btn,self);
+		mog.Item_OnClick(self, btn, self);
 	end
 end
 
@@ -148,10 +148,10 @@ local function setWeaponEnchant(self, preview, enchant)
 	local mainHandItem = preview.slots["MainHandSlot"].item;
 	local offHandItem = preview.slots["SecondaryHandSlot"].item;
 	if mainHandItem then
-		preview.model:TryOn(format("item:%d:%d", mainHandItem, preview.data.weaponEnchant), "MainHandSlot");
+		preview.model:TryOn(format("item:%s:%d", mainHandItem:match("item:(%d+)"), preview.data.weaponEnchant), "MainHandSlot");
 	end
 	if offHandItem then
-		preview.model:TryOn(format("item:%d:%d", offHandItem, preview.data.weaponEnchant), "SecondaryHandSlot");
+		preview.model:TryOn(format("item:%s:%d", offHandItem:match("item:(%d+)"), preview.data.weaponEnchant), "SecondaryHandSlot");
 	end
 end
 
@@ -284,6 +284,7 @@ local newSet = {items = {}}
 
 local function onClick(self, set)
 	newSet.name = set
+	newSet.previewFrame = currentPreview
 	wipe(newSet.items)
 	for slot, v in pairs(currentPreview.slots) do
 		newSet.items[slot] = v.item
@@ -294,6 +295,7 @@ end
 local function newSetOnClick(self)
 	wipe(newSet.items)
 	newSet.name = "Set "..(#mog.wishlist:GetSets() + 1)
+	newSet.previewFrame = currentPreview
 	for slot, v in pairs(currentPreview.slots) do
 		newSet.items[slot] = v.item
 	end
@@ -613,10 +615,16 @@ mog:AddItemCacheCallback("PreviewAddItem", function()
 	end
 end)
 
-local playerClass = select(2, UnitClass("PLAYER"));
+local playerClass = select(2, UnitClass("player"));
 
 function mog.view.AddItem(item, preview, forceSlot, setItem)
 	if not (item and preview) then return end;
+	
+	local itemID, bonusID = item
+	if type(item) == "string" then
+		itemID, bonusID = mog:ToNumberItem(item);
+	end
+	item = mog:ToStringItem(itemID, bonusID);
 	
 	local itemInfo = mog:GetItemInfo(item, "PreviewAddItem");
 	if not itemInfo then
@@ -637,7 +645,7 @@ function mog.view.AddItem(item, preview, forceSlot, setItem)
 	if slot then
 		if slot == "MainHandSlot" or slot == "SecondaryHandSlot" then
 			if invType == "INVTYPE_2HWEAPON" then
-				if playerClass == "WARRIOR" and IsSpellKnown(46917) then
+				if playerClass == "WARRIOR" and IsSpellKnown(23588) then
 					-- Titan's Grip exists in the spellbook, so we can treat this weapon as one handed
 					invType = "INVTYPE_WEAPON";
 				end
@@ -669,7 +677,7 @@ function mog.view.AddItem(item, preview, forceSlot, setItem)
 		slotTexture(preview, slot, GetItemIcon(item));
 		if preview:IsVisible() then
 			if (slot == "MainHandSlot" or slot == "SecondaryHandSlot") and preview.data.weaponEnchant then
-				item = format("item:%d:%d", item, preview.data.weaponEnchant);
+				item = format(gsub(item, "item:(%d+):0", "item:%1:%%d"), preview.data.weaponEnchant);
 			end
 			if invType == "INVTYPE_RANGED" then
 				slot = "SecondaryHandSlot";
@@ -687,6 +695,9 @@ function mog.view.DelItem(slot, preview)
 	local invType = mog:GetItemInfo(preview.slots[slot].item).invType;
 	preview.slots[slot].item = nil;
 	slotTexture(preview,slot);
+	if preview.data.title then
+		preview.TitleText:SetText("*"..preview.data.title);
+	end
 	if preview:IsVisible() then
 		if invType == "INVTYPE_RANGED" then
 			slot = "SecondaryHandSlot"
@@ -700,11 +711,7 @@ function mog:AddToPreview(item, preview, title)
 	preview = mog:GetPreview(preview or mog.activePreview);
 	
 	ShowUIPanel(mog.view);
-	if type(item) == "number" then
-		mog.view.AddItem(item, preview);
-	elseif type(item) == "string" then
-		mog.view.AddItem(tonumber(item:match("item:(%d+)")),preview);
-	elseif type(item) == "table" then
+	if type(item) == "table" then
 		mog.view:Undress(preview);
 		for k,v in pairs(item) do
 			mog.view.AddItem(v, preview, k, true);
@@ -713,10 +720,22 @@ function mog:AddToPreview(item, preview, title)
 			preview.TitleText:SetText(title);
 			preview.data.title = title;
 		end
+	else
+		mog.view.AddItem(item, preview);
 	end
 	
 	if mog.db.profile.gridDress == "preview" and mog.activePreview == preview then
-		mog.scroll:update();
+		for i, frame in ipairs(mog.models) do
+			local data = frame.data;
+			local value = data.value;
+			local cycle = data.cycle;
+			local item = data.item;
+			if value and frame:IsShown() then
+				mog:ModelUpdate(frame, value);
+				data.cycle = cycle;
+				data.item = item;
+			end
+		end
 	end
 	
 	return preview;
@@ -766,6 +785,11 @@ tinsert(ModifiedItemClickHandlers, function(link)
 		-- if it's a dressup modified click and a dressable item, intercept the call here and let SetItemRef hook handle it
 		return link and IsDressableItem(link);
 	end
+	local _, staticPopup = StaticPopup_Visible("MOGIT_PREVIEW_ADDITEM");
+	if IsModifiedClick("CHATLINK") and staticPopup then
+		staticPopup.editBox:SetText(link);
+		return true
+	end
 end);
 
 hooksecurefunc("SetItemRef", function(link, text, button, chatFrame)
@@ -795,7 +819,7 @@ local function hookInspectUI()
 	local function onClick(self, button)
 		if InspectFrame.unit and self.hasItem and IsControlKeyDown() and button == "RightButton" then
 			-- GetInventoryItemID actually returns the transmogged-into item for inspect units
-			mog:AddToPreview(GetInventoryItemID(InspectFrame.unit, self:GetID()));
+			mog:AddToPreview((GetInventoryItemID(InspectFrame.unit, self:GetID())));
 		else
 			HandleModifiedItemClick(GetInventoryItemLink(InspectFrame.unit, self:GetID()));
 		end
@@ -823,17 +847,26 @@ end
 
 
 --// Popups
-local function onAccept(self,preview)
+local function onAccept(self, preview)
 	local text = self.editBox:GetText();
-	text = text and text:match("(%d+).-$");
-	mog:AddToPreview(tonumber(text),preview);
+	if text then
+		local id,bonus = mog:ToNumberItem(text);
+		if not id then
+			id,bonus = text:match("item=(%d+)"),text:match("bonus=(%d+)");
+		end
+		if not id then
+			id = text:match("(%d+).-$");
+			bonus = nil;
+		end
+		mog:AddToPreview(mog:ToStringItem(tonumber(id),tonumber(bonus)), preview);
+	end
 end
 
 StaticPopupDialogs["MOGIT_PREVIEW_ADDITEM"] = {
 	text = L["Type the item ID or url in the text box below"],
 	button1 = ADD,
 	button2 = CANCEL,
-	hasEditBox = 1,
+	hasEditBox = true,
 	maxLetters = 512,
 	editBoxWidth = 260,
 	OnAccept = onAccept,
@@ -842,24 +875,22 @@ StaticPopupDialogs["MOGIT_PREVIEW_ADDITEM"] = {
 		onAccept(parent, data);
 		parent:Hide();
 	end,
-	EditBoxOnEscapePressed = function(self)
-		self:GetParent():Hide();
-	end,
-	timeout = 0,
-	exclusive = 1,
-	whileDead = 1,
+	EditBoxOnEscapePressed = HideParentPanel;
+	exclusive = true,
+	whileDead = true,
 };
 
-local function onAccept(self,preview)
+local function onAccept(self, preview)
 	local items = self.editBox:GetText();
-	items = items and items:match("compare%?items=([^;#]+)");
+	items = items and items:match("compare%?items=([^#]+)");
 	if items then
 		local tbl = {};
-		for item in items:gmatch("([^:]+)") do
-			item = item:match("^(%d+)");
-			table.insert(tbl,tonumber(item));
+		for item in items:gmatch("([^;]+)") do
+			local id,bonus = item:match("^(%d+)%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.(%d+)");
+			id = id or item:match("^(%d+)");
+			table.insert(tbl, mog:ToStringItem(tonumber(id),tonumber(bonus)));
 		end
-		mog:AddToPreview(tbl,preview);
+		mog:AddToPreview(tbl, preview);
 	end
 end
 
@@ -867,18 +898,15 @@ StaticPopupDialogs["MOGIT_PREVIEW_IMPORT"] = {
 	text = L["Copy and paste a Wowhead Compare URL into the text box below to import"],
 	button1 = L["Import"],
 	button2 = CANCEL,
-	hasEditBox = 1,
+	hasEditBox = true,
 	maxLetters = 512,
 	editBoxWidth = 260,
-	OnShow = function(self,preview)
+	OnShow = function(self, preview)
 		local str;
-		for k,v in pairs(preview.slots) do
+		for k, v in pairs(preview.slots) do
 			if v.item then
-				if str then
-					str = str..":"..v.item;
-				else
-					str = L["http://www.wowhead.com/"].."compare?items="..v.item;
-				end
+				local id,bonus = mog:ToNumberItem(v.item);
+				str = (str and str..":" or L["http://www.wowhead.com/"].."compare?items=")..id..(bonus and ".0.0.0.0.0.0.0.0.0."..bonus or "")
 			end
 		end
 		self.editBox:SetText(str or "");
@@ -890,12 +918,9 @@ StaticPopupDialogs["MOGIT_PREVIEW_IMPORT"] = {
 		onAccept(parent, data);
 		parent:Hide();
 	end,
-	EditBoxOnEscapePressed = function(self)
-		self:GetParent():Hide();
-	end,
-	timeout = 0,
-	exclusive = 1,
-	whileDead = 1,
+	EditBoxOnEscapePressed = HideParentPanel,
+	exclusive = true,
+	whileDead = true,
 };
 
 StaticPopupDialogs["MOGIT_PREVIEW_CLOSE"] = {
@@ -907,5 +932,4 @@ StaticPopupDialogs["MOGIT_PREVIEW_CLOSE"] = {
 	end,
 	hideOnEscape = true,
 	whileDead = true,
-	timeout = 0,
 }

@@ -1,0 +1,18 @@
+tag 1.5
+5ae41fdfbe9109f5a4ffa44d17df9d1c3eab262d
+Steffen Buehl <sb@sbuehl.com>
+2014-12-26 22:31:39 +0100
+
+tagging as 1.5
+
+
+--------------------
+
+Steffen Buehl:
+	- allow colors in ldb text (format: =rrggbb=text==), display ldb custom text as multiline config option
+	- show invasions when buildings are collapsed
+	- inn tracking by hook/event ("recruitment") - api doesn't return correct values if the headhunter ui isn't open
+	- fix #64 (characters appearing in wrong config category / realm)
+	- don'T disable libsink options
+	- show summary on every login when enabled, change seal of tempered fate icon
+	- parse "unknown" mission times and write calculated start time to SVs (e.g. started on another machine)

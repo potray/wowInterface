@@ -1219,17 +1219,17 @@ DataStore_QuestsDB = {
 					1536, -- [32]
 					[441] = 32,
 					[425] = 201326592,
-					[891] = 4096,
+					[67] = 67108928,
 					[147] = 512,
 					[151] = 14336,
-					[64] = 12582912,
+					[186] = 2618,
 					[159] = 32,
 					[411] = 8,
 					[79] = 25165828,
 					[827] = 134217728,
 					[391] = 16384,
 					[148] = 19660800,
-					[67] = 67108928,
+					[192] = 1536,
 					[840] = 4096,
 					[42] = 201326592,
 					[841] = 417846,
@@ -1239,15 +1239,15 @@ DataStore_QuestsDB = {
 					[149] = 100663296,
 					[828] = 514,
 					[188] = 131072,
-					[192] = 1536,
+					[891] = 4096,
 					[845] = 268435456,
 					[837] = 240,
 					[843] = 131072,
 					[436] = 524288,
 					[111] = 22,
 					[110] = 2147483648,
+					[64] = 12582912,
 					[426] = 1166147589,
-					[186] = 2618,
 				},
 				["Quests"] = {
 					"0|Ashenvale", -- [1]
@@ -1710,7 +1710,7 @@ DataStore_QuestsDB = {
 				["HistoryBuild"] = "18414",
 			},
 			["Default.Dun Modr.Potray"] = {
-				["HistoryLastUpdate"] = 1419063419,
+				["HistoryLastUpdate"] = 1419768170,
 				["QuestLinks"] = {
 					nil, -- [1]
 					"|cffffff00|Hquest:31889:-1|h[Battle Pet Tamers: Kalimdor]|h|r", -- [2]
@@ -1722,36 +1722,33 @@ DataStore_QuestsDB = {
 					"|cff40c040|Hquest:35055:93|h[Lost Mole Machines]|h|r", -- [8]
 					"|cff40c040|Hquest:35050:93|h[Rescue Rangari]|h|r", -- [9]
 					nil, -- [10]
-					"|cffffff00|Hquest:7905:-1|h[The Darkmoon Faire]|h|r", -- [11]
-					nil, -- [12]
-					"|cffffff00|Hquest:35990:100|h[Core of Flame]|h|r", -- [13]
-					"|cffffff00|Hquest:35991:100|h[Core of Iron]|h|r", -- [14]
-					"|cffffff00|Hquest:35992:100|h[Core of Life]|h|r", -- [15]
-					"|cffffff00|Hquest:36158:100|h[Draenor's Secret Power]|h|r", -- [16]
-					nil, -- [17]
-					"|cffffff00|Hquest:34810:98|h[Gazmolf Futzwangler and the Highmaul Crusade]|h|r", -- [18]
-					"|cffffff00|Hquest:35332:98|h[Nobundo Sends Word]|h|r", -- [19]
-					"|cffffff00|Hquest:35146:98|h[The Good Doctor]|h|r", -- [20]
-					"|cffffff00|Hquest:36273:98|h[Whacking Weeds]|h|r", -- [21]
-					"|cffffff00|Hquest:35059:99|h[Along the Riverside]|h|r", -- [22]
-					"|cffffff00|Hquest:34819:99|h[Fruitful Ventures]|h|r", -- [23]
-					"|cffffff00|Hquest:35357:100|h[King of the Breezestriders]|h|r", -- [24]
-					"|cffffff00|Hquest:35350:100|h[Queen of the Clefthoof]|h|r", -- [25]
-					nil, -- [26]
-					"|cffffff00|Hquest:7025:-1|h[Treats for Greatfather Winter]|h|r", -- [27]
-					nil, -- [28]
-					"|cffffff00|Hquest:37164:100|h[The Huntresses]|h|r", -- [29]
-					nil, -- [30]
-					"|cffffff00|Hquest:34827:96|h[Last of the Talonpriests]|h|r", -- [31]
-					"|cffffff00|Hquest:34884:96|h[The Kaliri Whisperer]|h|r", -- [32]
-					"|cffffff00|Hquest:35676:97|h[Wanted: Venombarb]|h|r", -- [33]
-					nil, -- [34]
-					"|cffffff00|Hquest:37166:100|h[Titanic Evolution]|h|r", -- [35]
-					nil, -- [36]
-					"|cffffff00|Hquest:37148:100|h[Oralius' Adventure]|h|r", -- [37]
+					"|cffffff00|Hquest:35990:100|h[Core of Flame]|h|r", -- [11]
+					"|cffffff00|Hquest:35991:100|h[Core of Iron]|h|r", -- [12]
+					"|cffffff00|Hquest:36158:100|h[Draenor's Secret Power]|h|r", -- [13]
+					nil, -- [14]
+					"|cffffff00|Hquest:34810:98|h[Gazmolf Futzwangler and the Highmaul Crusade]|h|r", -- [15]
+					"|cffffff00|Hquest:35332:98|h[Nobundo Sends Word]|h|r", -- [16]
+					"|cffffff00|Hquest:35146:98|h[The Good Doctor]|h|r", -- [17]
+					"|cffffff00|Hquest:36273:98|h[Whacking Weeds]|h|r", -- [18]
+					"|cffffff00|Hquest:35059:99|h[Along the Riverside]|h|r", -- [19]
+					"|cffffff00|Hquest:34819:99|h[Fruitful Ventures]|h|r", -- [20]
+					"|cffffff00|Hquest:35357:100|h[King of the Breezestriders]|h|r", -- [21]
+					"|cffffff00|Hquest:35350:100|h[Queen of the Clefthoof]|h|r", -- [22]
+					nil, -- [23]
+					"|cffffff00|Hquest:7025:-1|h[Treats for Greatfather Winter]|h|r", -- [24]
+					nil, -- [25]
+					"|cffffff00|Hquest:37164:100|h[The Huntresses]|h|r", -- [26]
+					nil, -- [27]
+					"|cffffff00|Hquest:34827:96|h[Last of the Talonpriests]|h|r", -- [28]
+					"|cffffff00|Hquest:34884:96|h[The Kaliri Whisperer]|h|r", -- [29]
+					"|cffffff00|Hquest:35676:97|h[Wanted: Venombarb]|h|r", -- [30]
+					nil, -- [31]
+					"|cffffff00|Hquest:37166:100|h[Titanic Evolution]|h|r", -- [32]
+					[34] = "|cffffff00|Hquest:37179:100|h[For The Children!]|h|r",
+					[35] = "|cffffff00|Hquest:37148:100|h[Oralius' Adventure]|h|r",
 				},
 				["HistoryBuild"] = "19342",
-				["HistorySize"] = 1928,
+				["HistorySize"] = 1934,
 				["History"] = {
 					[316] = 532928,
 					[380] = 8192,
@@ -1884,9 +1881,10 @@ DataStore_QuestsDB = {
 					[1112] = 805306450,
 					[1113] = 1208582208,
 					[1114] = 1088026,
-					[1115] = 787480576,
+					[1115] = 787488768,
 					[942] = 256,
 					[1116] = 101318657,
+					[344] = 2348810240,
 					[408] = 131072,
 					[1118] = 6291464,
 					[1119] = 2097472,
@@ -1894,7 +1892,7 @@ DataStore_QuestsDB = {
 					[1121] = 128,
 					[1122] = 2101452,
 					[818] = 4294959104,
-					[1125] = 3178496,
+					[1125] = 19955712,
 					[1127] = 1073741832,
 					[1128] = 41984,
 					[411] = 520,
@@ -1935,7 +1933,7 @@ DataStore_QuestsDB = {
 					[1164] = 1073741824,
 					[1165] = 64,
 					[1166] = 18940672,
-					[1167] = 787476,
+					[1167] = 791572,
 					[293] = 973215904,
 					[841] = 417854,
 					[1170] = 100679680,
@@ -2093,15 +2091,22 @@ DataStore_QuestsDB = {
 					[1161] = 1073741824,
 				},
 				["Rewards"] = {
-					[24] = "c|114695|1|1",
-					[35] = "r|118930|1|1",
-					[27] = "r|17727|1|1",
+					[24] = "r|17727|1|1",
+					[26] = "r|118923|1|1",
 					[2] = "r|89125|1|1",
 					[4] = "r|118929|1|1",
+					[32] = "r|118930|1|1",
+					[34] = "r|118938|1|1",
+					[35] = "r|118922|1|1",
+					[21] = "c|114695|1|1",
 					[9] = "c|118031|1|1",
-					[11] = "r|71634|1|1",
-					[37] = "r|118922|1|1",
-					[29] = "r|118923|1|1",
+				},
+				["Dailies"] = {
+					{
+						["id"] = 37324,
+						["timestamp"] = 1419768575,
+						["title"] = "Out of Stock: Blackrock Ore",
+					}, -- [1]
 				},
 				["Quests"] = {
 					"0|Battle Pets", -- [1]
@@ -2113,36 +2118,34 @@ DataStore_QuestsDB = {
 					"0|Gorgrond", -- [7]
 					"1|0|189000|0", -- [8]
 					"1|0|189000|0", -- [9]
-					"0|Ironforge", -- [10]
-					"1|0|14650|1", -- [11]
-					"0|Legendary", -- [12]
+					"0|Legendary", -- [10]
+					"1|0|154000|0", -- [11]
+					"1|0|154000|0", -- [12]
 					"1|0|154000|0", -- [13]
-					"1|0|154000|0", -- [14]
-					"1|0|154000|1", -- [15]
-					"1|0|154000|0", -- [16]
-					"0|Nagrand", -- [17]
-					"1|0|14600|0", -- [18]
-					"1|0|14600|0", -- [19]
-					"1|0|146000|0", -- [20]
-					"1|0|146000|0", -- [21]
-					"1|0|13950|0", -- [22]
-					"1|0|150000|0", -- [23]
-					"1|0|308000|0", -- [24]
-					"1|0|308000|0", -- [25]
-					"0|Seasonal", -- [26]
-					"1|0|36600|0", -- [27]
-					"0|Shadowmoon Burial Grounds", -- [28]
-					"1|0|154000|0", -- [29]
-					"0|Spires of Arak", -- [30]
-					"1|0|138000|0", -- [31]
-					"1|0|138000|0", -- [32]
-					"1|3|284000|0", -- [33]
-					"0|The Everbloom", -- [34]
+					"0|Nagrand", -- [14]
+					"1|0|14600|0", -- [15]
+					"1|0|14600|0", -- [16]
+					"1|0|146000|0", -- [17]
+					"1|0|146000|0", -- [18]
+					"1|0|13950|0", -- [19]
+					"1|0|150000|1", -- [20]
+					"1|0|308000|0", -- [21]
+					"1|0|308000|0", -- [22]
+					"0|Seasonal", -- [23]
+					"1|0|36600|0", -- [24]
+					"0|Shadowmoon Burial Grounds", -- [25]
+					"1|0|154000|0", -- [26]
+					"0|Spires of Arak", -- [27]
+					"1|0|138000|0", -- [28]
+					"1|0|138000|0", -- [29]
+					"1|3|284000|0", -- [30]
+					"0|The Everbloom", -- [31]
+					"1|0|154000|0", -- [32]
+					"0|Upper Blackrock Spire", -- [33]
+					"1|0|154000|0", -- [34]
 					"1|0|154000|0", -- [35]
-					"0|Upper Blackrock Spire", -- [36]
-					"1|0|154000|0", -- [37]
 				},
-				["lastUpdate"] = 1419063822,
+				["lastUpdate"] = 1419768575,
 			},
 			["Default.Dun Modr.Geddry"] = {
 				["HistoryLastUpdate"] = 1418599657,

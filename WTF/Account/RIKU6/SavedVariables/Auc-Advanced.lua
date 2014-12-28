@@ -1,6 +1,5 @@
 
 AucAdvancedConfig = {
-	["users.Dun Modr.Potray"] = "Default",
 	["version"] = 1,
 	["profile.Default"] = {
 		["configator.left"] = 759.000061035156,
@@ -251,11 +250,11 @@ AucAdvancedConfig = {
 				["item.36920.bulk"] = true,
 				["item.13004.model"] = "market",
 				["item.40011.bulk"] = true,
-				["item.37702.bulk"] = true,
+				["item.7911.bulk"] = true,
 				["item.52720.bulk"] = true,
 				["item.41489.fixed.buy"] = 200000,
 				["item.8827.ignore"] = false,
-				["item.7911.bulk"] = true,
+				["item.818.bulk"] = true,
 				["item.39934.match"] = true,
 				["item.23111.bulk"] = true,
 				["item.36927.stack"] = 1,
@@ -284,7 +283,7 @@ AucAdvancedConfig = {
 				["item.76734.stack"] = 1,
 				["item.5500.stack"] = 1,
 				["item.4337.stack"] = 1,
-				["item.818.bulk"] = true,
+				["item.37702.bulk"] = true,
 				["item.3858.bulk"] = true,
 				["item.2835.stack"] = 5,
 				["item.36917.stack"] = 1,
@@ -350,6 +349,7 @@ AucAdvancedConfig = {
 			},
 		},
 	},
+	["users.Dun Modr.Potray"] = "Default",
 }
 AucAdvancedData = {
 	["AserArbitrageRealms"] = {

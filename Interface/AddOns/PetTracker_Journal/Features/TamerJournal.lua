@@ -192,7 +192,7 @@ end
 function Journal.Card:Display(tamer)
 	self.name:SetText(tamer.name)
 	self.zone:SetText(tamer:GetZoneTitle())
-	self.quest:SetShown(tamer.quest)
+	self.quest:SetShown(tamer.quest ~= 0)
 	self.model:SetDisplayInfo(tamer.model)
 	self.model:SetRotation(.3)
 

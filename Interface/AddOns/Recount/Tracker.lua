@@ -4,7 +4,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 local BossIDs = LibStub("LibBossIDs-1.0")
 
-local revision = tonumber(string.sub("$Revision: 1284 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1286 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -547,7 +547,9 @@ function Recount:SpellDamage(timestamp, eventtype, srcGUID, srcName, srcFlags, d
 	if glancing	then
 		HitType = "Glancing" -- Elsia: Do NOT localize this, it breaks functionality!!! If you need this localized contact me on WowAce or Curse.
 	end
-	if multistrike then
+	if multistrike and critical then
+		HitType = "Multistrike (Crit)"
+	elseif multistrike and not critical then
 		HitType = "Multistrike"
 	end
 	--[[if blocked then
@@ -661,7 +663,9 @@ function Recount:SpellHeal(timestamp, eventtype, srcGUID, srcName, srcFlags, dst
 	if critical then
 		healtype = "Crit" -- Elsia: Do NOT localize this, it breaks functionality!!! If you need this localized contact me on WowAce or Curse.
 	end
-	if multistrike then
+	if multistrike and critical then
+		healtype = "Multistrike (Crit)"
+	elseif multistrike and not critical then
 		healtype = "Multistrike"
 	end
 
@@ -709,6 +713,10 @@ function Recount:AddAbsorbCredit(source, victim, spellName, spellId, absorbed)
 		if Recount.db.profile.MergeAbsorbs then -- Elsia: This cannot be unsplit, but it saves memory.
 			Recount:AddTableDataStats(sourceData, "Heals", spellName, "Absorb", absorbed)
 			Recount:AddTableDataSum(sourceData, "HealedWho", victim, spellName, absorbed)
+			local victimData = Recount.db2.combatants[victim]
+			Recount:AddAmount(victimData, "HealingTaken", absorbed)
+			--Recount:AddTableDataStats(victimData, "HealingTaken", spellName, "Absorb", absorbed)
+			Recount:AddTableDataSum(victimData, "WhoHealed", source, spellName, absorbed)
 		end
 	end
 end
@@ -758,7 +766,7 @@ function Recount:SpellAuraRefresh(timestamp, eventtype, srcGUID, srcName, srcFla
 			AllShields[dstName][spellId][srcName] = amount
 			if absorb > 0 then
 				absorb = math.floor(absorb + 0.5) -- Bandaid for weird rounding issues
-				Recount:AddAbsorbCredit(srcName, dstName, spellName, spellId, absorb)
+				--Recount:AddAbsorbCredit(srcName, dstName, spellName, spellId, absorb)
 			end
 		else
 			--Recount:DPrint("ORPHAN REFRESH FOUND! Rescuing")
@@ -802,7 +810,7 @@ function Recount:SpellAuraRemoved(timestamp, eventtype, srcGUID, srcName, srcFla
 				local absorb = AllShields[dstName][spellId][srcName] - amount
 				if absorb > 0 then
 					absorb = math.floor(absorb + 0.5) -- Bandaid for weird rounding issues
-					Recount:AddAbsorbCredit(srcName, dstName, spellName, spellId, absorb)
+					--Recount:AddAbsorbCredit(srcName, dstName, spellName, spellId, absorb)
 				end
 
 				AllShields[dstName][spellId][srcName] = 0
@@ -859,7 +867,8 @@ function Recount:SpellCreate(timestamp, eventtype, srcGUID, srcName, srcFlags, d
 end
 
 function Recount:SpellAbsorbed(...)
-	if type((select(9, ...))) == "number" then
+	local _, _, _, _, _, _, _, _, srcSpellId = ...
+	if type(srcSpellId) == "number" then
 		local timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, srcSpellId, srcSpellName, srcSpellSchool, casterGUID, casterName, casterFlags, casterRaidFlags, spellId, spellName, spellSchool, absorbed = ...
 		-- Stance of the Sturdy Ox, Purgatory
 		if spellId == 115069 or spellId == 114556 then
@@ -904,10 +913,8 @@ local EventParse = {
 	["SPELL_PERIODIC_DRAIN"] = Recount.SpellDrain,
 	["SPELL_PERIODIC_LEECH"] = Recount.SpellLeech,
 	["SPELL_DISPEL_FAILED"] = Recount.SpellAuraDispelFailed, -- Elsia: Failed dispell
-	--["SPELL_AURA_DISPELLED"] = Recount.SpellAuraDispelledStolen, -- Removed with 2.4.3
-	--["SPELL_AURA_STOLEN"] = Recount.SpellAuraDispelledStolen, -- Removed with 2.4.3
 	["SPELL_AURA_APPLIED"] = Recount.SpellAuraApplied, -- Elsia: Auras
-	--["SPELL_AURA_REMOVED"] = Recount.SpellAuraRemoved, -- Removed with 6.0.3
+	["SPELL_AURA_REMOVED"] = Recount.SpellAuraRemoved, -- Removed with 6.0.3
 	["SPELL_AURA_APPLIED_DOSE"] = Recount.SpellAuraAppliedRemovedDose, -- Elsia: Aura doses
 	["SPELL_AURA_REMOVED_DOSE"] = Recount.SpellAuraAppliedRemovedDose,
 	["SPELL_CAST_START"] = Recount.SpellCastStartSuccess, -- Elsia: Spell casts
@@ -926,7 +933,7 @@ local EventParse = {
 	["SPELL_CREATE"] = Recount.SpellCreate, -- Elsia: Creations
 	["SPELL_AURA_BROKEN"] = Recount.SpellAuraBroken, -- New with 2.4.3
 	["SPELL_AURA_BROKEN_SPELL"] = Recount.SpellAuraBroken, -- New with 2.4.3
-	--["SPELL_AURA_REFRESH"] = Recount.SpellAuraRefresh, -- Removed with 6.0.3
+	["SPELL_AURA_REFRESH"] = Recount.SpellAuraRefresh,
 	["SPELL_DISPEL"] = Recount.SpellAuraDispelledStolen, -- Post 2.4.3
 	["SPELL_STOLEN"] = Recount.SpellAuraDispelledStolen, -- Post 2.4.3
 	["SPELL_RESURRECT"] = Recount.SpellResurrect, -- Post WotLK
@@ -936,19 +943,15 @@ local EventParse = {
 }
 
 local QuickExitEvents = {
-	--["SPELL_AURA_APPLIED"] = true,
-	--["SPELL_AURA_REMOVED"] = true,
+	["SPELL_AURA_REMOVED"] = true,
 	["SPELL_AURA_APPLIED_DOSE"] = true,
 	["SPELL_AURA_REMOVED_DOSE"] = true,
-	--["SPELL_AURA_REFRESH"] = true,
 	["SPELL_CAST_START"] = true,
 	["SPELL_CAST_SUCCESS"] = true,
 	["SPELL_CAST_FAILED"] = true,
 	["SPELL_DRAIN"] = true,
-	--["SPELL_LEECH"] = true,
 	["PARTY_KILL"] = true,
 	["SPELL_PERIODIC_DRAIN"] = true,
-	--["SPELL_PERIODIC_LEECH"] = true,
 	["SPELL_DISPEL_FAILED"] = true,
 	["SPELL_DURABILITY_DAMAGE"] = true,
 	["SPELL_DURABILITY_DAMAGE_ALL"] = true,
@@ -956,6 +959,7 @@ local QuickExitEvents = {
 	["ENCHANT_REMOVED"] = true,
 	["SPELL_CREATE"] = true,
 	["SPELL_BUILDING_DAMAGE"] = true,
+	["SPELL_BUILDING_HEAL"] = true
 }
 
 -- This is to allow modularity of the tracker code. Functions that are not registered to be handled will be quickexited.
@@ -979,7 +983,6 @@ end
 if not Recount.SpellInterrupt then
 	QuickExitEvents["SPELL_INTERRUPT"] = true
 end
-
 
 local GROUPED_FILTER_BITMASK		= COMBATLOG_OBJECT_AFFILIATION_MINE + COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
 local SELF_FILTER_BITMASK			= COMBATLOG_OBJECT_AFFILIATION_MINE + COMBATLOG_OBJECT_TYPE_PLAYER
@@ -1029,7 +1032,6 @@ Recount.srcRetention = false
 Recount.dstRetention = false
 local srcRetention = Recount.srcRetention
 local dstRetention = Recount.dstRetention
-local parsefunc
 
 function Recount:CombatLogEvent(_, timestamp, eventtype, hideCaster, srcGUID, srcName, srcFlags, srcRaidFlags, dstGUID, dstName, dstFlags, dstRaidFlags, ...)
 	if not Recount.db.profile.GlobalDataCollect or not Recount.CurrentDataCollect then
@@ -1087,7 +1089,7 @@ function Recount:CombatLogEvent(_, timestamp, eventtype, hideCaster, srcGUID, sr
 		Recount:MatchGUID(dstName, dstGUID, dstFlags)
 	end
 
-	parsefunc = EventParse[eventtype]
+	local parsefunc = EventParse[eventtype]
 
 	if parsefunc then
 		parsefunc(self, timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, ...)
@@ -1527,6 +1529,7 @@ function Recount:AddTableDataSum(who, datatype, secondary, detailtype, amount)
 end
 
 function Recount:NPCID(guid)
+	--return tonumber((select(6, strsplit("-", UnitGUID("target")))))
 	return tonumber(({('-'):split(guid)})[6])
 end
 
@@ -1734,8 +1737,8 @@ function Recount:AddDamageData(source, victim, ability, element, hittype, damage
 				--3 is default time since most abilities have 3 seconds inbetween ticks
 
 				dottime = DotTickTimeId[spellId] or 3
-				Recount:AddAmount(sourceData,"DOT_Time",dottime)
-				Recount:AddTableDataSum(sourceData,"DOTs",ability, victim, dottime)
+				Recount:AddAmount(sourceData, "DOT_Time", dottime)
+				Recount:AddTableDataSum(sourceData, "DOTs", ability, victim, dottime)
 			end
 			if damage then
 				--Record the element type
@@ -1936,7 +1939,6 @@ function Recount:AddDamageData(source, victim, ability, element, hittype, damage
 	else
 		Recount:BossFightWhoFromFlags(srcFlags, dstFlags, victim, dstGUID)
 	end
-
 end
 
 function Recount:AddHealData(source, victim, ability, healtype, amount, overheal, srcGUID, srcFlags, dstGUID, dstFlags, spellId, isHot, absorbed)
@@ -2091,13 +2093,13 @@ function Recount:AddHealData(source, victim, ability, healtype, amount, overheal
 		if Tracking["HEALINGTAKEN"] then
 			if Tracking["HEALINGTAKEN"][victim] then
 				for _, v in pairs(Tracking["HEALINGTAKEN"][victim]) do
-				v.func(v.pass, amount)
+					v.func(v.pass, amount)
 				end
 			end
 				
 			if Recount:InGroup(dstFlags) and Tracking["HEALINGTAKEN"]["!RAID"] then
 				for _, v in pairs(Tracking["HEALINGTAKEN"]["!RAID"]) do
-				v.func(v.pass, amount)
+					v.func(v.pass, amount)
 				end
 			end
 		end

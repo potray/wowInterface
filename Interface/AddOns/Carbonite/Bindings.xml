@@ -1,47 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Bindings>
-  <Binding name = "NxMAPTOGORIGINAL" header = "Nx">
+  <Binding name="NxMAPTOGORIGINAL" header="Nx">
     Nx:NXMapKeyTogOriginal()
   </Binding>
-  <Binding name = "NxMAPTOGNORMMAX">
+  <Binding name="NxMAPTOGNORMMAX">
     Nx:NXMapKeyTogNormalMax()
   </Binding>
-  <Binding name = "NxMAPTOGNONEMAX">
+  <Binding name="NxMAPTOGNONEMAX">
     Nx:NXMapKeyTogNoneMax()
   </Binding>
-  <Binding name = "NxMAPTOGNONENORM">
+  <Binding name="NxMAPTOGNONENORM">
     Nx:NXMapKeyTogNoneNormal()
   </Binding>
-  <Binding name = "NxMAPSCALERESTORE">
+  <Binding name="NxMAPSCALERESTORE">
     Nx:NXMapKeyScaleRestore()
   </Binding>
-  <Binding name = "NxMAPTOGMINIFULL">
+  <Binding name="NxMAPTOGMINIFULL">
     Nx:NXMapKeyTogMiniFull()
   </Binding>
-  <Binding name = "NxMAPTOGHERB">
+  <Binding name="NxMAPTOGHERB">
     Nx:NXMapKeyTogHerb()
   </Binding>
-  <Binding name = "NxMAPTOGMINE">
+  <Binding name="NxMAPTOGMINE">
     Nx:NXMapKeyTogMine()
   </Binding>
 
-  <Binding name = "NxTOGGLEFAV">
+  <Binding name="NxTOGGLEFAV">
     Nx:NXFavKeyToggleShow()
   </Binding>
-  <Binding name = "NxTOGGLEGUIDE">
+  <Binding name="NxTOGGLEGUIDE">
     Nx:NXGuideKeyToggleShow()
   </Binding>
-  <Binding name = "NxTOGGLEWAREHOUSE">
+  <Binding name="NxTOGGLEWAREHOUSE">
     Nx:NXWarehouseKeyToggleShow()
   </Binding>
 
-  <Binding name = "NxTOGGLEWATCHMINI">
+  <Binding name="NxTOGGLEWATCHMINI">
     Nx.NXWatchKeyToggleMini()
   </Binding>
-  <Binding name = "NxWATCHUSEITEM">
+  <Binding name="NxWATCHUSEITEM">
     Nx.NXWatchKeyUseItem()
   </Binding>
 
-  <Binding name = "NxMAPSKIPTARGET">
+  <Binding name="NxMAPSKIPTARGET">
     Nx.NXMapKeyTargetSkip()
   </Binding>
 </Bindings>

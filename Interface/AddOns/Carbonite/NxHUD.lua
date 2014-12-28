@@ -151,14 +151,14 @@ function Nx.HUD:UpdateOptions()
 --		self.Frm:EnableMouse (not lock)
 	end
 --PAIDE!
-	
+
 	local gopts = self.GOpts
 
 	local name = Nx.db.profile.Track.AGfx
 	self.Frm.texture:SetTexture ("Interface\\AddOns\\Carbonite\\Gfx\\Map\\HUDArrow" .. name)
 
 	local f = self.Frm
-	
+
 	f:SetPoint ("CENTER", Nx.db.profile.Track.AXO, -win.TitleH / 2 - 32 - Nx.db.profile.Track.AYO)
 
 	local wh = Nx.db.profile.Track.ASize
@@ -342,22 +342,4 @@ function Nx.HUD:Update (map)
 	end
 end
 
--------------------------------------------------------------------------------
--- EOF
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+--------------------------------------------------------------------------------- EOF

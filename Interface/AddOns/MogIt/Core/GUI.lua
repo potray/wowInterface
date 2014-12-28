@@ -332,7 +332,7 @@ function mog.DressFromPreview(model, previewFrame)
 	
 	for id, slot in pairs(previewFrame.slots) do
 		if slot.item then
-			model:TryOn(format("item:%d:%d", slot.item, previewFrame.data.weaponEnchant), slot.slot);
+			model:TryOn(format(gsub(slot.item, "item:(%d+):0", "item:%1:%%d"), previewFrame.data.weaponEnchant), slot.slot);
 		end
 	end
 end
@@ -404,6 +404,15 @@ end
 
 
 --// Scroll Frame
+local updater = CreateFrame("Frame");
+updater:Hide();
+updater:SetScript("OnUpdate", function(self)
+	self:Hide();
+	mog:UpdateScroll();
+	mog.doModelUpdate = nil;
+end);
+
+
 mog.scroll = CreateFrame("Slider","MogItScroll",mog.frame,"UIPanelScrollBarTrimTemplate");
 mog.scroll:Hide();
 mog.scroll:SetPoint("TOPRIGHT",mog.frame.Inset,"TOPRIGHT",1,-17);
@@ -504,6 +513,11 @@ function mog.scroll.update(self, value, offset, onscroll)
 		mog.frame.page:Show();
 	else
 		mog.frame.page:Hide();
+	end
+	
+	-- incorrect models may be tried on when items aren't cached, this queues another update if uncached items were found
+	if mog.doModelUpdate then
+		updater:Show();
 	end
 end
 

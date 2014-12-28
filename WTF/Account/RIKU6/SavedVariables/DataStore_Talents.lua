@@ -551,7 +551,7 @@ DataStore_TalentsDB = {
 				["Talents2"] = 2129985,
 				["Talents1"] = 2101360,
 				["ActiveTalents"] = 1,
-				["lastUpdate"] = 1419063439,
+				["lastUpdate"] = 1419768166,
 				["GlyphList"] = {
 					11, -- [1]
 					11274, -- [2]

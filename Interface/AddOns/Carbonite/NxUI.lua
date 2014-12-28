@@ -1,4 +1,4 @@
-﻿---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 -- Carbonite UI code
 -- Copyright 2007-2012 Carbon Based Creations, LLC
 ---------------------------------------------------------------------------------------
@@ -21,6 +21,7 @@
 ---------------------------------------------------------------------------------------
 
 local NotInitializedWins = {}
+local L = LibStub("AceLocale-3.0"):GetLocale("Carbonite")
 
 function Nx:UIInit()
 
@@ -79,7 +80,7 @@ function Nx:prtGetChatFrames()
 end
 
 function Nx:prtSetChatFrame()
-	Nx.prtChatFrm = DEFAULT_CHAT_FRAME	
+	Nx.prtChatFrm = DEFAULT_CHAT_FRAME
 	for n = 1, 10 do
 		local cfrm = _G["ChatFrame" .. n]
 		if cfrm then
@@ -93,13 +94,13 @@ end
 function Nx.prt (msg, ...)
 	local f = Nx.prtChatFrm or DEFAULT_CHAT_FRAME
 --    msg = debugstack(2,3,2)
-	f:AddMessage (Nx.TXTBLUE..NXTITLE.." |cffffffff".. (format (msg, ...) or "nil"), 1, 1, 1)
+	f:AddMessage (Nx.TXTBLUE..L["Carbonite"].." |cffffffff".. (format (msg, ...) or "nil"), 1, 1, 1)
 end
 
 function Nx.prtraw (msg)
 	local f = Nx.prtChatFrm or DEFAULT_CHAT_FRAME
 --    msg = debugstack(2,3,2)
-	f:AddMessage (Nx.TXTBLUE..NXTITLE.." |cffffffff".. msg, 1, 1, 1)
+	f:AddMessage (Nx.TXTBLUE..L["Carbonite"].." |cffffffff".. msg, 1, 1, 1)
 end
 
 function Nx.prtError (msg, ...)
@@ -392,7 +393,7 @@ end
 -- Convert hex color number to R G B A floats (0-1)
 -- (RRGGBBAA number)
 
-function Nx.Util_str2rgba (colors)		
+function Nx.Util_str2rgba (colors)
 	local arr = { Nx.Split("|",colors) }
 	return arr[1], arr[2], arr[3], arr[4]
 end
@@ -612,12 +613,12 @@ function Nx.Util_GetMoneyStr (money)
 		str = format ("|cffffff00%dg", g)
 	end
 
-	local s = mod (floor (money / 100), 100) 
+	local s = mod (floor (money / 100), 100)
 	if s > 0 then
 		str = format ("%s |cffbfbfbf%ds", str, s)
 	end
 
-	local c = mod (money, 100) 
+	local c = mod (money, 100)
 	if c > 0 then
 		str = format ("%s |cff7f7f00%dc", str, c)
 	end
@@ -665,7 +666,7 @@ end
 
 function Nx:SetTooltipText (str)
 
-	if strbyte (str) == 33 then	-- ! (item)
+	if strbyte (str) == 33 then		-- ! (item)
 
 --		Nx.prt ("Item %s", str)
 
@@ -679,13 +680,13 @@ function Nx:SetTooltipText (str)
 
 		str = s
 
-	elseif strbyte (str) == 64 then	-- @ (quest)
+	elseif strbyte (str) == 64 then		-- @ (quest)
 
 		str = "quest:" .. strsub (str, 2)
 		Nx.Item:ShowTooltip (str, true)
 		return
 
-	elseif strbyte (str) == 35 then	-- # (enchant)
+	elseif strbyte (str) == 35 then		-- # (enchant)
 
 		str = strsub (str, 2)
 --		Nx.prt (str)
@@ -699,7 +700,7 @@ function Nx:SetTooltipText (str)
 
 		local t = { Nx.Split ("\n", str) }
 
-		GameTooltip:SetText (t[1], 1, 1, 1, 1, 1)		-- Wrap text
+		GameTooltip:SetText (t[1], 1, 1, 1, 1, true)			-- Wrap text
 		tremove (t, 1)
 
 		for _, line in ipairs (t) do
@@ -708,22 +709,22 @@ function Nx:SetTooltipText (str)
 			if s2 then
 				GameTooltip:AddDoubleLine (s1, s2, 1, 1, 1, 1, 1, 1)
 			else
-				GameTooltip:AddLine (line, 1, 1, 1, 1)		-- Wrap text
+				GameTooltip:AddLine (line, 1, 1, 1, true)	-- Wrap text
 			end
 		end
 
 --[[
 		local s = strsub (str, 1, s1 - 1)
 --		Nx.prt ("Tool %s", s)
-		GameTooltip:SetText (s, 1, 1, 1, 1, 1)
+		GameTooltip:SetText (s, 1, 1, 1, 1, true)
 
 		s = strsub (str, s2 + 1)
-		GameTooltip:AddLine (s, 1, 1, 1, 1, 1)
+		GameTooltip:AddLine (s, 1, 1, 1, true)
 --]]
 		GameTooltip:Show()
 
 	else
-		GameTooltip:SetText (str, 1, 1, 1, 1, 1)	-- Wrap text
+		GameTooltip:SetText (str, 1, 1, 1, 1, true)			-- Wrap text
 	end
 end
 
@@ -752,7 +753,7 @@ function Nx.Font:Init()
 		["Font.Medium"] = { "NxFontM", "GameFontNormal", "db" },
 		["Font.Map"] = { "NxFontMap", "GameFontNormalSmall", "db" },
 		["Font.MapLoc"] = { "NxFontMapLoc", "GameFontNormalSmall", "db" },
-		["Font.Menu"] = { "NxFontMenu", "GameFontNormalSmall", "db" },		
+		["Font.Menu"] = { "NxFontMenu", "GameFontNormalSmall", "db" },
 	}
 
 	self.Faces = {
@@ -781,12 +782,12 @@ function Nx.Font:Init()
 	self:Update()
 end
 
-function Nx.Font:ModuleAdd (key, value)  
+function Nx.Font:ModuleAdd (key, value)
   self.Fonts[key] = value
   local font = CreateFont (value[1])
   value.Font = font
   font:SetFontObject(value[2])
-  value.Font.db = value[3]  
+  value.Font.db = value[3]
   self:Update()
 end
 
@@ -796,35 +797,26 @@ function Nx.Font:AddonLoaded()
 		return
 	end
 
-	local ace = _G["AceLibrary"]
+	local found
 
-	if ace then
---		ace ("AceAddon-2.0")
+	found = self:FontScan ("LibSharedMedia-3.0")
 
-		local found
-
-		found = self:FontScan (ace, "LibSharedMedia-2.0")
-		found = found or self:FontScan (ace, "LibSharedMedia-3.0")
-
-		if found then
-			self:Update()
-		end
+	if found then
+		self:Update()
 	end
 end
 
-function Nx.Font:FontScan (ace, libName)
+function Nx.Font:FontScan (libName)
 
 	local sm
 
-	if ace["HasInstance"] (ace, libName) then
-		sm = ace (libName)
-	end
+	sm = LibStub(libName)
 
 	if sm then
 
 		local found
 
-		local fonts = sm["List"](sm, "font")
+		local fonts = sm.List(sm, "font")
 
 --		Nx.prtVar ("SM", fonts)
 
@@ -834,7 +826,7 @@ function Nx.Font:FontScan (ace, libName)
 				found = true
 --				Nx.prtVar ("Font", name)
 --				Nx.prtVar ("Fetch", sm["Fetch"] (sm, "font", name))
-				self.AddonFonts[name] = sm["Fetch"] (sm, "font", name)
+				self.AddonFonts[name] = sm.Fetch(sm, "font", name)
 				tinsert (self.Faces, { name, self.AddonFonts[name] })
 			end
 		end
@@ -843,12 +835,12 @@ function Nx.Font:FontScan (ace, libName)
 	end
 end
 
-function Nx.Font:GetObj (name)		
+function Nx.Font:GetObj (name)
 	return self.Fonts[name].Font
 end
 
 function Nx.Font:GetH (name)
---	Nx.prt ("Font %s", name or "nil")			
+--	Nx.prt ("Font %s", name or "nil")
 	return self.Fonts[name].H
 end
 
@@ -868,7 +860,7 @@ end
 
 function Nx.Font:GetFile (name)
 
-	for k, v in ipairs (self.Faces) do		
+	for k, v in ipairs (self.Faces) do
 		if v[1] == name then
 			return v[2]
 		end
@@ -883,14 +875,14 @@ function Nx.Font:Update()
 
 		local font = v.Font
 		local dbloc = v.Font.db
-		local fname, size, flags = font:GetFont()		
+		local fname, size, flags = font:GetFont()
 		local optname = "Nx." .. dbloc .. ".profile." .. name
 --		Nx.prt ("Font %s %s %s", fname, size, flags)
-		local parts1, parts2 = Nx.Split(".",name) 		
-		local file = self:GetFile (Nx[dbloc].profile[parts1][parts2])       
+		local parts1, parts2 = Nx.Split(".",name)
+		local file = self:GetFile (Nx[dbloc].profile[parts1][parts2])
 		local size = Nx[dbloc].profile[parts1][parts2 .. "Size"]
-		font:SetFont (file, size, flags)		
-		v.H = max (size + (Nx[dbloc].profile[parts1][parts2 .. "Spacing"] or 0), 6)				
+		font:SetFont (file, size, flags)
+		v.H = max (size + (Nx[dbloc].profile[parts1][parts2 .. "Spacing"] or 0), 6)
 	end
 
 	Nx.List:NextUpdateFull()
@@ -969,7 +961,7 @@ function Nx.Skin:Init()
 				["insets"] = { ["left"] = 2, ["right"] = 2, ["top"] = 2, ["bottom"] = 2 }
 			},
 			["BdCol"] = "1|1|1|1",
-			["BgCol"] = ".15|.15|0|.88",		-- { .15, .15, 0, .88 },
+			["BgCol"] = ".15|.15|0|.88",			-- { .15, .15, 0, .88 },
 		},
 		["Simple Blue"] = {
 			["Folder"] = "",
@@ -1128,19 +1120,19 @@ function Nx.Window:Init()
 	local menu = Nx.Menu:Create (UIParent)
 	self.Menu = menu
 
-	self.MenuIHideInCombat = menu:AddItem (0, "Hide In Combat", self.Menu_OnHideInCombat, self)
-	self.MenuILock = menu:AddItem (0, "Lock", self.Menu_OnLock, self)
-	self.MenuIFadeIn = menu:AddItem (0, "Fade In", self.Menu_OnFadeIn, self)
-	self.MenuIFadeOut = menu:AddItem (0, "Fade Out", self.Menu_OnFadeOut, self)
-	self.MenuILayer = menu:AddItem (0, "Layer", self.Menu_OnLayer, self)
-	self.MenuIScale = menu:AddItem (0, "Scale", self.Menu_OnScale, self)
-	self.MenuITrans = menu:AddItem (0, "Transparency", self.Menu_OnTrans, self)
+	self.MenuIHideInCombat = menu:AddItem (0, L["Hide In Combat"], self.Menu_OnHideInCombat, self)
+	self.MenuILock = menu:AddItem (0, L["Lock"], self.Menu_OnLock, self)
+	self.MenuIFadeIn = menu:AddItem (0, L["Fade In"], self.Menu_OnFadeIn, self)
+	self.MenuIFadeOut = menu:AddItem (0, L["Fade Out"], self.Menu_OnFadeOut, self)
+	self.MenuILayer = menu:AddItem (0, L["Layer"], self.Menu_OnLayer, self)
+	self.MenuIScale = menu:AddItem (0, L["Scale"], self.Menu_OnScale, self)
+	self.MenuITrans = menu:AddItem (0, L["Transparency"], self.Menu_OnTrans, self)
 
 	local function func (item)
 		self.MenuWin:ResetLayout()
 	end
 
-	menu:AddItem (0, "Reset Layout", func, self)
+	menu:AddItem (0, L["Reset Layout"], func, self)
 end
 
 --------
@@ -1428,7 +1420,7 @@ function Nx.Window:Create (name, minResizeW, minResizeH, secure, titleLines, bor
 
 	if not svdata then		-- No data for our name?
 
-		svdata = {}			-- New
+		svdata = {}		-- New
 		if name then
 			wd[name] = svdata
 		end
@@ -1468,7 +1460,7 @@ function Nx.Window:Create (name, minResizeW, minResizeH, secure, titleLines, bor
 	win.TitleH = win.TitleLines * win.TitleLineH + 2
 	win.TopH = win.TitleH + win.BorderH
 
-	win.ButW = 0	-- Top left corner button width
+	win.ButW = 0			-- Top left corner button width
 
 	win.Sizeable = true
 	win.Border = true
@@ -1482,9 +1474,9 @@ function Nx.Window:Create (name, minResizeW, minResizeH, secure, titleLines, bor
 	win.MovSizing = false
 
 	win.BackgndAlphaMin = .65
-	win.BackgndAlphaDiff = .35		-- Max - min
-	win.BackgndFade = .01			-- Current
-	win.BackgndFadeTarget = 0		-- Target value
+	win.BackgndAlphaDiff = .35	-- Max - min
+	win.BackgndFade = .01		-- Current
+	win.BackgndFadeTarget = 0	-- Target value
 	win.BackgndFadeIn = svdata["FI"]
 	win.BackgndFadeOut = svdata["FO"]
 
@@ -1567,7 +1559,7 @@ function Nx.Window:Create (name, minResizeW, minResizeH, secure, titleLines, bor
 
 	-- Init layout (start false)
 
-	win.LayoutMode = false			-- "" = normal, "Max", "Min", "User"
+	win.LayoutMode = false		-- "" = normal, "Max", "Min", "User"
 
 	--
 
@@ -1604,7 +1596,7 @@ function Nx.Window:CreateButtons (closer, maxer, miner)
 		self.ButClose.Frm:Show()
 	end
 
-	x = x - 15		-- Always reserve space
+	x = x - 15			-- Always reserve space
 
 	if self.Sizeable and self.Maxer then
 		self.ButMaxer = Nx.Button:Create (self.Frm, "Max", nil, nil, x, -self.BorderH, "TOPRIGHT", 12, 12, self.OnMaxBut, self)
@@ -1621,7 +1613,7 @@ function Nx.Window:CreateButtons (closer, maxer, miner)
 
 	self.ButW = -x - self.BorderW
 
-	self:Lock (self:IsLocked())		-- Force button update
+	self:Lock (self:IsLocked())	-- Force button update
 end
 
 --------
@@ -1695,7 +1687,7 @@ function Nx.Window:ResetBackdrops()
 			if win.Border then
 				win.Frm:SetBackdrop (bk)
 
-				win.BackgndFade = win.BackgndFadeTarget + .0001	-- Cause refresh
+				win.BackgndFade = win.BackgndFadeTarget + .0001		-- Cause refresh
 			end
 		end
 	end
@@ -1731,7 +1723,7 @@ function Nx.Window:Attach (childFrm, posX1, posX2, posY1, posY2, width, height)
 		child = {}
 		tinsert (self.ChildFrms, child)
 		child.Frm = childFrm
-		childFrm:SetParent (f)	-- Triggers frame updates which can call attach again!
+		childFrm:SetParent (f)		-- Triggers frame updates which can call attach again!
 	end
 
 	child.PosX1 = posX1
@@ -1898,7 +1890,7 @@ function Nx.Window:Show (show)
 
 	local svdata = self.SaveData
 
-	if show ~= false then	
+	if show ~= false then
 		self.Frm:Show()
 		self.Frm:Raise()
 		self.Frm:Raise()
@@ -2027,7 +2019,7 @@ function Nx.Window:EnableMouse (on)
 	end
 
 	if on then
-		self:Lock (self.Locked)	-- Restore
+		self:Lock (self.Locked)		-- Restore
 	else
 		self.Frm:EnableMouse (on)
 		self.Frm:EnableMouseWheel (on)
@@ -2157,7 +2149,7 @@ end
 --------
 -- Set our background color
 
-function Nx.Window:SetBGColor (r, g, b, a)	
+function Nx.Window:SetBGColor (r, g, b, a)
 	if self.Frm.texture then
 		self.Frm.texture:SetTexture (r, g, b, a or 1)
 	end
@@ -2190,7 +2182,9 @@ end
 -- Set win width and height (client size)
 
 function Nx.Window:SetSize (width, height, skipChildren)
-
+	if InCombatLockdown() then
+		return
+	end
 	self.Frm:SetWidth (width + self.BorderW * 2)
 	self.Frm:SetHeight (height + self.TitleH + self.BorderH * 2)
 
@@ -2340,7 +2334,7 @@ function Nx.Window:SetLayoutMode (mode)
 
 	if mode == 1 then
 
-		mode = data["Mode"]	-- nil, "Min", "Max"
+		mode = data["Mode"]		-- nil, "Min", "Max"
 
 		if mode == "Min" then
 			self:SetLayoutMode()
@@ -2421,7 +2415,7 @@ function Nx.Window:SetLayoutMode (mode)
 			h = sh * -h
 		end
 
-		if x >= 999999 then					-- Center
+		if x >= 999999 then				-- Center
 			x = (sw - w) * .5
 
 		elseif x >= 300000 then				-- Offset + from screen center
@@ -2436,7 +2430,7 @@ function Nx.Window:SetLayoutMode (mode)
 		elseif x > 100000 then				-- Offset from screen right
 			x = sw - x + 100000 - self.BorderW
 
-		elseif x < 0 and x > -1 then		-- % of width
+		elseif x < 0 and x > -1 then			-- % of width
 			x = sw * -x
 		end
 
@@ -2444,7 +2438,7 @@ function Nx.Window:SetLayoutMode (mode)
 
 		if y >= 999999 then				-- Center
 			y = (sh - h) * .5
-		elseif y < 0 and y > -1 then	-- % of width
+		elseif y < 0 and y > -1 then			-- % of width
 			y = sh * -y
 		end
 
@@ -2530,7 +2524,7 @@ function Nx.Window:InitLayoutData (mode, x, y, w, h, layer, scale)
 
 	if scale then
 
-		if x >= 300000 then				-- Offset + from screen center
+		if x >= 300000 then			-- Offset + from screen center
 		elseif x >= 200000 then			-- Offset - from screen center
 			attach = "TOPRIGHT"
 --			x = (x - 200000) * scale + 200000
@@ -2546,7 +2540,7 @@ function Nx.Window:InitLayoutData (mode, x, y, w, h, layer, scale)
 		self:SetLayoutData (mode, x, y, w, h, layer, attach, scale)
 	end
 
-	if self.LoginDone then	-- Already logged in?
+	if self.LoginDone then				-- Already logged in?
 		self:SetLayoutMode (1)
 	end
 end
@@ -2569,7 +2563,7 @@ function Nx.Window:SetLayoutData (mode, x, y, w, h, layer, attachPt, scale)
 --		end
 
 		if attachPt == "TOPLEFT" then
-			attachPt = nil					-- Don't save default
+			attachPt = nil			-- Don't save default
 		end
 
 		data[mode.."A"] = attachPt
@@ -2648,7 +2642,7 @@ end
 -- Register for event and set event handler
 -- (event name, handler to call)
 
-function Nx.Window:RegisterEvent (event, handler)	
+function Nx.Window:RegisterEvent (event, handler)
 	self.Frm:RegisterEvent (event)
 
 	if not self.Events then
@@ -2758,7 +2752,7 @@ end
 
 function Nx.Window:OnEvent (event, ...)
 
-	--V4 this
+	-- V4 this
 	local win = self.NxWin
 --	local win = self
 
@@ -2774,7 +2768,7 @@ function Nx.Window:OnMouseDown (button)
 --	Nx.prt ("WinMouseDown "..tostring (button))
 --	Nx.prtFrame ("Win", this)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local win = this.NxWin
 
 	local x, y = GetCursorPosition()
@@ -2850,7 +2844,7 @@ function Nx.Window:IsOnWinUI (x, y)
 			if y >= top - bh then
 				return 6		-- TOPRIGHT
 			elseif y <= bot + bh then
-				return 10	-- BOTTOMRIGHT
+				return 10		-- BOTTOMRIGHT
 			end
 
 			return 2			-- RIGHT
@@ -2880,10 +2874,10 @@ function Nx.Window:IsOnWinUI (x, y)
 	end
 
 	if y >= top - self.TopH then
-		return 0			-- Header
+		return 0				-- Header
 	end
 
-	return -1			-- None
+	return -1					-- None
 end
 
 --------
@@ -2894,7 +2888,7 @@ function Nx.Window:OnMouseUp (button)
 
 --	prt ("WinMouseUp "..tostring (button))
 
-	local this = self			--V4
+	local this = self				-- V4
 	local win = this.NxWin
 
 	if win.MovSizing then
@@ -2929,7 +2923,7 @@ function Nx.Window:OnMouseWheel (value)
 		return
 	end
 
-	local this = self			--V4
+	local this = self				-- V4
 	local win = this.NxWin
 	local f = win.Frm
 
@@ -2970,7 +2964,7 @@ end
 
 function Nx.Window:OnUpdate (elapsed)
 
-	local this = self			--V4
+	local this = self				-- V4
 	local win = this.NxWin
 
 	local secureOk = not (win.Secure and InCombatLockdown())
@@ -3153,16 +3147,16 @@ Nx.Button.TypeData = {
 		Skin = true,
 		Up = "ButClose",
 		Dn = "ButClose",
-		Tip = "Close/Menu"
+		Tip = L["Close/Menu"]
 	},
 	["CloseLock"] = {
 		Skin = true,
 		Up = "ButLock",
 		Dn = "ButLock",
-		Tip = "Close/Unlock"
+		Tip = L["Close/Unlock"]
 	},
 	["Color"] = {
-		Tip = "Pick Color",
+		Tip = L["Pick Color"],
 		SizeUp = 22,			-- Temp. Make opts version?
 		SizeDn = 22,
 	},
@@ -3170,7 +3164,7 @@ Nx.Button.TypeData = {
 		Skin = true,
 		Up = "ButLock",
 		Dn = "ButLock",
-		Tip = "Unlock"
+		Tip = L["Unlock"]
 	},
 	["Guide"] = {
 		Bool = true,
@@ -3182,21 +3176,21 @@ Nx.Button.TypeData = {
 		AlphaDn = 1,
 	},
 	["Max"] = {
-		Tip = "Maximize",
+		Tip = L["Maximize"],
 		Skin = true,
 		Up = "ButMax",
 		Dn = "ButMax",
 		VRGBAUp = "1|1|1|1",
 	},
 	["MaxOn"] = {
-		Tip = "Restore",
+		Tip = L["Restore"],
 		Skin = true,
 		Up = "ButMax",
 		Dn = "ButMax",
 		VRGBAUp = ".5|.5|1|1",
 	},
 	["Min"] = {
-		Tip = "Minimize",
+		Tip = L["Minimize"],
 		Bool = true,
 		Skin = true,
 		Up = "ButWatchShow",
@@ -3205,7 +3199,7 @@ Nx.Button.TypeData = {
 		VRGBADn = ".62|.62|1|1",
 	},
 	["MapAutoScale"] = {
-		Tip = "Auto Scale",
+		Tip = L["Auto Scale"],
 		Bool = true,
 		Skin = true,
 		Up = "But",
@@ -3318,7 +3312,7 @@ function Nx.Button:Create (parentFrm, typ, text, tip, bx, by, side, width, heigh
 
 	parentFrm = parentFrm or UIParent
 
-	local but = {}	-- New
+	local but = {}		-- New
 
 	setmetatable (but, self)
 	self.__index = self
@@ -3390,7 +3384,7 @@ function Nx.Button:Create (parentFrm, typ, text, tip, bx, by, side, width, heigh
 		local reg = { f:GetRegions() }
 		for n, o in ipairs (reg) do
 			if o:IsObjectType ("Texture") and o ~= f.texture then
-				o:Hide()		-- Hide 
+				o:Hide()		-- Hide
 			end
 		end
 	end
@@ -3411,7 +3405,7 @@ end
 --------
 -- Get type
 
-function Nx.Button:GetType()	
+function Nx.Button:GetType()
 	return self.Type
 end
 
@@ -3522,7 +3516,7 @@ function Nx.Button:OnMouseDown (button)
 
 --	prt ("ButMouseDown "..tostring (button))
 
-	local this = self			--V4
+	local this = self				-- V4
 	local but = this.NxBut
 
 	if button == "LeftButton" or button == "MiddleButton" then
@@ -3531,7 +3525,7 @@ function Nx.Button:OnMouseDown (button)
 
 			but.Pressed = not but.Pressed
 
---			if IsShiftKeyDown() then			-- Force on. Keep?
+--			if IsShiftKeyDown() then	-- Force on. Keep?
 --				but.Pressed = true
 --			end
 
@@ -3578,7 +3572,7 @@ function Nx.Button:OnMouseUp (button)
 
 --	Nx.prt ("ButMouseUp "..tostring (button))
 
-	local this = self			--V4
+	local this = self			-- V4
 	local but = this.NxBut
 
 	if button == "LeftButton" then
@@ -3610,7 +3604,7 @@ end
 
 function Nx.Button:OnEnter (motion)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local but = this.NxBut
 
 	but.Over = true
@@ -3645,7 +3639,7 @@ end
 
 function Nx.Button:OnLeave (motion)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local but = this.NxBut
 
 	but.Over = nil
@@ -3666,7 +3660,7 @@ end
 
 function Nx.Button:OnUpdate (elapsed)
 
-	local this = self		--V4
+	local this = self			-- V4
 	local but = this.NxBut
 
 	if but.Scrolling then
@@ -3860,8 +3854,8 @@ function Nx.Button:Update()
 		end
 
 --		local lev = f:GetFrameLevel()
---		of:SetFrameLevel (lev + 1)			-- Causing glitch when button pressed
-		of:SetParent (f)						-- Seems to make us draw in front
+--		of:SetFrameLevel (lev + 1)		-- Causing glitch when button pressed
+		of:SetParent (f)			-- Seems to make us draw in front
 
 		of:Show()
 		Nx.Button.OverFrmOwn = f
@@ -3889,7 +3883,7 @@ end
 
 function Nx.EditBox:Create (parentFrm, user, func, maxLetters)
 
-	local box = {}	-- New
+	local box = {}					-- New
 
 	setmetatable (box, self)
 	self.__index = self
@@ -3953,7 +3947,7 @@ function Nx.EditBox:OnEditFocusGained()
 
 	Nx.ShowMessageTrial()
 
-	local this = self			--V4
+	local this = self			-- V4
 	local self = this.NxInst
 	if self.FilterStr ~= "" then
 		this:SetText (self.FilterStr)
@@ -3964,7 +3958,7 @@ end
 
 function Nx.EditBox:OnEditFocusLost()
 
-	local this = self			--V4
+	local this = self			-- V4
 	local self = this.NxInst
 	if self.FilterStr == "" then
 		this:SetText (self.FilterDesc)
@@ -3973,7 +3967,7 @@ end
 
 function Nx.EditBox:OnTextChanged()
 
-	local this = self			--V4
+	local this = self			-- V4
 	local self = this.NxInst
 	self.FilterStr = gsub (this:GetText(), self.FilterDescEsc, "")
 
@@ -3990,7 +3984,7 @@ end
 
 function Nx.EditBox:OnEscapePressed()
 
-	local this = self			--V4
+	local this = self			-- V4
 	local self = this.NxInst
 	self.FilterStr = ""
 
@@ -4013,7 +4007,7 @@ function ScrollBar:Create (parentFrm, typ, bx, by, width, height, func, user)
 
 	parentFrm = parentFrm or UIParent
 
-	local sbar = {}	-- New
+	local sbar = {}			-- New
 
 	setmetatable (sbar, self)
 	self.__index = self
@@ -4157,7 +4151,7 @@ function Nx.Menu:Create (parentFrm, width)
 
 	local c2rgba = Nx.Util_str2rgba
 
-	local menu = {}	-- New menu
+	local menu = {}		-- New menu
 
 	self.Menus[menu] = true
 
@@ -4221,7 +4215,7 @@ end
 
 function Nx.Menu:OnUpdate (elapsed)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local self = this.NxMenu
 
 --	Nx.prt ("elapsed %f %f", elapsed, self.CloseTimer)
@@ -4345,7 +4339,7 @@ end
 ------
 -- Set slider position and optionally min and max values
 
-function Nx.MenuI:SetSlider (pos, min, max, step, varName)	
+function Nx.MenuI:SetSlider (pos, min, max, step, varName)
 	if type (pos) == "table" then
 		assert (varName)
 		self.Table = pos
@@ -4697,7 +4691,7 @@ end
 
 function Nx.Menu:Item_OnEnter (motion)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local item = this.NxMenuItem
 
 	if item.ShowState and item.ShowState < 0 then
@@ -4709,7 +4703,7 @@ end
 
 function Nx.Menu:Item_OnLeave (motion)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local item = this.NxMenuItem
 
 	item.AlphaTarget = Nx.Menu.Item_ALPHAFADE
@@ -4719,7 +4713,7 @@ end
 
 function Nx.Menu:Item_OnUpdate (elapsed)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local item = this.NxMenuItem
 
 	item.Alpha = Nx.Util_StepValue (item.Alpha, item.AlphaTarget, elapsed * 4)
@@ -4733,7 +4727,7 @@ end
 
 function Nx.Menu:Item_OnMouseDown (button)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local item = this.NxMenuItem
 
 	if button == "LeftButton" then
@@ -4772,7 +4766,7 @@ end
 
 function Nx.Menu:Item_OnMouseUp (button)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local item = this.NxMenuItem
 
 	if button == "LeftButton" then
@@ -4782,7 +4776,7 @@ end
 
 function Nx.Menu:Item_OnMouseWheel (value)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local item = this.NxMenuItem
 
 	value = (value > 0 and 1 or -1) * (item.Step or .01)
@@ -4893,15 +4887,13 @@ end
 -- Free list frames by adding back to global list
 
 function Nx.List:FreeFrames (list)
-
 	local frms = self.Frms
-
 	for n, f in ipairs (list.UsedFrms) do
-
-		f:Hide()
+		if not InCombatLockdown() then
+			f:Hide()
+		end
 		tinsert (frms[f.NXListFType], n, f)		-- Insert at top in same order, so we don't have flipping
 	end
-
 	list.UsedFrms = wipe (list.UsedFrms or {})
 end
 
@@ -4924,35 +4916,23 @@ end
 -- Get a list frame from the global list
 
 function Nx.List:GetFrame (list, typ)
-
 	local frms = self.Frms[typ]
 	local f = tremove (frms, 1)
-
 	if not f then
-
 		self.FrmsUniqueI = self.FrmsUniqueI + 1
-
 		if typ == "Color" then
 			f = CreateFrame ("ColorSelect", nil, list.Frm)
-
 		elseif typ == "WatchItem" then
-
-			f = CreateFrame ("Button", "NxListFrms" .. self.FrmsUniqueI, list.Frm, "WatchFrameItemButtonTemplate")
-
+			f = CreateFrame ("Button", "NxListFrms" .. self.FrmsUniqueI, list.Frm, "NxWatchListItem")
+			f:SetAttribute ("type1", "item")
 		elseif typ == "Info" then
-
 			f = Nx.Info:CreateFrame (list.Frm)
-
 		end
-
 		f.NXListFType = typ
 	end
-
 	f:Show()
 	f:SetParent (list.Frm)
-
 	tinsert (list.UsedFrms, f)
-
 	return f
 end
 
@@ -4992,11 +4972,11 @@ end
 
 function Nx.List:Create (saveName, xpos, ypos, width, height, parentFrm, showAll, noHeader)
 
-	if not self.CFont then		-- Not set?
+	if not self.CFont then				-- Not set?
 		self:SetCreateFont ("Font.Small")	-- Default
 	end
 
-	local inst = {}	-- New instance
+	local inst = {}					-- New instance
 
 	setmetatable (inst, self)
 	self.__index = self
@@ -5016,7 +4996,7 @@ function Nx.List:Create (saveName, xpos, ypos, width, height, parentFrm, showAll
 	inst.Strs = {}
 	inst.Buts = {}
 
-	inst.Font = self.CFont	
+	inst.Font = self.CFont
 	inst.FontObj = Nx.Font:GetObj (inst.Font)
 --	inst.LineH = self.CLineH
 	inst.LineHPad = 0
@@ -5147,7 +5127,7 @@ end
 -- Set list background color
 -- self = instance
 
-function Nx.List:SetBGColor (r, g, b, a, noFade)	
+function Nx.List:SetBGColor (r, g, b, a, noFade)
 	if self.Frm.texture then
 		self.Frm.texture:SetTexture (r, g, b, a or 1)
 	end
@@ -5189,8 +5169,8 @@ function Nx.List:SetLineHeight (height, hdrH)
 	self:Update()
 end
 
-function Nx.List:GetLineH()	
-	return Nx.Font:GetH (self.Font) + self.LineHPad	
+function Nx.List:GetLineH()
+	return Nx.Font:GetH (self.Font) + self.LineHPad
 end
 
 --------
@@ -5259,7 +5239,9 @@ end
 -- self = instance
 
 function Nx.List:Resize (width, height)
-
+	if InCombatLockdown() then
+		return
+	end
 --	Nx.prt ("List resize %s %s", width, height)
 
 	local f = self.Frm
@@ -5535,7 +5517,7 @@ function Nx.List:Update (showLast)
 
 		local f = self.Frm
 		local win = f:GetParent().NxWin
-	
+
 		if win then
 			win:SetSize (f:GetWidth(), -7, true)
 		end
@@ -5668,7 +5650,9 @@ function Nx.List:Update (showLast)
 					end
 
 				elseif typ == "WatchItem" then
-
+					if InCombatLockdown() then
+						return
+					end
 					local f = Nx.List:GetFrame (self, typ)
 					f:ClearAllPoints()
 
@@ -5691,13 +5675,23 @@ function Nx.List:Update (showLast)
 					SetItemButtonCount (f, tonumber (v3));
 					f["charges"] = tonumber (v3);
 
-					local _, dur = GetQuestLogSpecialItemCooldown (id)
-					if dur then
-						WatchFrameItem_UpdateCooldown (f)
-					end
+					f["questLogIndex"] = id
+
+					local start, duration, enable = GetQuestLogSpecialItemCooldown (id)
+					if start then
+						CooldownFrame_SetTimer (f.Cooldown, start, duration, enable)
+						if duration > 0 and enable == 0 then
+							SetItemButtonTextureVertexColor (itemButton, 0.4, 0.4, 0.4)
+						else
+							SetItemButtonTextureVertexColor (itemButton, 1, 1, 1)
+						end
+ 					end
+
+					local link, item, charges, showItemWhenComplete = GetQuestLogSpecialItemInfo (id)
+					f:SetAttribute ("item", link)
 
 					if doBind then
-						doBind = false						
+						doBind = false
 						local key = GetBindingKey ("NxWATCHUSEITEM")
 						if key then
 							Nx.qdb.profile.QuestWatch.KeyUseItem = key
@@ -5797,7 +5791,7 @@ function Nx.List:ColumnAdd (name, columnId, width, justifyH, font)
 
 	self.Columns[colId] = column
 
-	self.SSW = nil		-- Cause resize
+	self.SSW = nil			-- Cause resize
 end
 
 function Nx.List:ColumnSetName (columnId, name)
@@ -5893,7 +5887,7 @@ function Nx.List:Sort()
 
 	local column = self.Columns[self.SortColumnId]
 	local cData = column.Data
-	if not cData then		--or #cData < self.Num then
+	if not cData then		-- or #cData < self.Num then
 		return
 	end
 
@@ -6013,9 +6007,9 @@ function Nx.List:ItemSetButton (typ, pressed, tex, tip, func)
 
 	local index = self.Num
 
-	self.ButData[index] = typ	
+	self.ButData[index] = typ
 	self.ButData[-index] = pressed
-	
+
 	if tex then
 		self.ButData[index + 1000000] = tex
 	end
@@ -6186,7 +6180,7 @@ end
 
 function Nx.List:OnHdrMouseDown (click)
 
-	local this = self			--V4
+	local this = self			-- V4
 
 	local x = Nx.Util_IsMouseOver (this)
 
@@ -6230,7 +6224,7 @@ function Nx.List:OnMouseDown (click)
 
 --	prt ("List MouseDown "..click)
 
-	local this = self			--V4
+	local this = self			-- V4
 
 	local inst = this.NxInst
 	local x, y = Nx.Util_IsMouseOver (this)
@@ -6267,7 +6261,7 @@ function Nx.List:OnMouseWheel (value)
 		end
 	end
 
-	local this = self			--V4
+	local this = self			-- V4
 
 	local inst = this.NxInst
 	inst.Top = inst.Top - value
@@ -7034,7 +7028,7 @@ function Nx.Slider:Create (parentFrm, typ, size, tlOff)
 
 --	if 1 then return end
 
-	local inst = {}	-- New instance
+	local inst = {}		-- New instance
 
 	setmetatable (inst, self)
 	self.__index = self
@@ -7156,7 +7150,7 @@ end
 
 function Nx.Slider:OnMouseDown (button)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local self = this.NxInst
 
 	if button == "LeftButton" then
@@ -7222,7 +7216,7 @@ end
 
 function Nx.Slider:OnUpdate (elapsed)
 
-	local this = self			--V4
+	local this = self			-- V4
 	local self = this.NxInst
 
 	self:Drag()
@@ -7299,11 +7293,11 @@ function Nx.Slider:DoUpdate()
 
 	if self.TypeH then
 
-		local w = (frm:GetRight() or 0) - (frm:GetLeft() or 0)	-- Attached, so GetWidth is wrong
+		local w = (frm:GetRight() or 0) - (frm:GetLeft() or 0)		-- Attached, so GetWidth is wrong
 		tfrm:SetPoint ("TOPLEFT", per * w, 0)
 	else
 
-		local h = (frm:GetTop() or 0) - (frm:GetBottom() or 0)	-- Attached, so GetHeight is wrong
+		local h = (frm:GetTop() or 0) - (frm:GetBottom() or 0)		-- Attached, so GetHeight is wrong
 
 		local tper = min (self.VisSz / range, 1)
 		if tper >= 1 or h < 6 then
@@ -7347,7 +7341,7 @@ function Nx.Graph:Create (width, height, parentFrm)
 
 --	prt ("Graph "..width)
 
-	local g = {}	-- New graph
+	local g = {}		-- New graph
 
 	g.Clear = self.Clear
 	g.SetLine = self.SetLine
@@ -7394,7 +7388,7 @@ function Nx.Graph:Create (width, height, parentFrm)
 		["edgeFile"] = "Interface\Buttons\UI-SliderBar-Border",
 		["tile"] = true,
 		["tileSize"] = 8,
-		["edgeSize"] = 8, 
+		["edgeSize"] = 8,
 		["insets"] = { ["left"] = 3, ["right"] = 3, ["top"] = 6, ["bottom"] = 6 }}
 	sf:SetBackdrop (bd)
 
@@ -7571,7 +7565,7 @@ function Nx.Graph:GetFrame()
 	local pos = self.Frms.Next
 
 	if pos > 1000 then
-		pos = 1	-- Reset. Too many used
+		pos = 1		-- Reset. Too many used
 	end
 
 	local f = self.Frms[pos]
@@ -7619,7 +7613,7 @@ end
 
 function Nx.Graph:OnEnter (motion)
 
-	local this = self			--V4
+	local this = self			-- V4
 
 	if not GameTooltip:IsOwned (this) and this.NxGraphPos then
 
@@ -7641,26 +7635,39 @@ end
 
 function Nx.Graph:OnLeave (motion)
 
-	--V4 this
+	-- V4 this
 
 	if GameTooltip:IsOwned (self) then
 		GameTooltip:Hide()
 	end
 end
 
------------------------------------------------------------------------------
---EOF
+function NxWatchListItem_OnUpdate(self, elapsed)
+	-- Handle range indicator
+	local rangeTimer = self.rangeTimer;
+	if ( rangeTimer ) then
+		rangeTimer = rangeTimer - elapsed;
+		if ( rangeTimer <= 0 ) then
+			local link, item, charges, showItemWhenComplete = GetQuestLogSpecialItemInfo(self.questLogIndex);
+			if ( not charges or charges ~= self.charges ) then
+				--ObjectiveTracker_Update(OBJECTIVE_TRACKER_UPDATE_MODULE_QUEST);
+				return;
+			end
+			local count = self.HotKey;
+			local valid = IsQuestLogSpecialItemInRange(self.questLogIndex);
+			if ( valid == 0 ) then
+				count:Show();
+				count:SetVertexColor(1.0, 0.1, 0.1);
+			elseif ( valid == 1 ) then
+				count:Show();
+				count:SetVertexColor(0.6, 0.6, 0.6);
+			else
+				count:Hide();
+			end
+			rangeTimer = TOOLTIP_UPDATE_TIME;
+		end
+		self.rangeTimer = rangeTimer;
+	end
+end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+-------------------------------------------------------------------------------EOF

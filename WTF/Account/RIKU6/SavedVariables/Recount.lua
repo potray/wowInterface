@@ -184,7 +184,7 @@ RecountDB = {
 			["CurDataSet"] = "OverallData",
 			["MainWindowHeight"] = 158.999877929688,
 			["MainWindowWidth"] = 151.999938964844,
-			["LastInstanceName"] = "Proving Grounds",
+			["LastInstanceName"] = "Magtheridon's Lair",
 		},
 		["Zhenya - Los Errantes"] = {
 			["GraphWindowY"] = 0,

@@ -13,7 +13,7 @@
 --
 -- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
--- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See 
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
 -- GNU General Public License for more details.
 --
 -- You should have received a copy of the GNU General Public License
@@ -29,6 +29,8 @@
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 -- Com
+
+local L = LibStub("AceLocale-3.0"):GetLocale("Carbonite")
 
 NxCOMOPTS_VERSION	= .01
 
@@ -50,7 +52,7 @@ function Nx.Com:Init()
 		NxComOpts = NxComOptsDefaults
 	end
 
-	--	
+	--
 	self.Created = false
 	self.Data = {}
 	self.Data.Rcv = {}
@@ -64,26 +66,24 @@ function Nx.Com:Init()
 
 	local sq = {}
 	self.SendQ = sq
-	sq[1] = {}						-- Channel
-	sq[2] = {}						-- Guild
-	sq[3] = {}						-- Friends
-	sq[4] = {}						-- Zone
+	sq[1] = {}				-- Channel
+	sq[2] = {}				-- Guild
+	sq[3] = {}				-- Friends
+	sq[4] = {}				-- Zone
 	self.SendQMode = 1
 
 	self.PalsInfo = {}			-- Friends and guildy info (position)
 	self.PalsSendQ = {}
 	self.PalNames = {}
 
-	self.MemberNames = {}		-- Names in party or raid
+	self.MemberNames = {}			-- Names in party or raid
 
 	self.Friends = {}
 	self.Punks = {}
 
-	self.ZPInfo = {}				-- Zone player info (position)
-	self.ZStatus = {}				-- Zones status. Indexed with map id
+	self.ZPInfo = {}			-- Zone player info (position)
+	self.ZStatus = {}			-- Zones status. Indexed with map id
 	self.ZMonitor = {}			-- Zones to monitor
-
-	self.VerPlayers = {}			-- Version messages from players (for debug)
 
 	self.SendChanQ = {}
 
@@ -94,8 +94,8 @@ function Nx.Com:Init()
 
 	self.ClassNames = {
 		[0] = "?",
-		"Druid", "Hunter", "Mage", "Paladin", "Priest",
-		"Rogue", "Shaman", "Warlock", "Warrior", "Deathknight", "Monk"
+		L["Druid"], L["Hunter"], L["Mage"], L["Paladin"], L["Priest"],
+		L["Rogue"], L["Shaman"], L["Warlock"], L["Warrior"], L["Deathknight"], L["Monk"]
 	}
 	for k, v in ipairs (self.ClassNames) do
 		self.ClassNames[v] = k
@@ -118,9 +118,7 @@ function Nx.Com:Init()
 	self.SentBytes = 0			-- Debugging
 	self.SentBytesSec = 0
 	self.SentBytesTime = GetTime()
---	Nx.Timer:Start ("ComBytesSec", 1, self, self.OnBytesSecTimer)
     ComBytesSec = Nx:ScheduleTimer(self.OnBytesSecTimer,1,self)
---	Nx.Timer:Start ("ComVerTest", 3, self, function() self:ShowVersionMsg() end)
 
 	hooksecurefunc ("SendChatMessage", self.SendChatHook)
 	Nx:RegisterComm(self.Name,Nx.Com.OnChat_msg_addon)
@@ -181,12 +179,12 @@ end
 --------
 -- On com event
 
-function Nx.Com:OnEvent (event)	
+function Nx.Com:OnEvent (event)
 	local self = Nx.Com
 
 --	Nx.prt ("Com Event: %s", event)
 
-	if event == "PLAYER_LOGIN" then	
+	if event == "PLAYER_LOGIN" then
 		local playername, realmname = UnitFullName("player")
 		self.PlyrName = playername .. "-" .. realmname
 		self.PlyrMapId = Nx.Map:GetRealMapId()
@@ -232,7 +230,7 @@ end
 
 function Nx.Com:OnLoginTimer()
 	local redeploy = 0
-	if UnitOnTaxi ("player") then		-- Detect login on taxi, which will not join channels until you land
+	if UnitOnTaxi ("player") then			-- Detect login on taxi, which will not join channels until you land
 
 		local id = GetChannelName (1)		-- Detect if reload
 		if id ~= 1 then
@@ -244,17 +242,17 @@ function Nx.Com:OnLoginTimer()
 	if self.WasOnTaxi then
 		self.WasOnTaxi = nil
 		redeploy = 3
-	end	
+	end
 
 	if GetChannelName(1)  ~= 1 then
 		redeploy = 3
 	end
-	
+
 	if redeploy > 0 then
 		ComLogin = Nx:ScheduleTimer(self.OnLoginTimer,redeploy,self)
 		return
 	end
-	
+
 	if IsControlKeyDown() and IsAltKeyDown() then
 		Nx.prt ("Disabling com functions!")
 		Nx.db.profile.Comm.Global = false
@@ -272,9 +270,9 @@ function Nx.Com:OnLoginTimer()
 	local free = max (10 - self:GetChanCount(), 0)
 
 	if need > free then
-		Nx.prt ("|cffff9f5fNeed %d chat channel(s)!", need - free)
-		Nx.prt ("|cffff9f5fThis will disable some communication features")
-		Nx.prt ("|cffff9f5fYou may free channels using the chat tab")
+		Nx.prt ("|cffff9f5f" .. L["Need"] .. " %d " .. L["chat channel(s)!"], need - free)
+		Nx.prt ("|cffff9f5f" .. L["This will disable some communication features"])
+		Nx.prt ("|cffff9f5f" .. L["You may free channels using the chat tab"])
 	end
 
 	-- Should not find any since we left all zone channels a few seconds ago
@@ -285,42 +283,6 @@ function Nx.Com:OnLoginTimer()
 --	self:JoinChan ("Z")		-- Zone
 
 --	self:SendA (format ("TEST"))
-end
-
-function Nx.Com:OnVersionTimer()
-
---	Nx.prt ("Com Test")
---	self:SendSecG ("? 0123 ABCD abcd [\]^_'", "")
-
-	self:SendSecG ("V ", self:MakeVersionMsg())
-
-	if IsInGuild() then
-		GuildRoster()		-- Force update
-	end
-
---	if Nx.Free then
---		Nx.Timer:Start ("ComLeaveA", 60 * 60, self, self.OnLeaveATimer)
---	end
-
-	self:LeaveChans ("A")	-- Old
-end
-
-function Nx.Com:MakeVersionMsg()
-
---	local r, c = Nx.Sec:GetRCMsg()
-	local r = ""
-	local dt = date ("%y%m%d", time())
-	local qCnt = 0
-	if Nx.Quest then
-	  qCnt = Nx.Quest:CaptureGetCount()
-	end
-	local lvl = UnitLevel ("player")
-	if Nx.db.profile.Version.NXVer1 then
-		return format ("%f^%s^^%s^%f^%d^%x^%x", Nx.VERSION, r, dt, Nx.db.profile.Version.NXVer1, qCnt, lvl, self.PlyrMapId)
-	else
-		return format ("%f^%s^^%s^%f^%d^%x^%x", Nx.VERSION, r, dt, Nx.VERSION, qCnt, lvl, self.PlyrMapId)	
-	end
-	
 end
 
 function Nx.Com:OnLeaveATimer()
@@ -400,7 +362,7 @@ function Nx.Com:OnChatEvent (event, arg1, arg2, arg3, arg4, arg5, arg6, arg7, ar
 
 			self.List:AddInfo ("CN:"..arg9, format ("%s", arg1))
 
-			local nameRoot = Nx.Split ("I", arg9)	-- Drop I and #
+			local nameRoot = Nx.Split ("I", arg9)		-- Drop I and #
 
 			if arg1 == "YOU_JOINED" then
 
@@ -411,9 +373,6 @@ function Nx.Com:OnChatEvent (event, arg1, arg2, arg3, arg4, arg5, arg6, arg7, ar
 
 --					Nx.prt ("Join %s", arg9)
 					Nx:CancelTimer(ComA)
-
-					ComVerSend = Nx:ScheduleTimer(self.OnVersionTimer, 3, self)
-
 				elseif typ == "Z" then
 
 					local mapId = tonumber (strsub (nameRoot, 5))
@@ -476,7 +435,7 @@ function Nx.Com:OnChat_msg_channel (event, arg1, arg2, arg3, arg4, arg5, arg6, a
 
 			if id == 83 then		-- S (status) Check 1st for performance
 
-				if not self.PalsInfo[name] then	-- Not a pal we have?
+				if not self.PalsInfo[name] then		-- Not a pal we have?
 					if #msg >= 16 then
 
 						local pl = self.ZPInfo[name]
@@ -491,8 +450,6 @@ function Nx.Com:OnChat_msg_channel (event, arg1, arg2, arg3, arg4, arg5, arg6, a
 				end
 
 			elseif id == 86 then	-- V (Version and registered name)
-
-				self:OnMsgVersion (name, msg, arg2, arg9)
 			end
 		end
 	end
@@ -507,7 +464,7 @@ function Nx.Com:OnChat_msg_addon (args, distribution, target)
 
 --	Nx.prt ("ComChatAddonEvent: %s %s %s", args, distribution, target)
 
-		local name = target		
+		local name = target
 --		if 1 then
 		if name ~= self.PlyrName then		-- Ignore myself
 --			self.List:AddInfo ("A:"..arg1, format ("(%s %s) %s", name, arg3, arg2))
@@ -515,19 +472,19 @@ function Nx.Com:OnChat_msg_addon (args, distribution, target)
 			for k, msg in ipairs (data) do
 				local id = strbyte (msg)
 				if id == 83 then	-- S (status) Check 1st for performance
-					if self.PalNames[name] ~= nil then						
+					if self.PalNames[name] ~= nil then
 						if #msg >= 16 then
 							local pal = self.PalsInfo[name]
 							if not pal then
 								pal = {}
-								self.PalsInfo[name] = pal								
+								self.PalsInfo[name] = pal
 							end
 							self:ParsePlyrStatus (name, pal, msg)
 						end
 					end
-				elseif id == 76 then	-- L (Level)					
+				elseif id == 76 then	-- L (Level)
 					if Nx.db.profile.Comm.LvlUpShow then
-						local s = format ("%s reached level %d!", name, strbyte (msg, 2) - 35)
+						local s = format ("%s " .. L["reached level"] .." %d!", name, strbyte (msg, 2) - 35)
 						Nx.prt (s)
 						Nx.UEvents:AddInfo (s)
 					end
@@ -536,7 +493,6 @@ function Nx.Com:OnChat_msg_addon (args, distribution, target)
 						Nx.Quest:OnMsgQuest (name, msg)
 					end
 				elseif id == 86 then	-- V (Version and registered name)
-					self:OnMsgVersion (name, msg, arg2, arg9)
 				end
 			end
 		end
@@ -560,11 +516,11 @@ function Nx.Com:ParsePlyrStatus (name, info, msg)
 
 	-- Player info
 
-	local mapId = tonumber (strsub (msg, 3, 6), 16)	-- Map id
+	local mapId = tonumber (strsub (msg, 3, 6), 16)		-- Map id
 
 	local winfo = Nx.Map.MapWorldInfo[mapId]
 	if not winfo then
-		info.T = 0			-- Cause it to die
+		info.T = 0					-- Cause it to die
 --		Nx.prt ("Die %s", mapId)
 		return
 	end
@@ -634,12 +590,12 @@ function Nx.Com:ParsePlyrStatus (name, info, msg)
 
 	-- Quest tracking data
 
-	if bit.band (flags, 4) > 0 then		
+	if bit.band (flags, 4) > 0 then
 		Nx.qTEMPinfo = info
 		Nx.qTEMPmsg = strsub(msg,off)
-        Nx.qTEMPname = name			
+	Nx.qTEMPname = name
 		if Nx.qTEMPinfo and Nx.qTEMPmsg and Nx.qTEMPname then
---			Nx:SendCommMessage("carbmodule","QUEST_DECODE","WHISPER",UnitName("player"),"BULK")		
+--			Nx:SendCommMessage("carbmodule","QUEST_DECODE","WHISPER",UnitName("player"),"BULK")
 			Nx.ModQAction = "QUEST_DECODE"
 		end
 		if not Nx.qTEMPmsg or #Nx.qTEMPmsg > 7 then
@@ -647,7 +603,7 @@ function Nx.Com:ParsePlyrStatus (name, info, msg)
 			off = off + (7 + tmp * 2)
 		else
 			off = off
-		end		
+		end
 	end
 
 	-- Punks data
@@ -667,7 +623,7 @@ end
 
 function Nx.Com:ParseLGP (name, msg)
 
-	if strbyte (msg) == 0x50 then	-- P (position)
+	if strbyte (msg) == 0x50 then		-- P (position)
 
 		local x, x2, y, y2, len = strbyte (msg, 2, 6)
 
@@ -709,11 +665,11 @@ function Nx.Com:UpdateChannels()
 	ComUC = Nx:ScheduleTimer(self.UpdateChannelsTimer,0,self)
 end
 
-function Nx.Com:UpdateChannelsTimer()	
+function Nx.Com:UpdateChannelsTimer()
 	if Nx:TimeLeft(ComLogin) > 0 then
 		return 0
 	end
-	
+
 	local curMapId = Nx.Map:GetRealMapId()
 
 	if UnitIsAFK ("player") or not Nx.db.profile.Comm.Zone then		-- No current zone channel?
@@ -768,7 +724,7 @@ function Nx.Com:UpdateChannelsTimer()
 		if status.Join then
 			status.Join = false
 
-			if not status.ChanName then				
+			if not status.ChanName then
 				if Nx:TimeLeft(ComZ) == 0 then
 
 --					Nx.prt ("Com Status Join %s", mapId)
@@ -788,7 +744,7 @@ end
 
 function Nx.Com:JoinChan (chanId)
 
-	if chanId == "A" then	-- Addon channel (global)
+	if chanId == "A" then		-- Addon channel (global)
 
 		if Nx.db.profile.Comm.Global then
 
@@ -806,7 +762,7 @@ function Nx.Com:JoinChan (chanId)
 				ComZ = Nx:ScheduleTimer(self.OnJoinChanZTimer,2,self)
 				timer = {}
 				timer.UMapId = mapId
-				timer.UTryCnt = 0			
+				timer.UTryCnt = 0
 			end
 		end
 	else
@@ -848,7 +804,7 @@ function Nx.Com:OnJoinChanZTimer ()
 
 	timer.UTryCnt = timer.UTryCnt + 1
 
-	local name = format ("%sZ%dI%d", self.Name, timer.UMapId, timer.UTryCnt)	
+	local name = format ("%sZ%dI%d", self.Name, timer.UMapId, timer.UTryCnt)
 	if self:InChan (name) then
 		return
 	end
@@ -1056,7 +1012,7 @@ function Nx.Com:Send (chanId, msg, plName)
 
 	assert (msg)
 
-	if chanId == "Z" then	-- Zone chat channel
+	if chanId == "Z" then		-- Zone chat channel
 
 		local mapId = Nx.Map:GetRealMapId()
 		local chanName = self.ZStatus[mapId] and self.ZStatus[mapId].ChanName
@@ -1073,7 +1029,7 @@ function Nx.Com:Send (chanId, msg, plName)
 
 		self.SentBytes = self.SentBytes + #msg + 54 + 20	-- Packet overhead + some WOW overhead
 
-		if chanId == "g" then	-- Addon guild
+		if chanId == "g" then		-- Addon guild
 
 			if IsInGuild() then
 				Nx:SendCommMessage (self.Name, msg, "GUILD")
@@ -1094,7 +1050,7 @@ function Nx.Com:Send (chanId, msg, plName)
 			if GetNumSubgroupMembers() > 0 then
 				if (IsPartyLFG()) then
 					self:SendChatMessageFixed (msg, "INSTANCE_CHAT")
-				else					
+				else
 					self:SendChatMessageFixed (msg, "PARTY")
 				end
 			end
@@ -1255,9 +1211,9 @@ function Nx.Com:MonitorZone (mapId, enable)
 		if not i or i < 0 then
 
 			if self:GetChanCount() >= 10 then
-				Nx.prt ("|cffff4040Monitor Error: All 10 chat channels are in use")
+				Nx.prt ("|cffff4040" .. L["Monitor Error: All 10 chat channels are in use"])
 			else
-				Nx.prt ("|cff40ff40Monitored:")
+				Nx.prt ("|cff40ff40" .. L["Monitored:"])
 			end
 
 			self.ZMonitor[mapId] = 0
@@ -1346,7 +1302,7 @@ function Nx.Com:OnUpdate (elapsed)
 		delay = 120
 	end
 
-	if next (self.Punks) then	-- Have a punk? Override all times
+	if next (self.Punks) then		-- Have a punk? Override all times
 		delay = min (6, delay)
 	end
 
@@ -1420,7 +1376,7 @@ function Nx.Com:OnUpdate (elapsed)
 
 			local tLvl = min (UnitLevel ("target"), 90)	-- 93 or above makes 0x80+ illegal chat char
 --			Nx.prt ("%s", tLvl)
-			local _, tCls = UnitClass ("target")	-- Non localized uppercase version
+			local _, tCls = UnitClass ("target")		-- Non localized uppercase version
 			tCls = self.ClassNames[tCls] or 0
 
 			local h = UnitHealth ("target")
@@ -1429,7 +1385,7 @@ function Nx.Com:OnUpdate (elapsed)
 			end
 			local hm = max (UnitHealthMax ("target"), 1)
 			local hper = h / hm * 20
-			if hper > 0 then			-- Alive?
+			if hper > 0 then				-- Alive?
 				hper = max (hper, 1)
 			end
 			hper = min (floor (hper + .5), 20)
@@ -1531,7 +1487,7 @@ function Nx.Com:OnUpdate (elapsed)
 
 						if bit.band (self.SendPMask, 4) > 0 then
 
-							local sk = self.SendZSkip - 1		-- Zone skipped to reduce rate
+							local sk = self.SendZSkip - 1			-- Zone skipped to reduce rate
 
 							if sk < 1 then
 								sk = 4
@@ -1637,7 +1593,7 @@ function Nx.Com:UpdateIcons (map)
 	if alt then
 		map.Level = map.Level + 3
 	end
-	
+
 
 	self.TrackX = nil
 
@@ -1687,7 +1643,7 @@ function Nx.Com:UpdatePlyrIcons (info, map, iconName)
 		if t - pl.T > 35 then
 			info[name] = nil
 --			Nx.prt ("Com del plyr %s", name)
-		elseif not memberNames[name] and (not inBG or map.MapId ~= pl.MId) and pl.Y then		-- Y can be nil somehow			
+		elseif not memberNames[name] and (not inBG or map.MapId ~= pl.MId) and pl.Y then		-- Y can be nil somehow
 			if pl.MId >= 10000 then
 				return
 			end
@@ -1726,7 +1682,7 @@ function Nx.Com:UpdatePlyrIcons (info, map, iconName)
 					txName = "IconPlyrF"
 				end
 
-				if bit.band (pl.F, 1) > 0 then	-- In combat?
+				if bit.band (pl.F, 1) > 0 then		-- In combat?
 					txName = txName .. "C"
 				end
 
@@ -1804,266 +1760,6 @@ function Nx.Com:GetPlyrQStr (name)
 	return info and info.QStr
 end
 
---------
--- Show newer version message
-
-function Nx.Com:ShowVersionMsg()
---[[
-	local pop = StaticPopupDialogs["NxVerMsg"]
-
-	if not pop then
-
-		pop = {
-		  ["button1"] = "OK",
-		  ["timeout"] = 0,
-		  ["whileDead"] = 1,
-		  ["hideOnEscape"] = 1
-		}
-
-		StaticPopupDialogs["NxVerMsg"] = pop
-	end
-
-	pop["text"] = format ("A newer CARBONITE version has been detected.")
-
-	StaticPopup_Show ("NxVerMsg")
---]]
-    
-	local verstemp, verstemp2 = math.modf(Nx.NEWVER * 10)	
-	verstemp = verstemp / 10
-	verstemp2 = verstemp2 * 100
-	local s1 = format ("version %s.%s of %s is available", verstemp, verstemp2, NXTITLEFULL)
-	local s2 = format ("Visit %s%s|cffffffff for an update", Nx.TXTBLUE, Nx.WebSite)
-	UIErrorsFrame:AddMessage (s2, 1, 1, 1, 1)	-- Flip order so it show correctly
-	UIErrorsFrame:AddMessage (s1, 1, 1, 0, 1)
-	Nx.prt (s1)
-	Nx.prt (s2)	
-end
-
---------
--- Show version data from player
-
-function Nx.Com:ShowPlyrVersion (name)
-
-	self:SendSecW ("V?", "", name)		-- Ask for it
-end
-
---------
--- Handle version messages
-
-function Nx.Com:OnMsgVersion (name, enmsg, arg2, arg9)
-
-	-- Header is VxCC
-
-	local msg = self:Decode (enmsg)
-
---	Nx.prt ("Ver %s", msg)
-
-	if self:IsChksumOK (msg) then
-
-		local subType = strsub (msg, 2, 2)
-
-		if subType == " " then	-- Global version?
-
-			local ver, r, c, dt, ver1, qCnt = Nx.Split ("^", msg)
-
-			ver = tonumber (strsub (ver, 5))
-			if ver then
-
-				if Nx.VERMINOR <= 0 then	-- Not test?
-
-					local vermajor = floor (ver * 1000) / 1000
-					local verminor = ver - vermajor
-
---					if verminor > 0 then		-- Is test?
---						return					-- Ignore
---					end
-				end
-
---				ver = ver + 9	-- Test the message				
-				if ver - .0000001 > Nx.VERSION and not self.NewVerMsg then
-					Nx.NEWVER = ver
-					self.NewVerMsg = true
-					ComShowVer = Nx:ScheduleTimer (self.ShowVerTimer, 60, self)
-
---					local s = format ("%s Ver %f > %f", arg2, ver, Nx.VERSION)
---					Nx.prt (s)
-				end
-
-				-- Is arg2 always correct?? Look at the 2 callers??
-
-				self.List:AddInfo ("C:"..arg9, format ("(%s) ver %s", arg2, ver))
-
-				self:RcvVersion (name, msg)
-			end
-
-		elseif subType == "?" then		-- Request?
-
-			local str = self:MakeVersionMsg()
-			self:SendSecW ("V!", str, name)		-- Reply
-
-		elseif subType == "!" then		-- Reply?
-
-			self:RcvVersion (name, msg)
-		end
-
-	else
-	end
-end
-
---------
--- 
-
-function Nx.Com:RcvVersion (name, msg)
-
-	if Nx.db.profile.Debug.VerDebug then
-
-		local ver, r, c, dt, ver1, qCnt, lvl, mapId = Nx.Split ("^", msg)
-		ver = tonumber (strsub (ver, 5))
-		lvl = tonumber (lvl or 0, 16)
-		mapId = tonumber (mapId or 0, 16)
-
-		Nx.prt ("Ver %s %s (%s) %s %s %s Q%s L%s %s", name, ver, ver1 or "", r, c, dt, qCnt or "", lvl, mapId)
-
-		if ver >= 1.6 then
-
-			self.VerPlayers[name] = msg
-			Nx.prt("lsend")
-			Nx:SendCommMessage("carbmodule","LIST_UPDATE","WHISPER",UnitName("player"))			
-		end
-	end
-end
-
---------
--- Bug user with update
-
-function Nx.Com:ShowVerTimer()
-
-	if UnitAffectingCombat ("player") or UnitIsAFK ("player") then
---		Nx.prt ("ShowVerTimer delay")
-		return 5
-	end
-
-	local lasttm = Nx.db.profile.Debug.VerT
-	local tm = time()
-
---	Nx.prt ("ShowVerTimer %s %s = %s", lasttm or 0, tm, difftime (tm, lasttm or 0))
-
-	if not lasttm or difftime (tm, lasttm) > 4 * 3600 then	-- Hours since last message?
-
-		local map = Nx.Map:GetMap (1)
-		if map.InstanceId then
---			Nx.prt ("ShowVerTimer Instance")
-			return 60
-		end
-
-		Nx.db.profile.Debug.VerT = tm
-		self:ShowVersionMsg()
-	end
-
-	return 60
-end
-
---------
-
-function Nx.Com:GetUserVer()
-
-	self.VerPlayers = {}
-	ComGetUserVer = Nx:ScheduleTimer (self.GetUserVerTimer, 0, self)
-end
-
---------
-
-function Nx.Com:GetUserVerTimer()
-
-	for n = 1, GetNumDisplayChannels() do
-
-		local chname, header, collapsed, chanNumber, plCnt, active, category, voiceEnabled, voiceActive = GetChannelDisplayInfo (n)
-
-		if not header then
-
-			if chname == "General" then
-				SetSelectedDisplayChannel (n)	-- Force roster update
-			end
-
---			Nx.prt ("Chan %s (%s) Cnt %s", chname or "nil", n, plCnt or "nil")
-
-			local s1 = strfind (strlower (chname), "^crbb")
-			if s1 then
-				SetSelectedDisplayChannel (n)
-				self.GettingVersion = true
-				return
-			end
-		end
-	end
-
-	local s = "crbb1"
-	Nx.prt ("Joining %s", s)
-	JoinChannelByName (s)
-
-	return 2
-end
-
-function Nx.Com:OnChannel_roster_update (event, arg1, arg2)
-
-	local self = Nx.Com
-
-	if not self.GettingVersion then
-		return
-	end
-
-	Nx.prt ("OnChannel_roster_update %s, %s", arg1, arg2 or "nil")
-
-	local n = arg1
-	local chname, header, collapsed, chanNumber, plCnt, active, category, voiceEnabled, voiceActive = GetChannelDisplayInfo (n)
-
-	if not header then
-
-		Nx.prt ("Chan %s (%s) Cnt %s", chname or "nil", n, plCnt or "nil")
-
-		local s1 = strfind (strlower (chname), "^crbb")
-		if s1 then
-
-			if plCnt then
-
-				self.GettingVersion = false
-
-				Nx.prt ("Found %s %s (%s)", chname, plCnt, n)
-
-				local names = {}
-
-				for n2 = 1, plCnt do
-					local plName, owner, moderator, muted, active, enabled = GetChannelRosterInfo (n, n2)
-					if plName ~= UnitName ("player") then
-						tinsert (names, plName)
-					end
-				end
-
-				self.GetUserVerNames = names
-				self.GetUserVerI = 1
-
-				GetUserVer = Nx:ScheduleTimer (self.OnGetUserVerTimer, 0, self)
-			end
-		end
-	end
-end
-
-function Nx.Com:OnGetUserVerTimer()
-
-	local i = self.GetUserVerI
-
-	if i <= #self.GetUserVerNames then
-
-		local plName = self.GetUserVerNames[i]
---		Nx.prt (" %s", plName)
-
-		self:SendSecW ("V?", "", plName)		-- Ask for it
-
-		self.GetUserVerI = i + 1
-
-		return .1
-	end
-end
-
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 -- Com message list
@@ -2137,24 +1833,4 @@ function Nx.Com.List:Sort()
 	sort (self.Sorted, self.SortCmp)
 end
 
-
-
--------------------------------------------------------------------------------
---EOF
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---------------------------------------------------------------------------------EOF

@@ -106,6 +106,7 @@ local min, max = {}, {}
 local top = {{}, {}, {}, {}}
 local top_yield = {{}, {}, {}, {}}
 local best_modes = { "success" }
+local preserve_mission_page_followers = {}
 local function FindBestFollowersForMission(mission, followers, mode)
    local followers_count = #followers
 
@@ -121,6 +122,13 @@ local function FindBestFollowersForMission(mission, followers, mode)
    for idx = 1, #event_handlers do UnregisterEvent(event_handlers[idx], "GARRISON_FOLLOWER_LIST_UPDATE") end
 
    local mission_id = mission.missionID
+   local party_followers_count = #MissionPageFollowers
+   if party_followers_count > 0 then
+      for party_idx = 1, party_followers_count do
+         preserve_mission_page_followers[party_idx] = MissionPageFollowers[party_idx].info
+      end
+   end
+
    if C_Garrison.GetNumFollowersOnMission(mission_id) > 0 then
       for idx = 1, #followers do
          RemoveFollowerFromMission(mission_id, followers[idx].followerID)
@@ -280,6 +288,14 @@ local function FindBestFollowersForMission(mission, followers, mode)
    -- TODO:
    -- If we have GR yield list, check it and remove all entries where gr_yield is worse than #1 from regular top list.
    -- dump(top[1])
+
+   if party_followers_count > 0 then
+      for party_idx = 1, party_followers_count do
+         if preserve_mission_page_followers[party_idx] then
+            GarrisonMissionPage_SetFollower(MissionPageFollowers[party_idx], preserve_mission_page_followers[party_idx])
+         end
+      end
+   end
 
    for idx = 1, #event_handlers do RegisterEvent(event_handlers[idx], "GARRISON_FOLLOWER_LIST_UPDATE") end
 
@@ -693,6 +709,10 @@ hooksecurefunc(GarrisonFollowerOptionDropDown, "initialize", function(self)
 end)
 
 local function GarrisonFollowerList_Update_More(self)
+   -- Somehow Blizzard UI insists on updating hidden frames AND explicitly updates them OnShow.
+   --  Following suit is just a waste of CPU, so we'll update only when frame is actually visible.
+   if not self:IsVisible() then return end
+
    local followerFrame = self
    local followers = followerFrame.FollowerList.followers
    local followersList = followerFrame.FollowerList.followersList
@@ -705,6 +725,11 @@ local function GarrisonFollowerList_Update_More(self)
    for i = 1, numButtons do
       local button = buttons[i]
       local index = offset + i
+
+      local show_ilevel
+      local portrait_frame = button.PortraitFrame
+      local level_border = portrait_frame.LevelBorder
+
       if ( index <= numFollowers ) then
          local follower = followers[followersList[index]]
          if ( follower.isCollected ) then
@@ -712,11 +737,46 @@ local function GarrisonFollowerList_Update_More(self)
                button.BusyFrame:Show()
                button.BusyFrame.Texture:SetTexture(0.5, 0, 0, 0.3)
             end
+
+            if follower.level == GARRISON_FOLLOWER_MAX_LEVEL then
+               level_border:SetAtlas("GarrMission_PortraitRing_iLvlBorder")
+               level_border:SetWidth(70)
+               local level = portrait_frame.Level
+               level:SetFormattedText("%s %d", ITEM_LEVEL_ABBR, follower.iLevel)
+               button.ILevel:SetText(nil)
+               show_ilevel = true
+            end
          end
+      end
+      if not show_ilevel then
+         level_border:SetAtlas("GarrMission_PortraitRing_LevelBorder")
+         level_border:SetWidth(58)
       end
    end
 end
 hooksecurefunc("GarrisonFollowerList_Update", GarrisonFollowerList_Update_More)
+
+function GMM_RemoveAllWorkers()
+   if not GarrisonBuildingFrame:IsVisible() then return end
+
+   local removed
+   local buildings = C_Garrison.GetBuildings()
+   for idx = 1, #buildings do
+      local building = buildings[idx]
+      local buildingID = building.buildingID;
+      if buildingID then
+         local plotID = building.plotID
+         local followerName, level, quality, displayID, followerID, garrFollowerID, status, portraitIconID = C_Garrison.GetFollowerInfoForBuilding(plotID)
+         if followerName then
+            print(followerName)
+            C_Garrison.RemoveFollowerFromBuilding(plotID)
+            removed = true
+         end
+      end
+   end
+   if removed then C_Timer.After(0.001, RemoveAllWorkers) end
+end
+
 
 -- Globals deliberately exposed for people outside
 function GMM_Click(button_name)

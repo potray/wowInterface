@@ -1,6 +1,6 @@
-## Interface: 50400
-## Title: Carbonite 5.4.2 alpha 5
-## Version: 5.4.2 alpha 5
+## Interface: 60000
+## Title: Carbonite 6.0
+## Version: 6.0
 ## Author: Rythal
 ## Notes: Released Under GPL
 ## DefaultState: Enabled
@@ -8,12 +8,9 @@
 ## SavedVariables: CarbData
 
 Libs\libs.xml
-Locales\Localization.lua
-Locales\enUS.xml
-NxLocalization.lua
+Locales\Locales.xml
 Carbonite.lua
 NxUI.lua
-NxHelp.lua
 NxOptions.lua
 NxCom.lua
 NxHUD.lua

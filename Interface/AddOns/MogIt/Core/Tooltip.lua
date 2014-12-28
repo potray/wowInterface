@@ -123,9 +123,9 @@ function mog.tooltip.ShowItem(self)
 	
 	-- add wishlist info about this item
 	if not self[mog] and mog.wishlist:IsItemInWishlist(itemID) then
-		self:AddLine(" ");
-		self:AddLine(L["This item is on your wishlist."], 1, 1, 0);
-		self:AddTexture("Interface\\TargetingFrame\\UI-RaidTargetingIcon_1");
+			self:AddLine(" ");
+			self:AddLine(L["This item is on your wishlist."], 1, 1, 0);
+			self:AddTexture("Interface\\TargetingFrame\\UI-RaidTargetingIcon_1");
 	end
 end
 

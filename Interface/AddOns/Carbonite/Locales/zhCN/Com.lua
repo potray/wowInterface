@@ -1,0 +1,25 @@
+if ( GetLocale() ~= "zhCN" ) then
+	return
+end
+
+local L = LibStub("AceLocale-3.0"):NewLocale("Carbonite", "zhCN")
+if not L then return end
+
+L["reached level"] = "已达到等级"
+L["Monitor Error: All 10 chat channels are in use"] = "监视错误：所有10个聊天频道均已被占用"
+L["This will disable some communication features"] = "这会使部分插件交流功能失效"
+L["You may free channels using the chat tab"] = "你需要在聊天界面中退出一些频道"
+L["chat channel(s)!"] = "聊天频道！"
+L["Need"] = "需求"
+L["Monitored:"] = "已监视："
+L["Druid"] = "德鲁伊"
+L["Hunter"] = "猎人"
+L["Mage"] = "法师"
+L["Paladin"] = "圣骑士"
+L["Priest"] = "牧师"
+L["Rogue"] = "潜行者"
+L["Shaman"] = "萨满祭司"
+L["Warlock"] = "术士"
+L["Warrior"] = "战士"
+L["Deathknight"] = "死亡骑士"
+L["Monk"] = "武僧"

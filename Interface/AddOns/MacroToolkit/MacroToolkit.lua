@@ -671,11 +671,13 @@ function MT:MacroFrameUpdate()
 				if tab == 3 then
 					local em = exmacros[i]
 					if em then
-						name, texture, body = em.name, format("Interface\\Icons\\%s", em.texture), em.body
-						local commandName = format("CLICK MTSB%d:LeftButton", em.index)
-						k1, k2 = GetBindingKey(commandName)
-						if not (k1 or k2) then macroUnbound:Show() end
-						macroButton.extra = tonumber(em.index)
+						if em.texture then	-- ticket 76
+							name, texture, body = em.name, format("Interface\\Icons\\%s", em.texture), em.body
+							local commandName = format("CLICK MTSB%d:LeftButton", em.index)
+							k1, k2 = GetBindingKey(commandName)
+							if not (k1 or k2) then macroUnbound:Show() end
+							macroButton.extra = tonumber(em.index)
+						end
 					end
 				elseif tab == 4 then
 					local em = exmacros[i]

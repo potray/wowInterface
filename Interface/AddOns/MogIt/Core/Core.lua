@@ -4,7 +4,7 @@ local L = mog.L;
 
 local ItemInfo = LibStub("LibItemInfo-1.0");
 
-LibStub("Libra"):EmbedWidgets(mog);
+LibStub("Libra"):Embed(mog);
 
 local character = DataStore_Containers and DataStore:GetCharacter();
 
@@ -60,7 +60,7 @@ mog.mmb = LibStub("LibDataBroker-1.1"):NewDataObject("MogIt",{
 
 
 --// Module API
-mog.moduleVersion = 2;
+mog.moduleVersion = 3;
 mog.modules = {};
 mog.moduleList = {};
 
@@ -76,14 +76,15 @@ function mog:RegisterModule(name,version,data)
 	if mog.modules[name] then
 		--mog:Error(L["The \124cFFFFFFFF%s\124r module is already loaded."]:format(name));
 		return mog.modules[name];
-	elseif type(version) ~= "number" or version < mog.moduleVersion then
-		mog:Error(L["The \124cFFFFFFFF%s\124r module needs to be updated to work with this version of MogIt."]:format(name));
-		return;
-	elseif version > mog.moduleVersion then
-		mog:Error(L["The \124cFFFFFFFF%s\124r module requires you to update MogIt for it to work."]:format(name));
-		return;
+	--elseif type(version) ~= "number" or version < mog.moduleVersion then
+		--mog:Error(L["The \124cFFFFFFFF%s\124r module needs to be updated to work with this version of MogIt."]:format(name));
+		--return;
+	--elseif version > mog.moduleVersion then
+		--mog:Error(L["The \124cFFFFFFFF%s\124r module requires you to update MogIt for it to work."]:format(name));
+		--return;
 	end
 	data = data or {};
+	data.version = version;
 	data.name = name;
 	mog.modules[name] = data;
 	table.insert(mog.moduleList,data);
@@ -166,6 +167,7 @@ ItemInfo.RegisterCallback(mog, "OnItemInfoReceivedBatch", "ItemInfoReceived");
 --//
 
 function mog:HasItem(itemID)
+	itemID = self:ToNumberItem(itemID)
 	return GetItemCount(itemID, true) > 0 or (character and select(3, DataStore:GetContainerItemCount(character, itemID)) > 0)
 end
 
@@ -174,6 +176,7 @@ end
 local defaults = {
 	profile = {
 		sortWishlist = false,
+		tooltipItemID = false,
 		dressupPreview = false,
 		singlePreview = false,
 		previewUIPanel = false,
@@ -265,8 +268,41 @@ function mog:ADDON_LOADED(addon)
 	end
 end
 
+local function sortCharacters(a, b)
+	local characterA, realmA = a:match("(.+) %- (.+)");
+	local characterB, realmB = b:match("(.+) %- (.+)");
+	if realmA ~= realmB then
+		-- your own realm gets sorted before others
+		if realmA == myRealm then
+			return true;
+		end
+		if realmB == myRealm then
+			return false;
+		end
+		return realmA < realmB;
+	else
+		return characterA < characterB;
+	end
+end
+
 function mog:PLAYER_LOGIN()
-	mog:LoadSettings()
+	self.realmCharacters = {};
+	for characterKey in pairs(mog.wishlist.db.sv.profileKeys) do
+		local character, realm = characterKey:match("(.+) %- (.+)");
+		if self:IsConnectedRealm(realm, true) then
+			table.insert(self.realmCharacters, characterKey);
+		end
+	end
+	sort(self.realmCharacters, sortCharacters);
+	
+	for slot in pairs(mog.mogSlots) do
+		local isTransmogrified, _, _, _, _, visibleItemID = GetTransmogrifySlotInfo(slot);
+		if transmogrified then
+			mog:GetItemInfo(visibleItemID);
+		end
+	end
+	
+	mog:LoadSettings();
 	self.frame:SetScript("OnSizeChanged", function(self, width, height)
 		mog.db.profile.gridWidth = width;
 		mog.db.profile.gridHeight = height;
@@ -275,15 +311,23 @@ function mog:PLAYER_LOGIN()
 end
 
 function mog:PLAYER_EQUIPMENT_CHANGED(slot, hasItem)
+	local visibleItem;
+	if mog.mogSlots[slot] then
+		local isTransmogrified, _, _, _, _, visibleItemID = GetTransmogrifySlotInfo(slot);
+		if isTransmogrified then
+			mog:GetItemInfo(visibleItemID);
+			visibleItem = visibleItemID;
+		end
+	end
 	-- don't do anything if the slot is not visible (necklace, ring, trinket)
 	if mog.db.profile.gridDress == "equipped" then
 		for i, frame in ipairs(mog.models) do
-			local item = frame.data.item
+			local item = frame.data.item;
 			if item then
 				local slotName = mog.mogSlots[slot];
 				if hasItem then
 					if (slot ~= INVSLOT_HEAD or ShowingHelm()) and (slot ~= INVSLOT_BACK or ShowingCloak()) then
-						frame:TryOn(mog.mogSlots[slot] and select(6, GetTransmogrifySlotInfo(slot)) or GetInventoryItemID("player", slot), slotName);
+						frame:TryOn(visibleItem or GetInventoryItemID("player", slot), slotName);
 					end
 				else
 					frame:UndressSlot(slot);
@@ -299,8 +343,13 @@ end
 --// Data API
 mog.data = {};
 
-function mog:AddData(data,id,key,value)
-	if not data and id and key then return end;
+function mog:AddData(data, id, key, value)
+	if not (data and id and key) then return end;
+	
+	--if data == "item" then
+	--	id = mog:ItemToString(id);
+	--end
+	
 	if not mog.data[data] then
 		mog.data[data] = {};
 	end
@@ -311,7 +360,7 @@ function mog:AddData(data,id,key,value)
 	return value;
 end
 
-function mog:DeleteData(data,id,key)
+function mog:DeleteData(data, id, key)
 	if not mog.data[data] then return end;
 	if id and key then
 		mog.data[data][key][id] = nil;
@@ -326,8 +375,72 @@ function mog:DeleteData(data,id,key)
 	end
 end
 
-function mog:GetData(data,id,key)
+function mog:GetData(data, id, key)
 	return mog.data[data] and mog.data[data][key] and mog.data[data][key][id];
+end
+
+mog.itemStringShort = "item:%d:0";
+mog.itemStringLong = "item:%d:0:0:0:0:0:0:0:0:0:0:%d:%d";
+
+function mog:ToStringItem(id, bonus)
+	-- itemID, enchantID, instanceDifficulty, numBonusIDs, bonusID1
+	if bonus then
+		return format(mog.itemStringLong, id, bonus and 1, bonus);
+	else
+		return format(mog.itemStringShort, id);
+	end
+end
+
+local bonusDiffs = {
+	[0] = true,
+	-- MoP
+	[451] = true, -- Raid Finder
+	[449] = true, -- Heroic (Raid)
+	[450] = true, -- Mythic (Raid)
+	-- WoD
+	[518] = true, -- dungeon-level-up-1
+	[519] = true, -- dungeon-level-up-2
+	[520] = true, -- dungeon-level-up-3
+	[521] = true, -- dungeon-level-up-4
+	[522] = true, -- dungeon-normal
+	[524] = true, -- dungeon-heroic
+	[525] = true, -- trade-skill
+	[526] = true, -- trade-skill
+	[527] = true, -- trade-skill
+	[558] = true, -- trade-skill
+	[559] = true, -- trade-skill
+	[566] = true, -- raid-heroic
+	[567] = true, -- raid-mythic
+};
+
+mog.itemStringPattern = "item:(%d+):%d+:%d+:%d+:%d+:%d+:%d+:%d+:%d+:%d+:%d+:(%d+):([%d:]+)";
+
+function mog:ToNumberItem(item)
+	if type(item) == "string" then
+		local id, numBonusIDs, bonus = item:match(mog.itemStringPattern);
+		if numBonusIDs then
+			numBonusIDs = tonumber(numBonusIDs);
+			if numBonusIDs == 1 and not bonusDiffs[tonumber(bonus)] then
+				bonus = nil;
+			elseif numBonusIDs > 1 then
+				for bonusID in gmatch(bonus, "%d+") do
+					bonusID = tonumber(bonusID);
+					if bonusDiffs[bonusID] then
+						bonus = bonusID;
+						break;
+					end
+				end
+			end
+		end
+		id = id or item:match("item:(%d+)");
+		return tonumber(id), tonumber(bonus);
+	elseif type(item) == "number" then
+		return item;
+	end
+end
+
+function mog:NormaliseItemString(item)
+	return self:ToStringItem(self:ToNumberItem(item));
 end
 --//
 
