@@ -1,48 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Bindings>
-  <Binding name="NxMAPTOGORIGINAL" header="Nx">
-    Nx:NXMapKeyTogOriginal()
-  </Binding>
-  <Binding name="NxMAPTOGNORMMAX">
-    Nx:NXMapKeyTogNormalMax()
-  </Binding>
-  <Binding name="NxMAPTOGNONEMAX">
-    Nx:NXMapKeyTogNoneMax()
-  </Binding>
-  <Binding name="NxMAPTOGNONENORM">
-    Nx:NXMapKeyTogNoneNormal()
-  </Binding>
-  <Binding name="NxMAPSCALERESTORE">
-    Nx:NXMapKeyScaleRestore()
-  </Binding>
-  <Binding name="NxMAPTOGMINIFULL">
-    Nx:NXMapKeyTogMiniFull()
-  </Binding>
-  <Binding name="NxMAPTOGHERB">
-    Nx:NXMapKeyTogHerb()
-  </Binding>
-  <Binding name="NxMAPTOGMINE">
-    Nx:NXMapKeyTogMine()
-  </Binding>
-
-  <Binding name="NxTOGGLEFAV">
-    Nx:NXFavKeyToggleShow()
-  </Binding>
-  <Binding name="NxTOGGLEGUIDE">
-    Nx:NXGuideKeyToggleShow()
-  </Binding>
-  <Binding name="NxTOGGLEWAREHOUSE">
-    Nx:NXWarehouseKeyToggleShow()
-  </Binding>
-
-  <Binding name="NxTOGGLEWATCHMINI">
-    Nx.NXWatchKeyToggleMini()
-  </Binding>
-  <Binding name="NxWATCHUSEITEM">
-    Nx.NXWatchKeyUseItem()
-  </Binding>
-
-  <Binding name="NxMAPSKIPTARGET">
-    Nx.NXMapKeyTargetSkip()
-  </Binding>
+	<!-- Carbonite\NxMap.lua -->
+	<Binding name="NxMAPTOGORIGINAL" header="Carbonite" category="ADDONS">
+		Nx:NXMapKeyTogOriginal()
+	</Binding>
+	<!-- Carbonite\NxMap.lua -->
+	<Binding name="NxMAPTOGNORMMAX" category="ADDONS">
+		Nx:NXMapKeyTogNormalMax()
+	</Binding>
+	<!-- Carbonite\NxMap.lua -->
+	<Binding name="NxMAPTOGNONEMAX" category="ADDONS">
+		Nx:NXMapKeyTogNoneMax()
+	</Binding>
+	<!-- Carbonite\NxMap.lua -->
+	<Binding name="NxMAPTOGNONENORM" category="ADDONS">
+		Nx:NXMapKeyTogNoneNormal()
+	</Binding>
+	<!-- Carbonite\NxMap.lua -->
+	<Binding name="NxMAPSCALERESTORE" category="ADDONS">
+		Nx:NXMapKeyScaleRestore()
+	</Binding>
+	<!-- Carbonite\NxMap.lua -->
+	<Binding name="NxMAPTOGMINIFULL" category="ADDONS">
+		Nx:NXMapKeyTogMiniFull()
+	</Binding>
+	<!-- Carbonite\NxMap.lua -->
+	<Binding name="NxMAPTOGHERB" category="ADDONS">
+		Nx:NXMapKeyTogHerb()
+	</Binding>
+	<!-- Carbonite\NxMap.lua -->
+	<Binding name="NxMAPTOGMINE" category="ADDONS">
+		Nx:NXMapKeyTogMine()
+	</Binding>
+	<Binding name="NxMAPTOGTIMBER" category="ADDONS">
+		Nx:NXMapKeyTogTimber()
+	</Binding>
+	<!-- Carbonite\NxMapGuide.lua -->
+	<Binding name="NxTOGGLEGUIDE" category="ADDONS">
+		Nx:NXGuideKeyToggleShow()
+	</Binding>
+	<!-- Carbonite\NxMap.lua -->
+	<Binding name="NxMAPSKIPTARGET" category="ADDONS">
+		Nx.NXMapKeyTargetSkip()
+	</Binding>
 </Bindings>

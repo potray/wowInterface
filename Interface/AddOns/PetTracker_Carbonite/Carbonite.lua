@@ -1,5 +1,5 @@
 --[[
-Copyright 2014 João Cardoso
+Copyright 2015 João Cardoso
 PetTracker Carbonite is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -15,6 +15,7 @@ along with the addon. If not, see <http://www.gnu.org/licenses/gpl-3.0.txt>.
 This file is part of PetTracker Carbonite.
 --]]
 
+local ADDON = ...
 local Addon = PetTracker
 local Carbonite = Addon:NewModule('Carbonite')
 local Journal = Addon.Journal
@@ -22,11 +23,11 @@ local Journal = Addon.Journal
 function Carbonite:TrackingChanged()
 	local map = Nx.Map:GetMap(1)
 	if map and not map.petTracking then
-		local original = map.Frm:GetScript("OnUpdate")
+		local original = map.Frm:GetScript('OnUpdate')
 
 		map.petTracking = true
-		map.Frm:SetScript("OnUpdate", function(f, ...)
-			self:DrawMap(map.Scale > 1 and Nx.IdToAId[map.MapId])
+		map.Frm:SetScript('OnUpdate', function(f, ...)
+			self:DrawMap(map.Scale > 1 and Nx.Map:GetCurrentMapId())
 			original(f, ...)
 		end)
 	end
@@ -39,6 +40,7 @@ end
 function Carbonite:DrawMap(zone)
 	if self.zone ~= zone then
 		local species = Journal:GetSpeciesIn(zone)
+		local i = 0
 
 		for specie, floors in pairs(species) do
 			for level, spots in pairs(floors) do
@@ -54,7 +56,8 @@ function Carbonite:DrawMap(zone)
 					local x = tonumber(x, 36) / 10
 					local y = tonumber(y, 36) / 10
 
-					Nx.MapAddIcon(Addon, zone, x, y, tooltip, icon, 0.79687500, 0.49218750, 0.50390625, 0.65625000)
+					Nx.MapAddIcon(ADDON .. tostring(i), zone, x, y, nil, tooltip, icon, 0.79687500, 0.49218750, 0.50390625, 0.65625000)
+					i = i + 1
 				end
 			end
 		end

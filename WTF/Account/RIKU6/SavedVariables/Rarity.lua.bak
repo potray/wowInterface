@@ -1,0 +1,74 @@
+
+RarityDB = {
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["groups"] = {
+				["pets"] = {
+					["Spiky Collar"] = {
+						["enabled"] = false,
+						["found"] = true,
+					},
+					["Instant Arcane Sanctum Security Kit"] = {
+						["enabled"] = false,
+						["found"] = true,
+					},
+					["Shell of Tide-Calling"] = {
+						["enabled"] = false,
+						["found"] = true,
+					},
+					["collapsedGroup"] = true,
+					["collapsed"] = true,
+					["Lil' Bling"] = {
+						["enabled"] = false,
+						["found"] = true,
+					},
+					["Netherspace Portal-Stone"] = {
+						["enabled"] = false,
+						["found"] = true,
+					},
+				},
+				["mounts"] = {
+					["Swift White Hawkstrider"] = {
+						["known"] = true,
+						["found"] = true,
+						["enabled"] = false,
+					},
+					["Great Brewfest Kodo"] = {
+						["enabled"] = false,
+						["known"] = true,
+						["found"] = true,
+					},
+					["collapsedGroup"] = true,
+					["collapsed"] = true,
+					["Red Qiraji Resonating Crystal"] = {
+						["enabled"] = false,
+						["known"] = true,
+						["found"] = true,
+					},
+				},
+				["items"] = {
+					["Crashin' Thrashin' Racer Controller"] = {
+						["known"] = true,
+						["found"] = true,
+						["enabled"] = false,
+					},
+					["Old Crafty"] = {
+						["found"] = true,
+						["enabled"] = false,
+					},
+					["collapsed"] = true,
+				},
+			},
+			["lastRevision"] = 410,
+			["bar"] = {
+				["point"] = "TOPRIGHT",
+				["x"] = 0,
+				["relativePoint"] = "TOPRIGHT",
+				["y"] = -81.9999618530274,
+			},
+		},
+	},
+}

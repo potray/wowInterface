@@ -1,5 +1,5 @@
 --[[
-Copyright 2012-2014 João Cardoso
+Copyright 2012-2015 João Cardoso
 PetTracker is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -23,15 +23,18 @@ local L = Addon.Locals
 
 --[[ Startup ]]--
 
+function Journal:OnShow()
+	CollectionsJournalTitleText:SetText(L.Rivals)
+	SetPortraitToTexture(CollectionsJournalPortrait, 'Interface/Icons/PetJournalPortrait')
+	self:Startup()
+end
+
 function Journal:Startup()
 	HybridScrollFrame_CreateButtons(self.List, 'PetTrackerTamerEntry', 44, 0)
-	hooksecurefunc('PetJournalParent_UpdateSelectedTab', function(...)
-		Tabs:Update(...)
-	end)
 
 	self.Startup = function() end
-	self:SetScript('OnShow', nil)
 	self.List.scrollBar.doNotHide = true
+	self.Count.Label:SetText(L.TotalTamers)
 	self.Count.Number:SetText(#Addon.TamerOrder)
 	self.SearchBox:SetText(Addon.Sets.TamerSearch or '')
 	self.SearchBox:SetScript('OnTextChanged', self.Search)
@@ -61,6 +64,7 @@ function Journal:Startup()
 	self.Map:SetScrollChild(map)
 	self.Slots = Addon.JournalSlot:CreateLine('TOP', self.Team, 0, 104)
 	self.Team.Border.Text:SetText(L.EnemyTeam)
+	self.History.LoadButton:SetText(L.LoadTeam)
 	self.History.Empty:SetText(L.NoHistory)
 
 	for i = 1, 4 do
@@ -174,7 +178,7 @@ function Journal:Update()
 	end
 
 	if self.Map:IsShown() then
-		SetMapByID(tamer.zone)
+		SetMapByID(tamer:GetZone())
 		self.Map:GetScrollChild():UpdateTiles()
 		self.Spot:Show()
 
@@ -231,16 +235,16 @@ end
 
 function Journal.History:Display(tamer)
 	local entries = Addon.Sets.TamerHistory[tamer.id] or {}
-	for i, data in pairs(entries) do
+	self.Empty:SetShown(#entries == 0)
+	self:SetSelected(nil)
+
+	for i, data in ipairs(entries) do
 		self[i]:Display(data)
 	end
 
 	for i = #entries+1, 9 do
 		self[i]:Hide()
 	end
-
-	self.Empty:SetShown(#entries == 0)
-	self:SetSelected(nil)
 end
 
 function Journal.History:SetSelected(selected)
@@ -272,9 +276,9 @@ end
 --[[ Start this Baby ]]--
 
 local function Startup()
-	Tabs:Startup(PetJournalParent, MountJournal, PetJournal, ToyBox)
-	Tabs:Add(PetJournalParent, Journal, L.Rivals)
-	Journal:SetScript('OnShow', Journal.Startup)
+	Tabs:Startup(CollectionsJournal, MountJournal, PetJournal, ToyBox, HeirloomsJournal)
+	Journal.Tab = Tabs:Add(CollectionsJournal, Journal, L.Rivals, PetJournal)
+	Journal:SetScript('OnShow', Journal.OnShow)
 end
 
 if not UnitAffectingCombat('player') then

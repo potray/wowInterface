@@ -7,11 +7,9 @@ local garrisonDb, globalDb, configDb
 
 local _G = getfenv(0)
 
-local pairs, time, C_Garrison, GetCurrencyInfo = _G.pairs, _G.time, _G.C_Garrison, _G.GetCurrencyInfo
-
+local pairs, time, C_Garrison, GetCurrencyInfo, tostring, math, C_Vignettes, InCombatLockdown = _G.pairs, _G.time, _G.C_Garrison, _G.GetCurrencyInfo, _G.tostring, _G.math, _G.C_Vignettes, _G.InCombatLockdown 
 
 Garrison.shipmentUpdate = {}
-
 
 function Garrison:GARRISON_MISSION_COMPLETE_RESPONSE(event, missionID, canComplete, succeeded)
 	if (globalDb.data[charInfo.realmName][charInfo.playerName].missions[missionID]) then
@@ -46,6 +44,7 @@ function Garrison:GARRISON_MISSION_STARTED(event, missionID, start)
 				level = garrisonMission.level,
 				followers = {},
 				rewards = garrisonMission.rewards,
+				followerTypeID = garrisonMission.followerTypeID
 			}
 			
 			debugPrint("Added Mission: "..missionID)
@@ -296,8 +295,13 @@ function Garrison:UpdateShipment(buildingID, shipmentData)
 				tmpShipment.notificationDismissed = shipmentData.notificationDismissed or false
 				tmpShipment.notification = shipmentData.notification
 
+				-- remember total shipments
+				if tmpShipment.shipmentsTotal == nil then
+					tmpShipment.shipmentsTotal = shipmentData.shipmentsTotal
+				end
+
 				if tmpShipment.name and tmpShipment.notificationValue then
-					debugPrint(("Update Shipment (%s) - NotificationValue=%s"):format(tmpShipment.name, tmpShipment.notificationValue))
+					debugPrint(("Update Shipment (%s, %s) - NotificationValue=%s, ShipmentsTotal=%s (%s)"):format(tmpShipment.name, tostring(buildingID), tmpShipment.notificationValue, tostring(tmpShipment.shipmentsTotal), tostring(shipmentData.shipmentsTotal)))
 				end
 			end
 		end
@@ -356,12 +360,16 @@ function Garrison:FullUpdateBuilding(updateType)
 			tmpBuildings[plotID] = Garrison:UpdateBuilding(plotID)
 		end
 		if updateType == Garrison.TYPE_SHIPMENT then
-			local buildingData = globalDb.data[charInfo.realmName][charInfo.playerName].buildings[plotID]			
+			local buildingData = globalDb.data[charInfo.realmName][charInfo.playerName].buildings[plotID]
 
 			if not buildingData then
 				debugPrint("UpdateShipment: Unknown Building: "..buildingID)
 			else
+				--debugPrint(("#1UpdateShipment (%s) NotificationValue: %s (Total: %s)"):format(tostring(buildingData.shipment.name), tostring(buildingData.shipment.notificationValue), tostring(buildingData.shipment.shipmentsTotal)))
+
 				local tmpShipment = Garrison:UpdateShipment(buildingID, buildingData.shipment)
+
+				--debugPrint(("#2UpdateShipment (%s) NotificationValue: %s (Total: %s)"):format(tostring(tmpShipment.name), tostring(tmpShipment.notificationValue), tostring(tmpShipment.shipmentsTotal)))
 
 				globalDb.data[charInfo.realmName][charInfo.playerName].buildings[plotID].shipment = tmpShipment
 			end
@@ -466,16 +474,27 @@ function Garrison:VignetteEvent(event, ...)
 end
 
 function Garrison:LootToastEvent(event, ...)
-	local typeIdentifier, itemLink, quantity = ...
-	if Garrison:IsNearCache() then
-		debugPrint(("Looted %s (amount: %s) of %s"):format(tostring(typeIdentifier), tostring(quantity), tostring(itemLink)))
-		if typeIdentifier == "currency" and itemLink then
-			local currencyType = string.match(itemLink, "currency:([%-?%d:]+)")
+	--local typeIdentifier, itemLink, quantity = ...
+	local typeIdentifier, itemLink, quantity, specID, sex, isPersonal, lootSource = ...;
 
-			if currencyType ~= nil and currencyType == tostring(Garrison.GARRISON_CURRENCY) then
-				globalDb.data[charInfo.realmName][charInfo.playerName].garrisonCacheLastLooted = time()
-			end
-		end
+	if lootSource == Garrison.LOOT_SOURCE_GARRISON_CACHE then --
+	--if Garrison:IsNearCache() then
+		debugPrint(("Looted %s (amount: %s) of %s"):format(tostring(typeIdentifier), tostring(quantity), tostring(itemLink)))
+		--if typeIdentifier == "currency" and itemLink then
+		--	local currencyType = string.match(itemLink, "currency:([%-?%d:]+)")
+
+		--	if currencyType ~= nil and currencyType == tostring(Garrison.GARRISON_CURRENCY) then
+		globalDb.data[charInfo.realmName][charInfo.playerName].garrisonCacheLastLooted = time()
+		
+		--	end
+		--end
+	end
+end
+
+function Garrison:SetCacheSize(size) 
+	local currentSize = globalDb.data[charInfo.realmName][charInfo.playerName].cacheSize
+	if(currentSize ~= nil and size ~= nil and currentSize < size) then
+		globalDb.data[charInfo.realmName][charInfo.playerName].cacheSize = size
 	end
 end
 
@@ -484,29 +503,50 @@ function Garrison:CheckInvasionAvailable()
 		globalDb.data[charInfo.realmName][charInfo.playerName].invasion = { available = false }
 	end
 
-	globalDb.data[charInfo.realmName][charInfo.playerName].invasion.available = C_Garrison.IsInvasionAvailable()	
+	globalDb.data[charInfo.realmName][charInfo.playerName].invasion.available = C_Garrison.IsInvasionAvailable() and not _G.IsQuestFlaggedCompleted(37640) -- Available and not completed gold invasion quest
 end
+
+function Garrison:CheckNumBonusRollQuests() 
+	local count = 0
+	for _, value in ipairs(Garrison.bonusRollItemQuestId) do
+  		if (_G.IsQuestFlaggedCompleted(value)) then
+    		count = count + 1
+    	end
+  	end
+
+  	if not globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly then
+		globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly = {}
+	end
+
+	globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly["BONUS_ROLL_QUESTS"] = count
+
+  	return count;
+end
+
 
 
 function Garrison:CheckBuildingInfo()
 	if Garrison.buildingInfo then
 		for buildingName, buildingInfo in pairs(Garrison.buildingInfo) do
 
-			if buildingInfo.trackCustomId and buildingInfo.trackCustom ~= nil then
-				local result = buildingInfo.trackCustom()
-				debugPrint(("BuildingInfo (%s): %s"):format(buildingName, tostring(result)))
+			for indicatorIndex, indicatorData in pairs(buildingInfo.indicator) do
 
-				if buildingInfo.weekly then
-					if not globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly then
-						globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly = {}
-					end
-					globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly[buildingInfo.trackCustomId] = result
-				elseif buildingInfo.daily then
-					if not globalDb.data[charInfo.realmName][charInfo.playerName].trackDaily then
-						globalDb.data[charInfo.realmName][charInfo.playerName].trackDaily = {}
-					end					
-					globalDb.data[charInfo.realmName][charInfo.playerName].trackDaily[buildingInfo.trackCustomId] = result					
-				end				
+				if indicatorData.trackCustomId and indicatorData.trackCustom ~= nil then
+					local result = indicatorData.trackCustom()
+					debugPrint(("BuildingInfo (%s): %s"):format(buildingName, tostring(result)))
+
+					if indicatorData.weekly then
+						if not globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly then
+							globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly = {}
+						end
+						globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly[indicatorData.trackCustomId] = result
+					elseif indicatorData.daily then
+						if not globalDb.data[charInfo.realmName][charInfo.playerName].trackDaily then
+							globalDb.data[charInfo.realmName][charInfo.playerName].trackDaily = {}
+						end					
+						globalDb.data[charInfo.realmName][charInfo.playerName].trackDaily[indicatorData.trackCustomId] = result					
+					end				
+				end
 			end
 		end
 	end
@@ -621,35 +661,62 @@ function Garrison:ChatLootEvent(event, ...)
 	end
 end
 
-function Garrison:GetLootInfoForBuilding(playerData, buildingData)
+
+function Garrison:GetLootInfoForPlayer(playerData) 
+	
+	local retValue = ""
+
+	for buildingName, buildingData in pairs(playerData.buildings) do
+		retValue = retValue..Garrison:GetLootInfoForBuilding(playerData, buildingData, true)
+	end
+
+	return retValue
+end
+
+function Garrison:GetLootInfoForBuilding(playerData, buildingData, collapsedView)
 	local retValue = ""
 	
 	for buildingName, buildingInfo in pairs(Garrison.buildingInfo) do
 		if buildingInfo.level then
 			local buildingLevel = buildingInfo.level[buildingData.id]
-			if buildingLevel and buildingInfo.trackLootItemId ~= nil and playerData.lootedToday then 
-			local lootedToday = playerData.lootedToday[buildingInfo.trackLootItemId] or 0
-				if buildingInfo.minLooted and lootedToday > buildingInfo.minLooted then
-					retValue = " "..Garrison.ICON_CHECK
-				else
-					retValue = " "..Garrison.ICON_CHECK_WAITING
-				end
-			end
 
 			if not playerData.trackWeekly then
 				playerData.trackWeekly = {}
-			end
+			end	
+			if not playerData.trackDaily then
+				playerData.trackDaily = {}
+			end				
 
-			if buildingLevel and buildingInfo.trackCustomId ~= nil and playerData.trackWeekly then
-				if buildingInfo.minLevel and ((buildingLevel > buildingInfo.minLevel)
-					or (not (buildingData.isBuilding or buildingData.canActivate) and buildingLevel == buildingInfo.minLevel))
-				then					
-					local complete = playerData.trackWeekly[buildingInfo.trackCustomId]
+			for indicatorIndex, indicatorData in pairs(buildingInfo.indicator) do
 
-					if complete then							
-						retValue = " "..Garrison.ICON_CHECK
-					else
-						retValue = " "..Garrison.ICON_CHECK_WAITING
+				if not collapsedView or indicatorData.showCollapsed then
+
+					if buildingLevel and indicatorData.trackLootItemId ~= nil and playerData.lootedToday then 
+					local lootedToday = playerData.lootedToday[indicatorData.trackLootItemId] or 0
+						if indicatorData.minLooted and lootedToday > indicatorData.minLooted then
+							retValue = retValue.." "..Garrison.ICON_CHECK
+						else
+							retValue = retValue.." "..Garrison.ICON_CHECK_WAITING
+						end
+					end
+
+					if buildingLevel and indicatorData.trackCustomId ~= nil and playerData.trackWeekly and playerData.trackDaily then
+						if indicatorData.minLevel and ((buildingLevel > indicatorData.minLevel)
+							or (not (buildingData.isBuilding or buildingData.canActivate) and buildingLevel == indicatorData.minLevel))
+						then					
+							local complete
+							if indicatorData.weekly then
+							 	complete = playerData.trackWeekly[indicatorData.trackCustomId]
+							elseif indicatorData.daily then
+								complete = playerData.trackDaily[indicatorData.trackCustomId]
+							end
+
+							if complete then							
+								retValue = retValue.." "..(indicatorData.customIcon and indicatorData.icon.T or Garrison.ICON_CHECK)
+							else
+								retValue = retValue.." "..(indicatorData.customIcon and indicatorData.icon.F or Garrison.ICON_CHECK_WAITING)
+							end
+						end
 					end
 				end
 			end
@@ -673,54 +740,68 @@ end
 function Garrison:UpdateCurrency()
 	local _, amount, _ = GetCurrencyInfo(Garrison.GARRISON_CURRENCY)
 	local _, amountApexis, _ = GetCurrencyInfo(Garrison.GARRISON_CURRENCY_APEXIS)
-	local _, amountSealOfTemperedFateAmount, _ = GetCurrencyInfo(Garrison.GARRISON_CURRENTY_SEAL_OF_TEMPERED_FATE)
-
+	local _, amountSealOfTemperedFate, _ = GetCurrencyInfo(Garrison.GARRISON_CURRENTY_SEAL_OF_TEMPERED_FATE)
+	local _, amountOil, _ = GetCurrencyInfo(Garrison.GARRISON_CURRENTY_OIL)
+	local _, amountSealOfInevitableFate, _ = GetCurrencyInfo(Garrison.GARRISON_CURRENTY_SEAL_OF_INEVITABLE_FATE)
 	
-
 	
 	globalDb.data[charInfo.realmName][charInfo.playerName].currencyAmount = amount
 	globalDb.data[charInfo.realmName][charInfo.playerName].currencyApexisAmount = amountApexis
-	globalDb.data[charInfo.realmName][charInfo.playerName].currencySealOfTemperedFateAmount = amountSealOfTemperedFateAmount
+	globalDb.data[charInfo.realmName][charInfo.playerName].currencySealOfTemperedFateAmount = amountSealOfTemperedFate
+	globalDb.data[charInfo.realmName][charInfo.playerName].currencySealOfInevitableFateAmount = amountSealOfInevitableFate
+	globalDb.data[charInfo.realmName][charInfo.playerName].currencyOil = amountOil
+	
 
 	Garrison:Update()
+
+	Garrison:CheckNumBonusRollQuests()
 end
 
 function Garrison:QuickUpdate()
-	Garrison:QuestHandling()
+	if configDb.general.updateInCombat or not InCombatLockdown() then
+		Garrison:QuestHandling()
 
-	if not configDb.general.highAccuracy then
-		if configDb.general.showSeconds then
-			Garrison:UpdateLDB()
+		if not configDb.general.highAccuracy then
+			if configDb.general.showSeconds then
+				Garrison:UpdateLDB()
+			end
 		end
-	end
-	
-	if Garrison.location.inGarrison then
-		-- in garrison - full update (quick)
-		Garrison:Update()
+		
+		if Garrison.location.inGarrison then
+			-- in garrison - full update (quick)
+			Garrison:Update()
+		end
 	end
 end
 
 function Garrison:LDBUpdate()
-	Garrison:HandleNotificationQueue()
+	if configDb.general.updateInCombat or not InCombatLockdown() then
+
+		Garrison:HandleNotificationQueue()
 	
-	if configDb.general.highAccuracy then		
-		Garrison:UpdateLDB()
+		if configDb.general.highAccuracy then		
+			Garrison:UpdateLDB()
+		end
 	end
 end
 
 function Garrison:SlowUpdate()
-	if not configDb.general.highAccuracy then
-		if not configDb.general.showSeconds then
-			Garrison:UpdateLDB()
+	if configDb.general.updateInCombat or not InCombatLockdown() then
+
+		if not configDb.general.highAccuracy then
+			if not configDb.general.showSeconds then
+				Garrison:UpdateLDB()
+			end
+		end	
+
+		Garrison:CheckInvasionAvailable()
+		Garrison:CheckBuildingInfo()
+		Garrison:CheckNumBonusRollQuests()
+
+		if not Garrison.location.inGarrison then
+			-- not in garrison - full update (slow)
+			Garrison:Update()
 		end
-	end	
-
-	Garrison:CheckInvasionAvailable()
-	Garrison:CheckBuildingInfo()
-
-	if not Garrison.location.inGarrison then
-		-- not in garrison - full update (slow)
-		Garrison:Update()
 	end
 end
 
@@ -780,7 +861,7 @@ function Garrison:RecruitFollower(...)
 	local tmp = ...
 	debugPrint("RecruitFollower"..tostring(tmp))
 
-	globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly["INN"] = true
+	globalDb.data[charInfo.realmName][charInfo.playerName].trackWeekly["INN_FOLLOWER"] = true
 end
 
 --function Garrison:GarrisonCapacitiveDisplayFrame_Update()

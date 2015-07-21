@@ -1,7 +1,7 @@
 --[[
 	Auctioneer Advanced
-	Version: 5.21c.5521 (SanctimoniousSwamprat)
-	Revision: $Id: CoreAPI.lua 5517 2014-11-06 11:11:42Z brykrys $
+	Version: 5.21e.5566 (SanctimoniousSwamprat)
+	Revision: $Id: CoreAPI.lua 5562 2015-06-25 19:07:43Z brykrys $
 	URL: http://auctioneeraddon.com/
 
 	This is an addon for World of Warcraft that adds statistical history to the auction data that is collected
@@ -45,6 +45,7 @@ local libinternal = internal.API
 
 lib.Print = AucAdvanced.Print
 local Const = AucAdvanced.Const
+local Data = AucAdvanced.Data
 local GetFaction = AucAdvanced.GetFaction
 local GetSetting = AucAdvanced.Settings.GetSetting
 local SanitizeLink = AucAdvanced.SanitizeLink
@@ -59,6 +60,7 @@ local tostring,tonumber,strjoin,strsplit,format = tostring,tonumber,strjoin,strs
 local GetItemInfo = GetItemInfo
 local time = time
 local bitand = bit.band
+local tconcat=table.concat
 -- GLOBALS: nLog, N_NOTICE, N_WARNING, N_ERROR
 
 
@@ -76,6 +78,10 @@ function coremodule.Processors.newmodule()
 	private.ClearEngineCache()
 	lib.ClearMarketCache()
 	private.ResetMatchers()
+end
+
+function coremodule.Processors.gameactive()
+	if private.InitBonusIDHandlers then private.InitBonusIDHandlers() end
 end
 
 do
@@ -712,7 +718,7 @@ local function RebuildMatcherListLookup()
 			end
 			if insert then
 				AucAdvanced.Print("Auctioneer: New matcher found: "..name)
-				tinsert(matcherCurList, 1, name)
+				tinsert(matcherCurList, name)
 			end
 		else
 			debugPrint("Auctioneer engine '"..name.."' does not have a GetMatchArray() function.", "CoreAPI", "Missing GetMatchArray", "Warning")
@@ -914,21 +920,27 @@ end
 
 -- Creates an AucAdvanced signature from an item or battlepet link
 function lib.GetSigFromLink(link)
+	local sig, bonus
 	local ptype = type(link)
 	if ptype == "number" then
 		return ("%d"):format(link), "item"
 	elseif ptype ~= "string" then
 		return
 	end
-	local header,s1,s2,s3,s4,s5,s6,s7,s8 = strsplit(":", link)
+	local header,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13 = strsplit(":", link, 14)
 	if not s1 then
 		return
 	end
 	local lType = header:sub(-4)
 	if lType == "item" then
-		-- itemId = s1, enchant = s2, gems s3,s4,s5,s6 (not used), suffix = s7
-		local sig
-		if s7 and s7 ~= "0" then -- suffix
+		-- sig format: itemID:suffix:factor:enchant:bonus1:...:bonusX {any trailing ":0" are ommitted}
+		-- s1 = itemID, s2 = enchant, s3,s4,s5,s6 = gems, s7 = suffix, s8 = uniqueID(factor), s9 = level, s10 = specID, s11 = upgrades, s12 = instance, s13 = bonuses
+		-- some entries are not used: gems, level, upgrades, instance
+		-- for compatibility with old or partial links, test for nils
+		if s13 and s13:byte(1) ~= 48 then -- bonus counter is not '0'
+			bonus = s13:match("%d+:([^|]+)")
+		end
+		if s8 and s7 ~= "0" then -- suffix
 			local factor = "0"
 			if s7:byte(1) == 45 then -- look for '-' to see if it is a negative number
 				local nseed = tonumber(s8) -- seed
@@ -936,7 +948,9 @@ function lib.GetSigFromLink(link)
 					factor = ("%d"):format(bitand(nseed, 65535)) -- here format is faster than tostring
 				end
 			end
-			if s2 and s2 ~= "0" then -- enchant
+			if bonus then
+				sig = s1..":"..s7..":"..factor..":"..s2..":"..bonus
+			elseif s2 ~= "0" then -- enchant
 				-- concat is slightly faster than using strjoin with this many parameters, and far faster than format
 				sig = s1..":"..s7..":"..factor..":"..s2
 			elseif factor ~= "0" then
@@ -945,7 +959,9 @@ function lib.GetSigFromLink(link)
 				sig = s1..":"..s7
 			end
 		else
-			if s2 and s2 ~= "0" then
+			if bonus then -- (if bonus then s13 exists, therefore s2 must exist)
+				sig = s1..":0:0:"..s2..":"..bonus
+			elseif s2 and s2 ~= "0" then
 				sig = s1..":0:0:"..s2
 			else
 				sig = s1
@@ -953,7 +969,8 @@ function lib.GetSigFromLink(link)
 		end
 		return sig, "item"
 	elseif lType == "epet" then -- last 4 characters of battlepet
-		-- speciesID = s1, level = s2, breedQuality = s3, maxHealth = s4, power = s5, speed = s6
+		-- sig format: "P":speciesID:level:quality:health:power:speed
+		-- s1 = speciesID, s2 = level, s3 = quality, s4 = health, s5 = power, s6 = speed
 		-- if any are missing then the link is broken - check that the last one exists
 		-- all should always be non-zero, so just rebuild with the battlepet sig "P" marker
 		if s7 then -- although s7 is not used, it should exist (contains battlepetID and tail)
@@ -966,13 +983,12 @@ end
 -- Creates an item or battlepet link from an AucAdvanced signature
 -- Due to the lossy nature of sigs, the link created will not be exactly the same as the link originally used to generate the sig
 function lib.GetLinkFromSig(sig)
-	local s1, s2, s3, s4, s5, s6, s7 = strsplit(":", sig)
-	if s1 == "P" then -- battlepet link
-		-- speciesID = s2, level = s3, breedQuality = s4, maxHealth = s5, power = s6, speed = s7
-		if not s7 then return end -- incomplete link
-		local speciesID = tonumber(s2)
+	if sig:byte(1) == 80 then -- "P" is battlepet tag
+		local _, speciesID, level, quality, health, power, speed = strsplit(":", sig)
+		if not speed then return end -- incomplete link
+		local speciesID = tonumber(speciesID)
 		if not speciesID then return end
-		local qual = tonumber(s4)
+		local qual = tonumber(quality)
 		local qual_col
 		if qual == -1 then
 			qual_col = NORMAL_FONT_COLOR_CODE
@@ -982,11 +998,16 @@ function lib.GetLinkFromSig(sig)
 		if not qual_col then return end
 		local name = C_PetJournal.GetPetInfoBySpeciesID(speciesID)
 		if not name then return end
-		local petlink = format("%s|Hbattlepet:%s:%s:%s:%s:%s:%s:0|h[%s]|h|r", qual_col.hex, s2, s3, s4, s5, s6, s7, name)
+		local petlink = format("%s|Hbattlepet:%s:%s:%s:%s:%s:%s:0|h[%s]|h|r", qual_col.hex, speciesID, level, quality, health, power, speed, name)
 		return petlink, name, "battlepet"
 	else
-		-- id = s1, suffix = s2, factor = s3, enchant = s4
-		local itemstring = format("item:%s:%s:0:0:0:0:%s:%s:80:0", s1, s4 or "0", s2 or "0", s3 or "0")
+		local itemID, suffix, factor, enchant, tail = strsplit(":", sig, 5)
+		local bonus = "0"
+		if tail then -- sig includes bonus info, reconstruct the counter
+			local _, count = tail:gsub(":", ":")
+			bonus = (count + 1) .. ":" .. tail
+		end
+		local itemstring = format("item:%s:%s:0:0:0:0:%s:%s:80:0:0:0:%s", itemID, enchant or "0", suffix or "0", factor or "0", bonus)
 		local name, link = GetItemInfo(itemstring)
 		if link then
 			return SanitizeLink(link), name, "item" -- name is ignored by most calls
@@ -1000,26 +1021,29 @@ end
 -- Subsequent return values have different meanings depending on the linkType
 function lib.DecodeSig(sig)
 	if type(sig) ~= "string" then return end
-
-	local s1,s2,s3,s4,s5,s6,s7 = strsplit(":", sig)
-	if s1 == "P" then
-		-- battlepet sig
-		s2 = tonumber(s2) -- speciesID
-		if not s2 or s2 == 0 then return end
-		s3 = tonumber(s3) or 0 -- level : 0 signifies unknown level
-		s4 = tonumber(s4) or -1 -- quality : -1 signifies unknown quality
-		s5 = tonumber(s5) or 0 -- health
-		s6 = tonumber(s6) or 0 -- power
-		s7 = tonumber(s7) or 0 -- speed
-		return "battlepet", s2,s3,s4,s5,s6,s7
+	if sig:byte(1) == 80 then -- "P" is battlepet tag
+		local _, speciesID, level, quality, health, power, speed = strsplit(":", sig)
+		speciesID = tonumber(speciesID)
+		if not speciesID or speciesID == 0 then return end
+		level = tonumber(level) or 0 -- 0 signifies unknown level
+		quality = tonumber(quality) or -1 -- -1 signifies unknown quality
+		health = tonumber(health) or 0
+		power = tonumber(power) or 0
+		speed = tonumber(speed) or 0
+		return "battlepet", speciesID, level, quality, health, power, speed
 	else
 		-- should be an item sig
-		s1 = tonumber(s1) -- itemId
-		if not s1 or s1 == 0 then return end
-		s2 = tonumber(s2) or 0 -- suffix
-		s3 = tonumber(s3) or 0 -- factor
-		s4 = tonumber(s4) or 0 -- enchant
-		return "item", s1,s2,s3,s4
+		local itemID, suffix, factor, enchant, bonus = strsplit(":", sig, 5)
+		itemID = tonumber(itemID)
+		if not itemID or itemID == 0 then return end
+		suffix = tonumber(suffix) or 0
+		factor = tonumber(factor) or 0
+		enchant = tonumber(enchant) or 0
+		-- bonus may be a string or nil
+
+		-- linkType,itemId, suffix,factor,enchant,seed, gem1,gem2,gem3,gemBonus, bonuses(string)
+		-- (to match return values we need to pad with 0s, we can fake 'seed' with factor)
+		return "item",itemID, suffix,factor,enchant,factor, 0,0,0,0, bonus
 	end
 end
 
@@ -1086,41 +1110,304 @@ function lib.GetStoreKeyFromSig(sig, petBand)
 	end
 end
 
--- Store key style 'B'
--- returns id, property, linktype (all strings)
--- items:
---    id will be a string containing a plain number
---    property will be a string containing a number, which may be either "0" or a negative number
---    *Note* positive suffixes are considered invalid; if one is detected the function will return nil
--- battlepets:
---    id will be a string of format "P"..number
---    property will be a string of format number.."p"..number
---    if petBand is a number it will be used to compress the petLevel such that pets of a similar level get the same key
---    if petBand is nil, function will return nil for all battlepets
-function lib.GetStoreKeyFromLinkB(link, petBand)
-	local header,s1,s2,s3,s4,s5,s6,s7 = strsplit(":", link)
-	local lType = header:sub(-4)
-	if lType == "item" then
-		if s7 and s7 ~= "0" then -- s7 = suffix
-			if s7:byte(1) == 45 then -- look for '-' to see if it is a negative number
-				return s1, s7, "item" -- "itemId", "suffix", linktype
+do -- Store key style 'B'
+	-- returns id, property, linktype (all strings)
+	-- items:
+	--    id will be a string containing a plain number
+	--    property will be a string, which may be "0", a negative suffix, or a set of bonusIDs (separated by ':' if more than one)
+	--    *Note* old-style positive suffixes are considered invalid links, and will cause a nil return. However, suffixes from bonusIDs are positive
+	-- battlepets:
+	--    id will be a string of format "P"..number
+	--    property will be a string of format number.."p"..number
+	--    if petBand is a number it will be used to compress the petLevel such that pets of a similar level get the same key
+	--    if petBand is nil, function will return nil for all battlepets
+	local lastLink, lastPetband, lastID, lastProperty, lastLinktype
+	function lib.GetStoreKeyFromLinkB(link, petBand)
+		-- check if link is in last call cache
+		if link == lastLink then
+			if lastLinktype == "item" then
+				return lastID, lastProperty, lastLinktype
+			elseif lastLinktype == "battlepet" then
+				-- only check petBand for battlepets (actually unlikely to match as most Stat modules use different petBands)
+				if petBand == lastPetband then
+					return lastID, lastProperty, lastLinktype
+				end
 			end
-		elseif s1 then
-			return s1, "0", "item" -- "itemId", "suffix", linktype
 		end
-	elseif lType == "epet" then -- last 4 characters of "battlepet"
-		-- check that caller wants pet keys
-		-- also check valid quality (-1 represents 'unknown' and so is not valid for store key)
-		if petBand and s3 and s3 ~= "-1" then
-			local level = tonumber(s2) -- level
-			if not level or level < 1 then return end
-			if petBand > 1 then
-				level = ceil(level / petBand)
+		-- otherwise analyze link
+		local header,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13 = strsplit(":", link, 14)
+		if not s1 then return end
+		local lType = header:sub(-4)
+		if lType == "item" then
+			if s7 and s7 ~= "0" then -- s7 = suffix
+				if s7:byte(1) == 45 then -- look for '-' to see if it is a negative number
+					lastLink, lastID, lastProperty, lastLinktype = link, s1, s7, "item" -- link, itemId, suffix, linktype
+					return lastID, lastProperty, lastLinktype
+				end
+				-- if suffix is not 0 and not negative, then link is corrupt - will return nil
+			else
+				if s13 and s13:byte(1) ~= 48 then -- bonus counter is not '0'
+					local bonuses = s13:match("%d+:([^|]+)") -- extract just the bonusIDs
+					if bonuses then
+						local property = lib.GetBonusIDPropertyB(bonuses)
+						if property then
+							lastLink, lastID, lastProperty, lastLinktype = link, s1, property, "item" -- link, itemID, bonusIDproperty, linktype
+							return lastID, lastProperty, lastLinktype
+						end
+					end
+				end
+				lastLink, lastID, lastProperty, lastLinktype = link, s1, "0", "item" -- itemID, 'suffix', linktype
+				return lastID, lastProperty, lastLinktype
 			end
-			return "P"..s1, format("%d", level).."p"..s3, "battlepet" -- "P..speciesID", "compressedLevel..p..quality", linktype
+		elseif lType == "epet" then -- last 4 characters of "battlepet"
+			-- check that caller wants pet keys
+			-- also check valid quality (-1 represents 'unknown' and so is not valid for store key)
+			if petBand and s3 and s3 ~= "-1" then
+				local level = tonumber(s2) -- level
+				if not level or level < 1 then return end
+				if petBand > 1 then
+					level = ceil(level / petBand)
+				end
+				-- link, petBand, "P"..speciesID, compressedLevel.."p"..quality, linktype (lastPetband is only recorded for battlepets, as it's ignored by other type(s))
+				lastLink, lastPetband, lastID, lastProperty, lastLinktype = link, petBand, "P"..s1, format("%d", level).."p"..s3, "battlepet"
+				return lastID, lastProperty, lastLinktype
+			end
 		end
 	end
 end
+
+do -- Auctioneer bonusID handling functions
+	local LookupSuffix, LookupStat, LookupTier, LookupStage = {}, {}, {}, {}
+	local LookupWarforged, LookupSocket, LookupTertiary = {}, {}, {}
+	local LookupTierB = {} -- used by GetBonusIDPropertyB
+
+	function private.InitBonusIDHandlers()
+		private.InitBonusIDHandlers = nil
+		-- Build Lookups
+		for _, x in ipairs(Data.BonusSingleSuffixList) do
+			local y = tostring(x)
+			LookupSuffix[y] = y
+		end
+		for _, x in ipairs(Data.BonusPrimaryStatList) do
+			local y = tostring(x)
+			LookupStat[y] = y
+		end
+		for _, x in ipairs(Data.BonusWarforgedList) do
+			local y = tostring(x)
+			LookupWarforged[y] = y
+		end
+		for _, x in ipairs(Data.BonusSocketedList) do
+			local y = tostring(x)
+			LookupSocket[y] = y
+		end
+		for _, x in ipairs(Data.BonusTertiaryStatList) do
+			local y = tostring(x)
+			LookupTertiary[y] = y
+		end
+
+		for _, x in ipairs(Data.BonusTierList) do
+			local y = tostring(x)
+			LookupTier[y] = y
+			LookupTierB[y] = y
+		end
+		for _, x in ipairs(Data.BonusCraftedStageList) do
+			local y = tostring(x)
+			LookupStage[y] = y
+			if y ~= "525" then -- special exception: do not include Stage 1 (basic item) in this table
+				LookupTierB[y] = y
+			end
+		end
+	end
+
+	-- Function to identify bonusIDs representing suffixes, and to return a normlized version of that suffix
+	-- For suffixes representing pairs of secondary stats, there are 21 variants of each pair (i.e. there are 21 variants of "of the Fireflash")
+	-- We map these 21 variants to a single value: the middle (11th) variant is chosen (i.e. all bonusIDs representing "of the Fireflash" return "29")
+	-- For bonusIDs representing a single secondary stat there is only one bonusID for each stat, so we use a lookup table for those
+	-- The parameter 'bonus' must be a string containing a single bonusID, not the full 'bonuses' string
+	function lib.GetNormalizedBonusIDSuffix(bonus)
+		local suffix = LookupSuffix[bonus]
+		if suffix then return suffix end
+
+		bonus = tonumber(bonus)
+		if not bonus then return end
+
+		if bonus >= 19 and bonus <= 39 then -- Fireflash block
+			suffix = "29" -- middle of the range
+		elseif bonus >= 45 and bonus <= 170 then
+			suffix = tostring(floor((bonus - 45) / 21) * 21 + 55)
+		elseif bonus >= 175 and bonus <= 447 then
+			suffix = tostring(floor((bonus - 175) / 21) * 21 + 185)
+		end
+
+		return suffix
+	end
+
+	-- Generate a signature for a set of bonusIDs, contained in bonuses string
+	-- Intended for comparison operations, such as QueryImage
+	-- optional include table specifies which types of bonusID to include in the sig:
+	--    suffix : normalize suffix
+	--    primary : primary stat
+	--    tier : upgrade tiers (dropped items)
+	--    stage : upgrade stages (crafted items, includes Stage 1)
+	--    stage2 : upgrade stages (crafted items, excludes Stage 1)
+	--    warforged
+	--    socket
+	--    minor : minor stats (Leech, Avoidance, etc.)
+	local defaultinclude = {
+		suffix = true,
+		primary = true,
+		tier = true,
+		stage = true,
+		warforged = true,
+		socket = true,
+		minor = true,
+	}
+	local compile = {}
+	function lib.GetBonusIDSig(bonuses, include)
+		local suffix, primary, tier, stage, warforged, socket, minor
+		if type(bonuses) ~= "string" then return end
+		if type(include) ~= "table" then
+			include = defaultinclude
+		end
+
+		-- parse the bonuses string into the various locals
+		for bonus in bonuses:gmatch("%d+") do
+			local x = LookupStat[bonus]
+			if x then
+				if include.primary then primary = x end
+			else
+				x = LookupTier[bonus]
+				if x then
+					if include.tier then tier = x end
+				else
+					x = LookupStage[bonus]
+					if x then
+						if include.stage then stage = x
+						elseif include.stage2 then
+							if x ~= "525" then stage = x end
+						end
+					else
+						x = LookupWarforged[bonus]
+						if x then
+							if include.warforged then warforged = x end
+						else
+							x = LookupSocket[bonus]
+							if x then
+								if include.socket then socket = x end
+							else
+								x = LookupTertiary[bonus]
+								if x then
+									if include.minor then minor = x end
+								else
+									x = lib.GetNormalizedBonusIDSuffix(bonus)
+									if x then
+										if include.suffix then suffix = x
+										else suffix = bonus end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		-- compile bonusIDs in a specific order
+		local n = 0
+		if suffix then
+			n = n + 1
+			compile[n] = suffix
+		end
+		if primary then
+			n = n + 1
+			compile[n] = primary
+		end
+		if tier then
+			n = n + 1
+			compile[n] = tier
+		end
+		if stage then
+			n = n + 1
+			compile[n] = stage
+		end
+		if warforged then
+			n = n + 1
+			compile[n] = warforged
+		end
+		if socket then
+			n = n + 1
+			compile[n] = socket
+		end
+		if minor then
+			n = n + 1
+			compile[n] = minor
+		end
+
+		if n > 0 then
+			return tconcat(compile, ":", 1, n)
+		end
+	end
+
+	-- Generate a 'property' string for a type B StoreKey from the bonuses string
+	-- Primarily used in GetStoreKeyFromLinkB
+	-- Exported for use by other modules, could be used as a sort of sig to identify "similar" items
+	function lib.GetBonusIDPropertyB(bonuses)
+		local property, suffix, stat, tier, warforged
+		if type(bonuses) ~= "string" then return end
+
+		-- parse the bonuses string to pick out suffix, stat, tier and/or warforged entries
+		for bonus in bonuses:gmatch("%d+") do
+			local x = LookupTierB[bonus]
+			if x then
+				tier = x
+			else
+				x = LookupStat[bonus]
+				if x then
+					stat = x
+				else
+					x = LookupWarforged[bonus]
+					if x then
+						warforged = x
+					else
+						x = lib.GetNormalizedBonusIDSuffix(bonus)
+						if x then
+							suffix = x
+						end
+					end
+				end
+			end
+		end
+
+		-- compile the property string in a specific order: suffix, stat, tier, warforged
+		-- from experimentation, the most common combinations are: suffix, suffix + stat, tier, tier + warforged
+		if suffix then
+			property = suffix
+		end
+		if stat then
+			if property then
+				property = property..":"..stat
+			else
+				property = stat
+			end
+		end
+		if tier then
+			if property then
+				property = property..":"..tier
+			else
+				property = "0"..tier -- tag "optional" bonusIDs with a leading 0
+			end
+		end
+		if warforged then
+			if property then
+				property = property..":"..warforged
+			else
+				property = "0"..warforged -- tag "optional" bonusIDs with a leading 0
+			end
+		end
+
+		return property
+	end
+
+end -- end bonusID functions
 
 -------------------------------------------------------------------------------
 -- Statistical devices created by Matthew 'Shirik' Del Buono
@@ -1240,4 +1527,4 @@ do
 end
 
 
-AucAdvanced.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21c/Auc-Advanced/CoreAPI.lua $", "$Rev: 5517 $")
+AucAdvanced.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21e/Auc-Advanced/CoreAPI.lua $", "$Rev: 5562 $")

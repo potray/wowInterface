@@ -62,7 +62,7 @@ Map.MapInfo = {
 		Y = -1500,
 	},
 	[6] = {
-	    Name = "Pandaria",
+		Name = "Pandaria",
 		FileName = "Pandaria",
 		X = 2500,
 		Y = 2500,
@@ -741,8 +741,8 @@ Map.MapWorldInfo = {
 	[504] = {
 		Name = L["Dalaran"],
 		Scale = 1.6589 / 1.3,
-		X = 1629,
-		Y = 861,
+		X = -200.95,
+		Y = -1199.17260156,
 		Overlay = "dalaran",
 		MapBaseName = "dalaran1_",
 		City = true,
@@ -763,6 +763,9 @@ Map.MapWorldInfo = {
 		X = -14500,
 		Y = 0,
 		Short = "SoA",
+	},
+	[539] = {
+		BaseMap = 545,
 	},
 	[540] = {
 		Name = L["Isle of Conquest"],
@@ -971,7 +974,7 @@ Map.MapWorldInfo = {
 		Name = L["The Battle for Gilneas"],
 		Scale = 2.6041665649414,
 		X = -14500,
-		X = 2000,
+		Y = 2000,
 		Short = "TBG",
 	},
 	[737] = {
@@ -1013,7 +1016,7 @@ Map.MapWorldInfo = {
 		UseAId = true,
 		Explored = true,
 	},
-    [806] = {
+	[806] = {
 		Scale = 13.966666015625,
 		X = -290.4166015625,
 		Y = -730.4166015625,
@@ -1064,19 +1067,17 @@ Map.MapWorldInfo = {
 		BaseMap = 482,
 		Short = "EOS",
 	},
-    [823] = {
+	[823] = {
 		Scale = 3.716666015625,
-		X = -1453.7499023437,
+		X = -953.7499023437,
 		Y = 664.58330078125,
 		Overlay = "darkmoonfaireisland",
-	    Name = L["Darkmoon Island"],
+		Name = L["Darkmoon Island"],
 		Explored = true,
-		City = true,
 		MMOutside = true,
-		UseAId=true,
 		MId=823,
 	},
-    [856] = {
+	[856] = {
 		Name = L["Temple of Kotmogu"],
 		Scale = 1.679166015625,
 		X = -14500,
@@ -1105,7 +1106,7 @@ Map.MapWorldInfo = {
 		Short = "SSM",
 		MapBaseName = "STVDiamondMineBG1_",
 	},
-    [862] = {
+	[862] = {
 		Scale = 31.030600585937,
 		X = -1750.5720703125,
 		Y = -1335.83203125,
@@ -1203,7 +1204,7 @@ Map.MapWorldInfo = {
 		Name = L["New Tinkertown"],
 		StartZone = true,
 	},
-    [903] = {
+	[903] = {
 		Name = L["Shrine of Two Moons"],
 		Scale = 0.5,
 		X = -217.8,
@@ -1251,10 +1252,10 @@ Map.MapWorldInfo = {
 		Overlay = "frostfireridge",
 	},
 	[945] = {
-		 Scale = 9.975,
-		 X = -301.25,
-		 Y = -1152.083984375,
-		 Overlay = "tanaanjungle",
+		Scale = 10.499999755859,
+		X = -341.66599121094,
+		Y = -1186.666015625,
+		Overlay = "TanaanJungle",
 	},
 	[946] = {
 		Scale = 11.924992156982,
@@ -1316,14 +1317,23 @@ Map.MapWorldInfo = {
 		MapBaseName = "garrisonsmvalliance_tier",
 		Overlay = "garrisonsmvalliance_tier1",
 	},
+	[973] = {
+		BaseMap = 971,
+	},
+	[974] = {
+		BaseMap = 971,
+	},
+	[975] = {
+		BaseMap = 971,
+	},
 	[976] = {
 		Scale = 1.404166015625,
 		X = -977.083203125,
 		Y = -1162.9166015625,
 		Garrison = true,
+		City = true,
 		MMOutside = true,
 		Explored = true,
-		City = true,
 		MapBaseName = "garrisonffhorde_tier",
 		Overlay = "garrisonffhorde_tier1",
 	},
@@ -1331,16 +1341,34 @@ Map.MapWorldInfo = {
 		Scale = 6.2458203125,
 		X = 534.583984375,
 		Y = -1115.416015625,
+		Explored = true,
 		Overlay = "ashran",
 	},
+	[980] = {
+		BaseMap = 976
+	},
+	[981] = {
+		BaseMap = 976
+	},	
+	[982] = {
+		BaseMap = 976
+	},	
+	[990] = {
+		BaseMap = 976,
+	},
+	[991] = {
+		BaseMap = 971,
+	},	
 	[1009] = {
 		Scale = 1.375,
 		X = 725,
 		Y = -781.6666015625,
+		Explored = true,
+		City = true,
 		Overlay = "ashranalliancefactionhub",
 	},
 	[1010] = {
-		Name = L["Deepwind Gorge"],
+		Name = L["Tarren Mills vs Southshore"],
 		Scale = 4.337498046875,
 		X = -13000,
 		Y = 1000,
@@ -1348,10 +1376,12 @@ Map.MapWorldInfo = {
 		Short = "TvS",
 	},
 	[1011] = {
-		 Scale = 1.6,
-		 X = 717.916796875,
-		 Y = -1108.333203125,
-		 Overlay = "ashranhordefactionhub",
+		Scale = 1.6,
+		X = 717.916796875,
+		Y = -1108.333203125,
+		Explored = true,
+		City = true,
+		Overlay = "ashranhordefactionhub",
 	},
 	[9005] = {		-- Blade's Edge Arena
 		Name = L["Blade's Edge Arena"],
@@ -2990,8 +3020,21 @@ Map.ZoneOverlays = {
 		["tuurem"] = "472,148,225,224",
 		["zangarra"] = "713,35,287,277",
 	},
-	["tanaanjungle"] = {			-- 945
-		["tanaanjungle"] = "0,0,1024,768",
+	["TanaanJungle"] = {			-- 945
+		["darkportal"] = "637,136,333,437",		
+		["draeneisw"] = "81,367,174,208",
+		["fangrila"] = "429,392,343,264",
+		["felforge"] = "392,187,223,183",
+		["ironfront"] = "0,264,209,245",	
+		["ironharbor"] = "303,62,189,294",		
+		["kiljaeden"] = "392,23,365,276",
+		["kranak"] = "54,94,338,254",
+		["lionswatch"] = "465,313,270,208",
+		["marshlands"] = "296,383,246,218",
+		["shanaar"] = "170,354,248,314",
+		["volmar"] = "501,171,238,229",
+		["zethgol"] = "118,194,274,251",
+		["hellfirecitadel"] = "254,262,327,241",										
 	},
 	["tanaanjungleintro"] = {		-- 970
 		["tanaanjungleintro"] = "0,0,1024,768",
@@ -7476,7 +7519,7 @@ Map.MiniMapBlks = {
 		Map.DraenorMapBlks,
 		1220,
 		12, 20,
-		Map.MapWorldInfo[962].X + Map.MapInfo[7].X + 314, Map.MapWorldInfo[962].Y + Map.MapInfo[7].Y + 961,
+		Map.MapWorldInfo[962].X + Map.MapInfo[7].X + 315, Map.MapWorldInfo[962].Y + Map.MapInfo[7].Y + 959,
 		"World\\Minimaps\\Draenor"
 	},
 	[464] = {
@@ -7521,8 +7564,8 @@ Map.MiniMapBlks = {
 		Map.MapWorldInfo[751].X + Map.MapInfo[5].X + 297.05, Map.MapWorldInfo[751].Y + Map.MapInfo[5].Y + -1411.53334960937,
 		"World\\Minimaps\\LostIsles"
 	},
-    [808] = {
-	     Map.TheWanderingIsleMapBlks,
+	[808] = {
+		Map.TheWanderingIsleMapBlks,
 		 2328,
 		 23,28,
 		 Map.MapWorldInfo[808].X + Map.MapWorldInfo[808].XOff + Map.MapInfo[6].X  + 35.7, Map.MapWorldInfo[808].Y + Map.MapWorldInfo[808].YOff + Map.MapInfo[6].Y-69.55,
@@ -7532,7 +7575,7 @@ Map.MiniMapBlks = {
 		Map.DarkMoonFaireBlks,
 		1636,
 		16, 36,
-		-1871.26-1375+1100+3000-300,-3133.00-100-1800+3000-2750+2400,
+		Map.MapWorldInfo[823].X + Map.MapInfo[5].X + -253,Map.MapWorldInfo[823].Y + Map.MapInfo[5].Y + -238,
 		"World\\Minimaps\\DarkmoonFaire"
 	},
 }
@@ -7624,11 +7667,11 @@ function Nx.Map:GetMiniBlkName (miniT, x, y)
 end
 
 Map.MapLevels={
-    [811] = { [3] = 6010, [4] = 6011, },
-    [903] = { [1] = 6012, [2] = 6013, },
-    [905] = { [3] = 6010, [4] = 6011, },
-    [504] = { [2] = 4014, },
-    [321] = { [2] = 1034, },
+	[811] = { [3] = 6010, [4] = 6011, },
+	[903] = { [1] = 6012, [2] = 6013, },
+	[905] = { [3] = 6010, [4] = 6011, },
+	[504] = { [2] = 4014, },
+	[321] = { [2] = 1034, },
 }
 --[[
 function Nx.Map:ConvertMapData()
@@ -7707,4 +7750,5 @@ function Nx.Map:ConvertMapData()
 	end
 end
 ]]--
----------------------------------------------------------------------------------EOF
+-------------------------------------------------------------------------------
+-- EOF

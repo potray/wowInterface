@@ -47,6 +47,7 @@ L["Bloodmaul Slag Mines"] = "피망치 잿가루 광산"
 L["Bloodmyst Isle"] = "핏빛안개 섬"
 L["Bonetown Scenario"] = true				-- is this needed (from zhTW)
 L["Borean Tundra"] = "북풍의 땅"
+L["Brawl'gar Arena"] = true
 L["Brewmoon Festival"] = "맥주달 축제"
 L["Burning Steppes"] = "불타는 평원"
 L["Camp Narache"] = "나라체 야영지"

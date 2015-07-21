@@ -1,4 +1,4 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("Carbonite", "enUS", true)
+local L = LibStub("AceLocale-3.0"):NewLocale("Carbonite", "enUS", true, true)
 if not L then return end
 
 -- Main Guide
@@ -10,7 +10,6 @@ L["Common Place"] = true
 L["Auctioneer"] = true
 L["Banker"] = true
 L["Innkeeper"] = true
-L["Arcane Reforger"] = true
 L["Void Storage"] = true
 L["Transmogrifier"] = true
 L["Battle Pet Trainer"] = true

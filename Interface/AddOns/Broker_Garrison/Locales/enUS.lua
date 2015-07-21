@@ -185,3 +185,21 @@ L["Invasion Available"] = true
 L["Seal of Tempered Fate"] = true
 L["Icon: Seal of Tempered Fate"] = true
 L["%s - Summary"] = true
+L["Run updates (LDB, data queries) in combat"] = true
+
+L["Minimap"] = true
+L["Mission: Hide minimap icon"] = true
+L["Building: Hide minimap icon"] = true
+
+L["Load Minimap icon"] = true
+L["Load Minimap icon (requires ui reload!)"] = true
+
+L["Delete"] = true
+L["LDB"] = true
+
+L["Oil"] = true
+L["Icon: Oil"] = true
+L["Seal of Inevitable Fate"] = true
+L["Icon: Seal of Inevitable Fate"] = true
+L["Follower Type (Garrison, Shipyard)"] = true
+L["Resource Cache Size"] = true

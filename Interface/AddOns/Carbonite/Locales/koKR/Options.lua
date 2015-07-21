@@ -31,7 +31,17 @@ L["Website"] = "홈페이지"
 L["For support, please visit the forums for Carbonite on WoW Interface."] = "도움을 받으려면 WoW Interface 의 Carbonite 포럼을 방문하기 바랍니다.\n\n|cff9999ff한글화: |cffd700ff울보천사\n|cff9999ff이메일: |cffd700ffmirckorea@daum.net"
 L["Special thanks to"] = "특별 감사"
 L["Cirax for Carbonite2 Logo"] = "Carbonite2 로고 제작: Cirax"
-L["JimboBlue for guide location updates and checking"] = true
+L["ircdirk & atl77 for Quest Database updates"] = true
+L["Naharis for quest watchlist fixes"] = true
+L["nelegalno for many cleanups, api fixes"] = true
+L["JimJoBlue for guide location updates"] = true
+L["Localization Efforts By:"] = true
+L["frFR - powerstrk"] = true
+L["deDE - atl77 & samyonair"] = true
+L["itIT - ThorwaldOdin"] = true
+L["ruRU - NotDead"] = true
+L["zhCN - Raka-loah"] = true
+L["zhTW - kc305chen"] = true
 
 -- Battlegrounds Menu
 L["Battlegrounds"] = "전장"
@@ -58,7 +68,9 @@ L["Map Options"] = "지도 옵션"
 L["Use Carbonite Map instead of Blizzards (Alt-M will open world map)"] = "블리자도 지도 대신 Carbonite 지도 사용(세계지도 열기: Alt-M)"
 L["When enabled, pressing 'M' will maximize the carbonite map instead of opening the world map."] = "사용할 경우, 'M' 키를 누르면 세계지도 대신에 Carbonite 지도를 엽니다."
 L["Enable Compatability Mode"] = "호환성 모드 활성화"
-L["When Enabled, Carbonite will performe combat checks before any map/window functions. This eliminates other UI's from causing protected mode errors."] = "사용할 경우, Carbonite는 모든 지도/창 함수를 사용하기 전에 충돌이 있는지 검사합니다. 이것은 다른 UI에서 보호 모드 오류가 발생합니다."
+L["Hide Map In Combat"] = true
+L["If large map is open when you enter combat attempts to hide it."] = true
+L["When Enabled, Carbonite will perform combat checks before any map/window functions. This eliminates other UI's from causing protected mode errors."] = "사용할 경우, Carbonite는 모든 지도/창 함수를 사용하기 전에 충돌이 있는지 검사합니다. 이것은 다른 UI에서 보호 모드 오류가 발생합니다."
 L["Center map when maximizing"] = "선택한 지역을 최대화시 가운데로"
 L["When enabled, the map will center on your current zone when you maximize it"] = "사용할 경우, 지도를 최대화할 때 현재 위치가 지도의 가운데로 오도록 합니다."
 L["Ignore mouse on map except when ALT is pressed"] = "미니맵에서 ALT 키를 누르지 않은 마우스 클릭은 무시"
@@ -257,6 +269,16 @@ L["Herbalism"] = "약초 위치"
 L["Display"] = "보기"
 L["Nodes On Map"] = "지도에 경로 표시"
 L["Mining"] = "광물 위치"
+L["Timber"] = true
+L["Delete Timber Gather Locations"] = true
+L["Small Timber"] = true
+L["Medium Timber"] = true
+L["Large Timber"] = true
+L["Show Timber Locations"] = true
+L["Lumbermill"] = true
+L["Delete"] = true
+L["Import"] = true
+L["Cancel"] = true
 
 -- Menu Options
 L["Menu Options"] = "메뉴 옵션"

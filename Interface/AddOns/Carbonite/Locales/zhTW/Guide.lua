@@ -14,7 +14,6 @@ L["Common Place"] = true
 L["Auctioneer"] = "拍賣場"
 L["Banker"] = "銀行"
 L["Innkeeper"] = "旅店"
-L["Arcane Reforger"] = "重鑄師"
 L["Void Storage"] = "虛空倉庫"
 L["Transmogrifier"] = "塑形師"
 L["Battle Pet Trainer"] = "戰寵訓練師"

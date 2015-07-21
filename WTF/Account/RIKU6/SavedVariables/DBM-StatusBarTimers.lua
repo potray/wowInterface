@@ -1,0 +1,32 @@
+
+DBT_AllPersistentOptions = {
+	["Default"] = {
+		["DBM"] = {
+			["EndColorG"] = 0,
+			["HugeTimerY"] = -218.999938964844,
+			["HugeBarXOffset"] = 0,
+			["Scale"] = 0.899999976158142,
+			["EnlargeBarsPercent"] = 0.125,
+			["StartColorR"] = 1,
+			["HugeWidth"] = 200,
+			["BarYOffset"] = 0,
+			["Texture"] = "Interface\\AddOns\\Quartz\\textures\\Runes",
+			["HugeBarYOffset"] = 0,
+			["TimerY"] = -260,
+			["TimerPoint"] = "TOPRIGHT",
+			["StartColorG"] = 0.701960784313726,
+			["FontSize"] = 10,
+			["StartColorB"] = 0,
+			["EndColorR"] = 1,
+			["Width"] = 183,
+			["HugeTimerPoint"] = "CENTER",
+			["HugeScale"] = 1.04999995231628,
+			["Height"] = 20,
+			["EnlargeBarsTime"] = 8,
+			["HugeTimerX"] = 5.99991321563721,
+			["TimerX"] = -223.000015258789,
+			["BarXOffset"] = 0,
+			["EndColorB"] = 0,
+		},
+	},
+}

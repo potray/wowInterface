@@ -3,7 +3,7 @@ local Recount = _G.Recount
 local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale( "Recount" )
 
-local revision = tonumber(string.sub("$Revision: 1261 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1313 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -14,7 +14,7 @@ local dbCombatants
 local srcRetention 
 local dstRetention 
 
-local DetailTitles = {}
+local DetailTitles = { }
 DetailTitles.CC = {
 	TopNames = L["Broke"],
 	TopCount = "",
@@ -49,7 +49,7 @@ local CCId = {
 	[6358]	= true, -- Seduction (Succubus)
 }
 
-function Recount:SpellAuraBroken(timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags,spellId, spellName, spellSchool, extraSpellId, extraSpellName, extraSpellSchool)
+function Recount:SpellAuraBroken(timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, spellId, spellName, spellSchool, extraSpellId, extraSpellName, extraSpellSchool)
 	if not spellName then
 		spellName = "Melee"
 	end
@@ -67,10 +67,9 @@ function Recount:SpellAuraBroken(timestamp, eventtype, srcGUID, srcName, srcFlag
 end
 
 function Recount:AddCCBreaker(source, victim, ability, srcGUID, srcFlags, dstGUID, dstFlags)
-
-	--Friendly fire interrupt? (Duels)
+	-- Friendly fire interrupt? (Duels)
 	local FriendlyFire = Recount:IsFriendlyFire(srcFlags, dstFlags)
-	--Before any further processing need to check if we are going to be placed in combat or in combat
+	-- Before any further processing need to check if we are going to be placed in combat or in combat
 	if not Recount.InCombat and Recount.db.profile.RecordCombatOnly then
 		if (not FriendlyFire) and (Recount:InGroup(srcFlags) or Recount:InGroup(dstFlags)) then
 			Recount:PutInCombat()
@@ -93,18 +92,18 @@ function Recount:AddCCBreaker(source, victim, ability, srcGUID, srcFlags, dstGUI
 	if srcRetention then
 
 		if not dbCombatants[source] then
-			Recount:AddCombatant(source,sourceowner,srcGUID,srcFlags, sourceownerID)
+			Recount:AddCombatant(source, sourceowner, srcGUID, srcFlags, sourceownerID)
 		end -- Elsia: Until here is if pets heal anybody.
 		local sourceData = dbCombatants[source]
 		if sourceData then
 
 			Recount:SetActive(sourceData)
 
-			--Fight tracking purposes to speed up leaving combat
+			-- Fight tracking purposes to speed up leaving combat
 			sourceData.LastFightIn = Recount.db2.FightNum
 			if not FriendlyFire then
 				Recount:AddAmount(sourceData, "CCBreak", 1)
-				Recount:AddTableDataSum(sourceData, "CCBroken", ability,victim, 1)
+				Recount:AddTableDataSum(sourceData, "CCBroken", ability, victim, 1)
 			end
 		end
 	end
@@ -120,13 +119,13 @@ function Recount:AddCCBreaker(source, victim, ability, srcGUID, srcFlags, dstGUI
 		if victimData then
 			Recount:SetActive(victimData)
 
-			--Fight tracking purposes to speed up leaving combat
+			-- Fight tracking purposes to speed up leaving combat
 			victimData.LastFightIn = Recount.db2.FightNum
 		end
 	end
 end
 
-local DataModes = {}
+local DataModes = { }
 
 function DataModes:PolyBreak(data, num)
 	if not data then
@@ -138,10 +137,10 @@ function DataModes:PolyBreak(data, num)
 	return (data.Fights[Recount.db.profile.CurDataSet].CCBreak or 0), {{data.Fights[Recount.db.profile.CurDataSet].CCBroken, " "..L["CC Breaking"], DetailTitles.CC}}
 end
 
-local TooltipFuncs = {}
+local TooltipFuncs = { }
 
-function TooltipFuncs:CCBroken(name,data)
-	local SortedData,total
+function TooltipFuncs:CCBroken(name, data)
+	--local SortedData, total
 	GameTooltip:ClearLines()
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["CC's Broken"], data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].CCBroken, 3)

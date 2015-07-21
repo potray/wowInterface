@@ -1,9 +1,6 @@
 local addonName = "Altoholic"
 local addon = _G[addonName]
-
-local WHITE		= "|cFFFFFFFF"
-local GREEN		= "|cFF00FF00"
-local GREY		= "|cFF808080"
+local colors = addon.Colors
 
 local BUILDING_ALCHEMY = "AlchemyLab"
 local BUILDING_BARN = "Barn"
@@ -85,6 +82,7 @@ local isViewValid
 local OPTION_BUILDINGS = "UI.Tabs.Grids.Garrisons.CurrentBuildings"
 
 local currentDDMText
+local dropDownFrame
 
 local function BuildView()
 	view = view or {}
@@ -99,10 +97,8 @@ local function BuildView()
 	isViewValid = true
 end
 
-local DDM_AddCloseMenu = addon.Helpers.DDM_AddCloseMenu
-
 local function OnBuildingTypeSelected(self)
-	CloseDropDownMenus()
+	dropDownFrame:Close()
 	
 	addon:SetOption(OPTION_BUILDINGS, self.value)
 	
@@ -112,10 +108,10 @@ local function OnBuildingTypeSelected(self)
 	addon.Tabs.Grids:Update()
 end
 
-local function DropDown_Initialize(self, level)
+local function DropDown_Initialize(frame, level)
 	if not level then return end
 
-	local info = UIDropDownMenu_CreateInfo()
+	local info = frame:CreateInfo()
 	
 	local currentBuildings = addon:GetOption(OPTION_BUILDINGS)
 	
@@ -125,9 +121,9 @@ local function DropDown_Initialize(self, level)
 			info.func = OnBuildingTypeSelected
 			info.checked = (currentBuildings == index)
 			info.value = index
-			UIDropDownMenu_AddButton(info, level)
+			frame:AddButtonInfo(info, level)
 		end
-		DDM_AddCloseMenu()
+		frame:AddCloseMenu()
 	end
 end
 
@@ -138,47 +134,42 @@ local callbacks = {
 			end
 		end,
 	GetSize = function() return #view end,
-	RowSetup = function(self, entry, row, dataRowID)
+	RowSetup = function(self, rowFrame, dataRowID)
 			local v = view[dataRowID]
 			local name = v.name or select(2, C_Garrison.GetBuildingInfo(v.id))
 			
 			if name then
-				local rowName = entry .. row
-				
-				_G[rowName.."Name"]:SetText(WHITE .. name)
-				_G[rowName.."Name"]:SetJustifyH("LEFT")
-				_G[rowName.."Name"]:SetPoint("TOPLEFT", 15, 0)
+				rowFrame.Name.Text:SetText(colors.white .. name)
+				rowFrame.Name.Text:SetJustifyH("LEFT")
 			end
 		end,
-	ColumnSetup = function(self, entry, row, column, dataRowID, character)
-			local itemName = entry.. row .. "Item" .. column;
-			local itemTexture = _G[itemName .. "_Background"]
-			local itemButton = _G[itemName]
-			local itemText = _G[itemName .. "Name"]
-
-			itemText:SetFontObject("NumberFontNormal")
-			itemText:SetJustifyH("RIGHT")
-			itemText:SetPoint("BOTTOMRIGHT", -3, 0)
-			itemTexture:SetDesaturated(false)
-			itemTexture:SetTexCoord(0, 1, 0, 1)
+	RowOnEnter = function()	end,
+	RowOnLeave = function() end,
+	ColumnSetup = function(self, button, dataRowID, character)
+			button.Name:SetFontObject("NumberFontNormal")
+			button.Name:SetJustifyH("RIGHT")
+			button.Name:SetPoint("BOTTOMRIGHT", -3, 0)
+			
+			button.Background:SetDesaturated(false)
+			button.Background:SetTexCoord(0, 1, 0, 1)
 			
 			local v = view[dataRowID]
 			local buildingType = v.buildingType
 			local id, level = DataStore:GetBuildingInfo(character, buildingType)
 			
 			if id and level then	-- if the id exists, this character owns this building type
-				itemButton.buildingID = id
-				itemTexture:SetVertexColor(1.0, 1.0, 1.0)
+				button.buildingID = id
+				button.Background:SetVertexColor(1.0, 1.0, 1.0)
 				
 				local tex = v.tex or select(4, C_Garrison.GetBuildingInfo(v.id))
 				
-				itemTexture:SetTexture(tex)
-				itemText:SetText(GREEN .. level)
-				itemButton:Show()
+				button.Background:SetTexture(tex)
+				button.Name:SetText(colors.green .. level)
+				button:Show()
 			else
-				itemButton.buildingID = nil
-				itemText:SetText("")
-				itemButton:Hide()
+				button.buildingID = nil
+				button.Name:SetText("")
+				button:Hide()
 			end
 		end,
 	OnEnter = function(frame) 
@@ -242,7 +233,8 @@ local callbacks = {
 	OnLeave = function(self)
 			AltoholicTabGrids.BuildingLevelTooltip:Hide()
 		end,
-	InitViewDDM = function(frame, title) 
+	InitViewDDM = function(frame, title)
+			dropDownFrame = frame
 			frame:Show()
 			title:Show()
 			
@@ -255,11 +247,11 @@ local callbacks = {
 			
 			currentDDMText = Buildings[currentBuildings].name
 			
-			UIDropDownMenu_SetWidth(frame, 100) 
-			UIDropDownMenu_SetButtonWidth(frame, 20)
-			UIDropDownMenu_SetText(frame, currentDDMText)
-			addon:DDM_Initialize(frame, DropDown_Initialize)
+			frame:SetMenuWidth(100) 
+			frame:SetButtonWidth(20)
+			frame:SetText(currentDDMText)
+			frame:Initialize(DropDown_Initialize, "MENU_NO_BORDERS")
 		end,
 }
 
-addon.Tabs.Grids:RegisterGrid(11, callbacks)
+addon.Tabs.Grids:RegisterGrid(10, callbacks)

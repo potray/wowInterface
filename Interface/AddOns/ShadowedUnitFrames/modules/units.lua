@@ -355,7 +355,6 @@ function Units:CheckVehicleStatus(frame, event, unit)
 
 	-- Not in a vehicle yet, and they entered one that has a UI or they were in a vehicle but the GUID changed (vehicle -> vehicle)
 	if( ( not frame.inVehicle or frame.unitGUID ~= UnitGUID(frame.vehicleUnit) ) and UnitHasVehicleUI(frame.unitOwner) and UnitHasVehiclePlayerFrameUI(frame.unitOwner) and not ShadowUF.db.profile.units[frame.unitType].disableVehicle ) then
-		
 		frame.inVehicle = true
 		frame.unit = frame.vehicleUnit
 
@@ -505,6 +504,7 @@ OnAttributeChanged = function(self, name, unit)
 	-- Pet changed, going from pet -> vehicle for one
 	if( self.unit == "pet" or self.unitType == "partypet" ) then
 		self.unitRealOwner = self.unit == "pet" and "player" or ShadowUF.partyUnits[self.unitID]
+		self:SetAttribute("unitRealOwner", self.unitRealOwner)
 		self:RegisterNormalEvent("UNIT_PET", Units, "CheckPetUnitUpdated")
 		
 		if( self.unit == "pet" ) then
@@ -521,7 +521,7 @@ OnAttributeChanged = function(self, name, unit)
 		-- Hide any pet that became a vehicle, we detect this by the owner being untargetable but they have a pet out
 		stateMonitor:WrapScript(self, "OnAttributeChanged", [[
 			if( name == "state-vehicleupdated" ) then
-				self:SetAttribute("unitIsVehicle", value == "vehicle" and true or false)
+				self:SetAttribute("unitIsVehicle", UnitHasVehicleUI(self:GetAttribute("unitRealOwner")) and value == "vehicle" and true or false)
 			elseif( name == "disablevehicleswap" or name == "state-unitexists" or name == "unitisvehicle" ) then
 				-- Unit does not exist, OR unit is a vehicle and vehicle swap is not disabled, hide frame
 				if( not self:GetAttribute("state-unitexists") or ( self:GetAttribute("unitIsVehicle") and not self:GetAttribute("disableVehicleSwap") ) ) then
@@ -839,7 +839,7 @@ function Units:SetHeaderAttributes(frame, type)
 		local lastHeader = frame
 		for id=1, 8 do
 			local childHeader = headerFrames["raid" .. id]
-			if( childHeader and childHeader:IsVisible() ) then
+			if( childHeader ) then
 				childHeader:SetAttribute("showRaid", ShadowUF.db.profile.locked and true)
 				
 				childHeader:SetAttribute("minWidth", config.width * widthMod)
@@ -876,6 +876,11 @@ function Units:SetHeaderAttributes(frame, type)
 
 					lastHeader = childHeader
 				end
+
+				-- There appears to be a bug where if you reloadui with a split raid frames the positions get messed up
+				-- if we force a repositioning through startingIndex it's fixed thought.
+				childHeader:SetAttribute("startingIndex", 10000)
+				childHeader:SetAttribute("startingIndex", 1)
 			end	
 		end
 		
@@ -992,24 +997,7 @@ local function setupRaidStateMonitor(id, headerFrame)
 	stateMonitor.raids[id]:SetFrameRef("raidHeader", headerFrame)
 	stateMonitor.raids[id]:SetAttribute("hideSemiRaid", ShadowUF.db.profile.units.raid.hideSemiRaid)
 	stateMonitor.raids[id]:WrapScript(stateMonitor.raids[id], "OnAttributeChanged", [[
-		if( name == "hasraid" or name == "hasparty" or name == "recheck" ) then
-			local header = self:GetFrameRef("raidHeader")
-			local raid = self:GetAttribute("hasraid")
-			local party = self:GetAttribute("hasparty")
-
-			if( header:GetAttribute("showParty") ) then
-				if( not party and not raid ) then
-					header:Hide()
-				elseif( party or raid ) then
-					header:Show()
-				end
-			elseif( not raid ) then
-				header:Hide()
-			elseif( raid ) then
-				header:Show()
-			end
-
-		elseif( name ~= "state-raidmonitor" and name ~= "raiddisabled" and name ~= "hidesemiraid" ) then
+		if( name ~= "state-raidmonitor" and name ~= "raiddisabled" and name ~= "hidesemiraid" ) then
 			return
 		end
 
@@ -1027,8 +1015,6 @@ local function setupRaidStateMonitor(id, headerFrame)
 	]])
 	
 	RegisterStateDriver(stateMonitor.raids[id], "raidmonitor", "[target=raid6, exists] raid6; none")
-	RegisterStateDriver(stateMonitor.raids[id], "hasraid", "[target=raid1, exists] raid; none")
-	RegisterStateDriver(stateMonitor.raids[id], "hasparty", "[target=party1, exists] party; none")
 end
 
 function Units:LoadSplitGroupHeader(type)
@@ -1097,13 +1083,6 @@ end
 
 -- Load a header unit, party or raid
 function Units:LoadGroupHeader(type)
-	-- Any frames that were split out in this group need to be hidden
-	for _, headerFrame in pairs(headerFrames) do
-		if( headerFrame.splitParent == type ) then
-			headerFrame:Hide()
-		end
-	end
-
 	-- Already created, so just reshow and we out
 	if( headerFrames[type] ) then
 		headerFrames[type]:Show()
@@ -1186,6 +1165,18 @@ function Units:LoadGroupHeader(type)
 	else
 		headerFrame:Show()
 	end
+
+	-- Any frames that were split out in this group need to be hidden
+	if( headerFrames.raidParent ) then
+		for _, headerFrame in pairs(headerFrames) do
+			if( headerFrame.splitParent == type ) then
+				headerFrame:Hide()
+			end
+		end
+
+		headerFrames.raidParent:Hide()
+		headerFrames.raidParent = nil
+	end	
 end
 
 -- Fake headers that are supposed to act like headers to the users, but are really not

@@ -70,12 +70,7 @@ TidyPlatesHubSettings = {
 		["ClassColorPartyMembers"] = false,
 		["WidgetsDebuffTrackList"] = "My Rake\nMy Rip\nMy Moonfire\nAll 339\nMy Regrowth\nMy Rejuvenation",
 		["OpacitySpotlight"] = 1,
-		["ColorAttackingOthers"] = {
-			["a"] = 0.999997794628143,
-			["r"] = 0.058823399245739,
-			["g"] = 0.588234007358551,
-			["b"] = 0.901958823204041,
-		},
+		["WidgetAuraTrackMagic"] = true,
 		["ColorFriendlyNameMode"] = 1,
 		["TextColorGuildMember"] = {
 			["a"] = 0.999997794628143,
@@ -83,7 +78,9 @@ TidyPlatesHubSettings = {
 			["g"] = 0.658822059631348,
 			["b"] = 0.999997794628143,
 		},
-		["HeadlineEnemyColor"] = 4,
+		["OpacityFilterLookup"] = {
+			["Fanged Pit Viper"] = true,
+		},
 		["StyleEnemyMode"] = 1,
 		["ClassEnemyIcon"] = false,
 		["ColorPartyAggro"] = {
@@ -94,10 +91,13 @@ TidyPlatesHubSettings = {
 		},
 		["OpacityFiltered"] = 0,
 		["OpacityTarget"] = 1,
-		["WidgetAuraTrackMagic"] = true,
-		["OpacityFilterLookup"] = {
-			["Fanged Pit Viper"] = true,
+		["ColorAttackingOthers"] = {
+			["a"] = 0.999997794628143,
+			["r"] = 0.058823399245739,
+			["g"] = 0.588234007358551,
+			["b"] = 0.901958823204041,
 		},
+		["HeadlineEnemyColor"] = 4,
 		["TextColorNeutral"] = {
 			["a"] = 0.999997794628143,
 			["r"] = 0.988233149051666,
@@ -110,8 +110,8 @@ TidyPlatesHubSettings = {
 			["g"] = 0.199999555945396,
 			["b"] = 0.125489920377731,
 		},
-		["WidgetsAuraMode"] = 1,
-		["WidgetsRangeMode"] = 1,
+		["ColorEnemyNameMode"] = 1,
+		["ClassPartyIcon"] = false,
 		["UnitSpotlightScale"] = 1.4,
 		["TextColorHostilePlayer"] = {
 			["a"] = 0.999997794628143,
@@ -145,8 +145,8 @@ TidyPlatesHubSettings = {
 			["g"] = 0.999997794628143,
 			["b"] = 0.199999555945396,
 		},
-		["OpacityFilterList"] = "Fanged Pit Viper",
 		["WidgetAuraTrackDispelFriendly"] = false,
+		["UnitSpotlightOpacity"] = 1,
 		["TextHealthTextMode"] = 1,
 		["ColorEnemyBarMode"] = 1,
 		["HeadlineFriendlyColor"] = 4,
@@ -159,7 +159,7 @@ TidyPlatesHubSettings = {
 			["Regrowth"] = 5,
 		},
 		["ScaleStandard"] = 1,
-		["UnitSpotlightOpacity"] = 1,
+		["OpacityFilterList"] = "Fanged Pit Viper",
 		["ColorHostilePlayer"] = {
 			["a"] = 0.999997794628143,
 			["r"] = 0.999997794628143,
@@ -229,8 +229,8 @@ TidyPlatesHubSettings = {
 			["b"] = 0.784312009811401,
 		},
 		["ScaleSpotlight"] = 1.20000004768372,
-		["ClassPartyIcon"] = false,
-		["ColorEnemyNameMode"] = 1,
+		["WidgetsRangeMode"] = 1,
+		["WidgetsAuraMode"] = 1,
 		["ColorGuildMember"] = {
 			["a"] = 0.999997794628143,
 			["r"] = 0.235293596982956,
@@ -263,7 +263,7 @@ TidyPlatesHubSettings = {
 		["WidgetsEnableExternal"] = true,
 		["WidgetsThreatIndicator"] = true,
 		["WidgetsDebuffStyle"] = 1,
-		["StyleFriendlyMode"] = 1,
+		["StyleFriendlyMode"] = 2,
 		["ColorFriendlyStatusTextMode"] = 2,
 		["ColorAttackingMe"] = {
 			["a"] = 0.999997794628143,
@@ -315,12 +315,7 @@ TidyPlatesHubSettings = {
 		["ClassColorPartyMembers"] = false,
 		["WidgetsDebuffTrackList"] = "My Rake\nMy Rip\nMy Moonfire\nAll 339\nMy Regrowth\nMy Rejuvenation",
 		["OpacitySpotlight"] = 1,
-		["ColorAttackingOthers"] = {
-			["a"] = 0.999997794628143,
-			["r"] = 0.058823399245739,
-			["g"] = 0.588234007358551,
-			["b"] = 0.901958823204041,
-		},
+		["WidgetAuraTrackMagic"] = true,
 		["ColorFriendlyNameMode"] = 1,
 		["TextColorGuildMember"] = {
 			["a"] = 0.999997794628143,
@@ -328,7 +323,9 @@ TidyPlatesHubSettings = {
 			["g"] = 0.658822059631348,
 			["b"] = 0.999997794628143,
 		},
-		["HeadlineEnemyColor"] = 4,
+		["OpacityFilterLookup"] = {
+			["Fanged Pit Viper"] = true,
+		},
 		["StyleEnemyMode"] = 1,
 		["ClassEnemyIcon"] = true,
 		["ColorPartyAggro"] = {
@@ -339,10 +336,13 @@ TidyPlatesHubSettings = {
 		},
 		["OpacityFiltered"] = 0,
 		["OpacityTarget"] = 1,
-		["WidgetAuraTrackMagic"] = true,
-		["OpacityFilterLookup"] = {
-			["Fanged Pit Viper"] = true,
+		["ColorAttackingOthers"] = {
+			["a"] = 0.999997794628143,
+			["r"] = 0.058823399245739,
+			["g"] = 0.588234007358551,
+			["b"] = 0.901958823204041,
 		},
+		["HeadlineEnemyColor"] = 4,
 		["TextColorNeutral"] = {
 			["a"] = 0.999997794628143,
 			["r"] = 0.988233149051666,
@@ -355,8 +355,8 @@ TidyPlatesHubSettings = {
 			["g"] = 0.199999555945396,
 			["b"] = 0.125489920377731,
 		},
-		["WidgetsAuraMode"] = 1,
-		["WidgetsRangeMode"] = 1,
+		["ColorEnemyNameMode"] = 1,
+		["ClassPartyIcon"] = true,
 		["UnitSpotlightScale"] = 1.4,
 		["TextColorHostilePlayer"] = {
 			["a"] = 0.999997794628143,
@@ -390,8 +390,8 @@ TidyPlatesHubSettings = {
 			["g"] = 0.999997794628143,
 			["b"] = 0.199999555945396,
 		},
-		["OpacityFilterList"] = "Fanged Pit Viper",
 		["WidgetAuraTrackDispelFriendly"] = true,
+		["UnitSpotlightOpacity"] = 1,
 		["TextHealthTextMode"] = 1,
 		["ColorEnemyBarMode"] = 1,
 		["HeadlineFriendlyColor"] = 4,
@@ -404,7 +404,7 @@ TidyPlatesHubSettings = {
 			["Regrowth"] = 5,
 		},
 		["ScaleStandard"] = 1,
-		["UnitSpotlightOpacity"] = 1,
+		["OpacityFilterList"] = "Fanged Pit Viper",
 		["ColorHostilePlayer"] = {
 			["a"] = 0.999997794628143,
 			["r"] = 0.999997794628143,
@@ -474,8 +474,8 @@ TidyPlatesHubSettings = {
 			["b"] = 0.784312009811401,
 		},
 		["ScaleSpotlight"] = 1.20000004768372,
-		["ClassPartyIcon"] = true,
-		["ColorEnemyNameMode"] = 1,
+		["WidgetsRangeMode"] = 1,
+		["WidgetsAuraMode"] = 1,
 		["ColorGuildMember"] = {
 			["a"] = 0.999997794628143,
 			["r"] = 0.235293596982956,

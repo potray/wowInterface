@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("BrawlRank1", "DBM-Brawlers")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 11898 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 14030 $"):sub(12, -3))
 mod:SetModelID(46327)--Last Boss of Rank 1
 mod:SetZone()
 
@@ -21,19 +21,18 @@ local warnShieldWaller			= mod:NewSpellAnnounce(134650, 2)--Smash Hoofstomp
 local warnShadowStrikes			= mod:NewSpellAnnounce(126209, 3)--Akama
 local warnChainLightning		= mod:NewSpellAnnounce(39945, 3)--Akama
 
-local specWarnLumberingCharge	= mod:NewSpecialWarningMove(134527)--Goredome
+local specWarnLumberingCharge	= mod:NewSpecialWarningDodge(134527)--Goredome
 local specWarnFireWall			= mod:NewSpecialWarningSpell(132666)--Sanoriak
-local specWarnShadowStrikes		= mod:NewSpecialWarningDispel(126209, mod:IsMagicDispeller())--Akama
+local specWarnShadowStrikes		= mod:NewSpecialWarningDispel(126209, "MagicDispeller")--Akama
 local specWarnChainLightning	= mod:NewSpecialWarningInterrupt(39945)--Akama
 
-local timerLumberingChargeCD	= mod:NewCDTimer(7, 134527)--Goredome
+local timerLumberingChargeCD	= mod:NewCDTimer(7, 134527, nil, nil, nil, 3)--Goredome
 local timerShieldWaller			= mod:NewBuffActiveTimer(10, 134650)
 local timerFirewallCD			= mod:NewCDTimer(18, 132666)--Sanoriak
 local timerShadowStrikes		= mod:NewBuffActiveTimer(15, 126209)--Akama
-local timerChainLightningCD		= mod:NewCDTimer(17, 39945)--Akama
+local timerChainLightningCD		= mod:NewCDTimer(17, 39945, nil, nil, nil, 4)--Akama
 
 mod:RemoveOption("HealthFrame")
-mod:RemoveOption("SpeedKillTimer")
 
 local brawlersMod = DBM:GetModByName("Brawlers")
 
@@ -42,16 +41,18 @@ function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(33975, 136334) then--Spellid is used by 5 diff mobs in game, but SetZone sould filter the other 4 mobs.
 		warnPyroblast:Show()
 	elseif args.spellId == 132666 then
-		warnFireWall:Show()
 		timerFirewallCD:Start()--First one is 5 seconds after combat start
 		if brawlersMod:PlayerFighting() then
 			specWarnFireWall:Show()
+		else
+			warnFireWall:Show()
 		end
 	elseif args.spellId == 39945 then
-		warnChainLightning:Show()
 		timerChainLightningCD:Start()
 		if brawlersMod:PlayerFighting() then
 			specWarnChainLightning:Show(args.sourceName)
+		else
+			warnChainLightning:Show()
 		end
 	end
 end
@@ -64,10 +65,11 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnShieldWaller:Show()
 		timerShieldWaller:Start()
 	elseif args.spellId == 126209 then
-		warnShadowStrikes:Show()
 		timerShadowStrikes:Start()
 		if brawlersMod:PlayerFighting() then
 			specWarnShadowStrikes:Show(args.destName)
+		else
+			warnShadowStrikes:Show()
 		end
 	end
 end
@@ -87,10 +89,11 @@ end
 function mod:UNIT_SPELLCAST_CHANNEL_START(uId, _, _, _, spellId)
 	if not brawlersMod.Options.SpectatorMode and not brawlersMod:PlayerFighting() then return end--Spectator mode is disabled, do nothing.
 	if spellId == 134527 and self:AntiSpam() then
-		warnLumberingCharge:Show()
 		timerLumberingChargeCD:Start()
 		if brawlersMod:PlayerFighting() then
 			specWarnLumberingCharge:Show()
+		else
+			warnLumberingCharge:Show()
 		end
 	end
 end

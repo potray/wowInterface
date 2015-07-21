@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("BrawlRare2", "DBM-Brawlers")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 11898 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 14030 $"):sub(12, -3))
 --mod:SetCreatureID(60491)
 mod:SetModelID(48465)
 mod:SetZone()
@@ -29,26 +29,23 @@ local warnCooled					= mod:NewTargetAnnounce(141371, 1)--Anthracite
 local warnOnFire					= mod:NewTargetAnnounce(141388, 4)--Anthracite
 
 local specWarnRPS					= mod:NewSpecialWarning("specWarnRPS")--Ro-Shambo
-local specWarnEightChomps			= mod:NewSpecialWarningMove(142788)--Mecha-Bruce
-local specWarnBlindCleave			= mod:NewSpecialWarningRun(141192)--Blind Hero
+local specWarnEightChomps			= mod:NewSpecialWarningDodge(142788)--Mecha-Bruce
+local specWarnBlindCleave			= mod:NewSpecialWarningRun(141192, nil, nil, 2, 4)--Blind Hero
 local specWarnBoomingBoogaloo		= mod:NewSpecialWarningSpell(140894, nil, nil, nil, 2)--Master Boom Boom
 local specWarnDeployBoom			= mod:NewSpecialWarningSpell(140912, nil, nil, nil, 3)--Master Boom Boom
 local specWarnSmolderingHeat		= mod:NewSpecialWarningYou(142400)--Anthracite
 
-local timerEightChompsCD			= mod:NewCDTimer(9.5, 142788)--Mecha-Bruce
+local timerEightChompsCD			= mod:NewCDTimer(9.5, 142788, nil, nil, nil, 3)--Mecha-Bruce
 local timerBetterStrongerFasterCD	= mod:NewCDTimer(20, 142795)--Mecha-Bruce
-local timerStasisBeamCD				= mod:NewCDTimer(20, 142769)--Mecha-Bruce
-local timerRockpaperScissorsCD		= mod:NewCDTimer(42, 141206)--Ro-Shambo
+local timerStasisBeamCD				= mod:NewCDTimer(20, 142769, nil, nil, nil, 3)--Mecha-Bruce
+local timerRockpaperScissorsCD		= mod:NewCDTimer(42, 141206, nil, nil, nil, 6)--Ro-Shambo
 local timerBlindStrikeCD			= mod:NewNextTimer(2.5, 141189)--Blind Hero
 local timerSwiftStrikeCD			= mod:NewNextTimer(2.4, 141190, nil, false)--May help some but off by default so it doesn't detour focus from the most important one, blind cleave(Blind Hero)
 local timerBlindCleaveD				= mod:NewNextTimer(13, 141192)--Blind Hero
 local timerSmolderingHeatCD			= mod:NewCDTimer(20, 142400)--Anthracite
-local timerCooled					= mod:NewTargetTimer(20, 141371)--Anthracite
-
-local soundBlindCleave				= mod:NewSound(141192)
+local timerCooled					= mod:NewTargetTimer(20, 141371, nil, nil, nil, 6)--Anthracite
 
 mod:RemoveOption("HealthFrame")
-mod:RemoveOption("SpeedKillTimer")
 mod:AddBoolOption("SpeakOutStrikes", true)--Blind Hero
 mod:AddBoolOption("ArrowOnBoxing")--Ro-Shambo
 
@@ -106,10 +103,11 @@ function mod:SPELL_CAST_START(args)
 		warnBetterStrongerFaster:Show()
 		timerBetterStrongerFasterCD:Start()
 	elseif args.spellId == 142788 then
-		warnEightChomps:Show()
 		timerEightChompsCD:Start()
 		if brawlersMod:PlayerFighting() then
 			specWarnEightChomps:Show()
+		else
+			warnEightChomps:Show()
 		end
 	elseif args.spellId == 142769 then
 		warnStasisBeam:Show()
@@ -127,7 +125,6 @@ function mod:SPELL_CAST_START(args)
 		else
 			if brawlersMod:PlayerFighting() then
 				specWarnBlindCleave:Show()
-				soundBlindCleave:Play()
 			end
 		end
 		if brawlersMod:PlayerFighting() and self.Options.SpeakOutStrikes then
@@ -148,14 +145,16 @@ end
 function mod:SPELL_CAST_SUCCESS(args)
 	if not brawlersMod.Options.SpectatorMode and not brawlersMod:PlayerFighting() then return end--Spectator mode is disabled, do nothing.
 	if args.spellId == 140894 then
-		warnBoomingBoogaloo:Show()
 		if brawlersMod:PlayerFighting() then
 			specWarnBoomingBoogaloo:Show()
+		else
+			warnBoomingBoogaloo:Show()
 		end
 	elseif args.spellId == 140912 then
-		warnDeployBoom:Show()
 		if brawlersMod:PlayerFighting() then
 			specWarnDeployBoom:Show()
+		else
+			warnDeployBoom:Show()
 		end
 	end
 end

@@ -2,7 +2,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
 
-  <Frame name="NxFrame">
+<Frame name="NxFrame">
 	<Scripts>
 		<OnLoad>
 			if Nx and not Nx.NXVerOld then
@@ -17,49 +17,49 @@
 		<OnUpdate>
 			Nx:NXOnUpdate (elapsed)
 		</OnUpdate>
-    </Scripts>
-  </Frame>
+	</Scripts>
+</Frame>
 
-  <Slider name="NxSliderFrame" orientation="HORIZONTAL" virtual="true">
-    <Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background" edgeFile="Interface\Buttons\UI-SliderBar-Border" tile="true">
-      <EdgeSize>
-        <AbsValue val="8" />
-      </EdgeSize>
-      <TileSize>
-        <AbsValue val="8" />
-      </TileSize>
-      <BackgroundInsets>
-        <AbsInset left="3" right="3" top="6" bottom="6" />
-      </BackgroundInsets>
-    </Backdrop>
-    <ThumbTexture file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
-      <Size>
-        <AbsDimension x="32" y="32" />
-      </Size>
-    </ThumbTexture>
-  </Slider>
+<Slider name="NxSliderFrame" orientation="HORIZONTAL" virtual="true">
+	<Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background" edgeFile="Interface\Buttons\UI-SliderBar-Border" tile="true">
+		<EdgeSize>
+			<AbsValue val="8" />
+		</EdgeSize>
+		<TileSize>
+			<AbsValue val="8" />
+		</TileSize>
+		<BackgroundInsets>
+			<AbsInset left="3" right="3" top="6" bottom="6" />
+		</BackgroundInsets>
+	</Backdrop>
+	<ThumbTexture file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
+		<Size>
+			<AbsDimension x="32" y="32" />
+		</Size>
+	</ThumbTexture>
+</Slider>
 
-  <ScrollFrame name="NxQuestDetails" inherits="UIPanelScrollFrameTemplate" virtual="true">
-    <Size>
-      <AbsDimension x="298" y="334" />
-    </Size>
-    <Anchors>
-      <Anchor point="TOPLEFT">
-        <Offset>
-          <AbsDimension x="19" y="-76" />
-        </Offset>
-      </Anchor>
-    </Anchors>
-    <ScrollChild>
-      <Frame name="NXQuestLogDetailScrollChildFrame">
-        <Size>
-          <AbsDimension x="298" y="333" />
-        </Size>
-      </Frame>
-    </ScrollChild>
-  </ScrollFrame>
+<ScrollFrame name="NxQuestDetails" inherits="UIPanelScrollFrameTemplate" virtual="true">
+	<Size>
+		<AbsDimension x="298" y="334" />
+	</Size>
+	<Anchors>
+		<Anchor point="TOPLEFT">
+			<Offset>
+				<AbsDimension x="19" y="-76" />
+			</Offset>
+		</Anchor>
+	</Anchors>
+	<ScrollChild>
+		<Frame name="NXQuestLogDetailScrollChildFrame">
+			<Size>
+				<AbsDimension x="298" y="333" />
+			</Size>
+		</Frame>
+	</ScrollChild>
+</ScrollFrame>
 
-  <Button name="NXMiniMapBut" parent="Minimap" toplevel="true" hidden="false" frameStrata="LOW" enableMouse="true" movable="true">
+<Button name="NXMiniMapBut" parent="Minimap" toplevel="true" hidden="false" frameStrata="LOW" enableMouse="true" movable="true">
 	<NormalTexture file="Interface\AddOns\Carbonite\Gfx\MMBut" />
 	<PushedTexture alphaMode="ADD" file="Interface\AddOns\Carbonite\Gfx\MMBut" />
 	<HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight" />
@@ -104,8 +104,8 @@
 			end
 		</OnUpdate>
 	</Scripts>
- </Button>
- <Button name="NxWatchListItem" inherits="SecureActionButtonTemplate" virtual="true">
+</Button>
+<Button name="NxWatchListItem" inherits="SecureActionButtonTemplate" virtual="true">
 	<Size x="26" y="26" />
 		<Layers>
 			<Layer level="ARTWORK">

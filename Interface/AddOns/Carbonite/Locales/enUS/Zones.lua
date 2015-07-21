@@ -1,4 +1,4 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("Carbonite", "enUS", true)
+local L = LibStub("AceLocale-3.0"):NewLocale("Carbonite", "enUS", true, true)
 if not L then return end
 
 L["A Brewing Storm"] = true
@@ -43,6 +43,7 @@ L["Bloodmaul Slag Mines"] = true
 L["Bloodmyst Isle"] = true
 L["Bonetown Scenario"] = true					-- is this needed (from zhTW)
 L["Borean Tundra"] = true
+L["Brawl'gar Arena"] = true
 L["Brewmoon Festival"] = true
 L["Burning Steppes"] = true
 L["Camp Narache"] = true

@@ -58,6 +58,7 @@ function aObj:Defaults()
 		GossipFrame          = true,
 		GuildRegistrar       = true,
 		ItemAlterationUI     = true,
+		ItemUpgradeUI        = true,
 		MerchantFrame        = true,
 		Petition             = true,
 		PetStableFrame       = true,
@@ -75,6 +76,7 @@ function aObj:Defaults()
 		Buffs                = true,
 		CastingBar           = {skin = true, glaze = true},
 		CharacterFrames      = true,
+		Collections          = true, -- (Mounts, Pets, Toys & Heirlooms)
 		CompactFrames        = true,
 		ContainerFrames      = {skin = true, fheight = 100},
 		DressUpFrame         = true,
@@ -93,7 +95,6 @@ function aObj:Defaults()
 		MirrorTimers         = {skin = true, glaze = true},
 		ObjectiveTracker     = {skin = false, popups = true},
 		OverrideActionBar    = true, -- a.k.a. VehicleUI
-		PetJournal           = true,
 		PVPFrame             = true,
 		QuestMap             = true,
 		RaidUI               = true,
@@ -108,7 +109,7 @@ function aObj:Defaults()
 		VehicleMenuBar       = true,
 	-->>-- UI Frames
 		DisableAllUI         = false,
-		AddonList		  	 = true,
+		AddonList            = true,
 		AlertFrames          = true,
 		AuthChallengeUI      = false, -- N.B. cannot be skinned
 		AutoComplete         = true,
@@ -120,14 +121,15 @@ function aObj:Defaults()
 		ChatButtons          = true,
 		ChatConfig           = true,
 		ChatEditBox          = {skin = true, style = 3},
-		ChatFrames           = false,
+		ChatFrames           = false, -- (inc ChatMinimizedFrames)
 		ChatMenus            = true,
-		ChatTabs             = false,
+		ChatTabs             = false, -- (inc. ChatTemporaryWindow)
 		ChatTabsFade         = true,
 		CinematicFrame       = true,
 		CoinPickup           = true,
 		Colours              = true,
 		CombatLogQBF         = false,
+		DeathRecap           = true,
 		DebugTools           = true,
 		DestinyFrame         = true,
 		DraenorZoneAbility   = true,
@@ -137,14 +139,13 @@ function aObj:Defaults()
 		GuildBankUI          = true,
 		HelpFrame            = true,
 		ItemText             = true,
-		ItemUpgradeUI        = true,
 		LevelUpDisplay       = true,
 		LFDFrame             = true,
 		LFGFrame             = true,
 		LFRFrame             = true,
 		MailFrame            = true,
 		MainMenuBar          = {skin = true, glazesb = true, extraab=true},
-		MenuFrames           = true, -- inc. MacroUI & BindingUI
+		MenuFrames           = true, -- (inc. MacroUI & BindingUI)
 		Minimap              = {skin = false, gloss = false},
 		MinimapButtons       = {skin = false, style = false},
 		MovePad              = true,
@@ -153,8 +154,11 @@ function aObj:Defaults()
 		Nameplates           = true,
 		PetBattleUI          = true,
 		PVEFrame             = true,
+		QuestMap             = true,
+		QueueStatusFrame     = true,
 		RaidFrame            = true,
 		ScriptErrors         = true,
+		SocialUI             = false, -- N.B. cannot be skinned
 		SplashFrame          = true,
 		StaticPopups         = true,
 		StoreUI              = false, -- N.B. cannot be skinned
@@ -163,7 +167,9 @@ function aObj:Defaults()
 		Tutorial             = true,
 		WorldMap             = {skin = true, size = 1},
 		WorldState           = true,
+		WowTokenUI			 = false, -- N.B. cannot be skinned
 	-->>-- Disabled Skins
+		DisableAllAS         = false,
 		DisabledSkins        = {},
 	-->-- Profiles
 		-- populated below
@@ -720,9 +726,7 @@ function aObj:Options()
 					type = "toggle",
 					name = self.L["Disable all NPC Frames"],
 					desc = self.L["Disable all the NPC Frames from being skinned"],
-					set = function(info, value)
-						db[info[#info]] = value
-					end,
+					set = function(info, value) db[info[#info]] = value end,
 				},
 				head2 = {
 					order = 3,
@@ -844,9 +848,7 @@ function aObj:Options()
 					type = "toggle",
 					name = self.L["Disable all Player Frames"],
 					desc = self.L["Disable all the Player Frames from being skinned"],
-					set = function(info, value)
-						db[info[#info]] = value
-					end,
+					set = function(info, value) db[info[#info]] = value end,
 				},
 				head2 = {
 					order = 3,
@@ -916,6 +918,12 @@ function aObj:Options()
 					type = "toggle",
 					name = self.L["Character Frames"],
 					desc = self.L["Toggle the skin of the Character Frames"],
+				},
+				Collections = {
+					-- (Mounts, Pets, Toys & Heirlooms)
+					type = "toggle",
+					name = self.L["Collections Journal"],
+					desc = self.L["Toggle the skin of the Collections Journal"],
 				},
 				CompactFrames = {
 					type = "toggle",
@@ -1085,16 +1093,6 @@ function aObj:Options()
 					name = self.L["VehicleUI"],
 					desc = self.L["Toggle the skin of the VehicleUI"],
 				},
-				PetJournal = {
-					type = "toggle",
-					width = "double",
-					name = self.L["Mounts and Pets Frame"],
-					desc = self.L["Toggle the skin of the Mounts and Pets Frame"],
-					set = function(info, value)
-						db[info[#info]] = value
-						if IsAddOnLoaded("Blizzard_PetJournal") then self:checkAndRun("PetJournal") end
-					end,
-				},
 				PVPFrame = {
 					type = "toggle",
 					name = self.L["PVP Frame"],
@@ -1181,9 +1179,7 @@ function aObj:Options()
 					type = "toggle",
 					name = self.L["Disable all UI Frames"],
 					desc = self.L["Disable all the UI Frames from being skinned"],
-					set = function(info, value)
-						db[info[#info]] = value
-					end,
+					set = function(info, value) db[info[#info]] = value end,
 				},
 				head2 = {
 					order = 3,
@@ -1358,6 +1354,11 @@ function aObj:Options()
 					type = "toggle",
 					name = self.L["Color Picker Frame"],
 					desc = self.L["Toggle the skin of the Color Picker Frame"],
+				},
+				DeathRecap = {
+					type = "toggle",
+					name = self.L["Death Recap Frame"],
+					desc = self.L["Toggle the skin of the Death Recap Frame"],
 				},
 				DebugTools = {
 					type = "toggle",
@@ -1571,6 +1572,16 @@ function aObj:Options()
 					name = self.L["PVE Frame"],
 					desc = self.L["Toggle the skin of the PVE Frame"],
 				},
+				QuestMap = {
+					type = "toggle",
+					name = self.L["Quest Map"],
+					desc = self.L["Toggle the skin of the Quest Map"],
+				},
+				QueueStatusFrame = {
+					type = "toggle",
+					name = self.L["Queue Status Frame"],
+					desc = self.L["Toggle the skin of the Queue Status Frame"],
+				},
 				RaidFrame = {
 					type = "toggle",
 					name = self.L["Raid Frame"],
@@ -1580,6 +1591,11 @@ function aObj:Options()
 					type = "toggle",
 					name = self.L["Script Errors Frame"],
 					desc = self.L["Toggle the skin of the Script Errors Frame"],
+				},
+				SocialUI = {
+					type = "toggle",
+					name = self.L["Social Frame"],
+					desc = self.L["Toggle the skin of the Social Frame"],
 				},
 				SplashFrame = {
 					type = "toggle",
@@ -1675,6 +1691,11 @@ function aObj:Options()
 					name = self.L["Battle Score Frame"],
 					desc = self.L["Toggle the skin of the Battle Score Frame"],
 				},
+				WowTokenUI = {
+					type = "toggle",
+					name = self.L["WoW Token UI Frame"],
+					desc = self.L["Toggle the skin of the WoW Token UI Frame"],
+				},
 			},
 		},
 
@@ -1684,6 +1705,25 @@ function aObj:Options()
 			get = function(info) return db.DisabledSkins[info[#info]] end,
 			set = function(info, value) db.DisabledSkins[info[#info]] = value end,
 			args = {
+				head1 = {
+					order = 1,
+					type = "header",
+					name = self.L["Either"],
+				},
+				DisableAllAS = {
+					order = 2,
+					width = "full",
+					type = "toggle",
+					name = self.L["Disable all Addon Skins"],
+					desc = self.L["Disable all the Addon skins"],
+					get = function(info) return db[info[#info]] end,
+					set = function(info, value) db[info[#info]] = value end,
+				},
+				head2 = {
+					order = 3,
+					type = "header",
+					name = self.L["or choose which Addon skins to disable"],
+				},
 			},
 		},
 
@@ -1720,10 +1760,6 @@ function aObj:Options()
 	-- add DB profile options
 	self.optTables.Profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
-	-- option tables list
-	local optNames = {
-		"Backdrop", "Background", "Colours", "Gradient", "Modules", "NPC Frames", "Player Frames", "UI Frames", "Disabled Skins", "Profiles"
-	}
 	-- register the options tables and add them to the blizzard frame
 	self.ACR = LibStub("AceConfigRegistry-3.0")
 	self.ACD = LibStub("AceConfigDialog-3.0")
@@ -1733,6 +1769,10 @@ function aObj:Options()
 
 	-- register the options, add them to the Blizzard Options
 	-- build the table used by the chatCommand function
+	-- option tables list
+	local optNames = {
+		"Backdrop", "Background", "Colours", "Gradient", "Modules", "NPC Frames", "Player Frames", "UI Frames", "Disabled Skins", "Profiles"
+	}
 	local optCheck = {}
 	for _, v in _G.ipairs(optNames) do
 		local optTitle = (" "):join(aName, v)
@@ -1740,6 +1780,7 @@ function aObj:Options()
 		self.optionsFrame[self.L[v]] = self.ACD:AddToBlizOptions(optTitle, self.L[v], aName)
 		optCheck[v:lower()] = v
 	end
+	optNames = nil
 
 	-- runs when the player clicks "Defaults"
 	self.optionsFrame[self.L["Backdrop"]].default = function()
@@ -1793,10 +1834,10 @@ function aObj:Options()
 		if not input or input:trim() == "" then
 			-- Open general panel if there are no parameters, do twice to overcome Blizzard bug
 			InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame)
-			-- InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame)
+			InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame)
 		elseif optCheck[input:lower()] then
 			InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame[optCheck[input:lower()]])
-			-- InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame[optCheck[input:lower()]])
+			InterfaceOptionsFrame_OpenToCategory(aObj.optionsFrame[optCheck[input:lower()]])
 		else
 			LibStub("AceConfigCmd-3.0"):HandleCommand(aName, aName, input)
 		end

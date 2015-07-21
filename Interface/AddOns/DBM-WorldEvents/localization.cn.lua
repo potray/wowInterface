@@ -1,5 +1,8 @@
-﻿-- Simplified Chinese by Diablohu(diablohudream@gmail.com) & yleaf(yaroot@gmail.com)
--- Last update: 10/20/2012
+﻿-- Diablohu(diablohudream@gmail.com)
+-- yleaf(yaroot@gmail.com)
+-- Mini_Dragon(projecteurs@gmail.com)
+-- Yike Xia
+-- Last update: Jan 22, 2015@12534
 
 if GetLocale() ~= "zhCN" then return end
 
@@ -14,9 +17,9 @@ L:SetGeneralLocalization({
 	name = "年兽"
 })
 
------------------------
---  Apothecary Trio  --
------------------------
+------------------------------
+--  The Crown Chemical Co.  --
+------------------------------
 L = DBM:GetModLocalization("d288")
 
 L:SetTimerLocalization({
@@ -33,9 +36,9 @@ L:SetMiscLocalization({
 	SayCombatStart		= "他们顾得上告诉你我是谁或者我在做些什么吗？"
 })
 
--------------
---  Ahune  --
--------------
+----------------------------
+--  The Frost Lord Ahune  --
+----------------------------
 L = DBM:GetModLocalization("d286")
 
 L:SetWarningLocalization({

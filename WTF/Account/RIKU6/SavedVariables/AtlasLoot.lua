@@ -1,34 +1,35 @@
 
 AtlasLootDB = {
 	["namespaces"] = {
-		["DefaultFrame"] = {
-			["profiles"] = {
-				["Potray - Dun Modr"] = {
-					["module"] = "AtlasLootClassicWoW",
-					["NEWpoint"] = {
-						"RIGHT", -- [1]
-						nil, -- [2]
-						"RIGHT", -- [3]
-						-164.500045776367, -- [4]
-						-39.0000648498535, -- [5]
-					},
-					["instance"] = "BlackfathomDeeps",
-				},
-			},
+		["WishList"] = {
 		},
 		["AtlasLootPanel"] = {
 		},
-		["WishList"] = {
+		["DefaultFrame"] = {
+			["profiles"] = {
+				["Potray - Dun Modr"] = {
+					["instance"] = "Ulduar",
+					["NEWpoint"] = {
+						"LEFT", -- [1]
+						nil, -- [2]
+						"LEFT", -- [3]
+						75.5003204345703, -- [4]
+						87.4999694824219, -- [5]
+					},
+					["module"] = "AtlasLootWotLK",
+				},
+			},
 		},
 		["Filter"] = {
 		},
 	},
-	["showWarning"] = true,
 	["profileKeys"] = {
 		["Potray - Dun Modr"] = "Potray - Dun Modr",
 	},
+	["showWarning"] = true,
 	["profiles"] = {
 		["Potray - Dun Modr"] = {
+			["LastSearch"] = "mount",
 		},
 	},
 }

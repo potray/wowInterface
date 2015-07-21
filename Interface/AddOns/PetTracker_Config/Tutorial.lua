@@ -1,5 +1,5 @@
 --[[
-Copyright 2012-2014 João Cardoso
+Copyright 2012-2015 João Cardoso
 PetTracker is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -42,7 +42,7 @@ function Tutorial:Split()
 		self:HookJournal()
 	else
 		hooksecurefunc('LoadAddOn', function(addon)
-			if addon == 'Blizzard_PetJournal' then
+			if addon == 'Blizzard_Collections' then
 				self:HookJournal()
 			end
 		end)
@@ -52,7 +52,7 @@ end
 function Tutorial:HookJournal()
 	self.HookJournal = function() end
 
-	PetJournalParent:HookScript('OnShow', function()
+	CollectionsJournal:HookScript('OnShow', function()
 		self:Trigger('Journal', 2)
 	end)
 
@@ -215,21 +215,21 @@ Tutorial:Register('Journal', {
 
 	onShow = function(self, i)
 		if i == 2 then
-			self[i].shine = PetJournalParentTab2
-			self[i].anchor = PetJournalParentTab2
+			self[i].shine = CollectionsJournalTab2
+			self[i].anchor = CollectionsJournalTab2
 		elseif i == 3 then
 			self[i].shine = _G[ADDON .. 'TrackToggle']
-			self[i].anchor = PetJournalParent
+			self[i].anchor = CollectionsJournal
 		elseif i == 4 then
-			self[i].shine = PetJournalParentTab4
-			self[i].anchor = PetJournalParentTab4
+			self[i].shine = CollectionsJournalTab4
+			self[i].anchor = CollectionsJournalTab4
 		elseif i == 5 then
-			self[i].anchor = PetJournalParent
+			self[i].anchor = CollectionsJournal
 		elseif i == 6 then
 			self[i].anchor = PetTrackerTamerJournal.SearchBox
 			self[i].shine = PetTrackerTamerJournal.SearchBox
 		elseif i == 7 then
-			self[i].anchor = PetJournalParent
+			self[i].anchor = CollectionsJournal
 			self[i].shine = PetTrackerTamerJournal.Tab3
 		end
 	end

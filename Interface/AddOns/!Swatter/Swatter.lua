@@ -1,7 +1,7 @@
 --[[
 	Swatter - An AddOn debugging aid for World of Warcraft.
-	Version: 5.21c.5521 (SanctimoniousSwamprat)
-	Revision: $Id: Swatter.lua 366 2014-09-15 13:10:07Z brykrys $
+	Version: 5.21e.5566 (SanctimoniousSwamprat)
+	Revision: $Id: Swatter.lua 378 2014-12-12 15:18:11Z brykrys $
 	URL: http://auctioneeraddon.com/dl/Swatter/
 	Copyright (C) 2006 Norganna
 
@@ -27,21 +27,12 @@ local otherdebug = {
 	['!buggrabber'] = 'BugGrabber',
 	['!improvederrorframe'] = 'ImprovedErrorFrame',
 }
-if GetAddOnEnableState then -- WoW 6.0 or later
-	for addon, name in pairs(otherdebug) do
-		local enabled = GetAddOnEnableState(UnitName("player"), addon)
-		if enabled and enabled > 0 then
-		  DEFAULT_CHAT_FRAME:AddMessage("|cffffaa11Swatter is not loaded, because you are running "..name.."|r")
-		  return
-		end
-	end
-else -- WoW 5.X - delete this section after 6.0 goes fully live
-	for addon, name in pairs(otherdebug) do
-		local enabled = select(4, GetAddOnInfo(addon))
-		if enabled then
-		  DEFAULT_CHAT_FRAME:AddMessage("|cffffaa11Swatter is not loaded, because you are running "..name.."|r")
-		  return
-		end
+local player = UnitName("player")
+for addon, name in pairs(otherdebug) do
+	local enabled = GetAddOnEnableState(player, addon)
+	if enabled and enabled > 0 then
+	  DEFAULT_CHAT_FRAME:AddMessage("|cffffaa11Swatter is not loaded, because you are running "..name.."|r")
+	  return
 	end
 end
 
@@ -54,7 +45,7 @@ Swatter = {
 	HISTORY_SIZE = 100,
 }
 
-Swatter.Version="5.21c.5521"
+Swatter.Version="5.21e.5566"
 if (Swatter.Version == "<%".."version%>") then
 	Swatter.Version = "6.0.DEV"
 end
@@ -88,7 +79,7 @@ hooksecurefunc("SetAddOnDetail", addOnDetail)
 
 -- End SetAddOnDetail function hook.
 
-LibStub("LibRevision"):Set("$URL: http://svn.norganna.org/libs/trunk/!Swatter/Swatter.lua $","$Rev: 366 $","6.0.DEV.", 'auctioneer', 'libs')
+LibStub("LibRevision"):Set("$URL: http://svn.norganna.org/libs/trunk/!Swatter/Swatter.lua $","$Rev: 378 $","6.0.DEV.", 'auctioneer', 'libs')
 
 local function toggle()
 	if Swatter.Error:IsVisible() then

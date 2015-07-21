@@ -9,6 +9,7 @@ RecountDB = {
 		["Zhenya - Los Errantes"] = "Zhenya - Los Errantes",
 		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
 		["Kalarankor - Los Errantes"] = "Kalarankor - Los Errantes",
+		["Farenir - Dun Modr"] = "Farenir - Dun Modr",
 		["Ringeki - Dun Modr"] = "Ringeki - Dun Modr",
 		["Prason - Los Errantes"] = "Prason - Los Errantes",
 		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
@@ -33,9 +34,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["GraphWindowX"] = 0,
 			["DetailWindowX"] = 0,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
 		},
 		["Pexuss - Dun Modr"] = {
 			["GraphWindowY"] = 0,
@@ -55,10 +56,52 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["GraphWindowX"] = 0,
-			["MainWindowVis"] = false,
 			["DetailWindowX"] = 0,
+			["MainWindowVis"] = false,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
+		},
+		["Farenir - Dun Modr"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["BarText"] = {
+					["RankNum"] = false,
+					["NumFormat"] = 3,
+				},
+				["Position"] = {
+					["y"] = -460.499473571777,
+					["x"] = 597.000549316406,
+					["w"] = 163.999923706055,
+					["h"] = 159,
+				},
+				["Buttons"] = {
+					["RightButton"] = false,
+					["ReportButton"] = false,
+				},
+			},
+			["DetailWindowX"] = 0,
+			["MainWindowHeight"] = 159,
+			["BarTexture"] = "Runes",
+			["CurDataSet"] = "OverallData",
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+				["Window"] = {
+					["Title"] = {
+						["a"] = 0,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["Locked"] = true,
+			["MainWindowWidth"] = 163.999786376953,
+			["GraphWindowX"] = 0,
 		},
 		["Drublock - Los Errantes"] = {
 			["GraphWindowY"] = 0,
@@ -81,8 +124,8 @@ RecountDB = {
 			},
 			["DetailWindowY"] = 0,
 			["DetailWindowX"] = 0,
-			["GraphWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
 		},
 		["Kareitris - Los Errantes"] = {
 			["GraphWindowY"] = 0,
@@ -102,24 +145,24 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["MainWindowVis"] = false,
-			["CurDataSet"] = "OverallData",
 			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
+			["MainWindowVis"] = false,
+			["DetailWindowX"] = 0,
 		},
 		["Potray - Dun Modr"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
-				["Position"] = {
-					["y"] = -461.498870849609,
-					["x"] = 603.001770019531,
-					["w"] = 151.99983215332,
-					["h"] = 158.999893188477,
-				},
-				["ShowScrollbar"] = false,
 				["Buttons"] = {
 					["CloseButton"] = false,
 					["ReportButton"] = false,
+				},
+				["ShowScrollbar"] = false,
+				["Position"] = {
+					["y"] = -461.498916625977,
+					["x"] = 603.001770019531,
+					["w"] = 151.99983215332,
+					["h"] = 158.999893188477,
 				},
 				["BarText"] = {
 					["NumFormat"] = 3,
@@ -128,17 +171,17 @@ RecountDB = {
 			["Colors"] = {
 				["Other Windows"] = {
 					["Background"] = {
-						["b"] = 0,
-						["g"] = 0.00392156862745098,
 						["r"] = 0.196078431372549,
+						["g"] = 0.00392156862745098,
+						["b"] = 0,
 					},
 				},
 				["Window"] = {
 					["Background"] = {
 						["a"] = 0,
-						["b"] = 0,
-						["g"] = 0.0117647058823529,
 						["r"] = 0.219607843137255,
+						["g"] = 0.0117647058823529,
+						["b"] = 0,
 					},
 					["Title"] = {
 						["a"] = 0,
@@ -158,7 +201,7 @@ RecountDB = {
 			["DetailWindowX"] = 0,
 			["GraphWindowX"] = 0,
 			["Locked"] = true,
-			["BarTextColorSwap"] = false,
+			["LastInstanceName"] = "The Everbloom",
 			["RealtimeWindows"] = {
 				["Realtime_FPS_FPS"] = {
 					"FPS", -- [1]
@@ -182,9 +225,9 @@ RecountDB = {
 				},
 			},
 			["CurDataSet"] = "OverallData",
-			["MainWindowHeight"] = 158.999877929688,
+			["BarTextColorSwap"] = false,
 			["MainWindowWidth"] = 151.999938964844,
-			["LastInstanceName"] = "Magtheridon's Lair",
+			["MainWindowHeight"] = 158.999877929688,
 		},
 		["Zhenya - Los Errantes"] = {
 			["GraphWindowY"] = 0,
@@ -204,9 +247,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
 			["GraphWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
+			["DetailWindowX"] = 0,
 		},
 		["Kobash - Los Errantes"] = {
 			["GraphWindowY"] = 0,
@@ -226,9 +269,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["GraphWindowX"] = 0,
 			["DetailWindowX"] = 0,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
 		},
 		["Kalarankor - Los Errantes"] = {
 			["GraphWindowY"] = 0,
@@ -248,9 +291,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
+			["DetailWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
 			["GraphWindowX"] = 0,
-			["DetailWindowX"] = 0,
 		},
 		["Default"] = {
 			["GraphWindowY"] = 0,
@@ -270,53 +313,7 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["GraphWindowX"] = 0,
 			["DetailWindowX"] = 0,
-		},
-		["Elrad - Los Errantes"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["w"] = 140.000015258789,
-				},
-			},
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["GraphWindowX"] = 0,
-			["CurDataSet"] = "OverallData",
-			["MainWindowVis"] = false,
-			["DetailWindowX"] = 0,
-		},
-		["Prason - Los Errantes"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["w"] = 140.000015258789,
-				},
-			},
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["MainWindowVis"] = false,
 			["GraphWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
 		},
@@ -338,12 +335,12 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["MainWindowVis"] = false,
-			["GraphWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
+			["MainWindowVis"] = false,
+			["DetailWindowX"] = 0,
 		},
-		["Pexus - Los Errantes"] = {
+		["Prason - Los Errantes"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
 				["Position"] = {
@@ -363,7 +360,53 @@ RecountDB = {
 			["DetailWindowY"] = 0,
 			["CurDataSet"] = "OverallData",
 			["GraphWindowX"] = 0,
+			["MainWindowVis"] = false,
 			["DetailWindowX"] = 0,
+		},
+		["Elrad - Los Errantes"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["w"] = 140.000015258789,
+				},
+			},
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["CurDataSet"] = "OverallData",
+			["MainWindowVis"] = false,
+			["GraphWindowX"] = 0,
+			["DetailWindowX"] = 0,
+		},
+		["Pexus - Los Errantes"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["w"] = 140.000015258789,
+				},
+			},
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["DetailWindowX"] = 0,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
 		},
 	},
 }

@@ -1,10 +1,8 @@
 local addonName = "Altoholic"
 local addon = _G[addonName]
+local colors = addon.Colors
 
-local BI = LibStub("LibBabble-Inventory-3.0"):GetLookupTable()
 local L = LibStub("AceLocale-3.0"):GetLocale(addonName)
-
-local WHITE		= "|cFFFFFFFF"
 
 local ICON_NOTREADY = "\124TInterface\\RaidFrame\\ReadyCheck-NotReady:14\124t"
 local ICON_READY = "\124TInterface\\RaidFrame\\ReadyCheck-Ready:14\124t"
@@ -25,10 +23,6 @@ end
 if DataStore_Pets then
 	table.sort(DataStore:GetCompanionList(), SortPets)
 end
-
-local DDM_Add = addon.Helpers.DDM_Add
-local DDM_AddTitle = addon.Helpers.DDM_AddTitle
-local DDM_AddCloseMenu = addon.Helpers.DDM_AddCloseMenu
 
 local function CompanionOnClick(frame, button)
 	if frame.id and ( button == "LeftButton" ) and ( IsShiftKeyDown() ) then
@@ -112,17 +106,17 @@ local function OnXPackChange(self)
 	addon.Tabs.Grids:Update()
 end
 
-local function PetDropDown_Initialize()
+local function DropDown_Initialize(frame)
 	local currentXPack = addon:GetOption(OPTION_XPACK)
 
 	for i, xpack in pairs(xPacks) do
-		DDM_Add(xpack, i, OnXPackChange, nil, (i==currentXPack))
+		frame:AddButton(xpack, i, OnXPackChange, nil, (i==currentXPack))
 	end
 	
-	DDM_AddCloseMenu()
+	frame:AddCloseMenu()
 end
 
-local companionsCallbacks = {
+local callbacks = {
 	OnUpdate = function() 
 			local currentXPack = addon:GetOption(OPTION_XPACK)
 			spellList = (currentXPack <= CAT_ALLINONE) and petList[currentXPack] or DataStore:GetCompanionList()
@@ -130,39 +124,34 @@ local companionsCallbacks = {
 			addon.Tabs.Grids:SetStatus(xPacks[currentXPack])
 		end,
 	GetSize = function() return #spellList end,
-	RowSetup = function(self, entry, row, dataRowID)
+	RowSetup = function(self, rowFrame, dataRowID)
 			currentSpellID = spellList[dataRowID]
 			local petName, _
 			petName, _, currentPetTexture = GetSpellInfo(currentSpellID)
 			
 			if petName then
-				local rowName = entry .. row
-				_G[rowName.."Name"]:SetText(WHITE .. petName)
-				_G[rowName.."Name"]:SetJustifyH("LEFT")
-				_G[rowName.."Name"]:SetPoint("TOPLEFT", 15, 0)
+				rowFrame.Name.Text:SetText(colors.white .. petName)
+				rowFrame.Name.Text:SetJustifyH("LEFT")
 			end
 		end,
-	ColumnSetup = function(self, entry, row, column, dataRowID, character)
-			local itemName = entry.. row .. "Item" .. column;
-			local itemTexture = _G[itemName .. "_Background"]
-			local itemButton = _G[itemName]
-			local itemText = _G[itemName .. "Name"]
-						
-			itemText:SetFontObject("GameFontNormalSmall")
-			itemText:SetJustifyH("CENTER")
-			itemText:SetPoint("BOTTOMRIGHT", 5, 0)
-			itemTexture:SetDesaturated(false)
-			itemTexture:SetTexCoord(0, 1, 0, 1)
-			itemTexture:SetTexture(currentPetTexture)
+	RowOnEnter = function()	end,
+	RowOnLeave = function() end,
+	ColumnSetup = function(self, button, dataRowID, character)
+			button.Name:SetFontObject("GameFontNormalSmall")
+			button.Name:SetJustifyH("CENTER")
+			button.Name:SetPoint("BOTTOMRIGHT", 5, 0)
+			button.Background:SetDesaturated(false)
+			button.Background:SetTexCoord(0, 1, 0, 1)
+			button.Background:SetTexture(currentPetTexture)
 			
 			if DataStore:IsPetKnown(character, "CRITTER", currentSpellID) then
-				itemTexture:SetVertexColor(1.0, 1.0, 1.0);
-				itemText:SetText(ICON_READY)
+				button.Background:SetVertexColor(1.0, 1.0, 1.0);
+				button.Name:SetText(ICON_READY)
 			else
-				itemTexture:SetVertexColor(0.4, 0.4, 0.4);
-				itemText:SetText(ICON_NOTREADY)
+				button.Background:SetVertexColor(0.4, 0.4, 0.4);
+				button.Name:SetText(ICON_NOTREADY)
 			end
-			itemButton.id = currentSpellID
+			button.id = currentSpellID
 		end,
 	OnEnter = function(frame) 
 			local id = frame.id
@@ -179,18 +168,18 @@ local companionsCallbacks = {
 			AltoTooltip:Hide() 
 		end,
 		
-	InitViewDDM = function(frame, title) 
+	InitViewDDM = function(frame, title)
 			frame:Show()
 			title:Show()
 			
-			UIDropDownMenu_SetWidth(frame, 100) 
-			UIDropDownMenu_SetButtonWidth(frame, 20)
-			UIDropDownMenu_SetText(frame, xPacks[addon:GetOption(OPTION_XPACK)])
-			addon:DDM_Initialize(frame, PetDropDown_Initialize)
+			frame:SetMenuWidth(100) 
+			frame:SetButtonWidth(20)
+			frame:SetText(xPacks[addon:GetOption(OPTION_XPACK)])
+			frame:Initialize(DropDown_Initialize, "MENU_NO_BORDERS")
 		end,
 }
 
 local tab = addon.Tabs.Grids
 
-tab:RegisterGrid(5, companionsCallbacks)
+tab:RegisterGrid(5, callbacks)
 

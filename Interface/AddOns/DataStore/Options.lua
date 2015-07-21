@@ -152,9 +152,9 @@ end
 
 function addon:ToggleOption(frame, module, option)
 	if frame:GetChecked() then 
-		addon:SetOption(module, option, 1)
+		addon:SetOption(module, option, true)
 	else
-		addon:SetOption(module, option, 0)
+		addon:SetOption(module, option, false)
 	end
 end
 
@@ -208,7 +208,7 @@ end
 
 function addon:SetCheckBoxTooltip(frame, title, whenEnabled, whenDisabled)
 	frame.tooltipText = title
-	frame.tooltipRequirement = format("%s|r:\n%s\n\n%s|r:\n%s", GREEN..L["Enabled"], whenEnabled, RED..L["Disabled"], whenDisabled)
+	frame.tooltipRequirement = format("\n%s|r:\n%s\n\n%s|r:\n%s", GREEN..L["Enabled"], whenEnabled, RED..L["Disabled"], whenDisabled)
 end
 
 local OptionsPanelWidth, OptionsPanelHeight

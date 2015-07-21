@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("PT", "DBM-Party-BC", 12)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 548 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 567 $"):sub(12, -3))
 
 mod:RegisterEvents(
 	"UPDATE_WORLD_STATES",
@@ -14,22 +14,22 @@ mod.noStatistics = true
 local warnWavePortalSoon	= mod:NewAnnounce("WarnWavePortalSoon", 2, 57687)
 local warnWavePortal		= mod:NewAnnounce("WarnWavePortal", 3, 57687)
 local warnBossPortal		= mod:NewAnnounce("WarnBossPortal", 4, 33341)
+
 local timerNextPortal		= mod:NewTimer(120, "TimerNextPortal", 57687)
 
 --mod:AddBoolOption("ShowAllPortalTimers", false, "timer")
 mod:RemoveOption("HealthFrame")
-mod:RemoveOption("SpeedKillTimer")
 
 local lastPortal = 0
 
 function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
 	if cid == 17879 then
-		timerNextPortal:Start(126, lastPortal + 1)
-		warnWavePortalSoon:Schedule(116)
+		timerNextPortal:Start(30, lastPortal + 1)
+		warnWavePortalSoon:Schedule(25)
 	elseif cid == 17880 then
-		timerNextPortal:Start(122, lastPortal + 1)
-		warnWavePortalSoon:Schedule(112)
+		timerNextPortal:Start(30, lastPortal + 1)
+		warnWavePortalSoon:Schedule(25)
 	end
 end
 

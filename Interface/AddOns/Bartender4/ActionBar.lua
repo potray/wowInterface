@@ -1,5 +1,5 @@
 --[[
-	Copyright (c) 2009-2014, Hendrik "Nevcairiel" Leppkes < h.leppkes at gmail dot com >
+	Copyright (c) 2009-2015, Hendrik "Nevcairiel" Leppkes < h.leppkes at gmail dot com >
 	All rights reserved.
 ]]
 local _, Bartender4 = ...
@@ -119,6 +119,8 @@ function ActionBar:SetupSmartTarget()
 	local s = [[
 		BT_Spell_Overrides = newtable()
 		BT_Spell_Overrides[93402] = 8921 -- sunfire -> moonfire
+		BT_Spell_Overrides[16979] = 102401 -- wild charge (bear)
+		BT_Spell_Overrides[49376] = 102401 -- wild charge (cat)
 	]]
 
 	local i = 1

@@ -1,7 +1,7 @@
 --[[
 	Auctioneer
-	Version: 5.21c.5521 (SanctimoniousSwamprat)
-	Revision: $Id: CorePost.lua 5398 2013-03-27 19:22:01Z brykrys $
+	Version: 5.21e.5566 (SanctimoniousSwamprat)
+	Revision: $Id: CorePost.lua 5559 2015-05-14 18:24:03Z brykrys $
 	URL: http://auctioneeraddon.com/
 
 	This is an addon for World of Warcraft that adds statistical history to the auction data that is collected
@@ -39,7 +39,7 @@
 	queueable fashion.
 
 	This code takes "sigs" as input to most of it's functions. A "sig" is a string containing
-	a colon seperated concatenation of itemId:suffixId:suffixFactor:enchantId
+	a colon seperated concatenation of itemID:suffixId:suffixFactor:enchantId
 	A sig must be shortened by truncating trailing 0's - this is required for equality testing
 	Any missing values at the end will be set to zero when the sig is decoded
 	The function AucAdvanced.API.GetSigFromLink(link) may be used to construct a valid sig
@@ -140,6 +140,7 @@ local ErrorText = {
 	Accountbound = "Cannot auction an Account Bound item",
 	Conjured = "Cannot auction a Conjured item",
 	Quest = "Cannot auction a Quest item",
+	Token = "Auctioneer cannot post a WoW Token. Use the Auctions tab instead.",
 	Lootable = "Cannot auction a Lootable item",
 	Damaged = "Cannot auction a Damaged item",
 	InvalidBid = "Bid value is invalid",
@@ -334,6 +335,9 @@ function private.GetRequest(item, size, bid, buyout, duration, multiple)
 	local sig, id, linkType, exactLink = AnalyzeItem(item)
 	if not (sig and id) then
 		return nil, "InvalidItem"
+	elseif C_WowTokenPublic.IsAuctionableWowToken(id) then
+		-- WoW tokens require special handling, which Auctioneer currently doesn't support
+		return nil, "Token"
 	elseif type(size) ~= "number" or size < 1 then
 		return nil, "InvalidSize"
 	elseif type(bid) ~= "number" or bid < 1 then
@@ -513,10 +517,15 @@ end
     then the item is definately not auctionable.
 ]]
 function lib.IsAuctionable(bag, slot)
-	if GetContainerItemID(bag, slot) == 82800 then
+	local itemID = GetContainerItemID(bag, slot)
+	if itemID == 82800 then
 		-- battlepet cage always sellable
 		-- we test for it specially, as battlepets may break the other tests :(
 		return true
+	elseif C_WowTokenPublic.IsAuctionableWowToken(itemID) then
+		-- WoW tokens are technically auctionable, but not by Auctioneer currently
+		-- For now we shall report them as NOT auctionable
+		return false, "Token"
 	end
 
 	local _,_,_,_,_,lootable = GetContainerItemInfo(bag, slot)
@@ -595,27 +604,24 @@ local depositDurationMultiplier = {
 	[2880] = 12,
 }
 --[[
-    GetDepositCost(item, duration, faction, count)
+    GetDepositCost(item, duration, unused, count)
     item: itemID or "itemString" or "itemName" or "itemLink" [Required]
 	duration: 1, 2, 3 (Blizzard auction duration codes), 12, 24, 48 (hours), 720, 1440, 2880 (minutes) [defaults to 2]
-	faction: "home" or "neutral" or "Neutral" [defaults to home]
     count: <stacksize> [defaults to 1]
 ]]
-function GetDepositCost(item, duration, faction, count)
+function GetDepositCost(item, duration, unused, count)
 	if not item then return end
 	--[[
-	Deposit Cost = RoundDown(VendorPrice * FactionMultiplier * StackSize, 3) * DurationMultiplier
-	FactionMultiplier = (0.15 for Home, 0.75 for Neutral)
+	Deposit Cost = RoundDown(0.15 * VendorPrice * StackSize, 3) * DurationMultiplier
 	DurationMultiplier = (1 for 12hrs, 2 for 24hrs, 4 for 48hrs)
 	However as there is no lua function for "round down to the nearest multiple of 3",
-	we shall implement this by dividing the FactionMultiplier by 3 (0.05 and 0.25)
+	we shall implement this by dividing the constant multiplier by 3 (0.15 / 3 = 0.05)
 	using 'floor' to round down to the nearest integer
 	and then multiplying the DurationMultiplier by 3 (3, 6 and 12) - [see lookup table above]
 	--]]
 
 	-- Set up function defaults if not specifically provided
 	duration = depositDurationMultiplier[duration] or 6
-	if faction == "neutral" or faction == "Neutral" then faction = .25 else faction = .05 end
 	count = count or 1
 
 	local _,_,_,_,_,_,_,_,_,_,gsv = GetItemInfo(item)
@@ -629,7 +635,7 @@ function GetDepositCost(item, duration, faction, count)
 		end
 	end
 	if gsv then
-		local deposit = floor(faction * gsv * count) * duration
+		local deposit = floor(0.05 * gsv * count) * duration
 		if deposit < MINIMUM_DEPOSIT then
 			deposit = MINIMUM_DEPOSIT
 		end
@@ -893,13 +899,13 @@ function private.LoadAuctionSlot(request)
 	end
 
 	local link = GetContainerItemLink(bag, slot)
-	local itemId = GetContainerItemID(bag, slot)
-	if not (link and itemId) then
+	local itemID = GetContainerItemID(bag, slot)
+	if not (link and itemID) then
 		private.QueueRemove()
 		return nil, "NotFound", nil
 	end
 	local checkname, checkquality
-	if itemId == 82800 then
+	if itemID == 82800 then
 		-- battlepet special handling
 		local _, speciesID, _, breedQuality = strsplit(":", link)
 		speciesID = tonumber(speciesID)
@@ -931,8 +937,8 @@ function private.LoadAuctionSlot(request)
 	ClickAuctionSellItemButton()
 
 	-- verify that the contents of the Auction slot are what we expect
-	local name, texture, count, quality, canUse, price, pricePerUnit, stackCount, totalCount = GetAuctionSellItemInfo()
-	if name ~= checkname or quality ~= checkquality then
+	local name, texture, count, quality, canUse, price, pricePerUnit, stackCount, totalCount, slotItemID = GetAuctionSellItemInfo()
+	if slotItemID ~= itemID or name ~= checkname or quality ~= checkquality then
 		-- failed to drop item in auction slot, probably because item is not auctionable (but was missed by our checks)
 		private.ClearAuctionSlot()
 		private.QueueRemove()
@@ -950,7 +956,7 @@ function private.LoadAuctionSlot(request)
 		GetAuctionSellItemInfo returns incorrect totalCount for battlepets (always returns 1)
 		to be removed when Blizzard fixes the API (CountAvailableItems is not a particularly efficient or reliable way to do this)
 	--]]
-	if itemId == 82800 then
+	if itemID == 82800 then
 		local _, tc = lib.CountAvailableItems(request.sig)
 		totalCount = tc
 	end
@@ -1381,4 +1387,4 @@ private.Prompt.DragBottom:SetScript("OnMouseDown", DragStart)
 private.Prompt.DragBottom:SetScript("OnMouseUp", DragStop)
 
 
-AucAdvanced.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21c/Auc-Advanced/CorePost.lua $", "$Rev: 5398 $")
+AucAdvanced.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21e/Auc-Advanced/CorePost.lua $", "$Rev: 5559 $")

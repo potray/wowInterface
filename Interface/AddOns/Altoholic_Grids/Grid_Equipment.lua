@@ -1,12 +1,8 @@
 local addonName = "Altoholic"
 local addon = _G[addonName]
+local colors = addon.Colors
 
 local L = LibStub("AceLocale-3.0"):GetLocale(addonName)
-local BI = LibStub("LibBabble-Inventory-3.0"):GetLookupTable()
-
-local WHITE		= "|cFFFFFFFF"
-local GREEN		= "|cFF00FF00"
-local ORANGE	= "|cFFFF7F00"
 
 -- Class constants, for readability, these values match the ones in Altoholic.Classes (altoholic.lua)
 local CLASS_MAGE			= "MAGE"
@@ -330,7 +326,7 @@ local DDM_AddCloseMenu = addon.Helpers.DDM_AddCloseMenu
 local function RightClickMenu_Initialize()
 	local searchCB = addon.Search.FindEquipmentUpgrade		-- search callback
 
-	DDM_Add(format("%s %s", L["Find Upgrade"], GREEN .. L["(based on iLvl)"]), -1, searchCB)
+	DDM_Add(format("%s %s", L["Find Upgrade"], colors.green .. L["(based on iLvl)"]), -1, searchCB)
 	
 	local class = addon.Search:GetClass()
 
@@ -340,18 +336,18 @@ local function RightClickMenu_Initialize()
 		(class == CLASS_DEATHKNIGHT) or
 		(class == CLASS_PALADIN) then
 		
-		DDM_Add(format("%s %s(%s)", L["Find Upgrade"], GREEN, L["Tank"]), class .. "Tank", searchCB)
+		DDM_Add(format("%s %s(%s)", L["Find Upgrade"], colors.green, L["Tank"]), class .. "Tank", searchCB)
 	end
 	
 	-- DPS upgrade
 	if class then
-		DDM_Add(format("%s %s(%s)", L["Find Upgrade"], GREEN, L["DPS"]), class .. "DPS", searchCB)
+		DDM_Add(format("%s %s(%s)", L["Find Upgrade"], colors.green, L["DPS"]), class .. "DPS", searchCB)
 	end
 		
 	if class == CLASS_DRUID then
-		DDM_Add(format("%s %s(%s)", L["Find Upgrade"], GREEN, L["Balance"]), class .. "Balance", searchCB)
+		DDM_Add(format("%s %s(%s)", L["Find Upgrade"], colors.green, L["Balance"]), class .. "Balance", searchCB)
 	elseif class == CLASS_SHAMAN then
-		DDM_Add(format("%s %s(%s)", L["Find Upgrade"], GREEN, L["Elemental Shaman"]), class .. "Elemental", searchCB)
+		DDM_Add(format("%s %s(%s)", L["Find Upgrade"], colors.green, L["Elemental Shaman"]), class .. "Elemental", searchCB)
 	end
 		
 	-- Heal upgrade
@@ -360,7 +356,7 @@ local function RightClickMenu_Initialize()
 		(class == CLASS_DRUID) or
 		(class == CLASS_PALADIN) then
 		
-		DDM_Add(format("%s %s(%s)", L["Find Upgrade"], GREEN, L["Heal"]), class .. "Heal", searchCB)
+		DDM_Add(format("%s %s(%s)", L["Find Upgrade"], colors.green, L["Heal"]), class .. "Heal", searchCB)
 	end
 	
 	DDM_AddCloseMenu()
@@ -369,51 +365,45 @@ end
 local callbacks = {
 	OnUpdate = function() end,
 	GetSize = function() return ns:GetNumSlotTypes() end,
-	RowSetup = function(self, entry, row, dataRowID)
+	RowSetup = function(self, rowFrame, dataRowID)
 			local name, color = ns:GetSlotTypeInfo(dataRowID)
-			
-			local rowName = entry .. row
-			_G[rowName.."Name"]:SetText(color .. name)
-			_G[rowName.."Name"]:SetJustifyH("RIGHT")
-			_G[rowName.."Name"]:SetPoint("TOPLEFT", 15, 0)
+
+			rowFrame.Name.Text:SetText(color .. name)
+			rowFrame.Name.Text:SetJustifyH("RIGHT")
 		end,
-	ColumnSetup = function(self, entry, row, column, dataRowID, character)
-			local itemName = entry.. row .. "Item" .. column;
-			local itemTexture = _G[itemName .. "_Background"]
-			local itemButton = _G[itemName]
-			local itemText = _G[itemName .. "Name"]
+	RowOnEnter = function()	end,
+	RowOnLeave = function() end,
+	ColumnSetup = function(self, button, dataRowID, character)
+			button.Background:SetDesaturated(false)
+			button.Background:SetVertexColor(1.0, 1.0, 1.0)
+			button.Background:SetTexCoord(0, 1, 0, 1)
 			
-			itemTexture:SetDesaturated(false)
-			itemTexture:SetVertexColor(1.0, 1.0, 1.0)
-			itemTexture:SetTexCoord(0, 1, 0, 1)
-			
-			itemText:SetFontObject("NumberFontNormalSmall")
-			itemText:SetJustifyH("RIGHT")
-			itemText:SetPoint("BOTTOMRIGHT", 0, 0)
+			button.Name:SetFontObject("NumberFontNormalSmall")
+			button.Name:SetJustifyH("RIGHT")
+			button.Name:SetPoint("BOTTOMRIGHT", 0, 0)
 			
 			local item = DataStore:GetInventoryItem(character, dataRowID)
 			if item then
-				itemButton.key = character
+				button.key = character
 				
-				itemTexture:SetTexture(GetItemIcon(item))
+				button.Background:SetTexture(GetItemIcon(item))
 				
 				-- display the coloured border
 				local _, _, itemRarity, itemLevel = GetItemInfo(item)
 				if itemRarity and itemRarity >= 2 then
 					local r, g, b = GetItemQualityColor(itemRarity)
-					itemButton.border:SetVertexColor(r, g, b, 0.5)
-					itemButton.border:Show()
+					button.IconBorder:SetVertexColor(r, g, b, 0.5)
+					button.IconBorder:Show()
 				end
-				
 
-				_G[itemName .. "Name"]:SetText(itemLevel)
+				button.Name:SetText(itemLevel)
 			else
-				itemButton.key = nil
-				itemTexture:SetTexture(addon:GetEquipmentSlotIcon(dataRowID))
-				_G[itemName .. "Name"]:SetText("")
+				button.key = nil
+				button.Background:SetTexture(addon:GetEquipmentSlotIcon(dataRowID))
+				button.Name:SetText("")
 			end
 			
-			itemButton.id = dataRowID
+			button.id = dataRowID
 		end,
 		
 	OnEnter = function(frame) 
@@ -439,7 +429,7 @@ local callbacks = {
 			
 			GameTooltip:SetHyperlink(link)
 			GameTooltip:AddLine(" ")
-			GameTooltip:AddLine(GREEN .. L["Right-Click to find an upgrade"])
+			GameTooltip:AddLine(colors.green .. L["Right-Click to find an upgrade"])
 			GameTooltip:Show()
 		end,
 	OnClick = function(frame, button)

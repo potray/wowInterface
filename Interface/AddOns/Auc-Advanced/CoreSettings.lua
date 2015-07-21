@@ -1,7 +1,7 @@
 ﻿--[[
 	Auctioneer
-	Version: 5.21c.5521 (SanctimoniousSwamprat)
-	Revision: $Id: CoreSettings.lua 5518 2014-11-06 11:35:20Z brykrys $
+	Version: 5.21e.5566 (SanctimoniousSwamprat)
+	Revision: $Id: CoreSettings.lua 5549 2015-03-17 19:51:52Z brykrys $
 	URL: http://auctioneeraddon.com/
 
 	Settings GUI
@@ -148,7 +148,8 @@ local settingDefaults = {
 	["core.scan.unresolvedtolerance"] = 0,
 	["core.scan.scanallqueries"] = true,
 	["core.scan.hybridscans"] = false,
-	["core.scan.scannerthrottle"] = false,
+	["core.scan.scannerthrottle"] = Const.ALEVEL_MIN,
+	["core.scan.stage1throttle"] = Const.ALEVEL_OFF,
 	["core.scan.stage3garbage"] = Const.ALEVEL_OFF,
 	["core.scan.stage5garbage"] = false,
 	["core.tooltip.altchatlink_leftclick"] = false,
@@ -594,9 +595,11 @@ function private._MakeGuiConfig() -- Name mangled to block gui creation at first
 	gui:AddTip(id, _TRANS('ADV_HelpTooltip_ScanAllQueries')) --Enable to perform scanning of every Auctionhouse search. Disable to only scan Auctioneer's own searches.\nYou may need to disable this option if you have compatibility problems with other AddOns
 
 	gui:AddControl(id, "Subhead", 0, "Experimental Settings (consult the forums before using these)")
-	gui:AddControl(id, "Checkbox",	0, 1, "core.scan.scannerthrottle", "Scanner stage: Throttle during fast scans")
+	gui:AddControl(id, "Selectbox",  0, 1, AucAdvanced.selectorActivityLevelB, "core.scan.scannerthrottle", 80, "Scanner stage: Throttle during fast scans")
 	gui:AddTip(id, "Slow down the Scanning stage during Getall scans. May help avoid disconnects during this stage. May result in missed auctions and incomplete scans")
 
+	gui:AddControl(id, "Selectbox",  0, 1, AucAdvanced.selectorActivityLevelA, "core.scan.stage1throttle", 80, "Processing Stage 1: Throttle processing speed")
+	gui:AddTip(id, "Throttle the speed of Stage 1 Processing. Applying this setting may help if you get disconnects during Stage 1")
 	gui:AddControl(id, "Selectbox",  0, 1, AucAdvanced.selectorActivityLevelA, "core.scan.stage3garbage", 80, "Processing Stage 3: Extra memory cleanup")
 	gui:AddTip(id, "Perform extra memory cleanup during Processing Stage 3. Will cause momentary freezes, and will cause Processing to take longer")
 	gui:AddControl(id, "Checkbox",	0, 1, "core.scan.stage5garbage", "Processing Finished: Extra memory cleanup")
@@ -775,6 +778,9 @@ function private.CheckObsolete()
 	if getter("core.general.alwaysHomeFaction") then
 		setter("core.general.alwaysHomeFaction", nil)
 	end
+	if getter("core.scan.scannerthrottle") == true then
+		setter("core.scan.scannerthrottle", Const.ALEVEL_MED)
+	end
 
 	local old
 	local old = getter("matcherlist")
@@ -793,4 +799,4 @@ function private.CheckObsolete()
 	end
 end
 
-AucAdvanced.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21c/Auc-Advanced/CoreSettings.lua $", "$Rev: 5518 $")
+AucAdvanced.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21e/Auc-Advanced/CoreSettings.lua $", "$Rev: 5549 $")

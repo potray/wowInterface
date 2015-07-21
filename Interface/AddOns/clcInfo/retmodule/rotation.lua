@@ -12,8 +12,8 @@ xmod = xmod.retmodule
 local qTaint = true -- will force queue check
 
 -- thanks cremor
-local GetTime, GetSpellCooldown, UnitBuff, UnitAura, UnitPower, UnitSpellHaste, GetActiveSpecGroup, GetTalentInfoByID, GetGlyphSocketInfo, IsUsableSpell, GetShapeshiftForm, max, min, SPELL_POWER_HOLY_POWER  =
-      GetTime, GetSpellCooldown, UnitBuff, UnitAura, UnitPower, UnitSpellHaste, GetActiveSpecGroup, GetTalentInfoByID, GetGlyphSocketInfo, IsUsableSpell, GetShapeshiftForm, max, min, SPELL_POWER_HOLY_POWER  
+local GetTime, GetSpellCooldown, UnitBuff, UnitAura, UnitPower, UnitSpellHaste, UnitHealth, UnitHealthMax, GetActiveSpecGroup, GetTalentInfoByID, GetGlyphSocketInfo, IsUsableSpell, GetShapeshiftForm, max, min, SPELL_POWER_HOLY_POWER  =
+	  GetTime, GetSpellCooldown, UnitBuff, UnitAura, UnitPower, UnitSpellHaste, UnitHealth, UnitHealthMax, GetActiveSpecGroup, GetTalentInfoByID, GetGlyphSocketInfo, IsUsableSpell, GetShapeshiftForm, max, min, SPELL_POWER_HOLY_POWER
 local db
 
 -- debug if clcInfo detected
@@ -68,9 +68,12 @@ local buffLR		= GetSpellInfo(156989)		-- Liadrin's Righteousness
 -- ss checked in a function since there are 2 buffs with same name
 local buffSS = 20925
 
+local t17_items = { 115565, 115566, 115567, 115568, 115569 }
+
 -- status vars
 local s1, s2
-local s_ctime, s_otime, s_gcd, s_hp, s_dp, s_ha, s_aw, s_ss, s_dc, s_fv, s_bc, s_fv_talent, s_haste, s_targetType, s_how_usable
+local s_ctime, s_otime, s_gcd, s_hp, s_dp, s_ha, s_aw, s_ss, s_dc, s_fv, s_bc, s_haste, s_in_execute_range
+local s_fv_talent, s_4t17_equipped, s_execute_range_start
 local s_emp_talent, s_mt, s_lr, s_emp_active
 local s_exoId = exoId
 
@@ -196,43 +199,43 @@ local actions = {
 		info = "Templar's Verdict or Final Verdict with Divine Purpose < 4s remaining"
 	},
 	tv_aw = {
-        id = tvId,
-        GetCD = function()
-            if ((s_hp >= 3) or (s_dp > 0.1)) and (s_aw > 0) then return 0 end
-            return 100
-        end,
-        UpdateStatus = function()
-            s_ctime = s_ctime + s_gcd + 1.5
-            if s_dp > 0 then
-                s_dp = 0
-            else
-                s_hp = max(0, s_hp - 3)
-            end
-            if s_fv_talent then
-                s_fv = 30
-            end
-        end,
-        info = "Templar's Verdict or Final Verdict with HP >= 3 or Divine Purpose during Avenging Wrath",
-    },
-    tv_aw_exec = {
-        id = tvId,
-        GetCD = function()
-            if ((s_hp >= 3) or (s_dp > 0.1)) and (s_aw > 0 or s_how_usable) then return 0 end
-            return 100
-        end,
-        UpdateStatus = function()
-            s_ctime = s_ctime + s_gcd + 1.5
-            if s_dp > 0 then
-                s_dp = 0
-            else
-                s_hp = max(0, s_hp - 3)
-            end
-            if s_fv_talent then
-                s_fv = 30
-            end
-        end,
-        info = "Templar's Verdict or Final Verdict with HP >= 3 or Divine Purpose during Avenging Wrath or execute range",
-    },
+		id = tvId,
+		GetCD = function()
+			if ((s_hp >= 3) or (s_dp > 0.1)) and (s_aw > 0) then return 0 end
+			return 100
+		end,
+		UpdateStatus = function()
+			s_ctime = s_ctime + s_gcd + 1.5
+			if s_dp > 0 then
+				s_dp = 0
+			else
+				s_hp = max(0, s_hp - 3)
+			end
+			if s_fv_talent then
+				s_fv = 30
+			end
+		end,
+		info = "Templar's Verdict or Final Verdict with HP >= 3 or Divine Purpose during Avenging Wrath",
+	},
+	tv_aw_exec = {
+		id = tvId,
+		GetCD = function()
+			if ((s_hp >= 3) or (s_dp > 0.1)) and (s_aw > 0 or s_in_execute_range) then return 0 end
+			return 100
+		end,
+		UpdateStatus = function()
+			s_ctime = s_ctime + s_gcd + 1.5
+			if s_dp > 0 then
+				s_dp = 0
+			else
+				s_hp = max(0, s_hp - 3)
+			end
+			if s_fv_talent then
+				s_fv = 30
+			end
+		end,
+		info = "Templar's Verdict or Final Verdict with HP >= 3 or Divine Purpose during Avenging Wrath or execute range",
+	},
 	fv = {
 		id = fvId,
 		GetCD = function()
@@ -324,7 +327,7 @@ local actions = {
 	eds_aw_exec = {
 		id = dsId,
 		GetCD = function()
-			if ( (s_dc > 0.1) and (s_aw > 0 or s_how_usable) ) then return 0 end
+			if ( (s_dc > 0.1) and (s_aw > 0 or s_in_execute_range) ) then return 0 end
 			return 100
 		end,
 		UpdateStatus = function()
@@ -362,7 +365,7 @@ local actions = {
 			-- Using EDS should not consume DP
 		end,
 		info = "Empowered Divine Storm with Final Verdict buff",
-        reqTalent = 21672,
+		reqTalent = 21672,
 	},
 	eds5_fv = {
 		id = dsId,
@@ -377,7 +380,7 @@ local actions = {
 			-- Using EDS should not consume DP
 		end,
 		info = "Empowered Divine Storm with Final Verdict buff and 5HP",
-        reqTalent = 21672,
+		reqTalent = 21672,
 	},
 	eds_fv_aw = {
 		id = dsId,
@@ -392,12 +395,12 @@ local actions = {
 			-- Using EDS should not consume DP
 		end,
 		info = "Empowered Divine Storm with Final Verdict buff during Avenging Wrath",
-        reqTalent = 21672,
+		reqTalent = 21672,
 	},
 	eds_fv_aw_exec = {
 		id = dsId,
 		GetCD = function()
-			if ( (s_dc > 0.1) and (s_fv > 0.1) and (s_aw > 0 or s_how_usable) ) then return 0 end
+			if ( (s_dc > 0.1) and (s_fv > 0.1) and (s_aw > 0 or s_in_execute_range) ) then return 0 end
 			return 100
 		end,
 		UpdateStatus = function()
@@ -407,7 +410,7 @@ local actions = {
 			-- Using EDS should not consume DP
 		end,
 		info = "Empowered Divine Storm with Final Verdict buff during Avenging Wrath or execute range",
-        reqTalent = 21672,
+		reqTalent = 21672,
 	},
 	exo = {
 		id = s_exoId,
@@ -466,7 +469,7 @@ local actions = {
 	how = {
 		id = howId,
 		GetCD = function()
-			if (s1 ~= howId) and s_how_usable then
+			if (s1 ~= howId) and IsUsableSpell(howId) then
 				return max(0, GetCooldown(howId) - db.howclash)
 			end
 			return 100 -- lazy stuff
@@ -478,10 +481,9 @@ local actions = {
 			else
 				s_hp = min(5, s_hp + 1)
 			end
-			-- TODO: Somehow detect if 4 pieces of T17 are equipped.
-			--if 4T17_EQUIPPED then
-			--	s_bc = 20
-			--end
+			if s_4t17_equipped then
+				s_bc = 20
+			end
 		end,
 		info = "Hammer of Wrath",
 	},
@@ -742,8 +744,8 @@ local function GetStatus()
 	s_hp = UnitPower("player", SPELL_POWER_HOLY_POWER)
 	s_haste = 1 + UnitSpellHaste("player") / 100
 
-	-- how
-	s_how_usable = IsUsableSpell(howId)
+	-- execute range: custom health check instead of checking HoW to ensure that 2T17 doesn't cause problems
+	s_in_execute_range = (UnitHealth("target") / UnitHealthMax("target")) <= s_execute_range_start
 end
 
 -- remove all talents not available and present in rotation
@@ -755,7 +757,7 @@ local function GetWorkingQueue()
 		-- see if it has a talent requirement
 		if actions[v].reqTalent then
 			-- see if the talent is activated
-      _, name, _, selected, available = GetTalentInfoByID(actions[v].reqTalent, GetActiveSpecGroup())
+			_, name, _, selected, available = GetTalentInfoByID(actions[v].reqTalent, GetActiveSpecGroup())
 			if name and selected and available then
 				table.insert(q, v)
 			end
@@ -832,7 +834,7 @@ function xmod.Rotation()
 	s1, action = GetNextAction()
 	if debug and debug.enabled then
 		debug:AddBoth("s1", action)
-        debug:AddBoth("s1Id", s1)
+		debug:AddBoth("s1Id", s1)
 	end
 	-- 
 	s_otime = s_ctime -- save it so we adjust buffs for next
@@ -850,8 +852,8 @@ function xmod.Rotation()
 	if s_fv_talent then
 		s_fv = max(0, s_fv - s_otime)
 	elseif s_emp_talent then
-		s_fv = max(0, s_mt - s_otime)
-		s_fv = max(0, s_lr - s_otime)
+		s_mt = max(0, s_mt - s_otime)
+		s_lr = max(0, s_lr - s_otime)
 	end
 
 	
@@ -877,11 +879,22 @@ local ef = CreateFrame("Frame", "clcRetModuleEventFrame") -- event frame
 ef:Hide()
 local function OnEvent()
 	qTaint = true
+	
+	local count = 0
+	for i, v in ipairs(t17_items) do
+		if IsEquippedItem(v) then
+			count = count + 1
+		end
+	end
+	s_4t17_equipped = count >= 4
 
 	-- check for how perk
 	if IsPlayerSpell(157496) then
+		s_execute_range_start = 0.35
 		howId = empHowId
-        actions['how'].id = howId
+		actions['how'].id = howId
+	else
+		s_execute_range_start = 0.20
 	end
 	-- fv talent
 	local _, name, _, selected, available = GetTalentInfoByID(21672, GetActiveSpecGroup())
@@ -893,31 +906,31 @@ local function OnEvent()
 		s_emp_talent = selected
 	end
 
-    -- adjust exo depending on glyph
-    local glyphSpellId
-    local mexo = false
-    for i = 1, 3 do
-        -- major glyphs are 2, 4, 6
-        _, _, _, glyphSpellId = GetGlyphSocketInfo(i*2)
-        if glyphSpellId == 122028 then
-            mexo = true
-            break
-        end
-    end
+	-- adjust exo depending on glyph
+	local glyphSpellId
+	local mexo = false
+	for i = 1, 3 do
+		-- major glyphs are 2, 4, 6
+		_, _, _, glyphSpellId = GetGlyphSocketInfo(i*2)
+		if glyphSpellId == 122028 then
+			mexo = true
+			break
+		end
+	end
 
-    if mexo then
-        -- mass exorcism glyph detected
-        -- switch spellid for actions
-        actions["exo"].id = mexoId
-        actions["exo_aw"].id = mexoId
-        actions["exo_bc"].id = mexoId
-        s_exoId = mexoId
-    else
-        actions["exo"].id = exoId
-        actions["exo_aw"].id = exoId
-        actions["exo_bc"].id = exoId
-        s_exoId = exoId
-    end
+	if mexo then
+		-- mass exorcism glyph detected
+		-- switch spellid for actions
+		actions["exo"].id = mexoId
+		actions["exo_aw"].id = mexoId
+		actions["exo_bc"].id = mexoId
+		s_exoId = mexoId
+	else
+		actions["exo"].id = exoId
+		actions["exo_aw"].id = exoId
+		actions["exo_bc"].id = exoId
+		s_exoId = exoId
+	end
 end
 
 ef:SetScript("OnEvent", OnEvent)
@@ -926,6 +939,8 @@ ef:RegisterEvent("PLAYER_TALENT_UPDATE")
 ef:RegisterEvent("PLAYER_LEVEL_UP")
 ef:RegisterEvent("GLYPH_ADDED")
 ef:RegisterEvent("GLYPH_UPDATED")
+ef:RegisterEvent("GLYPH_REMOVED")
+ef:RegisterEvent("PLAYER_EQUIPMENT_CHANGED")
 
 
 

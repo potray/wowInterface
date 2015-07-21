@@ -268,8 +268,8 @@ function TipTypeFuncs:item(link,linkToken,id)
 	if (cfg.if_itemQualityBorder) then
 		self:SetBackdropBorderColor(GetItemQualityColor(itemRarity or 0));
 	end
-	-- level + id
-	if (cfg.if_showItemLevelAndId) then
+	-- level + id -- Do not alter the tip, if we failed to get a valid "itemLevel" or "id"
+	if (cfg.if_showItemLevelAndId) and (itemLevel) and (id) then
 		for i = 2, self:NumLines() do
 			local line = _G[self:GetName().."TextLeft"..i];
 			if (line and (line:GetText() or ""):match(ITEM_LEVEL.."+")) then
@@ -388,9 +388,13 @@ function TipTypeFuncs:achievement(link,linkToken,id,guid,completed,month,day,yea
 					r2, g2, b2 = unpack(criteriaList[i + 1].done and COLOR_COMPLETE or COLOR_INCOMPLETE);
 				end
 				if (not isPlayer) then
-					myDone1 = select(3,GetAchievementCriteriaInfo(id,i));
+					local success, _, _, completed = pcall(GetAchievementCriteriaInfo,id,i);
+					myDone1 = (success and completed);
+					--myDone1 = select(3,GetAchievementCriteriaInfo(id,i));
 					if (i + 1 <= #criteriaList) then
-						myDone2 = select(3,GetAchievementCriteriaInfo(id,i + 1));
+						local success, _, _, completed = pcall(GetAchievementCriteriaInfo,id,i + 1);
+						myDone2 = (success and completed); 
+						--myDone2 = select(3,GetAchievementCriteriaInfo(id,i + 1));
 					end
 				end
 				myDone1 = (isPlayer and "" or BoolCol(myDone1).."*|r")..criteriaList[i].label;

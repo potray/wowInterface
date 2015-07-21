@@ -1,9 +1,8 @@
 --[[
 -- **************************************************************************
--- * Updates for the new TitanPanel: Titan Development Team        
+-- * Updates for the new TitanPanel: Titan Development Team
 -- * 2010 Jul : Started from Titan Gold Tracker to create this Titan version
 -- **************************************************************************
-
 --]]
 
 -- ******************************** Constants *******************************
@@ -15,7 +14,7 @@ local TITAN_GOLD_BLUE = {r=0.4,b=1,g=0.4};
 local TITAN_GOLD_RED = {r=1,b=0,g=0};
 local TITAN_GOLD_GREEN = {r=0,b=0,g=1};
 local updateTable = {TITAN_GOLD_ID, TITAN_PANEL_UPDATE_TOOLTIP };
--- ******************************** Variables ******************************* 
+-- ******************************** Variables *******************************
 local GOLD_INITIALIZED = false;
 local GOLD_INDEX = "";
 local GOLD_COLOR;
@@ -27,6 +26,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale("Titan", true)
 local TitanGold = LibStub("AceAddon-3.0"):NewAddon("TitanGold", "AceTimer-3.0")
 local GoldTimer = nil;
 local _G = getfenv(0);
+local realmName = GetRealmName();
 -- ******************************** Functions *******************************
 
 --[[
@@ -159,11 +159,11 @@ end
 -- DESC : Registers the add on upon it loading
 -- **************************************************************************
 function TitanPanelGoldButton_OnLoad(self)
-	self.registry = { 
+	self.registry = {
 		id = TITAN_GOLD_ID,
 		category = "Built-ins",
 		version = TITAN_GOLD_VERSION,
-		menuText = L["TITAN_GOLD_MENU_TEXT"], 
+		menuText = L["TITAN_GOLD_MENU_TEXT"],
 		tooltipTitle = L["TITAN_GOLD_TOOLTIP"],
 		tooltipTextFunction = "TitanPanelGoldButton_GetTooltipText",
 		buttonTextFunction = "TitanPanelGoldButton_FindGold",
@@ -190,7 +190,6 @@ function TitanPanelGoldButton_OnLoad(self)
 			ShowColoredText = true, 
 			UseSeperatorComma = true, 
 			UseSeperatorPeriod = false, 
-
 			gold = { total = "112233", neg = false },
 		}
 	};
@@ -198,10 +197,10 @@ function TitanPanelGoldButton_OnLoad(self)
 	self:RegisterEvent("PLAYER_MONEY");
 	self:RegisterEvent("PLAYER_ENTERING_WORLD");
 
-	if (not GoldSave) then 
+	if (not GoldSave) then
 		GoldSave={};
 	end
-	GOLD_INDEX = UnitName("player").."_"..GetRealmName().."::"..UnitFactionGroup("Player");
+	GOLD_INDEX = UnitName("player").."_"..realmName.."::"..UnitFactionGroup("Player");
 end
 
 -- **************************************************************************
@@ -209,7 +208,7 @@ end
 -- DESC : Create repeating timer when plugin is visible
 -- **************************************************************************
 function TitanPanelGoldButton_OnShow()
-	if not GoldTimer and GoldSave and TitanGetVar(TITAN_GOLD_ID, "DisplayGoldPerHour") then		
+	if not GoldTimer and GoldSave and TitanGetVar(TITAN_GOLD_ID, "DisplayGoldPerHour") then
 		GoldTimer = TitanGold:ScheduleRepeatingTimer(TitanPanelPluginHandle_OnUpdate, 1, updateTable)
 	end
 end
@@ -218,9 +217,9 @@ end
 -- NAME : TitanPanelGoldButton_OnHide()
 -- DESC : Destroy repeating timer when plugin is hidden
 -- **************************************************************************
-function TitanPanelGoldButton_OnHide()	
+function TitanPanelGoldButton_OnHide()
 	TitanGold:CancelTimer(GoldTimer, true)
-	GoldTimer = nil;     
+	GoldTimer = nil;
 end
 
 -- **************************************************************************
@@ -252,7 +251,7 @@ function TitanPanelGoldButton_GetTooltipText()
 	-- the following code will parse the database and then display all members from the same faction/server
 	-- to the user
 
-	local server = GetRealmName().."::"..UnitFactionGroup("Player");
+	local server = realmName.."::"..UnitFactionGroup("Player");
 	GoldSave[GOLD_INDEX].gold = GetMoney("player")
 	local currentMoneyRichText = ""; -- initialize the variable to hold the array
 	local coin_str = ""
@@ -273,11 +272,11 @@ function TitanPanelGoldButton_GetTooltipText()
 			end
 		end
 	end
-     
+
 	if TitanGetVar(TITAN_GOLD_ID, "SortByName") then
-		table.sort(GoldSaveSorted, function (key1, key2) return GoldSave[key1].name < GoldSave[key2].name end) 
+		table.sort(GoldSaveSorted, function (key1, key2) return GoldSave[key1].name < GoldSave[key2].name end)
 	else
-		table.sort(GoldSaveSorted, function (key1, key2) return GoldSave[key1].gold > GoldSave[key2].gold end) 
+		table.sort(GoldSaveSorted, function (key1, key2) return GoldSave[key1].gold > GoldSave[key2].gold end)
 	end
 
 	for i = 1, getn(GoldSaveSorted) do 
@@ -321,7 +320,7 @@ function TitanPanelGoldButton_GetTooltipText()
 		GOLD_COLOR = TITAN_GOLD_GREEN;
 		GOLD_SESS_STATUS = L["TITAN_GOLD_SESS_EARNED"];
 		GOLD_PERHOUR_STATUS = L["TITAN_GOLD_PERHOUR_EARNED"];
-	end     
+	end
 
 	coin_str = NiceCash(sesstotal, true, true)
 	sessionMoneyRichText = sessionMoneyRichText
@@ -336,17 +335,17 @@ function TitanPanelGoldButton_GetTooltipText()
 	end
 
 	local final_tooltip = L["TITAN_GOLD_TOOLTIPTEXT"].." : "
-		..GetRealmName().." : "..select(2,UnitFactionGroup("Player"));
+		..realmName.." : "..select(2,UnitFactionGroup("Player"));
 	if (UnitFactionGroup("Player")=="Alliance") then
 		GOLD_COLOR = TITAN_GOLD_GREEN;
 	else
 		GOLD_COLOR = TITAN_GOLD_RED;
-	end     
+	end
 
 	return ""..TitanUtils_GetColoredText(final_tooltip,GOLD_COLOR)..FONT_COLOR_CODE_CLOSE
 		..currentMoneyRichText
 		..sessionMoneyRichText
---		.."\n\nName: "..(TitanGetVar(TITAN_GOLD_ID, "SortByName") and "T" or "F")     
+--		.."\n\nName: "..(TitanGetVar(TITAN_GOLD_ID, "SortByName") and "T" or "F")
 end
 
 -- *******************************************************************************************
@@ -360,7 +359,7 @@ function TitanPanelGoldButton_FindGold()
 		return ""
 	end
 
-	local server = GetRealmName().."::"..UnitFactionGroup("Player");
+	local server = realmName.."::"..UnitFactionGroup("Player");
 	local ret_str = ""
 	local ttlgold = 0;
 
@@ -370,7 +369,7 @@ function TitanPanelGoldButton_FindGold()
 		ttlgold = TitanPanelGoldButton_TotalGold()
 	else
 		ttlgold = GetMoney("player");
-	end   
+	end
 
 	ret_str = NiceCash(ttlgold, true, false)
 	
@@ -382,7 +381,7 @@ end
 -- DESC: Calculates total gold for display per user selections
 -- *******************************************************************************************
 function TitanPanelGoldButton_TotalGold()
-	local server = GetRealmName().."::"..UnitFactionGroup("Player");
+	local server = realmName.."::"..UnitFactionGroup("Player");
 	GoldSave[GOLD_INDEX].gold = GetMoney("player")
 	local ttlgold = 0;
 
@@ -403,7 +402,7 @@ end
 local function ShowMenuButtons(faction)
 	local info = {};
 	local name = GetUnitName("player");
-	local server = GetRealmName();
+	local server = realmName;
 	for index, money in pairs(GoldSave) do
 		local character, charserver = string.match(index, "(.*)_(.*)::"..faction);
 		if character then
@@ -420,14 +419,14 @@ local function ShowMenuButtons(faction)
 				TitanPanelButton_UpdateButton(TITAN_GOLD_ID)
 			end
 			UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL);
-		end						
-	end												
+		end
+	end
 end
 
 local function DeleteMenuButtons(faction)
 	local info = {};
 	local name = GetUnitName("player");
-	local server = GetRealmName();
+	local server = realmName;
 	for index, money in pairs(GoldSave) do
 		local character, charserver = string.match(index, "(.*)_(.*)::"..faction);
 		info.notCheckable = true
@@ -439,15 +438,15 @@ local function DeleteMenuButtons(faction)
 				GoldSave[rementry] = nil;
 				TitanPanelButton_UpdateButton(TITAN_GOLD_ID)
 			end
-			-- cannot delete current character							
+			-- cannot delete current character
 			if name == character and server == charserver then
 				info.disabled = 1;
 			else
 				info.disabled = nil;
 			end
 			UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL);
-		end						
-	end												
+		end
+	end
 end
 
 local function ShowProperLabels(chosen)
@@ -493,7 +492,7 @@ end
 function TitanPanelRightClickMenu_PrepareGoldMenu()
 	if UIDROPDOWNMENU_MENU_LEVEL == 1 then
 		-- Menu title
-		TitanPanelRightClickMenu_AddTitle(L["TITAN_GOLD_ITEMNAME"]);     
+		TitanPanelRightClickMenu_AddTitle(L["TITAN_GOLD_ITEMNAME"]);
 
 		-- Function to toggle button gold view
 		if TitanGetVar(TITAN_GOLD_ID, "ViewAll") then
@@ -540,9 +539,9 @@ function TitanPanelRightClickMenu_PrepareGoldMenu()
 			ShowProperLabels("ShowCoinIcons")
 		end
 		UIDropDownMenu_AddButton(info, _G["UIDROPDOWNMENU_MENU_LEVEL"]);
-		  
+
 		TitanPanelRightClickMenu_AddSpacer();
-		
+
 		local info = {};
 		info.text = L["TITAN_USE_COMMA"];
 		info.checked = TitanGetVar(TITAN_GOLD_ID, "UseSeperatorComma");
@@ -557,7 +556,7 @@ function TitanPanelRightClickMenu_PrepareGoldMenu()
 			Seperator("UseSeperatorPeriod")
 		end
 		UIDropDownMenu_AddButton(info, _G["UIDROPDOWNMENU_MENU_LEVEL"]);
-		  
+
 		TitanPanelRightClickMenu_AddSpacer();
 
 		info = {};
@@ -568,7 +567,7 @@ function TitanPanelRightClickMenu_PrepareGoldMenu()
 			TitanPanelButton_UpdateButton(TITAN_GOLD_ID);
 		end
 		UIDropDownMenu_AddButton(info, _G["UIDROPDOWNMENU_MENU_LEVEL"]);
-		  
+
 		-- A blank line in the menu
 		TitanPanelRightClickMenu_AddSpacer();
 
@@ -578,20 +577,20 @@ function TitanPanelRightClickMenu_PrepareGoldMenu()
 		info.text = L["TITAN_GOLD_SHOW_PLAYER"];
 		info.value = "ToonShow";
 		info.hasArrow = 1;
-		UIDropDownMenu_AddButton(info);		
-		
+		UIDropDownMenu_AddButton(info);
+
 		-- Delete toon
 		info = {};
 		info.notCheckable = true
 		info.text = L["TITAN_GOLD_DELETE_PLAYER"];
 		info.value = "ToonDelete";
 		info.hasArrow = 1;
-		UIDropDownMenu_AddButton(info);		
-		
+		UIDropDownMenu_AddButton(info);
+
 		-- A blank line in the menu
 		TitanPanelRightClickMenu_AddSpacer();
 
-		-- Function to clear the enter database     
+		-- Function to clear the enter database
 		info = {};
 		info.notCheckable = true
 		info.text = L["TITAN_GOLD_CLEAR_DATA_TEXT"];
@@ -599,18 +598,18 @@ function TitanPanelRightClickMenu_PrepareGoldMenu()
 		UIDropDownMenu_AddButton(info);
 
 		TitanPanelRightClickMenu_AddCommand(L["TITAN_GOLD_RESET_SESS_TEXT"], TITAN_GOLD_ID, "TitanPanelGoldButton_ResetSession");
-     
+
 		-- A blank line in the menu
-		TitanPanelRightClickMenu_AddSpacer();     
+		TitanPanelRightClickMenu_AddSpacer();
 		TitanPanelRightClickMenu_AddToggleIcon(TITAN_GOLD_ID);
 		TitanPanelRightClickMenu_AddToggleLabelText(TITAN_GOLD_ID);
 		TitanPanelRightClickMenu_AddToggleColoredText(TITAN_GOLD_ID);
-		TitanPanelRightClickMenu_AddSpacer();     
+		TitanPanelRightClickMenu_AddSpacer();
 
 		-- Generic function to toggle and hide
 		TitanPanelRightClickMenu_AddCommand(L["TITAN_PANEL_MENU_HIDE"], TITAN_GOLD_ID, TITAN_PANEL_MENU_FUNC_HIDE);
 	end
-     
+
 	if UIDROPDOWNMENU_MENU_LEVEL == 2 and UIDROPDOWNMENU_MENU_VALUE == "ToonDelete" then
 		local info = {};
 		info.notCheckable = true
@@ -645,7 +644,7 @@ function TitanPanelRightClickMenu_PrepareGoldMenu()
 		ShowMenuButtons("Alliance")
 	elseif UIDROPDOWNMENU_MENU_LEVEL == 3 and UIDROPDOWNMENU_MENU_VALUE == "ShowHorde" then
 		ShowMenuButtons("Horde")
-	end     
+	end
 end
 
 -- **************************************************************************
@@ -666,7 +665,7 @@ end
 -- DESC : Build the gold array for the server/faction
 -- **************************************************************************
 function TitanPanelGoldButton_Initialize_Array(self)
-	if (GOLD_INITIALIZED) then return; end          
+	if (GOLD_INITIALIZED) then return; end
 
 	self:UnregisterEvent("VARIABLES_LOADED");
 
@@ -722,10 +721,9 @@ end
 function TitanPanelGoldButton_ResetSession()
 	GOLD_STARTINGGOLD = GetMoney("player");
 	GOLD_SESSIONSTART = GetTime();
-
 	DEFAULT_CHAT_FRAME:AddMessage(TitanUtils_GetGreenText(L["TITAN_GOLD_SESSION_RESET"]));
 end
-     
+
 function TitanGold_ClearDB()
 	StaticPopupDialogs["TITANGOLD_CLEAR_DATABASE"] = {
 		text = TitanUtils_GetNormalText(L["TITAN_PANEL_MENU_TITLE"].." "

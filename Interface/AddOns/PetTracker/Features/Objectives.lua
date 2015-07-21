@@ -1,5 +1,5 @@
 --[[
-Copyright 2012-2014 João Cardoso
+Copyright 2012-2015 João Cardoso
 PetTracker is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -77,7 +77,7 @@ end
 function Objectives:GetUsedHeight()
 	local height = 0
 
-	for i, mod in pairs(ObjectiveTrackerFrame.MODULES) do -- can't trust blizzard value
+	for i, mod in pairs(ObjectiveTrackerFrame.MODULES or {}) do -- can't trust blizzard value
 		if mod.lastBlock then
 			local top, bottom = mod.Header:GetTop(), mod.lastBlock:GetBottom()
 			if top and bottom then

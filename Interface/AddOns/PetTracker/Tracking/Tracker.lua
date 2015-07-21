@@ -1,5 +1,5 @@
 --[[
-Copyright 2012-2014 João Cardoso
+Copyright 2012-2015 João Cardoso
 PetTracker is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -24,7 +24,7 @@ local Journal = Addon.Journal
 --[[ Startup ]]--
 
 function Tracker:Startup()
-	UIDropDownMenu_Initialize(Drop, self.ShowOptions, 'MENU')
+	--UIDropDownMenu_Initialize(Drop, self.ShowOptions, 'MENU')
 end
 
 function Tracker:OnCreate()
@@ -98,24 +98,24 @@ end
 --[[ Interaction ]]--
 
 function Tracker:ToggleOptions()
-	ToggleDropDownMenu(1, nil, Drop, self, 5, -5)
+	SushiDropFrame:Toggle('TOPLEFT', self, 'BOTTOMLEFT', 5, -12, true, Tracker.ShowOptions)
 end
 
 function Tracker:ShowOptions()
-	UIDropDownMenu_AddButton {
+	self:AddLine {
 		text = 'Battle Pets',
 		isTitle = true,
 		notCheckable = true
 	}
 
-	UIDropDownMenu_AddButton {
+	self:AddLine {
 		text = Addon.Locals.TrackPets,
 		checked = not Addon.Sets.HideTracker,
 		func = function() Tracker:Toggle() end,
 		isNotRadio = true
 	}
 
-	UIDropDownMenu_AddButton {
+	self:AddLine {
 		text = Addon.Locals.CapturedPets,
 		checked = Addon.Sets.CapturedPets,
 		isNotRadio = true,

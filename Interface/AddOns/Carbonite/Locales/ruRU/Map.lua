@@ -100,7 +100,7 @@ L["players"] = "игроки"
 L["Unknown map name"] = "Неизвестное имя карты"
 
 -- Battle ground messages
---L["Incoming"] = true
+L["Incoming"] = true		-- why was it commented?
 L["Inc"] = "Наступайте"
 L["Clear"] = "Очистите"
 L["Help"] = "Помогите"

@@ -1,6 +1,6 @@
 --[[
 	Copyright (c) 2009, CMTitan
-	Copyright (c) 2009-2014, Hendrik "Nevcairiel" Leppkes < h.leppkes at gmail dot com >
+	Copyright (c) 2009-2015, Hendrik "Nevcairiel" Leppkes < h.leppkes at gmail dot com >
 	Based on Nevcairiel's RepXPBar.lua
 	All rights to be transferred to Nevcairiel upon inclusion into Bartender4.
 	All rights reserved, otherwise.
@@ -195,6 +195,7 @@ local function BuildBlizzardProfile()
 
 	config = Bartender4.db:GetNamespace("MicroMenu").profile
 	config.position.scale = 1.0
+	config.padding = -2
 	SetBarLocation( config, "BOTTOM", 37.5, 41.75 )
 
 	if PresetsMod.showRepBar then

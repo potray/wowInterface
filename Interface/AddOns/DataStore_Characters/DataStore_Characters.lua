@@ -11,12 +11,13 @@ _G[addonName] = LibStub("AceAddon-3.0"):NewAddon(addonName, "AceConsole-3.0", "A
 local addon = _G[addonName]
 
 local THIS_ACCOUNT = "Default"
+local MAX_LOGOUT_TIMESTAMP = 5000000000	-- 5 billion, current values are at ~1.4 billion, in seconds, that leaves us 110+ years, I think we're covered..
 
 local AddonDB_Defaults = {
 	global = {
 		Options = {
-			RequestPlayTime = 1,		-- Request play time at logon
-			HideRealPlayTime = 0,	-- Hide real play time to client addons (= return 0 instead of real value)
+			RequestPlayTime = true,		-- Request play time at logon
+			HideRealPlayTime = false,	-- Hide real play time to client addons (= return 0 instead of real value)
 		},
 		Characters = {
 			['*'] = {				-- ["Account.Realm.Name"] 
@@ -109,7 +110,7 @@ local function OnPlayerAlive()
 	character.class, character.englishClass = UnitClass("player")
 	character.gender = UnitSex("player")
 	character.faction = UnitFactionGroup("player")
-	character.lastLogoutTimestamp = 0
+	character.lastLogoutTimestamp = MAX_LOGOUT_TIMESTAMP
 	character.lastUpdate = time()
 	
 	OnPlayerMoney()
@@ -149,35 +150,18 @@ local function _GetCharacterClass(character)
 	return character.class or "", character.englishClass or ""
 end
 
--- local ClassColors = {
-	-- ["MAGE"] = "|cFF69CCF0",
-	-- ["WARRIOR"] = "|cFFC79C6E",
-	-- ["HUNTER"] = "|cFFABD473",
-	-- ["ROGUE"] = "|cFFFFF569",
-	-- ["WARLOCK"] = "|cFF9482CA", 
-	-- ["DRUID"] = "|cFFFF7D0A", 
-	-- ["SHAMAN"] = "|cFF2459FF",
-	-- ["PALADIN"] = "|cFFF58CBA", 
-	-- ["PRIEST"] = "|cFFFFFFFF",
-	-- ["DEATHKNIGHT"] = "|cFFC41F3B",
-	-- ["MONK"] = "|cFF00FF96",
--- }
-
 local function _GetColoredCharacterName(character)
 	return format("|c%s%s", RAID_CLASS_COLORS[character.englishClass].colorStr, character.name)
-	-- return ClassColors[character.englishClass] .. character.name
 end
 	
 local function _GetCharacterClassColor(character)
 	-- return just the color of this character's class (based on the character key)
 	return format("|c%s", RAID_CLASS_COLORS[character.englishClass].colorStr)
-	-- return ClassColors[character.englishClass]
 end
 
 local function _GetClassColor(class)
 	-- return just the color of for any english class 	
 	return format("|c%s", RAID_CLASS_COLORS[class].colorStr) or "|cFFFFFFFF"
-	-- return ClassColors[class] or "|cFFFFFFFF"
 end
 
 local function _GetCharacterFaction(character)
@@ -237,15 +221,22 @@ local function _GetRestXPRate(character)
 		-- divide rest xp by this value	20400 / 204 = 100	==> rest xp rate
 	
 	local rate = 0
+	local multiplier = 1.5
+	
+	if character.englishRace == "Pandaren" then
+		multiplier = 3
+	end
+	
 	if character.RestXP then
-		rate = (character.RestXP / ((character.XPMax / 100) * 1.5))
+		rate = (character.RestXP / ((character.XPMax / 100) * multiplier))
 	end
 	
 	-- get the known rate of rest xp (the one saved at last logout) + the rate represented by the elapsed time since last logout
 	-- (elapsed time / 3600) * 0.625 * (2/3)  simplifies to elapsed time / 8640
 	-- 0.625 comes from 8 hours rested = 5% of a level, *2/3 because 100% rested = 150% of xp (1.5 level)
 
-	if character.lastLogoutTimestamp ~= 0 then		-- time since last logout, 0 for current char, <> for all others
+	-- time since last logout, MAX_LOGOUT_TIMESTAMP for current char, <> for all others
+	if character.lastLogoutTimestamp ~= MAX_LOGOUT_TIMESTAMP then	
 		if character.isResting then
 			rate = rate + ((time() - character.lastLogoutTimestamp) / 8640)
 		else
@@ -268,7 +259,7 @@ local function _GetGuildInfo(character)
 end
 
 local function _GetPlayTime(character)
-	return (GetOption("HideRealPlayTime") == 1) and 0 or character.played
+	return (GetOption("HideRealPlayTime")) and 0 or character.played
 end
 
 local function _GetLocation(character)
@@ -344,7 +335,7 @@ function addon:OnEnable()
 	
 	addon:SetupOptions()
 	
-	if GetOption("RequestPlayTime") == 1 then
+	if GetOption("RequestPlayTime") then
 		RequestTimePlayed()	-- trigger a TIME_PLAYED_MSG event
 	end
 end

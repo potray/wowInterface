@@ -93,14 +93,28 @@ function mod.IconSpell(spell, checkRange, showWhen, mouseover)
 	-- check if spell exists and get texture
 	local name, rank, texture = GetSpellInfo(spell)
 	if not name then return end
+
+	spell = name
 	
 	if isDruid then
-		if rank then name = string.format("%s(%s)", name, rank) end
-	end
-	
+		if rank then spell = string.format("%s(%s)", name, rank) end
+	end	
 	
 	-- cooldown and showWhen checks
 	local start, duration, enable = GetSpellCooldown(spell)
+
+	local count  = GetSpellCount(spell)
+	if count <= 1 then count = nil end
+
+	local charges, maxCharges, chargeStart, chargeDuration = GetSpellCharges(spell)
+	if (maxCharges and maxCharges > 1) then
+		count = charges
+		if (charges < maxCharges) then			
+			start = chargeStart
+			duration = chargeDuration	
+		end
+	end
+
 	if showWhen then
 		if showWhen == "ready" then
 			if duration and duration > 1.5 then return end
@@ -109,10 +123,6 @@ function mod.IconSpell(spell, checkRange, showWhen, mouseover)
 		end
 	end
 
-
-	local count  = GetSpellCount(name)
-	if count <= 1 then count = nil end
-	
 	local timeLeft = start + duration - GetTime()
 	
 	-- modify vertex only when out of cooldow
@@ -123,7 +133,7 @@ function mod.IconSpell(spell, checkRange, showWhen, mouseover)
 			local unit
 			if mouseover and UnitExists("mouseover") then unit = "mouseover" end
 			if UnitExists("target") then unit = "target" end
-			if checkRange == true then checkRange = name end
+			if checkRange == true then checkRange = spell end
 			if unit then
 				oor = IsSpellInRange(checkRange, unit)
 				oor = oor ~= nil and oor == 0
@@ -133,7 +143,7 @@ function mod.IconSpell(spell, checkRange, showWhen, mouseover)
 			end
 		end
 		
-		local isUsable, notEnoughMana = IsUsableSpell(name)
+		local isUsable, notEnoughMana = IsUsableSpell(spell)
 		if notEnoughMana then
 			return true, texture, start, duration, enable, nil, count, nil, true, 0.1, 0.1, 0.8, 1
 		elseif not isUsable then

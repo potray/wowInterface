@@ -3,8 +3,6 @@ local addon = _G[addonName]
 
 local L = LibStub("AceLocale-3.0"):GetLocale(addonName)
 
-local WHITE		= "|cFFFFFFFF"
-local GREEN		= "|cFF00FF00"
 local SPELLS_PER_PAGE = 12
 
 addon.Spellbook = {}
@@ -105,7 +103,7 @@ end
 
 function ns:Update()
 	local character = addon.Tabs.Characters:GetAltKey()
-	AltoholicTabCharactersStatus:SetText(format("%s|r / %s / %s", DataStore:GetColoredCharacterName(character), SPELLBOOK, currentSchool))
+	AltoholicTabCharacters.Status:SetText(format("%s|r / %s / %s", DataStore:GetColoredCharacterName(character), SPELLBOOK, currentSchool))
 	
 	local itemName, itemButton
 	local spellID, availableAt
@@ -176,7 +174,7 @@ function ns:UpdateKnownGlyphs()
 		glyphText = MINOR_GLYPHS
 	end
 	
-	AltoholicTabCharactersStatus:SetText(format("%s|r / %s / %s", DataStore:GetColoredCharacterName(character), SPELLBOOK, glyphText))
+	AltoholicTabCharacters.Status:SetText(format("%s|r / %s / %s", DataStore:GetColoredCharacterName(character), SPELLBOOK, glyphText))
 	
 	if currentGlyphType == 1 then
 		glyphText = MAJOR_GLYPH

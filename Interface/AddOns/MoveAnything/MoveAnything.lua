@@ -185,7 +185,9 @@ local MovAny = {
 		["TargetFrameToTDebuffsMover"] = true,
 		["FocusBuffsMover"] = true,
 		["FocusDebuffsMover"] = true,
-		["FocusFrameToTDebuffsMover"] = true
+		["FocusFrameToTDebuffsMover"] = true,
+		--["TargetFrameBuff1"] = true,
+		--["TargetFrameDebuff1"] = true,
 	},
 	lEnableMouse = {
 		ObjectiveTrackerFrameMover,
@@ -365,8 +367,10 @@ local MovAny = {
 		PetDebuffsMover = "PetDebuffsMover",
 		TargetBuffsMover = "TargetBuffsMover",
 		TargetDebuffsMover = "TargetDebuffsMover",
+		FocusBuffsMover = "FocusBuffsMover",
 		FocusDebuffsMover = "FocusDebuffsMover",
 		TargetFrameToTDebuffsMover = "TargetFrameToTDebuffsMover",
+		FocusFrameToTDebuffsMover = "FocusFrameToTDebuffsMover",
 		TemporaryEnchantFrame = "TemporaryEnchantFrame",
 		AuctionDressUpFrame = "AuctionDressUpFrame",
 		MinimapCluster = "MinimapCluster",
@@ -695,7 +699,7 @@ OverrideActionBar:HookScript("OnShow", function(self)
 		GuildMicroButton,
 		--PVPMicroButton,
 		LFDMicroButton,
-		CompanionsMicroButton,
+		CollectionsMicroButton,
 		EJMicroButton,
 		StoreMicroButton,
 		MainMenuMicroButton
@@ -921,6 +925,9 @@ function MovAny:Boot()
 	end]]
 	if GameTooltip and GameTooltip.SetBagItem then
 		hooksecurefunc(GameTooltip, "SetBagItem", self.hGameTooltip_SetBagItem)
+	end
+	if GameTooltip and GameTooltip.SetGuildBankItem then
+		hooksecurefunc(GameTooltip, "SetGuildBankItem", self.hGameTooltip_SetGuildBankItem)
 	end
 	if AddFrameLock then
 		hooksecurefunc("AddFrameLock", self.hAddFrameLock)
@@ -1417,9 +1424,6 @@ function MovAny.hSetPoint(f, ...)
 		print(f:GetName())
 		return
 	end]]
-	--[[if string.find(f:GetName(), "Arena") then
-		print(":1332,", string.find(f:GetName(), "Arena"), f:GetName())
-	end]]
 	if f.MAPoint then
 		local fn = f:GetName()
 		if fn and string.match(fn, "^ContainerFrame[1-9][0-9]*$") then
@@ -1472,6 +1476,9 @@ function MovAny:LockPoint(f, opt)
 end
 
 function MovAny:UnlockPoint(f)
+	if not f then
+		return
+	end
 	f.MAPoint = nil
 end
 
@@ -1484,6 +1491,9 @@ function MovAny:LockParent(f)
 end
 
 function MovAny:UnlockParent(f)
+	if not f then
+		return
+	end
 	f.MAParented = nil
 end
 
@@ -2612,7 +2622,7 @@ function MovAny:HideFrame(f, readOnly)
 			f:SetAttribute("unit", nil)
 		end
 	end
-	if e.hideList then
+	if e and e.hideList then
 		for hIndex, hideEntry in pairs(e.hideList) do
 			local val = _G[hideEntry[1]]
 			local hideType
@@ -2633,7 +2643,7 @@ function MovAny:HideFrame(f, readOnly)
 				end
 			end
 		end
-	elseif e.hideUsingWH then
+	elseif e and e.hideUsingWH then
 		self:StopMoving(fn)
 		f:SetWidth(1)
 		f:SetHeight(1)
@@ -2693,7 +2703,10 @@ function MovAny:ShowFrame(f, readOnly, dontHook)
 		end
 	end]]
 	local e = API:GetElement(fn)
-	local opt = e.userData
+	local opt
+	if e and e.userData then
+		opt = e.userData
+	end
 	if not readOnly and opt then
 		opt.hidden = nil
 		opt.unit = nil
@@ -2708,7 +2721,7 @@ function MovAny:ShowFrame(f, readOnly, dontHook)
 	if opt ~= nil and opt.unit and f.SetAttribute then
 		f:SetAttribute("unit", opt.unit)
 	end
-	if e.hideList then
+	if e and e.hideList then
 		for hIndex, hideEntry in pairs(e.hideList) do
 			local val = _G[hideEntry[1]]
 			for i = 2, table.getn(hideEntry) do
@@ -2732,7 +2745,7 @@ function MovAny:ShowFrame(f, readOnly, dontHook)
 			end
 		end
 		self.Layers:Apply(e, f)
-	elseif e.hideUsingWH then
+	elseif e and e.hideUsingWH then
 		if type(opt.orgWidth) == "number" then
 			f:SetWidth(opt.orgWidth)
 		end
@@ -4678,6 +4691,12 @@ function MovAny:hGameTooltip_SetBagItem(container, slot)
 	end
 end
 
+function MovAny:hGameTooltip_SetGuildBankItem(container, slot)
+	if MovAny:IsModified("GuildBankItemTooltipMover") then
+		MovAny:HookTooltip(_G["GuildBankItemTooltipMover"])
+	end
+end
+
 -- X: MA tooltip funcs
 function MovAny:TooltipShow(self)
 	if not self.tooltipText then
@@ -5388,8 +5407,8 @@ function MovAny_OnEvent(self, event, arg1)
 		elseif arg1 == "Blizzard_PetJournal" then
 			setfenv(PetJournalParent_OnShow, setmetatable({UpdateMicroButtons = function()
 				if (PetJournalParent and PetJournalParent:IsShown()) then
-					CompanionsMicroButton:Enable()
-					CompanionsMicroButton:SetButtonState("PUSHED", 1)
+					CollectionsMicroButton:Enable()
+					CollectionsMicroButton:SetButtonState("PUSHED", 1)
 				end
 			end }, { __index = _G}))]]
 		--[=[elseif arg1 == "Blizzard_ArenaUI" then
@@ -5657,9 +5676,8 @@ function MovAny_OnEvent(self, event, arg1)
 			AchievementMicroButton,
 			QuestLogMicroButton,
 			GuildMicroButton,
-			--PVPMicroButton,
 			LFDMicroButton,
-			CompanionsMicroButton,
+			CollectionsMicroButton,
 			EJMicroButton,
 			StoreMicroButton,
 			MainMenuMicroButton
@@ -5708,9 +5726,9 @@ function MovAny_OnEvent(self, event, arg1)
 		local e
 		for i = 1, 7, 1 do
 			e = API:GetElement("BankBagFrame"..i)
-			if e then
+			--[[if e then
 				e.refuseSync = MOVANY.FRAME_ONLY_WHEN_BANK_IS_OPEN
-			end
+			end]]
 		end
 	elseif event == "PLAYER_LOGOUT" then
 		MovAny:OnPlayerLogout()

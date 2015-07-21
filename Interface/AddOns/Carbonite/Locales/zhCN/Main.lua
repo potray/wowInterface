@@ -130,3 +130,36 @@ L["In Conflict"] = "争夺中"				-- NXlINCONFLICT
 L["Opening"] = "打开"					-- NXlOpening
 L["Opening - No Text"] = true				-- NXlOpeningNoText
 L["Everfrost Chip"] = "永冻薄片"			-- NXlEverfrost
+
+L["yds"] = "码"
+L["secs"] = "秒"
+L["mins"] = "分钟"
+
+-- NxUI.lua
+L[" Frame: %s Shown%d Vis%d P>%s"] = true
+L[" EScale %f, Lvl %f"] = true
+L[" LR %f, %f"] = true
+L[" BT %f, %f"] = true
+L["%s#%d %s ID%s (%s) show%d l%d x%d y%d"] = true
+L["%.1f days"] = "%.1f 天"
+L["%.1f hours"] = "%.1f 小时"
+L["%d mins"] = "%d 分钟"
+L["Reset old layout data"] = "重置旧布局数据"
+L["Window version mismatch!"] = "窗口版本错误！"
+L["XY missing (%s)"] = "丢失XY坐标(%s)"
+L["Window not found (%s)"] = "未找到窗口(%s)"
+L["Detach %s"] = "分离 %s"
+L["Detach found %s"] = "找到待分离窗口 %s"
+L["Search: [click]"] = "搜索：[点击此处]"
+L["Search: %[click%]"] = "搜索：%[点击此处%]"
+L["Reset old list data"] = "重置旧列表数据"
+L["!BUT %s"] = true
+L["Key %s transfered to Watch List Item"] = "键 %s 已转移到监视列表"
+L["CLICK (.+):"] = true
+L["Key %s %s #%s %s"] = "键 %s %s #%s %s"
+L["shift left/right click to change size"] = "Shift-左键或右键点击改变大小"
+L["Reset old tool bar data"] = "重置旧工具栏数据"
+
+-- NxTravel.lua
+L["Connection: %s to %s"] = "连接：%s 到 %s"
+L["Fly: %s to %s"] = "飞行：%s 到 %s"

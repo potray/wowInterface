@@ -23,3 +23,7 @@ END
 VER 3 0000000000000007 "Talbuk" "SPELL_NATURE_SWIFTNESS"
 /rw talbuk encontrado!!!! Enfrente del templo de karabor!!!
 END
+VER 3 000000000000000E "TSMAucBClick" "1"
+/click TSMAuctioningCancelButton
+/click TSMAuctioningPostButton
+END

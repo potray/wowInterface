@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
--- Localized Lua globals. 
+-- Localized Lua globals.
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
@@ -9,6 +9,7 @@ local type = _G.type
 
 -- Libraries
 local math = _G.math
+local string = _G.string
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -45,7 +46,7 @@ target_button:SetBackdropBorderColor(0.7, 0.15, 0.05) -- Brown
 target_button:HookScript("OnShow", function(self)
 	self:RegisterEvent("MODIFIER_STATE_CHANGED")
 	self:RegisterEvent("PLAYER_TARGET_CHANGED")
-	self:EnableDrag(IsControlKeyDown())
+	self:EnableDrag(_G.IsControlKeyDown())
 
 end)
 
@@ -169,10 +170,10 @@ do
 		end
 
 		if not sound_name then
-			_G.PlaySoundFile([[Sound\Events\gruntling_horn_bb.wav]], "Master")
+			_G.PlaySoundFile([[Sound\Events\gruntling_horn_bb.ogg]], "Master")
 		elseif sound_name == L.CONFIG_ALERT_SOUND_CLASSIC then
-			_G.PlaySoundFile([[Sound\Event Sounds\Event_wardrum_ogre.wav]], "Master")
-			_G.PlaySoundFile([[Sound\Events\scourge_horn.wav]], "Master")
+			_G.PlaySoundFile([[Sound\Event Sounds\Event_wardrum_ogre.ogg]], "Master")
+			_G.PlaySoundFile([[Sound\Events\scourge_horn.ogg]], "Master")
 		else
 			local LSM = _G.LibStub("LibSharedMedia-3.0")
 			_G.PlaySoundFile(LSM:Fetch(LSM.MediaType.SOUND, sound_name), "Master")
@@ -260,14 +261,13 @@ function target_button:Update(ID, Name, Source)
 
 --Quick fix to not show Haakun's actual model due to it causing the game to crash
 	if ID == HaakunID or Name == HaakunName then
-		Model:Reset()
 		Model:SetCreature(29147)
 		self:UnregisterEvent("UNIT_MODEL_CHANGED")
 	end
 
 	if Source == "Unknown Vignette" then
 		Model:SetDisplayInfo(28089)
-		if Name == "Vignette Mob" then 
+		if Name == "Vignette Mob" then
 			self:SetAttribute("macrotext", private.macrotext)
 		else
 			self:SetAttribute("macrotext", "/cleartarget\n/targetexact " .. Name)
@@ -308,7 +308,7 @@ end
 
 -- Enables or disables dragging when the drag modifier is held.
 function target_button:MODIFIER_STATE_CHANGED()
-	self:EnableDrag(IsControlKeyDown())
+	self:EnableDrag(_G.IsControlKeyDown())
 end
 
 do
@@ -358,9 +358,7 @@ end
 function target_button:UNIT_MODEL_CHANGED(_, UnitID)
 
 	--Quick fix to not show Haakun's actual model due to it causing the game to crash
-	local name = UnitName(UnitID)
-	if Name == HaakunName then
-		self.Model:Reset()
+	if _G.UnitName(UnitID) == HaakunName then
 		self.Model:SetCreature(29147)
 		self:UnregisterEvent("UNIT_MODEL_CHANGED")
 		return

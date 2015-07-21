@@ -1,6 +1,18 @@
+TipTacItemRef Changes | 2015 Jul 02
+-----------------------------------
+- TOC version changed to 60200 for the 6.2 patch.
+
+TipTacItemRef Changes | 2015 Mar 04
+-----------------------------------
+- TOC version updated to 60100 for the 6.1 patch.
+
+TipTacItemRef Changes | 2015 Jan 14
+-----------------------------------
+- Tried to fix a Lua error happening due to GetAchievementCriteriaInfo() being called for non existing criteria indexes.
+
 TipTacItemRef Changes | 2014 Oct 16
 -----------------------------------
-- Updated the "GetUpgradedItemLevel" library. This update will again properly find the correct itemlevel of updated items.
+- Updated the "GetUpgradedItemLevel" library. This update will again properly find the correct itemLevel of upgraded items.
 
 TipTacItemRef Changes | 2014 Oct 15
 -----------------------------------

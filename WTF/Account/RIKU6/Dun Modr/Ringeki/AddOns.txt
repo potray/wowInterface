@@ -1,4 +1,4 @@
-Postal: enabled
+Postal: disabled
 Skinner: enabled
 SexyMap: enabled
 Carbonite: disabled

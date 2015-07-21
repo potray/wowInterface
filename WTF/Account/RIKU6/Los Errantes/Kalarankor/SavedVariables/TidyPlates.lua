@@ -1,10 +1,10 @@
 
 TidyPlatesOptions = {
-	["EnemyAutomation"] = "No Automation",
-	["CompatibilityMode"] = false,
-	["FriendlyAutomation"] = "No Automation",
 	["DisableSoftTransitions"] = false,
-	["primary"] = "Neon/|cFFFF4400Damage",
 	["WelcomeShown"] = true,
+	["FriendlyAutomation"] = "No Automation",
+	["EnemyAutomation"] = "No Automation",
+	["primary"] = "Neon/|cFFFF4400Damage",
+	["CompatibilityMode"] = false,
 	["secondary"] = "Neon/|cFF3782D1Tank",
 }

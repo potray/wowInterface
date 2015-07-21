@@ -1,5 +1,6 @@
 local Addon = PetTracker
 local Record = Addon:NewClass('Button', 'Record', 'PetTrackerRecord')
+local L = Addon.Locals
 
 local IdMatch = strrep('%w', 12)
 local SpellsMatch = strrep('(%w%w%w)', 3)
@@ -9,7 +10,7 @@ function Record:Display(entry)
 	self:Unpack(entry)
 	self.Content.When:SetFormattedText('%d/%d/%02d', self.day, self.month, self.year)
 	self:SetNormalFontObject(self.won and GameFontGreen or GameFontRed)
-	self:SetText(self.won and 'Victory' or 'Defeat')
+	self:SetText(self.won and L.Victory or L.Defeat)
 	self:Show()
 
 	for i = 1, 3 do
@@ -18,8 +19,9 @@ function Record:Display(entry)
 		button:SetShown(pet)
 
 		if pet then
-			button:SetNormalTexture(select(9, C_PetJournal.GetPetInfoByPetID(pet.id)))
-			button.id = pet.id
+			local texture = select(9, C_PetJournal.GetPetInfoByPetID(pet.id))
+			button:SetNormalTexture(texture or 'Interface/Icons/INV_Misc_QuestionMark')
+			button.id = texture and pet.id
 			
 			local alive = pet.health > 0
 			button.Health:SetWidth(pet.health * 36)

@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("HyjalWaveTimers", "DBM-Hyjal")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 548 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 564 $"):sub(12, -3))
 
 mod:RegisterEvents(
 	"GOSSIP_SHOW",
@@ -19,7 +19,6 @@ local timerWave			= mod:NewTimer(125, "TimerWave")
 
 mod:AddBoolOption("DetailedWave")
 mod:RemoveOption("HealthFrame")
-mod:RemoveOption("SpeedKillTimer")
 
 local lastWave = 0
 local boss = 0

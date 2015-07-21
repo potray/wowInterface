@@ -9,26 +9,6 @@ MADB = {
 		["default"] = {
 			["name"] = "default",
 			["frames"] = {
-				["QuestLogFrame"] = {
-					["name"] = "QuestLogFrame",
-					["pos"] = {
-						"BOTTOMLEFT", -- [1]
-						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
-						29.9998970031738, -- [4]
-						552.000061035156, -- [5]
-					},
-				},
-				["QuestLogDetailFrame"] = {
-					["name"] = "QuestLogDetailFrame",
-					["pos"] = {
-						"BOTTOMLEFT", -- [1]
-						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
-						29.9999828338623, -- [4]
-						551.999816894531, -- [5]
-					},
-				},
 				["CriteriaAlertFrame2"] = {
 					["name"] = "CriteriaAlertFrame2",
 					["pos"] = {
@@ -37,54 +17,6 @@ MADB = {
 						"BOTTOM", -- [3]
 						-3.05175781250e-005, -- [4]
 						102.000122070313, -- [5]
-					},
-				},
-				["UIPanelMover2"] = {
-					["orgPos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						384, -- [4]
-						-104, -- [5]
-					},
-					["name"] = "UIPanelMover2",
-					["pos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						384, -- [4]
-						-103.999877929688, -- [5]
-					},
-				},
-				["MailFrame"] = {
-					["UIPanelWindows"] = {
-						["pushable"] = 0,
-						["area"] = "left",
-					},
-					["orgPos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"TOP", -- [3]
-						0, -- [4]
-						-135, -- [5]
-					},
-					["name"] = "MailFrame",
-					["pos"] = {
-						"BOTTOMLEFT", -- [1]
-						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
-						32.0000152587891, -- [4]
-						624, -- [5]
-					},
-				},
-				["WatchFrame"] = {
-					["name"] = "WatchFrame",
-					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"WatchFrameMover", -- [2]
-						"TOPRIGHT", -- [3]
-						0, -- [4]
-						0, -- [5]
 					},
 				},
 				["BonusRollFrame"] = {
@@ -104,23 +36,6 @@ MADB = {
 						0, -- [5]
 					},
 				},
-				["GroupLootFrame4"] = {
-					["orgPos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"TOP", -- [3]
-						0, -- [4]
-						-135, -- [5]
-					},
-					["name"] = "GroupLootFrame4",
-					["pos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"TOP", -- [3]
-						0, -- [4]
-						0, -- [5]
-					},
-				},
 				["CharacterFrame"] = {
 					["UIPanelWindows"] = {
 						["whileDead"] = 1,
@@ -128,10 +43,10 @@ MADB = {
 						["area"] = "left",
 					},
 					["orgPos"] = {
-						"TOPLEFT", -- [1]
+						"TOP", -- [1]
 						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						36, -- [4]
+						"TOP", -- [3]
+						323.000030517578, -- [4]
 						-27, -- [5]
 					},
 					["name"] = "CharacterFrame",
@@ -139,8 +54,8 @@ MADB = {
 						"BOTTOMLEFT", -- [1]
 						"UIParent", -- [2]
 						"BOTTOMLEFT", -- [3]
-						35.9999580383301, -- [4]
-						628.999938964844, -- [5]
+						1113.99987792969, -- [4]
+						629.000061035156, -- [5]
 					},
 				},
 				["BonusRollLootWonFrame"] = {
@@ -160,7 +75,24 @@ MADB = {
 						0, -- [5]
 					},
 				},
-				["BonusRollMoneyWonFrame"] = {
+				["PlayerBuffsMover"] = {
+					["orgPos"] = {
+						"TOPRIGHT", -- [1]
+						"UIParent", -- [2]
+						"TOPRIGHT", -- [3]
+						-205, -- [4]
+						-13, -- [5]
+					},
+					["name"] = "PlayerBuffsMover",
+					["pos"] = {
+						"TOPRIGHT", -- [1]
+						"UIParent", -- [2]
+						"TOPRIGHT", -- [3]
+						-11.0003662109375, -- [4]
+						-34, -- [5]
+					},
+				},
+				["GroupLootFrame4"] = {
 					["orgPos"] = {
 						"TOP", -- [1]
 						"UIParent", -- [2]
@@ -168,46 +100,13 @@ MADB = {
 						0, -- [4]
 						-135, -- [5]
 					},
-					["name"] = "BonusRollMoneyWonFrame",
+					["name"] = "GroupLootFrame4",
 					["pos"] = {
 						"TOP", -- [1]
 						"UIParent", -- [2]
 						"TOP", -- [3]
 						0, -- [4]
 						0, -- [5]
-					},
-				},
-				["AchievementFrame"] = {
-					["UIPanelWindows"] = {
-						["xoffset"] = 80,
-						["whileDead"] = 1,
-						["pushable"] = 0,
-						["area"] = "doublewide",
-					},
-					["orgPos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						0, -- [4]
-						-104.000007629395, -- [5]
-					},
-					["name"] = "AchievementFrame",
-					["pos"] = {
-						"BOTTOMLEFT", -- [1]
-						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
-						0, -- [4]
-						475.999969482422, -- [5]
-					},
-				},
-				["CriteriaAlertFrame1"] = {
-					["name"] = "CriteriaAlertFrame1",
-					["pos"] = {
-						"BOTTOM", -- [1]
-						"AlertFrame", -- [2]
-						"TOP", -- [3]
-						-6.1035156250e-005, -- [4]
-						-31.9995803833008, -- [5]
 					},
 				},
 				["StaticPopup3"] = {
@@ -227,21 +126,21 @@ MADB = {
 						788, -- [5]
 					},
 				},
-				["StreamingIcon"] = {
+				["CompactRaidFrameBuffTooltipsMover"] = {
 					["orgPos"] = {
-						"LEFT", -- [1]
-						"GhostFrame", -- [2]
-						"RIGHT", -- [3]
+						"CENTER", -- [1]
+						"UIParent", -- [2]
+						"CENTER", -- [3]
 						0, -- [4]
 						0, -- [5]
 					},
-					["name"] = "StreamingIcon",
+					["name"] = "CompactRaidFrameBuffTooltipsMover",
 					["pos"] = {
-						"LEFT", -- [1]
-						"GhostFrame", -- [2]
-						"RIGHT", -- [3]
-						0, -- [4]
-						0, -- [5]
+						"CENTER", -- [1]
+						"UIParent", -- [2]
+						"CENTER", -- [3]
+						6.1035156250e-005, -- [4]
+						6.1035156250e-005, -- [5]
 					},
 				},
 				["MissingLootFrame"] = {
@@ -279,25 +178,7 @@ MADB = {
 						-25, -- [5]
 					},
 				},
-				["MiniMapMailFrame"] = {
-					["orgPos"] = {
-						"TOPRIGHT", -- [1]
-						"Minimap", -- [2]
-						"TOPRIGHT", -- [3]
-						24, -- [4]
-						-37, -- [5]
-					},
-					["name"] = "MiniMapMailFrame",
-					["hidden"] = true,
-					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"Minimap", -- [2]
-						"TOPRIGHT", -- [3]
-						23.9998779296875, -- [4]
-						-37.0000610351563, -- [5]
-					},
-				},
-				["GroupLootFrame3"] = {
+				["QuestNPCModel"] = {
 					["orgPos"] = {
 						"TOP", -- [1]
 						"UIParent", -- [2]
@@ -305,13 +186,15 @@ MADB = {
 						0, -- [4]
 						-135, -- [5]
 					},
-					["name"] = "GroupLootFrame3",
+					["name"] = "QuestNPCModel",
+					["scale"] = 1,
+					["orgScale"] = 1,
 					["pos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"TOP", -- [3]
-						0, -- [4]
-						0, -- [5]
+						"TOPLEFT", -- [1]
+						"QuestLogDetailFrame", -- [2]
+						"TOPRIGHT", -- [3]
+						-336.99905204773, -- [4]
+						-496.838500976563, -- [5]
 					},
 				},
 				["CompactRaidFrameManagerToggleButton"] = {
@@ -349,56 +232,21 @@ MADB = {
 						-134.999877929688, -- [5]
 					},
 				},
-				["GameTimeFrame"] = {
+				["MiniMapWorldMapButton"] = {
 					["orgPos"] = {
 						"TOPRIGHT", -- [1]
-						"Minimap", -- [2]
+						"MinimapBackdrop", -- [2]
 						"TOPRIGHT", -- [3]
-						20, -- [4]
-						-2, -- [5]
+						-2, -- [4]
+						23, -- [5]
 					},
-					["name"] = "GameTimeFrame",
-					["hidden"] = true,
+					["name"] = "MiniMapWorldMapButton",
 					["pos"] = {
 						"TOPRIGHT", -- [1]
-						"Minimap", -- [2]
+						"MinimapBackdrop", -- [2]
 						"TOPRIGHT", -- [3]
-						20, -- [4]
-						-2, -- [5]
-					},
-				},
-				["StaticPopup4"] = {
-					["orgPos"] = {
-						"TOP", -- [1]
-						"StaticPopup2", -- [2]
-						"BOTTOM", -- [3]
-						0, -- [4]
-						-72.0000610351563, -- [5]
-					},
-					["name"] = "StaticPopup4",
-					["pos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						-3.05175781250e-005, -- [4]
-						715.999938964844, -- [5]
-					},
-				},
-				["MainMenuBarMaxLevelBar"] = {
-					["orgPos"] = {
-						"TOP", -- [1]
-						"MainMenuBar", -- [2]
-						"TOP", -- [3]
-						0, -- [4]
-						-11.0000009536743, -- [5]
-					},
-					["name"] = "MainMenuBarMaxLevelBar",
-					["pos"] = {
-						"BOTTOMLEFT", -- [1]
-						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
-						447.999938964844, -- [4]
-						34.0000038146973, -- [5]
+						-2, -- [4]
+						22.9998779296875, -- [5]
 					},
 				},
 				["UIPanelMover3"] = {
@@ -416,40 +264,6 @@ MADB = {
 						"TOPLEFT", -- [3]
 						772, -- [4]
 						-103.999877929688, -- [5]
-					},
-				},
-				["CompactRaidFrameBuffTooltipsMover"] = {
-					["orgPos"] = {
-						"CENTER", -- [1]
-						"UIParent", -- [2]
-						"CENTER", -- [3]
-						0, -- [4]
-						0, -- [5]
-					},
-					["name"] = "CompactRaidFrameBuffTooltipsMover",
-					["pos"] = {
-						"CENTER", -- [1]
-						"UIParent", -- [2]
-						"CENTER", -- [3]
-						6.1035156250e-005, -- [4]
-						6.1035156250e-005, -- [5]
-					},
-				},
-				["GuildChallengeAlertFrame"] = {
-					["orgPos"] = {
-						"BOTTOM", -- [1]
-						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						0, -- [4]
-						128, -- [5]
-					},
-					["name"] = "GuildChallengeAlertFrame",
-					["pos"] = {
-						"BOTTOM", -- [1]
-						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						0, -- [4]
-						109, -- [5]
 					},
 				},
 				["ObjectiveTrackerFrameMover"] = {
@@ -490,28 +304,6 @@ MADB = {
 						551.999938964844, -- [5]
 					},
 				},
-				["QuestLogPopupDetailFrame"] = {
-					["UIPanelWindows"] = {
-						["whileDead"] = 1,
-						["pushable"] = 0,
-						["area"] = "left",
-					},
-					["orgPos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"TOP", -- [3]
-						0, -- [4]
-						-135, -- [5]
-					},
-					["name"] = "QuestLogPopupDetailFrame",
-					["pos"] = {
-						"BOTTOMLEFT", -- [1]
-						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
-						16, -- [4]
-						467.999938964844, -- [5]
-					},
-				},
 				["PetStableFrame"] = {
 					["UIPanelWindows"] = {
 						["pushable"] = 0,
@@ -533,18 +325,9 @@ MADB = {
 						537.999938964844, -- [5]
 					},
 				},
-				["AchievementAlertFrame2"] = {
-					["name"] = "AchievementAlertFrame2",
-					["pos"] = {
-						"BOTTOM", -- [1]
-						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						0, -- [4]
-						246.999954223633, -- [5]
-					},
-				},
-				["TabardFrame"] = {
+				["FriendsFrame"] = {
 					["UIPanelWindows"] = {
+						["whileDead"] = 1,
 						["pushable"] = 0,
 						["area"] = "left",
 					},
@@ -555,13 +338,261 @@ MADB = {
 						0, -- [4]
 						0, -- [5]
 					},
-					["name"] = "TabardFrame",
+					["name"] = "FriendsFrame",
 					["pos"] = {
 						"BOTTOMLEFT", -- [1]
 						"UIParent", -- [2]
 						"BOTTOMLEFT", -- [3]
 						0, -- [4]
 						0, -- [5]
+					},
+				},
+				["ObjectiveTrackerFrameScaleMover"] = {
+					["orgPos"] = {
+						"TOPRIGHT", -- [1]
+						"MinimapCluster", -- [2]
+						"BOTTOMRIGHT", -- [3]
+						-10, -- [4]
+						0, -- [5]
+					},
+					["name"] = "ObjectiveTrackerFrameScaleMover",
+					["pos"] = {
+						"TOPRIGHT", -- [1]
+						"MinimapCluster", -- [2]
+						"BOTTOMRIGHT", -- [3]
+						-9.9998779296875, -- [4]
+						0, -- [5]
+					},
+				},
+				["AchievementAlertFrame1"] = {
+					["orgPos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						0, -- [4]
+						128, -- [5]
+					},
+					["name"] = "AchievementAlertFrame1",
+					["pos"] = {
+						"BOTTOM", -- [1]
+						"AlertFrame", -- [2]
+						"TOP", -- [3]
+						-3.05175781250e-005, -- [4]
+						112.000015258789, -- [5]
+					},
+				},
+				["BattlefieldMinimap"] = {
+					["alpha"] = 1,
+					["name"] = "BattlefieldMinimap",
+					["orgAlpha"] = 1,
+				},
+				["MinimapZoomOut"] = {
+					["orgPos"] = {
+						"CENTER", -- [1]
+						"MinimapBackdrop", -- [2]
+						"CENTER", -- [3]
+						50, -- [4]
+						-43, -- [5]
+					},
+					["name"] = "MinimapZoomOut",
+					["hidden"] = true,
+					["pos"] = {
+						"CENTER", -- [1]
+						"MinimapBackdrop", -- [2]
+						"CENTER", -- [3]
+						50.0000610351563, -- [4]
+						-43.0000305175781, -- [5]
+					},
+				},
+				["AlertFrame"] = {
+					["orgPos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						0, -- [4]
+						128, -- [5]
+					},
+					["name"] = "AlertFrame",
+					["pos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						3.05175781250e-005, -- [4]
+						128, -- [5]
+					},
+				},
+				["QuestLogFrame"] = {
+					["name"] = "QuestLogFrame",
+					["pos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						29.9998970031738, -- [4]
+						552.000061035156, -- [5]
+					},
+				},
+				["TradeSkillFrame"] = {
+					["name"] = "TradeSkillFrame",
+					["pos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						28.0000228881836, -- [4]
+						626.000061035156, -- [5]
+					},
+				},
+				["PlayerPowerBarAltMover"] = {
+					["orgPos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						0, -- [4]
+						155, -- [5]
+					},
+					["name"] = "PlayerPowerBarAltMover",
+					["pos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						-107, -- [4]
+						269.999603271484, -- [5]
+					},
+				},
+				["MailFrame"] = {
+					["UIPanelWindows"] = {
+						["pushable"] = 0,
+						["area"] = "left",
+					},
+					["orgPos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						0, -- [4]
+						-135, -- [5]
+					},
+					["name"] = "MailFrame",
+					["pos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						32.0000152587891, -- [4]
+						624, -- [5]
+					},
+				},
+				["BonusRollMoneyWonFrame"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						0, -- [4]
+						-135, -- [5]
+					},
+					["name"] = "BonusRollMoneyWonFrame",
+					["pos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						0, -- [4]
+						0, -- [5]
+					},
+				},
+				["CriteriaAlertFrame1"] = {
+					["name"] = "CriteriaAlertFrame1",
+					["pos"] = {
+						"BOTTOM", -- [1]
+						"AlertFrame", -- [2]
+						"TOP", -- [3]
+						-6.1035156250e-005, -- [4]
+						-31.9995803833008, -- [5]
+					},
+				},
+				["WatchFrame"] = {
+					["name"] = "WatchFrame",
+					["pos"] = {
+						"TOPRIGHT", -- [1]
+						"WatchFrameMover", -- [2]
+						"TOPRIGHT", -- [3]
+						0, -- [4]
+						0, -- [5]
+					},
+				},
+				["StaticPopup4"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"StaticPopup2", -- [2]
+						"BOTTOM", -- [3]
+						0, -- [4]
+						-72.0000610351563, -- [5]
+					},
+					["name"] = "StaticPopup4",
+					["pos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						-3.05175781250e-005, -- [4]
+						715.999938964844, -- [5]
+					},
+				},
+				["MiniMapMailFrame"] = {
+					["orgPos"] = {
+						"TOPRIGHT", -- [1]
+						"Minimap", -- [2]
+						"TOPRIGHT", -- [3]
+						24, -- [4]
+						-37, -- [5]
+					},
+					["name"] = "MiniMapMailFrame",
+					["hidden"] = true,
+					["pos"] = {
+						"TOPRIGHT", -- [1]
+						"Minimap", -- [2]
+						"TOPRIGHT", -- [3]
+						23.9998779296875, -- [4]
+						-37.0000610351563, -- [5]
+					},
+				},
+				["UIPanelMover1"] = {
+					["orgPos"] = {
+						"TOPLEFT", -- [1]
+						"UIParent", -- [2]
+						"TOPLEFT", -- [3]
+						0, -- [4]
+						-104, -- [5]
+					},
+					["name"] = "UIPanelMover1",
+					["pos"] = {
+						"TOPLEFT", -- [1]
+						"UIParent", -- [2]
+						"TOPLEFT", -- [3]
+						12.0000228881836, -- [4]
+						-17.9998779296875, -- [5]
+					},
+				},
+				["RaidWarningFrame"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"UIErrorsFrame", -- [2]
+						"BOTTOM", -- [3]
+						0, -- [4]
+						0, -- [5]
+					},
+					["name"] = "RaidWarningFrame",
+					["pos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						6.1035156250e-005, -- [4]
+						-184.999938964844, -- [5]
+					},
+				},
+				["PlayerTalentFrame"] = {
+					["name"] = "PlayerTalentFrame",
+					["pos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						637, -- [4]
+						305.999969482422, -- [5]
 					},
 				},
 				["SpellBookFrame"] = {
@@ -588,6 +619,23 @@ MADB = {
 						526.000061035156, -- [5]
 					},
 				},
+				["GuildChallengeAlertFrame"] = {
+					["orgPos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						0, -- [4]
+						128, -- [5]
+					},
+					["name"] = "GuildChallengeAlertFrame",
+					["pos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						0, -- [4]
+						109, -- [5]
+					},
+				},
 				["StaticPopup2"] = {
 					["orgPos"] = {
 						"TOP", -- [1]
@@ -603,6 +651,41 @@ MADB = {
 						"BOTTOM", -- [3]
 						-3.05175781250e-005, -- [4]
 						859.999938964844, -- [5]
+					},
+				},
+				["RaidUnitFramesMover"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						0, -- [4]
+						-135, -- [5]
+					},
+					["name"] = "RaidUnitFramesMover",
+					["hidden"] = true,
+					["pos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						21.9999885559082, -- [4]
+						361.999908447266, -- [5]
+					},
+				},
+				["AchievementAlertFrame2"] = {
+					["orgPos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						0, -- [4]
+						128, -- [5]
+					},
+					["name"] = "AchievementAlertFrame2",
+					["pos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						0, -- [4]
+						246.999954223633, -- [5]
 					},
 				},
 				["GroupLootFrame2"] = {
@@ -657,26 +740,21 @@ MADB = {
 						6.1035156250e-005, -- [5]
 					},
 				},
-				["BankFrame"] = {
-					["UIPanelWindows"] = {
-						["width"] = 425,
-						["pushable"] = 6,
-						["area"] = "left",
-					},
+				["GroupLootFrame1"] = {
 					["orgPos"] = {
-						"BOTTOMLEFT", -- [1]
+						"TOP", -- [1]
 						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
+						"TOP", -- [3]
 						0, -- [4]
-						0, -- [5]
+						-135, -- [5]
 					},
-					["name"] = "BankFrame",
+					["name"] = "GroupLootFrame1",
 					["pos"] = {
-						"BOTTOMLEFT", -- [1]
+						"TOP", -- [1]
 						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
-						0, -- [4]
-						0, -- [5]
+						"TOP", -- [3]
+						-3.05175781250e-005, -- [4]
+						-908.999954223633, -- [5]
 					},
 				},
 				["MonkHarmonyBarMover"] = {
@@ -713,11 +791,6 @@ MADB = {
 						333.000061035156, -- [5]
 					},
 				},
-				["BattlefieldMinimap"] = {
-					["alpha"] = 1,
-					["name"] = "BattlefieldMinimap",
-					["orgAlpha"] = 1,
-				},
 				["WorldMapTrackQuest"] = {
 					["name"] = "WorldMapTrackQuest",
 					["pos"] = {
@@ -726,24 +799,6 @@ MADB = {
 						"BOTTOMLEFT", -- [3]
 						22.9333343505859, -- [4]
 						10.9333323988867, -- [5]
-					},
-				},
-				["RaidUnitFramesMover"] = {
-					["orgPos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"TOP", -- [3]
-						0, -- [4]
-						-135, -- [5]
-					},
-					["name"] = "RaidUnitFramesMover",
-					["hidden"] = true,
-					["pos"] = {
-						"BOTTOMLEFT", -- [1]
-						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
-						21.9999885559082, -- [4]
-						361.999908447266, -- [5]
 					},
 				},
 				["OpenMailFrame"] = {
@@ -763,10 +818,10 @@ MADB = {
 						0, -- [5]
 					},
 				},
-				["FriendsFrame"] = {
+				["BankFrame"] = {
 					["UIPanelWindows"] = {
-						["whileDead"] = 1,
-						["pushable"] = 0,
+						["width"] = 425,
+						["pushable"] = 6,
 						["area"] = "left",
 					},
 					["orgPos"] = {
@@ -776,57 +831,13 @@ MADB = {
 						0, -- [4]
 						0, -- [5]
 					},
-					["name"] = "FriendsFrame",
+					["name"] = "BankFrame",
 					["pos"] = {
 						"BOTTOMLEFT", -- [1]
 						"UIParent", -- [2]
 						"BOTTOMLEFT", -- [3]
 						0, -- [4]
 						0, -- [5]
-					},
-				},
-				["ObjectiveTrackerFrameScaleMover"] = {
-					["orgPos"] = {
-						"TOPRIGHT", -- [1]
-						"MinimapCluster", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						-10, -- [4]
-						0, -- [5]
-					},
-					["name"] = "ObjectiveTrackerFrameScaleMover",
-					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"MinimapCluster", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						-9.9998779296875, -- [4]
-						0, -- [5]
-					},
-				},
-				["TradeSkillFrame"] = {
-					["name"] = "TradeSkillFrame",
-					["pos"] = {
-						"BOTTOMLEFT", -- [1]
-						"UIParent", -- [2]
-						"BOTTOMLEFT", -- [3]
-						28.0000228881836, -- [4]
-						626.000061035156, -- [5]
-					},
-				},
-				["AchievementAlertFrame1"] = {
-					["orgPos"] = {
-						"BOTTOM", -- [1]
-						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						0, -- [4]
-						128, -- [5]
-					},
-					["name"] = "AchievementAlertFrame1",
-					["pos"] = {
-						"BOTTOM", -- [1]
-						"AlertFrame", -- [2]
-						"TOP", -- [3]
-						-3.05175781250e-005, -- [4]
-						112.000015258789, -- [5]
 					},
 				},
 				["MerchantFrame"] = {
@@ -861,13 +872,6 @@ MADB = {
 					},
 				},
 				["ArcheologyDigsiteProgressBar"] = {
-					["orgPos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"TOP", -- [3]
-						0, -- [4]
-						-135, -- [5]
-					},
 					["name"] = "ArcheologyDigsiteProgressBar",
 					["pos"] = {
 						"BOTTOM", -- [1]
@@ -877,7 +881,50 @@ MADB = {
 						-64.9999847412109, -- [5]
 					},
 				},
-				["GroupLootFrame1"] = {
+				["TabardFrame"] = {
+					["UIPanelWindows"] = {
+						["pushable"] = 0,
+						["area"] = "left",
+					},
+					["orgPos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						0, -- [4]
+						0, -- [5]
+					},
+					["name"] = "TabardFrame",
+					["pos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						0, -- [4]
+						0, -- [5]
+					},
+				},
+				["MainMenuBarMaxLevelBar"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"MainMenuBar", -- [2]
+						"TOP", -- [3]
+						0, -- [4]
+						-11.0000009536743, -- [5]
+					},
+					["name"] = "MainMenuBarMaxLevelBar",
+					["pos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						447.999938964844, -- [4]
+						34.0000038146973, -- [5]
+					},
+				},
+				["QuestLogPopupDetailFrame"] = {
+					["UIPanelWindows"] = {
+						["whileDead"] = 1,
+						["pushable"] = 0,
+						["area"] = "left",
+					},
 					["orgPos"] = {
 						"TOP", -- [1]
 						"UIParent", -- [2]
@@ -885,47 +932,13 @@ MADB = {
 						0, -- [4]
 						-135, -- [5]
 					},
-					["name"] = "GroupLootFrame1",
+					["name"] = "QuestLogPopupDetailFrame",
 					["pos"] = {
-						"TOP", -- [1]
+						"BOTTOMLEFT", -- [1]
 						"UIParent", -- [2]
-						"TOP", -- [3]
-						-3.05175781250e-005, -- [4]
-						-908.999954223633, -- [5]
-					},
-				},
-				["PlayerPowerBarAltMover"] = {
-					["orgPos"] = {
-						"BOTTOM", -- [1]
-						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						0, -- [4]
-						155, -- [5]
-					},
-					["name"] = "PlayerPowerBarAltMover",
-					["pos"] = {
-						"BOTTOM", -- [1]
-						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						-107, -- [4]
-						269.999603271484, -- [5]
-					},
-				},
-				["RaidWarningFrame"] = {
-					["orgPos"] = {
-						"TOP", -- [1]
-						"UIErrorsFrame", -- [2]
-						"BOTTOM", -- [3]
-						0, -- [4]
-						0, -- [5]
-					},
-					["name"] = "RaidWarningFrame",
-					["pos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"TOP", -- [3]
-						6.1035156250e-005, -- [4]
-						-184.999938964844, -- [5]
+						"BOTTOMLEFT", -- [3]
+						16, -- [4]
+						467.999938964844, -- [5]
 					},
 				},
 				["LootFrame"] = {
@@ -949,39 +962,39 @@ MADB = {
 						197.000244140625, -- [5]
 					},
 				},
-				["MinimapZoomOut"] = {
+				["GameTimeFrame"] = {
 					["orgPos"] = {
-						"CENTER", -- [1]
-						"MinimapBackdrop", -- [2]
-						"CENTER", -- [3]
-						50, -- [4]
-						-43, -- [5]
+						"TOPRIGHT", -- [1]
+						"Minimap", -- [2]
+						"TOPRIGHT", -- [3]
+						20, -- [4]
+						-2, -- [5]
 					},
-					["name"] = "MinimapZoomOut",
+					["name"] = "GameTimeFrame",
 					["hidden"] = true,
 					["pos"] = {
-						"CENTER", -- [1]
-						"MinimapBackdrop", -- [2]
-						"CENTER", -- [3]
-						50.0000610351563, -- [4]
-						-43.0000305175781, -- [5]
+						"TOPRIGHT", -- [1]
+						"Minimap", -- [2]
+						"TOPRIGHT", -- [3]
+						20, -- [4]
+						-2, -- [5]
 					},
 				},
-				["MiniMapWorldMapButton"] = {
+				["GroupLootFrame3"] = {
 					["orgPos"] = {
-						"TOPRIGHT", -- [1]
-						"MinimapBackdrop", -- [2]
-						"TOPRIGHT", -- [3]
-						-2, -- [4]
-						23, -- [5]
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						0, -- [4]
+						-135, -- [5]
 					},
-					["name"] = "MiniMapWorldMapButton",
+					["name"] = "GroupLootFrame3",
 					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"MinimapBackdrop", -- [2]
-						"TOPRIGHT", -- [3]
-						-2, -- [4]
-						22.9998779296875, -- [5]
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						0, -- [4]
+						0, -- [5]
 					},
 				},
 				["WatchFrameMover"] = {
@@ -992,76 +1005,6 @@ MADB = {
 						"BOTTOMRIGHT", -- [3]
 						-2.9991455078125, -- [4]
 						118.799926757813, -- [5]
-					},
-				},
-				["UIPanelMover1"] = {
-					["orgPos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						0, -- [4]
-						-104, -- [5]
-					},
-					["name"] = "UIPanelMover1",
-					["pos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						12.0000228881836, -- [4]
-						-17.9998779296875, -- [5]
-					},
-				},
-				["QuestNPCModel"] = {
-					["orgPos"] = {
-						"TOP", -- [1]
-						"UIParent", -- [2]
-						"TOP", -- [3]
-						0, -- [4]
-						-135, -- [5]
-					},
-					["name"] = "QuestNPCModel",
-					["scale"] = 1,
-					["pos"] = {
-						"TOPLEFT", -- [1]
-						"QuestLogDetailFrame", -- [2]
-						"TOPRIGHT", -- [3]
-						-336.99905204773, -- [4]
-						-496.838500976563, -- [5]
-					},
-					["orgScale"] = 1,
-				},
-				["PlayerBuffsMover"] = {
-					["orgPos"] = {
-						"TOPRIGHT", -- [1]
-						"UIParent", -- [2]
-						"TOPRIGHT", -- [3]
-						-205, -- [4]
-						-13, -- [5]
-					},
-					["name"] = "PlayerBuffsMover",
-					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"UIParent", -- [2]
-						"TOPRIGHT", -- [3]
-						-11.0003662109375, -- [4]
-						-34, -- [5]
-					},
-				},
-				["AlertFrame"] = {
-					["orgPos"] = {
-						"BOTTOM", -- [1]
-						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						0, -- [4]
-						128, -- [5]
-					},
-					["name"] = "AlertFrame",
-					["pos"] = {
-						"BOTTOM", -- [1]
-						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						3.05175781250e-005, -- [4]
-						128, -- [5]
 					},
 				},
 				["DurabilityFrame"] = {
@@ -1081,11 +1024,78 @@ MADB = {
 						172.999877929688, -- [5]
 					},
 				},
+				["StreamingIcon"] = {
+					["orgPos"] = {
+						"LEFT", -- [1]
+						"GhostFrame", -- [2]
+						"RIGHT", -- [3]
+						0, -- [4]
+						0, -- [5]
+					},
+					["name"] = "StreamingIcon",
+					["pos"] = {
+						"LEFT", -- [1]
+						"GhostFrame", -- [2]
+						"RIGHT", -- [3]
+						0, -- [4]
+						0, -- [5]
+					},
+				},
+				["AchievementFrame"] = {
+					["UIPanelWindows"] = {
+						["xoffset"] = 80,
+						["whileDead"] = 1,
+						["pushable"] = 0,
+						["area"] = "doublewide",
+					},
+					["orgPos"] = {
+						"TOPLEFT", -- [1]
+						"UIParent", -- [2]
+						"TOPLEFT", -- [3]
+						0, -- [4]
+						-104.000007629395, -- [5]
+					},
+					["name"] = "AchievementFrame",
+					["pos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						0, -- [4]
+						475.999969482422, -- [5]
+					},
+				},
+				["UIPanelMover2"] = {
+					["orgPos"] = {
+						"TOPLEFT", -- [1]
+						"UIParent", -- [2]
+						"TOPLEFT", -- [3]
+						384, -- [4]
+						-104, -- [5]
+					},
+					["name"] = "UIPanelMover2",
+					["pos"] = {
+						"TOPLEFT", -- [1]
+						"UIParent", -- [2]
+						"TOPLEFT", -- [3]
+						384, -- [4]
+						-103.999877929688, -- [5]
+					},
+				},
+				["QuestLogDetailFrame"] = {
+					["name"] = "QuestLogDetailFrame",
+					["pos"] = {
+						"BOTTOMLEFT", -- [1]
+						"UIParent", -- [2]
+						"BOTTOMLEFT", -- [3]
+						29.9999828338623, -- [4]
+						551.999816894531, -- [5]
+					},
+				},
 			},
 		},
 	},
-	["playSound"] = false,
-	["noBags"] = false,
-	["frameListRows"] = 18,
 	["closeGUIOnEscape"] = false,
+	["frameListRows"] = 18,
+	["noBags"] = false,
+	["playSound"] = false,
 }

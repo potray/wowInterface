@@ -9,6 +9,7 @@ DataStore_CurrenciesDB = {
 		["Zhenya - Los Errantes"] = "Zhenya - Los Errantes",
 		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
 		["Kalarankor - Los Errantes"] = "Kalarankor - Los Errantes",
+		["Farenir - Dun Modr"] = "Farenir - Dun Modr",
 		["Ringeki - Dun Modr"] = "Ringeki - Dun Modr",
 		["Drublock - Los Errantes"] = "Drublock - Los Errantes",
 		["Pexus - Los Errantes"] = "Pexus - Los Errantes",
@@ -35,6 +36,8 @@ DataStore_CurrenciesDB = {
 				"Garrison Resources|Interface\\Icons\\inv_garrison_resource", -- [17]
 				"Apexis Crystal|Interface\\Icons\\inv_apexis_draenor", -- [18]
 				"Seal of Tempered Fate|Interface\\Icons\\ability_animusorbs", -- [19]
+				"Mote of Darkness|Interface\\Icons\\spell_shadow_sealofkings", -- [20]
+				"Essence of Corrupted Deathwing|Interface\\Icons\\inv_elemental_primal_shadow", -- [21]
 			},
 			["CurrencyTextRev"] = {
 				["Ironpaw Token"] = 13,
@@ -43,19 +46,21 @@ DataStore_CurrenciesDB = {
 				["Valor Points"] = 10,
 				["Mists of Pandaria"] = 14,
 				["Player vs. Player"] = 5,
+				["Mote of Darkness"] = 20,
+				["Seal of Tempered Fate"] = 19,
 				["Dungeon and Raid"] = 1,
 				["Epicurean's Award"] = 12,
 				["Honor Points"] = 7,
+				["Garrison Resources"] = 17,
 				["Miscellaneous"] = 3,
-				["Warlords of Draenor"] = 16,
-				["Lesser Charm of Good Fortune"] = 15,
+				["Essence of Corrupted Deathwing"] = 21,
 				["Apexis Crystal"] = 18,
 				["Justice Points"] = 2,
 				["Cataclysm"] = 8,
 				["Conquest Points"] = 6,
-				["Garrison Resources"] = 17,
+				["Warlords of Draenor"] = 16,
 				["Champion's Seal"] = 4,
-				["Seal of Tempered Fate"] = 19,
+				["Lesser Charm of Good Fortune"] = 15,
 			},
 		},
 		["Characters"] = {
@@ -73,8 +78,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "831-0-0-4000",
 					[390] = "0-0-29200-0",
-					[396] = "0-0-0-0",
 					[395] = "1171-0-0-4000",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Dun Modr.Pexuss"] = {
@@ -101,8 +106,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
 					[390] = "0-0-30200-0",
-					[396] = "0-0-0-0",
 					[395] = "0-0-0-0",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Kareitris"] = {
@@ -119,8 +124,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "503-0-0-4000",
 					[390] = "0-0-29200-0",
-					[396] = "0-0-0-0",
 					[395] = "463-0-0-4000",
+					[396] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Elrad"] = {
@@ -156,12 +161,15 @@ DataStore_CurrenciesDB = {
 					0, -- [14]
 					0, -- [15]
 				},
-				["lastUpdate"] = 1417275332,
+				["lastUpdate"] = 1424964372,
 				["CurrencyInfo"] = {
-					[392] = "1744-0-0-4000",
-					[390] = "0-0-1700-0",
-					[396] = "0-0-1000-3000",
 					[395] = "0-0-0-0",
+					[396] = "0-0-10-3000",
+					[390] = "0-0-13700-0",
+					[823] = "0-0-0-0",
+					[392] = "1744-0-0-40",
+					[824] = "0-0-0-0",
+					[994] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Drublock"] = {
@@ -169,12 +177,15 @@ DataStore_CurrenciesDB = {
 					11, -- [1]
 					12, -- [2]
 				},
-				["lastUpdate"] = 1417273883,
+				["lastUpdate"] = 1424959110,
 				["CurrencyInfo"] = {
-					[392] = "0-0-0-0",
-					[390] = "0-0-1700-0",
 					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
+					[390] = "0-0-13700-0",
+					[823] = "0-0-0-0",
+					[392] = "0-0-0-0",
+					[994] = "0-0-0-0",
+					[824] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Kalarankor"] = {
@@ -182,12 +193,15 @@ DataStore_CurrenciesDB = {
 					11, -- [1]
 					12, -- [2]
 				},
-				["lastUpdate"] = 1409841444,
+				["lastUpdate"] = 1424958986,
 				["CurrencyInfo"] = {
-					[392] = "0-0-0-0",
-					[390] = "0-0-29200-0",
-					[396] = "0-0-0-0",
 					[395] = "0-0-0-0",
+					[396] = "0-0-0-0",
+					[390] = "0-0-13700-0",
+					[823] = "0-0-0-0",
+					[392] = "0-0-0-0",
+					[994] = "0-0-0-0",
+					[824] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Zhenya"] = {
@@ -196,12 +210,15 @@ DataStore_CurrenciesDB = {
 					12, -- [2]
 					14, -- [3]
 				},
-				["lastUpdate"] = 1409841533,
+				["lastUpdate"] = 1424959062,
 				["CurrencyInfo"] = {
-					[392] = "0-0-0-4000",
-					[390] = "0-0-29200-0",
 					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
+					[390] = "0-0-13700-0",
+					[823] = "0-0-0-0",
+					[392] = "0-0-0-40",
+					[824] = "0-0-0-0",
+					[994] = "0-0-0-0",
 				},
 			},
 			["Default.Los Errantes.Kobash"] = {
@@ -218,8 +235,8 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "356-0-0-4000",
 					[390] = "0-0-29200-0",
-					[395] = "597-0-0-4000",
 					[396] = "0-0-0-0",
+					[395] = "597-0-0-4000",
 				},
 			},
 			["Default.Dun Modr.Ringeki"] = {
@@ -231,66 +248,106 @@ DataStore_CurrenciesDB = {
 				["CurrencyInfo"] = {
 					[392] = "0-0-0-0",
 					[390] = "0-0-30200-0",
-					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
+					[395] = "0-0-0-0",
 				},
 			},
 			["Default.Dun Modr.Potray"] = {
 				["Currencies"] = {
-					17, -- [1]
-					274, -- [2]
-					7, -- [3]
-					150, -- [4]
-					1688, -- [5]
-					29, -- [6]
-					542, -- [7]
-					11, -- [8]
-					12, -- [9]
-					2190, -- [10]
-					33, -- [11]
-					314788, -- [12]
-					55970, -- [13]
-					422, -- [14]
+					33, -- [1]
+					314660, -- [2]
+					755490, -- [3]
+					806, -- [4]
+					3, -- [5]
+					298, -- [6]
+					2344, -- [7]
+					7, -- [8]
+					150, -- [9]
+					1688, -- [10]
+					11, -- [11]
+					12, -- [12]
+					2190, -- [13]
+					29, -- [14]
+					542, -- [15]
+					17, -- [16]
+					274, -- [17]
 				},
 				["Archeology"] = {
-					35, -- [1]
+					3, -- [1]
 					6, -- [2]
 					2, -- [3]
 					2, -- [4]
 					34, -- [5]
-					91, -- [6]
+					4, -- [6]
 					0, -- [7]
 					5, -- [8]
 					0, -- [9]
 					0, -- [10]
 					0, -- [11]
 					0, -- [12]
-					25, -- [13]
-					13, -- [14]
-					26, -- [15]
+					75, -- [13]
+					113, -- [14]
+					136, -- [15]
 				},
-				["lastUpdate"] = 1419768488,
+				["lastUpdate"] = 1429365700,
 				["CurrencyInfo"] = {
 					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
-					[390] = "0-0-4700-0",
-					[823] = "2459-0-0-20000",
+					[390] = "0-0-30200-0",
+					[823] = "2458-0-0-60000",
 					[392] = "17-0-0-4000",
-					[824] = "437-0-0-10000",
-					[994] = "3-0-0-10",
+					[994] = "6-0-0-10",
+					[824] = "5902-0-0-10000",
+				},
+			},
+			["Default.Dun Modr.Farenir"] = {
+				["Currencies"] = {
+					11, -- [1]
+					12, -- [2]
+				},
+				["lastUpdate"] = 1429365134,
+				["CurrencyInfo"] = {
+					[395] = "0-0-0-0",
+					[396] = "0-0-0-0",
+					[390] = "0-0-30200-0",
+					[823] = "0-0-0-0",
+					[392] = "0-0-0-0",
+					[994] = "0-0-0-0",
+					[824] = "0-0-0-0",
 				},
 			},
 			["Default.Dun Modr.Geddry"] = {
 				["Currencies"] = {
 					11, -- [1]
 					12, -- [2]
+					526, -- [3]
 				},
-				["lastUpdate"] = 1418599653,
+				["Archeology"] = {
+					0, -- [1]
+					0, -- [2]
+					0, -- [3]
+					0, -- [4]
+					0, -- [5]
+					0, -- [6]
+					0, -- [7]
+					0, -- [8]
+					0, -- [9]
+					0, -- [10]
+					0, -- [11]
+					0, -- [12]
+					0, -- [13]
+					0, -- [14]
+					0, -- [15]
+				},
+				["lastUpdate"] = 1427386854,
 				["CurrencyInfo"] = {
-					[392] = "0-0-0-0",
-					[390] = "0-0-2700-0",
 					[395] = "0-0-0-0",
 					[396] = "0-0-0-0",
+					[390] = "0-0-17700-0",
+					[823] = "0-0-0-0",
+					[392] = "4-0-0-40",
+					[824] = "0-0-0-0",
+					[994] = "0-0-0-0",
 				},
 			},
 		},

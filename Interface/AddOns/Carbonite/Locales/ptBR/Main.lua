@@ -140,3 +140,36 @@ L["In Conflict"] = "Em Conflito"			-- NXlINCONFLICT
 L["Opening"] = "Abrindo"				-- NXlOpening
 L["Opening - No Text"] = "Abrindo - Sem texto"		-- NXlOpeningNoText
 L["Everfrost Chip"] = "Chip de Everfrost"		-- NXlEverfrost
+
+L["yds"] = true
+L["secs"] = true
+L["mins"] = true
+
+-- NxUI.lua
+L[" Frame: %s Shown%d Vis%d P>%s"] = true
+L[" EScale %f, Lvl %f"] = true
+L[" LR %f, %f"] = true
+L[" BT %f, %f"] = true
+L["%s#%d %s ID%s (%s) show%d l%d x%d y%d"] = true
+L["%.1f days"] = true
+L["%.1f hours"] = true
+L["%d mins"] = true
+L["Reset old layout data"] = true
+L["Window version mismatch!"] = true
+L["XY missing (%s)"] = true
+L["Window not found (%s)"] = true
+L["Detach %s"] = true
+L["Detach found %s"] = true
+L["Search: [click]"] = true
+L["Search: %[click%]"] = true
+L["Reset old list data"] = true
+L["!BUT %s"] = true
+L["Key %s transfered to Watch List Item"] = true
+L["CLICK (.+):"] = true
+L["Key %s %s #%s %s"] = true
+L["shift left/right click to change size"] = true
+L["Reset old tool bar data"] = true
+
+-- NxTravel.lua
+L["Connection: %s to %s"] = true
+L["Fly: %s to %s"] = true

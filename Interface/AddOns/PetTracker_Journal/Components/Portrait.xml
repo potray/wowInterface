@@ -52,17 +52,22 @@
 		<HighlightTexture file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
 		<Scripts>
 			<OnClick>
-				PetJournal_LoadUI()
-				ShowUIPanel(PetJournalParent)
-				PetJournalParent_SetTab(PetJournalParent, 2)
+				CollectionsJournal_LoadUI()
+				ShowUIPanel(CollectionsJournal)
+				CollectionsJournal_SetTab(CollectionsJournal, 2)
 				PetJournal_SelectPet(PetJournal, self.id)
 			</OnClick>
 			<OnEnter>
-				local specie, name, level = C_PetJournal.GetPetInfoByPetID(self.id)
-				local _, maxHealth, power, speed, rarity = C_PetJournal.GetPetStats(self.id)
-
 				GameTooltip:SetOwner(self, 'ANCHOR_BOTTOMRIGHT')
-				BattlePetToolTip_Show(specie, level, rarity-1, maxHealth, power, speed, name)
+
+				if self.id then
+					local specie, name, level = C_PetJournal.GetPetInfoByPetID(self.id)
+					local _, maxHealth, power, speed, rarity = C_PetJournal.GetPetStats(self.id)
+
+					BattlePetToolTip_Show(specie, level, rarity-1, maxHealth, power, speed, name)
+				else
+					GameTooltip:SetText(ITEM_MISSING:format(PET), 1, 0.1, 0.1)
+				end
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide()

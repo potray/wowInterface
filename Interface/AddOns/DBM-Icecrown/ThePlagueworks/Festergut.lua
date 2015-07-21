@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("Festergut", "DBM-Icecrown", 2)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 123 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 200 $"):sub(12, -3))
 mod:SetCreatureID(36626)
 mod:SetEncounterID(1097)
 mod:SetModelID(31006)
@@ -16,30 +16,29 @@ mod:RegisterEventsInCombat(
 )
 
 local warnInhaledBlight		= mod:NewStackAnnounce(69166, 3)
-local warnGastricBloat		= mod:NewStackAnnounce(72219, 2, nil, mod:IsTank() or mod:IsHealer())
+local warnGastricBloat		= mod:NewStackAnnounce(72219, 2, nil, "Tank|Healer")
 local warnGasSpore			= mod:NewTargetAnnounce(69279, 4)
 local warnVileGas			= mod:NewTargetAnnounce(69240, 3)
-local warnGoo				= mod:NewSpellAnnounce(72297, 4)
 
 local specWarnPungentBlight	= mod:NewSpecialWarningSpell(69195)
 local specWarnGasSpore		= mod:NewSpecialWarningYou(69279)
 local specWarnVileGas		= mod:NewSpecialWarningYou(69240)
 local specWarnGastricBloat	= mod:NewSpecialWarningStack(72219, nil, 9)
-local specWarnInhaled3		= mod:NewSpecialWarningStack(69166, mod:IsTank(), 3)
-local specWarnGoo			= mod:NewSpecialWarningSpell(72297, mod:IsMelee())
+local specWarnInhaled3		= mod:NewSpecialWarningStack(69166, "Tank", 3)
+local specWarnGoo			= mod:NewSpecialWarningSpell(72297, "Melee")
 
 local timerGasSpore			= mod:NewBuffFadesTimer(12, 69279)
-local timerVileGas			= mod:NewBuffFadesTimer(6, 69240, nil, mod:IsRanged())
+local timerVileGas			= mod:NewBuffFadesTimer(6, 69240, nil, "Ranged")
 local timerGasSporeCD		= mod:NewNextTimer(40, 69279)		-- Every 40 seconds except after 3rd and 6th cast, then it's 50sec CD
 local timerPungentBlight	= mod:NewNextTimer(33, 69195)		-- 33 seconds after 3rd stack of inhaled
 local timerInhaledBlight	= mod:NewNextTimer(34, 69166)		-- 34 seconds'ish
-local timerGastricBloat		= mod:NewTargetTimer(100, 72219, nil, mod:IsTank() or mod:IsHealer())	-- 100 Seconds until expired
-local timerGastricBloatCD	= mod:NewCDTimer(11, 72219, nil, mod:IsTank() or mod:IsHealer()) 		-- 10 to 14 seconds
+local timerGastricBloat		= mod:NewTargetTimer(100, 72219, nil, "Tank|Healer")	-- 100 Seconds until expired
+local timerGastricBloatCD	= mod:NewCDTimer(11, 72219, nil, "Tank|Healer") 		-- 10 to 14 seconds
 local timerGooCD			= mod:NewCDTimer(10, 72297)
 
 local berserkTimer			= mod:NewBerserkTimer(300)
 
-mod:AddBoolOption("RangeFrame", mod:IsRanged())
+mod:AddBoolOption("RangeFrame", "Ranged")
 mod:AddBoolOption("SetIconOnGasSpore", true)
 mod:AddBoolOption("AnnounceSporeIcons", false)
 mod:AddBoolOption("AchievementCheck", false, "announce")
@@ -123,7 +122,6 @@ end
 function mod:OnSync(event, arg)
 	if event == "Goo" then
 		if self:AntiSpam(5, 2) then
-			warnGoo:Show()
 			specWarnGoo:Show()
 			if self:IsDifficulty("heroic25") then
 				timerGooCD:Start()
@@ -168,7 +166,9 @@ function mod:SPELL_AURA_APPLIED(args)
 		local amount = args.amount or 1
 		warnInhaledBlight:Show(args.destName, amount)
 		if amount >= 3 then
-			specWarnInhaled3:Show(amount)
+			if not self:IsTrivial(100) then
+				specWarnInhaled3:Show(amount)
+			end
 			timerPungentBlight:Start()
 		else	--Prevent timer from starting after 3rd stack since he won't cast it a 4th time, he does Pungent instead.
 			timerInhaledBlight:Start()

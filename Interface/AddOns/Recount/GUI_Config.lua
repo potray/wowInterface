@@ -6,7 +6,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 local BC = {} -- = LibStub("LibBabble-Class-3.0"):GetLookupTable()
 
-local revision = tonumber(string.sub("$Revision: 1273 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1311 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -247,6 +247,111 @@ function me:CreateWindowColorSelection(parent)
 	theFrame.ResetColButton:SetText(L["Reset Colors"])
 end
 
+function me:CreateWindowModuleSelection(parent)
+	me.ModuleOptions = CreateFrame("Frame", nil, parent)
+
+	local theFrame = me.ModuleOptions
+
+	theFrame:SetHeight(parent:GetHeight() - 34)
+	theFrame:SetWidth(200)
+	theFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", 0, -34)
+
+	theFrame.Title = theFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+	theFrame.Title:SetText("Enabled Modules")
+	theFrame.Title:SetPoint("TOP", theFrame, "TOP", 0, -2)
+
+	theFrame.HealingTaken = me:CreateSavedCheckbox(L["Healing Taken"], theFrame, "Modules", "HealingTaken")
+	theFrame.HealingTaken:SetPoint("TOPLEFT", theFrame, "TOPLEFT", 8, -20)
+	theFrame.HealingTaken:SetScript("OnClick", function(this)
+		if this:GetChecked() then
+			this:SetChecked(true)
+			Recount.db.profile.Modules.HealingTaken = true
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		else
+			this:SetChecked(false)
+			Recount.db.profile.Modules.HealingTaken = false
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		end
+	end)
+	theFrame.OverhealingDone = me:CreateSavedCheckbox(L["Overhealing Done"], theFrame, "Modules", "OverhealingDone")
+	theFrame.OverhealingDone:SetPoint("TOPLEFT", theFrame.HealingTaken, "BOTTOMLEFT", 0, 0)
+	theFrame.OverhealingDone:SetScript("OnClick", function(this)
+		if this:GetChecked() then
+			this:SetChecked(true)
+			Recount.db.profile.Modules.OverhealingDone = true
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		else
+			this:SetChecked(false)
+			Recount.db.profile.Modules.OverhealingDone = false
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		end
+	end)
+	theFrame.Deaths = me:CreateSavedCheckbox(L["Deaths"], theFrame, "Modules", "Deaths")
+	theFrame.Deaths:SetPoint("TOPLEFT", theFrame.OverhealingDone, "BOTTOMLEFT", 0, 0)
+	theFrame.Deaths:SetScript("OnClick", function(this)
+		if this:GetChecked() then
+			this:SetChecked(true)
+			Recount.db.profile.Modules.Deaths = true
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		else
+			this:SetChecked(false)
+			Recount.db.profile.Modules.Deaths = false
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		end
+	end)
+	theFrame.DOTUptime = me:CreateSavedCheckbox(L["DOT Uptime"], theFrame, "Modules", "DOTUptime")
+	theFrame.DOTUptime:SetPoint("TOPLEFT", theFrame.Deaths, "BOTTOMLEFT", 0, 0)
+	theFrame.DOTUptime:SetScript("OnClick", function(this)
+		if this:GetChecked() then
+			this:SetChecked(true)
+			Recount.db.profile.Modules.DOTUptime = true
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		else
+			this:SetChecked(false)
+			Recount.db.profile.Modules.DOTUptime = false
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		end
+	end)
+	theFrame.HOTUptime = me:CreateSavedCheckbox(L["HOT Uptime"], theFrame, "Modules", "HOTUptime")
+	theFrame.HOTUptime:SetPoint("TOPLEFT", theFrame.DOTUptime, "BOTTOMLEFT", 0, 0)
+	theFrame.HOTUptime:SetScript("OnClick", function(this)
+		if this:GetChecked() then
+			this:SetChecked(true)
+			Recount.db.profile.Modules.HOTUptime = true
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		else
+			this:SetChecked(false)
+			Recount.db.profile.Modules.HOTUptime = false
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		end
+	end)
+	theFrame.Activity = me:CreateSavedCheckbox(L["Activity"], theFrame, "Modules", "Activity")
+	theFrame.Activity:SetPoint("TOPLEFT", theFrame.HOTUptime, "BOTTOMLEFT", 0, 0)
+	theFrame.Activity:SetScript("OnClick", function(this)
+		if this:GetChecked() then
+			this:SetChecked(true)
+			Recount.db.profile.Modules.Activity = true
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		else
+			this:SetChecked(false)
+			Recount.db.profile.Modules.Activity = false
+			Recount:SetupMainWindow()
+			Recount:RefreshMainWindow()
+		end
+	end)
+end
+
 function me:CreateClassColorSelection(parent)
 	me.ClassColorOptions = CreateFrame("Frame", nil, parent)
 
@@ -350,7 +455,7 @@ function me:CreateSavedCheckbox(Text, parent, VarTop, VarName)
 
 	Checkbox.Text = Checkbox:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 	Checkbox.Text:SetText(Text)
-	Checkbox.Text:SetPoint("LEFT", Checkbox, "RIGHT", 8, 0)
+	Checkbox.Text:SetPoint("LEFT", Checkbox, "RIGHT", 8, 1)
 
 	SavedCheckVars[#SavedCheckVars + 1] = {Checkbox, VarTop, VarName}
 
@@ -538,6 +643,20 @@ function me:SetupFilterOptions(parent)
 		else
 			this:SetChecked(false)
 			Recount.db.profile.MergeAbsorbs = false
+		end
+		Recount:FullRefreshMainWindow()
+		Recount:RefreshMainWindow()
+	end)
+
+	theFrame.MergeDamageAbsorbs = me:CreateSavedCheckbox(L["Merge Absorbs w/ Damage"], theFrame, "Data", "MergeDamageAbsorbs")
+	theFrame.MergeDamageAbsorbs:SetPoint("TOPLEFT", theFrame.MergeAbsorbs, "BOTTOMLEFT", 0, 2)
+	theFrame.MergeDamageAbsorbs:SetScript("OnClick", function(this)
+		if this:GetChecked() then
+			this:SetChecked(true)
+			Recount.db.profile.MergeDamageAbsorbs = true
+		else
+			this:SetChecked(false)
+			Recount.db.profile.MergeDamageAbsorbs = false
 		end
 		Recount:FullRefreshMainWindow()
 		Recount:RefreshMainWindow()
@@ -1754,6 +1873,8 @@ function me:HideOptions()
 	me.ConfigWindow.Window.Tab.Background:SetVertexColor(1.0, 0.2, 0.2)
 	me.ConfigWindow.ColorOpt:Hide()
 	me.ConfigWindow.ColorOpt.Tab.Background:SetVertexColor(1.0, 0.2, 0.2)
+	me.ConfigWindow.ModuleOpt:Hide()
+	me.ConfigWindow.ModuleOpt.Tab.Background:SetVertexColor(1.0, 0.2, 0.2)
 end
 
 
@@ -1858,6 +1979,38 @@ function me:CreateColorOptions(parent)
 	theFrame:Hide()
 end
 
+function me:CreateModuleOptions(parent)
+	local theFrame = CreateFrame("FRAME", nil, parent)
+	parent.ModuleOpt = theFrame
+
+	theFrame:SetWidth(600)
+	theFrame:SetHeight(parent:GetHeight() - 22)
+	theFrame:SetPoint("TOP", parent, "TOP", 0, -22)
+
+	local Tab = CreateFrame("FRAME", nil, parent)
+	parent.ModuleOpt.Tab = Tab
+
+	Tab:SetWidth(100)
+	Tab:SetHeight(18)
+	Tab:SetPoint("TOPLEFT", parent, "TOPLEFT", 412, -35) -- Elsia: Check tab offset
+	Tab:EnableMouse(true)
+	Tab:SetScript("OnMouseDown", function(this)
+		me:HideOptions()
+		theFrame:Show()
+		this.Background:SetVertexColor(0.2, 1.0, 0.2)
+	end)
+	Tab.Text = Tab:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+	Tab.Text:SetPoint("CENTER", Tab, "CENTER")
+	Tab.Text:SetText("Modules")
+	Tab.Background = Tab:CreateTexture(nil, "BACKGROUND")
+	Tab.Background:SetTexture(1, 1, 1, 0.3)
+	Tab.Background:SetVertexColor(1.0, 0.2, 0.2)
+	Tab.Background:SetAllPoints(Tab)
+
+	me:CreateWindowModuleSelection(theFrame)
+	theFrame:Hide()
+end
+
 function me:CreateWindowOptions(parent)
 	local theFrame = CreateFrame("FRAME", nil, parent)
 	parent.Window = theFrame
@@ -1909,6 +2062,7 @@ function me:CreateConfigWindow()
 	me:CreateAppearanceOptions(theFrame)
 	me:CreateWindowOptions(theFrame)
 	me:CreateColorOptions(theFrame)
+	me:CreateModuleOptions(theFrame)
 
 	theFrame:SetFrameStrata("DIALOG")
 
@@ -1988,6 +2142,7 @@ function me:LoadConfig()
 
 	me.FilterOptions.MergePets:SetChecked(Recount.db.profile.MergePets)
 	me.FilterOptions.MergeAbsorbs:SetChecked(Recount.db.profile.MergeAbsorbs)
+	me.FilterOptions.MergeDamageAbsorbs:SetChecked(Recount.db.profile.MergeDamageAbsorbs)
 
 	me:ScaleConfigWindow(Recount.db.profile.Scaling)
 
@@ -2000,6 +2155,13 @@ function me:LoadConfig()
 	me.BarOptions.Commas:SetChecked(Recount.db.profile.MainWindow.BarText.NumFormat == 2)
 	me.BarOptions.Short:SetChecked(Recount.db.profile.MainWindow.BarText.NumFormat == 3)
 	me.BarOptions.BarTextColorSwap:SetChecked(Recount.db.profile.BarTextColorSwap)
+
+	me.ModuleOptions.HealingTaken:SetChecked(Recount.db.profile.Modules.HealingTaken)
+	me.ModuleOptions.OverhealingDone:SetChecked(Recount.db.profile.Modules.OverhealingDone)
+	me.ModuleOptions.Deaths:SetChecked(Recount.db.profile.Modules.Deaths)
+	me.ModuleOptions.DOTUptime:SetChecked(Recount.db.profile.Modules.DOTUptime)
+	me.ModuleOptions.HOTUptime:SetChecked(Recount.db.profile.Modules.HOTUptime)
+	me.ModuleOptions.Activity:SetChecked(Recount.db.profile.Modules.Activity)
 end
 
 function me:SaveFilterConfig()

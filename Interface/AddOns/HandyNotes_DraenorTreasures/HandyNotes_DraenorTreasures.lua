@@ -11,62 +11,65 @@ shrine = "Interface\\Icons\\inv_misc_statue_02",
 glider = "Interface\\Icons\\inv_feather_04",
 rocket = "Interface\\Icons\\ability_mount_rocketmount",
 }
-PlayerFaction, _ = UnitFactionGroup("player")
+local PlayerFaction, _ = UnitFactionGroup("player")
 DraenorTreasures.nodes = { }
 local nodes = DraenorTreasures.nodes
 local isTomTomloaded = false
+local isDBMloaded = false
 
 if (IsAddOnLoaded("TomTom")) then 
 	isTomTomloaded = true
 end
-
+if (IsAddOnLoaded("DBM-Core")) then 
+	isDBMloaded = true
+end
 
 nodes["ShadowmoonValleyDR"] = {
 --SMV Treasures
-[55004500]={ "35581", "Alchemist's Satchel", "Herbs", "", "default", "SMVTreasures","109124"},
-[52804840]={ "35584", "Ancestral Greataxe", "i519 2H Strength Axe", "", "default", "SMVTreasures","113560"},
-[41502790]={ "33869", "Armored Elekk Tusk", "i518 Trinket Bonus Armor + Mastery on use", "", "default", "SMVTreasures","108902"},
-[37704430]={ "33584", "Ashes of A'kumbo", "Consumable for Rested XP", "", "default", "SMVTreasures","113531"},
-[49303750]={ "33867", "Astrologer's Box", "Toy", "", "default", "SMVTreasures","109739"},
-[36804140]={ "33046", "Beloved's Offering", "Flavor Item - Offhand", "", "default", "SMVTreasures","113547"},
-[37202310]={ "33613", "Bubbling Cauldron", "i516 Caster Offhand", "In a cave; the entrance is slightly to the northeast, at 38, 22.3", "default", "SMVTreasures","108945"},
-[84504470]={ "33885", "Cargo of the Raven Queen", "Garrison Resources", "", "default", "SMVTreasures","824"},
-[33503970]={ "33569", "Carved Drinking Horn", "Reusable Mana Potion", "", "default", "SMVTreasures","113545"},
+[54924501]={ "35581", "Alchemist's Satchel", "Herbs", "", "default", "SMVTreasures","109124"},
+[52834837]={ "35584", "Ancestral Greataxe", "i519 2H Strength Axe", "", "default", "SMVTreasures","113560"},
+[41422798]={ "33869", "Armored Elekk Tusk", "i518 Trinket Bonus Armor + Mastery on use", "", "default", "SMVTreasures","108902"},
+[37784435]={ "33584", "Ashes of A'kumbo", "Consumable for Rested XP", "", "default", "SMVTreasures","113531"},
+[49313760]={ "33867", "Astrologer's Box", "Toy", "", "default", "SMVTreasures","109739"},
+[36774142]={ "33046", "Beloved's Offering", "Flavor Item - Offhand", "", "default", "SMVTreasures","113547"},
+[37182313]={ "33613", "Bubbling Cauldron", "i516 Caster Offhand", "In a cave; the entrance is slightly to the northeast, at 38, 22.3", "default", "SMVTreasures","108945"},
+[84564478]={ "33885", "Cargo of the Raven Queen", "Garrison Resources", "", "default", "SMVTreasures","824"},
+[33453961]={ "33569", "Carved Drinking Horn", "Reusable Mana Potion", "", "default", "SMVTreasures","113545"},
 [61706790]={ "34743", "Crystal Blade of Torvath", "Trash Item", "Interacting with the object causes three Silverleaf Ancients to spawn; you can only loot the item after they are dead", "default", "SMVTreasures","111636"},
-[20303060]={ "33575", "Demonic Cache", "i550 Intellect Neck", "", "default", "SMVTreasures","108904"},
+[20383065]={ "33575", "Demonic Cache", "i550 Intellect Neck", "", "default", "SMVTreasures","108904"},
 [29853748]={ "36879", "Dusty Lockbox", "Random Greens + Gold", "On top of a giant stone arch; to reach it, jump across the other stone arches, starting on a cliff ledge to the west", "default", "SMVTreasures","824"},
-[51803550]={ "33037", "False-Bottomed Jar", "Gold", "", "default", "SMVTreasures","824"},
-[26500570]={ "34174", "Fantastic Fish", "Garrison Resources", "", "default", "SMVTreasures","824"},
-[34404620]={ "33891", "Giant Moonwillow Cone", "i522 Wand", "", "default", "SMVTreasures","108901"},
-[48704750]={ "35798", "Glowing Cave Mushroom", "Herbs", "", "default", "SMVTreasures","109127"},
-[38504300]={ "33614", "Greka's Urn", "i528 Trinket Haste + Strength Proc", "", "default", "SMVTreasures","113408"},
-[47104610]={ "33564", "Hanging Satchel", "i518 Agility/Intellect Leather Gloves", "", "default", "SMVTreasures","108900"},
+[51753549]={ "33037", "False-Bottomed Jar", "Gold", "", "default", "SMVTreasures","824"},
+[26530568]={ "34174", "Fantastic Fish", "Garrison Resources", "", "default", "SMVTreasures","824"},
+[34394623]={ "33891", "Giant Moonwillow Cone", "i522 Wand", "", "default", "SMVTreasures","108901"},
+[48724753]={ "35798", "Glowing Cave Mushroom", "Herbs", "", "default", "SMVTreasures","109127"},
+[38484308]={ "33614", "Greka's Urn", "i528 Trinket Haste + Strength Proc", "", "default", "SMVTreasures","113408"},
+[47154603]={ "33564", "Hanging Satchel", "i518 Agility/Intellect Leather Gloves", "", "default", "SMVTreasures","108900"},
 [42106130]={ "33041", "Iron Horde Cargo Shipment", "Garrison Resources", "", "default", "SMVTreasures","824"},
-[37505930]={ "33567", "Iron Horde Tribute", "Trinket Multistrike + DMG on use", "", "default", "SMVTreasures","108903"},
-[57904530]={ "33568", "Kaliri Egg", "25 Garrison Resources", "", "default", "SMVTreasures","113271"},
-[58902200]={ "35603", "Mikkal's Chest", "Trash Item", "", "default", "SMVTreasures","113215"},
-[52902490]={ "37254", "Mushroom-Covered Chest", "25 Garrison Resources", "", "default", "SMVTreasures","113388"},
-[66903350]={ "36507", "Orc Skeleton", "i526 Strength Ring", "", "default", "SMVTreasures","116875"},
-[43806060]={ "33611", "Peaceful Offering 1", "Trash Items", "", "default", "SMVTreasures","107650"},
-[45206050]={ "33610", "Peaceful Offering 2", "Trash Items", "", "default", "SMVTreasures","107650"},
-[44506350]={ "33384", "Peaceful Offering 3", "Trash Items", "", "default", "SMVTreasures","107650"},
-[44505920]={ "33612", "Peaceful Offering 4", "Trash Items", "", "default", "SMVTreasures","107650"},
-[31303910]={ "33886", "Ronokk's Belongings", "i522 Strength Cloak", "", "default", "SMVTreasures","109081"},
-[22803390]={ "33572", "Rotting Basket", "Trash Item", "Inside Bloodthorn Cave", "default", "SMVTreasures","113373"},
-[36704450]={ "33573", "Rovo's Dagger", "i520 Agility Dagger", "", "default", "SMVTreasures","113378"},
-[67108430]={ "33565", "Scaly Rylak Egg", "Trash Item", "!!! LEVEL 100 AREA !!!", "default", "SMVTreasures","44722"},
-[45802460]={ "33570", "Shadowmoon Exile Treasure", "25 Garrison Resources", "In a cave below Exile Rise", "default", "SMVTreasures","113388"},
-[30004530]={ "35919", "Shadowmoon Sacrificial Dagger", "i524 Caster Dagger", "", "default", "SMVTreasures","113563"},
-[28303930]={ "33883", "Shadowmoon Treasure", "Garrison Resources", "", "default", "SMVTreasures","824"},
-[27100260]={ "35280", "Stolen Treasure", "Garrison Resources", "", "default", "SMVTreasures","824"},
-[55801990]={ "35600", "Strange Spore", "Pet", "On top of the giant mushroom", "default", "SMVTreasures","118104"},
-[37202610]={ "35677", "Sunken Fishing boat", "Fish", "", "default", "SMVTreasures","118414"},
-[28800710]={ "35279", "Sunken Treasure", "Garrison Resources", "", "default", "SMVTreasures","824"},
-[55307480]={ "35580", "Swamplighter Hive", "Toy", "", "default", "SMVTreasures","117550"},
-[35904090]={ "33540", "Uzko's Knickknacks", "i525 Agility/Intellect Leather Boots", "", "default", "SMVTreasures","113546"},
-[34204350]={ "33866", "Veema's Herb Bag", "Herbs", "", "default", "SMVTreasures","109124"},
-[51107910]={ "33574", "Vindicator's Cache", "Toy", "!!! LEVEL 100 AREA !!!", "default", "SMVTreasures","113375"},
-[39208380]={ "33566", "Waterlogged Chest", "i520 Strength Fist Weapon + Garrison Resources", "", "default", "SMVTreasures","113372"},
+[37515925]={ "33567", "Iron Horde Tribute", "Trinket Multistrike + DMG on use", "", "default", "SMVTreasures","108903"},
+[57924531]={ "33568", "Kaliri Egg", "25 Garrison Resources", "", "default", "SMVTreasures","113271"},
+[58882193]={ "35603", "Mikkal's Chest", "Trash Item", "", "default", "SMVTreasures","113215"},
+[52882486]={ "37254", "Mushroom-Covered Chest", "25 Garrison Resources", "", "default", "SMVTreasures","113388"},
+[66963349]={ "36507", "Orc Skeleton", "i526 Strength Ring", "", "default", "SMVTreasures","116875"},
+[43756062]={ "33611", "Peaceful Offering 1", "Trash Items", "", "default", "SMVTreasures","107650"},
+[45226049]={ "33610", "Peaceful Offering 2", "Trash Items", "", "default", "SMVTreasures","107650"},
+[44486357]={ "33384", "Peaceful Offering 3", "Trash Items", "", "default", "SMVTreasures","107650"},
+[44495914]={ "33612", "Peaceful Offering 4", "Trash Items", "", "default", "SMVTreasures","107650"},
+[31223905]={ "33886", "Ronokk's Belongings", "i522 Strength Cloak", "", "default", "SMVTreasures","109081"},
+[22893385]={ "33572", "Rotting Basket", "Trash Item", "Inside Bloodthorn Cave", "default", "SMVTreasures","113373"},
+[36684455]={ "33573", "Rovo's Dagger", "i520 Agility Dagger", "", "default", "SMVTreasures","113378"},
+[67058418]={ "33565", "Scaly Rylak Egg", "Trash Item", "!!! LEVEL 100 AREA !!!", "default", "SMVTreasures","44722"},
+[45822458]={ "33570", "Shadowmoon Exile Treasure", "25 Garrison Resources", "In a cave below Exile Rise", "default", "SMVTreasures","113388"},
+[29994536]={ "35919", "Shadowmoon Sacrificial Dagger", "i524 Caster Dagger", "", "default", "SMVTreasures","113563"},
+[28233924]={ "33883", "Shadowmoon Treasure", "Garrison Resources", "", "default", "SMVTreasures","824"},
+[27050248]={ "35280", "Stolen Treasure", "Garrison Resources", "", "default", "SMVTreasures","824"},
+[55821997]={ "35600", "Strange Spore", "Pet", "On top of the giant mushroom", "default", "SMVTreasures","118104"},
+[37192601]={ "35677", "Sunken Fishing boat", "Fish", "", "default", "SMVTreasures","118414"},
+[28820720]={ "35279", "Sunken Treasure", "Garrison Resources", "", "default", "SMVTreasures","824"},
+[55297487]={ "35580", "Swamplighter Hive", "Toy", "", "default", "SMVTreasures","117550"},
+[35854087]={ "33540", "Uzko's Knickknacks", "i525 Agility/Intellect Leather Boots", "", "default", "SMVTreasures","113546"},
+[34214353]={ "33866", "Veema's Herb Bag", "Herbs", "", "default", "SMVTreasures","109124"},
+[51147912]={ "33574", "Vindicator's Cache", "Toy", "!!! LEVEL 100 AREA !!!", "default", "SMVTreasures","113375"},
+[39208391]={ "33566", "Waterlogged Chest", "i520 Strength Fist Weapon + Garrison Resources", "", "default", "SMVTreasures","113372"},
 --SMVRares
 [37203640]={ "33061", "Amaukwa", "i516 Agility/Intellect Mail Body", "Flies around a very large area", "rare", "SMVRares","109060"},
 [50807880]={ "37356", "Aqualir", "i620 Intellect Ring", "!!! Level 101 !!!", "hundredrare", "SMVHundred","119387"},
@@ -76,7 +79,7 @@ nodes["ShadowmoonValleyDR"] = {
 [48604360]={ "33064", "Dark Emanation", "i516 Intellect Fistweapon", "Inside a cave; kill cultists to make him attackable", "rare", "SMVRares","109075"},
 [41008300]={ "35448", "Darkmaster Go'vid", "i525 Intellect Staff + Lobstrok Summon", "", "rare", "SMVRares","113548"},
 [49604200]={ "35555", "Darktalon", "i520 Agility Cloak", "", "rare", "SMVRares","113541"},
-[46007160]={ "37351", "Demidos", "i620 Agility/Strength Tank Neck + Pet", "!!! Level 102 !!! To get to his plateau from Sorcethar's Rise, jump up on rocks on the east side", "hundredrare", "SMVHundred","119377"},
+[46007160]={ "37351", "Demidos", "i620 Agility/Strength Tank Neck + Pet + Achievement", "!!! Level 102 !!! To get to his plateau from Sorcethar's Rise, jump up on rocks on the east side", "hundredrare", "SMVHundred","119377"},
 [67806380]={ "35688", "Enavra", "i523 Intellect Neck", "Interacting with her corpse spawns her spirit to fight", "rare", "SMVRares","113556"},
 [61606180]={ "35725", "Faebright", "i526 Agility/Intellect Leather Pants", "", "rare", "SMVRares","113557"},
 [37404880]={ "35558", "Hypnocroak", "Toy", "", "rare", "SMVRares","113631"},
@@ -103,42 +106,44 @@ nodes["ShadowmoonValleyDR"] = {
 [31905720]={ "37359", "Voidreaver Urnae", "i620 Agility 1H Axe", "!!! Level 100 !!!", "hundredrare", "SMVHundred","119392"},
 [32604140]={ "35847", "Voidseer Kalurg", "i516 Cloth Waist", "Kill cultists to make him attackable", "rare", "SMVRares","109074"},
 [48806640]={ "33389", "Yggdrel", "Toy", "", "rare", "SMVRares","113570"},
+[29405150]={ "37357", "Malgosh Shadowkeeper", "i620 Agility/Intellect Mail Helm", "!!! Level 100 !!!", "hundredrare", "SMVHundred","119369"},
 }
 nodes["FrostfireRidge"] = {
 --FFRTreasures
-[23102500]={ "33916", "Arena Master's War Horn", "Toy", "Up in the stands above the arena", "default", "FFRTreasures","108735"},
-[42401970]={ "34520", "Burning Pearl", "i525 Trinket Multistrike + Mastery Proc", "!!! LEVEL 100 AREA !!!", "default", "FFRTreasures","120341"},
-[50201860]={ "33531", "Clumsy Cragmaul Brute", "i516 Agility/Intellect Mail Helm", "!!! LEVEL 100 AREA !!! On lower cliff ledge", "default", "FFRTreasures","112096"},
-[42703170]={ "33940", "Crag-Leaper's Cache", "i516 Agility/Intellect Mail Boots", "Jump on the spears in the wall to reach it", "default", "FFRTreasures","112187"},
+[23172495]={ "33916", "Arena Master's War Horn", "Toy", "Up in the stands above the arena", "default", "FFRTreasures","108735"},
+[24242712]={ "33501", "Arena Spectator's Chest", "Alcoholic Beverages", "On top of the stone arch; jump to it from the top of the nearby tower", "default", "FFRTreasures","63293"},
+[61904254]={ "33511", "Borrok the Devourer", "i516 Intellect Shield", "Feed him 20 Ogres to get the loot", "default", "FFRTreasures","112110"},
+[42161930]={ "34520", "Burning Pearl", "i525 Trinket Multistrike + Mastery Proc", "!!! LEVEL 100 AREA !!!", "default", "FFRTreasures","120341"},
+[50161870]={ "33531", "Clumsy Cragmaul Brute", "i516 Agility/Intellect Mail Helm", "!!! LEVEL 100 AREA !!! On lower cliff ledge", "default", "FFRTreasures","112096"},
+[42663175]={ "33940", "Crag-Leaper's Cache", "i516 Agility/Intellect Mail Boots", "Jump on the spears in the wall to reach it", "default", "FFRTreasures","112187"},
 [40902010]={ "34473", "Envoy's Satchel", "Trash Item", "!!! LEVEL 100 AREA !!!", "default", "FFRTreasures","110536"},
-[43705550]={ "34841", "Forgotten Supplies", "Garrison Resources", "", "default", "FFRTreasures","824"},
-[24204860]={ "34507", "Frozen Frostwolf Axe", "i516 Spellpower Axe", "in a cave", "default", "FFRTreasures","110689"},
-[57105210]={ "34476", "Frozen Orc Skeleton", "i516 Trinket Mastery + Pet Proc", "", "default", "FFRTreasures","111554"},
-[25502040]={ "34648", "Gnawed Bone", "i516 Agility Dagger", "", "default", "FFRTreasures","111415"},
-[66702640]={ "33948", "Goren Leftovers", "25 Garrison Resources", "!!! LEVEL 100 AREA !!! In a cave on top of a mountain, path upwards starts at 69.3, 24", "default", "FFRTreasures","111543"},
-[68204580]={ "33947", "Grimfrost Treasure", "Garrison Resources", "", "default", "FFRTreasures","824"},
-[56707180]={ "36863", "Iron Horde Munitions", "Garrison Resources", "", "default", "FFRTreasures","824"},
-[69006910]={ "33017", "Iron Horde Supplies", "Garrison Resources", "", "default", "FFRTreasures","824"},
-[21900960]={ "33926", "Lagoon Pool", "Toy", "Requires Fishing", "default", "FFRTreasures","108739"},
-[19201200]={ "34642", "Lucky Coin", "Flavor Item - Gold Coin", "Sells for 25g", "default", "FFRTreasures","111408"},
-[38403780]={ "33502", "Obsidian Petroglyph", "Consumable for 5% rested XP", "On a mountain; ramp starts up the mountain at 39, 42.5", "default", "FFRTreasures","112087"},
-[21605070]={ "34931", "Pale Loot Sack", "Garrison Resources", "In a cave", "default", "FFRTreasures","824"},
-[37205920]={ "34967", "Raided Loot", "Garrison Resources", "On top of the tower", "default", "FFRTreasures","824"},
-[09804540]={ "34641", "Sealed Jug", "Flavor Item - Lore", "", "default", "FFRTreasures","111407"},
-[27604280]={ "33500", "Slave's Stash", "Alcoholic Beverages", "", "default", "FFRTreasures","43696"},
-[24001300]={ "34647", "Snow-Covered Strongbox", "Garrison Resources", "", "default", "FFRTreasures","824"},
-[24202720]={ "33501", "Spectator's Chest", "Alcoholic Beverages", "On top of the stone arch; jump to it from the top of the nearby tower", "default", "FFRTreasures","63293"},
-[16104980]={ "33942", "Supply Dump", "Garrison Resources", "", "default", "FFRTreasures","824"},
-[64702570]={ "33946", "Survivalist's Cache", "Garrison Resources", "", "default", "FFRTreasures","824"},
-[34202350]={ "32803", "Thunderlord Cache", "i516 Agility/Strength Polearm", "", "default", "FFRTreasures","107658"},
-[64406580]={ "33505", "Wiggling Egg", "Pet", "", "default", "FFRTreasures","112107"},
-[54803560]={ "33525", "Young Orc Traveler", "unknown", "You need to Collect Parts from Young Orc Woman and Young Orc Traveler to finish this", "default", "FFRTreasures","112206"},
-[63401480]={ "33525", "Young Orc Woman", "unknown", "You need to Collect Parts from Young Orc Woman and Young Orc Traveler to finish this", "default", "FFRTreasures","112206"},
-[39661720]={ "33532", "Cragmaul Cache", "Primal Spirit + Apexis Crystals", "!!! LEVEL 100 AREA !!!", "default", "FFRTreasures","120945"},
+[43665562]={ "34841", "Forgotten Supplies", "Garrison Resources", "", "default", "FFRTreasures","824"},
+[24184860]={ "34507", "Frozen Frostwolf Axe", "i516 Spellpower Axe", "in a cave", "default", "FFRTreasures","110689"},
+[57175216]={ "34476", "Frozen Orc Skeleton", "i516 Trinket Mastery + Pet Proc", "", "default", "FFRTreasures","111554"},
+[25522050]={ "34648", "Gnawed Bone", "i516 Agility Dagger", "", "default", "FFRTreasures","111415"},
+[66712640]={ "33948", "Goren Leftovers", "25 Garrison Resources", "!!! LEVEL 100 AREA !!! In a cave on top of a mountain, path upwards starts at 69.3, 24", "default", "FFRTreasures","111543"},
+[68124586]={ "33947", "Grimfrost Treasure", "Garrison Resources", "", "default", "FFRTreasures","824"},
+[56727186]={ "36863", "Iron Horde Munitions", "Garrison Resources", "", "default", "FFRTreasures","824"},
+[68906910]={ "33017", "Iron Horde Supplies", "Garrison Resources", "", "default", "FFRTreasures","824"},
+[21890963]={ "33926", "Lagoon Pool", "Toy", "Requires Fishing", "default", "FFRTreasures","108739"},
+[19211202]={ "34642", "Lucky Coin", "Flavor Item - Gold Coin", "Sells for 25g", "default", "FFRTreasures","111408"},
+[38303782]={ "33502", "Obsidian Petroglyph", "Consumable for 5% rested XP", "On a mountain; ramp starts up the mountain at 39, 42.5", "default", "FFRTreasures","112087"},
+[28296663]={ "34470", "Pale Fishmonger", "Fish", "", "default", "FFRTreasures","111666"},
+[21685076]={ "34931", "Pale Loot Sack", "Garrison Resources", "In a cave", "default", "FFRTreasures","824"},
+[37265914]={ "34967", "Raided Loot", "Garrison Resources", "On top of the tower", "default", "FFRTreasures","824"},
+[09834533]={ "34641", "Sealed Jug", "Flavor Item - Lore", "", "default", "FFRTreasures","111407"},
+[27654280]={ "33500", "Slave's Stash", "Alcoholic Beverages", "", "default", "FFRTreasures","43696"},
+[23971291]={ "34647", "Snow-Covered Strongbox", "Gold", "", "default", "FFRTreasures",""},
+[16124972]={ "33942", "Supply Dump", "Garrison Resources", "", "default", "FFRTreasures","824"},
+[64722573]={ "33946", "Survivalist's Cache", "Garrison Resources", "", "default", "FFRTreasures","824"},
+[34192348]={ "32803", "Thunderlord Cache", "i516 Agility/Strength Polearm", "", "default", "FFRTreasures","107658"},
+[64406586]={ "33505", "Wiggling Egg", "Pet", "", "default", "FFRTreasures","112107"},
+[54843545]={ "33525", "Young Orc Traveler", "unknown", "You need to Collect Parts from Young Orc Woman and Young Orc Traveler to finish this", "default", "FFRTreasures","112206"},
+[63401470]={ "33525", "Young Orc Woman", "unknown", "You need to Collect Parts from Young Orc Woman and Young Orc Traveler to finish this", "default", "FFRTreasures","112206"},
+[39661718]={ "33532", "Cragmaul Cache", "Primal Spirit + Apexis Crystals", "!!! LEVEL 100 AREA !!!", "default", "FFRTreasures","120945"},
 [45365034]={ "33011", "Grizzled Frostwolf Veteran", "i516 Trinket Stamina + 2% Heal on Kill", "Loot contained in Dusty Chest after talking to NPC and defeating waves of orcs", "default", "FFRTreasures","106899"},
 --FFRRares
 [88605740]={ "37525", "Ak'ox the Slaughterer", "i620 Agility/Intellect Leather Waist", "!!! Level 100 !!!", "hundredrare", "FFRHundred","119365"},
-[62604220]={ "33511", "Borrok the Devourer", "i516 Intellect Shield", "Feed him 20 Ogres to get the loot", "rare", "FFRRares","112110"},
 [27405000]={ "34497", "Breathless", "Toy", "", "rare", "FFRRares","111476"},
 [66403140]={ "33843", "Broodmother Reeg'ak", "i516 Trinket Intellect + Multistrike Proc", "", "rare", "FFRRares","111533"},
 [34002320]={ "32941", "Canyon Icemother", "25 Garrison Resources", "", "rare", "FFRRares","101436"},
@@ -161,7 +166,6 @@ nodes["FrostfireRidge"] = {
 [43002100]={ "37387", "Moltnoma", "i620 Cloth Shoulders", "!!! Level 101 !!!", "hundredrare", "FFRHundred","119356"},
 [70002700]={ "37381", "Mother of Goren", "i620 Strength Neck", "!!! Level 101 !!!", "hundredrare", "FFRHundred","119376"},
 [83604720]={ "37402", "Ogom the Mangler", "i620 Agility/Intellect Leather Bracer", "!!! Level 100 !!!", "hundredrare", "FFRHundred","119366"},
-[28206620]={ "34470", "Pale Fishmonger", "Fish", "", "rare", "FFRRares","111666"},
 [36803400]={ "33938", "Primalist Mur'og", "i516 Cloth Pants", "", "rare", "FFRRares","111576"},
 [86604880]={ "37401", "Ragore Driftstalker", "i620 Agility/Intellect Leather Chest", "!!! Level 100 !!!", "hundredrare", "FFRHundred","119359"},
 [76406340]={ "34132", "Scout Goreseeker", "i516 Agility/Intellect Leather Body", "", "rare", "FFRRares","112094"},
@@ -174,6 +178,9 @@ nodes["FrostfireRidge"] = {
 [72402420]={ "37378", "Valkor", "100 Garrison Resources", "!!! Level 101 !!!", "hundredrare", "FFRHundred","119416"},
 [70603900]={ "37379", "Vrok the Ancient", "100 Garrison Resources", "!!! Level 101 !!!", "hundredrare", "FFRHundred","119416"},
 [40402780]={ "34559", "Yaga the Scarred", "i516 Agility/Intellect Leather Waist", "On the lower cliff ledge", "rare", "FFRRares","111477"},
+[84604680]={ "37403", "Earthshaker Holar", "i620 Agility Neck", "!!! Level 100 !!!", "hundredrare", "FFRHundred","119374"},
+[66602540]={ "37380", "Gibblette the Cowardly", "i620 Agility Cloak + Flavor item", "!!! Level 101 !!! In a cave on top of a mountain, path upwards starts at 69.3, 24", "hundredrare", "FFRHundred","119349"},
+[86804500]={ "37404", "Kaga the Ironbender", "i620 Agility/Intellect Mail Waist", "!!! Level 100 !!!", "hundredrare", "FFRHundred","119372"},
 }
 nodes["BladespireFortress"] = {
 [26613949]={ "35370", "Doorogs Secret Stash", "Gold + Trash Item", "Second floor of Bladespire Citadel, outside", "default", "FFRBF","113189"},
@@ -190,34 +197,34 @@ nodes["BladespireFortress"] = {
 }
 nodes["Gorgrond"] = {
 --GorgrondTreasures
-[41705300]={ "36506", "Brokor's Sack", "i538 Caster Staff", "", "default", "GorgrondTreasures","118702"},
-[42408340]={ "36625", "Discarded Pack", "Gold + Random Green", "", "default", "GorgrondTreasures",""},
-[41807810]={ "36658", "Evermorn Supply Cache", "Random Green", "", "default", "GorgrondTreasures",""},
-[40407660]={ "36621", "Explorer Canister", "50 Garrison Resources", "", "default", "GorgrondTreasures","118710"},
-[40007230]={ "36170", "Femur of Improbability", "Trash Item", "", "default", "GorgrondTreasures","118715"},
-[46105000]={ "36651", "Harvestable Precious Crystal", "Garrison Resources", "", "default", "GorgrondTreasures","824"},
-[42604680]={ "35056", "Horned Skull", "Garrison Resources", "", "default", "GorgrondTreasures","824"},
-[43704240]={ "36618", "Iron Supply Chest", "Garrison Resources", "", "default", "GorgrondTreasures","824"},
-[44207420]={ "35709", "Laughing Skull Cache", "Garrison Resources", "Up in a tree", "default", "GorgrondTreasures","824"},
+[41735297]={ "36506", "Brokor's Sack", "i538 Caster Staff", "", "default", "GorgrondTreasures","118702"},
+[42368341]={ "36625", "Discarded Pack", "Gold + Random Green", "", "default", "GorgrondTreasures",""},
+[41827802]={ "36658", "Evermorn Supply Cache", "Random Green", "", "default", "GorgrondTreasures",""},
+[40367660]={ "36621", "Explorer Canister", "50 Garrison Resources", "", "default", "GorgrondTreasures","118710"},
+[40047223]={ "36170", "Femur of Improbability", "Trash Item", "", "default", "GorgrondTreasures","118715"},
+[46104999]={ "36651", "Harvestable Precious Crystal", "Garrison Resources", "", "default", "GorgrondTreasures","824"},
+[42584685]={ "35056", "Horned Skull", "Garrison Resources", "", "default", "GorgrondTreasures","824"},
+[43694248]={ "36618", "Iron Supply Chest", "Garrison Resources", "", "default", "GorgrondTreasures","824"},
+[44207427]={ "35709", "Laughing Skull Cache", "Garrison Resources", "Up in a tree", "default", "GorgrondTreasures","824"},
 [43109290]={ "34241", "Ockbar's Pack", "Trash Item", "", "default", "GorgrondTreasures","118227"},
-[52506690]={ "36509", "Odd Skull", "i535 Offhand", "", "default", "GorgrondTreasures","118717"},
-[46204290]={ "36521", "Petrified Rylak Egg", "Trash Item", "", "default", "GorgrondTreasures","118707"},
+[52516696]={ "36509", "Odd Skull", "i535 Offhand", "", "default", "GorgrondTreasures","118717"},
+[46244295]={ "36521", "Petrified Rylak Egg", "Trash Item", "", "default", "GorgrondTreasures","118707"},
 [43957055]={ "36118", "Pile of Rubble", "Random Green", "", "default", "GorgrondTreasures",""},
-[53107440]={ "36654", "Remains of Balik Orecrusher", "Trash Item", "", "default", "GorgrondTreasures","118714"},
-[57805600]={ "36605", "Remains of Balldir Deeprock", "Trash Item", "", "default", "GorgrondTreasures","118703"},
-[39006810]={ "36631", "Sasha's Secret Stash", "Gold + Random Green", "", "default", "GorgrondTreasures",""},
-[45004260]={ "36634", "Sniper's Crossbow", "i539 Crossbow", "", "default", "GorgrondTreasures","118713"},
-[48109340]={ "36604", "Stashed Emergency Rucksack", "Gold + Random Green", "", "default", "GorgrondTreasures",""},
-[53008000]={ "34940", "Strange Looking Dagger", "i537 Agility Dagger", "", "default", "GorgrondTreasures","118718"},
-[57066529]={ "37249", "Strange Spore", "Pet", "On top of a mushroom slice sticking out of the cliff", "default", "GorgrondTreasures","118106"},
-[45704970]={ "36610", "Suntouched Spear", "Trash Item", "", "default", "GorgrondTreasures","118708"},
-[59406370]={ "36628", "Vindicator's Hammer", "i539 Strength 2H Mace", "", "default", "GorgrondTreasures","118712"},
-[48904730]={ "36203", "Warm Goren Egg", "Egg which hatches into a Toy after 7 days", "", "default", "GorgrondTreasures","118705"},
-[49304360]={ "36596", "Weapons Cache", "100 Garrison Resources", "", "default", "GorgrondTreasures","107645"},
+[53127449]={ "36654", "Remains of Balik Orecrusher", "Trash Item", "", "default", "GorgrondTreasures","118714"},
+[57845597]={ "36605", "Remains of Balldir Deeprock", "Trash Item", "", "default", "GorgrondTreasures","118703"},
+[39036805]={ "36631", "Sasha's Secret Stash", "Gold + Random Green", "", "default", "GorgrondTreasures",""},
+[44954262]={ "36634", "Sniper's Crossbow", "i539 Crossbow", "", "default", "GorgrondTreasures","118713"},
+[48129337]={ "36604", "Stashed Emergency Rucksack", "Gold + Random Green", "", "default", "GorgrondTreasures",""},
+[52977995]={ "34940", "Strange Looking Dagger", "i537 Agility Dagger", "", "default", "GorgrondTreasures","118718"},
+[57086530]={ "37249", "Strange Spore", "Pet", "On top of a mushroom slice sticking out of the cliff", "default", "GorgrondTreasures","118106"},
+[45694972]={ "36610", "Suntouched Spear", "Trash Item", "", "default", "GorgrondTreasures","118708"},
+[59296379]={ "36628", "Vindicator's Hammer", "i539 Strength 2H Mace", "", "default", "GorgrondTreasures","118712"},
+[48944731]={ "36203", "Warm Goren Egg", "Egg which hatches into a Toy after 7 days", "", "default", "GorgrondTreasures","118705"},
+[49284363]={ "36596", "Weapons Cache", "100 Garrison Resources", "", "default", "GorgrondTreasures","107645"},
 --GorgrondRares
 [58604120]={ "37371", "Alkali", "i620 Agility/Intellect Leather Gloves", "!!! Level 100 !!!", "hundredrare", "GorgrondHundred","119361"},
 [40007900]={ "35335", "Bashiok", "Toy", "", "rare", "GorgrondRares","118222"},
-[69204460]={ "37369", "Basten, Nultra and Valstil", "Toy", "!!! Level 100 !!! All 3 together", "hundredrare", "GorgrondHundred","119432"},
+[69204460]={ "37369", "Basten + Nultra + Valstil", "Toy + i620 Cloth Waist", "!!! Level 100 !!! All 3 together", "hundredrare", "GorgrondHundred","119357"},
 [39407460]={ "36597", "Berthora", "i532 Agility/Intellect Mail Shoulders", "", "rare", "GorgrondRares","118232"},
 [46003360]={ "37368", "Blademaster Ro'gor", "i620 Cloth Boots", "!!! Level 101 !!!", "hundredrare", "GorgrondHundred","119228"},
 [53404460]={ "35503", "Char the Burning", "i536 2H Caster Mace", "", "rare", "GorgrondRares","118212"},
@@ -253,89 +260,37 @@ nodes["Gorgrond"] = {
 [64006180]={ "36794", "Sylldross", "i540 Agility/Intellect Leather Boots", "", "rare", "GorgrondRares","118213"},
 [76004200]={ "37405", "Typhon", "Apexis Crystals", "!!! Level 100 !!!", "hundredrare", "GorgrondHundred","823"},
 [63803160]={ "37372", "Venolasix", "i620 Agility Dagger", "!!! Level 100 !!!", "hundredrare", "GorgrondHundred","119395"},
---GorgrondLumber
-[47205180]={ "900020", "Unknown Petrified Egg", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[53007910]={ "900021", "Unknown Petrified Egg", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[51607230]={ "900022", "Unknown Petrified Egg", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[45308200]={ "900023", "Unknown Petrified Egg", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[42904350]={ "900024", "Unknown Petrified Egg", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[41107730]={ "900025", "Mysterious Petrified Pod", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[63305720]={ "900026", "Mysterious Petrified Pod", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[51706910]={ "900027", "Mysterious Petrified Pod", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[60507280]={ "900028", "Mysterious Petrified Pod", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[56705730]={ "900029", "Mysterious Petrified Pod", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[47607680]={ "900030", "Mysterious Petrified Pod", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[42008160]={ "900031", "Botani Essence Seed", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[46009360]={ "900032", "Remains of Explorer Engineer Toldirk Ashlamp", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[45808930]={ "900033", "Forgotten Skull Cache", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[47006900]={ "900034", "Forgotten Skull Cache", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[39305630]={ "900035", "Forgotten Skull Cache", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[49707880]={ "900036", "Forgotten Ogre Cache", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[40906730]={ "900037", "Obsidian Crystal Formation", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[51806150]={ "900038", "Remains of Grimnir Ashpick", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[42305480]={ "900039", "Aged Stone Container", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[47504360]={ "900040", "Aged Stone Container", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[49104850]={ "900041", "Aged Stone Container", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[50205380]={ "900042", "Ancient Titan Chest", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[53404680]={ "900043", "Ancient Titan Chest", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
-[42104610]={ "900044", "Ancient Titan Chest", "", "Requires the Garrison Outpost Lumber Mill", "default", "GorgrondLumber","824"},
---GorgrondBoulder
-[42209310]={ "900021", "Ancient Ogre Cache", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[45504300]={ "900022", "Ancient Ogre Cache", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[61505850]={ "900023", "Ancient Ogre Cache", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[45106990]={ "900024", "Ancient Ogre Cache", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[54307310]={ "900025", "Ancient Ogre Cache", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[41508650]={ "900026", "Ancient Ogre Cache", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[41805890]={ "900027", "Obsidian Crystal Formation", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[42106430]={ "900028", "Obsidian Crystal Formation", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[44204660]={ "900029", "Obsidian Crystal Formation", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[48104640]={ "900030", "Obsidian Crystal Formation", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[48105520]={ "900031", "Aged Stone Container", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[43204570]={ "900032", "Aged Stone Container", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[41804530]={ "900033", "Aged Stone Container", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[45708820]={ "900034", "Aged Stone Container", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[51304060]={ "900035", "Aged Stone Container", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[45604930]={ "900036", "Aged Stone Container", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[46106300]={ "900037", "Aged Stone Container", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[58105150]={ "900038", "Aged Stone Container", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[59607270]={ "900039", "Aged Stone Container", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[42205200]={ "900040", "Ancient Titan Chest", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[43305170]={ "900041", "Ancient Titan Chest", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[48004000]={ "900042", "Ancient Titan Chest", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[50306660]={ "900043", "Ancient Titan Chest", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[49405090]={ "900044", "Ancient Titan Chest", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
-[49108250]={ "900045", "Ancient Titan Chest", "", "Requires the Garrison Outpost Sparring Arena", "default", "GorgrondBoulder","824"},
 }
 nodes["Talador"] = {
 --TaladorTreasures
 [36509610]={ "34182", "Aarko's Family Treasure", "i557 Crossbow", "", "default", "TaladorTreasures","117567"},
-[62003240]={ "34236", "Amethyl Crystal", "100 Garrison Resources", "", "default", "TaladorTreasures","116131"},
-[81803500]={ "34260", "Aruuna Mining Cart", "Ores", "", "default", "TaladorTreasures","109118"},
-[62404800]={ "34252", "Barrel of Fish", "Fish", "", "default", "TaladorTreasures","110506"},
-[33307670]={ "34259", "Bonechewer Remnants", "Garrison Resources", "", "default", "TaladorTreasures","824"},
-[37607490]={ "34148", "Bonechewer Spear", "i566 Agility/Intellect Mail Gloves", "Quest ID is missing - Treasure will stay active after looting", "default", "TaladorTreasures","112371"},
-[73505140]={ "34471", "Bright Coin", "i560 Trinket Versatility + Bonus Armor proc", "", "default", "TaladorTreasures","116127"},
+[62083238]={ "34236", "Amethyl Crystal", "100 Garrison Resources", "", "default", "TaladorTreasures","116131"},
+[81843494]={ "34260", "Aruuna Mining Cart", "Ores", "", "default", "TaladorTreasures","109118"},
+[62414797]={ "34252", "Barrel of Fish", "Fish", "", "default", "TaladorTreasures","110506"},
+[33297680]={ "34259", "Bonechewer Remnants", "Garrison Resources", "", "default", "TaladorTreasures","824"},
+[37607490]={ "34148", "Bonechewer Spear", "i566 Agility/Intellect Mail Gloves", "The spear spawns from the corpse of Viperlash", "default", "TaladorTreasures","112371"},
+[73525137]={ "34471", "Bright Coin", "i560 Trinket Versatility + Bonus Armor proc", "", "default", "TaladorTreasures","116127"},
 [70100700]={ "36937", "Burning Blade Cache", "Apexis Crystal", "", "default", "TaladorTreasures","823"},
-[77005000]={ "34248", "Charred Sword", "i563 2H Strength Sword", "", "default", "TaladorTreasures","116116"},
-[66608690]={ "34239", "Curious Deathweb Egg", "Toy", "", "default", "TaladorTreasures","117569"},
+[77044996]={ "34248", "Charred Sword", "i563 2H Strength Sword", "", "default", "TaladorTreasures","116116"},
+[66508694]={ "34239", "Curious Deathweb Egg", "Toy", "", "default", "TaladorTreasures","117569"},
 [58901200]={ "33933", "Deceptia's Smoldering Boots", "Toy", "", "default", "TaladorTreasures","108743"},
-[55206680]={ "34253", "Draenei Weapons", "100 Garrison Resources", "", "default", "TaladorTreasures","116118"},
-[35509660]={ "34249", "Farmer's Bounty", "Garrison Resources", "", "default", "TaladorTreasures","824"},
-[57302860]={ "34238", "Foreman's Lunchbox", "Reusable Food/Drink", "", "default", "TaladorTreasures","116120"},
-[64607920]={ "34251", "Iron Box", "i554 1H Strength Mace", "", "default", "TaladorTreasures","117571"},
+[55256671]={ "34253", "Draenei Weapons", "100 Garrison Resources", "", "default", "TaladorTreasures","116118"},
+[35419656]={ "34249", "Farmer's Bounty", "Garrison Resources", "", "default", "TaladorTreasures","824"},
+[57362866]={ "34238", "Foreman's Lunchbox", "Reusable Food/Drink", "", "default", "TaladorTreasures","116120"},
+[64587920]={ "34251", "Iron Box", "i554 1H Strength Mace", "", "default", "TaladorTreasures","117571"},
 [75003600]={ "33649", "Iron Scout", "Garrison Resources", "", "default", "TaladorTreasures","824"},
 [57207540]={ "34134", "Isaari's Cache", "i564 Agility Neck", "", "default", "TaladorTreasures","117563"},
-[65501130]={ "34233", "Jug of Aged Ironwine", "Alcoholic Beverages", "", "default", "TaladorTreasures","117568"},
-[75704140]={ "34261", "Keluu's Belongings", "Gold", "", "default", "TaladorTreasures",""},
-[54002760]={ "34290", "Ketya's Stash", "Pet", "", "default", "TaladorTreasures","116402"},
-[38201250]={ "34258", "Light of the Sea", "Garrison Resources", "", "default", "TaladorTreasures","824"},
+[65471137]={ "34233", "Jug of Aged Ironwine", "Alcoholic Beverages", "", "default", "TaladorTreasures","117568"},
+[75684140]={ "34261", "Keluu's Belongings", "Gold", "", "default", "TaladorTreasures",""},
+[53972769]={ "34290", "Ketya's Stash", "Pet", "", "default", "TaladorTreasures","116402"},
+[38191242]={ "34258", "Light of the Sea", "Gold", "", "default", "TaladorTreasures",""},
 [68805620]={ "34101", "Lightbearer", "Trash Item", "", "default", "TaladorTreasures","109192"},
-[52502950]={ "34235", "Luminous Shell", "i557 Intellect Neck", "", "default", "TaladorTreasures","116132"},
-[78201480]={ "34263", "Pure Crystal Dust", "i554 Agility Ring", "", "default", "TaladorTreasures","117572"},
-[75804480]={ "34250", "Relic of Aruuna", "Trash Item", "", "default", "TaladorTreasures","116128"},
-[47009170]={ "34256", "Relic of Telmor", "Trash Item", "", "default", "TaladorTreasures","116128"},
+[52562954]={ "34235", "Luminous Shell", "i557 Intellect Neck", "", "default", "TaladorTreasures","116132"},
+[78211471]={ "34263", "Pure Crystal Dust", "i554 Agility Ring", "", "default", "TaladorTreasures","117572"},
+[75784472]={ "34250", "Relic of Aruuna", "Trash Item", "", "default", "TaladorTreasures","116128"},
+[46969174]={ "34256", "Relic of Telmor", "Trash Item", "", "default", "TaladorTreasures","116128"},
 [64901330]={ "34232", "Rook's Tacklebox", "+4 Fishing Line", "", "default", "TaladorTreasures","116117"},
-[65908520]={ "34276", "Rusted Lockbox", "Random Green", "", "default", "TaladorTreasures",""},
+[65968513]={ "34276", "Rusted Lockbox", "Random Green", "", "default", "TaladorTreasures",""},
 [39505520]={ "34254", "Soulbinder's Reliquary", "i558 Intellect Ring", "", "default", "TaladorTreasures","117570"},
 [74602930]={ "35162", "Teroclaw Nest 1", "Pet", "Only one Teroclaw Nest can be looted", "default", "TaladorTreasures","112699"},
 [39307770]={ "35162", "Teroclaw Nest 10", "Pet", "Only one Teroclaw Nest can be looted", "default", "TaladorTreasures","112699"},
@@ -347,9 +302,11 @@ nodes["Talador"] = {
 [70803200]={ "35162", "Teroclaw Nest 7", "Pet", "Only one Teroclaw Nest can be looted", "default", "TaladorTreasures","112699"},
 [54105630]={ "35162", "Teroclaw Nest 8", "Pet", "Only one Teroclaw Nest can be looted", "default", "TaladorTreasures","112699"},
 [39807670]={ "35162", "Teroclaw Nest 9", "Pet", "Only one Teroclaw Nest can be looted", "default", "TaladorTreasures","112699"},
-[38408450]={ "34257", "Treasure of Ango'rosh", "Flavor Item - Throwing Rock", "", "default", "TaladorTreasures","116119"},
-[65508860]={ "34255", "Webbed Sac", "Gold", "", "default", "TaladorTreasures",""},
+[38338450]={ "34257", "Treasure of Ango'rosh", "Flavor Item - Throwing Rock", "", "default", "TaladorTreasures","116119"},
+[65448860]={ "34255", "Webbed Sac", "Gold", "", "default", "TaladorTreasures",""},
 [40608950]={ "34140", "Yuuri's Gift", "Garrison Resources", "", "default", "TaladorTreasures","824"},
+[28397419]={ "36829", "Gift of the Ancients", "i563 Intellect Ring", "Inside a cave; turn all the three statues so they face away from the empty block in the middle to spawn the chest", "default", "TaladorTreasures","118686"},
+[39304172]={ "34207", "Sparkling Pool", "Garrison Resources + Fishing items", "Requires Fishing", "default", "TaladorTreasures","112623"},
 --TaladorRares
 [46603520]={ "37338", "Avatar of Socrethar", "i620 Offhand", "!!! Level 101 !!!", "hundredrare", "TaladorHundred","119378"},
 [44003800]={ "37339", "Bombardier Gu'gok", "i620 Crossbow", "!!! Level 101 !!!", "hundredrare", "TaladorHundred","119413"},
@@ -361,7 +318,7 @@ nodes["Talador"] = {
 [46005500]={ "34145", "Frenzied Golem", "i563 Agility/Strength 1H Sword or i563 Caster Dagger", "", "rare", "TaladorRares","113287"},
 [67408060]={ "34929", "Gennadian", "i558 Trinket Agility + Mastery Proc", "", "rare", "TaladorRares","116075"},
 [31806380]={ "34189", "Glimmerwing", "Shorttime Speedbuff with limited charges", "", "rare", "TaladorRares","116113"},
-[22207400]={ "36919", "Grrbrrgle", "no loot", "Restless Crate; quest doesn't flag as completed, probably bugged", "rare", "TaladorRares",""},
+[22207400]={ "36919", "Grrbrrgle", "i588 Agility/Intellect Leather Waist", "Click on the Restless Crate", "rare", "TaladorRares",""},
 [47603900]={ "37340", "Gug'tol", "i620 Caster Sword", "!!! Level 101 !!!", "hundredrare", "TaladorHundred","119402"},
 [48002500]={ "37312", "Haakun the All-Consuming", "i620 Strength 1H Sword", "!!! Level 100 !!!", "hundredrare", "TaladorHundred","119403"},
 [62004600]={ "34185", "Hammertooth", "i558 Agility/Intellect Mail Chest", "", "rare", "TaladorRares","116124"},
@@ -375,7 +332,7 @@ nodes["Talador"] = {
 [30502640]={ "37345", "Lord Korinak", "i620 Strength Ring", "!!! Level 102 !!!", "hundredrare", "TaladorHundred","119388"},
 [39004960]={ "37349", "Matron of Sin", "i620 Cloth Gloves", "!!! Level 102 !!!", "hundredrare", "TaladorHundred","119353"},
 [86403040]={ "34859", "No'losh", "i558 Trinket Versatility + Int Proc", "", "rare", "TaladorRares","116077"},
-[31404750]={ "37344", "Orumo the Observer", "i620 Intellect Neck + Pet", "!!! Level 102 !!!", "hundredrare", "TaladorHundred","119375"},
+[31404750]={ "37344", "Orumo the Observer", "i620 Intellect Neck + Pet", "!!! Level 102 !!! Requires 5 players to click objects to summon", "hundredrare", "TaladorHundred","119375"},
 [59505960]={ "34196", "Ra'kahn", "i563 Agility Fistweapon", "", "rare", "TaladorRares","116112"},
 [41004200]={ "37347", "Shadowflame Terrorwalker", "i620 Strength 1H Axe", "!!! Level 102 !!!", "hundredrare", "TaladorHundred","119393"},
 [41805940]={ "34671", "Shirzir", "i554 Agility/Intellect Leather Boots", "", "rare", "TaladorRares","112370"},
@@ -391,59 +348,59 @@ nodes["Talador"] = {
 }
 nodes["SpiresOfArak"] = {
 --SoATreasures
-[40605500]={ "36458", "Abandoned Mining Pick", "i578 Strength 1H Axe", "Allows faster Mining in Draenor", "default", "SoATreasures","116913"},
-[36205440]={ "36462", "Admiral Taylor's Coffer", "Garrison Resources", "Requires An Old Key", "default", "SoATreasures","824"},
+[40595497]={ "36458", "Abandoned Mining Pick", "i578 Strength 1H Axe", "Allows faster Mining in Draenor", "default", "SoATreasures","116913"},
+[36195446]={ "36462", "Admiral Taylor's Coffer", "Garrison Resources", "Requires An Old Key", "default", "SoATreasures","824"},
 [37705640]={ "36462", "An Old Key", "Key for a Chest in Admiral Taylors Garrison", "", "default", "SoATreasures","116020"},
-[49203730]={ "36445", "Assassin's Spear", "i580 Agility Polearm", "", "default", "SoATreasures","116835"},
-[55509080]={ "36366", "Campaign Contributions", "Gold", "", "default", "SoATreasures",""},
-[68408900]={ "36453", "Coinbender's Payment", "Garrison Resources", "", "default", "SoATreasures","824"},
-[36505790]={ "36418", "Ephial's Dark Grimoire", "i579 Offhand", "", "default", "SoATreasures","116914"},
+[49203721]={ "36445", "Assassin's Spear", "i580 Agility Polearm", "", "default", "SoATreasures","116835"},
+[55539086]={ "36367", "Campaign Contributions", "Gold", "", "default", "SoATreasures",""},
+[68428898]={ "36453", "Coinbender's Payment", "Garrison Resources", "", "default", "SoATreasures","824"},
+[36585791]={ "36418", "Ephial's Dark Grimoire", "i579 Offhand", "", "default", "SoATreasures","116914"},
 [50502210]={ "36246", "Fractured Sunstone", "Trash Item", "", "default", "SoATreasures","116919"},
-[37204740]={ "36420", "Garrison Supplies", "Garrison Resources", "", "default", "SoATreasures","824"},
-[41805050]={ "36451", "Garrison Workman's Hammer", "i580 Strength 1H Mace", "", "default", "SoATreasures","116918"},
+[37154750]={ "36420", "Garrison Supplies", "Garrison Resources", "", "default", "SoATreasures","824"},
+[41855042]={ "36451", "Garrison Workman's Hammer", "i580 Strength 1H Mace", "", "default", "SoATreasures","116918"},
 [48604450]={ "36386", "Gift of Anzu", "i585 Crossbow", "Drink an Elixir of Shadow Sight near the Shrine to get the Gift of Anzu", "default", "SoATreasures","118237"},
 [57007900]={ "36390", "Gift of Anzu", "i585 Caster 1H Sword", "Drink an Elixir of Shadow Sight near the Shrine to get the Gift of Anzu", "default", "SoATreasures","118241"},
-[46904050]={ "36389", "Gift of Anzu", "i585 Agility/Strength Polearm", "Drink an Elixir of Shadow Sight near the Shrine to get the Gift of Anzu", "default", "SoATreasures","118238"},
-[52001960]={ "36392", "Gift of Anzu", "i585 Caster Staff", "Drink an Elixir of Shadow Sight near the Shrine to get the Gift of Anzu", "default", "SoATreasures","118239"},
+[46954044]={ "36389", "Gift of Anzu", "i585 Agility/Strength Polearm", "Drink an Elixir of Shadow Sight near the Shrine to get the Gift of Anzu", "default", "SoATreasures","118238"},
+[52031958]={ "36392", "Gift of Anzu", "i585 Caster Staff", "Drink an Elixir of Shadow Sight near the Shrine to get the Gift of Anzu", "default", "SoATreasures","118239"},
 [42402670]={ "36388", "Gift of Anzu", "i585 Wand", "Drink an Elixir of Shadow Sight near the Shrine to get the Gift of Anzu", "default", "SoATreasures","118242"},
-[61105550]={ "36381", "Gift of Anzu", "i585 Agility/Strength 1H Sword", "Drink an Elixir of Shadow Sight near the Shrine to get the Gift of Anzu", "default", "SoATreasures","118240"},
-[50402580]={ "36444", "Iron Horde Explosives", "Trash Item", "", "default", "SoATreasures","118691"},
-[50702880]={ "36247", "Lost Herb Satchel", "Herbs", "", "default", "SoATreasures","109124"},
-[47803610]={ "36411", "Lost Ring", "i578 Intellect Ring", "", "default", "SoATreasures","116911"},
-[52404280]={ "36416", "Misplaced Scroll", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
-[42701830]={ "36244", "Misplaced Scrolls", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
-[63606740]={ "36454", "Mysterious Mushrooms", "Herbs", "", "default", "SoATreasures","109127"},
+[61105537]={ "36381", "Gift of Anzu", "i585 Agility/Strength 1H Sword", "Drink an Elixir of Shadow Sight near the Shrine to get the Gift of Anzu", "default", "SoATreasures","118240"},
+[50332579]={ "36444", "Iron Horde Explosives", "Trash Item", "", "default", "SoATreasures","118691"},
+[50782874]={ "36247", "Lost Herb Satchel", "Herbs", "", "default", "SoATreasures","109124"},
+[47773612]={ "36411", "Lost Ring", "i578 Intellect Ring", "", "default", "SoATreasures","116911"},
+[52474280]={ "36416", "Misplaced Scroll", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
+[42691832]={ "36244", "Misplaced Scrolls", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
+[63586737]={ "36454", "Mysterious Mushrooms", "Herbs", "", "default", "SoATreasures","109127"},
 [60808780]={ "35481", "Nizzix's Chest", "Garrison Resources", "Click on Nizzix's Escape Pod at 60.9 88.0 and follow him to the shore", "default", "SoATreasures","824"},
-[53305560]={ "36403", "Offering to the Raven Mother 1", "Consumable for 5% rested XP", "", "default", "SoATreasures","118267"},
-[48305260]={ "36405", "Offering to the Raven Mother 2", "Consumable for 5% rested XP", "", "default", "SoATreasures","118267"},
+[53315552]={ "36403", "Offering to the Raven Mother 1", "Consumable for 5% rested XP", "", "default", "SoATreasures","118267"},
+[48355261]={ "36405", "Offering to the Raven Mother 2", "Consumable for 5% rested XP", "", "default", "SoATreasures","118267"},
 [48905470]={ "36406", "Offering to the Raven Mother 3", "Consumable for 5% rested XP", "", "default", "SoATreasures","118267"},
-[51906460]={ "36407", "Offering to the Raven Mother 4", "Consumable for 5% rested XP", "", "default", "SoATreasures","118267"},
-[61006380]={ "36410", "Offering to the Raven Mother 5", "Consumable for 5% rested XP", "", "default", "SoATreasures","118267"},
-[58706030]={ "36340", "Ogron Plunder", "Trash Items", "", "default", "SoATreasures","116921"},
-[36303940]={ "36402", "Orcish Signaling Horn", "i577 Trinket Multistrike + Strength Proc", "", "default", "SoATreasures","120337"},
-[36801720]={ "36243", "Outcast's Belongings 1", "Gold + Random Green", "", "default", "SoATreasures",""},
-[42102170]={ "36447", "Outcast's Belongings 2", "Gold + Random Green", "", "default", "SoATreasures",""},
-[46903400]={ "36446", "Outcast's Pouch", "Gold + Random Green", "", "default", "SoATreasures",""},
-[43001640]={ "36245", "Relics of the Outcasts 1", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
-[46004410]={ "36354", "Relics of the Outcasts 2", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
-[43202720]={ "36355", "Relics of the Outcasts 3", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
-[67403980]={ "36356", "Relics of the Outcasts 4", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
-[60205390]={ "36359", "Relics of the Outcasts 5", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
-[51904890]={ "36360", "Relics of the Outcasts 6", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
-[37305070]={ "36657", "Rooby's Roo", "i581 Strength Neck", "You need to feed the dog with Rooby Reat from the chef in the cellar", "default", "SoATreasures","116887"},
-[44401200]={ "36377", "Rukhmar's Image", "Trash Item", "", "default", "SoATreasures","118693"},
-[59109060]={ "36366", "Sailor Zazzuk's 180-Proof Rum", "Alcoholic Beverages", "", "default", "SoATreasures","116917"},
-[68203880]={ "36375", "Sethekk Idol", "Trash Item", "", "default", "SoATreasures","118692"},
-[71604850]={ "36450", "Sethekk Ritual Brew", "Healing Potions + Alcoholic Beverages", "", "default", "SoATreasures","109223"},
-[56202880]={ "36362", "Shattered Hand Cache", "Garrison Resources", "", "default", "SoATreasures","824"},
-[47903070]={ "36361", "Shattered Hand Lockbox", "True Steel Lockbox", "", "default", "SoATreasures","116920"},
-[60908460]={ "36456", "Shredder Parts", "Garrison Resources", "", "default", "SoATreasures","824"},
-[56304530]={ "36433", "Smuggled Apexis Artifacts", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
-[59708130]={ "36365", "Spray-O-Matic 5000 XT", "Garrison Resources", "", "default", "SoATreasures","824"},
-[34102750]={ "36421", "Sun-Touched Cache 1", "Garrison Resources", "", "default", "SoATreasures","824"},
-[33302730]={ "36422", "Sun-Touched Cache 2", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
-[54403240]={ "36364", "Toxicfang Venom", "100 Garrison Resources", "", "default", "SoATreasures","118695"},
-[66505650]={ "36455", "Waterlogged Satchel", "Gold + Random Green", "", "default", "SoATreasures",""},
+[51886465]={ "36407", "Offering to the Raven Mother 4", "Consumable for 5% rested XP", "", "default", "SoATreasures","118267"},
+[60976387]={ "36410", "Offering to the Raven Mother 5", "Consumable for 5% rested XP", "", "default", "SoATreasures","118267"},
+[58706024]={ "36340", "Ogron Plunder", "Trash Items", "", "default", "SoATreasures","116921"},
+[36283934]={ "36402", "Orcish Signaling Horn", "i577 Trinket Multistrike + Strength Proc", "", "default", "SoATreasures","120337"},
+[36821716]={ "36243", "Outcast's Belongings 1", "Gold + Random Green", "", "default", "SoATreasures",""},
+[42172168]={ "36447", "Outcast's Belongings 2", "Gold + Random Green", "", "default", "SoATreasures",""},
+[46903406]={ "36446", "Outcast's Pouch", "Gold + Random Green", "", "default", "SoATreasures",""},
+[42961637]={ "36245", "Relics of the Outcasts 1", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
+[45964415]={ "36354", "Relics of the Outcasts 2", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
+[43162726]={ "36355", "Relics of the Outcasts 3", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
+[67373983]={ "36356", "Relics of the Outcasts 4", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
+[60215391]={ "36359", "Relics of the Outcasts 5", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
+[51894892]={ "36360", "Relics of the Outcasts 6", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
+[37375056]={ "36657", "Rooby's Roo", "i581 Strength Neck", "You need to feed the dog with Rooby Reat from the chef in the cellar", "default", "SoATreasures","116887"},
+[44331204]={ "36377", "Rukhmar's Image", "Trash Item", "", "default", "SoATreasures","118693"},
+[59179064]={ "36366", "Sailor Zazzuk's 180-Proof Rum", "Alcoholic Beverages", "", "default", "SoATreasures","116917"},
+[68333893]={ "36375", "Sethekk Idol", "Trash Item", "", "default", "SoATreasures","118692"},
+[71644859]={ "36450", "Sethekk Ritual Brew", "Healing Potions + Alcoholic Beverages", "", "default", "SoATreasures","109223"},
+[56232881]={ "36362", "Shattered Hand Cache", "Garrison Resources", "", "default", "SoATreasures","824"},
+[47923065]={ "36361", "Shattered Hand Lockbox", "True Steel Lockbox", "", "default", "SoATreasures","116920"},
+[60868461]={ "36456", "Shredder Parts", "Garrison Resources", "", "default", "SoATreasures","824"},
+[56294531]={ "36433", "Smuggled Apexis Artifacts", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
+[59638134]={ "36365", "Spray-O-Matic 5000 XT", "Garrison Resources", "", "default", "SoATreasures","824"},
+[34142751]={ "36421", "Sun-Touched Cache 1", "Garrison Resources", "", "default", "SoATreasures","824"},
+[33292727]={ "36422", "Sun-Touched Cache 2", "Archaeology Fragments", "Requires Archaeology and possibly a little bit of jumping", "default", "SoAArchaeology",""},
+[54353255]={ "36364", "Toxicfang Venom", "100 Garrison Resources", "", "default", "SoATreasures","118695"},
+[66475653]={ "36455", "Waterlogged Satchel", "Gold + Random Green", "", "default", "SoATreasures",""},
 [57802220]={ "36374", "Statue of Anzu", "Trash Item", "", "default", "SoATreasures","118694"},
 --SoARares
 [58208460]={ "36291", "Betsi Boombasket", "i583 Gun", "", "rare", "SoARares","116907"},
@@ -472,78 +429,86 @@ nodes["SpiresOfArak"] = {
 [52805480]={ "36472", "Swarmleaf", "i582 Caster Staff", "", "rare", "SoARares","116857"},
 [54606320]={ "36278", "Talonbreaker", "i578 Agility Neck", "", "rare", "SoARares","116838"},
 [57407400]={ "36254", "Tesska the Broken", "i578 Intellect Neck", "", "rare", "SoARares","116852"},
+[71702010]={ "37360", "Formless Nightmare", "i620 Agility/Intellect Mail Bracer", "!!! Level 100 !!! Located inside Void Portal phase", "hundredrare", "SoAHundred","119373"},
+[71404500]={ "37393", "Giga Sentinel", "i620 Agility 1H Sword", "!!! Level 100 !!!", "hundredrare", "SoAHundred","119401"},
+[70402380]={ "37361", "Kenos the Unraveler", "i620 Cloth Helm", "!!! Level 100 !!! Located inside Void Portal phase; requires 3 players to click objects to summon", "hundredrare", "SoAHundred","119354"},
+[74413864]={ "37391", "Mecha Plunderer", "i620 Agility 1H Mace", "!!! Level 100 !!!", "hundredrare", "SoAHundred","119398"},
+[72401940]={ "37358", "Soul-Twister Torek", "Toy + i620 Caster Staff", "!!! Level 100 !!!", "hundredrare", "SoAHundred","119410"},
+[72903090]={ "37359", "Voidreaver Urnae", "i620 Agility 1H Axe", "!!! Level 100 !!!", "hundredrare", "SoAHundred","119392"},
 }
 nodes["NagrandDraenor"] = {
 --NagrandTreasures
-[73001090]={ "35951", "A Pile of Dirt", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[67605980]={ "35759", "Abandoned Cargo", "Random Greens", "", "default", "NagrandTreasures",""},
+[73071080]={ "35951", "A Pile of Dirt", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[67655971]={ "35759", "Abandoned Cargo", "Random Greens", "", "default", "NagrandTreasures",""},
 [38404940]={ "36711", "Abu'Gar's Favorite Lure", "Abu'Gar's Favorite Lure", "Combine with the other Abu'Gar Parts for a follower (just north of Telaar)", "default", "NagrandTreasures","114245"},
 [85403870]={ "36711", "Abu'gar's Missing Reel", "Abu'Gar's Finest Reel", "Combine with the other Abu'Gar Parts for a follower (just north of Telaar)", "default", "NagrandTreasures","114243"},
 [65906120]={ "36711", "Abu'gar's Vitality", "Abu'gar's Vitality", "Combine with the other Abu'Gar Parts for a follower (just north of Telaar)", "default", "NagrandTreasures","114242"},
-[75806200]={ "36077", "Adventurer's Mace", "Gold", "", "default", "NagrandTreasures",""},
-[82305660]={ "35765", "Adventurer's Pack", "Gold", "", "default", "NagrandTreasures",""},
-[45605200]={ "35969", "Adventurer's Pack", "Gold", "", "default", "NagrandTreasures",""},
-[69905240]={ "35597", "Adventurer's Pack", "Gold", "", "default", "NagrandTreasures",""},
-[56607290]={ "36050", "Adventurer's Pouch", "Garrison Resources", "On a ledge below a cliff; you need to fall from the top to reach it", "default", "NagrandTreasures","824"},
-[73901410]={ "35955", "Adventurer's Sack", "Gold", "", "default", "NagrandTreasures",""},
-[81501300]={ "35953", "Adventurer's Staff", "Gold", "", "default", "NagrandTreasures",""},
-[73107550]={ "35673", "Appropriated Warsong Supplies", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[62506710]={ "36116", "Bag of Herbs", "Herbs", "", "default", "NagrandTreasures","109124"},
-[77302820]={ "35986", "Bone-Carved Dagger", "i597 Agility Dagger", "", "default", "NagrandTreasures","116760"},
-[77101660]={ "36174", "Bounty of the Elements", "Garrison Resources", "Use the elemental Stones to access", "default", "NagrandTreasures","824"},
-[81103720]={ "35661", "Brilliant Dreampetal", "Manareg Potion", "Take Explorer Renzo's Glider to get there [north-east of here]", "default", "NagrandTreasures","118262"},
-[85425344]={ "35696", "Burning Blade Cache", "Random Green", "", "default", "NagrandTreasures","824"},
-[66901950]={ "35954", "Elemental Offering", "Trash Item", "", "default", "NagrandTreasures","118234"},
-[78901550]={ "36036", "Elemental Shackles", "i605 Agility Ring", "", "default", "NagrandTreasures","118251"},
+[75816203]={ "36077", "Adventurer's Mace", "Random Green Mace", "", "default", "NagrandTreasures",""},
+[82275660]={ "35765", "Adventurer's Pack", "Random Green", "", "default", "NagrandTreasures",""},
+[45635200]={ "35969", "Adventurer's Pack", "Random Green", "", "default", "NagrandTreasures",""},
+[69955244]={ "35597", "Adventurer's Pack", "Random Green", "", "default", "NagrandTreasures",""},
+[56567294]={ "36050", "Adventurer's Pouch", "Garrison Resources", "On a ledge below a cliff; you need to fall from the top to reach it", "default", "NagrandTreasures","824"},
+[73931405]={ "35955", "Adventurer's Sack", "Random Green", "", "default", "NagrandTreasures",""},
+[81461307]={ "35953", "Adventurer's Staff", "i593 Caster Staff", "", "default", "NagrandTreasures","116640"},
+[73057554]={ "35673", "Appropriated Warsong Supplies", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[62546708]={ "36116", "Bag of Herbs", "Herbs", "", "default", "NagrandTreasures","109124"},
+[77312807]={ "35986", "Bone-Carved Dagger", "i597 Agility Dagger", "", "default", "NagrandTreasures","116760"},
+[77081662]={ "36174", "Bounty of the Elements", "Garrison Resources", "Use the elemental Stones to access", "default", "NagrandTreasures","824"},
+[81083725]={ "35661", "Brilliant Dreampetal", "Manareg Potion", "Take Explorer Renzo's Glider to get there [north-east of here]", "default", "NagrandTreasures","118262"},
+[85415347]={ "35696", "Burning Blade Cache", "Random Green", "", "default", "NagrandTreasures","824"},
+[66961949]={ "35954", "Elemental Offering", "Trash Item", "", "default", "NagrandTreasures","118234"},
+[78901556]={ "36036", "Elemental Shackles", "i605 Agility Ring", "", "default", "NagrandTreasures","118251"},
 [53407320]={ "900003", "Explorer Bibsi", "Nothing", "You need to use a rocket to get to her [south-east of her position]", "glider", "NagrandTreasures",""},
 [67601420]={ "900004", "Explorer Dez", "Nothing", "You can reach him from the east starting at the elemental plateau", "glider", "NagrandTreasures",""},
 [87204100]={ "900005", "Explorer Garix", "Nothing", "Is required for 2 Treasures [1 south, 1 south-east]", "glider", "NagrandTreasures",""},
 [75606460]={ "900006", "Explorer Razzuk", "Nothing", "Is required for some other Treasures", "glider", "NagrandTreasures",""},
 [83803380]={ "900007", "Explorer Renzo", "Nothing", "Is required for 3 Treasures [2 north-east, 1 south-west]", "glider", "NagrandTreasures",""},
-[45806630]={ "36020", "Fragment of Oshu'gun", "i607 Intellect Shield", "", "default", "NagrandTreasures","117981"},
-[73102160]={ "35692", "Freshwater Clam", "Trash Item", "", "default", "NagrandTreasures","118233"},
-[88901820]={ "35660", "Fungus-Covered Chest", "Garrison Resources", "Take Explorer Renzo's Glider to get there [south-west of here]", "default", "NagrandTreasures","824"},
-[75404710]={ "36074", "Gambler's Purse", "Flavor Item", "", "default", "NagrandTreasures","118236"},
-[43305750]={ "35987", "Genedar Debris", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[48006010]={ "35999", "Genedar Debris", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[48607270]={ "36008", "Genedar Debris", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[44606750]={ "36002", "Genedar Debris", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[55306820]={ "36011", "Genedar Debris", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[73006220]={ "35590", "Goblin Pack", "Garrison Resources", "Take Explorer Razzuk's Glider to get there [south-east of here]", "default", "NagrandTreasures","824"},
-[47207430]={ "35576", "Goblin Pack", "Garrison Resources", "Take Explorer Bibsi's Glider to get there [east of here]", "default", "NagrandTreasures","824"},
-[58205260]={ "35694", "Golden Kaliri Egg", "Trash Item", "In the nest in the tree", "default", "NagrandTreasures","118266"},
-[38305880]={ "36109", "Goldtoe's Plunder", "Gold", "Key on the Parrot", "default", "NagrandTreasures",""},
-[87107290]={ "36051", "Grizzlemaw's Bonepile", "Pet Toy", "", "default", "NagrandTreasures","118054"},
-[87504500]={ "35622", "Hidden Stash", "Garrison Resources", "Take Explorer Garix's Glider to get there [north of here]", "default", "NagrandTreasures","824"},
-[67404900]={ "36039", "Highmaul Sledge", "i605 Strength Ring", "", "default", "NagrandTreasures","118252"},
-[75306570]={ "36099", "Important Exploration Supplies", "Alcoholic Beverages", "", "default", "NagrandTreasures","61986"},
-[61805740]={ "36082", "Lost Pendant", "i593 Green Amulet", "", "default", "NagrandTreasures","116687"},
-[70501390]={ "35643", "Mountain Climber's Pack", "Garrison Resources", "Take Explorer Dez's Glider to get there [west of here]", "default", "NagrandTreasures","824"},
-[81007980]={ "36049", "Ogre Beads", "i605 Str Ring", "", "default", "NagrandTreasures","118255"},
-[57806220]={ "36115", "Pale Elixir", "Manareg Potion", "", "default", "NagrandTreasures","118278"},
-[58305940]={ "36021", "Pokkar's Thirteenth Axe", "i605 1H Strength Axe", "", "default", "NagrandTreasures","116688"},
-[72706100]={ "36035", "Polished Saberon Skull", "i605 Agility/Strength Ring", "", "default", "NagrandTreasures","118254"},
+[45866629]={ "36020", "Fragment of Oshu'gun", "i607 Intellect Shield", "", "default", "NagrandTreasures","117981"},
+[73052153]={ "35692", "Freshwater Clam", "Trash Item", "", "default", "NagrandTreasures","118233"},
+[88901824]={ "35660", "Fungus-Covered Chest", "Garrison Resources", "Take Explorer Renzo's Glider to get there [south-west of here]", "default", "NagrandTreasures","824"},
+[75374711]={ "36074", "Gambler's Purse", "Flavor Item", "", "default", "NagrandTreasures","118236"},
+[43225755]={ "35987", "Genedar Debris", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[48066011]={ "35999", "Genedar Debris", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[48587279]={ "36008", "Genedar Debris", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[44696757]={ "36002", "Genedar Debris", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[55356828]={ "36011", "Genedar Debris", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[72976212]={ "35590", "Goblin Pack", "Garrison Resources", "Take Explorer Razzuk's Glider to get there [south-east of here]", "default", "NagrandTreasures","824"},
+[47207425]={ "35576", "Goblin Pack", "Garrison Resources", "Take Explorer Bibsi's Glider to get there [east of here]", "default", "NagrandTreasures","824"},
+[58285249]={ "35694", "Golden Kaliri Egg", "Trash Item", "In the nest in the tree", "default", "NagrandTreasures","118266"},
+[38345872]={ "36109", "Goldtoe's Plunder", "Gold", "Key on the Parrot", "default", "NagrandTreasures",""},
+[87107288]={ "36051", "Grizzlemaw's Bonepile", "Pet Toy", "", "default", "NagrandTreasures","118054"},
+[87624498]={ "35622", "Hidden Stash", "Garrison Resources", "Take Explorer Garix's Glider to get there [north of here]", "default", "NagrandTreasures","824"},
+[67384906]={ "36039", "Highmaul Sledge", "i605 Strength Ring", "", "default", "NagrandTreasures","118252"},
+[75236563]={ "36099", "Important Exploration Supplies", "Alcoholic Beverages", "", "default", "NagrandTreasures","61986"},
+[61765747]={ "36082", "Lost Pendant", "i593 Green Amulet", "", "default", "NagrandTreasures","116687"},
+[70531385]={ "35643", "Mountain Climber's Pack", "Garrison Resources", "Take Explorer Dez's Glider to get there [west of here]", "default", "NagrandTreasures","824"},
+[80967979]={ "36049", "Ogre Beads", "i605 Str Ring", "", "default", "NagrandTreasures","118255"},
+[57796205]={ "36115", "Pale Elixir", "Manareg Potion", "", "default", "NagrandTreasures","118278"},
+[58295931]={ "36021", "Pokkar's Thirteenth Axe", "i605 1H Strength Axe", "", "default", "NagrandTreasures","116688"},
+[72716092]={ "36035", "Polished Saberon Skull", "i605 Agility/Strength Ring", "", "default", "NagrandTreasures","118254"},
 [58507630]={ "900008", "Rocket to Explorer Bibsi", "Nothing", "Is required to get to Explorer Bibsi", "rocket", "NagrandTreasures",""},
-[75206500]={ "36102", "Saberon Stash", "Gold", "", "default", "NagrandTreasures",""},
-[88913310]={ "36857", "Smuggler's Cache", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[40406860]={ "37435", "Spirit Coffer", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[50108220]={ "35577", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Bibsi's Glider to get there [north-east of here]", "default", "NagrandTreasures","824"},
-[52708010]={ "35583", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Bibsi's Glider to get there [north of here]", "default", "NagrandTreasures","824"},
-[77805190]={ "35591", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Razzuk's Glider to get there [south of here]", "default", "NagrandTreasures","824"},
-[64601760]={ "35648", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Dez's Glider to get there [north-east of here]", "default", "NagrandTreasures","824"},
+[75186494]={ "36102", "Saberon Stash", "Gold", "", "default", "NagrandTreasures",""},
+[89073313]={ "36857", "Smuggler's Cache", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[40346864]={ "37435", "Spirit Coffer", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[50128228]={ "35577", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Bibsi's Glider to get there [north-east of here]", "default", "NagrandTreasures","824"},
+[52678008]={ "35583", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Bibsi's Glider to get there [north of here]", "default", "NagrandTreasures","824"},
+[77835195]={ "35591", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Razzuk's Glider to get there [south of here]", "default", "NagrandTreasures","824"},
+[64591762]={ "35648", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Dez's Glider to get there [north-east of here]", "default", "NagrandTreasures","824"},
 [70601860]={ "35646", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Dez's Glider to get there [north-west of here]", "default", "NagrandTreasures","824"},
-[87602030]={ "35662", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Renzo's Glider to get there [south-west of here]", "default", "NagrandTreasures","824"},
-[88204260]={ "35616", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Garix's Glider to get there [north-west of here]", "default", "NagrandTreasures","824"},
-[64706580]={ "36046", "Telaar Defender Shield", "i605 Agility/Intellect Ring", "", "default", "NagrandTreasures","118253"},
-[37707060]={ "34760", "Treasure of Kull'krosh", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[50006650]={ "35579", "Void-Infused Crystal", "i613 2H Strength Sword", "Take Explorer Bibsi's Glider to get there [south-east of here]", "default", "NagrandTreasures","118264"},
-[51706030]={ "35695", "Warsong Cache", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[52404440]={ "36073", "Warsong Helm", "i609 Mail Agility/Intellect Helm", "", "default", "NagrandTreasures","118250"},
-[73007040]={ "35678", "Warsong Lockbox", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[76107000]={ "35682", "Warsong Spear", "Trash Item", "Take Explorer Razzuk's Glider to get there [north of here]", "default", "NagrandTreasures","118678"},
-[80606060]={ "35593", "Warsong Spoils", "Garrison Resources", "Take Explorer Razzuk's Glider to get there [west of here]", "default", "NagrandTreasures","824"},
-[89406580]={ "35976", "Warsong Supplies", "Garrison Resources", "", "default", "NagrandTreasures","824"},
-[64703580]={ "36071", "Watertight Bag", "20 Slot Bag", "", "default", "NagrandTreasures","118235"},
+[87602028]={ "35662", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Renzo's Glider to get there [south-west of here]", "default", "NagrandTreasures","824"},
+[88274262]={ "35616", "Steamwheedle Supplies", "Garrison Resources", "Take Explorer Garix's Glider to get there [north-west of here]", "default", "NagrandTreasures","824"},
+[64716583]={ "36046", "Telaar Defender Shield", "i605 Agility/Intellect Ring", "", "default", "NagrandTreasures","118253"},
+[37717065]={ "34760", "Treasure of Kull'krosh", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[49976651]={ "35579", "Void-Infused Crystal", "i613 2H Strength Sword", "Take Explorer Bibsi's Glider to get there [south-east of here]", "default", "NagrandTreasures","118264"},
+[51726029]={ "35695", "Warsong Cache", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[52414438]={ "36073", "Warsong Helm", "i609 Agility/Intellect Mail Helm", "", "default", "NagrandTreasures","118250"},
+[73047036]={ "35678", "Warsong Lockbox", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[76066990]={ "35682", "Warsong Spear", "Trash Item", "Take Explorer Razzuk's Glider to get there [north of here]", "default", "NagrandTreasures","118678"},
+[80656054]={ "35593", "Warsong Spoils", "Garrison Resources", "Take Explorer Razzuk's Glider to get there [west of here]", "default", "NagrandTreasures","824"},
+[89406588]={ "35976", "Warsong Supplies", "Garrison Resources", "", "default", "NagrandTreasures","824"},
+[64763573]={ "36071", "Watertight Bag", "20 Slot Bag", "", "default", "NagrandTreasures","118235"},
+[53386425]={ "36088", "Adventurer's Pouch", "Random Green", "In a cave; entrance is to the east", "default", "NagrandTreasures","824"},
+[35475725]={ "36846", "Spirit's Gift", "Garrison Resources", "", "default", "NagrandTreasures","824"},
 --NagrandRares
 [84605340]={ "35778", "Ancient Blademaster", "i598 Strength Neck", "", "rare", "NagrandRares","116832"},
 [51001600]={ "37210", "Aogexon", "Reputation Item for Steamwheedle Preservation Society", "", "swprare", "NagrandSWP","118654"},
@@ -552,7 +517,7 @@ nodes["NagrandDraenor"] = {
 [40001600]={ "37396", "Bonebreaker", "i620 Agility/Intellect Mail Pants", "", "hundredrare", "NagrandHundred","119370"},
 [43003640]={ "37400", "Brutag Grimblade", "i620 Intellect/Strength Plate Boots", "", "hundredrare", "NagrandHundred","119380"},
 [34607700]={ "34727", "Captain Ironbeard", "Toy + i607 Gun", "", "rare", "NagrandRares","118244"},
-[50204120]={ "37221", "Dekorhan", "Reputation Item for Steamwheedle Preservation Society", "", "swprare", "NagrandSWP","118656"},
+[64203000]={ "37221", "Dekorhan", "Reputation Item for Steamwheedle Preservation Society", "", "swprare", "NagrandSWP","118656"},
 [60003800]={ "37222", "Direhoof", "Reputation Item for Steamwheedle Preservation Society", "", "swprare", "NagrandSWP","118657"},
 [38602240]={ "37395", "Durg Spinecrusher", "i620 Agility 2H Mace", "", "hundredrare", "NagrandHundred","119405"},
 [89004120]={ "35623", "Explorer Nozzand", "Trash Item", "", "rare", "NagrandRares","118679"},
@@ -571,7 +536,7 @@ nodes["NagrandDraenor"] = {
 [87005500]={ "34862", "Hyperious", "i597 Trinket Haste + Mastery Proc", "", "rare", "NagrandRares","116799"},
 [45803480]={ "37399", "Karosh Blackwind", "i620 Cloth Pants", "", "hundredrare", "NagrandHundred","119355"},
 [43803440]={ "37473", "Krahl Deadeye", "Apexis Crystals", "Summoned by Signal Horn object using Secret Meeting Details item", "hundredrare", "NagrandHundred",""},
-[58201200]={ "37398", "Krud the Eviscerator", "i620 Intellect/Strength Plate Waist", "", "hundredrare", "NagrandHundred","119384"},
+[58201200]={ "37398", "Krud the Eviscerator", "i620 Intellect/Strength Plate Waist + Achievement", "Kill 15 mobs near him to make him become attackable", "hundredrare", "NagrandHundred","119384"},
 [52009000]={ "37408", "Lernaea", "unknown", "", "hundredrare", "NagrandHundred",""},
 [81206000]={ "35932", "Malroc Stonesunder", "i597 Agility Staff", "", "rare", "NagrandRares","116796"},
 [45801520]={ "36229", "Mr. Pinchy Sr.", "i616 Trinket Multistrike + Lobstrok Proc", "", "rare", "NagrandRares","118690"},
@@ -586,12 +551,132 @@ nodes["NagrandDraenor"] = {
 [54806120]={ "35931", "Scout Pokhar", "i601 Strength 1H Axe", "", "rare", "NagrandRares","116797"},
 [60934775]={ "35912", "Sean Whitesea", "i600 Agility/Intellect Leather Waist", "Spawns when Abandoned Chest is looted", "rare", "NagrandRares","116834"},
 [75606500]={ "36128", "Soulfang", "i597 Intellect Sword", "", "rare", "NagrandRares","116806"},
-[63402960]={ "37225", "Thek'talon", "Reputation Item for Steamwheedle Preservation Society", "", "swprare", "NagrandSWP","118660"},
+[58403580]={ "37225", "Thek'talon", "Reputation Item for Steamwheedle Preservation Society", "", "swprare", "NagrandSWP","118660"},
 [65003900]={ "35920", "Tura'aka", "i609 Agility Cloak", "", "rare", "NagrandRares","116814"},
 [37003800]={ "37520", "Vileclaw", "Reputation Item for Steamwheedle Preservation Society", "", "swprare", "NagrandSWP","120172"},
 [82607620]={ "34645", "Warmaster Blugthol", "i600 Strength/Intellect Plate Bracer", "", "rare", "NagrandRares","116805"},
 [70602940]={ "35877", "Windcaller Korast", "i598 Caster Staff", "", "rare", "NagrandRares","116808"},
 [41004400]={ "37226", "Xelganak", "Reputation Item for Steamwheedle Preservation Society", "", "swprare", "NagrandSWP","118661"},
+}
+nodes["TanaanJungle"] = {
+[15005440]={ "38754", "Axe of Weeping Wolf", "i650 Strength 2H Axe", "First floor of north-east tower", "default", "TanaanTreasures","127325"},
+[15905930]={ "38757", "The Eye of Grannok", "i650 Intellect/Haste/Multistrike Trinket", "Second floor of south-east tower", "default", "TanaanTreasures","128220"},
+[17305690]={ "38755", "Spoils of War", "500 Garrison Resources", "", "default", "TanaanTreasures","824"},
+[17005300]={ "38283", "Stolen Captains Chest", "a little bit of gold", "", "default", "TanaanTreasures",""},
+[15904980]={ "38208", "Weathered Axe", "i650 Agility 1H Axe", "In the podling cave", "default", "TanaanTreasures","127324"},
+[25305020]={ "38735", "Borrowed Enchanted Spyglass", "i650 Intellect/Critical Trinket", "At the top of the east tower", "default", "TanaanTreasures","128222"},
+[22004780]={ "38678", "Bleeding Hollow Warchest", "100 Garrison Resources", ".", "default", "TanaanTreasures","824"},
+[26804410]={ "38683", "Looted Bleeding Hollow Treasure", "Transformation Item", "Tanaan campaign #3 completion is required to unlock", "default", "TanaanTreasures","127709"},
+[19304090]={ "38320", "The Blade of Kra'nak", "i650 Agility 1H Sword", "Underwater", "default", "TanaanTreasures","127338"},
+[31403110]={ "38732", "Jeweled Arakkoa Effigy", "WoD Gem", "Jump through the rocks", "default", "TanaanTreasures","127413"},
+[28803460]={ "38863", "Partially Mined Apexis Crystal", "Apexis Crystals", "Cave Entrance is at 29.2 / 31.1", "default", "TanaanTreasures","823"},
+[34703460]={ "38742", "Skull of the Mad Chief", "Item for Slow Fall/Water Walk", "Cave Entrance is at 32.5 / 37.4", "default", "TanaanTreasures","127669"},
+[26506300]={ "38741", "Looted Bleeding Hollow Treasure", "Apexis Crystals and Garrison Resources", "At the top of the tower", "default", "TanaanTreasures","823"},
+[32407040]={ "38426", "Tome of Secrets", "Toy", "", "default", "TanaanTreasures","127670"},
+[30407200]={ "38629", "Polished Crystal", "WoD Gem", "", "default", "TanaanTreasures","127390"},
+[37004620]={ "38640", "Pale Removal Equipment", "Garrison Resources", "", "default", "TanaanTreasures","824"},
+[36304350]={ "37956", "Strange Sapphire", "i650 Stamina/Bonus Armor Trinket", "", "default", "TanaanTreasures","127397"},
+[43203830]={ "38821", "The Commanders Shield", "i650 Strength/Intellect Shield", "", "default", "TanaanTreasures","127348"},
+[42803540]={ "38822", "Dazzling Rod", "Toy", "	At the top of the north-east tower", "default", "TanaanTreasures","127859"},
+[46904210]={ "38776", "Sacrificial Blade", "i650 Spellpower Dagger", "", "default", "TanaanTreasures","127328"},
+[46904440]={ "38773", "Fel-Drenched Satchel", "Cosmetic Headgear(Goggles)", "", "default", "TanaanTreasures","128218"},
+[46903660]={ "38771", "Book of Zyzzix", "i650 Caster Offhand", "", "default", "TanaanTreasures","127347"},
+[50806490]={ "38731", "Overgrown Relic", "i650 Agility/Strength Ring", "", "default", "TanaanTreasures","127412"},
+[54806930]={ "38593", "Lodged Hunting Spear", "i650 Agility Polearm", "", "default", "TanaanTreasures","127334"},
+[47907040]={ "38705", "Crystalized Essence of Elements", "i650 Caster Fist Weapon", "", "default", "TanaanTreasures","127329"},
+[57006500]={ "38591", "Forgotten Sack", "Flavour Item + Raw Beast Hides", "", "default", "TanaanTreasures","110609"},
+[46207280]={ "38739", "Mysterious Corrupted Obelisk", "Accessory", "Tanaan campaign #5 completion is required to unlock", "default", "TanaanTreasures","128320"},
+[41607330]={ "38657", "Forgotten Champions Blade", "i650 Strength 2H Sword", "", "default", "TanaanTreasures","127339"},
+[40807550]={ "38639", "The Perfect Blossom", "Toy", "Get the immunity buff from nearby Mysterious Fruits to prevent loot cast interruption.", "default", "TanaanTreasures","127766"},
+[40607980]={ "38638", "Snake Charmer Flute", "i650 Caster 2H Mace", "", "default", "TanaanTreasures","127333"},
+[34407830]={ "38762", "Stashed Iron Sea Booty #3", "Gold and Garrison Resources", "Cave Entrance is at 37.5 / 76.0", "default", "TanaanTreasures","824"},
+[35007730]={ "38761", "Stashed Iron Sea Booty #2", "Gold and Garrison Resources", "Cave Entrance is at 37.5 / 76.0", "default", "TanaanTreasures","824"},
+[33907810]={ "38760", "Stashed Iron Sea Booty #1", "Gold and Garrison Resources", "Cave Entrance is at 37.5 / 76.0", "default", "TanaanTreasures","824"},
+[35907860]={ "38758", "Ironbeards Treasure", "Gold and Garrison Resources", "", "default", "TanaanTreasures","824"},
+[37708070]={ "38788", "Brazier of Awakening", "Ressurection Accessory", "", "default", "TanaanTreasures","127770"},
+[48507520]={ "38814", "Looted Mystical Staff", "i650 Caster Staff", "Cave Entrance is at 44.4 / 77.5", "default", "TanaanTreasures","127337"},
+[49907680]={ "38809", "Bleeding Hollow Mushroom Stash", "Food with Side effects", "Cave Entrance is at 44.4 / 77.5", "default", "TanaanTreasures","128223"},
+[62107070]={ "38602", "Crystalized Fel Spike", "i650 Intellect/Spirit Trinket", "", "default", "TanaanTreasures","128217"},
+[61207580]={ "38601", "Blackfang Isle Cache", "Garrison Resources", "", "default", "TanaanTreasures","824"},
+[49907960]={ "38703", "Scouts Belongings", "i650 Agility Cloak", "Top of the cave", "default", "TanaanTreasures","127354"},
+[49908120]={ "38702", "Discarded Helm", "i650 Agility/Intellect Mail Helm", "Inside the cave", "default", "TanaanTreasures","127312"},
+[64704280]={ "38701", "Loose Soil", "Transformation Toy", "", "default", "TanaanTreasures","127396"},
+[51702430]={ "38686", "Rune Etched Femur", "i650 Wand", "", "default", "TanaanTreasures","127341"},
+[58502520]={ "38679", "Jewel of the Fallen Star", "WoD Gem", "", "default", "TanaanTreasures","115524"},
+[62602050]={ "38682", "Censer of Torment", "i650 Strength/Versatility Trinket", "", "default", "TanaanTreasures","127401"},
+[51603270]={ "39075", "Fel-Tainted Apexis Formation", "Apexis Crystals", "Hanging from the pillar's edge", "default", "TanaanTreasures","823"},
+[28702330]={ "38334", "Jewel of Hellfire", "Toy", "", "default", "TanaanTreasures","127668"},
+[63402810]={ "38740", "Forgotten Shard of the Cipher", "Pet", "Tanaan campaign #6 completion is required to unlock", "default", "TanaanTreasures","128309"},
+[54909070]={ "39470", "Dead Mans Chest", "Garrison Resource", "", "default", "TanaanTreasures","824"},
+[65908500]={ "39469", "Bejeweled Egg", "Trash Item", "", "default", "TanaanTreasures","128386"},
+[69705600]={ "38704", "Forgotten Iron Horde Supplies", "Garrison Resources", "", "default", "TanaanTreasures","824"},
+[73604320]={ "38779", "Stashed Bleeding Hollow Loot", "Gold + Trash Item", "First floor of north-east tower.", "default", "TanaanTreasures",""},
+
+[13605680]={ "38747", "Tho'gar Gorefist", "i655 Agility/Intellect Mail Boots", "", "hundredrare", "TanaanHundred","127310","28347"},
+[13005700]={ "38751", "The Iron Houndmaster", "i655 Strength/Intellect Plate Shoulders", "Capture Strongpoint (west) to make him spawn. Iron Front event required", "hundredrare", "TanaanHundred","127321","28350"},
+[16005920]={ "38750", "Grannok", "i655 Intellect Neck", "At the top of the south-east tower.", "hundredrare", "TanaanHundred","127649","28348"},
+[15005420]={ "38746", "Commander Krag'goth", "i655 Strength/Intellect Plate Gloves", "At the top of the north-east tower", "hundredrare", "TanaanHundred","127319", "28346"},
+[16005720]={ "38752", "Szirek the Twisted", "i655 Cloth Gloves", "Capture Strongpoint (east) to make him spawn. Iron Front event required", "hundredrare", "TanaanHundred","127296","28349"},
+[16804860]={ "38282", "Podlord Wakkawam", "i655 Agility Staff", "", "hundredrare", "TanaanHundred","127336", "28329"},
+[23605200]={ "38262", "Bilkor the Thrower", "i655 Agility/Intellect Leather Shoulder", "", "hundredrare", "TanaanHundred","127307","28351"},
+[20404980]={ "38263", "Rogond the Tracker", "i655 Agility/Intellect Mail Shoulder", "", "hundredrare", "TanaanHundred","127314","28352"},
+[19805360]={ "38736", "Driss Vile", "i655 Gun", "At the top of the south tower", "hundredrare", "TanaanHundred","127331","28369"},
+[25504620]={ "38264", "Drivnul", "i655 Cloth Pants", "", "hundredrare", "TanaanHundred","127298","28354"},
+[23204840]={ "38265", "Dorg the Bloody", "i655 Cloth Belt", "Killing mobs in the area will make him spawn somewhere in the area", "hundredrare", "TanaanHundred","127301","28353"},
+[22805120]={ "38266", "Bloodhunter Zulk", "i655 Agility/Intellect Leather Boots", "Interrupting Bleeding Hollow activities will make him spawn", "hundredrare", "TanaanHundred","127303","28355"},
+[22205080]={ "39159", "Remnant of the Blood Moon", "Toy", "Draining Blood Moon empty will make it spawn. Zeth'Gol event required", "hundredrare", "TanaanHundred","127666"},
+[16804340]={ "38034", "Rasthe", "i655 Crit/Mastery/Multistrike Trinket", "", "hundredrare", "TanaanHundred","127661","28341"},
+[20404000]={ "38028", "High Priest Ikzan", "Transformation Accessory", "Roams the whole camp", "hundredrare", "TanaanHundred","122117"},
+[27603280]={ "37937", "Varyx the Damned", "i655 Intellect Ring", "Need 5 players to open his prison", "hundredrare", "TanaanHundred","127351", "28340"},
+[26305420]={ "38496", "Relgor", "i655 Agility Polearm", "", "hundredrare", "TanaanHundred","127335","28356"},
+[28605080]={ "38775", "Felbore", "i655 Strength Ring", "Cave Entrance is at 31.3 / 53.5", "hundredrare", "TanaanHundred","127350","28372"},
+[31406800]={ "38031", "Ceraxas", "Fel Pup - Pet", "doesn't actually drop the pet, but spawns the quest required to get it", "hundredrare", "TanaanHundred","","28336"},
+[27607480]={ "38030", "Jax'zor", "i655 Strength/Intellect Plate Belt", "Cave Entrance is at 29.6 / 70.6", "hundredrare", "TanaanHundred","127322","28335"},
+[25807900]={ "38032", "Mistress Thavra", "i655 Cloth Shoulders", "Cave Entrance is at 29.6 / 70.6", "hundredrare", "TanaanHundred","127300","28337"},
+[25407720]={ "38029", "Lady Oran", "i655 Agility/Intellect Mail Wrist", "Cave Entrance is at 29.6 / 70.6", "hundredrare", "TanaanHundred","127316","28334"},
+[31607280]={ "38026", "Imp-Master Valessa", "Accessory", "", "hundredrare", "TanaanHundred","127655","28333"},
+[35404680]={ "38609", "Belgork", "i655 Strength/Intellect Shield", "", "hundredrare", "TanaanHundred","127650","28363"},
+[34004440]={ "38620", "Thromma the Gutslicer", "i655 Agility Dagger", "", "hundredrare", "TanaanHundred","127327","28362"},
+[33003570]={ "38709", "Gorabosh", "i655 Agility/Intellect Leather Gloves", "", "hundredrare", "TanaanHundred","127304","28368"},
+[37003280]={ "39045", "Zoug the Heavy", "i655 Agility/Intellect Leather Belt", "", "hundredrare", "TanaanHundred","127308","28723"},
+[39603260]={ "39046", "Harbormaster Korak", "i655 Agility/Intellect Mail Body", "", "hundredrare", "TanaanHundred","127309","28724"},
+[42403730]={ "37953", "Sergeant Mor'grak", "i655 Strength/Intellect Plate Boots", "", "hundredrare", "TanaanHundred","127318","28339"},
+[44603760]={ "37990", "Cindral the Wildfire", "i655 Versatility/Mastery/Multistrike Trinket", "Killing all Remnant of Cindral in the forge will make it spawn", "hundredrare", "TanaanHundred","127660","28338"},
+[45804700]={ "38634", "Felsmith Damorka", "i655 Agility/Intellect Leather Body", "", "hundredrare", "TanaanHundred","127302","28726"},
+[50003600]={ "38411", "Executor Riloth", "i655 Strength/Intellect Plate Bracer", "", "hundredrare", "TanaanHundred","127323","28380"},
+[46204240]={ "38400", "Grand Warlock Nethekurse", "i655 Cloth Body", "", "hundredrare", "TanaanHundred","127299","28343"},
+[51004600]={ "38749", "Commander Org'mok", "i655 Agility/Intellect Mail Pants", "Patrols around the area", "hundredrare", "TanaanHundred","127313","28731"},
+[48005720]={ "38820", "Captain Grok'mar", "i655 Strength/Intellect Plate Pants", "", "hundredrare", "TanaanHundred","127664","28730"},
+[49706140]={ "38812", "Shadowthrash", "i655 Agility/Intellect Leather Bracer", "", "hundredrare", "TanaanHundred","127665","28725"},
+[52206510]={ "38726", "Magwia", "i655 Strength 1H Mace", "", "hundredrare", "TanaanHundred","127332","28345"},
+[40807000]={ "38209", "Bramblefell", "Toy - Cooking Fire", "", "hundredrare", "TanaanHundred","127652" ,"28330"},
+[39606810]={ "38825", "Kris'kar the Unredeemed ", "i655 Strength 1H Sword", "Cave Entrance is at 42.5 / 68.9", "hundredrare", "TanaanHundred","127653","28377"},
+[34307250]={ "38654", "The Goreclaw", "i655 Agility/Intellect Leather Helm", "Cave Entrance is at 36.2 / 72.4", "hundredrare", "TanaanHundred","127305","28367"},
+[39407380]={ "38632", "The Night Haunter", "i655 Strength Cloak", "Collect 10 Stacks of his debuff to spawn him by finding 'copies' of him or by touching mutilated corpses", "hundredrare", "TanaanHundred","127355","28366"},
+[41007880]={ "38628", "Sylissa", "i655 Agility/Intellect Mail Gloves", "", "hundredrare", "TanaanHundred","127311","28364"},
+[41807380]={ "38631", "Rendrak", "i655 Intellect Cloak", "", "hundredrare", "TanaanHundred","127356","28365"},
+[36207970]={ "38756", "Captain Ironbeard ", "Toy", "Cave Entrance is at 37.5 / 76.0", "hundredrare", "TanaanHundred","127659","28370"},
+[34607820]={ "38764", "Glub'glok", "i655 Strength/Intellect Plate Body", "Cave Entrance is at 37.5 / 76.0. You need to open a chest to actually spawn him", "hundredrare", "TanaanHundred","127317","28371"},
+[51007440]={ "38696", "Bleeding Hollow Horror", "i655 Stamina/Bonus Armor Trinket", "Cave Entrance is at 44.4 / 77.5", "hundredrare", "TanaanHundred","127654","28376"},
+[57606720]={ "38589", "Broodlord Ixkor", "i655 Agility Ring", "", "hundredrare", "TanaanHundred","127349","28357"},
+[62607200]={ "38600", "Soulslicer", "i655 Agility/Intellect Mail Belt", "", "hundredrare", "TanaanHundred","127315","28358"},
+[63608110]={ "38604", "Gloomtalon", "i655 Agility/Intellect Leather Pants", "", "hundredrare", "TanaanHundred","127306","28359"},
+[52108390]={ "38605", "Krell the Serene", "i655 Agility/Multistrike Trinket", "", "hundredrare", "TanaanHundred","127418","28360"},
+[48807280]={ "38597", "The Blackfang", "i655 Agility Fist Weapon", "", "hundredrare", "TanaanHundred","127330","28361"},
+[48402850]={ "38207", "Zeter'el", "i655 Strength 2H Sword", "Cave Entrance is at 48.1 / 33.0", "hundredrare", "TanaanHundred","127340","28331"},
+[52802560]={ "38211", "Felspark", "i655 Cloth Bracer", "", "hundredrare", "TanaanHundred","127656","28332"},
+[53602170]={ "38557", "Painmistress Selora", "i655 Cloth Helm", "Complete the event by killing mob waves to make her spawn", "hundredrare", "TanaanHundred","127297","28342"},
+[57102280]={ "38457", "Putre'thar", "i655 Intellect/Spirit Trinket", "", "hundredrare", "TanaanHundred","127657","28727"},
+[53002000]={ "38580", "Overlord Ma'gruth", "i655 Strength/Intellect Plate Helm", "", "hundredrare", "TanaanHundred","127320","28729"},
+[60202090]={ "38579", "Xanzith the Everlasting", "i655 Intellect Offhand", "", "hundredrare", "TanaanHundred","127658","28728"},
+[65403660]={ "38700", "Steelsnout", "i655 Agility/Strength Cloak", "", "hundredrare", "TanaanHundred","127357","28344"},
+[52604020]={ "38430", "Argosh the Destroyer", "i655 Crossbow", "", "hundredrare", "TanaanHundred","127326","28722"},
+[41407960]={ "37407", "Keravnos", "unknown", "", "hundredrare", "TanaanHundred",""},
+
+[15406340]={ "39288", "Terrorfist", "Mounts + Oil", "His spawn will be announced by Frogan: A massive gronnling is heading for Rangari Refuge! We are going to require some assistance!", "hundredrare", "TanaanBoss",""},
+[23204040]={ "39287", "Deathtalon", "Mounts + Oil", "His spawn will be announced by Shadow Lord Iskar: Behind the veil, all you find is death!", "hundredrare", "TanaanBoss",""},
+[32407400]={ "39290", "Vengeance", "Mounts + Oil", "His spawn will be announced by Tyrant Velhari: Insects deserve to be crushed!", "hundredrare", "TanaanBoss",""},
+[47005260]={ "39289", "Doomroller", "Mounts + Oil", "His spawn will be announced by Siegemaster Mar'tak: Hah-ha! Trample their corpses!", "hundredrare", "TanaanBoss",""},
 }
 nodes["garrisonsmvalliance_tier1"] = {
 [49604380]={ "35530", "Lunarfall Egg", "Garrison Resources", "on a wagon", "default", "SMVTreasures","824"},
@@ -626,14 +711,7 @@ nodes["garrisonffhorde_tier2"] = {
 nodes["garrisonffhorde_tier3"] = {
 [74505620]={ "34937", "Lady Sena's Other Materials Stash", "Garrison Resources", "", "default", "FFRTreasures","824"},
 }
-if ((IsQuestFlaggedCompleted(36386) == false) or (IsQuestFlaggedCompleted(36390) == false) or (IsQuestFlaggedCompleted(36389) == false) or (IsQuestFlaggedCompleted(36392) == false) or (IsQuestFlaggedCompleted(36388) == false) or (IsQuestFlaggedCompleted(36381) == false)) then
-nodes["SpiresOfArak"][43901500]={ "36395", "Elixir of Shadow Sight 1", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
-nodes["SpiresOfArak"][43802470]={ "36397", "Elixir of Shadow Sight 2", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
-nodes["SpiresOfArak"][69204330]={ "36398", "Elixir of Shadow Sight 3", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
-nodes["SpiresOfArak"][48906250]={ "36399", "Elixir of Shadow Sight 4", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
-nodes["SpiresOfArak"][55602200]={ "36400", "Elixir of Shadow Sight 5", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
-nodes["SpiresOfArak"][53108450]={ "36401", "Elixir of Shadow Sight 6", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
-end
+
 if (PlayerFaction == "Alliance") then
 nodes["ShadowmoonValleyDR"][29600620]={ "35281", "Bahameye", "Fire Ammonite", "", "rare", "SMVRares","111666"}
 nodes["Gorgrond"][60805400]={ "36502", "Biolante", "Quest Item for XP", "You must finish the quest before this element gets removed from the map", "rare", "GorgrondRares","116159"}
@@ -660,7 +738,7 @@ nodes["Talador"][61107170]={ "34116", "Norana's Cache", "i564 Agility Neck", "",
 nodes["Gorgrond"][51206360]={ "35818", "Roardan the Sky Terror", "Quest Item for XP", "Flies around a lot, Coordinates are just somewhere on his route!You must finish the quest before this element gets removed from the map", "rare", "GorgrondRares","113459"}
 end
 
- function GetItem(ID)
+local function GetItem(ID)
 	if (ID == "824" or ID == "823") then
 		local currency, _, _ = GetCurrencyInfo(ID)
 		if (currency ~= nil) then
@@ -677,7 +755,7 @@ end
 		end
 	end
 end	
- function GetIcon(ID)
+local function GetIcon(ID)
 	if (ID == "824" or ID == "823") then
 		local _, _, icon = GetCurrencyInfo(ID)
 		if (icon ~= nil) then
@@ -749,6 +827,17 @@ local function generateMenu(button, level)
 			info.func = addtoTomTom
 			info.arg1 = clickedMapFile
 			info.arg2 = clickedCoord
+			UIDropDownMenu_AddButton(info, level)
+		end
+		if isDBMloaded == true then
+			info.text = "Add this treasure as DBM Arrow"
+			info.func = AddDBMArrow
+			info.arg1 = clickedMapFile
+			info.arg2 = clickedCoord
+			UIDropDownMenu_AddButton(info, level)
+			
+			info.text = "Hide DBM Arrow"
+			info.func = HideDBMArrow
 			UIDropDownMenu_AddButton(info, level)
 		end
 
@@ -866,13 +955,6 @@ SMVHundredRares = {
    order = 3,
    width = "half",
   },
-SMVShrines = {
-   type = "toggle",
-   name = "Shrines",
-   arg = "SMVShrine",
-   order = 4,
-   width = "half",
-  },
 FFRGroup = {
 	name = "Frostfire Ridge",
 	desc = "Frostfire Ridge",
@@ -908,13 +990,6 @@ FFRHundredRares = {
    arg = "FFRHundred",
    width = "half",
    order = 14,
-  },
-FFRShrines = {
-   type = "toggle",
-   name = "Shrines",
-   arg = "FFRShrine",
-   order = 15,
-   width = "half",
   },
 GorgrondGroup = {
 	name = "Gorgrond",
@@ -1058,16 +1133,62 @@ NagrandGroup = {
    desc = "Steamwheedle Preservation Society Rares",
    arg = "NagrandSWP",
    width = "half",
-   order = 53,
+   order = 54,
   },
+ TanaanGroup = {
+	name = "Tanaan Jungle",
+	desc = "Tanaan Jungle",
+	type = "header",
+	order = 55,
+	},	
+TanaanHundredRares = {
+   type = "toggle",
+   name = "L100 Rares",
+   arg = "TanaanHundred",
+   desc = "Level 100 Rarespawns",
+   width = "normal",
+   order = 56,
+  },
+TanaanHundredAchievement = {
+   type = "toggle",
+   name = "Only Show the ones missing for the achievement [Jungle Stalker]",
+   arg = "TanaanHundredAchievement",
+   desc = "This has priority over the option [Always show  already looted Rares]",
+   width = "normal",
+   order = 57,
+  },
+TanaanTreasures = {
+   type = "toggle",
+   name = "Treasures",
+   arg = "TanaanTreasures",
+   desc = "Level 100 Rarespawns",
+   width = "normal",
+   order = 59,
+  },
+TanaanBoss = {
+   type = "toggle",
+   name = "Bosses",
+   arg = "TanaanBoss",
+   desc = "Mount & Oil Bosses",
+   width = "normal",
+   order = 58,
+  },   
 	},
   },
-  alwaysshow = {
+  alwaysshowrares = {
    type = "toggle",
-   name = "Also show already looted(killed) Treasures(Rares)",
-   desc = "Show every treasure/rare regardless of looted status",
-   arg = "alwaysshow",
+   name = "Also show already looted Rares",
+   desc = "Show every rare regardless of looted status",
+   arg = "alwaysshowrares",
    order = 100,
+   width = "full",
+  },
+  alwaysshowtreasures = {
+   type = "toggle",
+   name = "Also show already looted Treasures",
+   desc = "Show every treasure regardless of looted status",
+   arg = "alwaysshowtreasures",
+   order = 101,
    width = "full",
   },
     show_loot = {
@@ -1075,14 +1196,14 @@ NagrandGroup = {
    name = "Show Loot",
    desc = "Shows the Loot for each Treasure/Rare",
    arg = "show_loot",
-   order = 101,
+   order = 102,
    },
   show_notes = {
    type = "toggle",
    name = "Show Notes",
    desc = "Shows the notes each Treasure/Rare if available",
    arg = "show_notes",
-   order = 101,
+   order = 103,
    },
 	 },
 	},
@@ -1094,23 +1215,22 @@ function DraenorTreasures:OnInitialize()
   profile = {
    icon_scale_treasures = 1.5,
    icon_scale_rares = 2.0,
-   icon_alpha = 1.0,
-   alwaysshow = false,
+   icon_alpha = 1.00,
+   alwaysshowrares = false,
+   alwaysshowtreasures = false,
    save = true,
    SMVTreasures = true,
    SMVRares = true,
    SMVHundred = true,
-   SMVShrine = true,
    FFRTreasures = true,
    FFRRares = true,
    FFRHundred = true,
-   FFRShrine = true,
    FFRBF = false,
    GorgrondTreasures = true,
    GorgrondRares = true,
    GorgrondHundred = true,
-   GorgrondLumber = false,
-   GorgrondBoulder = false,
+   GorgrondLumber = true,
+   GorgrondBoulder = true,
    TaladorTreasures = true,
    TaladorRares = true,
    TaladorHundred = true,
@@ -1122,6 +1242,10 @@ function DraenorTreasures:OnInitialize()
    NagrandRares = true,
    NagrandHundred = true,
    NagrandSWP = true,
+   TanaanHundred = true,
+   TanaanHundredAchievement = false,
+   TanaanBoss = true,
+   TanaanTreasures = true,
    show_loot = true,
    show_notes = true,
    },
@@ -1133,7 +1257,77 @@ end
 
 function DraenorTreasures:WorldEnter()
  self:UnregisterEvent("PLAYER_ENTERING_WORLD")
- self:ScheduleTimer("RegisterWithHandyNotes", 5)
+ self:ScheduleTimer("QuestCheck", 5)
+ self:ScheduleTimer("RegisterWithHandyNotes", 8)
+end
+
+function DraenorTreasures:QuestCheck()
+do
+	if ((IsQuestFlaggedCompleted(36386) == false) or (IsQuestFlaggedCompleted(36390) == false) or (IsQuestFlaggedCompleted(36389) == false) or (IsQuestFlaggedCompleted(36392) == false) or (IsQuestFlaggedCompleted(36388) == false) or (IsQuestFlaggedCompleted(36381) == false)) then
+		nodes["SpiresOfArak"][43901500]={ "36395", "Elixir of Shadow Sight 1", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
+		nodes["SpiresOfArak"][43802470]={ "36397", "Elixir of Shadow Sight 2", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
+		nodes["SpiresOfArak"][69204330]={ "36398", "Elixir of Shadow Sight 3", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
+		nodes["SpiresOfArak"][48906250]={ "36399", "Elixir of Shadow Sight 4", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
+		nodes["SpiresOfArak"][55602200]={ "36400", "Elixir of Shadow Sight 5", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
+		nodes["SpiresOfArak"][53108450]={ "36401", "Elixir of Shadow Sight 6", "Elixir of Shadow Sight", "Elixir can be used at Shrine of Terrok for 1 of 6 i585 Weapons (see Gift of Anzu) Object will be removed as soon as you loot all Gifts of Anzu", "default", "SoATreasures","115463"}
+	end
+	if (IsQuestFlaggedCompleted(36249) or IsQuestFlaggedCompleted(36250)) then
+		--Gorgrond Lumber Mill is active if either of these Quest IDs are true
+		nodes["Gorgrond"][49074846]={ "950000", "Aged Stone Container", "", "QuestID is missing, will stay active until manually disabled", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][42345477]={ "36003", "Aged Stone Container", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][47514363]={ "36717", "Aged Stone Container", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][53354679]={ "35701", "Ancient Titan Chest", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][50155376]={ "35984", "Ancient Titan Chest", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][42084607]={ "36720", "Ancient Titan Chest", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][41988155]={ "35982", "Botani Essence Seed", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][49657883]={ "35968", "Forgotten Ogre Cache", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][47016905]={ "35971", "Forgotten Skull Cache", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][45808931]={ "36019", "Forgotten Skull Cache", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][39335627]={ "36716", "Forgotten Skull Cache", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][56745727]={ "35965", "Mysterious Petrified Pod", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][41147726]={ "35980", "Mysterious Petrified Pod", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][60507276]={ "36015", "Mysterious Petrified Pod", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][63285719]={ "36430", "Mysterious Petrified Pod", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][47647679]={ "36714", "Mysterious Petrified Pod", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][51756909]={ "36715", "Mysterious Petrified Pod", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][40956732]={ "35979", "Obsidian Crystal Formation", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][45969357]={ "35975", "Remains of Explorer Engineer Toldirk Ashlamp", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][51806148]={ "35966", "Remains of Grimnir Ashpick", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][51647226]={ "35967", "Unknown Petrified Egg", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][45318195]={ "35981", "Unknown Petrified Egg", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][42914350]={ "36001", "Unknown Petrified Egg", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][53007906]={ "36713", "Unknown Petrified Egg", "", "", "default", "GorgrondLumber","824"}
+		nodes["Gorgrond"][47245180]={ "36718", "Unknown Petrified Egg", "", "", "default", "GorgrondLumber","824"}
+	end
+	if (IsQuestFlaggedCompleted(36251) or IsQuestFlaggedCompleted(36252)) then
+		--Gorgrond Sparring Arena is active if either of these Quest IDs are true
+		nodes["Gorgrond"][45634931]={ "36722", "Aged Stone Container", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][43224574]={ "36723", "Aged Stone Container", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][41764527]={ "36726", "Aged Stone Container", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][48115516]={ "36730", "Aged Stone Container", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][51334055]={ "36734", "Aged Stone Container", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][46056305]={ "36736", "Aged Stone Container", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][58125146]={ "36739", "Aged Stone Container", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][59567275]={ "36781", "Aged Stone Container", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][45748821]={ "36784", "Aged Stone Container", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][45544298]={ "36733", "Ancient Ogre Cache", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][45076993]={ "36737", "Ancient Ogre Cache", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][61555855]={ "36740", "Ancient Ogre Cache", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][54257313]={ "36782", "Ancient Ogre Cache", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][42179308]={ "36787", "Ancient Ogre Cache", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][41528652]={ "36789", "Ancient Ogre Cache", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][49425084]={ "36710", "Ancient Titan Chest", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][42195203]={ "36727", "Ancient Titan Chest", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][43365169]={ "36731", "Ancient Titan Chest", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][47923998]={ "36735", "Ancient Titan Chest", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][50326658]={ "36738", "Ancient Titan Chest", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][49128248]={ "36783", "Ancient Titan Chest", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][48114638]={ "36721", "Obsidian Crystal Formation", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][41855889]={ "36728", "Obsidian Crystal Formation", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][42056429]={ "36729", "Obsidian Crystal Formation", "", "", "default", "GorgrondBoulder","824"}
+		nodes["Gorgrond"][44184665]={ "36732", "Obsidian Crystal Formation", "", "", "default", "GorgrondBoulder","824"}
+	end
+end
 end
 
 function DraenorTreasures:RegisterWithHandyNotes()
@@ -1142,19 +1336,50 @@ do
 		if not t then return nil end
 		local state, value = next(t, prestate)
 		while state do
+				if (value[1] and self.db.profile[value[6]] and not DraenorTreasures:HasBeenLooted(value)) and (value[6] == "TanaanHundred") then
+					if (self.db.profile.TanaanHundredAchievement) then
+						if ((value[8] ~= nil) and (value[8] ~= "")) then
+							local _, _, completed, _, _, _, _, _, _, _, _ = GetAchievementCriteriaInfoByID(10070, value[8])
+							if (completed == false) then
+								if ((value[7] ~= nil) and (value[7] ~= "")) then
+									GetIcon(value[7]) --this should precache the Item, so that the loot is correctly returned
+								end
+								if ((value[5] == "default") or (value[5] == "unknown")) then
+									if ((value[7] ~= nil) and (value[7] ~= "")) then
+										return state, nil, GetIcon(value[7]), DraenorTreasures.db.profile.icon_scale_treasures, DraenorTreasures.db.profile.icon_alpha
+									else
+										return state, nil, iconDefaults[value[5]], DraenorTreasures.db.profile.icon_scale_treasures, DraenorTreasures.db.profile.icon_alpha
+									end
+								end
+								return state, nil, iconDefaults[value[5]], DraenorTreasures.db.profile.icon_scale_rares, DraenorTreasures.db.profile.icon_alpha
+							end
+						end
+					else
+						if ((value[7] ~= nil) and (value[7] ~= "")) then
+							GetIcon(value[7]) --this should precache the Item, so that the loot is correctly returned
+						end
+						if ((value[5] == "default") or (value[5] == "unknown")) then
+						if ((value[7] ~= nil) and (value[7] ~= "")) then
+							return state, nil, GetIcon(value[7]), DraenorTreasures.db.profile.icon_scale_treasures, DraenorTreasures.db.profile.icon_alpha
+						else
+							return state, nil, iconDefaults[value[5]], DraenorTreasures.db.profile.icon_scale_treasures, DraenorTreasures.db.profile.icon_alpha
+						end
+					end
+					return state, nil, iconDefaults[value[5]], DraenorTreasures.db.profile.icon_scale_rares, DraenorTreasures.db.profile.icon_alpha	
+					end
+				end
 			    -- QuestID[1], Name[2], Loot[3], Notes[4], Icon[5], Tag[6], ItemID[7]
-			    if (value[1] and self.db.profile[value[6]] and not DraenorTreasures:HasBeenLooted(value)) then
+			    if (value[1] and self.db.profile[value[6]] and not DraenorTreasures:HasBeenLooted(value)) and (value[6] ~= "TanaanHundred") then
+					if ((value[7] ~= nil) and (value[7] ~= "")) then
+				 	GetIcon(value[7]) --this should precache the Item, so that the loot is correctly returned
+					end
 					if ((value[5] == "default") or (value[5] == "unknown")) then
 						if ((value[7] ~= nil) and (value[7] ~= "")) then
 							return state, nil, GetIcon(value[7]), DraenorTreasures.db.profile.icon_scale_treasures, DraenorTreasures.db.profile.icon_alpha
 						else
-							GetIcon(value[7]) --this should precache the Item, so that the loot is correctly returned
 							return state, nil, iconDefaults[value[5]], DraenorTreasures.db.profile.icon_scale_treasures, DraenorTreasures.db.profile.icon_alpha
 						end
 					end
-				if ((value[7] ~= nil) and (value[7] ~= "")) then
-				 	GetIcon(value[7]) --this should precache the Item, so that the loot is correctly returned
-				end
 				 return state, nil, iconDefaults[value[5]], DraenorTreasures.db.profile.icon_scale_rares, DraenorTreasures.db.profile.icon_alpha
 				end
 			state, value = next(t, state)
@@ -1180,7 +1405,8 @@ function ResetDB()
 end
 
 function DraenorTreasures:HasBeenLooted(value)
-if (self.db.profile.alwaysshow) then return false end
+if (self.db.profile.alwaysshowtreasures and (string.find(value[6], "Treasures") ~= nil)) then return false end
+if (self.db.profile.alwaysshowrares and (string.find(value[6], "Treasures") == nil)) then return false end
 if (DraenorTreasures.db.char[value[1]] and self.db.profile.save) then return true end
 if (IsQuestFlaggedCompleted(value[1])) then
 	return true
@@ -1217,4 +1443,44 @@ function addtoTomTom(button, mapFile, coord)
 			world = true
 		})
 	end
+end
+
+if isDBMloaded == true then
+			local ArrowDesc = DBMArrow:CreateFontString(nil, "OVERLAY", "GameTooltipText")
+			ArrowDesc:SetWidth(400)
+			ArrowDesc:SetHeight(100)
+			ArrowDesc:SetPoint("CENTER", DBMArrow, "CENTER", 0, -35)
+			ArrowDesc:SetTextColor(1, 1, 1, 1)
+			ArrowDesc:SetJustifyH("CENTER")
+			DBMArrow.Desc = ArrowDesc
+end
+
+function AddDBMArrow(button, mapFile, coord)
+	if isDBMloaded == true then
+			local mapId = HandyNotes:GetMapFiletoMapID(mapFile)
+			local x, y = HandyNotes:getXY(coord)
+			local desc = nodes[mapFile][coord][2];
+			if (nodes[mapFile][coord][3] ~= nil) and (DraenorTreasures.db.profile.show_loot == true) then
+				if ((nodes[mapFile][coord][7] ~= nil) and (nodes[mapFile][coord][7] ~= "")) then
+					desc = desc.."\nLoot: " .. GetItem(nodes[mapFile][coord][7]);
+					desc = desc.."\nLootinfo: " .. nodes[mapFile][coord][3];
+				else
+					desc = desc.."\nLoot: " .. nodes[mapFile][coord][3];
+				end
+			end
+			if (nodes[mapFile][coord][4] ~= "") and (DraenorTreasures.db.profile.show_notes == true) then
+				desc = desc.."\nNotes: " .. nodes[mapFile][coord][4]
+			end
+			if not DBMArrow.Desc:IsShown() then
+				DBMArrow.Desc:Show()
+			end
+			x = x*100
+			y = y*100
+			DBMArrow.Desc:SetText(desc)
+			DBM.Arrow:ShowRunTo(x, y, nil, nil, true)
+	end
+end
+
+function HideDBMArrow()
+	DBM.Arrow:Hide(true)
 end

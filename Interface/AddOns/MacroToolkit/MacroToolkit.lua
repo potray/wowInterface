@@ -1,13 +1,26 @@
 ﻿local MT = MacroToolkit
 local MTF
-local L = MT.L
+local L, _G = MT.L, _G
 local LSM = MT.LS("LibSharedMedia-3.0")
-local format, string, table, date, ipairs, pairs, select, tostring, strsplit, tonumber = format, string, table, date, ipairs, pairs, select, tostring, strsplit, tonumber
-local GetNumMacros, GetMacroInfo, EditMacro, DeleteMacro, CreateMacro = GetNumMacros, GetMacroInfo, EditMacro, DeleteMacro, CreateMacro
-local PanelTemplates_GetSelectedTab = PanelTemplates_GetSelectedTab
-local CreateFrame, GetBindingText = CreateFrame, GetBindingText
-
+local format, string, table, date, ipairs, pairs, select, tostring, strsplit, tonumber, collectgarbage = format, string, table, date, ipairs, pairs, select, tostring, strsplit, tonumber, collectgarbage
+local max, mod, strlenutf8, floor, print, assert, loadstring, type, tinsert = max, mod, strlenutf8, floor, print, assert, loadstring, type, tinsert
+local GetNumMacros, GetMacroInfo, EditMacro, DeleteMacro, CreateMacro, GetMacroBody, PickupMacro = GetNumMacros, GetMacroInfo, EditMacro, DeleteMacro, CreateMacro, GetMacroBody, PickupMacro
+local IsPassiveSpell, GetItemInfo, GetItemSpell, IsModifiedClick, GetSpellBookItemName, GetBindingKey = IsPassiveSpell, GetItemInfo, GetItemSpell, IsModifiedClick, GetSpellBookItemName, GetBindingKey
+local UnitName, SetBinding, SecureCmdOptionParse, GetContainerItemInfo, PickupContainerItem = UnitName, SetBinding, SecureCmdOptionParse, GetContainerItemInfo, PickupContainerItem
+local BreakUpLargeNumbers, DeleteCursorItem, GetContainerNumSlots, UnitAura, GetNumGroupMembers = BreakUpLargeNumbers, DeleteCursorItem, GetContainerNumSlots, UnitAura, GetNumGroupMembers
+local UseContainerItem, SetCVar, SetRaidTarget, PlaySound, HideUIPanel = UseContainerItem, SetCVar, SetRaidTarget, PlaySound, HideUIPanel
+local PanelTemplates_GetSelectedTab, StaticPopup_Show, SpellBook_GetSpellBookSlot = PanelTemplates_GetSelectedTab, StaticPopup_Show, SpellBook_GetSpellBookSlot
+local CreateFrame, GetBindingText, InCombatLockdown, CursorHasMacro, GetCursorInfo, ClearCursor = CreateFrame, GetBindingText, InCombatLockdown, CursorHasMacro, GetCursorInfo, ClearCursor
 local exFormat = "%s%s%s [btn:1]%s LeftButton;[btn:2]%s RightButton;[btn:3]%s MiddleButton;[btn:4]%s Button4;[btn:5]%s Button5"
+
+-- GLOBALS: ChatEdit_InsertLink StaticPopupDialogs SpellBookFrame MacroToolkitText MacroToolkitEnterText MacroToolkitFauxText MacroToolkitSelMacroName MacroToolkitSelBg MacroToolkitDelete
+-- GLOBALS: MacroToolkitExtend MacroToolkitShorten MacroToolkitSelMacroButton MacroToolkitLimit MacroToolkitEdit MacroToolkitCopy GameTooltip MacroToolkitBind MacroToolkitConditions
+-- GLOBALS: MacroToolkitShare MacroToolkitClear MacroToolkitBackup MacroToolkitBrokerIcon MacroToolkitNew MacroToolkitCSelMacroName MacroToolkitSelMacroButtonIcon MacroToolkitCText
+-- GLOBALS: MacroToolkitCFauxText MacroToolkitCSelMacroButton MacroToolkitCSelMacroButtonIcon MacroToolkitBrokerButton MacroToolkitCopyButton MacroToolkitDB MacroToolkitButton1Name
+-- GLOBALS: MacroToolkitErrors MacroToolkitErrorIcon DEFAULT_CHAT_FRAME SendChatMessage SlashCmdList MacroFrame MacroDeleteButton TradeSkillLinkButton MacroToolkitFauxScrollFrame
+-- GLOBALS: MacroToolkitErrorBg MacroToolkitErrorScrollFrame ChatEdit_GetActiveWindow MacroFrameText ShowCloak ShowingCloak ShowHelm ShowingHelm CanEjectPassengerFromSeat
+-- GLOBALS: EjectPassengerFromSeat UIErrorsFrame SetMapToCurrentZone VehicleExit GetPlayerMapPosition SummonRandomCritter C_MountJournal ToggleDropDownMenu TradeSkillLinkDropDown
+-- GLOBALS: GetTradeSkillListLink LoadAddOn ShowMacroFrame IsAddOnLoaded
 
 MT.Spells = {}
 MT.orphans = {}
@@ -18,7 +31,7 @@ MT.defaults = {
 		commandcolour = "ff00bfff", spellcolour = "ff9932cc", targetcolour = "ffffd700",
 		conditioncolour = "ff8b5a2b", defaultcolour = "ffffffff", errorcolour = "ffff0000",
 		itemcolour = "fff08080", mtcolour = "ffcd2ea9", seqcolour ="ff006600",
-		usecolours = true, unknown = false, replacemt = true, doublewide = false,
+		usecolours = true, unknown = false, replacemt = true, doublewide = false, broker = false,
 		viscondtions = true, visoptionsbutton = true, viscustom = true,
 		visaddscript = true, visaddslot = true, viscrest = false,
 		visbackup = true, visclear = true, visshare = true,
@@ -35,7 +48,7 @@ MT.defaults = {
 			mfont = "Friz Quadrata TT", mifont = "Friz Quadrata TT", misize = 10},
 	},
 	global = {custom = {}, extended = {}, extra = {}, allcharmacros = false},
-	char = {extended = {}, wodupgrade = false},
+	char = {extended = {}, wodupgrade = false, brokers = {}},
 }
 
 local function showtoolkit()
@@ -54,6 +67,8 @@ local function getExMacroIndex(ext)
 		end
 	end
 end
+
+function MT:GetExMacroIndex(ext) return getExMacroIndex(ext) end
 
 local function cleanMacros()
 	local delmacros = {}
@@ -97,6 +112,7 @@ function MT:eventHandler(this, event, arg1, ...)
 			if MT.db.profile.override then
 				MT.showmacroframe = ShowMacroFrame
 				ShowMacroFrame = showtoolkit
+				MT.origMTText = MacroFrameText
 			end
 			local mtbutton = CreateFrame("Button", "MacroToolkitOpen", MacroFrame, "UIPanelButtonTemplate")
 			mtbutton:SetText(L["Toolkit"])
@@ -191,12 +207,18 @@ function MT:eventHandler(this, event, arg1, ...)
 		end
 		--if #MT.db.global.extended > 0 then
 		if countTables(MT.db.global.extended) > 0 then
-			for i, e in pairs(MT.db.global.extended) do _G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
+			for i, e in pairs(MT.db.global.extended) do 
+				_G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body)
+				_G[format("MTSB%d", i)]:SetAttribute("dynamic", MT:IsDynamic(i))
+				MT:UpdateIcon(_G[format("MTSB%d", i)])
+			end
 		end
 		--if #MT.db.char.extended > 0 then
 		if countTables(MT.db.char.extended) > 0 then
 			for i, e in pairs(MT.db.char.extended) do 
 				_G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body)
+				_G[format("MTSB%d", i)]:SetAttribute("dynamic", MT:IsDynamic(i))
+				MT:UpdateIcon(_G[format("MTSB%d", i)])
 				--check for orphaned macro
 				local found = false
 				for om = _G.MAX_ACCOUNT_MACROS + 1, _G.MAX_CHARACTER_MACROS + _G.MAX_ACCOUNT_MACROS do
@@ -220,7 +242,7 @@ function MT:eventHandler(this, event, arg1, ...)
 			end
 		end
 		--if #MT.db.global.extra > 0 then
-		if countTables(MT.db.global.extra) then
+		if countTables(MT.db.global.extra) > 0 then
 			for i, e in pairs(MT.db.global.extra) do _G[format("MTSB%d", i)]:SetAttribute("macrotext", e.body) end
 		end
 		if not MT.db.profile.usecolours then MacroToolkitFauxScrollFrame:Hide() end
@@ -232,6 +254,9 @@ function MT:eventHandler(this, event, arg1, ...)
 		--if IsAddOnLoaded("ElvUI") then MT:LoadElvSkin() end
 		MT.AC = MT.LS("AceComm-3.0")
 		MT.AC:RegisterComm("MacroToolkit", function(...) MT:ReceiveMacro(...) end)
+		if countTables(MT.db.char.brokers) > 0 then
+			for b, d in pairs(MT.db.char.brokers) do MT:CreateBrokerObject(b, d.label) end
+		end
 	end
 end
 
@@ -251,8 +276,9 @@ function MT:ClearAllMacros()
 	if tab < 3 then
 		for m = mend, mstart, -1 do
 			DeleteMacro(m)
-			MT:MacroFrameUpdate()
+			MT:MacroFrame      ()
 			_G[format("MTSB%d", m)]:SetAttribute("macrotext", "")
+			_G[format("MTSB%d", m)]:SetAttribute("dynamic", false)
 		end
 		local var = (tab == 1) and "global" or "char"
 		MT.db[var].extended = {}
@@ -291,6 +317,7 @@ function MT:DoMTMacroCommand(command, parameters)
 	if command == "mtce" then UIErrorsFrame:Clear()
 	elseif command == "mteo" then UIErrorsFrame:RegisterEvent("UI_ERROR_MESSAGE")
 	elseif command == "mtex" then UIErrorsFrame:UnregisterEvent("UI_ERROR_MESSAGE")
+	elseif command == "mtc" then MT:Eval(parameters)
 	elseif command == "mtrp" then SummonRandomCritter()
 	elseif command == "mtso" then SetCVar("Sound_EnableSFX", 1)
 	elseif command == "mtsx" then SetCVar("Sound_EnableSFX", 0)
@@ -365,6 +392,35 @@ function MT:DoMTMacroCommand(command, parameters)
 			end
 		end
 		SendChatMessage(format("%s%s", msg, ppl), "raid")
+	elseif command == "mtp" then
+		parameters = string.lower(parameters)
+		local conditions, msg, chan, target, ctarget, execute
+		local cs, ce = string.find(parameters, "%[.+%]%s+")
+		if cs then
+			conditions = string.sub(parameters, cs, ce)
+			execute, ctarget = SecureCmdOptionParse(format("%s%s %s", MT.slash, MT.target, conditions))
+			if not execute then return end
+			msg = string.sub(parameters, ce + 1)
+		else msg = parameters end
+		chan = string.match(msg, "raid ") or string.match(msg, "chat ") or string.match(msg, "guild ") or string.match(msg, "party ")
+		if chan then
+			cs, ce = string.find(msg, chan)
+			msg = string.sub(msg, ce + 1)
+		else chan = "chat " end
+		local t = string.match(msg, "%%(.)")
+		if t == "t" then target = UnitName("target")
+		elseif t == "f" then target = UnitName("focus")
+		elseif t == "c" then
+			if ctarget then target = UnitName(ctarget)
+			else return end
+		end
+		if t then
+			if not target then return
+			else msg = string.gsub(msg, format("%%%%%s", t), target) end
+		end
+		chan = string.sub(chan, 1, string.len(chan) - 1)
+		if chan == "chat" then DEFAULT_CHAT_FRAME:AddMessage(format("|cff99cce6%s|r", msg))
+		else SendChatMessage(msg, chan) end
 	end
 end
 
@@ -478,6 +534,7 @@ function MT:ExtendMacro(save, macrobody, idx, exists)
 	if not exists then 
 		MT:UpdateExtended(idx or MTF.selectedMacro, body, index)
 		securebutton:SetAttribute("macrotext", body)
+		securebutton:SetAttribute("dynamic", MT:IsDynamic(idx or MTF.selectedMacro))
 	end
 	--modified 15/12/13 - need to ensure button info is passed to the secure frame
 	--local newbody = format("%s%s%s %s", showtooltip, show, MT.click, securebutton:GetName())
@@ -494,6 +551,7 @@ function MT:ExtendMacro(save, macrobody, idx, exists)
 		MacroToolkitText:GetScript("OnTextChanged")(MacroToolkitText)
 		MT:UpdateCharLimit()
 	end
+	return n
 end
 
 --function to modify any extended macro created prior to the fix that passes
@@ -538,6 +596,7 @@ local function unextend(body)
 	local securebutton = _G[format("MTSB%d", mindex)]
 	MT:DeleteExtended(mindex)
 	securebutton:SetAttribute("macrotext", "")
+	securebutton:SetAttribute("dynamic", false)
 	MacroToolkitText.extended = nil
 	_G[format("MacroToolkitButton%d", (MTF.selectedMacro - MTF.macroBase))].extended = nil
 	MacroToolkitExtend:SetText(L["Extend"])
@@ -617,7 +676,7 @@ function MT:MacroFrameUpdate()
 	local selectedName, selectedBody, selectedIcon
 	local tab = PanelTemplates_GetSelectedTab(MTF)
 	local exmacros = {}
-
+	
 	numMacros = (MTF.macroBase == 0) and numAccountMacros or numCharacterMacros
 	if MT.MTCF then if MT.MTCF:IsShown() then tab = 4 end end
 	if tab == 3 then
@@ -734,6 +793,32 @@ function MT:MacroFrameUpdate()
 						MacroToolkitCSelMacroButton:SetID(i)
 						MacroToolkitCSelMacroButtonIcon:SetTexture(texture)
 					end
+					if MT.db.profile.broker then
+						local result, cmd = _G.ERR_NOT_IN_COMBAT, ""
+						if not InCombatLockdown() then result, cmd = MT:RunCommands(true, body) end
+						local mname = MacroToolkitSelMacroName:GetText()
+						if result then
+							MT.brokericon:SetTexture("Interface\\COMMON\\Indicator-Red")
+							MacroToolkitBrokerIcon:SetScript("OnEnter",
+								function(this)
+									GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+									GameTooltip:SetText("Macro Toolkit Broker")
+									GameTooltip:AddLine(format("|cffff0000%s|r", cmd))
+									GameTooltip:AddLine(format("|cffffffffReason: |cff4466cc%s|r", result))
+									GameTooltip:Show()
+								end)
+							MTF.brokerok = false
+							if MT:FindBrokerName(mname) then MT:BrokerRemove()
+							else MacroToolkitBrokerButton:Hide() end
+						else
+							MT.brokericon:SetTexture("Interface\\COMMON\\Indicator-Green")
+							MacroToolkitBrokerIcon:SetScript("OnEnter", nil)
+							if MT:FindBrokerName(mname) then MT:BrokerRemove()
+							else MT:BrokerAdd() end
+							MTF.brokerok = true
+						end
+						MacroToolkitBrokerIcon:Show()
+					else MacroToolkitBrokerIcon:Hide() end
 				else macroButton:SetChecked(false) end
 				if tab == 4 then macroButton.extended = exmacros[i].extended end
 			else
@@ -766,6 +851,7 @@ function MT:MacroFrameUpdate()
 		MacroToolkitShare:Disable()
 		MacroToolkitBind:Disable()
 		MacroToolkitConditions:Disable()
+		MacroToolkitBrokerIcon:Hide()
 	end
 	
 	--Update New Button
@@ -816,7 +902,7 @@ function MT:ContainerOnLoad(this)
 	for i = 1, maxMacroButtons do
 		button = CreateFrame("CheckButton", format("%s%d", bname, i), this, "MacroToolkitButtonTemplate")
 		button:SetScript("OnClick", function(this, button) MT:MacroButtonOnClick(this, button) end)
-		button:SetScript("OnDragStart", function(this) PickupMacro(MTF.macroBase + this:GetID()) end)
+		button:SetScript("OnDragStart", function(this) if not InCombatLockdown() then PickupMacro(MTF.macroBase + this:GetID()) end end)
 		button:SetID(i)
 		if i == 1 then button:SetPoint("TOPLEFT", this, "TOPLEFT", 6, -6)
 		elseif mod(i, _G.NUM_MACROS_PER_ROW) == 1 then button:SetPoint("TOP", _G[format("%s%d", bname, i - _G.NUM_MACROS_PER_ROW)], "BOTTOM", 0, -10)
@@ -913,6 +999,13 @@ function MT:ShowDetails()
 	MacroToolkitExtend:Enable()
 end
 
+function MT:IsDynamic(index)
+	if not index then return false end
+	local body = select(2, GetMacroInfo(index))
+	if not body or body == "" then return false end
+	return strlower(body) == "interface\\icons\\inv_misc_questionmark"
+end
+
 function MT:SaveMacro()
 	if InCombatLockdown() then
 		MT:CombatMessage()
@@ -926,7 +1019,9 @@ function MT:SaveMacro()
 			MT.db.global.extra[tostring(MTF.selectedMacro)].body = MacroToolkitText:GetText()
 			_G[format("MTSB%d", MTF.selectedMacro)]:SetAttribute("macrotext", MacroToolkitText:GetText())
 		else
-			if MacroToolkitText.extended then MT:ExtendMacro(true)
+			if MacroToolkitText.extended then
+				local n = MT:ExtendMacro(true)
+				MT:UpdateIcon(_G[n])
 			else EditMacro(MTF.selectedMacro, nil, nil, MacroToolkitText:GetText()) end
 		end
 		MTF.textChanged = nil

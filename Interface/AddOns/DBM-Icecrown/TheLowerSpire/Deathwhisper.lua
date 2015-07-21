@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("Deathwhisper", "DBM-Icecrown", 1)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 142 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 199 $"):sub(12, -3))
 mod:SetCreatureID(36855)
 mod:SetEncounterID(1100)
 mod:SetModelID(30893)
@@ -19,10 +19,6 @@ mod:RegisterEventsInCombat(
 	"UNIT_TARGET_UNFILTERED"
 )
 
-local canPurge = select(2, UnitClass("player")) == "MAGE"
-			or select(2, UnitClass("player")) == "SHAMAN"
-			or select(2, UnitClass("player")) == "PRIEST"
-
 local warnAddsSoon					= mod:NewAnnounce("WarnAddsSoon", 2)
 local warnDominateMind				= mod:NewTargetAnnounce(71289, 3)
 local warnSummonSpirit				= mod:NewSpellAnnounce(71426, 2)
@@ -30,15 +26,13 @@ local warnReanimating				= mod:NewAnnounce("WarnReanimating", 3)
 local warnDarkTransformation		= mod:NewSpellAnnounce(70900, 4)
 local warnDarkEmpowerment			= mod:NewSpellAnnounce(70901, 4)
 local warnPhase2					= mod:NewPhaseAnnounce(2, 1)
-local warnFrostbolt					= mod:NewCastAnnounce("OptionVersion2", 71420, 2, nil, nil, false)
-local warnTouchInsignificance		= mod:NewStackAnnounce(71204, 2, nil, mod:IsTank() or mod:IsHealer())
-local warnDarkMartyrdom				= mod:NewSpellAnnounce(71236, 4)
+local warnTouchInsignificance		= mod:NewStackAnnounce(71204, 2, nil, "Tank|Healer")
 
 local specWarnCurseTorpor			= mod:NewSpecialWarningYou(71237)
 local specWarnDeathDecay			= mod:NewSpecialWarningMove(71001)
 local specWarnTouchInsignificance	= mod:NewSpecialWarningStack(71204, nil, 3)
-local specWarnVampricMight			= mod:NewSpecialWarningDispel(70674, canPurge)
-local specWarnDarkMartyrdom			= mod:NewSpecialWarningMove(71236, mod:IsMelee())
+local specWarnVampricMight			= mod:NewSpecialWarningDispel(70674, "MagicDispeller")
+local specWarnDarkMartyrdom			= mod:NewSpecialWarningMove(71236, "Melee")
 local specWarnFrostbolt				= mod:NewSpecialWarningInterrupt(71420, false)
 
 local timerAdds						= mod:NewTimer(60, "TimerAdds", 61131)
@@ -46,7 +40,7 @@ local timerDominateMind				= mod:NewBuffActiveTimer(12, 71289)
 local timerDominateMindCD			= mod:NewCDTimer(40, 71289)
 local timerSummonSpiritCD			= mod:NewCDTimer(10, 71426, nil, false)
 local timerFrostboltCast			= mod:NewCastTimer(4, 71420)
-local timerTouchInsignificance		= mod:NewTargetTimer(30, 71204, nil, mod:IsTank() or mod:IsHealer())
+local timerTouchInsignificance		= mod:NewTargetTimer(30, 71204, nil, "Tank|Healer")
 
 local berserkTimer					= mod:NewBerserkTimer(600)
 
@@ -143,11 +137,11 @@ function mod:SPELL_AURA_APPLIED(args)
 		else
 			self:Schedule(0.9, showDominateMindWarning)
 		end
-	elseif args.spellId == 71001 then
+	elseif args.spellId == 71001 and not self:IsTrivial(100) then
 		if args:IsPlayer() then
 			specWarnDeathDecay:Show()
 		end
-	elseif args.spellId == 71237 and args:IsPlayer() then
+	elseif args.spellId == 71237 and args:IsPlayer() and not self:IsTrivial(100) then
 		specWarnCurseTorpor:Show()
 	elseif args.spellId == 70674 and not args:IsDestTypePlayer() and (UnitName("target") == L.Fanatic1 or UnitName("target") == L.Fanatic2 or UnitName("target") == L.Fanatic3) then
 		specWarnVampricMight:Show(args.destName)
@@ -180,7 +174,6 @@ end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 71420 then
-		warnFrostbolt:Show()
 		specWarnFrostbolt:Show(args.sourceName)
 		timerFrostboltCast:Start()
 	elseif args.spellId == 70900 then
@@ -195,8 +188,7 @@ function mod:SPELL_CAST_START(args)
 			empoweredAdherent = args.sourceGUID
 			self:TrySetTarget()
 		end
-	elseif args.spellId == 71236 then
-		warnDarkMartyrdom:Show()
+	elseif args.spellId == 71236 and not self:IsTrivial(100) then
 		specWarnDarkMartyrdom:Show()
 	end
 end

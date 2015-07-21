@@ -1,0 +1,79 @@
+------------------------------------------------------------------------
+r4348 | proteyer | 2015-06-25 22:18:35 +0000 (Thu, 25 Jun 2015) | 1 line
+Changed paths:
+   A /tags/v8.00.30 (from /trunk:4347)
+
+Tagging as v8.00.30
+------------------------------------------------------------------------
+r4347 | proteyer | 2015-06-25 22:17:18 +0000 (Thu, 25 Jun 2015) | 4 lines
+Changed paths:
+   M /trunk/AtlasLoot/Addons/BonusRoll.lua
+   M /trunk/AtlasLoot/Core/ItemString.lua
+   M /trunk/AtlasLoot_WarlordsofDraenor/data.lua
+   M /trunk/AtlasLoot_WorldEvents/data.lua
+
+- added mythic loot to Draenor-Dungeon
+- updated Midsummer Fire Festival
+- added Supreme Lord Kazzak
+- fixed Bonusroll-.LUA-Error (some Kill-Events not triggert yet)
+------------------------------------------------------------------------
+r4346 | Proteyer | 2015-06-24 15:17:50 +0000 (Wed, 24 Jun 2015) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/Button/Item_type.lua
+
+added rotation by equipment slot in item preview - thanks to TEphraim
+------------------------------------------------------------------------
+r4344 | proteyer | 2015-06-24 15:07:38 +0000 (Wed, 24 Jun 2015) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/Core/ItemString.lua
+
+- fixed issues with heroic/mythic and WF tooltips
+------------------------------------------------------------------------
+r4342 | proteyer | 2015-06-23 19:54:08 +0000 (Tue, 23 Jun 2015) | 6 lines
+Changed paths:
+   M /trunk/AtlasLoot/Button/Extra_Price_type.lua
+   M /trunk/AtlasLoot/Data/Mount.lua
+   M /trunk/AtlasLoot_Collections/data.lua
+   M /trunk/AtlasLoot_Collections/sets.lua
+   M /trunk/AtlasLoot_Crafting/data.lua
+   M /trunk/AtlasLoot_Factions/data.lua
+   M /trunk/AtlasLoot_PvP/data.lua
+   M /trunk/AtlasLoot_WarlordsofDraenor/data.lua
+   M /trunk/AtlasLoot_WorldEvents/data.lua
+
+- added Tier 18
+- added Hellfire Citadel
+- added 6.2 Factions
+- updated Crafting to 6.2
+- added Gemcutter Module: Mastery to Brawler's Guild Rank 6
+- added PVP Season 1-3 Sets & Weapons
+------------------------------------------------------------------------
+r4341 | proteyer | 2015-06-15 10:43:17 +0000 (Mon, 15 Jun 2015) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/AtlasLoot.toc
+   M /trunk/AtlasLoot/Core/ItemString.lua
+   M /trunk/AtlasLoot/Libs/LibBabble-Boss-3.0/LibBabble-Boss-3.0.toc
+   M /trunk/AtlasLoot/Libs/LibStub/LibStub.toc
+   M /trunk/AtlasLoot_BurningCrusade/AtlasLoot_BurningCrusade.toc
+   M /trunk/AtlasLoot_Cataclysm/AtlasLoot_Cataclysm.toc
+   M /trunk/AtlasLoot_Classic/AtlasLoot_Classic.toc
+   M /trunk/AtlasLoot_Collections/AtlasLoot_Collections.toc
+   M /trunk/AtlasLoot_Collections/libs/LibBabble-ItemSet-3.0/LibBabble-ItemSet-3.0.toc
+   M /trunk/AtlasLoot_Crafting/AtlasLoot_Crafting.toc
+   M /trunk/AtlasLoot_Factions/AtlasLoot_Factions.toc
+   M /trunk/AtlasLoot_MistsofPandaria/AtlasLoot_MistsofPandaria.toc
+   M /trunk/AtlasLoot_Options/AtlasLoot_Options.toc
+   M /trunk/AtlasLoot_PvP/AtlasLoot_PvP.toc
+   M /trunk/AtlasLoot_WarlordsofDraenor/AtlasLoot_WarlordsofDraenor.toc
+   M /trunk/AtlasLoot_WorldEvents/AtlasLoot_WorldEvents.toc
+   M /trunk/AtlasLoot_WrathoftheLichKing/AtlasLoot_WrathoftheLichKing.toc
+
+Some Preps for 6.2 (.toc-Update included)
+------------------------------------------------------------------------
+r4340 | ananhaid | 2015-05-22 17:11:16 +0000 (Fri, 22 May 2015) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/Locales/constants.cn.lua
+   M /trunk/AtlasLoot_Options/Locales/constants.cn.lua
+
+- switch the zhCN locale files to correct place.
+------------------------------------------------------------------------

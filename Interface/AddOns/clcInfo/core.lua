@@ -430,11 +430,11 @@ end)
 clcInfo.eventFrame:RegisterEvent("QUEST_LOG_UPDATE")
 
 -- register some sounds for LSM just to be sure I have them
-clcInfo.LSM:Register("sound", "clcInfo: Default", [[Sound\Doodad\BellTollAlliance.wav]])
-clcInfo.LSM:Register("sound", "clcInfo: Run", [[Sound\Creature\HoodWolf\HoodWolfTransformPlayer01.wav]])
-clcInfo.LSM:Register("sound", "clcInfo: Explosion", [[Sound\Doodad\Hellfire_Raid_FX_Explosion05.wav]])
-clcInfo.LSM:Register("sound", "clcInfo: Die", [[Sound\Creature\CThun\CThunYouWillDIe.wav]])
-clcInfo.LSM:Register("sound", "clcInfo: Cheer", [[Sound\Event Sounds\OgreEventCheerUnique.wav]])
+clcInfo.LSM:Register("sound", "clcInfo: Default", [[Sound\Doodad\BellTollAlliance.ogg]])
+clcInfo.LSM:Register("sound", "clcInfo: Run", [[Sound\Creature\HoodWolf\HoodWolfTransformPlayer01.ogg]])
+clcInfo.LSM:Register("sound", "clcInfo: Explosion", [[Sound\Doodad\Hellfire_Raid_FX_Explosion05.ogg]])
+clcInfo.LSM:Register("sound", "clcInfo: Die", [[Sound\Creature\CThun\CThunYouWillDIe.ogg]])
+clcInfo.LSM:Register("sound", "clcInfo: Cheer", [[Sound\Event Sounds\OgreEventCheerUnique.ogg]])
 
 -- static popup dialog call
 function clcInfo.SPD(s)

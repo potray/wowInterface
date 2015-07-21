@@ -1,5 +1,5 @@
 --[[
-Copyright 2008-2014 João Cardoso
+Copyright 2008-2015 João Cardoso
 Scrap is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -109,7 +109,7 @@ end
 
 function Scrap:IsJunk(id, ...)
 	if id and Scrap_Junk[id] ~= false then
-		return Scrap_Junk[id] or (Scrap_AI[id] and Scrap_AI[id] > 2) or self:CheckFilters(id, ...)
+		return Scrap_Junk[id] or (Scrap_Learn and Scrap_AI[id] and Scrap_AI[id] > 2) or self:CheckFilters(id, ...)
 	end
 end
 
@@ -315,7 +315,7 @@ function Scrap:Print (pattern, value, channel)
  	for i = 1, 10 do
 		local frame = _G['ChatFrame'..i]
 		if frame:IsEventRegistered(channel) then
-			ChatFrame_MessageEventHandler(frame, channel, pattern:format(value), '', nil, '', nil, nil, nil, nil, nil, nil, nil, '')
+			ChatFrame_MessageEventHandler(frame, channel, pattern:format(value), '', nil, '')
 		end
 	end
 end

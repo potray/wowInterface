@@ -1,13 +1,11 @@
 ﻿local addonName = "Altoholic"
 local addon = _G[addonName]
+local colors = addon.Colors
 
 local L = LibStub("AceLocale-3.0"):GetLocale(addonName)
 
-local WHITE		= "|cFFFFFFFF"
-local GRAY		= "|cFFBBBBBB"
-local GREEN		= "|cFF00FF00"
-local YELLOW	= "|cFFFFFF00"
-local LIGHTBLUE = "|cFFB0B0FF"
+local parentName = "AltoholicTabGuild"
+local parent
 
 local view
 local viewSortField = "name"
@@ -206,12 +204,14 @@ end
 local EquipmentToFrame = { 1,3,5,9,10,6,7,8,11,12,13,14,15,4,2,19,16,17,18 }
 
 local function LoadEquipmentTextures()
-	local itemName
+	local itemButton
+	
+	local frame = parent.Members
 	
 	for i = 1, 19 do
-		itemName = "AltoholicFrameGuildMembersItem".. i;
-		addon:SetItemButtonTexture(itemName, addon:GetEquipmentSlotIcon(EquipmentToFrame[i]));
-		_G[itemName]:Show()
+		itemButton = frame["Item"..i]
+		itemButton.Icon:SetTexture(addon:GetEquipmentSlotIcon(EquipmentToFrame[i]))
+		itemButton:Show()
 	end
 end
 
@@ -229,21 +229,19 @@ local function UpdateEquipment(member)
 	17 18 19					16 17 18
 --]]
 
-	local itemName, itemButton, itemCount
+	local itemName, itemButton
 	local guild = DataStore:GetGuild()
 	
+	local frame = parent.Members
+	
 	for i = 1, 19 do
-		itemName = "AltoholicFrameGuildMembersItem".. i;
-		itemButton = _G[itemName];
-		itemCount = _G[itemName .. "Count"]
-		itemCount:Hide();
-
-		addon:CreateButtonBorder(itemButton)
-		itemButton.border:Hide()
+		itemButton = frame["Item"..i]
+		itemButton.Count:Hide();
+		itemButton.IconBorder:Hide()
 	
 		local itemID = DataStore:GetGuildMemberInventoryItem(guild, member, EquipmentToFrame[i])
 		if itemID then
-			addon:SetItemButtonTexture(itemName, GetItemIcon(itemID));
+			itemButton.Icon:SetTexture(GetItemIcon(itemID))
 
 			-- set link and id for addon:Item_OnEnter(self)
 			if type(itemID) == "string" then
@@ -258,14 +256,14 @@ local function UpdateEquipment(member)
 			local _, _, itemRarity, itemLevel = GetItemInfo(itemID)
 			if itemRarity and itemRarity >= 2 then
 				local r, g, b = GetItemQualityColor(itemRarity)
-				itemButton.border:SetVertexColor(r, g, b, 0.5)
-				itemButton.border:Show()
+				itemButton.IconBorder:SetVertexColor(r, g, b, 0.5)
+				itemButton.IconBorder:Show()
 			end
 			
-			itemCount:SetText(itemLevel);
-			itemCount:Show();
+			itemButton.Count:SetText(itemLevel);
+			itemButton.Count:Show();
 		else
-			addon:SetItemButtonTexture(itemName, addon:GetEquipmentSlotIcon(EquipmentToFrame[i]));
+			itemButton.Icon:SetTexture(addon:GetEquipmentSlotIcon(EquipmentToFrame[i]))
 			itemButton.id = nil
 			itemButton.link = nil
 		end
@@ -280,6 +278,7 @@ addon.Guild.Members = {}
 local ns = addon.Guild.Members		-- ns = namespace
 
 function ns:OnLoad()
+	parent = _G[parentName]
 	LoadEquipmentTextures()
 	
 	addon:RegisterMessage("DATASTORE_PLAYER_EQUIPMENT_RECEIVED")
@@ -290,29 +289,37 @@ function ns:Update()
 		BuildView()
 	end
 	
-	local VisibleLines = 14
-	local frame = "AltoholicFrameGuildMembers"
-	local entry = frame.."Entry"
+	local frame = parent.Members
+	local scrollFrame = frame.ScrollFrame
+	local numRows = scrollFrame.numRows
 	
-	AltoholicTabGuildStatus:SetText(L["Click a character's AiL to see its equipment"])
+	parent.Status:SetText(L["Click a character's AiL to see its equipment"])
 	
 	if #view == 0 then
-		addon:ClearScrollFrame( _G[ frame.."ScrollFrame" ], entry, VisibleLines, 18)
+		-- Hides all entries of the scrollframe, and updates it accordingly
+		for rowIndex = 1, numRows do
+			local rowFrame = scrollFrame:GetRow(rowIndex) 
+			rowFrame:Hide()
+		end
+		scrollFrame:Update(numRows)
 		return
 	end
 	
-	local offset = FauxScrollFrame_GetOffset( _G[ frame.."ScrollFrame" ] );
+	local offset = scrollFrame:GetOffset()
 	local DisplayedCount = 0
 	local VisibleCount = 0
 	local DrawAlts
+	local rowIndex = 1
 	local i=1
 	
 	local guild = DataStore:GetGuild()
 	
 	for lineIndex, v in pairs(view) do
+		local rowFrame = scrollFrame:GetRow(rowIndex)
+		
 		local lineType = mod(v.lineType, 2)
 	
-		if (offset > 0) or (DisplayedCount >= VisibleLines) then		-- if the line will not be visible
+		if (offset > 0) or (DisplayedCount >= numRows) then		-- if the line will not be visible
 			if v.lineType == NORMALPLAYER_LINE then
 				VisibleCount = VisibleCount + 1
 				offset = offset - 1		-- no further control, nevermind if it goes negative
@@ -342,27 +349,27 @@ function ns:Update()
 			local averageItemLvl = DataStore:GetGuildMemberAverageItemLevel(guild, member) or 0
 		
 			if v.lineType == NORMALPLAYER_LINE then
-				_G[entry..i.."Collapse"]:Hide()
-				_G[entry..i.."Name"]:SetPoint("TOPLEFT", 15, 0)
-				_G[entry..i.."NameNormalText"]:SetText(YELLOW..member)
-				_G[entry..i.."Level"]:SetText(GREEN .. level)
-				_G[entry..i.."AvgILevelNormalText"]:SetText(YELLOW..format("%.1f", averageItemLvl))
-				_G[entry..i.."Version"]:SetText(WHITE..version)
-				_G[entry..i.."Class"]:SetText(classText)
+				rowFrame.Collapse:Hide()
+				rowFrame.Name:SetPoint("TOPLEFT", 15, 0)
+				rowFrame.Name.Text:SetText(colors.yellow..member)
+				rowFrame.Level:SetText(colors.green .. level)
+				rowFrame.AvgILevel.Text:SetText(colors.yellow..format("%.1f", averageItemLvl))
+				rowFrame.Version:SetText(colors.white..version)
+				rowFrame.Class:SetText(classText)
 				
-				_G[ entry..i ].CharName = member
-				_G[ entry..i ]:SetID(lineIndex)
-				_G[ entry..i ]:Show()
-				i = i + 1
+				rowFrame.CharName = member
+				rowFrame:SetID(lineIndex)
+				rowFrame:Show()
+				rowIndex = rowIndex + 1
 				VisibleCount = VisibleCount + 1
 				DisplayedCount = DisplayedCount + 1
 				
 			elseif lineType == HEADER_LINE then
 				if expandedHeaders[member] then
-					_G[ entry..i.."Collapse" ]:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up"); 
+					rowFrame.Collapse:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up"); 
 					DrawAlts = true
 				else
-					_G[ entry..i.."Collapse" ]:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up");
+					rowFrame.Collapse:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up");
 					DrawAlts = false
 				end
 				
@@ -372,61 +379,63 @@ function ns:Update()
 					classText = ""
 				end
 				
-				_G[entry..i.."Collapse"]:Show()
-				_G[entry..i.."Name"]:SetPoint("TOPLEFT", 25, 0)
-				_G[entry..i.."NameNormalText"]:SetText(YELLOW..member)
-				_G[entry..i.."Level"]:SetText(GREEN .. level)
+				rowFrame.Collapse:Show()
+				rowFrame.Name:SetPoint("TOPLEFT", 25, 0)
+				rowFrame.Name.Text:SetText(colors.yellow..member)
+				rowFrame.Level:SetText(colors.green .. level)
 				if member == L["Offline Members"] then
-					_G[entry..i.."AvgILevelNormalText"]:SetText("")
+					rowFrame.AvgILevel.Text:SetText("")
 				else
-					_G[entry..i.."AvgILevelNormalText"]:SetText(YELLOW..format("%.1f", averageItemLvl))
+					rowFrame.AvgILevel.Text:SetText(colors.yellow..format("%.1f", averageItemLvl))
 				end
 				
-				_G[entry..i.."Version"]:SetText(WHITE..version)
-				_G[entry..i.."Class"]:SetText(classText)
+				rowFrame.Version:SetText(colors.white..version)
+				rowFrame.Class:SetText(classText)
 				
-				_G[ entry..i ].CharName = member
-				_G[ entry..i ]:SetID(lineIndex)
-				_G[ entry..i ]:Show()
-				i = i + 1
+				rowFrame.CharName = member
+				rowFrame:SetID(lineIndex)
+				rowFrame:Show()
+				rowIndex = rowIndex + 1
 				VisibleCount = VisibleCount + 1
 				DisplayedCount = DisplayedCount + 1
 
 			elseif DrawAlts then
 			
-				_G[entry..i.."Collapse"]:Hide()
-				_G[entry..i.."Name"]:SetPoint("TOPLEFT", 15, 0)
+				rowFrame.Collapse:Hide()
+				rowFrame.Name:SetPoint("TOPLEFT", 15, 0)
 				if v.lineType == ALTO_ALT_LINE then
-					_G[entry..i.."NameNormalText"]:SetText(LIGHTBLUE..member)
+					rowFrame.Name.Text:SetText(colors.lightBlue..member)
 				else
-					_G[entry..i.."NameNormalText"]:SetText(GRAY..member)
+					rowFrame.Name.Text:SetText(colors.grey..member)
 				end
-				_G[entry..i.."Level"]:SetText(GREEN .. level)
-				_G[entry..i.."AvgILevelNormalText"]:SetText(YELLOW..format("%.1f", averageItemLvl))
-				_G[entry..i.."Version"]:SetText(WHITE..version)
-				_G[entry..i.."Class"]:SetText(classText)
+				rowFrame.Level:SetText(colors.green .. level)
+				rowFrame.AvgILevel.Text:SetText(colors.yellow..format("%.1f", averageItemLvl))
+				rowFrame.Version:SetText(colors.white..version)
+				rowFrame.Class:SetText(classText)
 				
-				_G[ entry..i ].CharName = member
-				_G[ entry..i ]:SetID(lineIndex)
-				_G[ entry..i ]:Show()
-				i = i + 1
+				rowFrame.CharName = member
+				rowFrame:SetID(lineIndex)
+				rowFrame:Show()
+				rowIndex = rowIndex + 1
 				VisibleCount = VisibleCount + 1
 				DisplayedCount = DisplayedCount + 1
 			end
 		end
 	end
 	
-	while i <= VisibleLines do
-		_G[ entry..i ]:SetID(0)
-		_G[ entry..i ]:Hide()
-		i = i + 1
+	while rowIndex <= numRows do
+		local rowFrame = scrollFrame:GetRow(rowIndex) 
+		
+		rowFrame:SetID(0)
+		rowFrame:Hide()
+		rowIndex = rowIndex + 1
 	end
-	FauxScrollFrame_Update( _G[ frame.."ScrollFrame" ], VisibleCount, VisibleLines, 18);
+	scrollFrame:Update(VisibleCount)
 end
 
 function ns:Sort(self, field)
 	viewSortField = field
-	viewSortOrder = self.ascendingSort
+	viewSortOrder = addon:GetOption("UI.Tabs.Guild.SortAscending")
 	
 	ns:InvalidateView()
 end
@@ -441,20 +450,20 @@ function ns:Name_OnEnter(self)
 	AltoTooltip:ClearLines();
 	AltoTooltip:SetOwner(self, "ANCHOR_RIGHT");
 	AltoTooltip:AddLine(DataStore:GetClassColor(englishClass) .. member,1,1,1);
-	AltoTooltip:AddLine(WHITE .. RANK_COLON .. "|r " .. rank .. GREEN .. " (".. rankIndex .. ")");
+	AltoTooltip:AddLine(colors.white .. RANK_COLON .. "|r " .. rank .. colors.green .. " (".. rankIndex .. ")");
 	if zone then
-		AltoTooltip:AddLine(WHITE .. ZONE_COLON .. "|r " .. zone);
+		AltoTooltip:AddLine(colors.white .. ZONE_COLON .. "|r " .. zone);
 	end
 	
 	if note then
 		AltoTooltip:AddLine(" ",1,1,1);
-		AltoTooltip:AddLine(WHITE .. NOTE .. ":");
+		AltoTooltip:AddLine(colors.white .. NOTE .. ":");
 		AltoTooltip:AddLine(note);
 	end
 	
 	if officernote then
 		AltoTooltip:AddLine(" ",1,1,1);
-		AltoTooltip:AddLine(WHITE .. GUILD_OFFICER_NOTE .. ":");
+		AltoTooltip:AddLine(colors.white .. GUILD_OFFICER_NOTE .. ":");
 		AltoTooltip:AddLine(officernote);
 	end
 
@@ -471,7 +480,7 @@ function ns:Level_OnClick(self, button)
 	local member = self:GetParent().CharName
 	if member then
 		DataStore:RequestGuildMemberEquipment(member)
-		AltoholicFrameGuildMembers_Name:SetText(member)
+		parent.Members.Name:SetText(member)
 	end
 end
 
@@ -490,11 +499,11 @@ function ns:Level_OnEnter(self)
 	AltoTooltip:ClearLines();
 	AltoTooltip:SetOwner(self, "ANCHOR_RIGHT");
 	AltoTooltip:AddLine(DataStore:GetClassColor(englishClass) .. member,1,1,1);
-	AltoTooltip:AddLine(WHITE .. L["Average Item Level"] ..": " .. GREEN.. format("%.1f", averageItemLvl),1,1,1);
+	AltoTooltip:AddLine(colors.white .. L["Average Item Level"] ..": " .. colors.green.. format("%.1f", averageItemLvl),1,1,1);
 
 	addon:AiLTooltip()
 	AltoTooltip:AddLine(" ",1,1,1);
-	AltoTooltip:AddLine(GREEN .. L["Left-click to see this character's equipment"],1,1,1);
+	AltoTooltip:AddLine(colors.green .. L["Left-click to see this character's equipment"],1,1,1);
 	AltoTooltip:Show();
 end
 
@@ -526,7 +535,7 @@ end
 
 function ns:InvalidateView()
 	isViewValid = nil
-	if AltoholicFrameGuildMembers:IsVisible() then
+	if parent.Members:IsVisible() then
 		ns:Update()
 	end
 end

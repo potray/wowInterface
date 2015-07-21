@@ -1,137 +1,153 @@
 local mod	= DBM:NewMod(1195, "DBM-Highmaul", nil, 477)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 12126 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 14024 $"):sub(12, -3))
 mod:SetCreatureID(78948, 80557, 80551, 99999)--78948 Tectus, 80557 Mote of Tectus, 80551 Shard of Tectus
 mod:SetEncounterID(1722)--Hopefully win will work fine off this because otherwise tracking shard deaths is crappy
 mod:SetZone()
+mod:SetMinSyncRevision(13109)
 mod:SetUsedIcons(8, 7, 6, 5, 4, 3, 2, 1)
+mod:SetModelSound("sound\\creature\\tectus\\VO_60_HMR_TECTUS_AGGRO_01.ogg", "sound\\creature\\tectus\\vo_60_hmr_tectus_spell_05.ogg")
+mod:SetHotfixNoticeRev(13109)
 
 mod:RegisterCombat("combat")
 mod:SetMinSyncTime(4)--Rise Mountain can occur pretty often.
+mod:SetWipeTime(30)
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 162475 162968 162894 163312",
 	"SPELL_AURA_APPLIED 162346 162658",
 	"SPELL_AURA_REMOVED 162346",
+	"SPELL_CAST_SUCCESS 181089 181113",
 	"SPELL_PERIODIC_DAMAGE 162370",
-	"SPELL_PERIODIC_MISSED 162370",
+	"SPELL_ABSORBED 162370",
 	"CHAT_MSG_MONSTER_YELL",
-	"UNIT_SPELLCAST_SUCCEEDED boss1",
 	"UNIT_DIED"
 )
 
 --TODO, find better icons for adds, these are filler icons for spells they use.
 --TODO, figure out what's wrong with DBM-Core stripping most of EJ spellname in specWarnEarthwarper (it's saying "Night - Switch" instead of "Night-Twisted Earthshaper - Switch")
 --Tectus
-local warnEarthenPillar				= mod:NewSpellAnnounce(162518, 3)--No way to detect unless it hits a player :\
-local warnTectonicUpheaval			= mod:NewSpellAnnounce(162475, 3)
 local warnCrystallineBarrage		= mod:NewTargetAnnounce(162346, 3)
-local warnEarthwarper				= mod:NewSpellAnnounce("ej10061", 3, 162894)
 local warnBerserker					= mod:NewSpellAnnounce("ej10062", 3, 163312)
---Night-Twisted NPCs
-local warnEarthenFlechettes			= mod:NewSpellAnnounce(162968, 3, nil, mod:IsMelee())
-local warnGiftOfEarth				= mod:NewCountAnnounce(162894, 4, nil, mod:IsMelee())
-local warnRavingAssault				= mod:NewSpellAnnounce(163312, 3)--Target scanning? Emote?
 
-local specWarnEarthwarper			= mod:NewSpecialWarningSwitch("ej10061", nil, nil, nil, nil, nil, true)
-local specWarnTectonicUpheaval		= mod:NewSpecialWarningSpell(162475, nil, nil, nil, 2, nil, true)
-local specWarnEarthenPillar			= mod:NewSpecialWarningSpell(162518, nil, nil, nil, 3, nil, true)
-local specWarnCrystallineBarrageYou	= mod:NewSpecialWarningYou(162346, nil, nil, nil, nil, nil, true)
+local specWarnEarthwarper			= mod:NewSpecialWarningSwitch("ej10061", "-Healer", nil, 2, nil, 2)
+local specWarnTectonicUpheaval		= mod:NewSpecialWarningSpell(162475, nil, nil, nil, 2, 2)
+local specWarnEarthenPillar			= mod:NewSpecialWarningDodge(162518, nil, nil, nil, 3, 2)
+local specWarnCrystallineBarrageYou	= mod:NewSpecialWarningYou(162346, nil, nil, nil, nil, 2)
 local yellCrystalineBarrage			= mod:NewYell(162346)
-local specWarnCrystallineBarrage	= mod:NewSpecialWarningMove(162370, nil, nil, nil, nil, nil, true)
+local specWarnCrystallineBarrage	= mod:NewSpecialWarningMove(162370, nil, nil, nil, nil, 2)
 --Night-Twisted NPCs
-local specWarnEarthenFlechettes		= mod:NewSpecialWarningSpell(162968, mod:IsMelee(), nil, nil, nil, nil, true)
-local specWarnGiftOfEarth			= mod:NewSpecialWarningCount(162894, mod:IsTank(), nil, nil, nil, nil, true)
+local specWarnRavingAssault			= mod:NewSpecialWarningDodge(163312, "Melee", nil, nil, nil, 2)
+local specWarnEarthenFlechettes		= mod:NewSpecialWarningDodge(162968, "Melee", nil, nil, nil, 2)
+local specWarnGiftOfEarth			= mod:NewSpecialWarningCount(162894, "Melee", nil, nil, nil, 2)
 
-local timerEarthwarperCD			= mod:NewNextTimer(41, "ej10061", nil, nil, nil, 162894)--Both of these get delayed by upheavel
-local timerBerserkerCD				= mod:NewNextTimer(41, "ej10062", nil, mod:IsTank(), nil, 163312)--Both of these get delayed by upheavel
-local timerGiftOfEarthCD			= mod:NewCDTimer(10.5, 162894, nil, mod:IsMelee())--10.5 but obviously delayed if stuns were used.
-local timerEarthenFlechettesCD		= mod:NewCDTimer(14, 162968, nil, mod:IsMelee())--14 but obviously delayed if stuns were used. Also tends to be recast immediately if stun interrupted
-local timerCrystalBarrageCD			= mod:NewNextSourceTimer(30, 162346, nil, false)--Very accurate but spammy mess with 4+ adds up.
+local timerEarthwarperCD			= mod:NewNextTimer(40, "ej10061", nil, nil, nil, 1, 162894)--Both of these get delayed by upheavel
+local timerBerserkerCD				= mod:NewNextTimer(40, "ej10062", nil, "Tank", nil, 1, 163312)--Both of these get delayed by upheavel
+local timerGiftOfEarthCD			= mod:NewCDTimer(10.5, 162894, nil, "Melee", nil, 4)--10.5 but obviously delayed if stuns were used.
+local timerEarthenFlechettesCD		= mod:NewCDTimer(14, 162968, nil, "Melee", nil, 5)--14 but obviously delayed if stuns were used. Also tends to be recast immediately if stun interrupted
+local timerCrystalBarrageCD			= mod:NewNextSourceTimer(30, 162346, nil, false, nil, 3)--Very accurate but spammy mess with 4+ adds up.
 local timerCrystalBarrage			= mod:NewBuffFadesTimer(15, 162346)
 
 local berserkTimer					= mod:NewBerserkTimer(600)
 
-local countdownEarthwarper			= mod:NewCountdown(41, "ej10061", mod:IsMelee())
+local countdownEarthwarper			= mod:NewCountdown(41, "ej10061", "Melee")
 
 local voiceCrystallineBarrage		= mod:NewVoice(162346)
-local voiceEarthenFlechettes		= mod:NewVoice(162968, mod:IsMelee())
+local voiceEarthenFlechettes		= mod:NewVoice(162968, "Melee")
 local voiceTectonicUpheaval			= mod:NewVoice(162475)
-local voiceGiftOfEarth				= mod:NewVoice(162894, mod:IsMelee())
+local voiceGiftOfEarth				= mod:NewVoice(162894, "Melee")
 local voiceRavingAssault			= mod:NewVoice(163312)
-local voiceEarthwarper				= mod:NewVoice("ej10061", mod:IsDps())
+local voiceEarthwarper				= mod:NewVoice("ej10061", "Dps")
 local voiceEarthenPillar			= mod:NewVoice(162518, nil )
 
 
 mod:AddSetIconOption("SetIconOnEarthwarper", "ej10061", true, true)
-mod:AddSetIconOption("SetIconOnMote", "ej10083", false, true)--Working with both shard and mote. ej10083 description is bad / This more or less assumes the 4 at a time strat. if you unleash 8 it will fail. Although any guild unleashing 8 is probably doing it wrong (minus LFR)
+mod:AddSetIconOption("SetIconOnMote", "ej10064", false, true)--Working with both shard and mote. ej10083 description is bad / This more or less assumes the 4 at a time strat. if you unleash 8 it will fail. Although any guild unleashing 8 is probably doing it wrong (minus LFR)
+mod:AddSetIconOption("SetIconOnCrystal", 162370, false)--icons 1 and 2, no conflict with icon on earthwarper
 
 local UnitGUID, UnitExists = UnitGUID, UnitExists
-local Earthwarper = EJ_GetSectionInfo(10061)
-local Berserker = EJ_GetSectionInfo(10062)
 mod.vb.EarthwarperAlive = 0
+mod.vb.shardDeath = 0
+mod.vb.moteDeath = 0
+mod.vb.healthPhase = 0
 local earthDuders = {}
 
 local tectusN = EJ_GetEncounterInfo(1195)
 local shardN = EJ_GetSectionInfo(10063)
 local moteN = EJ_GetSectionInfo(10064)
 local moteH = {}
-local healthPhase = 0 -- not need to sync.
+local tectusGUID
+local shardGUID = {}
+local ltectusH, lshardC, lshardT, lmoteC, lmoteT = 1, 1, 1, 1, 1 -- not need to sync.
+
 function mod:CustomHealthUpdate()
 	local tectusH, shardC, shardT, moteC, moteT = 0, 0, 0, 0, 0
-	if UnitExists("boss1") then
-		healthPhase = 1
-		tectusH = UnitHealth("boss1") / UnitHealthMax("boss1") * 100
-	end
-	if UnitExists("boss2") then
-		healthPhase = 2
-		shardC = shardC + 1
-		shardT = shardT + (UnitHealth("boss2") / UnitHealthMax("boss2") * 100)
-	end
-	if UnitExists("boss3") then
-		healthPhase = 2
-		shardC = shardC + 1
-		shardT = shardT + (UnitHealth("boss3") / UnitHealthMax("boss3") * 100)
+	local moteGUID = {}
+	for i = 1, 5 do
+		local unitID = "boss"..i
+		local guid = UnitGUID(unitID)
+		if UnitExists(unitID) then
+			local cid = self:GetCIDFromGUID(guid)
+			if cid == 78948 then
+				tectusH = UnitHealth(unitID) / UnitHealthMax(unitID) * 100
+				tectusGUID = guid
+				ltectusH = tectusH
+			elseif cid == 80551 then
+				shardC = shardC + 1
+				shardT = shardT + (UnitHealth(unitID) / UnitHealthMax(unitID) * 100)
+				shardGUID[guid] = true
+				lshardC = shardC
+				lshardT = shardT
+			elseif cid == 80557 then
+				local health = UnitHealth(unitID) / UnitHealthMax(unitID) * 100
+				moteC = moteC + 1
+				moteT = moteT + health
+				moteGUID[guid] = true
+				lmoteC = moteC
+				lmoteT = moteT
+				moteH[guid] = health
+			end
+		end
 	end
 	for guid, health in pairs(moteH) do
-		local newhealth = self:GetBossHPByGUID(guid) or health
-		if newhealth >= 1 then
-			healthPhase = 3
-			moteC = moteC + 1
-			moteT = moteT + newhealth
-			moteH[guid] = newhealth
+		if not moteGUID[guid] then
+			local newhealth = self:GetBossHPByGUID(guid) or health
+			if newhealth >= 1 then
+				self.vb.healthPhase = 3
+				moteC = moteC + 1
+				moteT = moteT + newhealth
+				moteGUID[guid] = true
+				lmoteC = moteC
+				lmoteT = moteT
+				moteH[guid] = newhealth
+			end
 		end
 	end
 	if DBM.BossHealth:IsShown() then
-		if UnitExists("boss1") then
-			if DBM.BossHealth:HasBoss(78948) then
-				DBM.BossHealth:RemoveBoss(78948)
-			end
-			if not DBM.BossHealth:HasBoss("boss1") then
-				DBM.BossHealth:AddBoss("boss1", tectusN)
-			end
-		else
-			if DBM.BossHealth:HasBoss("boss1") then
-				DBM.BossHealth:RemoveBoss("boss1")
+		if DBM.BossHealth:HasBoss(78948) then
+			DBM.BossHealth:RemoveBoss(78948)
+		end
+		if tectusGUID then
+			if tectusH > 0 then
+				if not DBM.BossHealth:HasBoss(tectusGUID) then
+					DBM.BossHealth:AddBoss(tectusGUID, tectusN)
+				end
+			else
+				if DBM.BossHealth:HasBoss(tectusGUID) then
+					DBM.BossHealth:RemoveBoss(tectusGUID)
+				end
 			end
 		end
-		if UnitExists("boss2") then
-			if not DBM.BossHealth:HasBoss("boss2") then
-				DBM.BossHealth:AddBoss("boss2", shardN)
-			end
-		else
-			if DBM.BossHealth:HasBoss("boss2") then
-				DBM.BossHealth:RemoveBoss("boss2")
-			end
-		end
-		if UnitExists("boss3") then
-			if not DBM.BossHealth:HasBoss("boss3") then
-				DBM.BossHealth:AddBoss("boss3", shardN)
-			end
-		else
-			if DBM.BossHealth:HasBoss("boss3") then
-				DBM.BossHealth:RemoveBoss("boss3")
+		for guid, value in pairs(shardGUID) do
+			if shardT > 0 then
+				if not DBM.BossHealth:HasBoss(guid) then
+					DBM.BossHealth:AddBoss(guid, shardN)
+				end
+			else
+				if DBM.BossHealth:HasBoss(guid) then
+					DBM.BossHealth:RemoveBoss(guid)
+				end
 			end
 		end
 		for guid, health in pairs(moteH) do
@@ -140,12 +156,12 @@ function mod:CustomHealthUpdate()
 			end
 		end
 	end
-	if healthPhase == 1 then
-		return ("(%d%%, %s)"):format(tectusH, tectusN)
-	elseif healthPhase == 2 then
-		return ("(%d%%, %s)"):format(shardT / shardC, shardN)
-	elseif healthPhase == 3 then
-		return ("(%d%%, %s)"):format(moteT / moteC, moteN)
+	if self.vb.healthPhase == 1 then
+		return ("(%d%%, %s)"):format(tectusH > 0 and tectusH or ltectusH, tectusN)
+	elseif self.vb.healthPhase == 2 then
+		return ("(%d%%, %s)"):format((shardT > 0 and shardT or lshardT) / (shardC > 0 and shardC or lshardC), shardN)
+	elseif self.vb.healthPhase == 3 then
+		return ("(%d%%, %s)"):format((moteT > 0 and moteT or lmoteT) / (moteC > 0 and moteC or lmoteC), moteN)
 	end
 	return DBM_CORE_UNKNOWN
 end
@@ -153,11 +169,13 @@ end
 function mod:OnCombatStart(delay)
 	table.wipe(earthDuders)
 	self.vb.EarthwarperAlive = 0
-	healthPhase = 1
+	self.vb.moteDeath = 0
+	self.vb.shardDeath = 0
+	self.vb.healthPhase = 1
 	table.wipe(moteH)
-	timerEarthwarperCD:Start(11-delay)
-	countdownEarthwarper:Start(11-delay)
-	timerBerserkerCD:Start(21-delay)
+	timerEarthwarperCD:Start(8-delay)
+	countdownEarthwarper:Start(8-delay)
+	timerBerserkerCD:Start(18-delay)
 	if self:IsMythic() then
 		--Figure out berserk
 	elseif self:IsDifficulty("normal", "heroic") then
@@ -167,7 +185,6 @@ function mod:OnCombatStart(delay)
 	end
 	if DBM.BossHealth:IsShown() then
 		DBM.BossHealth:Clear()
-		DBM.BossHealth:AddBoss("boss1", tectusN)
 	end
 end
 
@@ -177,16 +194,14 @@ end
 function mod:SPELL_CAST_START(args)
 	local spellId = args.spellId
 	if spellId == 162475 and self:AntiSpam(5, 1) then--Antispam for later fight.
-		warnTectonicUpheaval:Show()
 		specWarnTectonicUpheaval:Show()
 		voiceTectonicUpheaval:Play("aesoon")
 	elseif spellId == 162968 then
-		warnEarthenFlechettes:Show()
-		specWarnEarthenFlechettes:Show()
-		timerEarthenFlechettesCD:Start(args.sourceGUID)
 		local guid = args.souceGUID
+		specWarnEarthenFlechettes:Show()
+		timerEarthenFlechettesCD:Start(guid)
 		if guid == UnitGUID("target") or guid == UnitGUID("focus") then
-			voiceEarthenFlechettes:Play("watchwave")
+			voiceEarthenFlechettes:Play("shockwave")
 		end
 	elseif spellId == 162894 then
 		local GUID = args.sourceGUID
@@ -195,12 +210,11 @@ function mod:SPELL_CAST_START(args)
 			earthDuders[GUID] = 0
 		end
 		earthDuders[GUID] = earthDuders[GUID] + 1
-		warnGiftOfEarth:Show(earthDuders[GUID])
 		specWarnGiftOfEarth:Show(earthDuders[GUID])
 		timerGiftOfEarthCD:Start(GUID)
 		voiceGiftOfEarth:Play("162894")
 	elseif spellId == 163312 then
-		warnRavingAssault:Show()
+		specWarnRavingAssault:Show()
 		voiceRavingAssault:Play("chargemove")
 	end
 end
@@ -218,14 +232,22 @@ function mod:SPELL_AURA_APPLIED(args)
 				voiceCrystallineBarrage:Play("runout")
 			end
 		end
+		if self.Options.SetIconOnCrystal and self.vb.healthPhase ~= 3 then
+			self:SetSortedIcon(1, args.destName, 1, 2)--Wait 3 seconds or until we have 2 targets, mobs sometimes stagger casts.
+		end
 	elseif spellId == 162658 then
-		local cid = self:GetCIDFromGUID(args.destGUID)
+		local guid = args.destGUID
+		local cid = self:GetCIDFromGUID(guid)
 		if cid == 80557 then
-			if not moteH[args.destGUID] then
-				moteH[args.destGUID] = 0
+			if not moteH[guid] then
+				moteH[guid] = 0
 			end
 			if self.Options.SetIconOnMote and not self:IsLFR() then--Don't mark kill/pickup marks in LFR, it'll be an aoe fest.
-				self:ScanForMobs(args.destGUID, 0, 8, 8, 0.05, 12)
+				if self:AntiSpam(5, 3) then
+					self:ClearIcons()--Clear any barrage icons
+					self:CustomHealthUpdate()--Force update to health phase 3
+				end
+				self:ScanForMobs(guid, 0, 8, 8, 0.1, 20, "SetIconOnMote")
 			end
 		end
 	end
@@ -233,14 +255,61 @@ end
 
 function mod:SPELL_AURA_REMOVED(args)
 	local spellId = args.spellId
-	if spellId == 162346 and args:IsPlayer() then
-		timerCrystalBarrage:Cancel()
+	if spellId == 162346 then
+		if args:IsPlayer() then
+			timerCrystalBarrage:Cancel()
+		end
+		if self.Options.SetIconOnCrystal then
+			self:SetIcon(args.destName, 0)
+		end
+	end
+end
+
+function mod:SPELL_CAST_SUCCESS(args)
+	local spellId = args.spellId
+	if spellId == 181113 then--Encounter Spawn
+		local cid = self:GetCIDFromGUID(args.sourceGUID)
+		if cid == 80599 then--Earth Warper
+			self.vb.EarthwarperAlive = self.vb.EarthwarperAlive + 1
+			specWarnEarthwarper:Show()
+			voiceEarthwarper:Play("killmob")
+			timerGiftOfEarthCD:Start(10)--TODO, verify timing on new event
+			timerEarthenFlechettesCD:Start(15)--TODO, verify timing on new event
+			timerEarthwarperCD:Start()--TODO, verify timing on new event
+			countdownEarthwarper:Start()--TODO, verify timing on new event
+			if self.Options.SetIconOnEarthwarper and self.vb.EarthwarperAlive < 9 and not (self:IsMythic() and self.Options.SetIconOnMote) then--Support for marking up to 8 mobs (you're group is terrible)
+				self:ScanForMobs(80599, 2, 9-self.vb.EarthwarperAlive, 1, 0.2, 13, "SetIconOnEarthwarper")
+			end
+		elseif cid == 80822 then
+			warnBerserker:Show()
+			timerBerserkerCD:Start()
+		end
+	elseif spellId == 181089 then--Encounter Event
+		local cid = self:GetCIDFromGUID(args.sourceGUID)
+		if cid == 78948 then
+			self.vb.healthPhase = 2
+			if not self:IsMythic() then
+				timerEarthwarperCD:Cancel()
+				countdownEarthwarper:Cancel()
+				timerBerserkerCD:Cancel()
+			end
+		elseif cid == 80551 then
+			self.vb.shardDeath = self.vb.shardDeath + 1
+			if self.vb.shardDeath == 2 then
+				self.vb.healthPhase = 3
+			end
+		elseif cid == 80557 then--Mote of Tectus
+			self.vb.moteDeath = self.vb.moteDeath + 1
+			if self.vb.moteDeath == 8 then
+				DBM:EndCombat(self)
+			end
+		end
 	end
 end
 
 function mod:SPELL_PERIODIC_DAMAGE(sourceGUID, sourceName, _, _, destGUID, destName, _, _, spellId)
 	if spellId == 162370 then
-		if (healthPhase == 0 or healthPhase == 3) and not moteH[sourceGUID] and sourceName == moteN then -- try to recover moteH table if timer recovery worked.
+		if (self.vb.healthPhase == 0 or self.vb.healthPhase == 3) and not moteH[sourceGUID] and sourceName == moteN then -- try to recover moteH table if timer recovery worked.
 			moteH[sourceGUID] = 0
 		end
 		if destGUID == UnitGUID("player") and self:AntiSpam(2, 2) then
@@ -249,7 +318,7 @@ function mod:SPELL_PERIODIC_DAMAGE(sourceGUID, sourceName, _, _, destGUID, destN
 		end
 	end
 end
-mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
+mod.SPELL_ABSORBED = mod.SPELL_PERIODIC_DAMAGE
 
 function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
@@ -262,41 +331,14 @@ function mod:UNIT_DIED(args)
 	end
 end
 
-function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, _, _, spellId)
-	if spellId == 140562 then--Break Player Targetting (cast when tectus splits)
-		--TODO< need mythic logs to see if they restart. the adds don't stop spawning on mythic. but no idea if split resets the timer.
-		timerEarthwarperCD:Cancel()
-		countdownEarthwarper:Cancel()
-		timerBerserkerCD:Cancel()
-	end
-end
-
---"<11.7 15:07:19> [CHAT_MSG_MONSTER_YELL] CHAT_MSG_MONSTER_YELL#MASTER! I COME FOR YOU!#Night-Twisted Earthwarper#####0#0##0#480#nil#0#false#false", -- [1951]
---"<21.3 15:07:28> [CHAT_MSG_MONSTER_YELL] CHAT_MSG_MONSTER_YELL#Graaagh! KAHL...  AHK... RAAHHHH!#Night-Twisted Berserker#####0#0##0#482#nil#0#false#false", -- [4086]
 function mod:CHAT_MSG_MONSTER_YELL(msg, npc)
-	if npc == Earthwarper then
-		self.vb.EarthwarperAlive = self.vb.EarthwarperAlive + 1
-		warnEarthwarper:Show()
-		specWarnEarthwarper:Show()
-		voiceEarthwarper:Play("killmob")
-		timerGiftOfEarthCD:Start(10)
-		timerEarthenFlechettesCD:Start(15)
-		timerEarthwarperCD:Start()
-		countdownEarthwarper:Start()
-		if self.Options.SetIconOnEarthwarper and self.vb.EarthwarperAlive < 9 and not (self:IsMythic() and self.Options.SetIconOnMote) then--Support for marking up to 8 mobs (you're group is terrible)
-			self:ScanForMobs(80599, 2, 9-self.vb.EarthwarperAlive, 1, 0.2, 10, "SetIconOnEarthwarper")
-		end
-	elseif npc == Berserker then
-		warnBerserker:Show()
-		timerBerserkerCD:Start()
-	elseif msg == L.pillarSpawn or msg:find(L.pillarSpawn) then
+	if msg == L.pillarSpawn or msg:find(L.pillarSpawn) then
 		self:SendSync("TectusPillar")
 	end
 end
 
 function mod:OnSync(msg)
 	if msg == "TectusPillar" and self:IsInCombat() then
-		warnEarthenPillar:Show()
 		specWarnEarthenPillar:Show()
 		voiceEarthenPillar:Play("watchstep")
 	end

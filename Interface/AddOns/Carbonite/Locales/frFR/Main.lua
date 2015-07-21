@@ -136,3 +136,36 @@ L["In Conflict"] = "Territoire disput\195\169"				-- NXlINCONFLICT
 L["Opening"] = "Ouverture"						-- NXlOpening
 L["Opening - No Text"] = "Ouverture - pas de texte"			-- NXlOpeningNoText
 L["Everfrost Chip"] = "Morceau de permagivre"				-- NXlEverfrost
+
+L["yds"] = "m\195\168tres"
+L["secs"] = true
+L["mins"] = true
+
+-- NxUI.lua
+L[" Frame: %s Shown%d Vis%d P>%s"] = true
+L[" EScale %f, Lvl %f"] = true
+L[" LR %f, %f"] = true
+L[" BT %f, %f"] = true
+L["%s#%d %s ID%s (%s) show%d l%d x%d y%d"] = true
+L["%.1f days"] = "%.1f jours"
+L["%.1f hours"] = "%.1f heures"
+L["%d mins"] = true
+L["Reset old layout data"] = "R\195\169initialiser anciennes donn\195\169es mise en page"
+L["Window version mismatch!"] = true
+L["XY missing (%s)"] = "XY manquant (%s)"
+L["Window not found (%s)"] = "Fen\195\170tre non trouv\195\169e (%s)"
+L["Detach %s"] = true
+L["Detach found %s"] = true
+L["Search: [click]"] = "Rechercher: [clic]"
+L["Search: %[click%]"] = "rechercher: %[clic%]"
+L["Reset old list data"] = "R\195\169initialiser anciennes donn\195\169es liste"
+L["!BUT %s"] = "!MAIS %s"
+L["Key %s transfered to Watch List Item"] = true
+L["CLICK (.+):"] = "CLIC (.+):"
+L["Key %s %s #%s %s"] = true
+L["shift left/right click to change size"] = "maj gauche/clic droit pour changer la taille"
+L["Reset old tool bar data"] = "R\195\169initialiser anciennes donn\195\169es barre d'outils"
+
+-- NxTravel.lua
+L["Connection: %s to %s"] = "Connection: %s vers %s"
+L["Fly: %s to %s"] = "Fly: %s vers %s"

@@ -3,7 +3,7 @@
 	it also has a few functions to help determine distance and directions.
 --]]
 local MAJOR = "LibMapData-1.0"
-local MINOR = 1000 + tonumber(("$Revision: 146 $"):match("%d+"))
+local MINOR = 1000 + tonumber(("$Revision: 147 $"):match("%d+"))
 assert(LibStub, MAJOR.." requires LibStub")
 
 local lib = LibStub:NewLibrary(MAJOR, MINOR)
@@ -73,6 +73,19 @@ local transforms_y = {
 }
 
 do
+
+	-- Unregistering this before we harvest all the data massively improves users' 
+	-- loading times because the amount of WORLD_MAP_UPDATE firing that happens.
+	-- For me personally (Cybeloras), it reduced the load time of
+	-- this library from 0.791 seconds to 0.142 seconds (on an i7 2600k w/ SSD)
+	-- WorldMapFrame doesn't handle anything secure AFAIK, so this is safe.
+	local doReRegisterWMU = false
+	if WorldMapFrame:IsEventRegistered("WORLD_MAP_UPDATE") then
+		doReRegisterWMU = true
+		WorldMapFrame:UnregisterEvent("WORLD_MAP_UPDATE")
+	end
+
+
 	-- Format: 
 	-- floors = number of floors
 	-- area_id = in game area id
@@ -2672,6 +2685,11 @@ do
 			end
 		end
 	end
+
+	if doReRegisterWMU then
+		WorldMapFrame:RegisterEvent("WORLD_MAP_UPDATE")
+	end
+
 end
 
 --- API to encode a location in game

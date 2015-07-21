@@ -6,7 +6,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 local LD = LibStub("LibDropdown-1.0")
 
-local revision = tonumber(string.sub("$Revision: 1286 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1311 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -65,8 +65,8 @@ end
 -- This is comma_value() by Richard Warburton from: http://lua-users.org/wiki/FormattingNumbers with slight modifications (and a bug fix)
 function Recount.CommaNumber(n)
 	n = ("%.0f"):format(math_floor(n + 0.5))
-	local left, num, right = string_match(n,'^([^%d]*%d)(%d+)(.-)$')
-	return left and left..(num:reverse():gsub('(%d%d%d)','%1,'):reverse()) or n --..right
+	local left, num, right = string_match(n, "^([^%d]*%d)(%d+)(.-)$")
+	return left and left..(num:reverse():gsub("(%d%d%d)", "%1,"):reverse()) or n --..right
 end
 
 local NumFormats = {
@@ -456,7 +456,7 @@ function me:FixRow(i)
 	local LText = row.LeftText:GetText()
 
 	if not Recount.db.profile.MainWindow.BarText.ServerName then
-		LText = string.gsub(LText, "%-[%a+]+", "")
+		LText = string.gsub(LText, "%-[^ >]+", "")
 	end
 	row.LeftText:SetText(LText)
 	while row.LeftText:GetStringWidth() > MaxNameWidth do
@@ -668,6 +668,16 @@ function Recount:CreateMainWindow()
 			parent:StopMovingOrSizing()
 			parent.isMoving = false
 			parent:SaveMainWindowPosition()
+		end
+	end)
+	theFrame.TitleClick:SetScript("OnMouseWheel", function (self, delta)
+		if not IsAltKeyDown() then
+			return
+		end
+		if delta > 0 then
+			Recount:MainWindowPrevMode()
+		else
+			Recount:MainWindowNextMode()
 		end
 	end)
 
@@ -909,7 +919,7 @@ function Recount:MainWindowNextMode()
 end
 
 function Recount:MainWindowPrevMode()
-	local mode = Recount.db.profile.MainWindowMode-1
+	local mode = Recount.db.profile.MainWindowMode - 1
 	if mode == 0 then
 		mode = table.maxn(Recount.MainWindowData)
 	end
@@ -1464,7 +1474,6 @@ function Recount:OpenModeDropDown(myframe)
 	local currentorder = 1
 
 	for k, v in pairs(Recount.MainWindowData) do
-
 		modeopts.args["mode"..currentorder] = {
 			order = currentorder * 10,
 			name = v[1],
@@ -1515,7 +1524,7 @@ function Recount:OpenModeDropDown(myframe)
 	--modemenuframe:SetFrameLevel(myframe:GetFrameLevel() + 9)
 end
 
-function Recount:ModeDropDownOpen(myframe)
+--[[function Recount:ModeDropDownOpen(myframe)
 	local Recount_ModeDropDownMenu = CreateFrame("Frame", "Recount_ModeDropDownMenu", myframe)
 	Recount_ModeDropDownMenu.displayMode = "MENU"
 	Recount_ModeDropDownMenu.initialize = me.CreateModeDropdown
@@ -1540,15 +1549,16 @@ function Recount:ModeDropDownOpen(myframe)
 		oside = "TOPLEFT"
 	end
 	UIDropDownMenu_SetAnchor(Recount_ModeDropDownMenu , 0, 0, oside, myframe, side)
-end
+end]]
 
-function me:CreateModeDropdown(level)
+--[[function me:CreateModeDropdown(level)
 	local info = {}
 	for k, v in pairs(Recount.MainWindowData) do
-
 		info.checked = nil
 		info.text = v[1]
-		info.func = function() Recount:SetMainWindowMode(k) end
+		info.func = function()
+			Recount:SetMainWindowMode(k)
+		end
 		if Recount.db.profile.MainWindowMode == k then
 			info.checked = 1
 		else
@@ -1556,7 +1566,7 @@ function me:CreateModeDropdown(level)
 		end
 		UIDropDownMenu_AddButton(info, level)
 	end
-end
+end]]
 
 local ConvertDataSet = {}
 ConvertDataSet["OverallData"] = L["Overall Data"]

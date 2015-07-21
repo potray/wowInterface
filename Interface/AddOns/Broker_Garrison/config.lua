@@ -2,7 +2,7 @@ local ADDON_NAME, private = ...
 
 local Garrison = LibStub("AceAddon-3.0"):GetAddon(ADDON_NAME)
 
-local AceConfigRegistry = LibStub("AceConfigRegistry-3.0")
+local AceConfigRegistry = LibStub("AceConfig-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 local AceDBOptions = LibStub("AceDBOptions-3.0")
 local LSM = LibStub:GetLibrary("LibSharedMedia-3.0")
@@ -15,23 +15,42 @@ local garrisonDb, globalDb, configDb
 
 local debugPrint = Garrison.debugPrint
 
+local orderValues = nil
+
 local fonts = {}
 local sounds = {}
 
 local prefixSortValue = "sortValue"
 local prefixSortAscending = "sortAscending"
 local prefixDataOptionTooltip = "dataOptionTooltip"
-local prefixdataOptionNotification = "dataOptionNotification"
+local prefixDataOptionNotification = "dataOptionNotification"
+local prefixDataOptionLDB = "dataOptionLDB"
+
+local prefixDataOptionCharOrder = "dataOptionCharOrder"
 
 local lenPrefixSortValue = _G.strlen(prefixSortValue)
 local lenPrefixSortAscending = _G.strlen(prefixSortAscending)
-
 local lenPrefixDataOptionTooltip = _G.strlen(prefixDataOptionTooltip)
-local lenPrefixDataOptionNotification = _G.strlen(prefixdataOptionNotification)
+local lenPrefixDataOptionNotification = _G.strlen(prefixDataOptionNotification)
+local lenPrefixDataOptionLDB = _G.strlen(prefixDataOptionLDB)
 
+local lenPrefixDataOptionCharOrder = _G.strlen(prefixDataOptionCharOrder)
 local charLookupTable = {}
 
 local garrisonOptions
+
+StaticPopupDialogs["DELETE_CHARACTER_CONFIRMATION"] = {
+	text = "Delete character data? (%s-%s)",
+	button1 = "Yes",
+	button2 = "No",
+	OnAccept = function(self)
+		Garrison:deletechar(self.realmName, self.playerName)		
+	end,
+	timeout = 0,
+	whileDead = true,
+	hideOnEscape = true,
+	preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
+}
 
 
 function Garrison:returnchars()
@@ -123,8 +142,7 @@ function Garrison:GetLDBText(paramType)
 end
 
 
-function Garrison:deletechar(realm_and_character)
-	local playerName, realmName = (":"):split(realm_and_character, 2)
+function Garrison:deletechar(realmName, playerName)
 	if not realmName or realmName == nil or realmName == "" then return nil end
 	if not playerName or playerName == nil or playerName == "" then return nil end
 
@@ -139,7 +157,9 @@ function Garrison:deletechar(realm_and_character)
 		globalDb.data[realmName] = nil
 	end
 
-	debugPrint(("%s deleted."):format(realm_and_character))	
+	debugPrint(("%s-%s deleted."):format(realmName, playerName))
+	garrisonOptions.args.data.args = Garrison.getDataOptionTable()
+
 end
 
 
@@ -161,7 +181,7 @@ function Garrison:GetOptions()
 				order = 100,
 				type = "group",
 				name = L["General"],
-				cmdHidden = true,
+				cmdHidden = false,
 				args = {				
 					garrisonMinimapButton = {
 						order = 100,
@@ -186,7 +206,7 @@ function Garrison:GetOptions()
 						end,
 					},
 					showSeconds = {
-						order = 110,
+						order = 115,
 						type = "toggle",
 						width = "double",
 						name = L["Show seconds in LDB/Tooltip"],
@@ -196,12 +216,24 @@ function Garrison:GetOptions()
 							Garrison:UpdateLDB()
 						end,
 						--disabled = function() return not configDb.general.highAccuracy end,
-					},					
-					missionGroup = {
+					},
+					updateInCombat = {
+						order = 120,
+						type = "toggle",
+						width = "double",
+						name = L["Run updates (LDB, data queries) in combat"],
+						desc = L["Run updates (LDB, data queries) in combat"],
+						get = function() return configDb.general.updateInCombat end,
+						set = function(_,v) configDb.general.updateInCombat = v
+							Garrison:UpdateLDB()
+						end,
+						--disabled = function() return not configDb.general.highAccuracy end,
+					},
+					mission = {
 						order = 200,
 						type = "group",
 						name = L["Mission"],
-						cmdHidden = true,
+						cmdHidden = false,
 						args = {
 							ldbHeader = {
 								order = 100,
@@ -213,8 +245,8 @@ function Garrison:GetOptions()
 								order = 110,
 								type = "input",
 								width = "full",
-								name = L["Custom LDB Text"],
-								desc = L["Custom LDB Text"],
+								name = L["Label Text"],
+								desc = L["Label Text"],
 								get = function() return configDb.general.mission.ldbLabelText end,
 								set = function(_,v) configDb.general.mission.ldbLabelText = v
 								end,							
@@ -267,11 +299,11 @@ function Garrison:GetOptions()
 
 						},
 					},
-					buildingGroup = {
+					building = {
 						order = 200,
 						type = "group",
 						name = L["Building"],
-						cmdHidden = true,
+						cmdHidden = false,
 						args = {					
 							ldbHeader = {
 								order = 100,
@@ -340,25 +372,25 @@ function Garrison:GetOptions()
 					},					
 				},
 			},
-			dataGroup = {
+			data = {
 				order = 200,
 				type = "group",
 				name = L["Data"],
-				cmdHidden = true,
+				cmdHidden = false,
 				args = {
 				},
 			},
-			notificationGroup = {			
+			notification = {			
 				order = 300,
 				type = "group",
 				name = L["Notifications"],
-				cmdHidden = true,
+				cmdHidden = false,
 				args = {
 					notificationGeneral = {
 						order = 10,
 						type = "group",
 						name = L["General"],
-						cmdHidden = true,
+						cmdHidden = false,
 						args = {
 							disableInParty = {
 								order = 100,
@@ -392,11 +424,11 @@ function Garrison:GetOptions()
 							},
 						},
 					},
-					notificationMissionGroup = {
+					notificationMission = {
 						order = 100,
 						type = "group",
 						name = L["Mission"],
-						cmdHidden = true,
+						cmdHidden = false,
 						args = {
 							notificationToggle = {
 								order = 100,
@@ -540,11 +572,11 @@ function Garrison:GetOptions()
 							},
 						},
 					},
-					notificationBuildingGroup = {
+					notificationBuilding = {
 						order = 200,
 						type = "group",
 						name = L["Building"],
-						cmdHidden = true,
+						cmdHidden = false,
 						args = {
 							notificationToggle = {
 								order = 100,
@@ -691,11 +723,11 @@ function Garrison:GetOptions()
 							},
 						},
 					},
-					notificationShipmentGroup = {
+					notificationShipment = {
 						order = 300,
 						type = "group",
 						name = L["Shipment"],
-						cmdHidden = true,
+						cmdHidden = false,
 						args = {
 							notificationToggle = {
 								order = 100,
@@ -851,11 +883,11 @@ function Garrison:GetOptions()
 					notificationLibSink = Garrison:GetSinkAce3OptionsDataTable(),
 				},
 			},			
-			displayGroup = {
+			display = {
 				order = 500,
 				type = "group",
 				name = L["Display"],
-				cmdHidden = true,
+				cmdHidden = false,
 				args = {
 					scale = {
 						order = 110,
@@ -937,20 +969,61 @@ function Garrison:GetOptions()
 						set = function(_,v)
 							configDb.display.backgroundAlpha = (v / 255)
 						end,
-					},					
+					},
+					minimapHeader = {
+						order = 200,
+						type = "header",
+						name = L["Minimap"],
+						cmdHidden = true,
+					},
+					minimapButton = {
+						order = 205,
+						type = "toggle",
+						width = "full",
+						name = L["Load Minimap icon"],
+						desc = L["Load Minimap icon (requires ui reload!)"],
+						get = function() return configDb.minimap.load end,
+						set = function(_,v) configDb.minimap.load = v
+							Garrison:UpdateConfig()
+						end,
+					},
+					minimapMissionHide = {
+						order = 210,
+						type = "toggle",
+						width = "full",
+						name = L["Mission: Hide minimap icon"],
+						desc = L["Mission: Hide minimap icon"],
+						get = function() return configDb.minimap.mission.hide end,
+						set = function(_,v) configDb.minimap.mission.hide = v
+							Garrison:UpdateConfig()
+						end,
+						disabled = function() return not configDb.minimap.load end,
+					},
+					minimapBuildingHide = {
+						order = 220,
+						type = "toggle",
+						width = "full",
+						name = L["Building: Hide minimap icon"],
+						desc = L["Building: Hide minimap icon"],
+						get = function() return configDb.minimap.building.hide end,
+						set = function(_,v) configDb.minimap.building.hide = v
+							Garrison:UpdateConfig()
+						end,
+						disabled = function() return not configDb.minimap.load end,
+					},
 				},
 			},
 			tooltip = {
 				order = 600,
 				type = "group",
 				name = L["Tooltip"],
-				cmdHidden = true,
+				cmdHidden = false,
 				args = {
 					mission = {
 						order = 100,
 						type = "group",
 						name = L["Mission"],
-						cmdHidden = true,
+						cmdHidden = false,
 						args = {
 							miscHeader = {
 								order = 10,
@@ -1095,7 +1168,7 @@ function Garrison:GetOptions()
 						order = 200,
 						type = "group",
 						name = L["Building"],
-						cmdHidden = true,
+						cmdHidden = false,
 						args = {
 							miscHeader = {
 								order = 10,
@@ -1203,11 +1276,11 @@ function Garrison:GetOptions()
 					},
 				},
 			},
-			aboutGroup = {
+			about = {
 				order = 900,
 				type = "group",
 				name = L["About"],
-				cmdHidden = true,
+				cmdHidden = false,
 				args = {
 					aboutHeader = {
 						order = 100,
@@ -1218,13 +1291,21 @@ function Garrison:GetOptions()
 					version = {				
 						order = 200,
 						type = "description",
+						fontSize = "medium",
 						name = ("Version: %s\n"):format(Garrison.versionString),
 						cmdHidden = true,
 					},
 					about = {
 						order = 300,
 						type = "description",
-						name = ("Author: %s <EU-Khaz'Goroth>\nLayout: %s <EU-Khaz'Goroth>"):format(Garrison.getColoredUnitName("Smb","PRIEST", "EU-Khaz'Goroth"), Garrison.getColoredUnitName("Hotaruby","DRUID", "EU-Khaz'Goroth")),
+						fontSize = "medium",
+						name = ("Author: %s <EU-Khaz'Goroth>\n\nLayout: %s %s / %s <EU-Khaz'Goroth> %s\n\nThanks to:\n\n%s"):format(Garrison.getColoredUnitName("Smb","PRIEST", "EU-Khaz'Goroth"), 
+																										 Garrison.getIconString(Garrison.ICON_PATH_ABOUT1, 20, false, false),
+																										 Garrison.getColoredUnitName("Jarves","ROGUE", "EU-Khaz'Goroth"),
+																										 Garrison.getColoredUnitName("Hotaruby","DRUID", "EU-Khaz'Goroth"),
+																										 Garrison.getIconString(Garrison.ICON_PATH_ABOUT1, 20, false, false),
+																										 "znf (Ideas)\nStanzilla (Ideas)\nTorhal (Ideas, LibQTip, Toaster, ...)\nMegalon (AILO, Lockouts)"
+																										 ),
 						cmdHidden = true,
 					},
 				},
@@ -1278,17 +1359,76 @@ function Garrison:GetDataOptionNotification(info, ...)
 	return retVal
 end
 
+function Garrison:GetDataOptionLDB(info, ...)
+	local key = strsub(info[#info], lenPrefixDataOptionLDB + 1)
+	
+	local retVal = charLookupTable[tonumber(key)].ldbEnabled
+	if retVal == nil then
+		charLookupTable[tonumber(key)].ldbEnabled = true
+		retVal = true
+	end
+
+	return retVal
+end
+
 function Garrison:SetDataOptionTooltip(info, value)
 	local key = strsub(info[#info], lenPrefixDataOptionTooltip + 1)
-	
 	charLookupTable[tonumber(key)].tooltipEnabled = value
 end
 
 function Garrison:SetDataOptionNotification(info, value)
 	local key = strsub(info[#info], lenPrefixDataOptionNotification + 1)
-	
 	charLookupTable[tonumber(key)].notificationEnabled = value
 end
+
+function Garrison:SetDataOptionLDB(info, value)
+	local key = strsub(info[#info], lenPrefixDataOptionLDB + 1)
+	charLookupTable[tonumber(key)].ldbEnabled = value
+end
+
+function Garrison:DeleteCharacter(info, ...)
+	local key = strsub(info[#info], 10 + 1)
+	local playerData = charLookupTable[tonumber(key)]
+
+	if playerData then
+		local dialog = StaticPopup_Show("DELETE_CHARACTER_CONFIRMATION", playerData.info.realmName, playerData.info.playerName)
+		if dialog then
+			dialog.realmName = playerData.info.realmName
+			dialog.playerName = playerData.info.playerName
+		end
+	end
+
+	garrisonOptions.args.data.args = Garrison.getDataOptionTable()
+end
+
+function Garrison:SetCharOrder(info, value)	
+	local key = strsub(info[#info], lenPrefixDataOptionCharOrder + 1)
+	
+	charLookupTable[tonumber(key)].order = value
+
+	garrisonOptions.args.data.args = Garrison.getDataOptionTable()
+end
+
+function Garrison:GetCharOrder(info, ...)	
+	local key = strsub(info[#info], lenPrefixDataOptionCharOrder + 1)
+	
+	local orderCurrent = charLookupTable[tonumber(key)].order
+
+	return orderCurrent or 5
+end
+
+function Garrison:GetCharOrderValues()	
+
+	if orderValues == nil then
+		orderValues = {}
+		for i=1,11 do
+			orderValues[i] = (i < 10 and '0' or '')..tostring(i);
+		end
+	end
+
+	return orderValues
+end
+
 
 local function GetSortOptionTable(numOptions, paramType, baseOrder, sortTable)
 
@@ -1327,26 +1467,61 @@ end
 function Garrison.getDataOptionTable()
 
 	local baseOrder = 100
-	local i = 0
-
+	
 	charLookupTable = {}
 
-	local dataTable = {}
 
-	dataTable.deletechar = {
-			name = L["Delete char"],
-			desc = L["Delete the selected char"],
-			order = 10,
-			type = "select",
-			values = Garrison:returnchars(),
-			set = function(info, val) 
-				local t=Garrison:returnchars(); 
-					Garrison:deletechar(t[val]) 
-					garrisonOptions.args.dataGroup.args = Garrison.getDataOptionTable()
-				end,
-				get = function(info) return nil end,
-				width = "double",
+	local dataTable = {
+		newline = {
+			type = "description",
+			name = "",
+			width = "full",
+			order = 80,
+		},
+		title1 = {
+			type = "description",
+			name = "Character",
+			width = "normal",
+			order = 90,
+		},
+		title2 = {
+			type = "description",
+			name = L["Tooltip"],
+			width = "half",
+			order = 91,
+		},
+		title3 = {
+			type = "description",
+			name = L["Notifications"],
+			width = "half",
+			order = 92,
+		},
+		title4 = {
+			type = "description",
+			name = L["LDB"],
+			width = "half",
+			order = 93,
+		},
+		title5 = {
+			type = "description",
+			name = "Order",
+			width = "half",
+			order = 94,
+		},
+		title6 = {
+			type = "description",
+			name = "",
+			width = "half",
+			order = 95,
+		},
+		title7 = {
+			type = "description",
+			name = "",
+			width = "full",
+			order = 95,
+		},
 	}
+
 
 	--globalDb
 	for realmName,realmData in Garrison.pairsByKeys(globalDb.data) do
@@ -1358,7 +1533,15 @@ function Garrison.getDataOptionTable()
 			cmdHidden = true,
 		}
 
-		for playerName,playerData in Garrison.pairsByKeys(realmData) do
+		local i = 0
+
+		local sortOptions = {}
+		sortOptions[#sortOptions] = "order,a"
+		sortOptions[#sortOptions] = "info.playerName,a"
+			
+		local sortedPlayerTable = Garrison.sort(realmData, "order,a", "info.playerName,a")
+
+		for playerName,playerData in sortedPlayerTable do
 			dataTable["dataCharName"..(baseOrder + i)] = {
 				order = baseOrder + (i * 10),
 				type = "description",
@@ -1369,21 +1552,50 @@ function Garrison.getDataOptionTable()
 			dataTable[prefixDataOptionTooltip..(baseOrder + i)] = {
 				order = baseOrder + (i * 10) + 1,
 				type = "toggle",
-				name = L["Tooltip"],
+				name = "",
 				get = "GetDataOptionTooltip",
 				set = "SetDataOptionTooltip",
-				cmdHidden = true,
+				cmdHidden = false,
+				width = "half",
 			}
-			dataTable[prefixdataOptionNotification..(baseOrder + i)] = {
+			dataTable[prefixDataOptionNotification..(baseOrder + i)] = {
 				order = baseOrder + (i * 10) + 2,
 				type = "toggle",
-				name = L["Notifications"],
+				name = "",
 				get = "GetDataOptionNotification",
 				set = "SetDataOptionNotification",
-				cmdHidden = true,
-			}			
-			dataTable["dataNewline"..(baseOrder + i)] = {
+				cmdHidden = false,
+				width = "half",
+			}
+			dataTable[prefixDataOptionLDB..(baseOrder + i)] = {
 				order = baseOrder + (i * 10) + 3,
+				type = "toggle",
+				name = "",
+				get = "GetDataOptionLDB",
+				set = "SetDataOptionLDB",
+				cmdHidden = false,
+				width = "half",
+			}			
+			dataTable[prefixDataOptionCharOrder..(baseOrder + i)] = {
+				order = baseOrder + (i * 10) + 4,
+				type = "select",
+				name = "",
+				get = "GetCharOrder",
+				set = "SetCharOrder",
+				values = "GetCharOrderValues",
+				cmdHidden = false,
+				width = "half",
+			}
+			dataTable["dataDelete"..(baseOrder + i)] = {
+				order = baseOrder + (i * 10) + 5,
+				type = "execute",
+				name = L["Delete"],
+				func = "DeleteCharacter",
+				width = "half",
+				cmdHidden = true,
+			}
+			dataTable["dataNewline"..(baseOrder + i)] = {
+				order = baseOrder + (i * 10) + 6,
 				type = "description",
 				name = "",
 				width = "full",
@@ -1409,14 +1621,14 @@ function Garrison:SetupOptions()
 	local options = Garrison:GetOptions()
 	garrisonOptions = options
 
-	AceConfigRegistry:RegisterOptionsTable(ADDON_NAME, options)	
+	AceConfigRegistry:RegisterOptionsTable(ADDON_NAME, options, {"brokergarrison", "garrison"})
 	Garrison.optionsFrame = AceConfigDialog:AddToBlizOptions(ADDON_NAME, Garrison.cleanName)
 	
 
 	-- Fix sink config options
-	options.args.notificationGroup.args.notificationLibSink.order = 600
-	options.args.notificationGroup.args.notificationLibSink.inline = true
-	options.args.notificationGroup.args.notificationLibSink.name = ""
+	options.args.notification.args.notificationLibSink.order = 600
+	options.args.notification.args.notificationLibSink.inline = true
+	options.args.notification.args.notificationLibSink.name = ""
 	--options.args.notificationGroup.args.notificationLibSink.disabled = function() return not configDb.notification.enabled end
 
 	options.plugins["profiles"] = {
@@ -1428,7 +1640,7 @@ function Garrison:SetupOptions()
 	options.args.tooltip.args.building.args = GetSortOptionTable(7, Garrison.TYPE_BUILDING, 400, options.args.tooltip.args.building.args)
 	options.args.tooltip.args.mission.args = GetSortOptionTable(7, Garrison.TYPE_MISSION, 400, options.args.tooltip.args.mission.args)	
 
-	options.args.dataGroup.args = Garrison.getDataOptionTable()
+	options.args.data.args = Garrison.getDataOptionTable()
 
 	--local sortedOptions = Garrison.sort(options.args, "order,a")
 	--for k, v in sortedOptions do

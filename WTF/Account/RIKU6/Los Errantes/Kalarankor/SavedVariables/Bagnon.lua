@@ -1,12 +1,12 @@
 
 BagnonFrameSettings = {
+	["version"] = "6.0.16",
 	["frames"] = {
 		["inventory"] = {
 		},
 		["bank"] = {
 			["point"] = "BOTTOMLEFT",
-			["y"] = 162.5000152587891,
+			["y"] = 162.500015258789,
 		},
 	},
-	["version"] = "5.4.15",
 }

@@ -2,10 +2,10 @@
 ## Title: Shadowed Unit Frames
 ## Notes: "Debug" code free since '93!
 ## Author: Shadowed
-## Version: v4.0.8
+## Version: v4.0.9
 ## SavedVariables: ShadowedUFDB
 ## OptionalDeps: Ace3, LibSharedMedia-3.0, AceGUI-3.0-SharedMediaWidgets, LibDualSpec-1.0, Clique
-## X-Curse-Packaged-Version: v4.0.8
+## X-Curse-Packaged-Version: v4.0.9
 ## X-Curse-Project-Name: Shadowed Unit Frames
 ## X-Curse-Project-ID: shadowed-unit-frames
 ## X-Curse-Repository-ID: wow/shadowed-unit-frames/mainline
@@ -48,6 +48,7 @@ modules\combattext.lua
 modules\totems.lua
 modules\runes.lua
 modules\fader.lua
+modules\basecombopoints.lua
 modules\combopoints.lua
 modules\incheal.lua
 modules\incabsorb.lua

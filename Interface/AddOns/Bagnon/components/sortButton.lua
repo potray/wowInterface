@@ -47,21 +47,19 @@ function SortButton:New(parent)
 end
 
 
---[[ Frame Events ]]--
+--[[ Interaction ]]--
 
 function SortButton:OnClick(button)
 	local isBank = self:GetParent().frameID == 'bank'
 
 	if button == 'RightButton' then
 		if isBank then
-			SetSortBagsRightToLeft(true)
 			SortReagentBankBags()
 			SortBankBags()
 		end
 	elseif isBank then
 		DepositReagentBank()
 	else
-		SetSortBagsRightToLeft(true)
 		SortBags()
 	end
 end

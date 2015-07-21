@@ -1,5 +1,5 @@
 --[[
-Copyright 2008-2014 João Cardoso
+Copyright 2008-2015 João Cardoso
 Scrap is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -29,6 +29,7 @@ function Dropdown:Toggle(anchor)
 			text = L.AdvancedOptions,
 			notCheckable = 1,
 			func = function()
+				InterfaceOptionsFrame_OpenToCategory(ScrapOptions)
 				InterfaceOptionsFrame_OpenToCategory(ScrapOptions)
 			end
     	},

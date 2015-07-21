@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("Sartharion", "DBM-ChamberOfAspects", 1)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 157 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 198 $"):sub(12, -3))
 mod:SetCreatureID(28860)
 mod:SetEncounterID(1090)
 mod:SetModelID(27035)
@@ -22,7 +22,7 @@ local warnTenebron          = mod:NewAnnounce("WarningTenebron", 2, 61248, false
 local warnShadron           = mod:NewAnnounce("WarningShadron", 2, 58105, false)
 local warnVesperon          = mod:NewAnnounce("WarningVesperon", 2, 61251, false)
 
-local warnFireWall			= mod:NewSpecialWarning("WarningFireWall", nil, nil, true)
+local warnFireWall			= mod:NewSpecialWarning("WarningFireWall", nil, nil, nil, 0)
 local warnVesperonPortal	= mod:NewSpecialWarning("WarningVesperonPortal", false)
 local warnTenebronPortal	= mod:NewSpecialWarning("WarningTenebronPortal", false)
 local warnShadronPortal		= mod:NewSpecialWarning("WarningShadronPortal", false)
@@ -34,8 +34,6 @@ local timerWall             = mod:NewCDTimer(30, 43113)
 local timerTenebron         = mod:NewTimer(30, "TimerTenebron", 61248)
 local timerShadron          = mod:NewTimer(80, "TimerShadron", 58105)
 local timerVesperon         = mod:NewTimer(120, "TimerVesperon", 61251)
-
-local soundFlameWall		= mod:NewSound(43113)
 
 local lastvoids = {}
 local lastfire = {}
@@ -59,7 +57,6 @@ function mod:OnSync(event)
 	if event == "FireWall" then
 		timerWall:Start()
 		warnFireWall:Show()
-		soundFlameWall:Play()
 	elseif event == "VesperonPortal" then
 		warnVesperonPortal:Show()
 	elseif event == "TenebronPortal" then

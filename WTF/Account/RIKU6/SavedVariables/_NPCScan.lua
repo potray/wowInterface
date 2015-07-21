@@ -16,6 +16,8 @@ _NPCScanOptions = {
 		[50409] = "Mysterious Camel Figurine",
 		[64004] = "Ghostly Pandaren Fisherman",
 	},
+	["Version"] = 3,
+	["ShowAlertAsToast"] = true,
 	["IgnoreList"] = {
 		["NPCs"] = {
 		},
@@ -24,7 +26,5 @@ _NPCScanOptions = {
 		["WorldID"] = {
 		},
 	},
-	["ShowAlertAsToast"] = true,
-	["Version"] = 3,
 	["ChangeAlertShown"] = true,
 }

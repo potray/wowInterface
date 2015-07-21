@@ -15,7 +15,7 @@ local THIS_ACCOUNT = "Default"
 local AddonDB_Defaults = {
 	global = {
 		Options = {
-			AutoClearExpiredItems = 1,		-- Automatically clear expired auctions and bids
+			AutoClearExpiredItems = true,		-- Automatically clear expired auctions and bids
 		},
 		Characters = {
 			['*'] = {				-- ["Account.Realm.Name"] 
@@ -136,7 +136,7 @@ function addon:OnEnable()
 	addon:RegisterEvent("AUCTION_HOUSE_SHOW")
 	addon:SetupOptions()
 	
-	if GetOption("AutoClearExpiredItems") == 1 then
+	if GetOption("AutoClearExpiredItems") then
 		addon:ScheduleTimer(CheckExpiries, 3)	-- check AH expiries 3 seconds later, to decrease the load at startup
 	end
 end
@@ -160,17 +160,21 @@ local function ScanAuctions()
 	
 	for i = 1, GetNumAuctionItems("owner") do
 		local itemName, _, count, _, _, _, _, startPrice, 
-			_, buyoutPrice, _,	highBidder = GetAuctionItemInfo("owner", i);
-
-		if itemName then
-			local link = GetAuctionItemLink("owner", i)
-			if not link:match("battlepet:(%d+)") then		-- temporarily skip battle pets
-				local id = tonumber(link:match("item:(%d+)"))
-				local timeLeft = GetAuctionItemTimeLeft("owner", i)
+			_, buyoutPrice, _, highBidder, _, _, _, saleStatus, itemID =  GetAuctionItemInfo("owner", i)
 			
-				table.insert(character.Auctions, format("%s|%s|%s|%s|%s|%s|%s", 
-					AHZone, id, count, highBidder or "", startPrice, buyoutPrice, timeLeft))
-			end
+		-- do not list sold items, they're supposed to be in the mailbox
+		if saleStatus and saleStatus == 1 then		-- just to be sure, in case Bliz ever returns nil
+			saleStatus = true
+		else
+			saleStatus = false
+		end
+			
+		if itemName and itemID and not saleStatus then
+			local link = GetAuctionItemLink("owner", i)
+			local timeLeft = GetAuctionItemTimeLeft("owner", i)
+			
+			table.insert(character.Auctions, format("%s|%s|%s|%s|%s|%s|%s", 
+				AHZone, itemID, count, highBidder or "", startPrice, buyoutPrice, timeLeft))
 		end
 	end
 	

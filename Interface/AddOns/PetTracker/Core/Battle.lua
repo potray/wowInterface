@@ -1,5 +1,5 @@
 --[[
-Copyright 2012-2014 João Cardoso
+Copyright 2012-2015 João Cardoso
 PetTracker is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -148,10 +148,6 @@ function Battle:GetStats()
 	if speedScale and healthScale and healthBonus then
 		speedScale  = 100/(speedScale+100)
 		healthScale = 100/(healthScale+100)
-
-		if self:IsWildBattle() and not self:IsAlly() then
-			healthScale = healthScale * 1.2
-		end
 
 		return floor(self:GetMaxHealth() * healthScale - healthBonus + .5),
 			   self:GetPower(),

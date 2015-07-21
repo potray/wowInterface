@@ -9,6 +9,7 @@ DataStore_AgendaDB = {
 		["Zhenya - Los Errantes"] = "Zhenya - Los Errantes",
 		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
 		["Kalarankor - Los Errantes"] = "Kalarankor - Los Errantes",
+		["Farenir - Dun Modr"] = "Farenir - Dun Modr",
 		["Ringeki - Dun Modr"] = "Ringeki - Dun Modr",
 		["Drublock - Los Errantes"] = "Drublock - Los Errantes",
 		["Pexus - Los Errantes"] = "Pexus - Los Errantes",
@@ -39,10 +40,10 @@ DataStore_AgendaDB = {
 					["Fitipaldi"] = {
 						["note"] = "",
 					},
-					["Kirie"] = {
+					["Kreaven"] = {
 						["note"] = "",
 					},
-					["Kreaven"] = {
+					["Kirie"] = {
 						["note"] = "",
 					},
 					["Ithaisa"] = {
@@ -58,27 +59,27 @@ DataStore_AgendaDB = {
 						["note"] = "",
 					},
 				},
-				["lastUpdate"] = 1417275333,
+				["lastUpdate"] = 1424964808,
 			},
 			["Default.Los Errantes.Drublock"] = {
-				["lastUpdate"] = 1417273883,
+				["lastUpdate"] = 1424959140,
 			},
 			["Default.Los Errantes.Kalarankor"] = {
 				["Contacts"] = {
-					["Kareitris"] = {
+					["Elrad"] = {
 						["note"] = "",
 					},
-					["Elrad"] = {
+					["Kareitris"] = {
 						["note"] = "",
 					},
 					["Drublock"] = {
 						["note"] = "",
 					},
 				},
-				["lastUpdate"] = 1409841444,
+				["lastUpdate"] = 1424959041,
 			},
 			["Default.Los Errantes.Zhenya"] = {
-				["lastUpdate"] = 1409841533,
+				["lastUpdate"] = 1424959084,
 			},
 			["Default.Los Errantes.Kobash"] = {
 				["Contacts"] = {
@@ -122,22 +123,19 @@ DataStore_AgendaDB = {
 				["lastUpdate"] = 1410628407,
 			},
 			["Default.Dun Modr.Potray"] = {
-				["DungeonIDs"] = {
-					["Karazhan 10 Player|134672054"] = "241033|1419768168|0|1",
-					["Magtheridon's Lair 25 Player|134688578"] = "241033|1419768168|0|1",
-					["Tempest Keep 25 Player|134680477"] = "241033|1419768168|0|1",
-					["Gruul's Lair 25 Player|134684281"] = "241033|1419768168|0|1",
-				},
-				["lastUpdate"] = 1419768166,
+				["lastUpdate"] = 1429365602,
+			},
+			["Default.Dun Modr.Farenir"] = {
+				["lastUpdate"] = 1429365378,
 			},
 			["Default.Dun Modr.Geddry"] = {
-				["lastUpdate"] = 1418599653,
+				["lastUpdate"] = 1427386854,
 			},
 		},
 		["Options"] = {
 			["WeeklyResetHour"] = 6,
 			["WeeklyResetDay"] = 3,
-			["NextWeeklyReset"] = "2014-12-31",
+			["NextWeeklyReset"] = "2015-04-22",
 		},
 	},
 }

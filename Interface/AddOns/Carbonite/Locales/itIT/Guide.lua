@@ -7,16 +7,15 @@ if not L then return end
 
 -- Main Guide
 L["All"] = true
-L["Quest Givers"] = true
-L["Stable Master"] = true
-L["Flight Master"] = true
+L["Quest Givers"] = "Committenti"
+L["Stable Master"] = "Stalliere"
+L["Flight Master"] = "Maestro di Volo"
 L["Common Place"] = true
 L["Auctioneer"] = "Banditore"
 L["Banker"] = "Banchiere"
-L["Innkeeper"] = true
-L["Arcane Reforger"] = true
-L["Void Storage"] = true
-L["Transmogrifier"] = true
+L["Innkeeper"] = "Locandiere"
+L["Void Storage"] = "Banca Eterea"
+L["Transmogrifier"] = "Trasmogrificatore"
 L["Battle Pet Trainer"] = "Istruttore Mascotte da Combattimento"
 L["Barber"] = "Barbiere"
 L["Mailbox"] = "Cassetta Postale"
@@ -59,11 +58,11 @@ L["Gather"] = "Raccolta"
 L["Herb"] = "Erbe"
 L["Ore"] = "Minerali"
 L["Artifacts"] = "Artefatti"
-L["Everfrost"] = true
+L["Everfrost"] = "Semprefreddo"
 L["Gas"] = "Gas"
 L["Instances"] = true
 L["Zone"] = true
-L["Trade Skill"] = true
+L["Trade Skill"] = "Abilit\195\160 Commercio"
 L["Alchemy Lab"] = "Laboratorio Alchemico"
 L["Altar Of Shadows"] = "Altare delle Ombre"
 L["Mana Loom"] = true

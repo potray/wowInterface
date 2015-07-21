@@ -8,6 +8,20 @@ VER 3 0100000000000005 "CS/HoR" "INV_Misc_QuestionMark"
 #showtooltip
 /cast [mod:shift] Hammer of the Righteous; Crusader Strike
 END
+VER 3 0100000000000007 "Fish" "INV_Misc_QuestionMark"
+#showtooltip
+/equip [nomod] Big Iron Fishing Pole
+/equip [nomod] Bone Fishing Pole
+/equipset [mod:alt] DPS
+/cast [nomod]  Fishing
+END
+VER 3 0100000000000008 "Full DPS" "INV_Misc_QuestionMark"
+#showtooltip
+/use Drums of Fury
+/cast Avenging Wrath
+/use 13
+/use 14
+END
 VER 3 0100000000000004 "Multiple Target" "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cast [nomod] Seal of Righteousness

@@ -146,4 +146,3 @@ L:SetOptionLocalization({
 L:SetMiscLocalization({
 	MassiveWave		= "Une Vague Massive de Zombies est en approche !"
 })
-

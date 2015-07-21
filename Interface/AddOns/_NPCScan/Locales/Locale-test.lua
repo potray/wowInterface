@@ -8,9 +8,6 @@
 local private = select( 2, ... )
 private.L = setmetatable( {
 	NPCs = {};
-	-- Phrases localized by default UI
-	FOUND_ZONE_UNKNOWN = UNKNOWN;
-	SEARCH_LEVEL_TYPE_FORMAT = UNIT_TYPE_LEVEL_TEMPLATE; -- Level, Type
 }, {
 	__index = function ( self, Key )
 		if ( Key ~= nil ) then
@@ -858,6 +855,7 @@ private.L.NPCs["74206"] = "Killmaw"
 private.L.NPCs["74613"] = "Broodmother Reeg'ak"
 private.L.NPCs["74971"] = "Firefury Giant"
 private.L.NPCs["75071"] = "Mother Om'ra"
+private.L.NPCs["75207"] = "Biolante"
 private.L.NPCs["75425"] = "Ancient Saltsnap Turtle"
 private.L.NPCs["75434"] = "Windfang Matriarch"
 private.L.NPCs["75435"] = "Yggdrel"
@@ -997,6 +995,7 @@ private.L.NPCs["80771"] = "Personal Loot Test"
 private.L.NPCs["80868"] = "Glut"
 private.L.NPCs["81038"] = "Gelgor of the Blue Flame"
 private.L.NPCs["81406"] = "Bahameye"
+private.L.NPCs["81548"] = "Charl Doomwing"
 private.L.NPCs["81639"] = "Brambleking Fili"
 private.L.NPCs["81681"] = "Da Keeper"
 private.L.NPCs["81766"] = "Skagg"

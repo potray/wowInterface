@@ -1,0 +1,10 @@
+
+TradeSkillMaster_AuctionDBDB = {
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

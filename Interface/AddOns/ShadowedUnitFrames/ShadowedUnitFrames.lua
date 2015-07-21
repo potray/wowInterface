@@ -5,7 +5,7 @@
 ShadowUF = select(2, ...)
 
 local L = ShadowUF.L
-ShadowUF.dbRevision = 50
+ShadowUF.dbRevision = 53
 ShadowUF.playerUnit = "player"
 ShadowUF.enabledUnits = {}
 ShadowUF.modules = {}
@@ -99,14 +99,23 @@ end
 
 function ShadowUF:CheckUpgrade()
 	local revision = self.db.profile.revision or self.dbRevision
+	if( revision <= 53 ) then
+		for i=1, #(self.db.profile.units.player.text) do
+			if( self.db.profile.units.player.text[i].anchorTo == "$eclipseBar" ) then
+				table.remove(self.db.profile.units.player.text, i)
+				break
+			end
+		end
+	end
+
+	if( revision <= 49 ) then
+		ShadowUF:LoadDefaultLayout(true)
+	end
+
 	if( revision <= 49 ) then
 		if( ShadowUF.db.profile.font.extra == "MONOCHROME" ) then
 			ShadowUF.db.profile.font.extra = ""
 		end
-	end
-
-	if( revision <= 48 ) then
-		ShadowUF:LoadDefaultLayout(true)
 	end
 
 	if( revision <= 47 ) then
@@ -133,328 +142,6 @@ function ShadowUF:CheckUpgrade()
 					aura.show.consolidated = true
 					aura.show.misc = true
 				end
-			end
-		end
-	end
-
-	if( revision <= 44 ) then
-		ShadowUF:LoadDefaultLayout(true)
-
-		for unit, config in pairs(self.defaults.profile.units) do
-			if( config.indicators and config.indicators.resurrect ) then
-				local db = self.db.profile.units[unit]
-				
-				local options
-				if( unit == "target" ) then
-					options = {enabled = true, anchorPoint = "RC", size = 28, x = -39, y = -1, anchorTo = "$parent"}
-				else
-					options = {enabled = true, anchorPoint = "LC", size = 28, x = 37, y = -1, anchorTo = "$parent"}
-				end
-
-				for key, value in pairs(options) do
-					if( db.indicators.resurrect[key] == nil ) then
-						db.indicators.resurrect[key] = value
-					end
-				end
-			end
-		end		
-	end
-
-	if( revision <= 43 ) then
-		for key, _ in pairs(self.db.profile.auraIndicators.indicators) do
-			self.db.profile.auraIndicators.height = nil
-			self.db.profile.auraIndicators.filters[key] = {boss = {priority = 100}, curable = {priority = 100}}
-		end
-	end
-
-	if( revision <= 42 ) then
-		for unit, config in pairs(self.db.profile.units) do
-			config.auras.height = nil
-
-			for type, auraConfig in pairs(config.auras) do
-				auraConfig.show = {misc = true}
-				auraConfig.show.player = auraConfig.player
-				auraConfig.show.raid = auraConfig.raid
-
-				auraConfig.enlarge = {}
-				auraConfig.enlarge["SELF"] = auraConfig.enlargeSelf
-				auraConfig.enlarge["REMOVABLE"] = auraConfig.enlargeStealable
-
-				auraConfig.timers = {}
-				if( auraConfig.selfTimers ) then
-					auraConfig.timers["SELF"] = true
-				else
-					auraConfig.timers["ALL"] = true
-				end
-
-				auraConfig.selfTimers = nil
-				auraConfig.player = nil
-				auraConfig.raid = nil
-				auraConfig.enlargeSelf = nil
-				auraConfig.enlargeStealable = nil
-			end
-
-			config.auras.buffs.show.consolidated = true
-			config.auras.debuffs.show.boss = true
-		end
-	end
-
-	if( revision <= 41 ) then
-		local phase = self.db.profile.units.party.indicators.phase
-		phase.anchorPoint = phase.anchorPoint or "RC"
-		phase.size = phase.size or 14
-		phase.x = phase.x or -11
-		phase.y = phase.y or 0
-		phase.anchorTo = phase.anchorTo or "$parent"
-	end
-
-	if( revision <= 40 ) then
-		ShadowUF:LoadDefaultLayout(true)
-
-		for unit, config in pairs(self.db.profile.units) do
-			if( config.healAbsorb and not self.defaults.profile.units[unit].healAbsorb ) then
-				config.healAbsorb = nil
-			end
-		end
-	end
-
-	if( revision <= 39 ) then
-		table.insert(self.db.profile.units.player.text, {enabled = true, width = 1, name = L["Text"], text = "[monk:abs:stagger]", anchorTo = "$staggerBar", anchorPoint = "C", size = 0, x = 0, y = 0, default = true})
-	end
-
-	if( revision <= 38 ) then
-		table.insert(self.db.profile.units.player.text, {enabled = true, width = 1, name = L["Timer Text"], text = "", anchorTo = "$runeBar", anchorPoint = "C", size = 0, x = 0, y = 0, default = true, block = true})
-		table.insert(self.db.profile.units.player.text, {enabled = true, width = 1, name = L["Timer Text"], text = "", anchorTo = "$totemBar", anchorPoint = "C", size = 0, x = 0, y = 0, default = true, block = true})
-
-		for _, config in pairs(self.db.profile.units) do
-			for id, text in pairs(config.text) do
-				if( id <= 5 ) then
-					text.default = true
-				end
-			end
-		end
-	end
-
-	if( revision <= 37 ) then
-		self.db.profile.healthColors.healAbsorb = {r = 0.68, g = 0.47, b = 1}
-	end
-
-	if( revision <= 34 ) then
-		self.db.profile.units.player.staggerBar = {enabled = true, background = true, height = 0.30, order = 70}
-		self.db.profile.powerColors.STAGGER_GREEN = {r = 0.52, g = 1.0, b = 0.52}
-		self.db.profile.powerColors.STAGGER_YELLOW = {r = 1.0, g = 0.98, b = 0.72}
-		self.db.profile.powerColors.STAGGER_RED = {r = 1.0, g = 0.42, b = 0.42}
-	end
-
-	if( revision <= 33 ) then
-		for unit, config in pairs(self.db.profile.units) do
-			if( not self.defaults.profile.units[unit].incHeal and config.incHeal ) then
-				config.incHeal = nil
-			end
-
-			if( not self.defaults.profile.units[unit].incAbsorb and config.incAbsorb ) then
-				config.incAbsorb = nil
-			end
-
-			if( config.incAbsorb ) then
-				config.incAbsorb.cap = config.incAbsorb.cap or 1.30
-			end
-
-			if( config.incHeal ) then
-				config.incHeal.cap = config.incHeal.cap or 1.30
-			end
-		end
-	end
-
-	if( revision <= 32 ) then
-		for unit, config in pairs(self.db.profile.units) do
-			if( config.incAbsorb and not config.incAbsorb.cap ) then
-				config.incAbsorb.cap = 1.30
-			end
-		end
-	end
-
-	if( revision <= 31 or not self.db.profile.healthColors.incAbsorb ) then
-		self.db.profile.healthColors.incAbsorb = {r = 0.93, g = 0.75, b = 0.09}
-
-		for unit, config in pairs(self.db.profile.units) do
-			if( config.incHeal ) then
-				config.incHeal.enabled = config.incHeal.heals
-				config.incHeal.heals = nil
-				config.incAbsorb = {enabled = config.incHeal.enabled}
-			end
-		end
-	end
-
-	if( revision <= 30 ) then
-		self.db.profile.powerColors.RUNEOFPOWER = {r = 0.35, g = 0.45, b = 0.60}
-	end
-
-	if( revision <= 29 ) then
-		self.db.profile.units.player.totemBar.showAlways = true
-	end
-
-	if( revision <= 28 ) then
-		self.db.profile.units.target.indicators.questBoss = {enabled = true, anchorPoint = "BR", size = 22, x = 9, y = 24, anchorTo = "$parent"}
-		self.db.profile.units.focus.indicators.questBoss = {enabled = false, anchorPoint = "BR", size = 22, x = 7, y = 14, anchorTo = "$parent"}
-
-		for unit, config in pairs(self.db.profile.units) do
-			for key, module in pairs(ShadowUF.modules) do
-				if( config[key] and ( module.moduleHasBar or module.isComboPoints or config[key].isBar or config[key].order ) ) then
-					config[key].height = config[key].height or 0.40
-				end
-			end
-		end
-	end
-
-	if( revision <= 27 ) then
-		self.db.profile.healthColors.aggro = CopyTable(self.db.profile.healthColors.hostile)
-	end
-
-	if( revision <= 26 ) then
-		for _, unit in pairs(self.unitList) do
-			if( unit ~= "player" ) then
-				for id, text in pairs(self.db.profile.units[unit].text) do
-					if( text.anchorTo == "$demonicFuryBar" ) then
-						self.db.profile.units[unit].text[id] = nil
-					end
-				end
-			end
-		end
-	end
-
-	if( revision <= 25 ) then
-		table.insert(self.db.profile.units.player.text, {enabled = true, width = 1, name = L["Text"], text = "[druid:eclipse]", anchorTo = "$eclipseBar", anchorPoint = "CLI", size = -1, x = 0, y = 0, default = true})
-	end
-
-	if( revision <= 24 ) then
-		self.db.profile.powerColors.AURAPOINTS = {r = 1.0, g = 0.80, b = 0}
-		self.db.profile.units.player.auraPoints = {enabled = false, showAlways = true, anchorTo = "$parent", order = 60, anchorPoint = "BR", x = -3, y = 8, size = 14, spacing = -4, growth = "LEFT", isBar = true, height = 0.40}
-	end
-
-	if( revision <= 23 ) then
-		self.db.profile.hidden.playerAltPower = false
-		self.db.profile.powerColors.ALTERNATE = {r = 0.815, g = 0.941, b = 1}
-	end
-
-	if( revision <= 22 ) then
-		self:LoadDefaultLayout(true)
-
-		for _, unit in pairs(self.unitList) do
-			if( ShadowUF.fakeUnits[unit] ) then
-				self.db.profile.units[unit].altPowerBar.enabled = false
-			end
-		end
-	end
-
-	if( revision <= 21 ) then
-		self.db.profile.powerColors["POWER_TYPE_FEL_ENERGY"] = {r = 0.878, g = 0.980, b = 0}
-	end
-	
-	if( revision <= 20 ) then
-		self.db.profile.powerColors["ALTERNATE"] = {r = 0.71, g = 0.0, b = 1.0}
-		
-		for _, unit in pairs(self.unitList) do
-			self.db.profile.units[unit].altPowerBar.enabled = true
-			self.db.profile.units[unit].altPowerBar.background = true
-			self.db.profile.units[unit].altPowerBar.height = 0.40
-			self.db.profile.units[unit].altPowerBar.order = 100
-		end
-	end
-	
-	if( revision <= 19 ) then
-		self.db.profile.units.pet.altPowerBar.enabled = true
-		table.insert(self.db.profile.units.player.text, {enabled = true, width = 1, name = L["Text"], text = "[warlock:demonic:curpp]", anchorTo = "$demonicFuryBar", anchorPoint = "C", size = -1, x = 0, y = 0, default = true})
-	end
-
-	if( revision <= 18 ) then
-		self.db.profile.powerColors["MUSHROOMS"] = {r = 0.20, g = 0.90, b = 0.20}
-		self.db.profile.powerColors["STATUE"] = {r = 0.35, g = 0.45, b = 0.60}
-	end
-
-	if( revision <= 17 ) then
-		self.db.profile.units.target.indicators.petBattle = {enabled = true, anchorPoint = "BL", size = 18, x = -6, y = 14, anchorTo = "$parent"}
-		self.db.profile.units.focus.indicators.petBattle = {enabled = false, anchorPoint = "BL", size = 18, x = -6, y = 12, anchorTo = "$parent"}
-		self.db.profile.units.party.indicators.phase = {enabled = true}
-	end
-
-	if( revision <= 16 ) then
-		self.db.profile.units.target.indicators.questBoss = {enabled = true, anchorPoint = "BR", size = 22, x = 9, y = 24, anchorTo = "$parent"}
-		self.db.profile.units.focus.indicators.questBoss = {enabled = false, anchorPoint = "BR", size = 22, x = 7, y = 14, anchorTo = "$parent"}
-	end
-
-	if( revision <= 15 ) then
-		self.db.profile.powerColors["DEMONICFURY"] = {r = 0.58, g = 0.51, b = 0.79}
-		self.db.profile.powerColors["BURNINGEMBERS"] = {r = 0.58, g = 0.51, b = 0.79}
-		self.db.profile.powerColors["FULLBURNINGEMBER"] = {r = 0.88, g = 0.09, b = 0.062}
-		self.db.profile.powerColors["SHADOWORBS"] = {r = 0.58, g = 0.51, b = 0.79}
-
-		self.db.profile.units.player.shadowOrbs = {anchorTo = "$parent", order = 60, height = 0.40, anchorPoint = "BR", x = -3, y = 6, size = 14, spacing = -4, growth = "LEFT", isBar = true, showAlways = true}
-		self.db.profile.units.player.burningEmbersBar = {enabled = true, background = false, height = 0.40, order = 70}
-		self.db.profile.units.player.demonicFuryBar = {enabled = true, background = false, height = 0.40, order = 70}
-	end
-
-	if( revision <= 14 ) then
-		self.db.profile.powerColors["CHI"] = {r = 0.71, g = 1.0, b = 0.92}
-
-		self.db.profile.units.player.chi = {anchorTo = "$parent", order = 60, height = 0.40, anchorPoint = "BR", x = -3, y = 6, size = 14, spacing = -4, growth = "LEFT", isBar = true, showAlways = true}
-	end
-
-	if( revision <= 13 ) then
-		self.db.profile.powerColors["BANKEDHOLYPOWER"] = {r = 0.96, g = 0.61, b = 0.84}
-	end
-
-	if( revision <= 12 ) then
-		self.db.profile.classColors["MONK"] = {r = 0.0, g = 1.00, b = 0.59}
-	end
-
-	if( revision <= 11 ) then
-		for unit, config in pairs(self.db.profile.units) do
-			if( config.powerBar ) then
-				config.powerBar.colorType = "type"
-			end
-		end
-	end
-
-	if( revision <= 10 ) then
-		for unit, config in pairs(self.db.profile.units) do
-			if( config.healthBar ) then
-				config.healthBar.predicted = nil
-			end
-		end
-
-		for unit, config in pairs(self.db.profile.units) do
-			if( unit ~= "party" and config.indicators and config.indicators.phase ) then
-				config.indicators.phase = nil
-			end
-		end
-	end
-
-	if( revision <= 8 ) then
-		for unit, config in pairs(self.db.profile.units) do
-			if( config.incHeal ) then
-				config.incHeal.heals = config.incHeal.enabled
-			end
-		end
-	end
-
-	if( revision <= 7 ) then
-		self.db.profile.auraColors = {removable = {r = 1, g = 1, b = 1}}
-	end
-
-	if( revision <= 6 ) then
-		for _, unit in pairs({"player", "focus", "target", "raid", "party", "mainassist", "maintank"}) do
-			local db = self.db.profile.units[unit]
-			if( not db.indicators.resurrect ) then
-				if( unit == "target" ) then
-					db.indicators.resurrect = {enabled = true, anchorPoint = "RC", size = 28, x = -39, y = -1, anchorTo = "$parent"}
-				else
-					db.indicators.resurrect = {enabled = true, anchorPoint = "LC", size = 28, x = 37, y = -1, anchorTo = "$parent"}
-				end
-			end
-			
-			if( unit == "party" and not db.indicators.phase ) then
-			   db.indicators.phase = {enabled = false, anchorPoint = "BR", size = 23, x = 8, y = 36, anchorTo = "$parent"}
 			end
 		end
 	end
@@ -582,6 +269,7 @@ function ShadowUF:LoadUnitDefaults()
 	self.defaults.profile.units.player.soulShards = {enabled = true, isBar = true}
 	self.defaults.profile.units.player.staggerBar = {enabled = true}
 	self.defaults.profile.units.player.demonicFuryBar = {enabled = true}
+	self.defaults.profile.units.player.comboPoints = {enabled = true, isBar = true}
 	self.defaults.profile.units.player.burningEmbersBar = {enabled = true}
 	self.defaults.profile.units.player.eclipseBar = {enabled = true}
 	self.defaults.profile.units.player.holyPower = {enabled = true, isBar = true}
@@ -609,7 +297,6 @@ function ShadowUF:LoadUnitDefaults()
 	self.defaults.profile.units.focustarget.fader = {enabled = false, combatAlpha = 1.0, inactiveAlpha = 0.60}
 	-- TARGET
 	self.defaults.profile.units.target.enabled = true
-	self.defaults.profile.units.target.comboPoints = {enabled = true, isBar = true}
 	self.defaults.profile.units.target.indicators.lfdRole = {enabled = false, size = 0, x = 0, y = 0}
 	self.defaults.profile.units.target.indicators.questBoss = {enabled = true, size = 0, x = 0, y = 0}
 	-- TARGETTARGET/TARGETTARGETTARGET
@@ -728,6 +415,7 @@ function ShadowUF:LoadUnitDefaults()
 			["1459"] = [[{indicator = '', group = "Mage", priority = 10, r = 0.10, g = 0.68, b = 0.88}]],
 			["116849"] = [[{r=0.19607843137255, group="Monk", indicator="c", g=1, player=false, duration=true, b=0.3843137254902, alpha=1, priority=0, icon=true, iconTexture="Interface\\Icons\\ability_monk_chicocoon"}]],
 			["1126"] = [[{r=0.47450980392157, group="Druid", indicator="", g=0.2156862745098, player=true, duration=true, missing=true, b=0.81960784313725, priority=0, alpha=1, iconTexture="Interface\\Icons\\Spell_Nature_Regeneration"}]],
+			["155777"] = [[{r=0.57647058823529, group="Druid", indicator="tr", g=0.28235294117647, player=true, duration=true, b=0.6156862745098, priority=100, alpha=1, iconTexture="Interface\\Icons\\Spell_Nature_Rejuvenation"}]],
 			["121176"] = [[{alpha=1, b=0, priority=0, r=0.062745098039216, group="PvP Flags", indicator="bl", g=1, iconTexture="Interface\\Icons\\INV_BannerPVP_03"}]],
 			["19705"] = [[{r=0.80392156862745, group="Food", indicator="", g=0.76470588235294, missing=true, duration=true, priority=0, alpha=1, b=0.24313725490196}]],
 			["19740"] = [[{r=0.93333333333333, group="Paladin", indicator="", g=0.84705882352941, selfColor={alpha=1, b=0.18823529411765, g=0.89411764705882, r=0.9843137254902, }, player=false, missing=true, duration=true, alpha=1, priority=0, b=0.15294117647059, iconTexture="Interface\\Icons\\Spell_Holy_GreaterBlessingofKings"}]],
@@ -736,18 +424,17 @@ function ShadowUF:LoadUnitDefaults()
 			["774"] = [[{r=0.57647058823529, group="Druid", indicator="tr", g=0.28235294117647, player=true, duration=true, b=0.6156862745098, priority=100, alpha=1, iconTexture="Interface\\Icons\\Spell_Nature_Rejuvenation"}]],
 			["33206"] = [[{r=0, group="Priest", indicator="c", g=0, b=0, duration=true, priority=0, icon=true, iconTexture="Interface\\Icons\\Spell_Holy_PainSupression"}]],
 			["974"] = [[{r=1, group="Shaman", indicator="tr", g=0.65882352941176, player=true, alpha=1, priority=10, b=0.27843137254902, iconTexture="Interface\\Icons\\Spell_Nature_SkinofEarth"}]],
-			["105284"] = [[{r=0.17647058823529, group="Shaman", indicator="br", g=0.50196078431373, player=true, duration=true, alpha=1, priority=0, b=0.78039215686275, iconTexture="INTERFACE\\ICONS\\spell_shaman_blessingoftheeternals"}]],
 			["6788"] = [[{b=0.29019607843137, group="Priest", indicator="tl", alpha=1, player=false, g=0.56862745098039, duration=true, r=0.83921568627451, priority=20, icon=false, iconTexture="Interface\\Icons\\Spell_Holy_AshesToAshes"}]],
 			["33763"] = [[{r=0.23137254901961, group="Druid", indicator="tl", g=1, player=true, duration=true, alpha=1, priority=0, b=0.2, iconTexture="Interface\\Icons\\INV_Misc_Herb_Felblossom"}]],
 			["61316"] = [[{alpha=1, b=1, priority=0, r=0, group="Mage", indicator="", g=0.96078431372549, iconTexture="Interface\\Icons\\Achievement_Dungeon_TheVioletHold_Heroic"}]],
 			["139"] = [[{r=0.23921568627451, group="Priest", indicator="tr", g=1, player=true, alpha=1, duration=true, b=0.39607843137255, priority=10, icon=false, iconTexture="Interface\\Icons\\Spell_Holy_Renew"}]],
 			["41635"] = [[{r=1, group="Priest", indicator="br", g=0.90196078431373, missing=false, player=true, duration=false, alpha=1, b=0, priority=50, icon=false, iconTexture="Interface\\Icons\\Spell_Holy_PrayerOfMendingtga"}]],
-			["64904"] = [[{r=0.23529411764706, group="Priest", indicator="31685", g=0.67843137254902, player=true, duration=false, b=0.67058823529412, priority=0, alpha=1, iconTexture="Interface\\Icons\\Spell_Holy_Rapture"}]],
 			["20217"] = [[{r=1, group="Paladin", indicator="", g=0.30196078431373, selfColor={alpha=1, b=0.91764705882353, g=0.058823529411765, r=1, }, player=false, duration=true, missing=true, alpha=1, priority=90, b=0.94117647058824, iconTexture="Interface\\Icons\\Spell_Magic_GreaterBlessingofKings"}]],
 			["47788"] = [[{r=0, group="Priest", indicator="c", g=0, b=0, duration=true, priority=0, icon=true, iconTexture="Interface\\Icons\\Spell_Holy_GuardianSpirit"}]],
 			["61295"] = [[{r=0.17647058823529, group="Shaman", indicator="tl", g=0.4, player=true, alpha=1, duration=true, b=1, priority=0, icon=false, iconTexture="Interface\\Icons\\spell_nature_riptide"}]],
 			["109773"] = [[{r=0.52941176470588, group="Warlock", indicator="", g=0.12941176470588, alpha=1, b=0.71372549019608, priority=0, missing=true, iconTexture="INTERFACE\\ICONS\\spell_warlock_focusshadow"}]],
 			["17"] = [[{r=1, group="Priest", indicator="tl", g=0.41960784313725, player=true, alpha=1, duration=true, b=0.5843137254902, priority=0, icon=false, iconTexture="Interface\\Icons\\Spell_Holy_PowerWordShield"}]],
+			["152118"] = [[{r=1, group="Priest", indicator="tl", g=0.41960784313725, player=true, alpha=1, duration=true, b=0.5843137254902, priority=0, icon=false, iconTexture="Interface\\Icons\\Ability_Priest_ClarityOfWill"}]],
 			["29166"] = [[{r=0, group="Druid", indicator="c", g=0, b=0, duration=true, priority=0, icon=true, iconTexture="Interface\\Icons\\Spell_Nature_Lightning"}]],
 			["23335"] = [[{r=0, group="PvP Flags", indicator="bl", g=0, duration=false, b=0, priority=0, icon=true, iconTexture="Interface\\Icons\\INV_BannerPVP_02"}]],
 			["102342"] = [[{r=0, group="Druid", indicator="c", g=0, duration=true, b=0, priority=0, icon=true, iconTexture="Interface\\Icons\\spell_druid_ironbark"}]],
@@ -987,7 +674,11 @@ function ShadowUF:HideBlizzardFrames()
 
 		ArenaEnemyFrames:UnregisterAllEvents()
 		ArenaEnemyFrames:SetParent(self.hiddenFrame)
+		ArenaPrepFrames:UnregisterAllEvents()
+		ArenaPrepFrames:SetParent(self.hiddenFrame)
+
 		SetCVar("showArenaEnemyFrames", 0, "SHOW_ARENA_ENEMY_FRAMES_TEXT")
+
 	end
 
 	if( self.db.profile.hidden.playerAltPower and not active_hiddens.playerAltPower ) then
@@ -1004,31 +695,18 @@ end
 
 -- Upgrade info
 local infoMessages = {
+	-- Old messages we don't need anymore
+	{}, {},
 	{
-		L["As of SUF v3.10, a bunch of new features and units have been added.|n"],
-		L["- Config UI now opens instantly, and does not take 5 seconds++ to show up!"],
-		L["- Totem/Rune bars now have timers indicating time to refres/expire"],
-		L["- Monk Stagger now shows the amount of staggered damage"],
-		L["- Boss ToT, Main Assist ToT, Main Tank ToT, Party ToT, Battleground ToT and Arena ToT units have been added!"],
-		L["- Auto profile switching based on dual spec is available in /suf -> Profile"],
-		L["- Highlight based on unit rare/elite is now available"],
-		L["- Added absorb shield tags"],
-		L["- Added Ancient Kings bar for Paladins"],
-		L["- And more! See the change log for everything that has changed."],
-		L["|nYou can disable the new text for Monk Stagger, Totem and Rune timers through /suf -> Unit configuration -> Text/Tags"]
-	},
-	{
-		L["Welcome to Shadowed Unit Frames v4! Auras have been expanded in this release.|n"],
-		L["- Aura Indicators are now built in"],
-		L["- Auras can be filtered multiple criteria rather than just self casted"],
-		L["- Boss debuff filtering is in"],
-		L["- Cooldown rings and scaled auras are more configurable"],
-		L["- Aura config is no longer a bunch of clumped options"]
+		L["You must restart Shadowed Unit Frames."],
+		L["If you don't, you will be unable to use any combo point features (Chi, Holy Power, Combo Points, Aura Points, etc) until you do so."]
 	}
 }
 
 function ShadowUF:ShowInfoPanel()
 	local infoID = ShadowUF.db.global.infoID or 0
+	if( ShadowUF.ComboPoints and infoID < 3 ) then infoID = 3 end
+
 	ShadowUF.db.global.infoID = #(infoMessages)
 	if( infoID < 0 or infoID >= #(infoMessages) ) then return end
 	

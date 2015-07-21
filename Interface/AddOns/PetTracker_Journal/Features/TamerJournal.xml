@@ -24,7 +24,7 @@
 	</Button>
 
 	<!-- Frame -->
-	<Frame name="PetTrackerTamerJournal" parent="PetJournalParent" setAllPoints="true" hidden="true">
+	<Frame name="PetTrackerTamerJournal" parent="CollectionsJournal" setAllPoints="true" hidden="true">
 		<Frames>
 			<Frame parentKey="Count" useParentLevel="true" inherits="InsetFrameTemplate3">
 				<Size x="130" y="20"/>
@@ -38,7 +38,7 @@
 								<Anchor point="RIGHT" x="-10" y="0"/>
 							</Anchors>
 						</FontString>
-						<FontString parentKey="Label" inherits="GameFontNormalSmall" text="Total Tamers" justifyH="LEFT">
+						<FontString parentKey="Label" inherits="GameFontNormalSmall" justifyH="LEFT">
 							<Anchors>
 								<Anchor point="LEFT" x="10" y="0"/>
 								<Anchor point="RIGHT" relativeKey="$parent.Number" relativePoint="LEFT" x="-3" y="0"/>
@@ -271,7 +271,7 @@
 							<Anchor point="BOTTOMRIGHT" x="-3" y="3"/>
 						</Anchors>
 					</Frame>
-					<Button parentKey="LoadButton" name="$parentLoadButton" inherits="MagicButtonTemplate" text="Load Team">
+					<Button parentKey="LoadButton" name="$parentLoadButton" inherits="MagicButtonTemplate">
 						<Size x="140" y="22"/>
 						<Anchors>
 							<Anchor point="BOTTOMRIGHT" relativeTo="PetTrackerTamerJournal"/>

@@ -97,6 +97,7 @@ local node_ids = {
 		[NL["Savage Piranha Pool"]]				= 178,
 		--[NL["Lagoon Pool"]]						= 179,
 		--[NL["Sparkling Pool"]]					= 180,
+		[NL["Felmouth Frenzy School"]]			= 181,
 	},
 	["Mining"] = {
 		[NL["Copper Vein"]] 					= 201,
@@ -242,6 +243,7 @@ local node_ids = {
 		[NL["Gorgrond Flytrap"]]				= 472,
 		[NL["Fireweed"]]						= 473,
 		[NL["Frostweed"]]						= 474,
+		[NL["Withered Herb"]]					= 475,
 	},
 	["Treasure"] = {
 		[NL["Giant Clam"]] 						= 501,
@@ -291,6 +293,7 @@ local node_ids = {
 		[NL["Dark Soil"]]						= 545,
 		[NL["Onyx Egg"]]						= 546,
 		[NL["Trove of the Thunder King"]]		= 547,
+		[NL["Highmaul Reliquary"]]				= 548,
 	},
 	["Archaeology"] = {
 		-- cata archeolgy objects
@@ -468,6 +471,7 @@ local node_textures = {
 		[178] = icon_path.."Fish\\piranha.tga",
 		[179] = icon_path.."Fish\\fish_hook.tga",
 		[180] = icon_path.."Fish\\fish_hook.tga",
+		[181] = icon_path.."Fish\\suckerfish.tga",
 	},
 	["Mining"] = {
 		[201] = icon_path.."Mine\\copper.tga",
@@ -607,6 +611,7 @@ local node_textures = {
 		[472] = icon_path.."Herb\\flytrap.tga",
 		[473] = icon_path.."Herb\\fireweed.tga",
 		[474] = icon_path.."Herb\\frostweed.tga",
+		[475] = icon_path.."Herb\\shaherb.tga",
 	},
 	["Treasure"] = {
 		[501] = icon_path.."Treasure\\clam.tga",
@@ -615,7 +620,7 @@ local node_textures = {
 		[504] = icon_path.."Treasure\\chest.tga",
 		[505] = icon_path.."Treasure\\chest.tga",
 		[506] = icon_path.."Treasure\\chest.tga",
-		[507] = icon_path.."Treasure\\hest.tga",
+		[507] = icon_path.."Treasure\\chest.tga",
 		[508] = icon_path.."Treasure\\chest.tga",
 		[509] = icon_path.."Treasure\\chest.tga",
 		[510] = icon_path.."Treasure\\chest.tga",
@@ -636,7 +641,7 @@ local node_textures = {
 		[525] = icon_path.."Treasure\\mushroom.tga",
 		[526] = icon_path.."Treasure\\treasure.tga",
 		[527] = icon_path.."Treasure\\treasure.tga",
-		[528] = icon_path.."Treasure\\tresure.tga",
+		[528] = icon_path.."Treasure\\treasure.tga",
 		[529] = icon_path.."Treasure\\treasure.tga",
 		[530] = icon_path.."Treasure\\treasure.tga",
 		[531] = icon_path.."Treasure\\egg.tga",
@@ -656,6 +661,7 @@ local node_textures = {
 		[545] = icon_path.."Treasure\\soil.tga",
 		[546] = icon_path.."Treasure\\egg.tga",
 		[547] = icon_path.."Treasure\\footlocker.tga",
+		[548] = icon_path.."Treasure\\treasure.tga",
 	},
 	["Archaeology"] = {
 		[601] = icon_path.."Archaeology\\shovel.tga",
@@ -819,6 +825,7 @@ local node_expansion = {
 		[472] = WOD,
 		[473] = WOD,
 		[474] = WOD,
+		[475] = WOD,
 	},
 }
 GatherMate.nodeExpansion = node_expansion

@@ -1,0 +1,126 @@
+------------------------------------------------------------------------
+r458 | allara | 2015-07-07 16:32:17 +0000 (Tue, 07 Jul 2015) | 1 line
+Changed paths:
+   A /tags/r457-release (from /trunk:457)
+
+Tagging as r457-release
+------------------------------------------------------------------------
+r457 | allara | 2015-07-06 22:08:15 +0000 (Mon, 06 Jul 2015) | 3 lines
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Locales.lua
+   M /trunk/Modules/Options/Options.lua
+   M /trunk/Options_Defaults.lua
+
+- For the four Tanaan mounts, Rarity will now include the NPC's name when it adds waypoints to TomTom
+- Rarity now supports Collection-style items that consist of multiple different items to collect
+- Reins of the Crimson Water Strider: Added this mount as a collection of any lunker or Nat's Lucky Coin
+------------------------------------------------------------------------
+r455 | allara | 2015-06-30 17:24:06 +0000 (Tue, 30 Jun 2015) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Options_Defaults.lua
+
+- All toys now have waypoint data
+------------------------------------------------------------------------
+r453 | allara | 2015-06-29 22:41:40 +0000 (Mon, 29 Jun 2015) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+
+- Looting Blackfang Claws should no longer briefly hang the client (sorry!)
+------------------------------------------------------------------------
+r451 | allara | 2015-06-29 21:43:51 +0000 (Mon, 29 Jun 2015) | 3 lines
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Locales.lua
+   M /trunk/Options_Defaults.lua
+
+- Rattling Iron Cage: Added the mounts it contains to its tooltip
+- Bristling Hellboar, Wild Goretusk: Added these mounts as new Collection items
+
+------------------------------------------------------------------------
+r449 | allara | 2015-06-29 00:19:15 +0000 (Mon, 29 Jun 2015) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Locales.lua
+
+- Fixed a localization issue
+------------------------------------------------------------------------
+r447 | allara | 2015-06-28 23:22:41 +0000 (Sun, 28 Jun 2015) | 3 lines
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Locales.lua
+   M /trunk/Options_Defaults.lua
+
+- Added Aeonaxx, Poseidus, and Time-Lost Proto-Drake to Rarity tooltips
+- The Zone column now highlights green for items that are in your current zone
+- Item sub-tooltips now include all defeat steps, letting you know which steps you've defeated
+------------------------------------------------------------------------
+r445 | allara | 2015-06-28 19:47:31 +0000 (Sun, 28 Jun 2015) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+
+- Rarity now allows looting Vehicles. This should fix Doomroller loot detection.
+------------------------------------------------------------------------
+r444 | allara | 2015-06-28 19:36:04 +0000 (Sun, 28 Jun 2015) | 2 lines
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Locales.lua
+   M /trunk/Options_Defaults.lua
+
+- All mounts now have waypoint data
+- Added Zone column to the main tooltip
+------------------------------------------------------------------------
+r442 | allara | 2015-06-27 23:53:04 +0000 (Sat, 27 Jun 2015) | 12 lines
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Locales.lua
+   M /trunk/Modules/Options/Options.lua
+   M /trunk/Options_Defaults.lua
+
+ITEMS:
+
+- The Night Haunter: Added the pre-challenge version of this NPC to Rarity tooltips
+- Armored Razorback, Tundra Icehoof, Warsong Direfang: Rarity now counts attempts toward these mounts when you kill any of the four NPCs which can drop Rattling Iron Cage; adjusted how tooltips work for these mounts; added additional source text to clarify how they are obtained; added defeat detection
+- Deathtalon, Doomroller, Terrorfist, Vengeance: Rarity will now tell you if you killed them already today; Rarity now shows Medallion of the Legion in the tooltip, as well as all three mounts that can be obtained (instead of Rattling Iron Cage). Note: Doomroller currently seems to have a bug where Rarity doesn't count an attempt when you loot him. I'll be looking into this further.
+
+FUNCTIONALITY:
+
+- New feature: Waypoints! Rarity can now automatically place TomTom waypoints for you if you Ctrl-Click the item in the Rarity tooltip. Initially, this is only implemented for the Tanaan Jungle mounts and a few others. I will be working through the entire list of Rarity items over time. Once all the data is in, I'll be able to support additional features such as zone filtering.
+- New option: Hide defeated items. When on, Rarity will hide items from the tooltip which have been marked as Defeated. (Defaults to off.)
+- New feature: Multi-step defeat detection. This can be enabled for items which use a list of quest IDs for defeat detection. This allows Rarity to tell you how many of the quests you have completed. This has been enabled for the garrison gold/platinum victory mounts as well as the three mounts available in Tanaan Jungle. When "Hide defeated items" is on, only items for which all steps have been completed will be hidden.
+- Added the following new instance difficulty types (none of them have any known use in Rarity yet): 40-player Event raid, 5-player Event instance, 25-player Event scenario, Mythic 5-player instance, Timewalker 5-player instance
+------------------------------------------------------------------------
+r440 | allara | 2015-06-25 16:24:01 +0000 (Thu, 25 Jun 2015) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Options_Defaults.lua
+
+- Screenshot taking updated to work in 6.2
+------------------------------------------------------------------------
+r438 | allara | 2015-06-24 18:05:10 +0000 (Wed, 24 Jun 2015) | 2 lines
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Locales.lua
+   M /trunk/Options_Defaults.lua
+
+- Add Corrupted Nest Guardian
+- Add support for the Jungle Stalker achievement
+------------------------------------------------------------------------
+r435 | allara | 2015-06-19 03:24:51 +0000 (Fri, 19 Jun 2015) | 8 lines
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Locales.lua
+   M /trunk/Modules/Options/Rarity_Options.toc
+   M /trunk/Options_Defaults.lua
+   M /trunk/Rarity.toc
+
+- TOC to 6.2
+- Final pass on 6.0 rares; deleted any rares that didn't have a drop identified
+- Added 6.2 Tanaan Jungle rares
+- Added the following new 6.2 mounts with placeholder information: Armored Razorback, Warsong Direfang, Tundra Icehoof
+- Added the following new 6.2 battle pets: Nightmare Bell, Periwinkle Calf, Seaborne Spore, Zangar Spore
+- Added Gahz'rooki's Summoning Stone, which was made into a drop in 5.4
+- Added Riding Turtle, which was added to the Level 3 Fishing Shack in 6.0
+- Added Fandral's Seed Pouch, which was added as a druid-only drop in 6.1 (Rarity will count attempts toward this for all classes until I can get class-specific filtering implemented, which isn't likely to happen soon if at all)
+------------------------------------------------------------------------

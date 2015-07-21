@@ -3,6 +3,68 @@
 * Reseting bags while the bag is not opened won't reset it's scale to default.
 
 
+**15.1.8**
+* Added Frames:
+	* Pet Casting Bar
+
+**15.1.7**
+* Added Categories:
+	* Shipyard
+* Added Frames:
+	* Shipyard Mission Alert
+
+**15.1.6**
+* Updated for 6.2.0.
+* Bindings fixes.
+* Added Frames:
+	* Naval Operations
+
+**15.1.5**
+* Fixed Frames:
+	* Bank Bag Slots
+	* Bank Bag 1
+	* Bank Bag 2
+	* Bank Bag 3
+	* Bank Bag 4
+	* Bank Bag 5
+	* Bank Bag 6
+	* Bank Bag 7
+* Added Frames:
+	* Tooltip - Guild Bank Item
+
+**15.1.4**
+* Fixed Frames:
+	* Player Buffs From Right to Left 
+
+**15.1.3**
+* Fixed some smaller issues.
+* Fixed Frames:
+	* Player Buffs From Right to Left 
+
+**15.1.2**
+* Fixed a smaller issue.
+
+**15.1.1**
+* Fixed an issue with the microbuttons when entering/leaving pet battles.
+* Some other smaller fixes.
+* Added Frames:
+	* Boss Banner
+
+**15.1.0**
+* Fixed Frames:
+	* Mounts / Pets (Now renamed to Collections)
+	* Micro Menu
+	* Micro Menu - Split
+	* Micro Menu - Vertical
+
+
+**15.0.9**
+* Updated to 6.1.0.
+* Some other smaller fixes.
+
+**15.0.8**
+* Smaller fixes with showing frames.
+
 **15.0.7**
 * Fixed an issue with enabling/disable frames.
 * Added Categories:

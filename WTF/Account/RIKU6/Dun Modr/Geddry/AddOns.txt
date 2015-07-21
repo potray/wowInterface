@@ -1,7 +1,7 @@
 XPerl_Options: enabled
 XPerl_TeamSpeak: disabled
 Skinner: enabled
-Postal: enabled
+Postal: disabled
 SatrinaBuffFrame: disabled
 SBFOptions: disabled
 TidyPlates: enabled

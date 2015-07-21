@@ -1,0 +1,21 @@
+tag 1.8.1
+96246e6c46aa7c1580b728fa62baf16728efbf5d
+Steffen Buehl <sb@sbuehl.com>
+2015-06-30 21:09:05 +0200
+
+tag 1.8.1
+
+
+--------------------
+
+Steffen Buehl:
+	- use grey separator
+	- add separator between seals and resources
+	- add string to translation file
+	- add cacheSize=1000 detection, fix red exclamation mark in LDB
+	- add missing translation
+	- fix another stupid cache size bug add follower type grouping as default for missions
+	- fix seal spelling fix cache initialize bug
+	- fix 750 res cache questid
+	- change oil tooltip position
+	- add blood elf + night elf crew (50% mission time)

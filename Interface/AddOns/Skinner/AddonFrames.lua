@@ -6,16 +6,16 @@ local IsAddOnLoaded, pairs = _G.IsAddOnLoaded, _G.pairs
 
 local blizzLoDFrames = {
 	-- player
-	"AchievementUI", "ArchaeologyUI", "EncounterJournal", "GlyphUI", "GuildControlUI", "GuildUI", "InspectUI", "ItemSocketingUI", "LookingForGuildUI", "PVPUI", "RaidUI", "TalentUI",
+	"AchievementUI", "ArchaeologyUI", "Collections", "EncounterJournal", "GlyphUI", "GuildControlUI", "GuildUI", "InspectUI", "ItemSocketingUI", "LookingForGuildUI", "PVPUI", "RaidUI", "TalentUI",
 	-- TradeSkillUI, loaded when TRADE_SKILL_SHOW event is fired
 	-- npc
  	-- AuctionUI, loaded when AUCTION_HOUSE_SHOW event is fired
 	"BarbershopUI", "BlackMarketUI", "ItemAlterationUI", "ItemUpgradeUI", "GarrisonUI", "QuestChoice", "TrainerUI", "VoidStorageUI",
 	-- ui
-	"BattlefieldMinimap", "BindingUI", "Calendar", "ChallengesUI", "DebugTools", "GMChatUI", "GMSurveyUI", "GuildBankUI", "MacroUI", "MovePad", "PetJournal", "StoreUI", "TimeManager",
+	"BattlefieldMinimap", "BindingUI", "Calendar", "ChallengesUI", "DeathRecap", "DebugTools", "GMChatUI", "GMSurveyUI", "GuildBankUI", "MacroUI", "MovePad", "StoreUI", "TimeManager",
 	--	ArenaUI the unitframes are skinned in UnitFrames.lua
 }
--- optional frames
+
 local blizzLoD = {}
 for _, v in pairs(blizzLoDFrames) do
 	blizzLoD["Blizzard_"..v] = v
@@ -39,6 +39,7 @@ function aObj:BlizzardFrames()
 			["LootFrames"] = true,
 			["LootHistory"] = true,
 			["MirrorTimers"] = true,
+			["ModelFrames"] = false, -- checked below
 			["ObjectiveTracker"] = true,
 			["OverrideActionBar"] = true,
 			["ReadyCheck"] = true,
@@ -50,6 +51,7 @@ function aObj:BlizzardFrames()
 			-- LoD frames
 			["AchievementUI"] = false,
 			["ArchaeologyUI"] = false,
+			["Collections"] = false, -- (Mounts, Pets, Toys & Heirlooms)
 			["EncounterJournal"] = false,
 			["GlyphUI"] = false,
 			["GuildControlUI"] = false,
@@ -57,7 +59,6 @@ function aObj:BlizzardFrames()
 			["InspectUI"] = false,
 			["ItemSocketingUI"] = false,
 			["LookingForGuildUI"] = false,
-			["PetJournal"] = false,
 			["PVPUI"] = false,
 			["RaidUI"] = false,
 			["TalentUI"] = false,
@@ -106,7 +107,7 @@ function aObj:BlizzardFrames()
 			["DestinyFrame"] = true,
 			["DraenorZoneAbility"] = true,
 			["DropDownPanels"] = true,
-			["GarrisonFollowerTooltips"] = true,
+			["GarrisonTooltips"] = true,
 			["HelpFrame"] = true,
 			["ItemText"] = true,
 			["LevelUpDisplay"] = true,
@@ -119,7 +120,6 @@ function aObj:BlizzardFrames()
 			["Minimap"] = false, -- checked below
 			["MinimapButtons"] = false, -- done with timer
 			["MovieFrame"] = true,
-			["ModelFrames"] = false, -- checked below
 			["Nameplates"] = false, -- checked below
 			["NavigationBar"] = true,
 			["PetBattleUI"] = true,
@@ -134,17 +134,21 @@ function aObj:BlizzardFrames()
 			["Tutorial"] = true,
 			["WorldMap"] = true,
 			["WorldState"] = true,
+			["WowTokenUI"] = self.PTR and false or nil, -- N.B. cannot be skinned
 			-- LoD frames
 			["BattlefieldMinimap"] = false,
 			["BindingUI"] = false,
 			["Calendar"] = false,
 			["ChallengesUI"] = false,
+			["DeathRecap"] = false,
 			["DebugTools"] = false,
+			["GarrisonUI"] = false,
 			["GMChatUI"] = false,
 			["GMSurveyUI"] = false,
 			["GuildBankUI"] = false,
 			["MacroUI"] = false,
 			["MovePad"] = false,
+			["SocialUI"] = false, -- N.B. cannot be skinned
 			["StoreUI"] = false, -- N.B. cannot be skinned
 			["TimeManager"] = false,
 		},
@@ -197,31 +201,6 @@ local addonSkins = {
 	"XLoot", "xMerchant", "XPerl", "XPerl_RaidAdmin", "XPerl_RaidHelper",
 	"ZygorGuidesViewer",
 }
---[[
-	"Accomplishment", "AchievementsReminder", "AdvancedTradeSkillWindow", "AISeller", "AlleyMap", "Analyst", "AnnounceIt", "Ara_Broker_Guild_Friends", "AtlasQuest", "AuctionLite", "AuctionProfitMaster", "AutoPartyButtons", "AutoProfit",
-	"Badapples", "BasicChatMods", "BeanCounter", "beql", "BriefQuestComplete", "Broker_Transport", "Buffalo", "Butsu",
-	"CalendarNotify", "CallToArms", "Capping", "ChatBar", "Chatr", "Chinchilla", "CloseUp", "ConcessionStand", "Converse", "CowTip", "CT_MailMod", "CT_RaidTracker",
-	"DaemonMailAssist", "DailiesQuestTracker", "DamageMeters", "DragonCore",
-	"EasyUnlock", "EavesDrop", "EditingUI", "EggTimer", "EnchantMe", "EngBags", "EnhancedTradeSkills", "EquipCompare", "EventEquip",
-	"Factionizer", "FBagOfHolding", "FB_OutfitDisplayFrame", "FB_TrackingFrame", "FlightMap", "FPSideBar",
-	"Gatherer", "GemMe", "Gobling", "Gossipmonger", "Grid", "GrimReaper", "GuildBankAccount", "GuildGreet", "GupPet",
-	"HabeebIt", "Hack", "Hadar_FocusFrame", "HatTrick", "HeadCount", "Highlight", "HitsMode",
-	"InspectEquip", "IntricateChatMods", "IPopBar", "ItemRack", "ItemSync",
-	"LauncherMenu", "LazyAFK", "LightHeaded", "Links", "LinkWrangler",
-	"MacroBank", "MacroBrokerGUI", "MailTo", "MakeRocketGoNow", "MobMap", "MonkeyQuest", "MonkeyQuestLog", "Mountiful", "MoveAnything", "MTLove", "MuffinMOTD", "MyBags", "myClock",
-	"Necrosis", "NeonChat", "nQuestLog",
-	"Odyssey",
-	"PallyPower", "PassLoot", "PetListPlus", "PetsPlus", "Planner", "PlayerExpBar", "PlusOneTable", "POMAssist", "PoMTracker", "Postal", "Producer", "ProfessionsBook", "PvpMessages",
-	"Quelevel", "QuestAgent", "QuestHelper",
-	"RABuffs", "RaidBuffStatus", "RaidChecklist", "RaidComp", "RaidTracker", "RaidyCheck", "RandomPet30", "Recap", "RecipeBook", "RecipeRadar", "ReforgeLite", "Reforgenator", "Reforgerade",
-	"SayGMOTD", "ShadowDancer3", "sienasGemViewer",	"SmoothQuest", "sRaidFrames",
-	"tabDB", "Talented", "TargetAnnounce", "tekBlocks", "tekDebug", "tekErr", "tekPad", "TheCollector", "TinyDPS", "TinyPad", "TipTac", "tomQuest2", "TomTom", "TourGuide", "TwinValkyr_shieldmonitor",
-	"UberQuest",
-	"vBagnon", "Vendorizer", "VendorSearch", "Violation", "Visor2_GUI", "Volumizer",
-	"WebDKP", "WoWEquip", "WowLua",
-	"xcalc",
-	"zfpoison", "ZOMGBuffs"
-]]
 aObj.addonsToSkin = {}
 for _, v in pairs(addonSkins) do
 	aObj.addonsToSkin[v] = v
@@ -250,15 +229,6 @@ aObj.libsToSkin = {
 	["LibDialog-1.0"] = "LibDialog",
 	["LibExtraTip-1"] = "LibExtraTip",
 }
---[[
--- aObj.addonsToSkin["!Swatter"] = "Swatter"
--- aObj.addonsToSkin["Ogri'Lazy"] = "OgriLazy"
-	-- ["Dewdrop-2.0"] = "Dewdrop",
-	-- ["AceAddon-2.0"] = "Ace2",
-	-- ["Tablet-2.0"] = "Tablet",
-	-- ["Waterfall-1.0"] = "Waterfall",
-	-- ["LibSimpleFrame-Mod-1.0"] = "LibSimpleFrame",
-]]
 function aObj:AddonFrames()
 	-- self:Debug("AddonFrames")
 
@@ -317,16 +287,6 @@ function aObj:AddonFrames()
 	end
 	self.addonsToSkin = nil
 
---[[
-	-- this addon has a relation
-	-- self:checkAndRunAddOn("EnhancedTradeSkills", nil, "EnhancedTradeCrafts")
-
-	-- load MSBTOptions here if FuBar_MSBTFu is loaded
-	-- if IsAddOnLoaded("FuBar_MSBTFu") then
-	-- 	self:checkAndRunAddOn("MSBTOptions", true) -- use true so it isn't treated as a LoadManaged Addon
-	-- end
-
-]]
 	-- skin library objects
 	for lib, skin in pairs(self.libsToSkin) do
 		if _G.LibStub(lib, true) then
@@ -369,7 +329,7 @@ end
 
 local lodFrames = {
 	"Altoholic_Summary", "Altoholic_Characters", "Altoholic_Search", "Altoholic_Achievements", "Altoholic_Guild", "Altoholic_Agenda", "Altoholic_Grids", "AzCastBarOptions",
-	"Bagnon", "Bagnon_Options", "Bagnon_GuildBank", "Banknon",
+	"Bagnon",
 	"DockingStation_Config", "Dominos_Config", "DoTimer_Options",
 	"Enchantrix",
 	"GarrisonMissionManager", "GuildBankSearch",
@@ -381,28 +341,11 @@ local lodFrames = {
 	"WeakAurasOptions",
 	"XPerl_Options",
 }
---[[
-	-- "BetterBindingFrame",
-	-- "EnhTooltip",
-	--"FramesResized_TalentUI",
-	--"GnomishAuctionShrinker",
-	--"ItemRackOptions",
-	--"MSBTOptions",
-	--"oRA2_Leader", "oRA2_Participant",
-	--"Squire2_Config",
-	--"Talented_GlyphFrame", "TradeTabs", "TipTacOptions",
-	--"ZOMGBuffs_BlessingsManager",
-]]
 aObj.lodAddons = {}
 for _, v in pairs(lodFrames) do
 	aObj.lodAddons[v] = v
 end
 lodFrames = nil
--- MobMap Databases
--- for i = 1, 8 do
--- 	aObj.lodAddons["MobMapDatabaseStub" .. i] = "MobMapDatabaseStub" .. i
--- end
--- aObj.lodAddons["MobMapDatabaseStub6"] = nil -- ignore stub6
 -- RaidAchievement modules
 for _, v in pairs{"Icecrown", "Naxxramas", "Ulduar", "WotlkHeroics", "CataHeroics", "CataRaids", "PandaHeroics", "PandaRaids", "PandaScenarios"} do
 	aObj.lodAddons["RaidAchievement_" .. v] = "RaidAchievement_" .. v
@@ -425,16 +368,8 @@ function aObj:LoDFrames(addon)
 	-- used for User LoadOnDemand Addons
 	if self.lodAddons[addon] then self:checkAndRunAddOn(addon, true, self.lodAddons[addon]) end
 
---[[
-	-- handle addons linked to the InspectUI
-	-- if addon == "Blizzard_InspectUI" then
-	-- 	--	This addon is dependent upon the Inspect Frame
-	-- 	self:checkAndRunAddOn("Spyglass")
-	-- end
-
-]]
 	-- handle addons linked to the PetJournal
-	if addon == "Blizzard_PetJournal" then
+	if addon == "Blizzard_Collections" then
 		--	This addon is dependent upon the PetJournal
 		self:checkAndRunAddOn("PetBattleTeams")
 	end
@@ -475,11 +410,8 @@ function aObj:AUCTION_HOUSE_SHOW()
 	-- self:Debug("AUCTION_HOUSE_SHOW")
 
 	self:checkAndRun("AuctionUI") -- npc
+
 	-- trigger these when AH loads otherwise errors occur
---[[
-	-- self:checkAndRunAddOn("BtmScan")
-	-- self:checkAndRunAddOn("AuctionFilterPlus")
-]]
 	self:checkAndRunAddOn("Auctionator")
 
 	-- handle TradeSkillMaster_Auctioning frame size changes
@@ -513,6 +445,8 @@ function aObj:TRADE_SKILL_SHOW()
 
 	-- trigger this to skin ProfessionTabs
 	self:checkAndRunAddOn("ProfessionTabs_TSF")
+
+	self:checkAndRunAddOn("TradeSkillDW")
 
 	self:UnregisterEvent("TRADE_SKILL_SHOW")
 

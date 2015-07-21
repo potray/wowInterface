@@ -1,9 +1,12 @@
 
 TomTomDB = {
 	["profileKeys"] = {
-		["Drublock - Los Errantes"] = "Default",
-		["Elrad - Los Errantes"] = "Default",
+		["Zhenya - Los Errantes"] = "Default",
 		["Geddry - Dun Modr"] = "Default",
+		["Kalarankor - Los Errantes"] = "Default",
+		["Elrad - Los Errantes"] = "Default",
+		["Drublock - Los Errantes"] = "Default",
+		["Farenir - Dun Modr"] = "Default",
 		["Potray - Dun Modr"] = "Default",
 	},
 	["profiles"] = {
@@ -14,17 +17,26 @@ TomTomDB = {
 TomTomWaypoints = nil
 TomTomWaypointsMF = {
 	["profileKeys"] = {
-		["Drublock - Los Errantes"] = "Drublock - Los Errantes",
-		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
+		["Zhenya - Los Errantes"] = "Zhenya - Los Errantes",
 		["Geddry - Dun Modr"] = "Geddry - Dun Modr",
+		["Kalarankor - Los Errantes"] = "Kalarankor - Los Errantes",
+		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
+		["Drublock - Los Errantes"] = "Drublock - Los Errantes",
+		["Farenir - Dun Modr"] = "Farenir - Dun Modr",
 		["Potray - Dun Modr"] = "Potray - Dun Modr",
 	},
 	["profiles"] = {
-		["Drublock - Los Errantes"] = {
+		["Zhenya - Los Errantes"] = {
+		},
+		["Geddry - Dun Modr"] = {
+		},
+		["Kalarankor - Los Errantes"] = {
 		},
 		["Elrad - Los Errantes"] = {
 		},
-		["Geddry - Dun Modr"] = {
+		["Drublock - Los Errantes"] = {
+		},
+		["Farenir - Dun Modr"] = {
 		},
 		["Potray - Dun Modr"] = {
 		},

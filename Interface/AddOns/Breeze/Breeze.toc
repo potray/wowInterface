@@ -1,8 +1,8 @@
-## Interface: 60000
+## Interface: 60100
 ## Title: Breeze
 ## Notes: Makes those pesky garrison animations go away.
 ## Author: Znuff
-## Version: v1.10
+## Version: v1.52
 ## LoadOnDemand: 1 
 ## LoadWith: Blizzard_GarrisonUI
 ##
@@ -14,7 +14,7 @@
 ## X-Curse-Repository-ID: wow/breeze/mainline
 ##
 ## SavedVariables: Breeze_ChatOutput, Breeze_AutoClick
-## X-Curse-Packaged-Version: v1.10
+## X-Curse-Packaged-Version: v1.52
 ## X-Curse-Project-Name: Breeze
 ## X-Curse-Project-ID: breeze
 ## X-Curse-Repository-ID: wow/breeze/mainline

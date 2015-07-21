@@ -1,5 +1,5 @@
 --[[
-Copyright 2012-2014 João Cardoso
+Copyright 2012-2015 João Cardoso
 PetTracker is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -109,7 +109,7 @@ do
 		HookJournal()
 	else
 		hooksecurefunc('LoadAddOn', function(addon)
-			if addon == 'Blizzard_PetJournal' then
+			if addon == 'Blizzard_Collections' then
 				HookJournal()
 			end
 		end)

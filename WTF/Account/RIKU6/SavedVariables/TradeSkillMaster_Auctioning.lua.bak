@@ -1,0 +1,17 @@
+
+TradeSkillMaster_AuctioningDB = {
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Default",
+	},
+	["factionrealm"] = {
+		["Alliance - Dun Modr"] = {
+			["player"] = {
+				["Potray"] = true,
+			},
+		},
+	},
+}

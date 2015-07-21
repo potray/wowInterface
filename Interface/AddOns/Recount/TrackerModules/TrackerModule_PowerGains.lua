@@ -3,7 +3,7 @@ local Recount = _G.Recount
 local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale( "Recount" )
 
-local revision = tonumber(string.sub("$Revision: 1254 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1311 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -14,7 +14,7 @@ local dbCombatants
 local srcRetention
 local dstRetention
 
-local DetailTitles = {}
+local DetailTitles = { }
 DetailTitles.Gained = {
 	TopNames = L["Ability"],
 	TopCount = "",
@@ -41,9 +41,9 @@ local POWERTYPE_MANA = 0
 local POWERTYPE_RAGE = 1
 local POWERTYPE_FOCUS = 2
 local POWERTYPE_ENERGY = 3
-local POWERTYPE_HAPPINESS = 4;
-local POWERTYPE_RUNES = 5;
-local POWERTYPE_RUNIC_POWER = 6;
+local POWERTYPE_HAPPINESS = 4
+local POWERTYPE_RUNES = 5
+local POWERTYPE_RUNIC_POWER = 6
 
 local PowerTypeName = { -- Elsia: Do NOT localize this, it breaks functionality!!! If you need this localized contact me on WowAce or Curse.
 	[POWERTYPE_MANA] = "Mana",
@@ -110,7 +110,7 @@ function Recount:AddGain(source, victim, ability, amount, attribute,srcGUID,srcF
 	end
 end
 
-local DataModes = {}
+local DataModes = { }
 
 function DataModes:ManaGained(data, num)
 	if not data then
@@ -152,10 +152,10 @@ function DataModes:RunicPowerGained(data, num)
 	return (data.Fights[Recount.db.profile.CurDataSet].RunicPowerGain or 0), {{data.Fights[Recount.db.profile.CurDataSet].RunicPowerGained, L["'s RunicPower Gained"], DetailTitles.Gained}, {data.Fights[Recount.db.profile.CurDataSet].RunicPowerGainedFrom, L["'s RunicPower Gained From"], DetailTitles.GainedFrom}}
 end
 
-local TooltipFuncs = {}
+local TooltipFuncs = { }
 
 function TooltipFuncs:ManaGained(name, data)
-	local SortedData,total
+	--local SortedData, total
 	GameTooltip:ClearLines()
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["Mana Abilities"], data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].ManaGained, 3)
@@ -164,7 +164,7 @@ function TooltipFuncs:ManaGained(name, data)
 end
 
 function TooltipFuncs:EnergyGained(name, data)
-	local SortedData,total
+	--local SortedData, total
 	GameTooltip:ClearLines()
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["Energy Abilities"], data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].EnergyGained, 3)
@@ -173,7 +173,7 @@ function TooltipFuncs:EnergyGained(name, data)
 end
 
 function TooltipFuncs:RageGained(name, data)
-	local SortedData,total
+	--local SortedData, total
 	GameTooltip:ClearLines()
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["Rage Abilities"], data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].RageGained, 3)
@@ -182,7 +182,7 @@ function TooltipFuncs:RageGained(name, data)
 end
 
 function TooltipFuncs:RunicPowerGained(name, data)
-	local SortedData,total
+	--local SortedData, total
 	GameTooltip:ClearLines()
 	GameTooltip:AddLine(name)
 	Recount:AddSortedTooltipData(L["Top 3"].." "..L["RunicPower Abilities"], data and data.Fights[Recount.db.profile.CurDataSet] and data.Fights[Recount.db.profile.CurDataSet].RunicPowerGained, 3)
@@ -190,10 +190,10 @@ function TooltipFuncs:RunicPowerGained(name, data)
 	GameTooltip:AddLine("<"..L["Click for more Details"]..">", 0, 0.9, 0)
 end
 
-Recount:AddModeTooltip(L["Mana Gained"],DataModes.ManaGained,TooltipFuncs.ManaGained)
-Recount:AddModeTooltip(L["Energy Gained"],DataModes.EnergyGained,TooltipFuncs.EnergyGained)
-Recount:AddModeTooltip(L["Rage Gained"],DataModes.RageGained,TooltipFuncs.RageGained)
-Recount:AddModeTooltip(L["Runic Power Gained"],DataModes.RunicPowerGained,TooltipFuncs.RunicPowerGained)
+Recount:AddModeTooltip(L["Mana Gained"], DataModes.ManaGained, TooltipFuncs.ManaGained)
+Recount:AddModeTooltip(L["Energy Gained"], DataModes.EnergyGained, TooltipFuncs.EnergyGained)
+Recount:AddModeTooltip(L["Rage Gained"], DataModes.RageGained, TooltipFuncs.RageGained)
+Recount:AddModeTooltip(L["Runic Power Gained"], DataModes.RunicPowerGained, TooltipFuncs.RunicPowerGained)
 
 local oldlocalizer = Recount.LocalizeCombatants
 function Recount.LocalizeCombatants()

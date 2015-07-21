@@ -36,124 +36,33 @@ local function profilesConfig()
 	if not profiles then
 		profiles = {
 			type = "group",
-			name = L["Profiles"],
+			name = L["Profiles"],			
+			childGroups	= "tab",
 			args = {
-				line1 = {
-					type = "description",
-					name = L["You can change the active database profile, so you can have different settings for every character."],
-					order = 1,
-				},
-				line2 = {
-					type = "description",
-					name = L["Reset the current profile back to it's default values, in case your configuration is broken, or you simply want to start over."],
-					order = 2,
-				},
-				bigbutton = {
-					type = "execute",
-					name = L["Reset Profile"],
-					width = "normal",
-					func = function ()
-							for a,b in pairs (Nx.dbs) do
-								b:ResetProfile(true,true)
-							end
-					end,
-					desc = L["Reset the current profile to the defaults"],
-					order = 3,
-				},
-				current = {
-					type = "description",
-					name = L["Current Profile"] .. ": |c00ffff00" .. Nx.db:GetCurrentProfile(),
-					width = "double",
-					order = 4,
-				},
-				line3 = {
-					type = "description",
-					name = L["You can either create a new profile by entering a name in the editbox, or choose one of the already existing profiles."],
-					order = 5,
-				},
-				newprof = {
-					type = "input",
-					name = L["New"],
-					desc = L["Create a new empty profile"],
-					get = false,
-					set = function (info, name)
-						for a,b in pairs(Nx.dbs) do
-							Nx.prt(name)
-							b:SetProfile(name)
-						end
-					end,
-					order = 6,
-				},
-				existing = {
-					type = "select",
-					style = "dropdown",
-					name = L["Existing Profiles"],
-					values = Nx.db:GetProfiles(),
-					get = function ()
-						return Nx.db:GetCurrentProfile()
-					end,
-					set = function (info, name)
-						for a,b in pairs (Nx.dbs) do
-							b:SetProfile(name)
-						end
-					end,
-					desc = L["Select one of your currently available profiles"],
-					order = 7,
-				},
-				linebrk = {
-					type = "description",
-					name = "",
-					width = "full",
-					order = 8,
-				},
-				line4 = {
-					type = "description",
-					name = L["Copy the settings from one existing profile into the currently active profile."],
-					order = 9,
-				},
-				copyfrom = {
-					type = "select",
-					style = "dropdown",
-					name = L["Existing Profiles"],
-					values = Nx.db:GetProfiles(),
-					get = false,
-					set = function (info, name)
-						for a,b in pairs(Nx.dbs) do
-							b:CopyProfile(name)
-						end
-					end,
-					desc = L["Copy the settings from one existing profile into the currently active profile."],
-					order = 10,
-				},
-				linebrk2 = {
-					type = "description",
-					name = "",
-					width = "full",
-					order = 11,
-				},
-				line5 = {
-					type = "description",
-					name = L["Delete existing and unused profiles from the database to save space, and cleanup the SavedVariables file."],
-					order = 12,
-				},
-				delete = {
-					type = "select",
-					style = "dropdown",
-					name = L["Delete a Profile"],
-					get = false,
-					set = function (info, name)
-						for a,b in pairs(Nx.dbs) do
-							b:DeleteProfile(name)
-						end
-					end,
-					values = Nx.db:GetProfiles(),
-					desc = L["Deletes a profile from the database."],
-					order = 13,
+				main = {
+					type = "group",
+					name = L["Main"],
+					order = 1,		
+					args = {},
 				},
 			},
 		}
 	end
+	profiles.args.main.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(Nx.db)
 	return profiles
+end
+
+function Nx.Opts:AddToProfileMenu(ProfileName,ProfileOrder,ProfileDB)
+	if not profiles then
+		return
+	end
+	profiles.args[ProfileName] = {
+		type = "group",
+		name = ProfileName,
+		order = ProfileOrder,
+		args = {},
+	}
+	profiles.args[ProfileName].args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(ProfileDB)
 end
 
 local config
@@ -172,14 +81,24 @@ local function mainConfig()
 						title = {
 							type = "description",
 							name = L["\nCarbonite is a full featured, powerful map addon providing a versitile easy to use google style map which either can replace or work with the current blizzard maps.\n\nThrough modules it can also be expanded to do even more to help make your game easier."] ..
-							       "\n\n\n|cff9999ff" .. L["Release Version"] .. ": |cffd700ff" .. Nx.VERMAJOR .. "." .. (Nx.VERMINOR*10) .. "\n" ..
-								   "|cff9999ff" .. L["Maintained by"] .. ": |cffd700ffRythal of Moon Guard\n" ..
-								   "|cff9999ff" .. L["Website"] .. ": |cffd700ffhttp://www.wowinterface.com/downloads/info12965-Carbonite.html\n"..
-								   "\n"..
-								   "|cd700ffff" .. L["For support, please visit the forums for Carbonite on WoW Interface."] .. "\n"..
-								   "|cd700ffff" .. L["Special thanks to"] .. ": \n\n"..
-								   "|cff9999ff" .. L["Cirax for Carbonite2 Logo"] .. "\n" ..
-								   "|cff9999ff" .. L["JimboBlue for guide location updates and checking"] .. "\n",
+								"\n\n\n|cff9999ff" .. L["Release Version"] .. ": |cffd700ff" .. Nx.VERMAJOR .. "." .. (Nx.VERMINOR*10) .. "\n" ..
+								"|cff9999ff" .. L["Maintained by"] .. ": |cffd700ffRythal of Moon Guard\n" ..
+								"|cff9999ff" .. L["Website"] .. ": |cffd700ffhttp://www.wowinterface.com/downloads/info12965-Carbonite.html\n"..
+								"\n"..
+								"|cd700ffff" .. L["For support, please visit the forums for Carbonite on WoW Interface."] .. "\n"..
+								"|cd700ffff" .. L["Special thanks to"] .. ": \n\n"..
+								"|cff9999ff" .. L["Cirax for Carbonite2 Logo"] .. "\n" ..
+								"|cff9999ff" .. L["ircdirk & atl77 for Quest Database updates"] .. "\n" ..
+								"|cff9999ff" .. L["nelegalno for many cleanups, api fixes"] .. "\n" ..
+								"|cff9999ff" .. L["Naharis for quest watchlist fixes"] .. "\n" ..
+								"|cff9999ff" .. L["JimJoBlue for guide location updates"] .. "\n" ..
+								"|cff9999ff" .. L["Localization Efforts By:"] .. "\n" ..
+								"|cff9999ff" .. L["frFR - powerstrk"] .. "\n" ..
+								"|cff9999ff" .. L["deDE - atl77 & samyonair"] .. "\n" ..
+								"|cff9999ff" .. L["itIT - ThorwaldOdin"] .. "\n" ..
+								"|cff9999ff" .. L["ruRU - NotDead"] .. "\n" ..
+								"|cff9999ff" .. L["zhCN - Raka-loah"] .. "\n" ..
+								"|cff9999ff" .. L["zhTW - kc305chen"] .. "\n",
 						},
 					},
 				},
@@ -276,9 +195,9 @@ local function generalOptions()
 					get	= function()
 						local vals = Nx.Opts:CalcChoices("Chat")
 						for a,b in pairs(vals) do
-						  if (b == Nx.db.profile.General.ChatMsgFrm) then
-						     return a
-						  end
+							if (b == Nx.db.profile.General.ChatMsgFrm) then
+								return a
+							end
 						end
 						return ""
 					end,
@@ -288,7 +207,7 @@ local function generalOptions()
 						Nx.Opts:NXCmdUIChange()
 					end,
 					values	= function()
-					    return Nx.Opts:CalcChoices("Chat")
+						return Nx.Opts:CalcChoices("Chat")
 					end,
 				},
 				spacer2 = {
@@ -369,8 +288,21 @@ local function mapConfig ()
 								Nx.db.profile.Map.Compatability = not Nx.db.profile.Map.Compatability
 							end,
 						},
+						hidecombat = {
+							order = 3,
+							type = "toggle",
+							width = "full",
+							name = L["Hide Map In Combat"],
+							desc = L["If large map is open when you enter combat attempts to hide it."],
+							get = function()
+								return Nx.db.profile.Map.HideCombat
+							end,
+							set = function()
+								Nx.db.profile.Map.HideCombat = not Nx.db.profile.Map.HideCombat
+							end,
+						},
 						centerMap = {
-							order = 2,
+							order = 4,
 							type = "toggle",
 							width = "full",
 							name = L["Center map when maximizing"] .. "\n",
@@ -383,7 +315,7 @@ local function mapConfig ()
 							end,
 						},
 						mouseIgnore = {
-							order = 3,
+							order = 5,
 							type = "toggle",
 							width = "full",
 							name = L["Ignore mouse on map except when ALT is pressed"] .. "\n",
@@ -396,7 +328,7 @@ local function mapConfig ()
 							end,
 						},
 						maxMouseIgnore = {
-							order = 4,
+							order = 6,
 							type = "toggle",
 							width = "full",
 							name = L["Ignore mouse on full-sized map except when ALT is pressed"] .. "\n",
@@ -408,8 +340,10 @@ local function mapConfig ()
 								Nx.db.profile.Map.MaxMouseIgnore = not Nx.db.profile.Map.MaxMouseIgnore
 							end,
 						},
-						ownMap = {
-							order = 5,
+--[[						Doesn't work for now.
+
+							ownMap = {
+							order = 7,
 							type = "toggle",
 							width = "full",
 							name = L["Move Worldmap Data into Maximized Map"] .. "\n",
@@ -420,9 +354,10 @@ local function mapConfig ()
 							set = function()
 								Nx.db.profile.Map.WOwn = not Nx.db.profile.Map.WOwn
 							end,
-						},
+						}, 
+]]--
 						restoreMap = {
-							order = 6,
+							order = 8,
 							type = "toggle",
 							width = "full",
 							name = L["Close Map instead of minimize"] .. "\n",
@@ -435,12 +370,12 @@ local function mapConfig ()
 							end,
 						},
 						spacer1 = {
-							order = 7,
+							order = 9,
 							type = "description",
 							name = "\n",
 						},
 						showPals = {
-							order = 8,
+							order = 10,
 							type = "toggle",
 							name = L["Show Friends/Guildmates in Cities"],
 							width = "full",
@@ -453,7 +388,7 @@ local function mapConfig ()
 							end,
 						},
 						showOthers = {
-							order = 9,
+							order = 11,
 							type = "toggle",
 							width = "full",
 							name = L["Show Other people in Cities"],
@@ -466,7 +401,7 @@ local function mapConfig ()
 							end,
 						},
 						showOthersZ = {
-							order = 10,
+							order = 12,
 							type = "toggle",
 							width = "full",
 							name = L["Show Other people In Zone"],
@@ -479,12 +414,12 @@ local function mapConfig ()
 							end,
 						},
 						spacer2 = {
-							order = 11,
+							order = 13,
 							type = "description",
 							name = "\n",
 						},
 						restoreScale = {
-							order = 12,
+							order = 14,
 							type = "toggle",
 							name = L["Restore map scale after track"],
 							width = "full",
@@ -497,7 +432,7 @@ local function mapConfig ()
 							end,
 						},
 						useRoute = {
-							order = 13,
+							order = 15,
 							type = "toggle",
 							name = L["Use Travel Routing"],
 							width = "full",
@@ -510,12 +445,12 @@ local function mapConfig ()
 							end,
 						},
 						spacer3 = {
-							order = 15,
+							order = 16,
 							type = "description",
 							name = "\n",
 						},
 						showTrail = {
-							order = 16,
+							order = 17,
 							type = "toggle",
 							name = L["Show Movement Trail"],
 							width = "full",
@@ -528,7 +463,7 @@ local function mapConfig ()
 							end,
 						},
 						trailDist = {
-							order = 17,
+							order = 18,
 							type = "range",
 							name = L["Movement trail distance"],
 							desc = L["sets the distance of movement between the trail marks"],
@@ -544,7 +479,7 @@ local function mapConfig ()
 							end,
 						},
 						trailCnt = {
-							order = 18,
+							order = 19,
 							type = "range",
 							name = L["Movement dot count"],
 							desc = L["sets the number of movement dots to draw on the map"],
@@ -560,7 +495,7 @@ local function mapConfig ()
 							end,
 						},
 						trailTime = {
-							order = 19,
+							order = 20,
 							type = "range",
 							name = L["Movement trail fade time"],
 							desc = L["sets the time trail marks last on the map (in seconds)"],
@@ -576,12 +511,12 @@ local function mapConfig ()
 							end,
 						},
 						spacer4 = {
-							order = 20,
+							order = 21,
 							type = "description",
 							name = "\n",
 						},
 						showToolBar = {
-							order = 21,
+							order = 22,
 							type = "toggle",
 							name = L["Show Map Toolbar"],
 							width = "full",
@@ -595,7 +530,7 @@ local function mapConfig ()
 							end,
 						},
 						TooltipAnchor = {
-							order = 22,
+							order = 23,
 							type	= "select",
 							name	= "  " .. L["Map Tooltip Anchor"],
 							desc	= L["Sets the anchor point for tooltips on the map"],
@@ -617,7 +552,7 @@ local function mapConfig ()
 							end,
 						},
 						TooltipAnchorRel = {
-							order = 23,
+							order = 24,
 							type	= "select",
 							name	= "  " .. L["Map Tooltip Anchor To Map"],
 							desc	= L["Sets the secondary anchor point for tooltips on the map"],
@@ -639,7 +574,7 @@ local function mapConfig ()
 							end,
 						},
 						TopToolTip = {
-							order = 24,
+							order = 25,
 							type = "toggle",
 							name = L["Show All Tooltips Above Map"],
 							width = "full",
@@ -652,7 +587,7 @@ local function mapConfig ()
 							end,
 						},
 						showTitleName = {
-							order = 25,
+							order = 26,
 							type = "toggle",
 							name = L["Show Map Name"],
 							desc = L["When enabled, shows current map zone name in the titlebar."],
@@ -664,7 +599,7 @@ local function mapConfig ()
 							end,
 						},
 						showTitleXY = {
-							order = 26,
+							order = 27,
 							type = "toggle",
 							name = L["Show Coordinates"],
 							desc = L["When enabled, Shows your current coordinates in the titlebar."],
@@ -676,7 +611,7 @@ local function mapConfig ()
 							end,
 						},
 						showTitleSpeed = {
-							order = 27,
+							order = 28,
 							type = "toggle",
 							name = L["Show Speed"],
 							desc = L["When enabled, Shows your current movement speed in the titlebar."],
@@ -688,7 +623,7 @@ local function mapConfig ()
 							end,
 						},
 						showTitle2 = {
-							order = 28,
+							order = 29,
 							type = "toggle",
 							name = L["Show Second Title Line"],
 							width = "full",
@@ -702,12 +637,12 @@ local function mapConfig ()
 							end,
 						},
 						spacer5 = {
-							order = 29,
+							order = 30,
 							type = "description",
 							name = "\n",
 						},
 						showPOI = {
-							order = 30,
+							order = 31,
 							type = "toggle",
 							name = L["Show Map POI"],
 							width = "full",
@@ -720,12 +655,12 @@ local function mapConfig ()
 							end,
 						},
 						spacer6 = {
-							order = 31,
+							order = 32,
 							type = "description",
 							name = "\n",
 						},
 						plyrArrowSize = {
-							order = 32,
+							order = 33,
 							type = "range",
 							name = L["Player Arrow Size"],
 							width = "double",
@@ -742,7 +677,7 @@ local function mapConfig ()
 							end,
 						},
 						iconScaleMin = {
-							order = 33,
+							order = 34,
 							type = "range",
 							width = "double",
 							name = L["Icon Scale Min"],
@@ -759,7 +694,7 @@ local function mapConfig ()
 							end,
 						},
 						mapLineThick = {
-							order = 34,
+							order = 35,
 							type = "range",
 							width = "double",
 							name = L["Map Health Bar Thickness"],
@@ -776,7 +711,7 @@ local function mapConfig ()
 							end,
 						},
 						zoneDrawCnt = {
-							order = 35,
+							order = 36,
 							type = "range",
 							width = "double",
 							name = L["Maximum Zones To Draw At Once"],
@@ -793,7 +728,7 @@ local function mapConfig ()
 							end,
 						},
 						detailSize = {
-							order = 36,
+							order = 37,
 							type = "range",
 							name = L["Detail Graphics Visible Area"],
 							width = "double",
@@ -811,17 +746,17 @@ local function mapConfig ()
 							end,
 						},
 						spacer7 = {
-							order = 37,
+							order = 38,
 							type = "description",
 							name = "\n",
 						},
 						header = {
-							order	= 38,
+							order	= 39,
 							type	= "header",
 							name	= L["Map Mouse Button Binds"],
 						},
 						ButLAlt = {
-							order = 39,
+							order = 40,
 							type	= "select",
 							name	= "           " .. L["Alt Left Click"],
 							desc	= L["Sets the action performed when left clicking holding ALT"],
@@ -843,7 +778,7 @@ local function mapConfig ()
 							end,
 						},
 						ButLCtrl = {
-							order = 40,
+							order = 41,
 							type	= "select",
 							name	= "           " .. L["Ctrl Left Click"],
 							desc	= L["Sets the action performed when left clicking holding CTRL"],
@@ -865,7 +800,7 @@ local function mapConfig ()
 							end,
 						},
 						ButM = {
-							order = 41,
+							order = 42,
 							type	= "select",
 							name	= "           " .. L["Middle Click"],
 							desc	= L["Sets the action performed when clicking your middle mouse button"],
@@ -887,7 +822,7 @@ local function mapConfig ()
 							end,
 						},
 						ButMAlt = {
-							order = 42,
+							order = 43,
 							type	= "select",
 							name	= "           " .. L["Alt Middle Click"],
 							desc	= L["Sets the action performed when middle clicking holding ALT"],
@@ -909,7 +844,7 @@ local function mapConfig ()
 							end,
 						},
 						ButMCtrl = {
-							order = 43,
+							order = 44,
 							type	= "select",
 							name	= "           " .. L["Ctrl Left Click"],
 							desc	= L["Sets the action performed when middle clicking holding CTRL"],
@@ -931,7 +866,7 @@ local function mapConfig ()
 							end,
 						},
 						ButR = {
-							order = 44,
+							order = 45,
 							type	= "select",
 							name	= "           " .. L["Right Click"],
 							desc	= L["Sets the action performed when right clicking the map"],
@@ -953,7 +888,7 @@ local function mapConfig ()
 							end,
 						},
 						ButRAlt = {
-							order = 45,
+							order = 46,
 							type	= "select",
 							name	= "           " .. L["Alt Right Click"],
 							desc	= L["Sets the action performed when Right clicking holding ALT"],
@@ -975,7 +910,7 @@ local function mapConfig ()
 							end,
 						},
 						ButRCtrl = {
-							order = 46,
+							order = 47,
 							type	= "select",
 							name	= "           " .. L["Ctrl Right Click"],
 							desc	= L["Sets the action performed when right clicking holding CTRL"],
@@ -997,7 +932,7 @@ local function mapConfig ()
 							end,
 						},
 						But4 = {
-							order = 47,
+							order = 48,
 							type	= "select",
 							name	= "           " .. L["Button 4 Click"],
 							desc	= L["Sets the action performed when clicking mouse button 4"],
@@ -1019,7 +954,7 @@ local function mapConfig ()
 							end,
 						},
 						But4Alt = {
-							order = 48,
+							order = 49,
 							type	= "select",
 							name	= "           " .. L["Alt Button 4 Click"],
 							desc	= L["Sets the action performed when pressing mouse 4 while holding ALT"],
@@ -1041,7 +976,7 @@ local function mapConfig ()
 							end,
 						},
 						But4Ctrl = {
-							order = 49,
+							order = 50,
 							type	= "select",
 							name	= "           " .. L["Ctrl Button 4 Click"],
 							desc	= L["Sets the action performed when clicking 4th mouse button holding CTRL"],
@@ -1936,8 +1871,17 @@ local function guidegatherConfig ()
 								Nx.Opts:NXCmdDeleteMine()
 							end,
 						},
-						CmdDelMisc = {
+						CmdDelTimber = {
 							order = 5,
+							type = "execute",
+							width = "full",
+							name = L["Delete Timber Gather Locations"],
+							func = function ()
+								Nx.Opts:NXCmdDeleteTimber()
+							end,						
+						},
+						CmdDelMisc = {
+							order = 6,
 							type = "execute",
 							width = "full",
 							name = L["Delete Misc Gather Locations"],
@@ -1946,12 +1890,12 @@ local function guidegatherConfig ()
 							end,
 						},
 						spacer2 = {
-							order = 2,
+							order = 7,
 							type = "description",
 							name = "\n",
 						},
 						CmdImportHerb = {
-							order = 7,
+							order = 8,
 							type = "execute",
 							width = "full",
 							name = L["Import Herbs From GatherMate2_Data"],
@@ -1960,7 +1904,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						CmdImportMine = {
-							order = 8,
+							order = 9,
 							type = "execute",
 							width = "full",
 							name = L["Import Mines From GatherMate2_Data"],
@@ -1969,7 +1913,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						CmdImportMisc = {
-							order = 9,
+							order = 10,
 							type = "execute",
 							width = "full",
 							name = L["Import Misc From GatherMate2_Data"],
@@ -1984,8 +1928,30 @@ local function guidegatherConfig ()
 					name = L["Herbalism"],
 					order = 3,
 					args = {
-						anclich = {
+						enableall = {
 							order = 1,
+							type = "execute",
+							width = "half",
+							name = "Enable All",
+							func = function()
+								for i = 1,69 do
+									Nx.db.profile.Guide.ShowHerbs[i] = true
+								end
+							end,
+						},
+						disableall = {
+							order = 2,
+							type = "execute",
+							width = "half",
+							name = "Disable All",
+							func = function()
+								for i = 1,69 do
+									Nx.db.profile.Guide.ShowHerbs[i] = false
+								end
+							end,
+						},
+						anclich = {
+							order = 3,
 							type = "toggle",
 							width = "full",
 							name = L["Ancient Lichen"],
@@ -1998,7 +1964,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						arthastear = {
-							order = 2,
+							order = 4,
 							type = "toggle",
 							width = "full",
 							name = L["Arthas' Tears"],
@@ -2011,7 +1977,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						blacklotus = {
-							order = 3,
+							order = 5,
 							type = "toggle",
 							width = "full",
 							name = L["Black Lotus"],
@@ -2024,7 +1990,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						blindweed = {
-							order = 4,
+							order = 6,
 							type = "toggle",
 							width = "full",
 							name = L["Blindweed"],
@@ -2037,7 +2003,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						bloodthistle = {
-							order = 5,
+							order = 7,
 							type = "toggle",
 							width = "full",
 							name = L["Bloodthistle"],
@@ -2050,7 +2016,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						briarthorn = {
-							order = 6,
+							order = 8,
 							type = "toggle",
 							width = "full",
 							name = L["Briarthorn"],
@@ -2063,7 +2029,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						bruiseweed = {
-							order = 7,
+							order = 9,
 							type = "toggle",
 							width = "full",
 							name = L["Bruiseweed"],
@@ -2076,7 +2042,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						dreamfoil = {
-							order = 8,
+							order = 10,
 							type = "toggle",
 							width = "full",
 							name = L["Dreamfoil"],
@@ -2089,7 +2055,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						dreamglory = {
-							order = 9,
+							order = 11,
 							type = "toggle",
 							width = "full",
 							name = L["Dreaming Glory"],
@@ -2102,7 +2068,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						earthroot = {
-							order = 10,
+							order = 12,
 							type = "toggle",
 							width = "full",
 							name = L["Earthroot"],
@@ -2115,7 +2081,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						fadeleaf = {
-							order = 11,
+							order = 13,
 							type = "toggle",
 							width = "full",
 							name = L["Fadeleaf"],
@@ -2128,7 +2094,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						felweed = {
-							order = 12,
+							order = 14,
 							type = "toggle",
 							width = "full",
 							name = L["Felweed"],
@@ -2141,7 +2107,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						firebloom = {
-							order = 13,
+							order = 15,
 							type = "toggle",
 							width = "full",
 							name = L["Firebloom"],
@@ -2154,7 +2120,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						flamecap = {
-							order = 14,
+							order = 16,
 							type = "toggle",
 							width = "full",
 							name = L["Flame Cap"],
@@ -2167,7 +2133,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						ghostmush = {
-							order = 15,
+							order = 17,
 							type = "toggle",
 							width = "full",
 							name = L["Ghost Mushroom"],
@@ -2180,7 +2146,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						goldsansam = {
-							order = 16,
+							order = 18,
 							type = "toggle",
 							width = "full",
 							name = L["Golden Sansam"],
@@ -2193,7 +2159,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						goldthorn = {
-							order = 17,
+							order = 19,
 							type = "toggle",
 							width = "full",
 							name = L["Goldthorn"],
@@ -2206,7 +2172,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						gravemoss = {
-							order = 18,
+							order = 20,
 							type = "toggle",
 							width = "full",
 							name = L["Grave Moss"],
@@ -2219,7 +2185,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						gromsblood = {
-							order = 19,
+							order = 21,
 							type = "toggle",
 							width = "full",
 							name = L["Gromsblood"],
@@ -2232,7 +2198,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						icecap = {
-							order = 20,
+							order = 22,
 							type = "toggle",
 							width = "full",
 							name = L["Icecap"],
@@ -2245,7 +2211,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						khadgar = {
-							order = 21,
+							order = 23,
 							type = "toggle",
 							width = "full",
 							name = L["Khadgar's Whisker"],
@@ -2258,7 +2224,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						kingsblood = {
-							order = 22,
+							order = 24,
 							type = "toggle",
 							width = "full",
 							name = L["Kingsblood"],
@@ -2271,7 +2237,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						liferoot = {
-							order = 23,
+							order = 25,
 							type = "toggle",
 							width = "full",
 							name = L["Liferoot"],
@@ -2284,7 +2250,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						mageroyal = {
-							order = 24,
+							order = 26,
 							type = "toggle",
 							width = "full",
 							name = L["Mageroyal"],
@@ -2297,7 +2263,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						manathistle = {
-							order = 25,
+							order = 27,
 							type = "toggle",
 							width = "full",
 							name = L["Mana Thistle"],
@@ -2310,7 +2276,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						mountainsilver = {
-							order = 26,
+							order = 28,
 							type = "toggle",
 							width = "full",
 							name = L["Mountain Silversage"],
@@ -2323,7 +2289,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						netherbloom = {
-							order = 27,
+							order = 29,
 							type = "toggle",
 							width = "full",
 							name = L["Netherbloom"],
@@ -2336,7 +2302,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						netherdust = {
-							order = 28,
+							order = 30,
 							type = "toggle",
 							width = "full",
 							name = L["Netherdust Bush"],
@@ -2349,7 +2315,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						nightmare = {
-							order = 29,
+							order = 31,
 							type = "toggle",
 							width = "full",
 							name = L["Nightmare Vine"],
@@ -2362,7 +2328,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						peacebloom = {
-							order = 30,
+							order = 32,
 							type = "toggle",
 							width = "full",
 							name = L["Peacebloom"],
@@ -2375,7 +2341,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						sorrowmoss = {
-							order = 31,
+							order = 33,
 							type = "toggle",
 							width = "full",
 							name = L["Sorrowmoss"],
@@ -2388,7 +2354,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						purplelotus = {
-							order = 32,
+							order = 34,
 							type = "toggle",
 							width = "full",
 							name = L["Purple Lotus"],
@@ -2401,7 +2367,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						ragveil = {
-							order = 33,
+							order = 35,
 							type = "toggle",
 							width = "full",
 							name = L["Ragveil"],
@@ -2414,7 +2380,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						silverleaf = {
-							order = 34,
+							order = 36,
 							type = "toggle",
 							width = "full",
 							name = L["Silverleaf"],
@@ -2427,7 +2393,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						stranglekelp = {
-							order = 35,
+							order = 37,
 							type = "toggle",
 							width = "full",
 							name = L["Stranglekelp"],
@@ -2440,7 +2406,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						sungrass = {
-							order = 36,
+							order = 38,
 							type = "toggle",
 							width = "full",
 							name = L["Sungrass"],
@@ -2453,7 +2419,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						terocone = {
-							order = 37,
+							order = 39,
 							type = "toggle",
 							width = "full",
 							name = L["Terocone"],
@@ -2466,7 +2432,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						wildsteel = {
-							order = 38,
+							order = 40,
 							type = "toggle",
 							width = "full",
 							name = L["Wild Steelbloom"],
@@ -2479,7 +2445,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						dragonsteeth = {
-							order = 39,
+							order = 41,
 							type = "toggle",
 							width = "full",
 							name = L["Dragon's Teeth"],
@@ -2492,7 +2458,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						glowcap = {
-							order = 40,
+							order = 42,
 							type = "toggle",
 							width = "full",
 							name = L["Glowcap"],
@@ -2505,7 +2471,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						goldclover = {
-							order = 41,
+							order = 43,
 							type = "toggle",
 							width = "full",
 							name = L["Goldclover"],
@@ -2518,7 +2484,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						talandrarose = {
-							order = 42,
+							order = 44,
 							type = "toggle",
 							width = "full",
 							name = L["Talandra's Rose"],
@@ -2531,7 +2497,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						adderstongue = {
-							order = 43,
+							order = 45,
 							type = "toggle",
 							width = "full",
 							name = L["Adder's Tongue"],
@@ -2544,7 +2510,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						frozenherb = {
-							order = 44,
+							order = 46,
 							type = "toggle",
 							width = "full",
 							name = L["Frozen Herb"],
@@ -2557,7 +2523,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						tigerlily = {
-							order = 45,
+							order = 47,
 							type = "toggle",
 							width = "full",
 							name = L["Tiger Lily"],
@@ -2570,7 +2536,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						lichbloom = {
-							order = 46,
+							order = 48,
 							type = "toggle",
 							width = "full",
 							name = L["Lichbloom"],
@@ -2583,7 +2549,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						icethorn = {
-							order = 47,
+							order = 49,
 							type = "toggle",
 							width = "full",
 							name = L["Icethorn"],
@@ -2596,7 +2562,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						frostlotus = {
-							order = 48,
+							order = 50,
 							type = "toggle",
 							width = "full",
 							name = L["Frost Lotus"],
@@ -2609,7 +2575,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						firethorn = {
-							order = 49,
+							order = 51,
 							type = "toggle",
 							width = "full",
 							name = L["Firethorn"],
@@ -2622,7 +2588,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						azsharaveil = {
-							order = 50,
+							order = 52,
 							type = "toggle",
 							width = "full",
 							name = L["Azshara's Veil"],
@@ -2635,7 +2601,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						cinderbloom = {
-							order = 51,
+							order = 53,
 							type = "toggle",
 							width = "full",
 							name = L["Cinderbloom"],
@@ -2648,7 +2614,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						stormvine = {
-							order = 52,
+							order = 54,
 							type = "toggle",
 							width = "full",
 							name = L["Stormvine"],
@@ -2661,7 +2627,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						heartblossom = {
-							order = 53,
+							order = 55,
 							type = "toggle",
 							width = "full",
 							name = L["Heartblossom"],
@@ -2674,7 +2640,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						whiptail = {
-							order = 54,
+							order = 56,
 							type = "toggle",
 							width = "full",
 							name = L["Whiptail"],
@@ -2687,7 +2653,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						twilightjas = {
-							order = 55,
+							order = 57,
 							type = "toggle",
 							width = "full",
 							name = L["Twilight Jasmine"],
@@ -2700,7 +2666,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						foolscap = {
-							order = 56,
+							order = 58,
 							type = "toggle",
 							width = "full",
 							name = L["Fool's Cap"],
@@ -2713,7 +2679,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						goldenlotus = {
-							order = 57,
+							order = 59,
 							type = "toggle",
 							width = "full",
 							name = L["Golden Lotus"],
@@ -2726,7 +2692,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						greentea = {
-							order = 58,
+							order = 60,
 							type = "toggle",
 							width = "full",
 							name = L["Green Tea Leaf"],
@@ -2739,7 +2705,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						rainpoppy = {
-							order = 59,
+							order = 61,
 							type = "toggle",
 							width = "full",
 							name = L["Rain Poppy"],
@@ -2752,7 +2718,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						shatouched = {
-							order = 60,
+							order = 62,
 							type = "toggle",
 							width = "full",
 							name = L["Sha-Touched Herb"],
@@ -2765,7 +2731,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						silkweed = {
-							order = 61,
+							order = 63,
 							type = "toggle",
 							width = "full",
 							name = L["Silkweed"],
@@ -2778,7 +2744,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						snowlily = {
-							order = 62,
+							order = 64,
 							type = "toggle",
 							width = "full",
 							name = L["Snow Lily"],
@@ -2791,7 +2757,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						chamlotus = {
-							order = 63,
+							order = 65,
 							type = "toggle",
 							width = "full",
 							name = L["Chameleon Lotus"],
@@ -2804,7 +2770,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						frostweed = {
-							order = 64,
+							order = 66,
 							type = "toggle",
 							width = "full",
 							name = L["Frostweed"],
@@ -2817,7 +2783,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						gorgrondflytrap = {
-							order = 65,
+							order = 67,
 							type = "toggle",
 							width = "full",
 							name = L["Gorgrond Flytrap"],
@@ -2830,7 +2796,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						starflower = {
-							order = 66,
+							order = 68,
 							type = "toggle",
 							width = "full",
 							name = L["Starflower"],
@@ -2843,7 +2809,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						nagrandarrow = {
-							order = 67,
+							order = 69,
 							type = "toggle",
 							width = "full",
 							name = L["Nagrand Arrowbloom"],
@@ -2856,7 +2822,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						taladororch = {
-							order = 68,
+							order = 70,
 							type = "toggle",
 							width = "full",
 							name = L["Talador Orchid"],
@@ -2869,7 +2835,7 @@ local function guidegatherConfig ()
 							end,
 						},
 						fireweed = {
-							order = 69,
+							order = 71,
 							type = "toggle",
 							width = "full",
 							name = L["Fireweed"],
@@ -3449,6 +3415,52 @@ local function guidegatherConfig ()
 						},
 					},
 				},
+				TimberDisp = {
+					type = "group",
+					name = L["Timber"],
+					order = 4,
+					args = {
+						small = {
+							order = 1,
+							type = "toggle",
+							width = "full",
+							name = L["Small Timber"],
+							desc = L["Display"] .. " " .. L["Small Timber"] .. " " .. L["Nodes On Map"],
+							get = function()
+								return Nx.db.profile.Guide.ShowTimber[1]
+							end,
+							set = function()
+								Nx.db.profile.Guide.ShowTimber[1] = not Nx.db.profile.Guide.ShowTimber[1]
+							end,
+						},
+						med = {
+							order = 2,
+							type = "toggle",
+							width = "full",
+							name = L["Medium Timber"],
+							desc = L["Display"] .. " " .. L["Medium Timber"] .. " " .. L["Nodes On Map"],
+							get = function()
+								return Nx.db.profile.Guide.ShowTimber[2]
+							end,
+							set = function()
+								Nx.db.profile.Guide.ShowTimber[2] = not Nx.db.profile.Guide.ShowTimber[2]
+							end,
+						},						
+						large = {
+							order = 3,
+							type = "toggle",
+							width = "full",
+							name = L["Large Timber"],
+							desc = L["Display"] .. " " .. L["Large Timber"] .. " " .. L["Nodes On Map"],
+							get = function()
+								return Nx.db.profile.Guide.ShowTimber[3]
+							end,
+							set = function()
+								Nx.db.profile.Guide.ShowTimber[3] = not Nx.db.profile.Guide.ShowTimber[3]
+							end,
+						},						
+					},
+				},				
 			},
 		}
 	end
@@ -3921,7 +3933,7 @@ local function trackConfig()
 						return Nx.db.profile.Track.ATTaxi
 					end,
 					set = function()
-						Nx.db.profile.Track.ATtaxi = not Nx.db.profile.Track.ATTaxi
+						Nx.db.profile.Track.ATTaxi = not Nx.db.profile.Track.ATTaxi
 						Nx.HUD:UpdateOptions()
 					end,
 				},
@@ -3990,13 +4002,13 @@ end
 
 Nx.OptsDataSounds = {
 	"Interface\\AddOns\\Carbonite\\Snd\\QuestComplete.ogg",
-	"Sound\\Creature\\Peon\\PeonBuildingComplete1.wav",
-	"Sound\\Character\\Scourge\\ScourgeVocalMale\\UndeadMaleCongratulations02.wav",
-	"Sound\\Character\\Human\\HumanVocalFemale\\HumanFemaleCongratulations01.wav",
-	"Sound\\Character\\Dwarf\\DwarfVocalMale\\DwarfMaleCongratulations04.wav",
-	"Sound\\Character\\Gnome\\GnomeVocalMale\\GnomeMaleCongratulations03.wav",
-	"Sound\\Creature\\Tauren\\TaurenYes3.wav",
-	"Sound\\Creature\\UndeadMaleWarriorNPC\\UndeadMaleWarriorNPCGreeting01.wav",
+	"Sound\\Creature\\Peon\\PeonBuildingComplete1.ogg",
+	"Sound\\Character\\Scourge\\ScourgeVocalMale\\UndeadMaleCongratulations02.ogg",
+	"Sound\\Character\\Human\\HumanVocalFemale\\HumanFemaleCongratulations01.ogg",
+	"Sound\\Character\\Dwarf\\DwarfVocalMale\\DwarfMaleCongratulations04.ogg",
+	"Sound\\Character\\Gnome\\GnomeVocalMale\\GnomeMaleCongratulations03.ogg",
+	"Sound\\Creature\\Tauren\\TaurenYes3.ogg",
+	"Sound\\Creature\\UndeadMaleWarriorNPC\\UndeadMaleWarriorNPCGreeting01.ogg",
 }
 
 -------------------------------------------------------------------------------
@@ -4201,7 +4213,14 @@ function Nx.Opts:NXCmdDeleteHerb()
 	local function func()
 		Nx:GatherDeleteHerb()
 	end
-	Nx:ShowMessage (L["Delete Herb Locations"] .. "?", "Delete", func, "Cancel")
+	Nx:ShowMessage (L["Delete Herbalism Gather Locations"] .. "?", L["Delete"], func, L["Cancel"])
+end
+
+function Nx.Opts:NXCmdDeleteTimber()
+	local function func()
+		Nx.GatherDeleteTimber()
+	end
+	Nx:ShowMessage (L["Delete Timber Gather Locations"] .. "?", L["Delete"], func, L["Cancel"])
 end
 
 function Nx.Opts:NXCmdDeleteMine()
@@ -4209,7 +4228,7 @@ function Nx.Opts:NXCmdDeleteMine()
 	local function func()
 		Nx:GatherDeleteMine()
 	end
-	Nx:ShowMessage (L["Delete Mine Locations"] .. "?", "Delete", func, "Cancel")
+	Nx:ShowMessage (L["Delete Mining Gather Locations"] .. "?", L["Delete"], func, L["Cancel"])
 end
 
 function Nx.Opts:NXCmdDeleteMisc()
@@ -4217,7 +4236,7 @@ function Nx.Opts:NXCmdDeleteMisc()
 	local function func()
 		Nx:GatherDeleteMisc()
 	end
-	Nx:ShowMessage (L["Delete Misc Locations"] .. "?", "Delete", func, "Cancel")
+	Nx:ShowMessage (L["Delete Misc Gather Locations"] .. "?", L["Delete"], func, L["Cancel"])
 end
 
 function Nx.Opts:NXCmdImportCarbHerb()
@@ -4225,7 +4244,7 @@ function Nx.Opts:NXCmdImportCarbHerb()
 	local function func()
 		Nx:GatherImportCarbHerb()
 	end
-	Nx:ShowMessage (L["Import Herbs"] .. "?", "Import", func, "Cancel")
+	Nx:ShowMessage (L["Import Herbs"] .. "?", L["Import"], func, L["Cancel"])
 end
 
 function Nx.Opts:NXCmdImportCarbMine()
@@ -4233,7 +4252,7 @@ function Nx.Opts:NXCmdImportCarbMine()
 	local function func()
 		Nx:GatherImportCarbMine()
 	end
-	Nx:ShowMessage (L["Import Mining"] .. "?", "Import", func, "Cancel")
+	Nx:ShowMessage (L["Import Mining"] .. "?", L["Import"], func, L["Cancel"])
 end
 
 function Nx.Opts:NXCmdImportCarbMisc()
@@ -4241,7 +4260,7 @@ function Nx.Opts:NXCmdImportCarbMisc()
 	local function func()
 		Nx:GatherImportCarbMisc()
 	end
-	Nx:ShowMessage (L["Import Misc"] .. "?", "Import", func, "Cancel")
+	Nx:ShowMessage (L["Import Misc"] .. "?", L["Import"], func, L["Cancel"])
 end
 
 --[[
@@ -4878,4 +4897,5 @@ function Nx.Opts:SetVar (varName, val)
 	end
 end
 
---------------------------------------------------------------------------------- EOF
+-------------------------------------------------------------------------------
+-- EOF

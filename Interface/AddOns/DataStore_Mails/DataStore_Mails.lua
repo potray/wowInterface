@@ -10,6 +10,8 @@ _G[addonName] = LibStub("AceAddon-3.0"):NewAddon(addonName, "AceConsole-3.0", "A
 
 local addon = _G[addonName]
 
+local L = LibStub("AceLocale-3.0"):GetLocale(addonName)
+
 local THIS_ACCOUNT = "Default"
 local commPrefix = "DS_Mails"		-- let's keep it a bit shorter than the addon name, this goes on a comm channel, a byte is a byte ffs :p
 local MAIL_EXPIRY = 30		-- Mails expire after 30 days
@@ -26,11 +28,12 @@ local ICON_NOTE = "Interface\\Icons\\INV_Misc_Note_01"
 local AddonDB_Defaults = {
 	global = {
 		Options = {
-			ScanMailBody = 1,					-- by default, scan the body of a mail (this action marks it as read)
-			CheckMailExpiry = 1,				-- check mail expiry or not
+			ScanMailBody = true,					-- by default, scan the body of a mail (this action marks it as read)
+			CheckMailExpiry = true,				-- check mail expiry or not
 			MailWarningThreshold = 5,
-			CheckMailExpiryAllAccounts = 1,
-			CheckMailExpiryAllRealms = 1,
+			CheckMailExpiryAllAccounts = true,
+			CheckMailExpiryAllRealms = true,
+			ReportExpiredMailsToChat = true,
 		},
 		Characters = {
 			['*'] = {				-- ["Account.Realm.Name"] 
@@ -197,7 +200,7 @@ local function ScanMailbox()
 		end
 
 		local inboxText
-		if GetOption("ScanMailBody") == 1 then
+		if GetOption("ScanMailBody") then
 			inboxText = GetInboxText(i)					-- this marks the mail as read
 		end
 		
@@ -423,20 +426,35 @@ local function CheckExpiries()
 	local allAccounts = GetOption("CheckMailExpiryAllAccounts")
 	local allRealms = GetOption("CheckMailExpiryAllRealms")
 	local threshold = GetOption("MailWarningThreshold")
+	local reportToChat = GetOption("ReportExpiredMailsToChat")
 	local expiryFound
 	
 	local account, realm
 	for key, character in pairs(addon.db.global.Characters) do
-		account, realm = strsplit(".", key)
+		account, realm, charName = strsplit(".", key)
 		
-		if allAccounts == 1 or ((allAccounts == 0) and (account == THIS_ACCOUNT)) then		-- all accounts, or only current and current was found
-			if allRealms == 1 or ((allRealms == 0) and (realm == GetRealmName())) then			-- all realms, or only current and current was found
-	
-			-- detect return vs delete
-				local numExpiredMails = _GetNumExpiredMails(character, threshold)
-				if numExpiredMails > 0 then
-					expiryFound = true
-					addon:SendMessage("DATASTORE_MAIL_EXPIRY", character, key, threshold, numExpiredMails)
+		-- 2015-02-07 : The problem of expired items is here
+		-- It appears that in older versions, the addon managed to create an invalid character key
+		-- ex: Default.Realm.Player-Realm
+		-- This was due to being able to guild character from merged realms, who would then send mail to an alt.
+		-- These invalid keys should be fully deleted.
+		
+		local pos = string.find(charName, "-")		-- is there a '-' in the character name ? if yes, invalid key ! delete it !
+		if pos then
+			addon.db.global.Characters[key] = nil
+		else
+			if allAccounts or ((allAccounts == false) and (account == THIS_ACCOUNT)) then		-- all accounts, or only current and current was found
+				if allRealms or ((allRealms == false) and (realm == GetRealmName())) then			-- all realms, or only current and current was found
+		
+				-- detect return vs delete
+					local numExpiredMails = _GetNumExpiredMails(character, threshold)
+					if numExpiredMails > 0 then
+						expiryFound = true
+						if reportToChat then		-- if the option is active, report the name of the character to chat, one line per alt.
+							addon:Print(format(L["EXPIRED_EMAILS_WARNING"], charName, realm))
+						end
+						addon:SendMessage("DATASTORE_MAIL_EXPIRY", character, key, threshold, numExpiredMails)
+					end
 				end
 			end
 		end
@@ -474,7 +492,7 @@ function addon:OnEnable()
 	addon:RegisterEvent("BAG_UPDATE", OnBagUpdate)
 	
 	addon:SetupOptions()
-	if GetOption("CheckMailExpiry") == 1 then
+	if GetOption("CheckMailExpiry") then
 		addon:ScheduleTimer(CheckExpiries, 5)	-- check mail expiries 5 seconds later, to decrease the load at startup
 	end
 end

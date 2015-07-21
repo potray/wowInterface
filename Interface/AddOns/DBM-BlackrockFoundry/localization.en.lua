@@ -5,13 +5,10 @@ local L
 ---------------
 L= DBM:GetModLocalization(1161)
 
-L:SetWarningLocalization({
-})
-
 L:SetOptionLocalization({
-})
-
-L:SetMiscLocalization({
+	MythicSoakBehavior	= "Set Mythic difficulty group soak preference for special warnings",
+	ThreeGroup			= "3 Group 1 stack each strat",
+	TwoGroup			= "2 Group 2 stacks each strat" 
 })
 
 ---------------------------
@@ -19,15 +16,51 @@ L:SetMiscLocalization({
 ---------------------------
 L= DBM:GetModLocalization(1202)
 
+L:SetOptionLocalization({
+	InterruptBehavior	= "Set behavior for interrupt warnings",
+	Smart				= "Interrupt warnings are based on bosses spine stacks",
+	Fixed				= "Interrupts use a 5 or 3 sequence no matter what (even if boss doesn't)"
+})
+
 ---------------------------
 -- The Blast Furnace --
 ---------------------------
 L= DBM:GetModLocalization(1154)
 
+L:SetWarningLocalization({
+	warnRegulators			= "Heat Regulator remaining: %d",
+	warnBlastFrequency		= "Blast frequency increased: Approx Every %d sec",
+	specWarnTwoVolatileFire	= "Double Volatile Fire on you!"
+})
+
+L:SetOptionLocalization({
+	warnRegulators			= "Announce how many Heat Regulator remain",
+	warnBlastFrequency		= "Announce when $spell:155209 frequency increased",
+	specWarnTwoVolatileFire	= "Show special warning when you have double $spell:176121",
+	InfoFrame				= "Show info frame for $spell:155192 and $spell:155196",
+	VFYellType2				= "Set yell type for Volatile Fire (Mythic difficulty only)",
+	Countdown				= "Countdown until expires",
+	Apply					= "Only applied"
+})
+
+L:SetMiscLocalization({
+	heatRegulator		= "Heat Regulator",
+	Regulator			= "Regulator %d",--Can't use above, too long for infoframe
+	bombNeeded			= "%d Bomb(s)"
+})
+
 ------------------
 -- Hans'gar And Franzok --
 ------------------
 L= DBM:GetModLocalization(1155)
+
+L:SetTimerLocalization({
+	timerStamperDodge			= DBM_CORE_AUTO_TIMER_TEXTS.nextcount:format((GetSpellInfo(160582)))
+})
+
+L:SetOptionLocalization({
+	timerStamperDodge			= DBM_CORE_AUTO_TIMER_OPTIONS.nextcount:format(160582)
+})
 
 --------------
 -- Flamebender Ka'graz --
@@ -39,6 +72,10 @@ L= DBM:GetModLocalization(1123)
 --------------------
 L= DBM:GetModLocalization(1162)
 
+L:SetMiscLocalization({
+	ExRTNotice		= "%s sent ExRT rune position assignents. Your position: %s"
+})
+
 --------------------------
 -- Beastlord Darmac --
 --------------------------
@@ -49,35 +86,30 @@ L= DBM:GetModLocalization(1122)
 --------------------------
 L= DBM:GetModLocalization(1147)
 
+L:SetWarningLocalization({
+	specWarnSplitSoon	= "Raid split in 10"
+})
+
+L:SetOptionLocalization({
+	specWarnSplitSoon	= "Show special warning 10 seconds before raid split",
+	InfoFrameSpeed		= "Set when InfoFrame shows next train information",
+	Immediately			= "As soon as doors open for current train",
+	Delayed				= "After current train has come out",
+	HudMapUseIcons		= "Use raid Icons for HudMap instead of green circle",
+	TrainVoiceAnnounce	= "Set when spoken alerts will play for trains",
+	LanesOnly			= "Only announce incoming lanes",
+	MovementsOnly		= "Only announce lane movements (Mythic Only)",
+	LanesandMovements	= "Announce incoming lanes & movements (Mythic Only)"
+})
+
 L:SetMiscLocalization({
-	--Might not even need to use yells if my npc target works in all languages.
-	--depends on if "Train" is boss target in all languages and if that spellid hack also matches it in all languages.
-	--At the very least this helps read transcriptor logs :)
-	cannonTrain		= "Cannon",
-	threeTrains		= " 3 Random Lanes",
-	helperMessage	= "It is recommended you use 'Thogar Assist' in combination with DBM on this boss. Available from: http://wow.curseforge.com/addons/thogar-assist/",
-	commandTrain1	= "The command car is here.",
-	commandTrain2	= "Here comes the brass.",
-	moreThanOne1	= "Trains inbound!",
-	moreThanOne2	= "Double-time.",
-	moreThanOne3	= "Clear the tracks!",
-	cannon1			= "Here's my artillery.",
-	cannon2			= "Here come the boomers!",
-	driveBy1		= "Faster! Bat the stack off her!",
-	driveBy2		= "Express, coming through.",
-	driveBy3		= "Redball incoming!",
-	driveBy4		= "Send 'er on down the line!",
-	driveBy5		= "Coming in hot.",
-	smallAdds1		= "Here they come - hit the grit, boys!",
-	smallAdds2		= "Troop train - inbound!",
-	smallAdds3		= "Ah - reinforcements.",
-	--Some of these flamethrowers are iffy so verify flamethrower again in videos to be very sure.
-	--These may also be something else entirely so going to only debug these right now
-	flameThrower1	= "I have a schedule to keep!",
-	flameThrower2	= "You are running out of time...",
-	flameThrower3	= "I'm not impressed. More trains are inbound!",
-	flameThrower4	= "You're just in time for the rush.!",
-	flameThrower5	= "Let's step up the pace."
+	Train			= GetSpellInfo(174806),
+	lane			= "Lane",
+	oneTrain		= "1 Random Lane: Train",
+	oneRandom		= "Appear on 1 random lane",
+	threeTrains		= "3 Random Lanes: Train",
+	threeRandom		= "Appear on 3 random lanes",
+	helperMessage	= "This encounter can be improved with 3rd party mod 'Thogar Assist' or one of many available DBM Voice packs (they audibly call out trains), available on Curse."
 })
 
 --------------------------
@@ -85,14 +117,40 @@ L:SetMiscLocalization({
 --------------------------
 L= DBM:GetModLocalization(1203)
 
+L:SetWarningLocalization({
+	specWarnReturnBase	= "Return to dock!"
+})
+
+L:SetOptionLocalization({
+	specWarnReturnBase	= "Show special warning when boat player can safely return to dock",
+	filterBladeDash3	= "Do not show special warning for $spell:155794 when affected by $spell:170395",
+	filterBloodRitual3	= "Do not show special warning for $spell:158078 when affected by $spell:170405"
+})
+
 L:SetMiscLocalization({
-	shipMessage		= "prepares to man the Dreadnaught's Main Cannon!"
+	shipMessage		= "prepares to man the Dreadnaught's Main Cannon!",
+	EarlyBladeDash	= "Too slow!"
 })
 
 --------------------------
 -- Blackhand --
 --------------------------
 L= DBM:GetModLocalization(959)
+
+L:SetWarningLocalization({
+	specWarnMFDPosition		= "Marked Position: %s",
+	specWarnSlagPosition	= "Bomb Position: %s"
+})
+
+L:SetOptionLocalization({
+	PositionsAllPhases	= "Give positions for $spell:156096 yells during all phases (Instead of just phase 3. This is mostly for testing and assurances, this option is not actually needed)",
+	InfoFrame			= "Show info frame for $spell:155992 and $spell:156530"
+})
+
+L:SetMiscLocalization({
+	customMFDSay	= "Marked %s on %s",
+	customSlagSay	= "Bomb %s on %s"
+})
 
 -------------
 --  Trash  --

@@ -1,7 +1,8 @@
 local aName, aObj = ...
 local _G = _G
 
-local assert, CopyTable, debugstack, ipairs, pairs, rawget, select, type, unpack, null, setmetatable, RAID_CLASS_COLORS = _G.assert, _G.CopyTable, _G.debugstack, _G.ipairs, _G.pairs, _G.rawget, _G.select, _G.type, _G.unpack, _G.null, _G.setmetatable, _G.RAID_CLASS_COLORS
+local assert, CopyTable, debugstack, ipairs, pairs, rawget, select, type, unpack, setmetatable, CreateFrame, LowerFrameLevel, RaiseFrameLevel, wipe, pcall, strfind, tostring, UIParent = _G.assert, _G.CopyTable, _G.debugstack, _G.ipairs, _G.pairs, _G.rawget, _G.select, _G.type, _G.unpack, _G.setmetatable, _G.CreateFrame, _G.LowerFrameLevel, _G.RaiseFrameLevel, _G.wipe, _G.pcall, _G.strfind, _G.tostring, _G.UIParent
+local IsAddOnLoaded, GetCursorPosition, Model_RotateLeft, Model_RotateRight = _G.IsAddOnLoaded, _G.GetCursorPosition, _G.Model_RotateLeft, _G.Model_RotateRight
 local LibStub = _G.LibStub
 
 do
@@ -17,9 +18,6 @@ do
 	-- add callbacks
 	aObj.callbacks = LibStub("CallbackHandler-1.0"):New(aObj)
 
-	-- specify where debug messages go
-	aObj.debugFrame = _G.ChatFrame10
-
 	-- Get Locale
 	aObj.L = LibStub("AceLocale-3.0"):GetLocale(aName)
 
@@ -29,35 +27,31 @@ do
 	-- player class
 	aObj.uCls = select(2, _G.UnitClass("player"))
 
-	local liveBuildVer = "6.0.3"
-	local liveBuildNo = 19342
+	local liveInfo = {"6.2.0", 20201}
+	local ptrInfo = {"6.2.0", 29999}
+	local betaInfo = {"7.0.0", 99999}
 	local buildInfo, portal = {_G.GetBuildInfo()}, _G.GetCVar("portal") or nil
 --[===[@alpha@
-	aObj:Debug(liveBuildVer, liveBuildNo, buildInfo[1], buildInfo[2], buildInfo[3], buildInfo[4], portal)
+	aObj:Debug(liveInfo[1], liveInfo[2], buildInfo[1], buildInfo[2], buildInfo[3], buildInfo[4], portal)
 --@end-alpha@]===]
-	-- check to see if running on Beta version
+	-- check to see if running on Beta servers
 	aObj.isBeta = portal == "public-beta" and true or false
-	aObj.isBeta = aObj.isBeta or buildInfo[1] > liveBuildVer and true or false
-	if not aObj.isBeta then
-		--check to see if running on PTR servers
-		aObj.isPTR = portal == "public-test" and true or false
-		-- check build number, if > Live then it's a patch
-		aObj.isPatch = _G.tonumber(buildInfo[2]) > liveBuildNo and true or false
+	aObj.isBeta = aObj.isBeta or buildInfo[1] == betaInfo[1] and true or false
+	--check to see if running on PTR servers
+	aObj.isPTR = portal == "public-test" and true or false
+	aObj.isPTR = aObj.isPTR or buildInfo[1] == ptrInfo[1] and true or false
+	-- check build number, if > Live then it's a patch
+	aObj.isPatch = _G.tonumber(buildInfo[2]) > liveInfo[2] and true or false
 --[===[@alpha@
-		if aObj.isPatch then
-			if aObj.isPTR then
-				_G.DEFAULT_CHAT_FRAME:AddMessage("Version No. updated, any PTR changes to be applied?", 1, 0, 0, nil, true)
-			else
-				_G.DEFAULT_CHAT_FRAME:AddMessage("Version No. updated, any Patch changes to be applied?", 1, 0, 0, nil, true)
-			end
-		end
---@end-alpha@]===]
-	end
-	-- if patch detected then enable PTR/Beta code changes, handles PTR/Beta changes going Live
 	if aObj.isPatch then
-		aObj.isPTR = true
-		aObj.isBeta = true
+		if aObj.isPTR then
+			_G.DEFAULT_CHAT_FRAME:AddMessage("Version No. updated, any PTR changes to be applied?", 1, 0, 0, nil, true)
+		else
+			_G.DEFAULT_CHAT_FRAME:AddMessage("Version No. updated, any Patch changes to be applied?", 1, 0, 0, nil, true)
+		end
 	end
+--@end-alpha@]===]
+	liveInfo, ptrInfo, betaInfo, buildInfo, portal = nil, nil, nil, nil, nil
 
 end
 
@@ -72,6 +66,11 @@ function aObj:OnInitialize()
 	if self.isPTR then self:Debug("PTR detected") end
 	if self.isPatch then self:Debug("Patch detected") end
 --@end-alpha@]===]
+	-- if patch detected then enable PTR/Beta code changes, handles PTR/Beta changes going Live
+	if self.isPatch then
+		self.isPTR = true
+		self.isBeta = true
+	end
 
 	-- setup the default DB values and register them
 	self:checkAndRun("Defaults", true)
@@ -89,9 +88,9 @@ function aObj:OnInitialize()
 	-- register the default background texture
 	self.LSM:Register("background", dflts.BdTexture, [[Interface\ChatFrame\ChatFrameBackground]])
 	-- register the inactive tab texture
-	self.LSM:Register("background", aName .. " Inactive Tab", [[Interface\AddOns\]] .. aName .. [[\textures\inactive]])
+	self.LSM:Register("background", aName .. " Inactive Tab", [[Interface\AddOns\]] .. aName .. [[\Textures\inactive]])
 	-- register the texture used for EditBoxes & ScrollBars
-	self.LSM:Register("border", aName .. " Border", [[Interface\AddOns\]] .. aName .. [[\textures\krsnik]])
+	self.LSM:Register("border", aName .. " Border", [[Interface\AddOns\]] .. aName .. [[\Textures\krsnik]])
 	-- register the statubar texture used by Nameplates
 	self.LSM:Register("statusbar", "Blizzard2", [[Interface\TargetingFrame\UI-TargetingFrame-BarFill]])
 	-- register any User defined textures used
@@ -207,7 +206,7 @@ function aObj:OnInitialize()
 	self.gradFrames = {["p"] = {}, ["u"] = {}, ["n"] = {}, ["s"] = {}}
 
 	-- TooltipBorder colours
-	c = prdb.ClassColours and RAID_CLASS_COLORS[self.uCls] or prdb.TooltipBorder
+	c = prdb.ClassColours and _G.RAID_CLASS_COLORS[self.uCls] or prdb.TooltipBorder
 	self.tbColour = {c.r, c.g, c.b, c.a or 1}
 	-- StatusBar colours
 	c = prdb.StatusBar
@@ -215,10 +214,10 @@ function aObj:OnInitialize()
 	-- StatusBar texture
 	self.sbTexture = self.LSM:Fetch("statusbar", c.texture)
 	-- Backdrop colours
-	c = prdb.ClassClrsBg and RAID_CLASS_COLORS[self.uCls] or prdb.Backdrop
+	c = prdb.ClassClrsBg and _G.RAID_CLASS_COLORS[self.uCls] or prdb.Backdrop
 	self.bColour = {c.r, c.g, c.b, c.a or 1}
 	-- BackdropBorder colours
-	c = prdb.ClassColours and RAID_CLASS_COLORS[self.uCls] or prdb.BackdropBorder
+	c = prdb.ClassColours and _G.RAID_CLASS_COLORS[self.uCls] or prdb.BackdropBorder
 	self.bbColour = {c.r, c.g, c.b, c.a or 1}
 	-- Inactive Tab & DropDowns texture
 	if prdb.TabDDFile and prdb.TabDDFile ~= "None" then
@@ -230,22 +229,13 @@ function aObj:OnInitialize()
 	self.esTex = [[Interface\Buttons\UI-Quickslot2]]
 
 	-- class table
-	self.classTable = {"DeathKnight", "Druid", "Hunter", "Mage", "Monk", "Paladin", "Priest", "Rogue", "Shaman", "Warlock", "Warrior",}
+	self.classTable = {"DeathKnight", "Druid", "Hunter", "Mage", "Monk", "Paladin", "Priest", "Rogue", "Shaman", "Warlock", "Warrior"}
 
 	-- store Addons managed by LoadManagers
 	self.lmAddons = {}
 
 	-- table to hold which functions have been actioned
 	self.initialized = {}
-
-	-- table to hold objects which have been skinned
-	-- with a metatable having weak keys and automatically adding an entry if it doesn't exist
-	-- TODO: deprecate when all skins changed
-	self.skinned = setmetatable({}, {__mode = "k", __index = function(t, k) t[k] = true end})
-
-	-- table to hold frames that have been added, with weak keys
-	-- TODO: deprecate when all skins changed
-	self.skinFrame = setmetatable({}, {__mode = "k"})
 
 	-- table to hold buttons that have been added, with weak keys
 	self.sBtn = setmetatable({}, {__mode = "k"})
@@ -279,7 +269,7 @@ function aObj:OnInitialize()
 		for _, v in pairs(self.oocTab) do
 			v[1](unpack(v[2]))
 		end
-		_G.wipe(self.oocTab)
+		wipe(self.oocTab)
 	end)
 
 	-- ignore objects when skinning IOF elements
@@ -388,6 +378,7 @@ function aObj:getGradientInfo(invert, rotate)
 	else
 		return rotate and "HORIZONTAL" or "VERTICAL", 0, 0, 0, 1, 0, 0, 0, 1
 	end
+	MinR, MinG, MinB, MinA, MaxR, MaxG, MaxB, MaxA = nil, nil, nil, nil, nil, nil, nil, nil
 
 end
 
@@ -425,9 +416,9 @@ local function __addSkinButton(opts)
 	opts.parent = opts.parent or opts.obj:GetParent()
 
 	-- store button object within original button
-	opts.obj.sb = _G.CreateFrame("Button", nil, opts.parent, opts.sec and "SecureUnitButtonTemplate" or nil)
+	opts.obj.sb = CreateFrame("Button", nil, opts.parent, opts.sec and "SecureUnitButtonTemplate" or nil)
 	local btn = opts.obj.sb
-	_G.LowerFrameLevel(btn)
+	LowerFrameLevel(btn)
 	btn:EnableMouse(false) -- allow clickthrough
 
 	if not opts.nohooks then
@@ -457,6 +448,7 @@ local function __addSkinButton(opts)
 		local yOfs2 = opts.y2 or opts.ofs * -1
 		btn:SetPoint("TOPLEFT", opts.obj, "TOPLEFT", xOfs1, yOfs1)
 		btn:SetPoint("BOTTOMRIGHT", opts.obj, "BOTTOMRIGHT", xOfs2, yOfs2)
+		xOfs1, yOfs1, xOfs2, yOfs2 = nil, nil, nil, nil
 	end
 	-- setup applySkin options
 	opts.aso = opts.aso or {}
@@ -480,6 +472,7 @@ local function __addSkinButton(opts)
 					if reg:GetDrawLayer() == "BACKGROUND" then reg:SetDrawLayer("ARTWORK") end
 				end
 			end
+			regOT = nil
 		end
 	end
 
@@ -525,8 +518,9 @@ end
 local function hideHeader(obj)
 
 	-- hide the Header Texture and move the Header text, if required
+	local hdr
 	for _, htex in pairs{"Header", "_Header", "_HeaderBox", "_FrameHeader", "FrameHeader", "HeaderTexture", "HeaderFrame"} do
-		local hdr = _G[obj:GetName() .. htex]
+		hdr = _G[obj:GetName() .. htex]
 		if hdr then
 			hdr:Hide()
 			hdr:SetPoint("TOP", obj, "TOP", 0, 7)
@@ -598,11 +592,12 @@ local function __addSkinFrame(opts)
 	local yOfs2 = opts.y2 or opts.ofs * -1
 
 	-- add a frame around the current object
-	opts.obj.sf = opts.obj.sf or _G.CreateFrame("Frame", nil, opts.obj, opts.sec and "SecureFrameTemplate" or nil)
+	opts.obj.sf = opts.obj.sf or CreateFrame("Frame", nil, opts.obj, opts.sec and "SecureFrameTemplate" or nil)
 	local skinFrame = opts.obj.sf
 	skinFrame:ClearAllPoints()
 	skinFrame:SetPoint("TOPLEFT", opts.obj, "TOPLEFT", xOfs1, yOfs1)
 	skinFrame:SetPoint("BOTTOMRIGHT", opts.obj, "BOTTOMRIGHT", xOfs2, yOfs2)
+	xOfs1, yOfs1, xOfs2, yOfs2 = nil, nil, nil, nil
 
 	skinFrame:EnableMouse(false) -- allow clickthrough
 
@@ -620,8 +615,9 @@ local function __addSkinFrame(opts)
 	aObj:applySkin(opts.aso)
 
 	-- adjust frame level
-	local success, err = _G.pcall(_G.LowerFrameLevel, skinFrame) -- catch any error, doesn't matter if already 0
-	if not success then _G.RaiseFrameLevel(opts.obj) end -- raise parent's Frame Level if 0
+	local success, err = pcall(LowerFrameLevel, skinFrame) -- catch any error, doesn't matter if already 0
+	if not success then RaiseFrameLevel(opts.obj) end -- raise parent's Frame Level if 0
+	success, err = nil, nil
 
 	 -- make sure it's lower than its parent's Frame Strata
 	if opts.bg then skinFrame:SetFrameStrata("BACKGROUND") end
@@ -631,7 +627,7 @@ local function __addSkinFrame(opts)
 
 	-- reparent skinFrame to avoid whiteout issues caused by animations
 	if opts.anim then
-		skinFrame:SetParent(_G.UIParent)
+		skinFrame:SetParent(UIParent)
 		-- hook Show and Hide methods
 		aObj:SecureHook(opts.obj, "Show", function(this) this.sf:Show() end)
 		aObj:SecureHook(opts.obj, "Hide", function(this) this.sf:Hide() end)
@@ -662,11 +658,15 @@ local function __addSkinFrame(opts)
 		-- hook this script to ensure gradient texture is reparented correctly
 		aObj:SecureHookScript(opts.obj.animIn, "OnFinished", function(this)
 			local objP = this:GetParent()
-			-- _G.print("animIn OnFinished", objP)
+			-- print("animIn OnFinished", objP)
 			aObj:ScheduleTimer(function(frame)
 				frame.sf.tfade:SetParent(frame.sf)
 				if frame.cb then frame.cb.tfade:SetParent(frame.cb) end
-			end, 0.2, objP)
+			end, 0.15, objP)
+		end)
+		-- handle issue where tfade isn't reparented in time
+		aObj:SecureHookScript(opts.obj, "OnHide", function(this)
+			this.sf.tfade:SetParent(this.sf)
 		end)
 		-- hook AlertFrame scripts for animation functions
 		if opts.afas then
@@ -680,10 +680,6 @@ local function __addSkinFrame(opts)
 			end)
 		end
 	end
-
-	-- store reference to the frame
-	-- TODO: deprecate when all skins changed
-	if not opts.ft then aObj.skinFrame[opts.obj] = skinFrame end
 
 	return skinFrame
 
@@ -741,8 +737,8 @@ function aObj:applyGradient(obj, fh, invert, rotate)
 		end
 	end
 
-	invert = invert or prdb.Gradient.invert
-	rotate = rotate or prdb.Gradient.rotate
+	local invert = invert or prdb.Gradient.invert
+	local rotate = rotate or prdb.Gradient.rotate
 
 	if not obj.tfade then obj.tfade = obj:CreateTexture(nil, "BORDER") end
 	obj.tfade:SetTexture(self.gradientTex)
@@ -828,6 +824,7 @@ local function __applySkin(opts)
 			return
 		end
 	end
+	hasIOT = nil
 
 	-- store frame obj, if required
 	if opts.ft then aObj:add2Table(aObj.gradFrames[opts.ft], opts.obj) end
@@ -843,6 +840,7 @@ local function __applySkin(opts)
 		opts.obj:SetBackdropColor(r, g, b, opts.ba or a)
 		r, g, b, a = unpack(aObj.bbColour)
 		opts.obj:SetBackdropBorderColor(r, g, b, opts.bba or a)
+		r, g, b, a = nil, nil, nil, nil
 	else
 		opts.obj:SetBackdropBorderColor(.2, .2, .2, 1)
 		opts.obj:SetBackdropColor(.1, .1, .1, 1)
@@ -888,6 +886,7 @@ function aObj:applySkin(...)
 		opts.bd = select(6, ...) and select(6, ...) or nil
 	end
 	__applySkin(opts)
+	opts = nil
 
 end
 
@@ -902,7 +901,7 @@ local function __adjHeight(opts)
 --@end-alpha@]===]
 	if opts.adj == 0 then return end
 
-	if not _G.strfind(_G.tostring(opts.adj), "+") then -- if not negative value
+	if not strfind(tostring(opts.adj), "+") then -- if not negative value
 		opts.obj:SetHeight(opts.obj:GetHeight() + opts.adj)
 	else
 		opts.adj = opts.adj * -1 -- make it positive
@@ -929,6 +928,7 @@ function aObj:adjHeight(...)
 		opts.adj = select(2, ...) and select(2, ...) or 0
 	end
 	__adjHeight(opts)
+	opts = nil
 
 end
 
@@ -943,7 +943,7 @@ local function __adjWidth(opts)
 --@end-alpha@]===]
 	if opts.adj == 0 then return end
 
-	if not _G.strfind(_G.tostring(opts.adj), "+") then -- if not negative value
+	if not strfind(tostring(opts.adj), "+") then -- if not negative value
 		opts.obj:SetWidth(opts.obj:GetWidth() + opts.adj)
 	else
 		opts.adj = opts.adj * -1 -- make it positive
@@ -970,6 +970,7 @@ function aObj:adjWidth(...)
 		opts.adj = select(2, ...) and select(2, ...) or 0
 	end
 	__adjWidth(opts)
+	opts = nil
 
 end
 
@@ -1030,7 +1031,7 @@ function aObj:keepFontStrings(obj, hide)
 			if not hide then reg:SetAlpha(0) else reg:Hide() end
 		end
 	end
-	regs = null
+	regs = nil
 
 end
 
@@ -1052,7 +1053,7 @@ function aObj:keepRegions(obj, regions)
 	assert(obj, "Missing object kR\n" .. debugstack())
 --@end-alpha@]===]
 
-	regions = revTable(regions)
+	local regions = revTable(regions)
 
 	local regs = {obj:GetRegions()}
 	for k, reg in ipairs(regs) do
@@ -1063,23 +1064,22 @@ function aObj:keepRegions(obj, regions)
 			reg:SetAlpha(0)
 --[===[@debug@
 			if reg:IsObjectType("FontString") then
-				self:Debug("kr FS: [%s, %s]", obj:GetName() or "<Anon>", k)
+				self:Debug("kr FS: [%s, %s]", obj, k)
 				self:Print(debugstack(1, 5, 2))
 			end
 --@end-debug@]===]
 		end
 	end
-	regs = null
+	regions, regs = nil, nil
 
 end
-
 function aObj:makeMFRotatable(modelFrame)
 --[===[@alpha@
 	assert(modelFrame and modelFrame:IsObjectType("PlayerModel"), "Not a PlayerModel\n" .. debugstack())
 --@end-alpha@]===]
 
 	-- Don't make Model Frames Rotatable if CloseUp is loaded
-	if _G.IsAddOnLoaded("CloseUp") then return end
+	if IsAddOnLoaded("CloseUp") then return end
 
 	--frame:EnableMouseWheel(true)
 	modelFrame:EnableMouse(true)
@@ -1100,19 +1100,20 @@ function aObj:makeMFRotatable(modelFrame)
 	if not self:IsHooked(modelFrame, "OnUpdate") then
 		self:SecureHookScript(modelFrame, "OnUpdate", function(this, elapsedTime, ...)
 			if this.dragging then
-				local x, y = _G.GetCursorPosition()
+				local x, y = GetCursorPosition()
 				if this.cursorPosition.x > x then
-					_G.Model_RotateLeft(this, (this.cursorPosition.x - x) * elapsedTime * 2)
+					Model_RotateLeft(this, (this.cursorPosition.x - x) * elapsedTime * 2)
 				elseif this.cursorPosition.x < x then
-					_G.Model_RotateRight(this, (x - this.cursorPosition.x) * elapsedTime * 2)
+					Model_RotateRight(this, (x - this.cursorPosition.x) * elapsedTime * 2)
 				end
-				this.cursorPosition.x, this.cursorPosition.y = _G.GetCursorPosition()
+				this.cursorPosition.x, this.cursorPosition.y = GetCursorPosition()
+				x, y = nil, nil
 			end
 		end)
 		self:SecureHookScript(modelFrame, "OnMouseDown", function(this, button)
 			if button == "LeftButton" then
 				this.dragging = true
-				this.cursorPosition.x, this.cursorPosition.y = _G.GetCursorPosition()
+				this.cursorPosition.x, this.cursorPosition.y = GetCursorPosition()
 			end
 		end)
 		self:SecureHookScript(modelFrame, "OnMouseUp", function(this, button)
@@ -1181,6 +1182,8 @@ local function __moveObject(opts)
 	opts.obj:ClearAllPoints()
 	opts.obj:SetPoint(point, relTo, relPoint, xOfs, yOfs)
 
+	point, relTo, relPoint, xOfs, yOfs = nil, nil, nil, nil, nil
+
 end
 
 function aObj:moveObject(...)
@@ -1204,7 +1207,9 @@ function aObj:moveObject(...)
 		if select(4, ...) and select(4, ...) == "-" then opts.y = opts.y * -1 end
 		opts.relTo = select(6, ...) and select(6, ...) or nil
 	end
+
 	__moveObject(opts)
+	opts = nil
 
 end
 
@@ -1213,7 +1218,7 @@ function aObj:removeRegions(obj, regions)
 	assert(obj, "Missing object rR\n" .. debugstack())
 --@end-alpha@]===]
 
-	regions = revTable(regions)
+	local regions = revTable(regions)
 
 	local regs = {obj:GetRegions()}
 	for k, reg in ipairs(regs) do
@@ -1224,13 +1229,13 @@ function aObj:removeRegions(obj, regions)
 			reg:SetAlpha(0)
 --[===[@debug@
 			if reg:IsObjectType("FontString") then
-				self:Debug("rr FS: [%s, %s]", obj:GetName() or "<Anon>", k)
+				self:Debug("rr FS: [%s, %s]", obj, k)
 				self:Print(debugstack(1, 5, 2))
 			end
 --@end-debug@]===]
 		end
 	end
-	regs = null
+	regions, regs = nil, nil
 
 end
 
@@ -1239,7 +1244,7 @@ function aObj:rmRegionsTex(obj, regions)
 	assert(obj, "Missing object rRT\n" .. debugstack())
 --@end-alpha@]===]
 
-	regions = revTable(regions)
+	local regions = revTable(regions)
 
 	local regs = {obj:GetRegions()}
 	for k, reg in ipairs(regs) do
@@ -1257,7 +1262,7 @@ function aObj:rmRegionsTex(obj, regions)
 			end
 		end
 	end
-	regs = null
+	regions, regs = nil, nil
 
 end
 
@@ -1272,16 +1277,18 @@ function aObj:setActiveTab(tabSF)
 	tabSF.tfade:SetTexture(self.gradientTex)
 	tabSF.tfade:SetGradientAlpha(self:getGradientInfo(self.db.profile.Gradient.invert, self.db.profile.Gradient.rotate))
 
+	local point, relativeTo, relativePoint, xOfs, yOfs
 	if not tabSF.ignore and not tabSF.grown then
 		if not tabSF.up then
-			local point, relativeTo, relativePoint, xOfs, yOfs = tabSF:GetPoint(2)
+			point, relativeTo, relativePoint, xOfs, yOfs = tabSF:GetPoint(2)
 			tabSF:SetPoint("BOTTOMRIGHT", relativeTo, "BOTTOMRIGHT", xOfs, yOfs - 6)
 		else
-			local point, relativeTo, relativePoint, xOfs, yOfs = tabSF:GetPoint(1)
+			point, relativeTo, relativePoint, xOfs, yOfs = tabSF:GetPoint(1)
 			tabSF:SetPoint("TOPLEFT", relativeTo, "TOPLEFT", xOfs, yOfs + 6)
 		end
 		tabSF.grown = true
 	end
+	point, relativeTo, relativePoint, xOfs, yOfs = nil, nil, nil, nil, nil
 
 end
 
@@ -1295,16 +1302,18 @@ function aObj:setInactiveTab(tabSF)
 
 	tabSF.tfade:SetTexture(self.itTex)
 	tabSF.tfade:SetAlpha(1)
+	local point, relativeTo, relativePoint, xOfs, yOfs
 	if not tabSF.ignore and tabSF.grown then
 		if not tabSF.up then
-			local point, relativeTo, relativePoint, xOfs, yOfs = tabSF:GetPoint(2)
+			point, relativeTo, relativePoint, xOfs, yOfs = tabSF:GetPoint(2)
 			tabSF:SetPoint("BOTTOMRIGHT", relativeTo, "BOTTOMRIGHT", xOfs, yOfs + 6)
 		else
-			local point, relativeTo, relativePoint, xOfs, yOfs = tabSF:GetPoint(1)
+			point, relativeTo, relativePoint, xOfs, yOfs = tabSF:GetPoint(1)
 			tabSF:SetPoint("TOPLEFT", relativeTo, "TOPLEFT", xOfs, yOfs - 6)
 		end
 		tabSF.grown = nil
 	end
+	point, relativeTo, relativePoint, xOfs, yOfs = nil, nil, nil, nil, nil
 
 end
 
@@ -1335,6 +1344,7 @@ function aObj:shrinkBag(obj, bpMF)
 			if self:getInt(yOfs) == -216 or self:getInt(yOfs) == -217 then -- is it still in its original position
 				self:moveObject{obj=_G[objName .. "MoneyFrame"], y=22}
 			end
+			yOfs = nil
 		end
 		self:moveObject{obj=_G[objName .. "Item1"], y=19}
 	end
@@ -1363,6 +1373,8 @@ function aObj:shrinkBag(obj, bpMF)
 	end
 
 	if fh and obj.tfade then obj.tfade:SetPoint("BOTTOMRIGHT", obj, "TOPRIGHT", -4, -fh) end
+
+	objName, bgtHgt, objHeight, fh = nil, nil, nil, nil
 
 end
 
@@ -1405,7 +1417,6 @@ local function __skinDropDown(opts)
 	else
 		opts.obj.sknd = true
 	end
-	aObj:add2Table(aObj.skinned, opts.obj) -- TODO: deprecate when all skins changed
 
 	-- hide textures
 	aObj:removeRegions(opts.obj, {1, 2, 3})
@@ -1441,6 +1452,8 @@ local function __skinDropDown(opts)
 	-- stop dropdowns being skinned when IOF panel opened
 	if opts.ign then aObj.ignoreIOF[opts.obj] = true end
 
+	xOfs1, yOfs1, xOfs2, yOfs2 = nil, nil, nil, nil
+
 end
 
 function aObj:skinDropDown(...)
@@ -1462,7 +1475,9 @@ function aObj:skinDropDown(...)
 		opts.noSkin = select(3, ...) and select(3, ...) or nil
 		opts.noMove = select(4, ...) and select(4, ...) or nil
 	end
+
 	__skinDropDown(opts)
+	opts = nil
 
 end
 
@@ -1492,7 +1507,6 @@ local function __skinEditBox(opts)
 	else
 		opts.obj.sknd = true
 	end
-	aObj:add2Table(aObj.skinned, opts.obj) -- TODO: deprecate when all skins changed
 
 	opts.x = opts.x or 0
 	opts.y = opts.y or 0
@@ -1504,11 +1518,13 @@ local function __skinEditBox(opts)
 		end
 	end
 	aObj:keepRegions(opts.obj, kRegions)
+	kRegions = nil
 
 	if not opts.noInsert then
 		-- adjust the left & right text inserts
 		local l, r, t, b = opts.obj:GetTextInsets()
 		opts.obj:SetTextInsets(l + 5, r + 5, t, b)
+		l, r, t, b = nil, nil, nil, nil
 	end
 
 	-- change height, if required
@@ -1544,6 +1560,7 @@ local function __skinEditBox(opts)
 			end
 		end
 	end
+	xOfs = nil
 
 	-- stop editbox being skinned when IOF panel opened
 	if opts.ign then aObj.ignoreIOF[opts.obj] = true end
@@ -1571,18 +1588,19 @@ function aObj:skinEditBox(...)
 		opts.noWidth = select(5, ...) and select(5, ...) or nil
 		opts.move = select(6, ...) and select(6, ...) or nil
 	end
+
 	__skinEditBox(opts)
+	opts = nil
 
 end
 
 function aObj:skinFFToggleTabs(tabName, tabCnt, noHeight)
 
+	local togTab
 	for i = 1, tabCnt or 3 do
-		local togTab = _G[tabName .. i]
+		togTab = _G[tabName .. i]
 		if not togTab then break end -- handle missing Tabs (e.g. Muted)
 		if not togTab.sknd then -- don't skin it twice
-			aObj:add2Table(aObj.skinned, togTab) -- TODO: deprecate when all skins changed
-			togTab.sknd = true
 			self:keepRegions(togTab, {7, 8}) -- N.B. regions 7 & 8 are text & highlight
 			if not noHeight then self:adjHeight{obj=togTab, adj=-5}	end
 			self:addSkinFrame{obj=togTab, y1=-2, x2=2, y2=-2}
@@ -1594,8 +1612,9 @@ end
 function aObj:skinFFColHeads(buttonName, noCols)
 
 	noCols = noCols or 4
+	local btn
 	for i = 1, noCols do
-		local btn = _G[buttonName .. i]
+		btn = _G[buttonName .. i]
 		if not btn.sb then -- only do if not already skinned
 			self:removeRegions(btn, {1, 2, 3})
 			self:addSkinFrame{obj=btn}
@@ -1624,12 +1643,10 @@ local function __skinMoneyFrame(opts)
 	else
 		opts.obj.sknd = true
 	end
-	aObj:add2Table(aObj.skinned, opts.obj) -- TODO: deprecate when all skins changed
 
-	local cbMode = _G.GetCVarBool("colorblindMode")
-
+	local obj
 	for k, v in pairs{"Gold", "Silver", "Copper"} do
-		local obj = _G[opts.obj:GetName()..v]
+		obj = _G[opts.obj:GetName()..v]
 		aObj:skinEditBox{obj=obj, regs={9, 10}, noHeight=true, noWidth=true, ign=true} -- N.B. region 9 is the icon, 10 is text
 		-- move label to the right for colourblind mode
 		if k ~= 1 or opts.moveGIcon then
@@ -1670,7 +1687,9 @@ function aObj:skinMoneyFrame(...)
 		opts.moveSEB = select(4, ...) and select(4, ...) or nil
 		opts.moveGEB = select(5, ...) and select(5, ...) or nil
 	end
+
 	__skinMoneyFrame(opts)
+	opts = nil
 
 end
 
@@ -1693,7 +1712,6 @@ local function __skinScrollBar(opts)
 	else
 		opts.obj.sknd = true
 	end
-	aObj:add2Table(aObj.skinned, opts.obj) -- TODO: deprecate when all skins changed
 
 	-- remove all the object's regions except text ones, if required
 	if not opts.noRR then aObj:keepFontStrings(opts.obj) end
@@ -1725,7 +1743,9 @@ function aObj:skinScrollBar(...)
 		opts.sbObj = select(3, ...) and select(3, ...) or nil
 		opts.size = select(4, ...) and select(4, ...) or 2
 	end
+
 	__skinScrollBar(opts)
+	opts = nil
 
 end
 
@@ -1746,7 +1766,6 @@ local function __skinSlider(opts)
 	else
 		opts.obj.sknd = true
 	end
-	aObj:add2Table(aObj.skinned, opts.obj) -- TODO: deprecate when all skins changed
 
 	aObj:keepFontStrings(opts.obj)
 	opts.obj:SetAlpha(1)
@@ -1776,7 +1795,9 @@ function aObj:skinSlider(...)
 		opts.obj = select(1, ...) and select(1, ...) or nil
 		opts.size = select(2, ...) and select(2, ...) or 2
 	end
+
 	__skinSlider(opts)
+	opts = nil
 
 end
 
@@ -1793,6 +1814,7 @@ local function __skinTabs(opts)
 		y1 = Y offset for TOPLEFT
 		x2 = X offset for BOTTOMRIGHT
 		y2 = Y offset for BOTTOMRIGHT
+		ignht = don't change Highlight texture (AchievementUI)
 --]]
 --[===[@alpha@
 	assert(opts.obj and opts.obj:IsObjectType("Frame"), "Not a Frame\n" .. debugstack())
@@ -1804,7 +1826,6 @@ local function __skinTabs(opts)
 	else
 		opts.obj.sknd = true
 	end
-	aObj:add2Table(aObj.skinned, opts.obj) -- TODO: deprecate when all skins changed
 
 	local tabName = opts.obj:GetName() .. "Tab" .. (opts.suffix or "")
 
@@ -1820,9 +1841,9 @@ local function __skinTabs(opts)
 	local xOfs2 = opts.x2 or -6
 	local yOfs2 = opts.y2 or 2
 
-	local tabID = opts.obj.selectedTab or 1
+	local tabID, tab = opts.obj.selectedTab or 1
 	for i = 1, opts.obj.numTabs do
-		local tab = _G[tabName .. i]
+		tab = _G[tabName .. i]
 		aObj:keepRegions(tab, kRegions)
 		aObj:addSkinFrame{obj=tab, ft=opts.ftype, noBdr=aObj.isTT, x1=xOfs1, y1=yOfs1, x2=xOfs2, y2=yOfs2}
 		tab.sf.ignore = opts.ignore -- ignore size changes
@@ -1834,8 +1855,26 @@ local function __skinTabs(opts)
 				if aObj.isTT then aObj:setInactiveTab(tab.sf) end
 			end
 		end
+		if not opts.ignht then
+			-- change highlight texture
+			local ht = tab:GetHighlightTexture()
+			if ht then -- handle other AddOns using tabs without a highlight texture
+				ht:SetTexture([[Interface\PaperDollInfoFrame\UI-Character-Tab-Highlight]])
+				ht:ClearAllPoints()
+				if opts.up then -- (GuildInfoFrame, LookingForGuild, MacroFrame, FriendsTabHeader)
+					ht:SetPoint("TOPLEFT", 1, -5)
+					ht:SetPoint("BOTTOMRIGHT", -1, -5)
+				else
+					ht:SetPoint("TOPLEFT", 8, 2)
+					ht:SetPoint("BOTTOMRIGHT", -8, 0)
+				end
+			end
+			ht = nil
+		end
 	end
 	aObj.tabFrames[opts.obj] = true
+
+	tabName, kRegions, xOfs1, yOfs1, xOfs2, yOfs2, tabID = nil, nil, nil, nil, nil, nil, nil
 
 end
 
@@ -1855,7 +1894,9 @@ function aObj:skinTabs(...)
 		opts = {}
 		opts.obj = select(1, ...) and select(1, ...) or nil
 	end
+
 	__skinTabs(opts)
+	opts = nil
 
 end
 
@@ -1871,8 +1912,8 @@ function aObj:skinTooltip(obj)
 	if not prdb.Gradient.ui then return end
 
 	-- add background texture if required
-	if self.db.profile.Tooltips.style == 3 then
-		if self.db.profile.BgUseTex then
+	if prdb.Tooltips.style == 3 then
+		if prdb.BgUseTex then
 			if not obj.tbg then self:applyTexture(obj) end
 		elseif obj.tbg then
 			obj.tbg = nil -- remove background texture if it exists
@@ -1896,6 +1937,7 @@ function aObj:skinTooltip(obj)
 		local fh = prdb.FadeHeight.value <= objHeight and prdb.FadeHeight.value or objHeight
 		obj.tfade:SetPoint("BOTTOMRIGHT", obj, "TOPRIGHT", -4, -(fh - 4))
 		obj:SetBackdropColor(unpack(self.bColour))
+		fh = nil
 	end
 
 	obj.tfade:SetBlendMode("ADD")
@@ -1903,9 +1945,10 @@ function aObj:skinTooltip(obj)
 
 	-- Check to see if we need to colour the Border
 	if not self.ttBorder then
+		local r, g, b, a
 		for _, tip in pairs(self.ttCheck) do
 			if tip == obj:GetName() then
-				local r, g, b, a = obj:GetBackdropBorderColor()
+				r, g, b, a = obj:GetBackdropBorderColor()
 				if self:getInt(r) ~= 1
 				or self:getInt(g) ~= 1
 				or self:getInt(b) ~= 1
@@ -1915,9 +1958,12 @@ function aObj:skinTooltip(obj)
 				end
 			end
 		end
+		r, g, b, a = nil, nil, nil, nil
 	end
 
 	obj:SetBackdropBorderColor(self:setTTBBC())
+
+	objHeight = nil
 
 end
 
@@ -1956,7 +2002,9 @@ function aObj:skinUsingBD(...)
 		opts.obj = select(1, ...) and select(1, ...) or nil
 		opts.size = select(2, ...) and select(2, ...) or 3
 	end
+
 	__skinUsingBD(opts)
+	opts = nil
 
 end
 

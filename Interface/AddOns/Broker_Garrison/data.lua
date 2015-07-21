@@ -22,6 +22,9 @@ Garrison.colors = {
 	--lightGray = {r=(82/255), g=(91/255), b=(97/255), a=1},
 }
 
+Garrison.bonusRollItemQuestId = { 36055, 37452, 37453, 36056, 37456, 37457, 36054, 37454, 37455, 36057, 37458, 37459, 36058 }
+Garrison.bonusRollMaxNumQuests = 3
+
 local resets = {
 	[1] = 3, -- US, Tuesday
 	[2] = 5, -- Korea, Thursday
@@ -36,6 +39,16 @@ Garrison.WeeklyResetDay = resets[Garrison.REGION]
 Garrison.GARRISON_CURRENCY = 824
 Garrison.GARRISON_CURRENCY_APEXIS = 823
 Garrison.GARRISON_CURRENTY_SEAL_OF_TEMPERED_FATE = 994
+Garrison.GARRISON_CURRENTY_SEAL_OF_INEVITABLE_FATE = 1129
+Garrison.GARRISON_CURRENTY_OIL = 1101
+
+Garrison.cacheSizeQuestId = {
+	[37935] = 750, -- improved logistics horde
+	[38445] = 750, -- improved logistics alliance
+	[37485] = 1000,
+}
+
+Garrison.LOOT_SOURCE_GARRISON_CACHE = 10
 
 Garrison.GARRISON_TRACK_LOOT_ITEM = {
 	{
@@ -110,48 +123,6 @@ Garrison.DURATION_PATTERN = {
 	}
 }
 
-Garrison.buildingInfo = {
-	["Mine"] = {
-		trackLootItemId = 115508,
-		minLooted = 5,
-		["level"] = {
-			[61] = 1,
-			[62] = 2,
-			[63] = 3,
-		},
-	},
-	["Herb Garden"] = {
-		trackLootItemId = 116053,
-		minLooted = 5,
-		["level"] = {
-			[29] = 1,
-			[136] = 2,
-			[137] = 3,
-		},
-	},
-	["War Mill"] = {
-		--trackQuestId = 36058,
-		trackCustom = function() return _G.IsQuestFlaggedCompleted(36058) end,
-		trackCustomId = "WARMILL",
-		minLevel = 3,
-		weekly = true,
-		["level"] = {
-			[8] = 1,
-			[9] = 2,
-			[10] = 3,
-		},
-	},
-	["Inn"] = {
-		trackCustomId = "INN",
-		minLevel = 2,
-		["level"] = {
-			[34] = 1,
-			[35] = 2,
-			[36] = 3,
-		},
-	},
-}
-
 Garrison.instanceId = {
 	[1153] = {
 		-- chest location, 0.01 distance
@@ -191,6 +162,8 @@ Garrison.missionModifier = {
 	[222] = 0.75,
 	[95] = 0.75,
 	[96] = 0.5,
+	[288] = 0.5,
+	[289] = 0.5,
 }
 	
 
@@ -206,67 +179,111 @@ Garrison.COLOR_TABLE = _G.CUSTOM_CLASS_COLORS or _G.RAID_CLASS_COLORS
 local mediaPath = "Interface\\AddOns\\Broker_Garrison\\Media\\"
 
 Garrison.ICON_REPLACEMENT = {
-	["Interface\\ICONS\\Garrison_Building_Armory.blp"] = mediaPath.."garrison_building_armory",
-	["Interface\\ICONS\\Garrison_Building_Stables.blp"] = mediaPath.."garrison_building_stables",
-	["Interface\\ICONS\\Garrison_Building_SparringArena.blp"] = mediaPath.."garrison_building_sparringarena",
-	["Interface\\ICONS\\Garrison_Building_SalvageYard.blp"] = mediaPath.."garrison_building_salvageyard",
-	["Interface\\ICONS\\Garrison_Building_Menagerie.blp"] = mediaPath.."garrison_building_menagerie",
-	["Interface\\ICONS\\Garrison_Building_MageTower.blp"] = mediaPath.."garrison_building_magetower",
-	["Interface\\ICONS\\Garrison_Building_Lumbermill.blp"] = mediaPath.."garrison_building_lumbermill",
-	["Interface\\ICONS\\Garrison_Building_Barracks.blp"] = mediaPath.."garrison_building_barracks",
-	["Interface\\ICONS\\Garrison_Building_Barn.blp"] = mediaPath.."garrison_building_barn",
-	["Interface\\ICONS\\Garrison_Building_Workshop.blp"] = mediaPath.."garrison_building_workshop",
-	["Interface\\ICONS\\Garrison_Building_TradingPost.blp"] = mediaPath.."garrison_building_tradingpost",
-	["Interface\\ICONS\\Garrison_Building_Storehouse.blp"] = mediaPath.."garrison_building_storehouse",
-	["Interface\\ICONS\\Trade_Tailoring.blp"] = mediaPath.."trade_tailoring",
-	["Interface\\ICONS\\Trade_Mining.blp"] = mediaPath.."trade_mining",
-	["Interface\\ICONS\\Trade_Fishing.blp"] = mediaPath.."trade_fishing",
-	["Interface\\ICONS\\Trade_Engraving.blp"] = mediaPath.."trade_engraving",
-	["Interface\\ICONS\\Trade_Engineering.blp"] = mediaPath.."trade_engineering",
-	["Interface\\ICONS\\Trade_Blacksmithing.blp"] = mediaPath.."trade_blacksmithing",
-	["Interface\\ICONS\\Trade_Alchemy.blp"] = mediaPath.."trade_alchemy",
+	[strlower("Interface\\ICONS\\Garrison_Building_Armory")] = mediaPath.."garrison_building_armory",
+	[strlower("Interface\\ICONS\\Garrison_Building_Stables")] = mediaPath.."garrison_building_stables",
+	[strlower("Interface\\ICONS\\Garrison_Building_SparringArena")] = mediaPath.."garrison_building_sparringarena",
+	[strlower("Interface\\ICONS\\Garrison_Building_SalvageYard")] = mediaPath.."garrison_building_salvageyard",
+	[strlower("Interface\\ICONS\\Garrison_Building_Menagerie")] = mediaPath.."garrison_building_menagerie",
+	[strlower("Interface\\ICONS\\Garrison_Building_MageTower")] = mediaPath.."garrison_building_magetower",
+	[strlower("Interface\\ICONS\\Garrison_Building_Lumbermill")] = mediaPath.."garrison_building_lumbermill",
+	[strlower("Interface\\ICONS\\Garrison_Building_Barracks")] = mediaPath.."garrison_building_barracks",
+	[strlower("Interface\\ICONS\\Garrison_Building_Barn")] = mediaPath.."garrison_building_barn",
+	[strlower("Interface\\ICONS\\Garrison_Building_Workshop")] = mediaPath.."garrison_building_workshop",
+	[strlower("Interface\\ICONS\\Garrison_Building_TradingPost")] = mediaPath.."garrison_building_tradingpost",
+	[strlower("Interface\\ICONS\\Garrison_Building_Storehouse")] = mediaPath.."garrison_building_storehouse",
+	[strlower("Interface\\ICONS\\INV_Garrison_Cargoship")] = mediaPath.."garrison_building_cargoship",
+	[strlower("Interface\\ICONS\\Trade_Tailoring")] = mediaPath.."trade_tailoring",
+	[strlower("Interface\\ICONS\\Trade_Mining")] = mediaPath.."trade_mining",
+	[strlower("Interface\\ICONS\\Trade_Fishing")] = mediaPath.."trade_fishing",
+	[strlower("Interface\\ICONS\\Trade_Engraving")] = mediaPath.."trade_engraving",
+	[strlower("Interface\\ICONS\\Trade_Engineering")] = mediaPath.."trade_engineering",
+	[strlower("Interface\\ICONS\\Trade_Blacksmithing")] = mediaPath.."trade_blacksmithing",
+	[strlower("Interface\\ICONS\\Trade_Alchemy")] = mediaPath.."trade_alchemy",
 	
-	["Interface\\ICONS\\INV_Misc_Rune_01.blp"] = mediaPath.."inv_misc_rune_01",
-	["Interface\\ICONS\\INV_Misc_Herb_SansamRoot.blp"] = mediaPath.."inv_misc_herb_sansamroot",
-	["Interface\\ICONS\\INV_Misc_Gem_01.blp"] = mediaPath.."inv_misc_gem_01",
-	["Interface\\ICONS\\INV_Misc_Armorkit_17.blp"] = mediaPath.."inv_misc_armorkit_17",
-	["Interface\\ICONS\\INV_Inscription_Tradeskill01.blp"] = mediaPath.."inv_inscription_tradeskill01",
+	[strlower("Interface\\ICONS\\INV_Misc_Rune_01")] = mediaPath.."inv_misc_rune_01",
+	[strlower("Interface\\ICONS\\INV_Misc_Herb_SansamRoot")] = mediaPath.."inv_misc_herb_sansamroot",
+	[strlower("Interface\\ICONS\\INV_Misc_Gem_01")] = mediaPath.."inv_misc_gem_01",
+	[strlower("Interface\\ICONS\\INV_Misc_Armorkit_17")] = mediaPath.."inv_misc_armorkit_17",
+	[strlower("Interface\\ICONS\\INV_Inscription_Tradeskill01")] = mediaPath.."inv_inscription_tradeskill01",
+
+	-- Missions
+	[strlower("Interface\\ICONS\\Garrison_ArmorUpgrade")] = mediaPath.."mission\\Garrison_ArmorUpgrade",
+	[strlower("Interface\\ICONS\\Garrison_WeaponUpgrade")] = mediaPath.."mission\\Garrison_WeaponUpgrade",
+	[strlower("Interface\\ICONS\\INV_Misc_Archstone_01")] = mediaPath.."mission\\INV_Misc_Archstone_01",
+	[strlower("Interface\\ICONS\\INV_Misc_Coin_01")] = mediaPath.."mission\\INV_Misc_Coin_01",
+	[strlower("Interface\\ICONS\\INV_MISC_Lockboxghostiron")] = mediaPath.."mission\\INV_MISC_Lockboxghostiron",
+	[strlower("Interface\\ICONS\\XPBonus_Icon")] = mediaPath.."mission\\XPBonus_Icon",
+
+	[strlower("Interface\\ICONS\\inv_misc_ornatebox")] = mediaPath.."mission\\inv_misc_ornatebox",
+	[strlower("Interface\\ICONS\\inv_jewelry_necklace_70")] = mediaPath.."mission\\inv_jewelry_necklace_70",
+	[strlower("Interface\\ICONS\\inv_jewelry_ring_146")] = mediaPath.."mission\\inv_jewelry_ring_146",
+	[strlower("Interface\\ICONS\\inv_belt_cloth_reputation_c_01")] = mediaPath.."mission\\inv_belt_cloth_reputation_c_01",
+	[strlower("Interface\\ICONS\\inv_shoulder_cloth_reputation_c_01")] = mediaPath.."mission\\inv_shoulder_cloth_reputation_c_01",
+	[strlower("Interface\\ICONS\\inv_pants_cloth_reputation_c_01")] = mediaPath.."mission\\inv_pants_cloth_reputation_c_01",
+	[strlower("Interface\\ICONS\\inv_gauntlets_cloth_reputation_c_01")] = mediaPath.."mission\\inv_gauntlets_cloth_reputation_c_01",
+	[strlower("Interface\\ICONS\\inv_boots_cloth_reputation_c_01")] = mediaPath.."mission\\inv_boots_cloth_reputation_c_01",
+	[strlower("Interface\\ICONS\\inv_chest_cloth_reputation_c_01")] = mediaPath.."mission\\inv_chest_cloth_reputation_c_01",
+	[strlower("Interface\\ICONS\\inv_bracer_cloth_reputation_c_01")] = mediaPath.."mission\\inv_bracer_cloth_reputation_c_01",
+	[strlower("Interface\\ICONS\\inv_misc_pvp_trinket")] = mediaPath.."mission\\inv_misc_pvp_trinket",
+	[strlower("Interface\\ICONS\\inv_sword_46")] = mediaPath.."mission\\inv_sword_46",
+	[strlower("Interface\\ICONS\\xp_icon")] = mediaPath.."mission\\xp_icon",
+
+	[strlower("Interface\\ICONS\\INV_Garrison_Resource")] = mediaPath.."bg_garrison_toolbar_resource",
+	[strlower("Interface\\ICONS\\INV_Apexis_Draenor")] = mediaPath.."bg_garrison_toolbar_apexis",
+	[strlower("Interface\\ICONS\\INV_Garrison_Oil")] = mediaPath.."bg_garrison_toolbar_oil",
+	[strlower("Interface\\ICONS\\Ability_AnimusOrbs")] = mediaPath.."bg_garrison_toolbar_seal_tempered",
+
+	[strlower("Interface\\ICONS\\Achievement_Battleground_TempleOfKotmogu_02_Green")] = mediaPath.."bg_garrison_toolbar_seal_inevitable", -- TODO
 }
 
-Garrison.ICON_PATH_CURRENCY = mediaPath.."Inv_Garrison_Resource"
-Garrison.ICON_PATH_CURRENCY_APEXIS = mediaPath.."Inv_Apexis_Draenor"
+Garrison.ICON_PATH_CURRENCY = mediaPath.."bg_garrison_toolbar_resource"
+Garrison.ICON_PATH_CURRENCY_APEXIS = mediaPath.."bg_garrison_toolbar_apexis"
+Garrison.ICON_PATH_CURRENCY_TEMPERED_FATE = mediaPath.."bg_garrison_toolbar_seal_tempered" 
+Garrison.ICON_PATH_CURRENCY_INEVITABLE_FATE = mediaPath.."bg_garrison_toolbar_seal_inevitable"
+Garrison.ICON_PATH_CURRENCY_OIL = mediaPath.."bg_garrison_toolbar_oil"
 
+Garrison.ICON_PATH_ABOUT1 = mediaPath.."bg_garrison_about_h1"
 
-Garrison.ICON_PATH_CURRENCY_TOOLTIP = mediaPath.."bg_garrison_resource_tooltip"
-Garrison.ICON_PATH_CURRENCY_APEXIS_TOOLTIP = mediaPath.."bg_apexis_draenor_tooltip"
-Garrison.ICON_PATH_CURRENCY_TEMPERED_FATE_TOOLTIP = mediaPath.."bg_garrison_sealoftemperedfate_tooltip"
+Garrison.ICON_PATH_CURRENCY_TOOLTIP = mediaPath.."bg_garrison_tooltip_resource"
+Garrison.ICON_PATH_CURRENCY_APEXIS_TOOLTIP = mediaPath.."bg_garrison_tooltip_apexis"
+Garrison.ICON_PATH_CURRENCY_TEMPERED_FATE_TOOLTIP = mediaPath.."bg_garrison_tooltip_seal_tempered"
+Garrison.ICON_PATH_CURRENCY_INEVITABLE_FATE_TOOLTIP = mediaPath.."bg_garrison_tooltip_seal_inevitable" 
+Garrison.ICON_PATH_CURRENCY_OIL_TOOLTIP = mediaPath.."bg_garrison_tooltip_oil"
 
-Garrison.ICON_PATH_MISSION = mediaPath.."bg_missions"
-Garrison.ICON_PATH_BUILDING = mediaPath.."bg_buildings"
+Garrison.ICON_PATH_MISSION = mediaPath.."bg_garrison_toolbar_missions"
+Garrison.ICON_PATH_BUILDING = mediaPath.."bg_garrison_toolbar_buildings"
 
-Garrison.ICON_PATH_FOLLOWER_NO_PORTRAIT = mediaPath.."follower_no_portrait"
+Garrison.ICON_PATH_FOLLOWER_NO_PORTRAIT = mediaPath.."bg_garrison_tooltip_follower"
 
-Garrison.ICON_PATH_OPEN = mediaPath.."arrow_open"
-Garrison.ICON_PATH_CLOSE = mediaPath.."arrow_close"
+Garrison.ICON_PATH_OPEN = mediaPath.."bg_garrison_tooltip_arrow_open"
+Garrison.ICON_PATH_CLOSE = mediaPath.."bg_garrison_tooltip_arrow_close"
 
-Garrison.ICON_PATH_ARROW_UP = mediaPath.."arrow_up"
-Garrison.ICON_PATH_ARROW_UP_WAITING = mediaPath.."arrow_up_waiting"
+Garrison.ICON_PATH_ARROW_UP = mediaPath.."bg_garrison_tooltip_buildings_active"
+Garrison.ICON_PATH_ARROW_UP_WAITING = mediaPath.."bg_garrison_tooltip_buildings_waiting"
 
-Garrison.ICON_PATH_CHECK = mediaPath.."check"
-Garrison.ICON_PATH_CHECK_WAITING = mediaPath.."check_waiting"
-Garrison.ICON_PATH_WARNING = mediaPath.."warning"
-
-Garrison.ICON_PATH_INVASION = mediaPath.."invasion"
+Garrison.ICON_PATH_CHECK = mediaPath.."bg_garrison_tooltip_check_active"
+Garrison.ICON_PATH_CHECK_WAITING = mediaPath.."bg_garrison_tooltip_check_waiting"
+Garrison.ICON_PATH_WARNING = mediaPath.."bg_garrison_toolbar_warning"
+Garrison.ICON_PATH_INVASION = mediaPath.."bg_garrison_toolbar_invasion"
+Garrison.ICON_PATH_DAILY_AVAILABLE = mediaPath.."bg_garrison_toolbar_daily"
 
 Garrison.COMPLETED_PATTERN = "^[^%d]*(0)[^%d]*$"
 --Garrison.ICON_CURRENCY = string.format("\124T%s\\%s:%d:%d:1:0\124t", mediaPath, name, 16, 16)
 
 Garrison.ICON_CURRENCY = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY, 16, false)
-Garrison.ICON_CURRENCY_APEXIS = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_APEXIS, 16, false)
 Garrison.ICON_CURRENCY_TOOLTIP = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_TOOLTIP, 16, false)
+
+Garrison.ICON_CURRENCY_APEXIS = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_APEXIS, 16, false)
 Garrison.ICON_CURRENCY_APEXIS_TOOLTIP = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_APEXIS_TOOLTIP, 16, false)
+
+Garrison.ICON_CURRENCY_TEMPERED_FATE = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_TEMPERED_FATE, 16, false)
 Garrison.ICON_CURRENCY_TEMPERED_FATE_TOOLTIP = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_TEMPERED_FATE_TOOLTIP, 16, false)
 
+Garrison.ICON_CURRENCY_INEVITABLE_FATE = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_INEVITABLE_FATE, 16, false)
+Garrison.ICON_CURRENCY_INEVITABLE_FATE_TOOLTIP = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_INEVITABLE_FATE_TOOLTIP, 16, false)
+
+Garrison.ICON_CURRENCY_OIL = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_OIL, 16, false)
+Garrison.ICON_CURRENCY_OIL_TOOLTIP = Garrison.getIconString(Garrison.ICON_PATH_CURRENCY_OIL_TOOLTIP, 16, false)
 
 Garrison.ICON_MISSION = Garrison.getIconString(Garrison.ICON_PATH_MISSION, 16, false)
 Garrison.ICON_BUILDING = Garrison.getIconString(Garrison.ICON_PATH_BUILDING, 16, false)
@@ -278,10 +295,7 @@ Garrison.ICON_CHECK = Garrison.getIconString(Garrison.ICON_PATH_CHECK, 16, false
 Garrison.ICON_CHECK_WAITING = Garrison.getIconString(Garrison.ICON_PATH_CHECK_WAITING, 16, false)
 Garrison.ICON_WARNING = Garrison.getIconString(Garrison.ICON_PATH_WARNING, 16, false)
 Garrison.ICON_INVASION = Garrison.getIconString(Garrison.ICON_PATH_INVASION, 16, false)
-
-
---Garrison.ICON_CURRENCY_APEXIS = string.format("\124TInterface\\Icons\\Inv_Apexis_Draenor:%d:%d:1:0\124t", 16, 16)
-
+Garrison.ICON_DAILY_AVAILABLE = Garrison.getIconString(Garrison.ICON_PATH_DAILY_AVAILABLE, 16, false)
 
 Garrison.ICON_OPEN = Garrison.getIconString(Garrison.ICON_PATH_OPEN, 16, false)
 Garrison.ICON_CLOSE = Garrison.getIconString(Garrison.ICON_PATH_CLOSE, 16, false)
@@ -301,6 +315,83 @@ Garrison.NotificationTitle = {
 	[Garrison.TYPE_BUILDING] = L["Building"],
 	[Garrison.TYPE_MISSION] = L["Mission"],
 	[Garrison.TYPE_SHIPMENT] = L["Shipment"],	
+}
+
+Garrison.buildingInfo = {
+	["Mine"] = {
+		indicator = {
+			{
+				trackLootItemId = 115508,
+				minLooted = 5,
+			},
+		},
+		["level"] = {
+			[61] = 1,
+			[62] = 2,
+			[63] = 3,
+		},
+	},
+	["Herb Garden"] = {
+		indicator = {
+			[0] = {			
+				trackLootItemId = 116053,
+				minLooted = 5,
+			},
+		},
+		["level"] = {
+			[29] = 1,
+			[136] = 2,
+			[137] = 3,
+		},
+	},
+	["War Mill"] = {
+		indicator = {			
+			{	--trackQuestId = 36058,
+				trackCustom = function() return _G.IsQuestFlaggedCompleted(36058) end,
+				trackCustomId = "WARMILL_SOTF",
+				minLevel = 3,
+				weekly = true,
+			},
+			{
+				trackCustom = function() 
+					if Garrison.isHorde() then
+						return _G.IsQuestFlaggedCompleted(38188) 
+					end
+					if Garrison.isAlliance() then
+						return _G.IsQuestFlaggedCompleted(38175) 
+					end
+				end,
+				trackCustomId = "WARMILL_IRONSCRAPS",
+				minLevel = 3,
+				daily = true,
+				customIcon = true,
+				showCollapsed = true,
+				icon = {
+					T = "",
+					F = Garrison.ICON_DAILY_AVAILABLE,
+				}
+			},
+		},
+		["level"] = {
+			[8] = 1,
+			[9] = 2,
+			[10] = 3,
+		},
+	},
+	["Inn"] = {
+		indicator = {
+			{
+				trackCustomId = "INN_FOLLOWER",
+				minLevel = 2,
+				weekly = true,
+			},
+		},
+		["level"] = {
+			[34] = 1,
+			[35] = 2,
+			[36] = 3,
+		},
+	},
 }
 
 
@@ -381,6 +472,11 @@ Garrison.tooltipConfig = {
 	["m.name"] = {
 		value = "name",
 		name = L["Mission Name"],
+		type = Garrison.TYPE_MISSION,
+	},
+	["m.followerType"] = {
+		value = "followerTypeID",
+		name = L["Follower Type (Garrison, Shipyard)"],
 		type = Garrison.TYPE_MISSION,
 	},
 }
@@ -636,13 +732,29 @@ Garrison.ldbVars = {
 		name = L["Apexis Crystals"],
 		data = function(data) return Garrison.getTableValue(data, "currencyApexisAmount") or 0 end,
 	},
+	["oil"] = {
+		name = L["Oil"],
+		data = function(data) return Garrison.getTableValue(data, "currencyOil") or 0 end,
+	},	
+	["oilicon"] = {
+		name = L["Icon: Oil"],
+		data = function(data) return Garrison.ICON_CURRENCY_OIL end,
+	},	
 	["sotf"] = {
 		name = L["Seal of Tempered Fate"],
 		data = function(data) return Garrison.getTableValue(data, "currencySealOfTemperedFateAmount") or 0 end,
 	},	
 	["sotficon"] = {
 		name = L["Icon: Seal of Tempered Fate"],
-		data = function(data) return Garrison.ICON_CURRENCY_TEMPERED_FATE_TOOLTIP end,
+		data = function(data) return Garrison.ICON_CURRENCY_TEMPERED_FATE end,
+	},
+	["soif"] = {
+		name = L["Seal of Inevitable Fate"],
+		data = function(data) return Garrison.getTableValue(data, "currencySealOfInevitableFateAmount") or 0 end,
+	},	
+	["soificon"] = {
+		name = L["Icon: Seal of Inevitable Fate"],
+		data = function(data) return Garrison.ICON_CURRENCY_INEVITABLE_FATE end,
 	},	
 	["tapexis"] = {
 		name = L["Apexis Crystals (Total)"],
@@ -654,7 +766,11 @@ Garrison.ldbVars = {
 	},
 	["cachewarning"] = {
 		name = L["Resource Cache Warning Icon"],
-		data = function(data) return (Garrison.getTableValue(data, "resourceCacheAmountMax") or 0) > 400 and Garrison.ICON_WARNING or "" end,
+		data = function(data) return (Garrison.getTableValue(data, "resourceCacheAmountMaxFilling") or 0) > 0.8 and Garrison.ICON_WARNING or "" end,
+	},
+	["cachesize"] = {
+		name = L["Resource Cache Size"],
+		data = function(data) return (Garrison.getTableValue(data, "cacheSize") or 500) end,
 	},
 	["crescache"] = {
 		name = L["Current Player Resource Cache"],
@@ -679,4 +795,3 @@ Garrison.ldbVars = {
 		data = function(data) return (Garrison.getTableValue(data, "invasionAvailable") and Garrison.ICON_INVASION or "") end,
 	},	
 }
-

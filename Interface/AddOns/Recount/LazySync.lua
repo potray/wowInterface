@@ -3,7 +3,7 @@ local Recount = _G.Recount
 LibStub:GetLibrary("AceComm-3.0"):Embed(Recount)
 LibStub:GetLibrary("AceSerializer-3.0"):Embed(Recount)
 
-local revision = tonumber(string.sub("$Revision: 1269 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1318 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -14,6 +14,7 @@ local tinsert = tinsert
 local tonumber = tonumber
 local type = type
 
+local Ambiguate = Ambiguate
 local GetNumGroupMembers = GetNumGroupMembers
 local GetNumPartyMembers = GetNumPartyMembers or GetNumSubgroupMembers
 local GetNumRaidMembers = GetNumRaidMembers or GetNumGroupMembers
@@ -50,10 +51,27 @@ local PARTY_GUARDIAN_FLAGS					= COMBATLOG_OBJECT_AFFILIATION_RAID + COMBATLOG_O
 local PARTY_PET_FLAGS						= COMBATLOG_OBJECT_AFFILIATION_RAID + COMBATLOG_OBJECT_REACTION_FRIENDLY + COMBATLOG_OBJECT_CONTROL_PLAYER + COMBATLOG_OBJECT_TYPE_PET
 local PARTY_GUARDIAN_OWNER_FLAGS			= COMBATLOG_OBJECT_AFFILIATION_RAID + COMBATLOG_OBJECT_REACTION_FRIENDLY + COMBATLOG_OBJECT_CONTROL_PLAYER + COMBATLOG_OBJECT_TYPE_PLAYER
 
+local event = CreateFrame("Frame")
+event:RegisterEvent("GROUP_ROSTER_UPDATE")
+
+function Recount:GroupMembersChanged()
+	Recount.VerTable = { }
+	Recount.VerNum = { }
+
+	Recount:RequestVersion()
+end
+
+--local members
+event:SetScript("OnEvent", function(self, event, ...)
+	--if members ~= GetNumGroupMembers() then
+		Recount:GroupMembersChanged()
+		--members = GetNumGroupMembers()
+	--end
+end)
+
 -- Bandaid for raid messages no longer failing silently, so we make it shut up.
 local oldSendCommMessage = Recount.SendCommMessage
 function Recount.SendCommMessage(self, a, b, channel, ...)
-
 	--[[local _, instanceType = IsInInstance()
 	if instanceType == "pvp" or instanceType == "party" then
 		return
@@ -69,9 +87,7 @@ function Recount.SendCommMessage(self, a, b, channel, ...)
 end
 
 -- Elsia: Generic Sync code here
-
 function Recount:CheckVisible()
-
 	--[[local _ , instanceType = IsInInstance()
 
 	if instanceType == "pvp" or instanceType == "party" then
@@ -134,7 +150,7 @@ function Recount:SendSelf(target)
 
 	-- Prepare Pets
 	local data = combatant
-	local serialpetdata = {}
+	local serialpetdata = { }
 
 	if data.Pet then
 		for i = 1, #data.Pet do
@@ -201,7 +217,7 @@ function Recount:BroadcastLazySync()
 
 	-- Prepare Pets
 	local data = combatant
-	local serialpetdata = {}
+	local serialpetdata = { }
 
 	if data and data.Pet then
 		for i = 1, #data.Pet do
@@ -224,7 +240,7 @@ function Recount:BroadcastLazySync()
 	end
 
 	-- Prepare bosses
-	local serialbossdata = {}
+	local serialbossdata = { }
 
 	local plevel = dbCombatants[Recount.PlayerName].level
 
@@ -234,7 +250,6 @@ function Recount:BroadcastLazySync()
 
 	for k, v in pairs(dbCombatants) do
 		if v.type == "Boss" or (v.level and v.level > plevel + 2) then
-			--Recount:Print("Boss: "..k)
 			--local myrecord = v.Sync
 			if Recount:GetLazySyncTouched(myname, k) then
 				local damage = Recount:GetLazySyncAmount(myname, k, "Damage") or 0
@@ -263,13 +278,13 @@ function Recount:BroadcastLazySync()
 		if combatant and combatant.lazysync or Recount.SyncDebug then
 			-- Sync self
 			if serialdata then
-				Recount:SendCommMessage("RECOUNT", serialdata, "WHISPER", name) 
+				Recount:SendCommMessage("RECOUNT", serialdata, "WHISPER", name)
 			end
 
 			-- Sync pets
 			for i = 1, #serialpetdata do
 				--Recount:Print("Pet"..i..": "..serialpetdata[i])
-				Recount:SendCommMessage("RECOUNT", serialpetdata[i], "WHISPER", name) 
+				Recount:SendCommMessage("RECOUNT", serialpetdata[i], "WHISPER", name)
 			end
 
 			-- Sync bosses
@@ -288,7 +303,7 @@ function Recount:BroadcastLazySync()
 			if UnitExists("raid"..i) then
 				local name, realm = UnitName("raid"..i)
 
-				if Recount.VerNum and Recount.VerNum[name] --[[and (not realm or realm == "")]] then -- Elsia: Only sync if we have a valid version, and on same realm
+				if Recount.VerNum and Recount.VerNum[name] and (not realm or realm == "") then -- Elsia: Only sync if we have a valid version, and on same realm
 
 					local combatant = dbCombatants[name]
 					if combatant and combatant.lazysync and name ~= Recount.PlayerName and UnitIsConnected(name) then -- We don't sync with self
@@ -315,7 +330,7 @@ function Recount:BroadcastLazySync()
 		for i = 1, GetNumPartyMembers(), 1 do
 			if UnitExists("party"..i) then
 				local name, realm = UnitName("party"..i)
-				if Recount.VerNum and Recount.VerNum[name] --[[and (not realm or realm == "")]] then -- Elsia: Only sync if we have a valid version, and on same realm
+				if Recount.VerNum and Recount.VerNum[name] and (not realm or realm == "") then -- Elsia: Only sync if we have a valid version, and on same realm
 					local combatant = dbCombatants[name]
 					if combatant and combatant.lazysync and name ~= Recount.PlayerName and UnitIsConnected(name) then -- We don't sync with self
 						-- Sync self
@@ -351,9 +366,10 @@ local SyncTypes = {
 	["ActiveTime"] = true
 }
 
-local syncin = {}
+local syncin = { }
 
 function Recount:OnCommReceive(prefix, Msgs, distribution, target)
+	target = Ambiguate(target, "none")
 	if distribution == "WHISPER" then
 		local worked, cmd, owner, name
 		worked, cmd, owner, name, syncin["Damage"], syncin["DamageTaken"], syncin["Healing"], syncin["OverHealing"], syncin["HealingTaken"], syncin["ActiveTime"] = Recount:Deserialize(Msgs)
@@ -439,7 +455,7 @@ function Recount:OnCommReceive(prefix, Msgs, distribution, target)
 				end
 			end
 		end
-	elseif distribution == "RAID" or distribution == "PARTY" then
+	elseif distribution == "RAID" or distribution == "PARTY" or distribution == "INSTANCE_CHAT" then
 		local worked, cmd, owner, pet, petGUID = Recount:Deserialize(Msgs)
 		if worked == true then
 			if cmd == "RS" then -- Reset broadcast
@@ -455,8 +471,8 @@ function Recount:OnCommReceive(prefix, Msgs, distribution, target)
 				-- owner == originator, pet == version string :D
 				local version = pet
 				--Recount:Print(cmd.." "..owner.." "..version)
-				Recount.VerTable = Recount.VerTable or {} -- Elsia: This really shouldn't happen but it does!
-				Recount.VerNum = Recount.VerNum or {}
+				Recount.VerTable = Recount.VerTable or { } -- Elsia: This really shouldn't happen but it does!
+				Recount.VerNum = Recount.VerNum or { }
 				if type(version) ~= "number" then
 					Recount.VerNum[owner] = tonumber(string.match(version, "Revision: (%d+)")) -- Elsia: Old format
 				else
@@ -476,17 +492,16 @@ function Recount:OnCommReceive(prefix, Msgs, distribution, target)
 end
 
 function Recount:ConfigComm()
-
-	Recount.VerTable = {}
-	Recount.VerNum = {}
+	Recount.VerTable = { }
+	Recount.VerNum = { }
 
 	Recount:RegisterComm("RECOUNT", "OnCommReceive")
 	Recount:RequestVersion()
 	if Recount.SyncDebug and GetNumPartyMembers() == 0 and GetNumRaidMembers() == 0 then
 		local owner = Recount.PlayerName or UnitName("player")
 		local version = Recount.Version
-		Recount.VerTable = Recount.VerTable or {} -- Elsia: This really shouldn't happen but it does!
-		Recount.VerNum = Recount.VerNum or {}
+		Recount.VerTable = Recount.VerTable or { } -- Elsia: This really shouldn't happen but it does!
+		Recount.VerNum = Recount.VerNum or { }
 		if type(version) ~= "number" then
 			Recount.VerNum[owner] = tonumber(string.match(version, "Revision: (%d+)")) -- Elsia: Old format
 		else
@@ -533,9 +548,19 @@ end
 
 function Recount:SendReset()
 	if IsInRaid() and GetNumRaidMembers() > 0 then
-		Recount:SendCommMessage("RECOUNT", Recount:Serialize("RS", Recount.PlayerName), "RAID")
+		local inInstanceGroup = IsInGroup(LE_PARTY_CATEGORY_INSTANCE)
+		if inInstanceGroup then
+			Recount:SendCommMessage("RECOUNT", Recount:Serialize("RS", Recount.PlayerName), "INSTANCE_CHAT")
+		else
+			Recount:SendCommMessage("RECOUNT", Recount:Serialize("RS", Recount.PlayerName), "RAID")
+		end
 	elseif GetNumPartyMembers() > 0 then
-		Recount:SendCommMessage("RECOUNT", Recount:Serialize("RS", Recount.PlayerName), "PARTY")
+		local inInstanceGroup = IsInGroup(LE_PARTY_CATEGORY_INSTANCE)
+		if inInstanceGroup then
+			Recount:SendCommMessage("RECOUNT", Recount:Serialize("RS", Recount.PlayerName), "INSTANCE_CHAT")
+		else
+			Recount:SendCommMessage("RECOUNT", Recount:Serialize("RS", Recount.PlayerName), "PARTY")
+		end
 	end
 	Recount:ResetLazySyncData(Recount.PlayerName)
 end
@@ -556,20 +581,31 @@ end
 
 function Recount:SendVersion(target)
 	if target then
-		--local _, realm = UnitName(target)
-		if UnitIsConnected(target) --[[and (not realm or realm == "")]] then
+		local _, realm = UnitName(target)
+		if UnitIsConnected(target) and (not realm or realm == "") then
 			Recount:SendCommMessage("RECOUNT", Recount:Serialize("VS", Recount.PlayerName, Recount.Version), "WHISPER", target)
 			Recount:SendSelf(target)
 		end
 	else
 		if IsInRaid() and GetNumRaidMembers() > 0 then
+			local _ , instanceType = IsInInstance()
 			if instanceType == "pvp" then
 				Recount:SendCommMessage("RECOUNT", Recount:Serialize("VS", Recount.PlayerName, Recount.Version), "INSTANCE_CHAT")
 			else
-				Recount:SendCommMessage("RECOUNT", Recount:Serialize("VS", Recount.PlayerName, Recount.Version), "RAID")
+				local inInstanceGroup = IsInGroup(LE_PARTY_CATEGORY_INSTANCE)
+				if inInstanceGroup then
+					Recount:SendCommMessage("RECOUNT", Recount:Serialize("VS", Recount.PlayerName, Recount.Version), "INSTANCE_CHAT")
+				else
+					Recount:SendCommMessage("RECOUNT", Recount:Serialize("VS", Recount.PlayerName, Recount.Version), "RAID")
+				end
 			end
 		elseif GetNumPartyMembers() > 0 then
-			Recount:SendCommMessage("RECOUNT", Recount:Serialize("VS", Recount.PlayerName, Recount.Version), "PARTY")
+			local inInstanceGroup = IsInGroup(LE_PARTY_CATEGORY_INSTANCE)
+			if inInstanceGroup then
+				Recount:SendCommMessage("RECOUNT", Recount:Serialize("VS", Recount.PlayerName, Recount.Version), "INSTANCE_CHAT")
+			else
+				Recount:SendCommMessage("RECOUNT", Recount:Serialize("VS", Recount.PlayerName, Recount.Version), "PARTY")
+			end
 		end
 	end
 end
@@ -580,17 +616,27 @@ function Recount:RequestVersion()
 		if instanceType == "pvp" then
 			Recount:SendCommMessage("RECOUNT", Recount:Serialize("VQ", Recount.PlayerName, Recount.Version), "INSTANCE_CHAT")
 		else
-			Recount:SendCommMessage("RECOUNT", Recount:Serialize("VQ", Recount.PlayerName, Recount.Version), "RAID")
+			local inInstanceGroup = IsInGroup(LE_PARTY_CATEGORY_INSTANCE)
+			if inInstanceGroup then
+				Recount:SendCommMessage("RECOUNT", Recount:Serialize("VQ", Recount.PlayerName, Recount.Version), "INSTANCE_CHAT")
+			else
+				Recount:SendCommMessage("RECOUNT", Recount:Serialize("VQ", Recount.PlayerName, Recount.Version), "RAID")
+			end
 		end
 	elseif GetNumPartyMembers() > 0 then
-		Recount:SendCommMessage("RECOUNT", Recount:Serialize("VQ", Recount.PlayerName, Recount.Version), "PARTY")
+		local inInstanceGroup = IsInGroup(LE_PARTY_CATEGORY_INSTANCE)
+		if inInstanceGroup then
+			Recount:SendCommMessage("RECOUNT", Recount:Serialize("VQ", Recount.PlayerName, Recount.Version), "INSTANCE_CHAT")
+		else
+			Recount:SendCommMessage("RECOUNT", Recount:Serialize("VQ", Recount.PlayerName, Recount.Version), "PARTY")
+		end
 	end
 end
 
 --[[function Recount:SetSyncAmount(who, type, amount)
-	who.Sync = who.Sync or {}
+	who.Sync = who.Sync or { }
 	who.Sync.LastChanged = GetTime()
-	who.Sync[type]=amount
+	who.Sync[type] = amount
 end]]
 
 function Recount:SetLazySyncAmount(name, target, type, amount)
@@ -599,9 +645,9 @@ function Recount:SetLazySyncAmount(name, target, type, amount)
 	end
 
 	if Recount.VerNum[name] and Recount.VerNum[name] >= Recount.MinimumV then
-		Recount.MySyncPartners = Recount.MySyncPartners or {}
-		Recount.MySyncPartners[name] = Recount.MySyncPartners[name] or {}
-		Recount.MySyncPartners[name][target] = Recount.MySyncPartners[name][target] or {}
+		Recount.MySyncPartners = Recount.MySyncPartners or { }
+		Recount.MySyncPartners[name] = Recount.MySyncPartners[name] or { }
+		Recount.MySyncPartners[name][target] = Recount.MySyncPartners[name][target] or { }
 		Recount.MySyncPartners[name][target][type] = amount
 	end
 end
@@ -618,14 +664,13 @@ function Recount:GetLazySyncTouched(name, target)
 end
 
 function Recount:ClearLazySyncTouched(name, target)
-	Recount.MySyncPartners = Recount.MySyncPartners or {}
-	Recount.MySyncPartners[name] = Recount.MySyncPartners[name] or {}
-	Recount.MySyncPartners[name][target] = Recount.MySyncPartners[name][target] or {}
+	Recount.MySyncPartners = Recount.MySyncPartners or { }
+	Recount.MySyncPartners[name] = Recount.MySyncPartners[name] or { }
+	Recount.MySyncPartners[name][target] = Recount.MySyncPartners[name][target] or { }
 	Recount.MySyncPartners[name][target].Touched = nil
 end
 
 --[[function Recount:AddAllLazySyncAmount(name, type, amount)
-
 	if not Recount.VerNum then
 		return
 	end -- Noone there to sync for.
@@ -661,9 +706,9 @@ end
 
 function Recount:AddLazySyncAmount(name, target, type, amount)
 	--Recount:DPrint(name.." "..target.." "..type.." "..amount)
-	Recount.MySyncPartners = Recount.MySyncPartners or {}
-	Recount.MySyncPartners[name] = Recount.MySyncPartners[name] or {}
-	Recount.MySyncPartners[name][target] = Recount.MySyncPartners[name][target] or {}
+	Recount.MySyncPartners = Recount.MySyncPartners or { }
+	Recount.MySyncPartners[name] = Recount.MySyncPartners[name] or { }
+	Recount.MySyncPartners[name][target] = Recount.MySyncPartners[name][target] or { }
 	local who = Recount.MySyncPartners[name][target]
 	who.Touched = true
 	who[type] = who[type] or 0
@@ -675,7 +720,7 @@ end
 		return
 	end
 
-	who.Sync = who.Sync or {}
+	who.Sync = who.Sync or { }
 	who.Sync.LastChanged = GetTime()
 	who.Sync.Touched = true
 	who.Sync[type] = who.Sync[type] or 0

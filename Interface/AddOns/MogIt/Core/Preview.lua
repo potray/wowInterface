@@ -118,8 +118,10 @@ end
 local function previewOnClose(self)
 	if mog.db.profile.singlePreview then
 		mog.view:Hide();
-	else
+	elseif mog.db.profile.previewConfirmClose then
 		StaticPopup_Show("MOGIT_PREVIEW_CLOSE", nil, nil, self:GetParent());
+	else
+		mog:DeletePreview(self:GetParent());
 	end
 end
 
@@ -885,10 +887,10 @@ local function onAccept(self, preview)
 	items = items and items:match("compare%?items=([^#]+)");
 	if items then
 		local tbl = {};
-		for item in items:gmatch("([^;]+)") do
-			local id,bonus = item:match("^(%d+)%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.(%d+)");
+		for item in items:gmatch("([^:;]+)") do
+			local id, bonus = item:match("^(%d+)%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.%d+%.(%d+)");
 			id = id or item:match("^(%d+)");
-			table.insert(tbl, mog:ToStringItem(tonumber(id),tonumber(bonus)));
+			table.insert(tbl, mog:ToStringItem(tonumber(id), tonumber(bonus)));
 		end
 		mog:AddToPreview(tbl, preview);
 	end

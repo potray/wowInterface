@@ -1,0 +1,17 @@
+tag 1.34
+113e5dedcd531a9b2dc4ea2bba17075973667784
+Hendrik Leppkes <h.leppkes@gmail.com>
+2015-06-29 21:41:01 +0200
+
+Tag as 1.34
+
+
+--------------------
+
+Hendrik Leppkes:
+	- Add Felmouth Frenzy School
+	- Update TOC for 6.2
+	- Add a hack for Tanaan Jungles instance id problem
+	This should make it show nodes on the minimap
+	- Check that GM2_Data was loaded properly before trying to import
+	- Track Withered Herbs

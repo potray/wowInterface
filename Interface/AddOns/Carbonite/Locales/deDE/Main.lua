@@ -138,3 +138,36 @@ L["In Conflict"] = "Umk\195\164mpft"				-- NXlINCONFLICT
 L["Opening"] = "\195\150ffnen"					-- NXlOpening
 L["Opening - No Text"] = "\195\150ffnen - Kein Text"		-- NXlOpeningNoText
 L["Everfrost Chip"] = "Immerfrostsplitter"			-- NXlEverfrost
+
+L["yds"] = "m"
+L["secs"] = "sek"
+L["mins"] = "min"
+
+-- NxUI.lua
+L[" Frame: %s Shown%d Vis%d P>%s"] = true
+L[" EScale %f, Lvl %f"] = true
+L[" LR %f, %f"] = true
+L[" BT %f, %f"] = true
+L["%s#%d %s ID%s (%s) show%d l%d x%d y%d"] = true
+L["%.1f days"] = "%.1f Tage"
+L["%.1f hours"] = "%.1f Stunden"
+L["%d mins"] = "%d Minuten"
+L["Reset old layout data"] = "alte Gestaltungsdaten zur\195\188cksetzen"
+L["Window version mismatch!"] = true
+L["XY missing (%s)"] = true
+L["Window not found (%s)"] = true
+L["Detach %s"] = true
+L["Detach found %s"] = true
+L["Search: [click]"] = "Suche: [Klick]"
+L["Search: %[click%]"] = "Suche: %[click%]"
+L["Reset old list data"] = true
+L["!BUT %s"] = true
+L["Key %s transfered to Watch List Item"] = true
+L["CLICK (.+):"] = "KLICK (.+):"
+L["Key %s %s #%s %s"] = true
+L["shift left/right click to change size"] = "Umschalt Links/Rechts Klick um Grß195\182\195\159e zu \194\164ndern"
+L["Reset old tool bar data"] = "Alte Funktionsleistendaten zurücksetzen"
+
+-- NxTravel.lua
+L["Connection: %s to %s"] = "Verbindung: %s nach %s"
+L["Fly: %s to %s"] = "Fliege: %s nach %s"

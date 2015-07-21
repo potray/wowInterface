@@ -1,11 +1,12 @@
+if( not ShadowUF.ComboPoints ) then return end
+
 local HolyPower = setmetatable({}, {__index = ShadowUF.ComboPoints})
 ShadowUF:RegisterModule(HolyPower, "holyPower", ShadowUF.L["Holy Power"], nil, "PALADIN", nil, PALADINPOWERBAR_SHOW_LEVEL)
-local holyConfig = {max = HOLY_POWER_FULL, key = "holyPower", colorKey = "HOLYPOWER", powerType = SPELL_POWER_HOLY_POWER, eventType = "HOLY_POWER", icon = "Interface\\AddOns\\ShadowedUnitFrames\\media\\textures\\combo"}
+local holyConfig = {max = 5, key = "holyPower", colorKey = "HOLYPOWER", powerType = SPELL_POWER_HOLY_POWER, eventType = "HOLY_POWER", icon = "Interface\\AddOns\\ShadowedUnitFrames\\media\\textures\\combo"}
 
 function HolyPower:OnEnable(frame)
 	frame.holyPower = frame.holyPower or CreateFrame("Frame", nil, frame)
 	frame.holyPower.cpConfig = holyConfig
-	frame.comboPointType = holyConfig.key
 
 	frame:RegisterUnitEvent("UNIT_POWER_FREQUENT", self, "Update")
 	frame:RegisterUnitEvent("UNIT_MAXPOWER", self, "UpdateBarBlocks")
@@ -17,23 +18,22 @@ function HolyPower:OnEnable(frame)
 end
 
 function HolyPower:OnLayoutApplied(frame, config)
-	ShadowUF.ComboPoints:OnLayoutApplied(frame, config)
+	ShadowUF.ComboPoints.OnLayoutApplied(self, frame, config)
 	self:UpdateBarBlocks(frame)
 end
 
 function HolyPower:UpdateBarBlocks(frame, event, unit, powerType)
-	local pointsFrame = frame[frame.comboPointType]
-	if( not pointsFrame or frame.comboPointType ~= holyConfig.key ) then return end
-	if( event and powerType ~= holyConfig.eventType ) then return end
+	local pointsFrame = frame[self:GetComboPointType()]
+	if( not pointsFrame or ( event and powerType ~= holyConfig.eventType ) ) then return end
 
-	ShadowUF.ComboPoints:UpdateBarBlocks(frame)
+	ShadowUF.ComboPoints.UpdateBarBlocks(self, frame)
 
 	local config = ShadowUF.db.profile.units[frame.unitType].holyPower
 	local color = ShadowUF.db.profile.powerColors["BANKEDHOLYPOWER"]
 
 	local max = UnitPowerMax("player", holyConfig.powerType)
-	if( max > 0 and max > HOLY_POWER_FULL ) then
-		for id=HOLY_POWER_FULL+1, max do
+	if( max == 5 ) then
+		for id=4, 5 do
 			if( config.isBar ) then
 				pointsFrame.blocks[id]:SetVertexColor(color.r, color.g, color.b)
 			else
@@ -41,6 +41,10 @@ function HolyPower:UpdateBarBlocks(frame, event, unit, powerType)
 			end
 		end
 	end
+end
+
+function HolyPower:GetComboPointType()
+	return "holyPower"
 end
 
 function HolyPower:GetPoints(unit)

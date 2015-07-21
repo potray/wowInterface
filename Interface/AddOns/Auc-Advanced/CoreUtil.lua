@@ -1,7 +1,7 @@
 --[[
 	Auctioneer
-	Version: 5.21c.5521 (SanctimoniousSwamprat)
-	Revision: $Id: CoreUtil.lua 5518 2014-11-06 11:35:20Z brykrys $
+	Version: 5.21e.5566 (SanctimoniousSwamprat)
+	Revision: $Id: CoreUtil.lua 5549 2015-03-17 19:51:52Z brykrys $
 	URL: http://auctioneeraddon.com/
 
 	This is an addon for World of Warcraft that adds statistical history to the auction data that is collected
@@ -245,7 +245,7 @@ do
 		return auctionlength
 	end
 
-	local alevel = {
+	local alevelA = {
 		{Const.ALEVEL_OFF, "Off"},
 		{Const.ALEVEL_LOW, "Low"},
 		{Const.ALEVEL_MED, "Medium"},
@@ -256,8 +256,20 @@ do
 	-- Proposed to introduce variations of this table in future, with different combinations of values
 	-- thus this variant has been called type 'A', having values OFF, LOW, MED, HI
 	function lib.selectorActivityLevelA()
-		return alevel
+		return alevelA
 	end
+
+	-- MIN, LOW, MED, HI - for settings where 'OFF' would be inappropriate
+	local alevelB = {
+		{Const.ALEVEL_MIN, "Minimum"},
+		{Const.ALEVEL_LOW, "Low"},
+		{Const.ALEVEL_MED, "Medium"},
+		{Const.ALEVEL_HI, "High"},
+	}
+	function lib.selectorActivityLevelB()
+		return alevelB
+	end
+
 end
 
 
@@ -267,30 +279,8 @@ function lib.DecodeLink(...) return tooltip:DecodeLink(...) end
 function lib.GetLinkQuality(...) return tooltip:GetLinkQuality(...) end
 function lib.ShowItemLink(...) return tooltip:ShowItemLink(...) end
 function lib.ShowPetLink(...) return tooltip:ShowPetLink(...) end
-function lib.BreakHyperlink(...) return tooltip:BreakHyperlink(...) end -- Deprecated
-lib.breakHyperlink = lib.BreakHyperlink -- Deprecated
 
-do -- Faction and ServerKey related functions
-	local splitcache = {}
-	local localizedfactions = {
-		-- the following entries are placeholders
-		["Alliance"] = "Alliance",
-		["Horde"] = "Horde",
-		["Neutral"] = "Neutral",
-	}
-	function lib.SplitServerKey(serverKey)
-		local split = splitcache[serverKey]
-		if not split then
-			if type(serverKey) ~= "string" then return end
-			local realm, faction = strmatch(serverKey, "^(.+)%-(%u%l+)$")
-			local transfaction = localizedfactions[faction]
-			if not transfaction then return end
-			split = {realm, faction, realm.." - "..transfaction}
-			splitcache[serverKey] = split
-		end
-		return split[1], split[2], split[3]
-	end
-
+do -- Faction related functions
 	local lookupfaction = {
 		["alliance"] = "Alliance",
 		[FACTION_ALLIANCE:lower()] = "Alliance",
@@ -322,15 +312,9 @@ do -- Faction and ServerKey related functions
 		local horde = lib.localizations("ADV_Interface_FactionHorde")
 		local neutral = lib.localizations("ADV_Interface_FactionNeutral")
 
-		localizedfactions.Alliance = alliance
-		localizedfactions.Horde = horde
-		localizedfactions.Neutral = neutral
-
 		lookupfaction[alliance:lower()] = "Alliance"
 		lookupfaction[horde:lower()] = "Horde"
 		lookupfaction[neutral:lower()] = "Neutral"
-
-		wipe(splitcache)
 	end
 end
 
@@ -963,4 +947,4 @@ function lib.CreateMoney(height)
 	return (tooltip:CreateMoney(height))
 end
 
-lib.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21c/Auc-Advanced/CoreUtil.lua $", "$Rev: 5518 $")
+lib.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21e/Auc-Advanced/CoreUtil.lua $", "$Rev: 5549 $")

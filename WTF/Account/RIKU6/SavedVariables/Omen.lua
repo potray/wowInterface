@@ -9,6 +9,7 @@ Omen3DB = {
 		["Zhenya - Los Errantes"] = "Zhenya - Los Errantes",
 		["Kobash - Los Errantes"] = "Kobash - Los Errantes",
 		["Kalarankor - Los Errantes"] = "Kalarankor - Los Errantes",
+		["Farenir - Dun Modr"] = "Potray - Dun Modr",
 		["Ringeki - Dun Modr"] = "Ringeki - Dun Modr",
 		["Prason - Los Errantes"] = "Prason - Los Errantes",
 		["Elrad - Los Errantes"] = "Elrad - Los Errantes",
@@ -50,9 +51,9 @@ Omen3DB = {
 				},
 				["Color"] = {
 					["a"] = 0,
-					["r"] = 0.133333333333333,
-					["g"] = 0.00392156862745098,
 					["b"] = 0,
+					["g"] = 0.00392156862745098,
+					["r"] = 0.133333333333333,
 				},
 				["BarInset"] = 5,
 				["Texture"] = "Solid",
@@ -66,11 +67,11 @@ Omen3DB = {
 			},
 			["VGrip1"] = 80.9492242317356,
 			["ClampToScreen"] = false,
+			["PositionX"] = 1313.94873046875,
+			["Shown"] = true,
 			["TitleBar"] = {
 				["ShowTitleBar"] = false,
 			},
-			["Shown"] = true,
-			["PositionX"] = 1313.94873046875,
 			["Bar"] = {
 				["FontSize"] = 12,
 				["ShowHeadings"] = false,
@@ -80,16 +81,25 @@ Omen3DB = {
 			},
 		},
 		["Zhenya - Los Errantes"] = {
-			["PositionX"] = 847.5,
+			["Shown"] = false,
 			["PositionY"] = 614.999938964844,
+			["PositionX"] = 847.5,
 		},
 		["Kobash - Los Errantes"] = {
 			["PositionX"] = 847.5,
 			["PositionY"] = 614.999938964844,
 		},
 		["Kalarankor - Los Errantes"] = {
-			["PositionX"] = 847.5,
+			["Shown"] = false,
 			["PositionY"] = 614.999938964844,
+			["PositionX"] = 847.5,
+		},
+		["Farenir - Dun Modr"] = {
+			["PositionY"] = 480.999908447266,
+			["PositionW"] = 199.999908447266,
+			["Shown"] = true,
+			["PositionX"] = 1204.50061035156,
+			["PositionH"] = 82.0000152587891,
 		},
 		["Ringeki - Dun Modr"] = {
 			["PositionX"] = 847.5,

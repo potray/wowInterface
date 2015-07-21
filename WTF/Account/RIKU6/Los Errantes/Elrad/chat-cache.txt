@@ -6,6 +6,7 @@ CHANNELS
 melees 1 3
 palas 1 4
 elrad 1 5
+lfg 1 8
 END
 
 ZONECHANNELS 33554433
@@ -151,6 +152,7 @@ CHANNELS
 palas
 melees
 elrad
+lfg
 END
 
 ZONECHANNELS 1

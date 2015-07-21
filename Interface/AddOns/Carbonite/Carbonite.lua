@@ -25,7 +25,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale("Carbonite")
 Nx.WebSite = "wowinterface.com"
 NXTITLEFULL = L["Carbonite"]
 
-Nx.VERMAJOR			= 6.0
+Nx.VERMAJOR			= 6.2
 Nx.VERMINOR			= .0				-- Not 0 is a test version
 Nx.BUILD			= 118
 
@@ -46,6 +46,19 @@ Nx.VERSIONCAP			= .75				-- Captured data (quest recording)
 Nx.VERSIONVENDORV		= .56				-- Visited vendor data
 Nx.VERSIONTransferData		= .1				-- Transfer data
 Nx.TXTBLUE			= "|cffc0c0ff"
+
+-- Keybindings
+BINDING_HEADER_Carbonite	= "|cffc0c0ff" .. L["Carbonite"] .. "|r"
+BINDING_NAME_NxMAPTOGORIGINAL	= L["NxMAPTOGORIGINAL"]
+BINDING_NAME_NxMAPTOGNORMMAX	= L["NxMAPTOGNORMMAX"]
+BINDING_NAME_NxMAPTOGNONEMAX	= L["NxMAPTOGNONEMAX"]
+BINDING_NAME_NxMAPTOGNONENORM	= L["NxMAPTOGNONENORM"]
+BINDING_NAME_NxMAPSCALERESTORE	= L["NxMAPSCALERESTORE"]
+BINDING_NAME_NxMAPTOGMINIFULL	= L["NxMAPTOGMINIFULL"]
+BINDING_NAME_NxMAPTOGHERB	= L["NxMAPTOGHERB"]
+BINDING_NAME_NxMAPTOGMINE	= L["NxMAPTOGMINE"]
+BINDING_NAME_NxTOGGLEGUIDE	= L["NxTOGGLEGUIDE"]
+BINDING_NAME_NxMAPSKIPTARGET	= L["NxMAPSKIPTARGET"]
 
 Nx.Tick = 0
 
@@ -112,7 +125,7 @@ Nx.ModQAction = ""
 Nx.ModPAction = ""
 
 if _G.TomTom then
-  Nx.RealTom = true
+	Nx.RealTom = true
 end
 
 function Nx.EmulateTomTom()
@@ -139,11 +152,12 @@ end
 Nx.EmulateTomTom()
 
 local defaults = {
-    char = {
+	char = {
 		Map = {
-  			ShowGatherA = false,
+			ShowGatherA = false,
 			ShowGatherH = false,
 			ShowGatherM = false,
+			ShowGatherL = false,
 			ShowQuestGivers = 1,
 			ShowMailboxes = true,
 			ShowCustom = true,
@@ -290,7 +304,11 @@ local defaults = {
 				[68] = true,
 				[69] = true,
 			},
-
+			ShowTimber = {
+				[1] = true,
+				[2] = true,
+				[3] = true,
+			},
 		},
 		Comm = {
 			Global = true,
@@ -513,9 +531,9 @@ function Nx:OnInitialize()
 	Nx.TooltipLastDiffNumLines = 0
 	Nx.db = LibStub("AceDB-3.0"):New("CarbData",defaults,true)
 	tinsert(Nx.dbs,Nx.db)
-    Nx.db.RegisterCallback(self, "OnProfileChanged", "OnProfileChanged")
-    Nx.db.RegisterCallback(self, "OnProfileCopied", "OnProfileChanged")
-    Nx.db.RegisterCallback(self, "OnProfileReset", "OnProfileChanged")
+	Nx.db.RegisterCallback(self, "OnProfileChanged", "OnProfileChanged")
+	Nx.db.RegisterCallback(self, "OnProfileCopied", "OnProfileChanged")
+	Nx.db.RegisterCallback(self, "OnProfileReset", "OnProfileChanged")
 	Nx.SetupConfig()
 	Nx:RegisterComm("carbmodule",Nx.ModChatReceive)
 end
@@ -873,8 +891,7 @@ end
 -- Login message
 
 function Nx:OnPlayer_login (event, ...)
-	Nx:OnParty_members_changed()
-	Nx:RecordCharacterLogin()
+	Nx:OnParty_members_changed()	
 	Nx.Com:OnEvent (event)
 	Nx.InitWins()
 
@@ -1077,15 +1094,15 @@ function Nx:OnUnit_spellcast_sent (event, arg1, arg2, arg3, arg4)
 				Nx.UEvents:AddMine (Nx.GatherTarget)
 				Nx.GatherTarget = nil
 			end
-
 		elseif arg2 == L["Searching for Artifacts"] then
-
 			Nx.UEvents:AddOpen ("Art", arg4)
-
 		elseif arg2 == L["Extract Gas"] then
-
 			Nx.UEvents:AddOpen ("Gas", L["Extract Gas"])
-
+		elseif arg2 == L["Logging"] then
+			Nx.GatherTarget = Nx.TooltipLastText
+			if Nx.GatherTarget then
+				Nx.UEvents:AddTimber(Nx.GatherTarget)
+			end
 		elseif arg2 == L["Opening"] or arg2 == L["Opening - No Text"] then
 			Nx.GatherTarget = Nx.TooltipLastText
 
@@ -1279,6 +1296,9 @@ function Nx:NXOnUpdate (elapsed)
 
 	if Nx.Tick % 11 == 0 then
 		Nx:RecordCharacter()
+		if Nx.Warehouse then
+			Nx.Warehouse:RecordCharacter()
+		end
 	end
 end
 
@@ -1564,6 +1584,7 @@ function Nx:InitGlobal()
 			Nx.db.profile.GatherData = gath
 			gath.NXHerb = {}
 			gath.NXMine = {}
+			gath.NXTimber = {}
 		end
 
 		gath.Version = Nx.VERSIONGATHER
@@ -1616,7 +1637,8 @@ function Nx:GetData (name, ch)
 
 	elseif name == "Herb" then
 		return Nx.db.profile.GatherData.NXHerb
-
+	elseif name == "Timber" then
+		return Nx.db.profile.GatherData.NXTimber
 	elseif name == "Mine" then
 		return Nx.db.profile.GatherData.NXMine
 
@@ -1737,9 +1759,6 @@ end
 --   Time is number from time()
 
 function Nx:InitCharacter()
-
---	NxData.Characters = {}
-
 	local chars = Nx.db.global.Characters
 	local fullName = self:GetRealmCharName()
 	local ch = chars[fullName]
@@ -1751,8 +1770,7 @@ function Nx:InitCharacter()
 
 		ch.Version = Nx.VERSIONCHAR
 
-		ch.E = {}	-- Events
-		ch.Q = {}	-- Quests
+		ch.E = {}	-- Events		
 	end
 
 	Nx.CurCharacter = ch
@@ -1764,12 +1782,7 @@ function Nx:InitCharacter()
 	if not ch["TBar"] then
 		ch["TBar"] = {}			-- Tool Bar layouts
 	end
-
-	ch["Profs"] = ch["Profs"] or {}		-- Professions
-	ch["Professions"] = nil			-- Old
-
 	self:DeleteOldEvents()
-
 	ch.NXLoggedOnNum = ch.NXLoggedOnNum or 0 + 1
 	--
 	self:CalcRealmChars()
@@ -1805,7 +1818,7 @@ function Nx:CalcRealmChars()
 			for rc, v in pairs (chars) do
 				if v ~= Nx.CurCharacter then
 					local rname = Nx.Split (".", rc)
-					if rname == connectedrealms[i] then
+					if rname == connectedrealms[i] and connectedrealms[i] ~= realmName then
 						tinsert (t, rc)
 					end
 				end
@@ -1883,69 +1896,10 @@ end
 --------
 -- Record logged in state
 
-function Nx:RecordCharacterLogin()
-
---	Nx.prt ("Log in %d", GetMoney())
-
-	local ch = self.CurCharacter
-
-	ch["LTime"] = time()
-	ch["LvlTime"] = time()
-
-	ch["LLevel"] = UnitLevel ("player")
-	ch["Class"] = Nx:GetUnitClass()
-
-	ch["LMoney"] = GetMoney()
-
-	ch["LXP"] = UnitXP ("player")
-	ch["LXPMax"] = UnitXPMax ("player")
-	ch["LXPRest"] = GetXPExhaustion() or 0
-
-	local _, arena = GetCurrencyInfo (390)
-	local _, honor = GetCurrencyInfo (392)
-
-	ch["LArenaPts"] = arena			--V4 gone GetArenaCurrency()
-	ch["LHonor"] = honor			--V4 gone GetHonorCurrency()
-	Nx:RecordCharacter()
-end
-
 function Nx:RecordCharacter()
-
---	Nx.prt ("RecordCharacter")
-
 	local ch = self.CurCharacter
-
-	local map = self.Map:GetMap (1)
-	if map.UpdateMapID then
-		ch["Pos"] = format ("%d^%f^%f", map.UpdateMapID, map.PlyrRZX, map.PlyrRZY)
-	end
-
-	ch["Time"] = time()
-
 	ch["Level"] = UnitLevel ("player")
-
-	if ch["Level"] > ch["LLevel"] then	-- Made a level? Reset
-		ch["LLevel"] = ch["Level"]
-		ch["LvlTime"] = time()
-		ch["LXP"] = UnitXP ("player")
-		ch["LXPMax"] = UnitXPMax ("player")
-		ch["LXPRest"] = GetXPExhaustion() or 0
-	end
-
-	ch["Money"] = GetMoney()
-
-	ch["XP"] = UnitXP ("player")
-	ch["XPMax"] = UnitXPMax ("player")
-	ch["XPRest"] = GetXPExhaustion() or 0
-
-	local _, conquest = GetCurrencyInfo (390)
-	local _, honor = GetCurrencyInfo (392)
-	local _, justice = GetCurrencyInfo (395)
-	local _, valor = GetCurrencyInfo (396)
-	ch["Conquest"] = conquest		--V4 gone GetArenaCurrency()
-	ch["Honor"] = honor			--V4 gone GetHonorCurrency()
-	ch["Valor"] = valor
-	ch["Justice"] = justice
+	ch["Class"] = Nx:GetUnitClass()
 end
 
 function Nx:DeleteOldEvents()
@@ -1992,7 +1946,7 @@ function Nx:AddEvent (event, name, time, mapId, x, y, data)
 	local s = Nx:PackXY (x, y)
 	name = gsub (name, "^", "")
 
-	s = format ("%s^%.0f^%d^%s^%s", event, time, Nx.MapIdToNxzone[mapId] or 0, s, name)
+	s = format ("%s^%.0f^%d^%s^%s", event, time, mapId or 0, s, name)
 
 	if data then
 		s = s .. "^" .. data
@@ -2013,20 +1967,16 @@ function Nx:GetEventMapId (evStr)
 
 	local _, _, map = Nx.Split ("^", evStr)
 
-	return self.NxzoneToMapId[tonumber (map)] or 0
+	return tonumber (map) or 0
 end
 
 --------
 
 function Nx:UnpackEvent (evStr)
-
 	local typ, tm, map, xy, text, data = Nx.Split ("^", evStr)
-
 	tm = tonumber (tm)
-	map = self.NxzoneToMapId[tonumber (map)] or 0
-
+	map = tonumber (map) or 0
 	local x, y = Nx:UnpackXY (xy)
-
 	return typ, tm, map, x, y, text, data
 end
 
@@ -2062,34 +2012,12 @@ function Nx:AddHerbEvent (name, time, mapId, x, y)
 	self:AddEvent ("H", name, time, mapId, x, y)
 end
 
+function Nx:AddTimberEvent(name, time, mapId, x, y)
+	self:AddEvent ("T", name, time, mapId, x, y)
+end
+
 function Nx:AddMineEvent (name, time, mapId, x, y)
 	self:AddEvent ("M", name, time, mapId, x, y)
-end
-
---------
--- Get status for a quest
-
-function Nx:GetQuest (qId)
-
-	local quest = Nx.CurCharacter.Q[qId]
-	if not quest then
-		return
-	end
-
-	local s1, s2, status, time = strfind (quest, "(%a)(%d+)")
-
---	Nx.prt ("GetQuest %s %d", status, time)
-
-	return status, time
-end
-
-function Nx:SetQuest (qId, qStatus, qTime)
-
-	qTime = qTime or 0
-
-	Nx.CurCharacter.Q[qId] = qStatus .. qTime
-
---	Nx.prt ("SetQuest %s", Nx.CurCharacter.Q[qId])
 end
 
 -------------------------------------------------------------------------------
@@ -2742,30 +2670,50 @@ end
 
 function Nx.UEvents:AddHerb (name)
 
-	local mapId, x, y = self:GetPlyrPos()
+	local mapId, x, y, level = self:GetPlyrPos()
 	mapId = GetCurrentMapAreaID()
 	if Nx.db.profile.Guide.GatherEnabled then
 		local id = Nx:HerbNameToId (name)
 		if id then
 			Nx:AddHerbEvent (name, Nx:Time(), mapId, x, y)
-			Nx:GatherHerb (id, mapId, x, y)
+			Nx:GatherHerb (id, mapId, x, y, level)
 		end
 		self:UpdateAll (true)
 	end
 end
 
+
+function Nx.UEvents:AddTimber(name)
+	local mapId, x, y, level = self:GetPlyrPos()
+	local size = false
+	if Nx.db.profile.Guide.GatherEnabled then		
+		if name == L["Small Timber"] then
+			size = 1
+		elseif name == L["Timber"] then
+			size = 2
+		elseif name == L["Large Timber"] then
+			size = 3
+		end
+		if size then
+			Nx.prt(size)
+			Nx:AddTimberEvent (name, Nx:Time(), mapId, x, y)
+			Nx:GatherTimber (size, mapId, x, y, level)
+		end
+		self:UpdateAll (true)
+	end
+end
 ------
 -- Add mine to list
 
 function Nx.UEvents:AddMine (name)
 
-	local mapId, x, y = self:GetPlyrPos()
+	local mapId, x, y, level = self:GetPlyrPos()
 	mapId = GetCurrentMapAreaID()
 	if Nx.db.profile.Guide.GatherEnabled then
 		local id = Nx:MineNameToId (name)
 		if id then
 			Nx:AddMineEvent (name, Nx:Time(), mapId, x, y)
-			Nx:GatherMine (id, mapId, x, y)
+			Nx:GatherMine (id, mapId, x, y, level)
 		end
 		self:UpdateAll (true)
 	end
@@ -2778,9 +2726,9 @@ function Nx.UEvents:AddOpen (typ, name)
 
 	local mapId = self:AddInfo (name)
 	if Nx.db.profile.Guide.GatherEnabled then
-		local mapId, x, y = self:GetPlyrPos()
+		local mapId, x, y, level = self:GetPlyrPos()
 		mapId = GetCurrentMapAreaID()
-		Nx:Gather ("Misc", typ, mapId, x, y)
+		Nx:Gather ("Misc", typ, mapId, x, y, level)
 		self:UpdateAll()
 	end
 end
@@ -2789,10 +2737,9 @@ end
 -- Get player map pos
 
 function Nx.UEvents:GetPlyrPos()
-
 	local mapId = Nx.Map:GetRealMapId()
-	local map = Nx.Map:GetMap (1)
-	return mapId, map.PlyrRZX, map.PlyrRZY
+	local map = Nx.Map:GetMap (1)	
+	return mapId, map.PlyrRZX, map.PlyrRZY, Nx.Map.DungeonLevel
 end
 
 --------
@@ -2984,6 +2931,11 @@ Nx.GatherInfo = {
 		["Everfrost"] = { 0, "spell_shadow_teleport", L["Everfrost"]},
 		["Gas"] = { 0, "inv_gizmo_zapthrottlegascollector",	L["Gas"]},
 	},
+	["L"] = {
+		{ 1, "INV_Tradeskillitem_03",L["Small Timber"]},
+		{ 2, "INV_Tradeskillitem_03",L["Medium Timber"]},
+		{ 3, "INV_Tradeskillitem_03",L["Large Timber"]},
+	},
 	["H"] = {	-- Herbs
 		{ 340, "INV_Misc_Herb_AncientLichen", L["Ancient Lichen"]},
 		{ 220, "INV_Misc_Herb_13", L["Arthas' Tears"]},
@@ -3040,7 +2992,7 @@ Nx.GatherInfo = {
 		{ 475, "inv_misc_herb_heartblossom", L["Heartblossom"]},
 		{ 500, "inv_misc_herb_whiptail", L["Whiptail"]},
 		{ 525, "inv_misc_herb_twilightjasmine",	L["Twilight Jasmine"]},
-	    { 600, "inv_misc_herb_foolscap", L["Fool's Cap"]},
+		{ 600, "inv_misc_herb_foolscap", L["Fool's Cap"]},
 		{ 550, "inv_misc_herb_goldenlotus", L["Golden Lotus"]},
 		{ 500, "inv_misc_herb_jadetealeaf", L["Green Tea Leaf"]},
 		{ 525, "inv_misc_herb_rainpoppy", L["Rain Poppy"]},
@@ -3088,7 +3040,7 @@ Nx.GatherInfo = {
 		{ 500,	"item_pyriumore", L["Rich Elementium Vein"]},
 		{ 525,	"inv_ore_arcanite_01", L["Pyrite Deposit"]},
 		{ 525,	"inv_ore_arcanite_01", L["Rich Pyrite Deposit"]},
-        { 515, "inv_ore_ghostiron", L["Ghost Iron Deposit"]},
+		{ 515, "inv_ore_ghostiron", L["Ghost Iron Deposit"]},
 		{ 550, "inv_ore_ghostiron", L["Rich Ghost Iron Deposit"]},
 		{ 550, "inv_ore_manticyte", L["Kyparite Deposit"]},
 		{ 575, "inv_ore_manticyte", L["Rich Kyparite Deposit"]},
@@ -3167,9 +3119,9 @@ end
 -- Upgrade gather data
 
 function Nx:GatherVerUpgrade()
-
 	Nx:GatherVerUpgradeType ("NXHerb")
 	Nx:GatherVerUpgradeType ("NXMine")
+	Nx:GatherVerUpgradeType ("NXTimber")
 end
 
 function Nx:GatherVerUpgradeType (tName)
@@ -3179,22 +3131,26 @@ end
 -- Save location of gathered herb
 -- xy is zone coords
 
-function Nx:GatherHerb (id, mapId, x, y)
-	self:Gather ("NXHerb", id, mapId, x, y)
+function Nx:GatherHerb (id, mapId, x, y, level)
+	self:Gather ("NXHerb", id, mapId, x, y, level)
 end
 
+
+function Nx:GatherTimber(id, mapId, x, y, level)
+	self:Gather ("NXTimber", id, mapId, x, y, level)
+end
 --------
 -- Save location of gathered mining
 -- xy is zone coords
 
-function Nx:GatherMine (id, mapId, x, y)
-	self:Gather ("NXMine", id, mapId, x, y)
+function Nx:GatherMine (id, mapId, x, y, level)
+	self:Gather ("NXMine", id, mapId, x, y, level)
 end
 
 --------
 -- Add gathered item. xy zone coords 0-100
 
-function Nx:Gather (nodeType, id, mapId, x, y)
+function Nx:Gather (nodeType, id, mapId, x, y, level)
 
 	local remap = self.GatherRemap[nodeType]
 	if remap then
@@ -3202,6 +3158,11 @@ function Nx:Gather (nodeType, id, mapId, x, y)
 	end
 
 	local data = Nx.db.profile.GatherData[nodeType]
+	if not data then
+		Nx.db.profile.GatherData[nodeType] = {}
+		data = Nx.db.profile.GatherData[nodeType]
+	end
+	
 	local zoneT = data[mapId]
 
 	if not zoneT or not Nx.Map.MapWorldInfo[mapId] then
@@ -3217,42 +3178,48 @@ function Nx:Gather (nodeType, id, mapId, x, y)
 	zoneT[id] = nodeT
 
 	for n, node in ipairs (nodeT) do
-		local nx, ny = Nx.Split("|",node)
-		local dist = (nx - x) ^ 2 + (ny - y) ^ 2
-
---		Nx.prt ("Gather %f %f %f (%.2f %.2f) (%.2f %.2f)", dist, maxDist, id, nx, ny, x, y)
-
-		if dist < maxDist then		-- Squared compare
-			index = n
-			break
+		local nx, ny, nlevel = Nx.Split("|",node)
+		if not nlevel then
+			nlevel = 0
+		end
+		if nlevel == level then
+			local dist = (nx - x) ^ 2 + (ny - y) ^ 2
+			if dist < maxDist then		-- Squared compare
+				index = n
+				break
+			end
 		end
 	end
-
 	local cnt = 1
-
 	if not index then
 		index = #nodeT + 1
-
 	else
-		local nx,xy = Nx.Split ("|", nodeT[index])
+		local nx,xy, level = Nx.Split ("|", nodeT[index])
 	end
-
-	nodeT[index] = format ("%f|%f", x, y)
+	nodeT[index] = format ("%f|%f|%d", x, y, level)
 end
 
 --------
 
 function Nx:GatherUnpack (item)
-	local x,y = Nx.Split ("|", item)
-	local x = tonumber (x)
-	local y = tonumber (y)
-	return x, y
+	local x,y, level = Nx.Split ("|", item)
+	if not level then
+		level = 0
+	end
+	x = tonumber (x)
+	y = tonumber (y)	
+	level = tonumber(level)
+	return x, y, level
 end
 
 --------
 
 function Nx:GatherDeleteHerb()
 	Nx.db.profile.GatherData.NXHerb = {}
+end
+
+function Nx:GatherDeleteTimber()
+	Nx.db.profile.GatherData.NXTimber = {}
 end
 
 function Nx:GatherDeleteMine()
@@ -3333,6 +3300,10 @@ function Nx:GatherNodeToCarb (id)
 		[246] = 36,
 		[247] = 37,
 		[248] = 38,
+		[249] = 41,
+		[250] = 40,
+		[251] = 42,
+		[252] = 43,
 	-- Herbalism Nodes
 		[401] = 30,
 		[402] = 34,
@@ -3402,6 +3373,12 @@ function Nx:GatherNodeToCarb (id)
 		[466] = 58,
 		[467] = 59,
 		[468] = 60,
+		[469] = 68,
+		[470] = 67,
+		[471] = 66,
+		[472] = 65,
+		[473] = 69,
+		[474] = 64,
 	}
 	return gatherIDs[id]
 end
@@ -3451,32 +3428,15 @@ end
 -- Item handling
 
 function Nx.Item:Init()
-
-	self.Needed = {}
 	self.Asked = {}
 end
 
 function Nx.Item:Load (id)
-
-	if self.Asked[id] then			-- Ask once
-
---		Nx.prt ("Asked %s", id)
-
-		if time() - self.Asked[id] > 600 then
-
-			local name = GetItemInfo (id)
-			if not name then
---				Nx.prt ("Item still missing %s", id)
-				return -1	-- Never got item. Probably bad id
-			end
+	if not self.Asked[id] then			-- Ask once
+		local name, link = GetItemInfo (id)
+		if name then			
+			self.Asked[id] = name
 		end
-
-		return
-	end
-
-	local name, link = GetItemInfo (id)
-	if not name then
---		self.Needed[id] = true
 	end
 end
 
@@ -3535,47 +3495,6 @@ function Nx.Item:ShowTooltip (id, compare)
 	if compare then
 		GameTooltip_ShowCompareItem()
 	end
-end
-
-function Nx.Item:Timer()
-
-	local id = next (self.Needed)
-
-	if id then
-
-		local tip = self.TooltipFrm
-
-		self.Needed[id] = nil
-
-		local name = GetItemInfo (id)
-		if name then
-			return .01		-- Already have
-		end
-
---		Nx.prt ("Getting item %s", id)
-
-		self.Asked[id] = time()
-
-		if not strfind (id, "item:") then
-			id = "item:" .. id
-		end
-
-		tip:SetHyperlink (id)
-
-		self.ItemsRequested = self.ItemsRequested + 1
-
-		if next (self.Needed) then		-- More?
-
-			if Nx:TimeLeft(ItemDraw) == 0 then
-				ItemDraw = Nx:ScheduleTimer ("DrawTimer",10)
-			end
-			return .1
-		end
-
-		ItemDraw = Nx:ScheduleTimer ("DrawTimer",3)
-	end
-
-	return 2
 end
 
 function Nx.Item:DrawTimer()
@@ -3808,28 +3727,28 @@ local TempTable = {}
 setmetatable(TempTable, {__mode = "v"})
 
 function Nx.Split(d, p)
-  if p and not string.find(p,d) then
-	return p
-  end
-  if p and #p <= 1 then return p end
-  if TempTable[p] then
-	return unpack(TempTable[p],1,table.maxn(TempTable[p]))
-  else
+	if p and not string.find(p,d) then
+		return p
+	end
+	if p and #p <= 1 then return p end
+	if TempTable[p] then
+		return unpack(TempTable[p],1,table.maxn(TempTable[p]))
+	else
 	local TempNum = 0
 	local Tossaway = {}
-    while true do
-      l=string.find(p,d,TempNum,true)
-      if l~=nil then
-        table.insert(Tossaway, string.sub(p,TempNum,l-1))
-        TempNum=l+1
-      else
-        table.insert(Tossaway, string.sub(p,TempNum))
-        break
-      end
-    end
-   TempTable[p] = Tossaway
-   return unpack(Tossaway)
-   end
+	while true do
+		l=string.find(p,d,TempNum,true)
+		if l~=nil then
+			table.insert(Tossaway, string.sub(p,TempNum,l-1))
+			TempNum=l+1
+		else
+			table.insert(Tossaway, string.sub(p,TempNum))
+			break
+		end
+	end
+	TempTable[p] = Tossaway
+	return unpack(Tossaway)
+	end
 end
 
 function Nx.Proc:Init()
@@ -3892,4 +3811,5 @@ function Nx.Proc:OnUpdate (elapsed)
 	self.TimeLeft = elapsed
 end
 
----------------------------------------------------------------------------------EOF
+---------------------------------------------------------------------------------------
+--EOF

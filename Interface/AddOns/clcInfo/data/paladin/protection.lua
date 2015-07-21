@@ -489,6 +489,8 @@ ef:RegisterEvent("PLAYER_TALENT_UPDATE")
 -- prot paladin cooldown micon
 do
 	local namelist = {
+	}
+	--[[
 		["Guardian of Ancient Kings"] = true,
 		["Ardent Defender"] = true,
 		["Divine Protection"] = true,
@@ -503,9 +505,36 @@ do
 		["Ironbark"] = true,
 		["Shield of Glory"] = true,
 	}
+	
 
 	local idlist = {
 		[20925] = true,	-- sacred shield
+	}
+	--]]
+	local idlist = {
+		[20925] = true, --Sacred Shield
+		[31850] = true, --Guardian of Ancient Kings
+		[86659] = true, --Ardent Defender
+		[498] = true, --Divine Protection
+		[33206] = true, --Pain Suppression
+		[47788] = true, --Guardian Spirit
+		[6940] = true, --Hand of Sacrifice
+		[114039] = true, --Hand of Purity
+		[31821] = true, --Devotion Aura
+		[1022] = true, --Hand of Protection
+		[642] = true, --Divine Shield
+		[1044] = true, --Hand of Freedom
+		[81782] = true, --Power Word: Barrier
+		[102342] = true, --Ironbark
+		[116849] = true, --Life Cocoon
+		[145629] = true, --Anti-Magic Zone
+		[98021] = true, --Spirit Link Totem
+		[172106] = true, -- Aspect of the Fox
+		[159916] = true, --Amplify Magic
+		[97463] = true, --Rallying Cry
+		[114030] = true, --Vigilance
+		[165447] = true, --Faith Barricade T17 2P
+		[167742] = true, --Defender of the Light T17 4P
 	}
 
 	-- player only

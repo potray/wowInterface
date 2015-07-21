@@ -5,23 +5,30 @@ MacroToolkitDB = {
 			["backups"] = {
 			},
 		},
-	},
-	["global"] = {
-		["backups"] = {
-		},
-		["ebackups"] = {
+		["Geddry - Dun Modr"] = {
+			["backups"] = {
+			},
 		},
 	},
 	["profileKeys"] = {
-		["Drublock - Los Errantes"] = "profile",
-		["Elrad - Los Errantes"] = "profile",
+		["Zhenya - Los Errantes"] = "profile",
 		["Geddry - Dun Modr"] = "profile",
+		["Kalarankor - Los Errantes"] = "profile",
+		["Elrad - Los Errantes"] = "profile",
+		["Drublock - Los Errantes"] = "profile",
+		["Farenir - Dun Modr"] = "profile",
 		["Potray - Dun Modr"] = "profile",
+	},
+	["global"] = {
+		["ebackups"] = {
+		},
+		["backups"] = {
+		},
 	},
 	["profiles"] = {
 		["profile"] = {
-			["x"] = 1102.6669921875,
-			["y"] = 321.999969482422,
+			["x"] = 591.666442871094,
+			["y"] = 356.999938964844,
 		},
 	},
 }

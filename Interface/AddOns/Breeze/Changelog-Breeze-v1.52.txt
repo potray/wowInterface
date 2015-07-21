@@ -1,0 +1,11 @@
+tag v1.52
+e5c8cfc3746ebc39eb514a4910a721ee9d57407e
+Znuff <znuffy@gmail.com>
+2015-04-01 17:20:10 +0300
+
+Tagging as v1.52
+
+
+--------------------
+
+No changelog

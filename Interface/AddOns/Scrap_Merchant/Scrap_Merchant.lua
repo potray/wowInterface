@@ -1,5 +1,5 @@
 --[[
-Copyright 2008-2014 João Cardoso
+Copyright 2008-2015 João Cardoso
 Scrap is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -315,7 +315,7 @@ end
 function Scrap:OnItemSold (...)
 	if Scrap_Learn and self:IsVisible() and not self.selling then
 		local id = GetContainerItemID(...)
-		if not id or Scrap_Junk[id] ~= nil or Scrap_AI[id] or self:CheckFilters(id, ...) then
+		if not id or Scrap_Junk[id] ~= nil or self:CheckFilters(id, ...) then
 			return
 		end
 			

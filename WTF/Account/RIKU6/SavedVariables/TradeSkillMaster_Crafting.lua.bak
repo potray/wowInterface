@@ -1,0 +1,34 @@
+
+TradeSkillMaster_CraftingDB = {
+	["profileKeys"] = {
+		["Potray - Dun Modr"] = "Default",
+	},
+	["factionrealm"] = {
+		["Alliance - Dun Modr"] = {
+			["tradeSkills"] = {
+				["Potray"] = {
+					["Jewelcrafting"] = {
+						["isSecondary"] = false,
+						["level"] = 710,
+						["maxLevel"] = 710,
+					},
+					["Mining"] = {
+						["isSecondary"] = false,
+						["level"] = 700,
+						["maxLevel"] = 700,
+					},
+					["First Aid"] = {
+						["isSecondary"] = true,
+						["level"] = 678,
+						["maxLevel"] = 700,
+					},
+					["Cooking"] = {
+						["isSecondary"] = true,
+						["level"] = 427,
+						["maxLevel"] = 700,
+					},
+				},
+			},
+		},
+	},
+}

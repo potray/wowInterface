@@ -36,8 +36,6 @@ Quartz3DB = {
 				},
 			},
 		},
-		["EnemyCasts"] = {
-		},
 		["Player"] = {
 			["profiles"] = {
 				["Default"] = {
@@ -50,6 +48,8 @@ Quartz3DB = {
 				},
 			},
 		},
+		["EnemyCasts"] = {
+		},
 		["GCD"] = {
 			["profiles"] = {
 				["Default"] = {
@@ -57,13 +57,13 @@ Quartz3DB = {
 					["x"] = 728,
 					["gcdalpha"] = 1,
 					["gcdheight"] = 5,
-					["gcdgap"] = 0,
 					["sparkcolor"] = {
 						nil, -- [1]
 						0.00784313725490196, -- [2]
 						0, -- [3]
 						1, -- [4]
 					},
+					["gcdgap"] = 0,
 				},
 			},
 		},
@@ -83,14 +83,12 @@ Quartz3DB = {
 					["h"] = 20,
 					["w"] = 218,
 					["y"] = 165,
-					["font"] = "Arial Narrow",
+					["x"] = 965,
 					["border"] = "Blizzard Dialog",
 					["texture"] = "Blizzard",
-					["x"] = 965,
+					["font"] = "Arial Narrow",
 				},
 			},
-		},
-		["Range"] = {
 		},
 		["Mirror"] = {
 			["profiles"] = {
@@ -98,6 +96,8 @@ Quartz3DB = {
 					["mirrortexture"] = "Blizzard",
 				},
 			},
+		},
+		["Range"] = {
 		},
 		["Latency"] = {
 		},
@@ -111,6 +111,7 @@ Quartz3DB = {
 		["Zhenya - Los Errantes"] = "Default",
 		["Kobash - Los Errantes"] = "Default",
 		["Kalarankor - Los Errantes"] = "Default",
+		["Farenir - Dun Modr"] = "Default",
 		["Ringeki - Dun Modr"] = "Default",
 		["Prason - Los Errantes"] = "Default",
 		["Elrad - Los Errantes"] = "Default",

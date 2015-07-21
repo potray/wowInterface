@@ -1,0 +1,9 @@
+VER 3 0100000000000002 "Freeze" "INV_Misc_QuestionMark"
+#showtooltip
+/cast Freeze
+END
+VER 3 0100000000000001 "Frostbolt" "INV_Misc_QuestionMark"
+#showtooltip
+/cast Frostbolt
+/petattack
+END

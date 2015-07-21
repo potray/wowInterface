@@ -1,0 +1,13 @@
+tag b6.20201.2
+31bf18753b3db320573d0774ab661e1706c5d493
+Jncl <jncl@mac.com>
+2015-07-06 21:24:39 +0100
+
+Tagging as b6.20201.2
+
+
+--------------------
+
+Jncl:
+	- Updated Change_History.txt
+	- To keen to clear too many locals, caused frames to keep closing as there references were cleaned ;-)

@@ -3,8 +3,10 @@ local MT = MacroToolkit
 MT.LS = LibStub
 MT.L = MT.LS("AceLocale-3.0"):GetLocale("MacroToolkit")
 MT.AIS = MT.LS("LibAdvancedIconSelector-MTK")
+MT.LDB = MT.LS("LibDataBroker-1.1")
 MT.slash = string.sub(_G.SLASH_CAST1, 1, 1)
 MT.click = _G.SLASH_CLICK1
+MT.target = _G.SLASH_TARGET1
 local L = MT.L
 local SendChatMessage, format = SendChatMessage, format
 
@@ -31,6 +33,8 @@ MT.scripts = {
 	{L["No food buff"],"mtnb","buff"},
 	{L["No flask"],"mtnf","buff"},
 	{L["Summon random favourite mount"],"mtfm"},
+	{L["Print a message"],"mtp"},
+	{L["Conditional execution"], "mtc"},
 }
 
 MT.slots = {
@@ -43,14 +47,14 @@ MT.slots = {
 	[7]=_G.INVTYPE_LEGS,
 	[8]=_G.INVTYPE_FEET,
 	[9]=_G.INVTYPE_WRIST,
-	[10]=_G.INVTYPE_HANDS,
+	[10]=_G.INVTYPE_HAND,
 	[11]=format("%s 1",_G.INVTYPE_FINGER),
 	[12]=format("%s 2",_G.INVTYPE_FINGER),
 	[13]=format("%s 1",_G.INVTYPE_TRINKET),
 	[14]=format("%s 2",_G.INVTYPE_TRINKET),
 	[15]=_G.INVTYPE_BACK,
-	[16]=_G.INVTYPE_MAINHAND,
-	[17]=_G.INVTYPE_OFFHAND,
+	[16]=_G.INVTYPE_WEAPONMAINHAND,
+	[17]=_G.INVTYPE_WEAPONOFFHAND,
 	[18]=_G.INVTYPE_RANGED,
 	[19]=_G.INVTYPE_TABARD,
 }
@@ -61,7 +65,8 @@ MT.conditions={
 	["bonusbar"]=1,
 	["btn"]=6,
 	["button"]=6,
-	["channeling"]=2,
+	["channeling"]=0,
+	["channelling"]=0,
 	["combat"]=0,
 	["cursor"]=2,
 	["dead"]=0,
@@ -98,7 +103,7 @@ MT.conditions={
 
 MT.optargs={
 	[6]={"1","2","3","4","5","LeftButton","MiddleButton","RightButton","Button4","Button5"},
-	[5]={"alt","shift","ctrl","AUTOLOOTTOGGLE","STICKCAMERA","SPLITSTACK","PICKUPACTION","COMPAREITEMS","OPENALLBAGS","QUESTWATCHTOGGLE","SELFCAST"},
+	[5]={"alt","shift","ctrl","ctrlalt","ctrlshift","altshift","ctrlshiftalt","AUTOLOOTTOGGLE","STICKCAMERA","SPLITSTACK","PICKUPACTION","COMPAREITEMS","OPENALLBAGS","QUESTWATCHTOGGLE","SELFCAST"},
 	[4]={"party","raid"},
 }
 

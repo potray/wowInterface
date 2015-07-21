@@ -819,6 +819,7 @@ private.L = setmetatable({
 		["74613"] = "Broodmother Reeg'ak",
 		["74971"] = "Firefury Giant",
 		["75071"] = "Mother Om'ra",
+		["75207"] = "Biolante",
 		["75425"] = "Ancient Saltsnap Turtle",
 		["75434"] = "Windfang Matriarch",
 		["75435"] = "Yggdrel",
@@ -955,6 +956,7 @@ private.L = setmetatable({
 		["80868"] = "Glut",
 		["81038"] = "Gelgor of the Blue Flame",
 		["81406"] = "Bahameye",
+		["81548"] = "Charl Doomwing",
 		["81639"] = "Brambleking Fili",
 		["81681"] = "Da Keeper",
 		["81766"] = "Skagg",
@@ -1253,9 +1255,6 @@ private.L = setmetatable({
 	VIGNETTE_SCAN_DESC = "Show alerts for Vignette Mobs.  This is a Beta Feature:  There is currently no way to filter mobs, so it will always trigger even if mob not tracked or ignored.",
 	WOD_CHANGES = "Due to changed to the game cache in WoD, NPCScan can no longer auto detect mobs as it could pre 6.0.  Now alerts can be only be automatically triggered off of vignette rares from MoP & Wod. Rare mobs from previous expansions can only be detected via mouse over or from the dynamic target macro keybind.  For more information please see the NPCScan page on Curse.com",
 	DYNAMIC_TARGET_MACRO_KEYBIND = "Dynamic Target Macro",
-	-- Phrases localized by default UI
-	FOUND_ZONE_UNKNOWN = UNKNOWN,
-	SEARCH_LEVEL_TYPE_FORMAT = UNIT_TYPE_LEVEL_TEMPLATE, -- Level, Type
 }, {
 	__index = function(self, Key)
 		if (Key ~= nil) then

@@ -3,7 +3,6 @@
 		A void storage item slot button
 --]]
 
-local Bagnon = LibStub('AceAddon-3.0'):GetAddon('Bagnon')
 local ItemSlot = Bagnon:NewClass('VaultSlot', 'Button', Bagnon.ItemSlot)
 ItemSlot.nextID = 0
 ItemSlot.unused = {}
@@ -20,16 +19,23 @@ function ItemSlot:Create()
 	return item
 end
 
+function ItemSlot:Construct(id)
+	return CreateFrame('Button', 'BagnonVaultItemSlot' .. id, nil, 'ContainerFrameItemButtonTemplate')
+end
 
---[[ Click Events ]]--
+function ItemSlot:GetBlizzard()
+end
 
-function ItemSlot:OnClick(button)	
+
+--[[ Interaction ]]--
+
+function ItemSlot:OnClick(button)
 	if IsModifiedClick() then
-		local link = self:GetItem()
+		local _,_,_,_,_,_, link = self:GetInfo()
 		if link then
 			HandleModifiedItemClick(link)
 		end
-	elseif self.bag == 'vault' then
+	elseif self.bag == 'vault' and not self:IsCached() then
 		local isRight = button == 'RightButton'
 		local type, _, link = GetCursorInfo()
 		local cursor = self.Cursor
@@ -64,7 +70,7 @@ end
 function ItemSlot:ShowTooltip()
 	if self.bag == 'vault' then
 		GameTooltip:SetVoidItem(1, self:GetID())
-	elseif self.bag then
+	elseif self.bag == DEPOSIT then
 		GameTooltip:SetVoidDepositItem(self:GetID())
 	else
 		GameTooltip:SetVoidWithdrawalItem(self:GetID())
@@ -84,19 +90,18 @@ function ItemSlot:IsCached()
 end
 
 function ItemSlot:GetInfo()
-	local index, id, icon, locked = self:GetRawInfo()
+	local id, icon, locked = self:GetRawInfo()
 	local link, quality
-	
 	if id then
 		link, quality = select(2, GetItemInfo(id))
 	end
 	
-	return icon, 1, locked, quality, nil, nil, link
+	return icon, 1, locked and self.bag == 'vault', quality, nil, nil, link
 end
 
 function ItemSlot:GetRawInfo()
 	if self.bag == 'vault' then
-		return self:GetID(), Bagnon.ItemSlot.GetInfo(self)
+		return Bagnon.ItemSlot.GetInfo(self)
 	else
 		local get = self.bag == DEPOSIT and GetVoidTransferDepositInfo or GetVoidTransferWithdrawalInfo
 		local count = self:GetID()
@@ -105,7 +110,7 @@ function ItemSlot:GetRawInfo()
 			if get(i) then
 				count = count - 1
 				if count == 0 then
-					return i, get(i)
+					return get(i)
 				end
 			end
 		end
@@ -118,10 +123,6 @@ end
 
 function ItemSlot:IsNew()
 	return false
-end
-
-function ItemSlot:CanReuseBlizzardBagSlots()
-	return nil
 end
 
 

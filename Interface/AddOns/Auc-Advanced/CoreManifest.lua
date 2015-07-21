@@ -1,7 +1,7 @@
 --[[
 	Auctioneer
-	Version: 5.21c.5521 (SanctimoniousSwamprat)
-	Revision: $Id: CoreManifest.lua 5512 2014-10-28 14:14:33Z brykrys $
+	Version: 5.21e.5566 (SanctimoniousSwamprat)
+	Revision: $Id: CoreManifest.lua 5557 2015-05-13 13:56:40Z brykrys $
 	URL: http://auctioneeraddon.com/
 
 	This is an addon for World of Warcraft that adds statistical history to the auction data that is collected
@@ -48,15 +48,17 @@
 		This should, in most cases, avoid large (and confusing) error cascades.
 ]]
 
-AucAdvanced = {Modules = {Filter={}, Match={}, Stat={}, Util={}}}
+AucAdvanced = {Modules = {Filter={}, Match={}, Stat={}, Util={}}, Data = {}}
 local lib = AucAdvanced
 
-local DEV_VERSION = "5.21.DEV"
-local MINIMUM_TOC = 60000
-local MINIMUM_CLIENT = "6.0"
+local DEV_VERSION = "5.22.DEV"
+local MINIMUM_TOC = 60100
+local MINIMUM_CLIENT = "6.1.2"
+-- MINIMUM_BUILD is optional, and should only be used where TOC is not sufficient; otherwise it should be commented out
+local MINIMUM_BUILD = 19802
 
-lib.Version="5.21c.5521";
-if (lib.Version == "<".."%version%>") then
+lib.Version="5.21e.5566";
+if lib.Version:byte(1) == 60 then -- 60 = '<'
 	lib.Version = DEV_VERSION
 end
 local major, minor, release, revision = strsplit(".", lib.Version)
@@ -71,8 +73,8 @@ lib.NOPFUNCTION = function() end
 -- Test for load failure conditions in priority order
 
 -- Check TOC version meets minimum requirements
-local _,_,_,tocVersion = GetBuildInfo()
-if (tocVersion < MINIMUM_TOC) then
+local _,build,_,tocVersion = GetBuildInfo()
+if tocVersion < MINIMUM_TOC or (MINIMUM_BUILD and tonumber(build) < MINIMUM_BUILD) then
 	message("Auctioneer requires game client version "..MINIMUM_CLIENT.." or higher.")
 	lib.ABORTLOAD = "Incorrect WoW client version"
 end
@@ -251,4 +253,4 @@ function lib.ValidateInstall()
 end
 
 
-lib.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21c/Auc-Advanced/CoreManifest.lua $", "$Rev: 5512 $")
+lib.RegisterRevision("$URL: http://svn.norganna.org/auctioneer/branches/5.21e/Auc-Advanced/CoreManifest.lua $", "$Rev: 5557 $")

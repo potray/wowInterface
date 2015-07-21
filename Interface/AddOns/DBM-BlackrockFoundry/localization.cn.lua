@@ -1,6 +1,6 @@
-﻿--Mini Dragon(projecteurs@gmail.com)
---Thanks to Yike Xia
---Last Update: Oct 21, 2014
+﻿-- Mini Dragon(projecteurs@gmail.com)
+-- Yike Xia
+-- Last update: Jun 10, 2015@13867
 
 if GetLocale() ~= "zhCN" then return end
 local L
@@ -10,13 +10,10 @@ local L
 ---------------
 L= DBM:GetModLocalization(1161)
 
-L:SetWarningLocalization({
-})
-
 L:SetOptionLocalization({
-})
-
-L:SetMiscLocalization({
+	MythicSoakBehavior	= "特殊警报：吸收伤害的分组方式 (史诗模式)",
+	ThreeGroup			= "3组1层换",
+	TwoGroup			= "2组2层换" 
 })
 
 ---------------------------
@@ -24,10 +21,38 @@ L:SetMiscLocalization({
 ---------------------------
 L= DBM:GetModLocalization(1202)
 
+L:SetOptionLocalization({
+	InterruptBehavior	= "设置打断$spell:156879警告的方式",
+	Smart				= "基于BOSS尖刺的层数",
+	Fixed				= "永远3打断或5打断轮换"
+})
+
 ---------------------------
 -- The Blast Furnace --
 ---------------------------
 L= DBM:GetModLocalization(1154)
+
+L:SetWarningLocalization({
+	warnRegulators			= "温度调节器剩下:%d",
+	warnBlastFrequency		= "冲击施法频率增加:大约每%d秒一次",
+	specWarnTwoVolatileFire	= "你叠加了两层不稳定的火焰"
+})
+
+L:SetOptionLocalization({
+	warnRegulators			= "显示剩余的温度调节器生命值",
+	warnBlastFrequency		= "当$spell:155209施法频率增加时发出警告",
+	specWarnTwoVolatileFire	= "特殊警报：当你受到两层$spell:176121的影响时",
+	InfoFrame				= "为$spell:155192和$spell:155196显示信息框体",
+	VFYellType2				= "设定$spell:176121的大喊方式 (史诗模式)",
+	Countdown				= "倒数直到消失",
+	Apply					= "只有中了的时候"
+})
+
+L:SetMiscLocalization({
+	heatRegulator		= "温度调节器",
+	Regulator			= "调节器 %d",
+	bombNeeded			= "%d个炸弹"
+})
 
 ------------------
 -- Hans'gar And Franzok --
@@ -35,7 +60,7 @@ L= DBM:GetModLocalization(1154)
 L= DBM:GetModLocalization(1155)
 
 --------------
--- Flamebender Ka'graz --
+-- Flamebender Ka'graz -- 
 --------------
 L= DBM:GetModLocalization(1123)
 
@@ -43,6 +68,10 @@ L= DBM:GetModLocalization(1123)
 --Kromog, Legend of the Mountain --
 --------------------
 L= DBM:GetModLocalization(1162)
+
+L:SetMiscLocalization({
+	ExRTNotice		= "%s 向你指派了ExRT的符文的站立位置。你的位置: %s"
+ })
 
 --------------------------
 -- Beastlord Darmac --
@@ -54,35 +83,30 @@ L= DBM:GetModLocalization(1122)
 --------------------------
 L= DBM:GetModLocalization(1147)
 
+L:SetWarningLocalization({
+	specWarnSplitSoon	= "10秒后分轨"
+})
+
+L:SetOptionLocalization({
+	specWarnSplitSoon	= "特殊警报：当团队需要在10秒后分轨时",
+	InfoFrameSpeed		= "设置何时在信息框体显示下一班列车的信息",
+	Immediately			= "当门打开时",
+	Delayed				= "当列车出现时",
+	HudMapUseIcons		= "在HudMap中，使用团队标记代替绿圈",
+	TrainVoiceAnnounce	= "设置语音报警下一班列车的信息类型",
+	LanesOnly			= "仅包含轨道信息",
+	MovementsOnly		= "仅包含走位信息 (史诗模式)",
+	LanesandMovements	= "同时包含轨道信息和走位信息 (史诗模式)"
+})
+
 L:SetMiscLocalization({
-	--Might not even need to use yells if my npc target works in all languages.
-	--depends on if "Train" is boss target in all languages and if that spellid hack also matches it in all languages.
-	--At the very least this helps read transcriptor logs :)
-	cannonTrain		= "Cannon", --PH
-	threeTrains		= " 3 Random Lanes", --PH
-	helperMessage	= "建议你使用 'Thogar Assist' 索戈尔助手插件配合DBM作战。下载地址 http://wow.curseforge.com/addons/thogar-assist/",
-	commandTrain1	= "指挥车到了",
-	commandTrain2	= "老大来了",
-	moreThanOne1	= "列车进站",
-	moreThanOne2	= "快速前进",
-	moreThanOne3	= "清理轨道",
-	cannon1			= "那是火炮",
-	cannon2			= "炸弹来了",
-	driveBy1		= "快点！有多快跑多快！",
-	driveBy2		= "快车，本站不停。",
-	driveBy3		= "特快专列来了！",
-	driveBy4		= "让它过去！",
-	driveBy5		= "真呛人。",
-	smallAdds1		= "他们来了——下车吧，伙计们！",
-	smallAdds2		= "军列进站！",
-	smallAdds3		= "Ah - reinforcements.", --PH
-	--Some of these flamethrowers are iffy so verify flamethrower again in videos to be very sure.
-	--These may also be something else entirely so going to only debug these right now
-	flameThrower1	= "我在赶时间！",
-	flameThrower2	= "你们没时间了",
-	flameThrower3	= "没什么大不了的。进站的列车多的是！",
-	flameThrower4	= "你们正巧赶上了高峰时间。",
-	flameThrower5	= "让我们加快速度。"
+	Train			= GetSpellInfo(174806),
+	lane			= "轨道",
+	oneTrain		= "随机单轨道快车",
+	oneRandom		= "随机出现在一个轨道上",
+	threeTrains		= "随机三轨道快车",
+	threeRandom		= "随机出现在三个轨道上",
+	helperMessage	= "建议使用第三方插件 'Thogar Assist' 索戈尔助手插件或DBM语音包来帮助你作战。这些都可以在Curse上找到。"
 })
 
 --------------------------
@@ -90,14 +114,40 @@ L:SetMiscLocalization({
 --------------------------
 L= DBM:GetModLocalization(1203)
 
+L:SetWarningLocalization({
+	specWarnReturnBase	= "返回码头"
+})
+
+L:SetOptionLocalization({
+	specWarnReturnBase	= "特殊警报：当上船的玩家可以安全地返回码头时",
+	filterBladeDash3	= "当受到$spell:170395的影响时不显示$spell:155794的特殊警报",
+	filterBloodRitual3	= "当受到$spell:170405的影响时不显示$spell:158078的特殊警报"
+})
+
 L:SetMiscLocalization({
-	shipMessage		= "准备操纵无畏舰的主炮"
+	shipMessage		= "准备操纵无畏舰的主炮",
+	EarlyBladeDash	= "太慢了！"
 })
 
 --------------------------
 -- Blackhand --
 --------------------------
 L= DBM:GetModLocalization(959)
+
+L:SetWarningLocalization({
+	specWarnMFDPosition		= "死亡标记站位：%s",
+	specWarnSlagPosition	= "炉渣炸弹站位：%s"
+})
+
+L:SetOptionLocalization({
+	PositionsAllPhases	= "在所有阶段受到$spell:156096影响时喊话 (原来只在第三阶段喊。测试目的。)",
+	InfoFrame			= " 为$spell:155992和$spell:156530显示信息框体"
+})
+
+L:SetMiscLocalization({
+	customMFDSay	= "%2$s 中了 死亡标记(%1$s)!",
+	customSlagSay	= "%2$s 中了 炉渣炸弹(%1$s)!"
+})
 
 -------------
 --  Trash  --
